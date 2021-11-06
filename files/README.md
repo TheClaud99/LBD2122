@@ -1,5 +1,11 @@
 # Caricamento file su Oracle DB
 
+## Garantire all'utente l'accesso alla directory (sistemisti)
+
+```sql
+GRANT READ, WRITE ON DIRECTORY FILES_ORCL2122_DIR TO utente2122;
+```
+
 ## Creazione tabella file (da fare solo la prima volta che si caricano file su un certo utente)
 
 Eseguire il seguente script
@@ -28,7 +34,7 @@ Eseguire il seguente script
 
 ## Caricamento file
 
-1) Mettere sul server i file nella cartella "C:/FILES_ORCL2122"
+1) Mettere sul server i file nella cartella "C:/FILES_ORCL2122" (sistemisti)
 2) Eseguire la seguente procedure PLSQL impostando var_table_varchar con i file che si desidera caricare:
 
 ```sql

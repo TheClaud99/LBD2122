@@ -39,6 +39,8 @@ Eseguire il seguente script
 
 ```sql
 
+define utente = 'nome utente'
+
 declare
   type table_varchar is table of varchar(100);
   var_table_varchar  table_varchar;
@@ -47,14 +49,14 @@ declare
   l_blob   BLOB;
 begin
   -- la tabella vuota viene inizializzata con alcuni nomi di file standard
-  var_table_varchar  := table_varchar('favicon.png', 'functions.js', 'logoAltaR.png', 'logoR.png', 'styles.css');
+  var_table_varchar  := table_varchar('w3.css');
   
   -- Dopo aver copiato i files nella cartella di cui sopra
   -- carico i file specificati nella tabella del DB scorrendo i nomi contenuti nella
   -- collezione inizializzata alla riga precedente
   for l_file in 1 .. var_table_varchar.count loop
-      INSERT INTO files_orcl2122 (id, name, datafile)
-      VALUES (files_orcl2122_seq.nextVal,var_table_varchar(l_file), empty_blob())
+      INSERT INTO files_&utente (id, name, datafile)
+      VALUES (files_&utente._seq.nextVal,var_table_varchar(l_file), empty_blob())
       RETURN datafile INTO l_blob;
 		
 	  -- la query precedente ritorna un riferimento al blob nel quale inserire il file
@@ -67,5 +69,7 @@ begin
       COMMIT;
     end loop;
 end;
+
+
 ```
 	

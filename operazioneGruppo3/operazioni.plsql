@@ -20,7 +20,9 @@ CREATE OR REPLACE PACKAGE BODY operazioniGruppo3 as
     begin
         modGUI1.ApriPagina();
         modGUI1.Header();
-        operazioniGruppo3.formVisita();
+        modGUI1.ApriDiv('style="margin-top: 110px"');
+            operazioniGruppo3.formVisita();
+        modGUI1.ChiudiDiv();
         htp.prn('</body>
         </html>');
     end;

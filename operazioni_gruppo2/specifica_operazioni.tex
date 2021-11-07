@@ -1,0 +1,587 @@
+\documentclass[a4paper,11pt]{article}
+
+%%%%%%%% CREATE DOCUMENT STRUCTURE %%%%%%%%
+%% Language and font encodings
+\usepackage[italian]{babel}
+\usepackage[utf8x]{inputenc}
+\usepackage[T1]{fontenc}
+
+%% Sets page size and margins
+\usepackage[a4paper,top=3cm,bottom=2cm,left=2cm,right=2cm,marginparwidth=1.75cm]{geometry}
+
+%% Useful packages
+\usepackage{amsmath}
+\usepackage{amsfonts} % for /mathbb and similar math symbols
+\usepackage{graphicx}
+\usepackage[colorlinks=true, allcolors=blue]{hyperref}
+\usepackage{caption}
+\usepackage{subcaption}
+\usepackage{float}
+\usepackage{titling}
+\usepackage{blindtext}
+\usepackage[square,sort,comma,numbers]{natbib}
+\usepackage{xcolor}
+
+\newcommand{\HRule}{\rule{\linewidth}{0.5mm}} 	% horizontal line and its thickness
+
+% Functions defined by two cases
+\newcommand{\twopartdef}[4]
+    {
+        \left\{
+            \begin{array}{ll}
+                #1 & \mbox{if } #2 \\
+                #3 & \mbox{if } #4
+            \end{array}
+        \right.
+    }
+% Functions defined by three cases
+\newcommand{\threepartdef}[6]
+{
+    \left\{
+	\begin{array}{lll}
+	    	#1 & \mbox{if } #2 \\
+		#3 & \mbox{if } #4 \\
+		#5 & \mbox{if } #6
+	\end{array}
+    \right.
+}
+
+
+%%%%%%%% DOCUMENT %%%%%%%%
+\begin{document}
+
+%%%% Title Page
+\begin{titlepage}
+\center
+% Some logo, optional
+\includegraphics[width=0.6\textwidth]{img/unipi-logo.png}\\[1cm]
+
+% University
+\textsc{\LARGE Università di Pisa, Dipartimento di Informatica}\\[1cm]
+
+% Document info
+\textsc{\Large Laboratorio di Basi di dati - A.A. 2021-2022}\\[0.2cm]
+\textsc{\large Docente: Giovanna Rosone}\\[1cm]
+
+% Assignment title (enclosed between horizontal lines
+\HRule \\[0.8cm]
+{ \huge \bfseries Specifica delle operazioni}\\[0.7cm]
+\HRule \\[2cm]
+
+% Author and date
+\Huge \emph{Gruppo 2}\\[0.5cm]
+\large Francesco Nicolò\\Roberto Puggioni\\Jacopo Raffi\\Nicola Vetrini\\[1.5cm]
+{\large \today}\\[5cm]
+
+\vfill
+\end{titlepage}
+
+\newpage
+\tableofcontents
+\newpage
+
+\section{Operazioni proposte}
+\subsection{Operazioni sulle Opere}
+\begin{itemize}
+	\item Tutti gli autori di un'opera, dato un ID opera
+	\item Tutte le descrizioni di un'opera, dato un ID opera
+	\item Le opere ordinate per frequenza di visualizzazione da parte dei visitatori (escludendo Dipendenti e DBA)
+\end{itemize}
+\subsection{Operazioni sugli autori}
+\begin{itemize}
+	\item Tutte le opere di un'autore (magari anche restringendo la ricerca ad una lista di musei), dato un ID autore
+	\item Tutti i musei nei quali sono esposte opere di un autore, dato ID autore
+	\item Gli autori le cui opere sono state visualizzate più frequentemente, ordinati per frequenza
+\end{itemize}
+\subsection{Operazioni sugli spostamenti (SaleOpere)}
+\begin{itemize}
+	\item Ordinamento delle opere sulla base della frequenza crescente/decrescente di spostamento (magari anche specificando un intervallo di tempo da considerare)
+	\item L'opera che al momento dell'esecuzione della query non è stata spostata per più tempo
+	\item Numero di opere in una Sala data (anche se ridondanza con attributo di Sale?)
+\end{itemize}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Operazioni sulle Opere  %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Operazioni sulle Opere}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%     Visualizza Opera    %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Visualizzazione}
+\begin{itemize}
+	\item \textbf{Operazione}: VisualizzaOpera
+	\item \textbf{Obiettivo}: Visualizzare le informazioni relative all'Opera
+	\item \textbf{Parametri}:
+		\begin{enumerate}
+			\item \textbf{sessionID}: in (da definire)
+			\item \textbf{operaID}: in number(5)
+		\end{enumerate}
+	\item \textbf{Risultato}: Visualizza l'Opera richiesta, oppure restituisce un errore
+	\item \textbf{Errori}: l'Opera con operaID specificato non è presente nel database
+	\item \textbf{Usa}: Opere
+	\item \textbf{Modifica}: nessuna
+	\item \textbf{Precondizioni}:
+		\begin{itemize}
+			\item operaID è la chiave primaria di una ennupla in Opere
+		\end{itemize}
+	\item \textbf{Postcondizioni}: nessuna
+\end{itemize}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%     Inserisci Opera     %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Inserimento}
+\begin{itemize}
+	\item \textbf{Operazione}: InserisciOpera
+	\item \textbf{Obiettivo}: Inserisce una nuova Opera nel database
+	\item \textbf{Parametri}:
+	\begin{enumerate}
+		\item \textbf{sessionID}: in (da definire)
+		\item \textbf{MuseoID}: in number(5)
+		\item \textbf{Titolo}: in varchar2(15)
+		\item \textbf{Anno}: in date
+	\end{enumerate}
+	\item \textbf{Risultato}: Inserisce l'Opera richiesta nella base di dati, oppure restituisce un errore
+	\item \textbf{Errori}: 
+	\begin{itemize}
+		\item L'Opera con i dati inseriti è già presente nel database
+		\item Non esiste alcun Museo con IdMuseo = MuseoID
+	\end{itemize}
+	\item \textbf{Usa}: Opere, Musei, AppartieneA
+	\item \textbf{Modifica}: Opere
+	\item \textbf{Precondizioni}:
+	\begin{itemize}
+		\item $MuseoID \ne null \land Titolo \ne null \land Anno \ne null$
+		\item $\exists x \in Musei : x.IdMuseo = MuseoID$
+		\item $\not\exists x \in Opere : x.Museo = MuseoID \land x.Titolo = Titolo \land x.Anno = Anno$
+		\item $|Opere| = n$
+	\end{itemize}
+	\item \textbf{Postcondizioni}: inserita l'ennupla (IdOpera,Titolo,Anno,MuseoID) in Opere
+\end{itemize}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%     Modifica Opera      %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Modifica}
+\begin{itemize}
+	\item \textbf{Operazione}: ModificaOpera
+	\item \textbf{Obiettivo}: Modifica un'Opera presente nel database
+	\item \textbf{Parametri}:
+	\begin{enumerate}
+		\item \textbf{sessionID}: in (da definire)
+		\item \textbf{OperaID}: in number(5)
+		\item \textbf{newtitle}: in varchar2(15) default null
+		\item \textbf{newyear}: in date default null
+		\item \textbf{newmuseum}: in number(5) default null
+	\end{enumerate}
+	\item \textbf{Risultato}: Modifica l'Opera specificata se esiste nella base di dati, errore altrimenti (la base di dati rimane inalterata)
+	\item \textbf{Errori}: 
+	\begin{itemize}
+		\item L'Opera con OperaID non è presente nel database
+	\end{itemize}
+	\item \textbf{Usa}: Opere, Musei
+	\item \textbf{Modifica}: Opere
+	\item \textbf{Precondizioni}:
+	\begin{itemize}
+		\item $\exists x \in Opere : x.IdOpera = OperaID$
+		\item $(newmuseum \ne null) \lor (\exists x \in Musei : x.IdMuseo = newmuseum)$
+		\item $|Opere| = n$
+	\end{itemize}
+	\item \textbf{Postcondizioni}: se $x \in Opere \land x.IdOpera = OperaID$
+	\begin{itemize}
+		\item Se $newtitle \ne null \Rightarrow x.Titolo := newtitle$
+		\item Se $newyear \ne null \Rightarrow x.Anno := newyear$
+		\item Se $newmuseum \ne null \Rightarrow x.Museo := newmuseum$
+		\item $|Opere| = n$
+	\end{itemize}
+	\item Note: Se uno dei parametri opzionali non è specificato allora tale attributo 
+	dell'Opera non viene modificato
+\end{itemize}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%     Rimuovi Opera       %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Rimozione}
+\begin{itemize}
+	\item \textbf{Operazione}: RimuoviOpera
+	\item \textbf{Obiettivo}: Rimuove un'Opera dal database
+	\item \textbf{Parametri}:
+	\begin{enumerate}
+		\item \textbf{sessionID}: in (da definire)
+		\item \textbf{OperaID}: in number(5)
+	\end{enumerate}
+	\item \textbf{Risultato}: Rimuove l'Opera specificata se esiste nella base di dati, errore altrimenti (la base di dati rimane inalterata)
+	\item \textbf{Errori}: 
+	\begin{itemize}
+		\item L'Opera con OperaID non è presente nel database
+	\end{itemize}
+	\item \textbf{Usa}: Opere
+	\item \textbf{Modifica}: Opere
+	\item \textbf{Precondizioni}:
+	\begin{itemize}
+		\item $\exists x \in Opere : x.IdOpera = OperaID$
+		\item $|Opere| = n$
+	\end{itemize}
+	\item \textbf{Postcondizioni}:
+	\begin{itemize}
+		\item $\not\exists x \in Opere : x.IdOpera = OperaID$
+		\item $|Opere| = n - 1$
+	\end{itemize}
+	\item Note: Se uno dei parametri opzionali non è specificato allora tale attributo 
+	dell'Opera non viene modificato
+\end{itemize}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%  Aggiunta Autore Opera  %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Si intende l'aggiunta di un autore già esistente nella base di dati
+\subsection{Aggiunta Autore} \large \colorbox{red}{TODO: decidere se idempotente}
+\begin{itemize}
+	\item \textbf{Operazione}: AggiungiAutoreOpera
+	\item \textbf{Obiettivo}: Aggiunge un Autore ad un'Opera, se entrambe le entità sono presenti nella base di dati
+	\item \textbf{Parametri}:
+	\begin{enumerate}
+		\item \textbf{sessionID}: in (da definire)
+		\item \textbf{OperaID}: in number(5)
+		\item \textbf{AuthorID}: in number(5)
+	\end{enumerate}
+	\item \textbf{Risultato}: Aggiunge l'autore con l'ID indicato all'Opera individuata dall'ID dato.\\
+	Se l'autore o l'opera non sono presenti allora viene restituito errore.	Viene restituito errore anche se è già stato aggiunto l'autore specificato a questa Opera
+	\item \textbf{Errori}: 
+	\begin{itemize}
+		\item L'Opera con OperaID non è presente nel database
+		\item L'autore con AuthorID non è presente nel database
+		\item L'autore individuato da AuthorID è già stato aggiunto come autore di quest'Opera
+	\end{itemize}
+	\item \textbf{Usa}: Opere, Autori, AutoriOpere
+	\item \textbf{Modifica}: AutoriOpere
+	\item \textbf{Precondizioni}:
+	\begin{itemize}
+		\item $\exists x \in Opere : x.IdOpera = OperaID$
+		\item $\exists y \in Autori : y.IdAutore = AuthorID$
+		\item $\not\exists z \in AutoriOpere : z.IdAutore = AuthorID \land z.IdOpera = OperaID$
+		\item $|AutoriOpere| = n$
+	\end{itemize}
+	\item \textbf{Postcondizioni}:
+	\begin{itemize}
+		\item $\exists z \in AutoriOpere : z.IdAutore = AuthorID \land z.IdOpera = OperaID$
+		\item $|AutoriOpere| = n + 1$
+	\end{itemize}
+	\item \textbf{Note}: L'operazione non è idempotente \textbf{\color{red} Da decidere se renderla tale}
+\end{itemize}
+
+
+\newpage
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%   Operazioni sugli Autori   %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Operazioni sugli Autori}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%     Visualizza Autore      %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Visualizzazione}
+\begin{itemize}
+	\item \textbf{Operazione}: VisualizzaAutore
+	\item \textbf{Obiettivo}: Visualizza le informazioni relative ad un Autore presente nel database
+	\item \textbf{Parametri}:
+	\begin{enumerate}
+		\item \textbf{sessionID}: in (da definire)
+		\item \textbf{AuthorID}: in number(5)
+	\end{enumerate}
+	\item \textbf{Risultato}: Visualizza i dati relativi all'autore identificato da AuthorID, se presente nel database, restituisce un errore altrimenti
+	\item \textbf{Errori}: 
+	\begin{itemize}
+		\item L'Autore identificato da AuthorID non è presente nel database
+	\end{itemize}
+	\item \textbf{Usa}: Autori
+	\item \textbf{Modifica}: nessuno
+	\item \textbf{Precondizioni}:
+	\begin{itemize}
+		\item $\exists x \in Autori : x.IdAutore = AuthorID$
+	\end{itemize}
+	\item \textbf{Postcondizioni}: nessuna
+\end{itemize}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%      Inserisci Autore      %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Inserimento}
+\begin{itemize}
+	\item \textbf{Operazione}: InserisciAutore
+	\item \textbf{Obiettivo}: Inserisce un nuovo autore nel database
+	\item \textbf{Parametri}:
+	\begin{enumerate}
+		\item \textbf{sessionID}: in (da definire)
+		\item \textbf{nome}: in varchar2(25)
+		\item \textbf{cognome}: in varchar2(25)
+		\item \textbf{dataNascita}: in date
+		\item \textbf{dataMorte}: in date
+		\item \textbf{nazionalita}: in varchar2(25)
+	\end{enumerate}
+	\item \textbf{Risultato}: Inserisce un nuovo autore nella tabella Autori con i dati specificati dai parametri
+	\item \textbf{Errori}: 
+	\begin{itemize}
+		\item È già presente nel database un autore con gli stessi dati
+	\end{itemize}
+	\item \textbf{Usa}: Autori
+	\item \textbf{Modifica}: Autori
+	\item \textbf{Precondizioni}:
+	\begin{itemize}
+		\item $nome \ne null \land cognome \ne null \land nazionalita \ne null$
+		\item $\not\exists x \in Autori : x.Nome = nome \land x.Cognome = congnome 
+		\land x.DataNascita = dataNascita \land x.DataMorte = dataMorte 
+		\land x.Nazionalita = nazionalita$
+		\item $|Autori| = n$
+	\end{itemize}
+	\item \textbf{Postcondizioni}:
+	\begin{itemize}
+		\item $(IdAutore,nome,cognome,dataNascita,dataMorte,nazionalita) \in Autori$
+		\item $|Autori| = n + 1$
+	\end{itemize}
+\end{itemize}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%      Modifica Autore      %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Modifica}
+\begin{itemize}
+	\item \textbf{Operazione}: ModificaAutore
+	\item \textbf{Obiettivo}: Modifica i dati di un Autore presente nel database
+	\item \textbf{Parametri}:
+	\begin{enumerate}
+		\item \textbf{sessionID}: in (da definire)
+		\item \textbf{AuthorID}: in number(5)
+		\item \textbf{newname}: in varchar2(25) default null
+		\item \textbf{newsurname}: in varchar2(25) default null
+		\item \textbf{newbirth}: in date default null
+		\item \textbf{newdeath}: in date default null
+		\item \textbf{newnation}: in varchar2(25) default null
+	\end{enumerate}
+	\item \textbf{Risultato}: Modifica i dati di un Autore nella base di dati, oppure restituisce un errore (e non modifica la base di dati)
+	\item \textbf{Errori}: 
+	\begin{itemize}
+		\item L'autore da modificare non è presente nella base di dati
+	\end{itemize}
+	\item \textbf{Usa}: Autori
+	\item \textbf{Modifica}: Autori
+	\item \textbf{Precondizioni}:
+	\begin{itemize}
+		\item $\exists x \in Autori : x.IdAutore = AuthorID$
+		\item $|Autori| = n$
+	\end{itemize}
+	\item \textbf{Postcondizioni}: $x \in Autori : x.IdAutore = AuthorID$
+	\begin{itemize}
+		\item Se $newname \ne null \Rightarrow x.Nome := newname$
+		\item Se $newsurname \ne null \Rightarrow x.Cognome := newsurname$
+		\item Se $newbirth \ne null \Rightarrow x.DataNascita := newbirth$
+		\item Se $newdeath \ne null \Rightarrow x.DataMorte := newdeath$
+		\item Se $newnation \ne null \Rightarrow x.Nazionalita := newnation$
+		\item $|Autori| = n$
+	\end{itemize}
+\end{itemize}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%       Rimuovi Autore       %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Rimozione}
+\begin{itemize}
+	\item \textbf{Operazione}: RimuoviAutore
+	\item \textbf{Obiettivo}: Rimuove un Autore dal database, se presente
+	\item \textbf{Parametri}:
+	\begin{enumerate}
+		\item \textbf{sessionID}: in (da definire)
+		\item \textbf{AuthorID}: in number(5)
+	\end{enumerate}
+	\item \textbf{Risultato}: Rimuove un Autore dalla base di dati, oppure restituisce un errore (e non modifica la base di dati)
+	\item \textbf{Errori}: 
+	\begin{itemize}
+		\item L'autore da rimuovere non è presente nella base di dati
+	\end{itemize}
+	\item \textbf{Usa}: Autori
+	\item \textbf{Modifica}: Autori
+	\item \textbf{Precondizioni}:
+	\begin{itemize}
+		\item $\exists x \in Autori : x.IdAutore = AuthorID$
+		\item $|Autori| = n$
+	\end{itemize}
+	\item \textbf{Postcondizioni}:
+	\begin{itemize}
+		\item $\not\exists x \in Autori : x.IdAutore = AuthorID$
+		\item $|Autori| = n - 1$
+	\end{itemize}
+\end{itemize}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%       Ricerca Autore       %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Ricerca}
+\begin{itemize}
+	\item \textbf{Operazione}: RicercaAutore
+	\item \textbf{Obiettivo}: Cerca un Autore nel database (settare un parametro a null ha la semantica di non filtrare gli autori risultanti sulla base di tale parametro)
+	\item \textbf{Parametri}:
+	\begin{enumerate}
+		\item \textbf{sessionID}: in (da definire)
+		\item \textbf{srcNome}: in varchar2(25) default null
+		\item \textbf{srcCognome}: in varchar2(25) default null
+		\item \textbf{srcDataNascita}: in date default null
+		\item \textbf{srcDataMorte}: in date default null
+		\item \textbf{srcNazionalita}: in varchar2(25) default null
+	\end{enumerate}
+	\item \textbf{Risultato}: Ritorna la lista di autori nella base di dati che rispettano i criteri di ricerca (anche nessun autore, quindi una lista vuota)
+	\item \textbf{Errori}: 
+	\begin{itemize}
+		\item nessuno
+	\end{itemize}
+	\item \textbf{Usa}: Autori
+	\item \textbf{Modifica}: nessuna
+	\item \textbf{Precondizioni}: nessuna
+	\item \textbf{Postcondizioni}:
+ 	\begin{align*}
+		(\forall x \in ListaAutori.
+		& (srcNome \ne null \Rightarrow srcNome \subseteq x.Nome) \\
+		& \land (srcNome \ne null \Rightarrow srcCogome \subseteq x.Cognome) \\
+		& \land (srcDataNascita \ne null \Rightarrow srcDataNascita \le x.DataNascita) \\
+		& \land (srcDataMorte \ne null \Rightarrow srcDataMorte \ge x.DataMorte) \\
+		& \land (srcNazionalita \ne null \Rightarrow srcNazionalita = x.Nazionalita))
+	\end{align*}
+\end{itemize}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Operazioni sulle Descrizioni %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Operazioni sulle Descrizioni}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%   Visualizza Descrizione   %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Visualizzazione}
+\begin{itemize}
+	\item \textbf{Operazione}: visualizzaDescrizione
+	\item \textbf{Obiettivo}: Visualizza la Descrizione di un'Opera, dato il suo IdDescr
+	\item \textbf{Parametri}:
+	\begin{enumerate}
+		\item \textbf{sessionID}: in (da definire)
+		\item \textbf{DescrID}: in number(5)
+	\end{enumerate}
+	\item \textbf{Risultato}: Visualizza i dettagli della Descrizione richiesta, altrimenti restituisce errore
+	\item \textbf{Errori}: 
+	\begin{itemize}
+		\item La descrizione richiesta non è presente nella base di dati
+	\end{itemize}
+	\item \textbf{Usa}: Descrizioni
+	\item \textbf{Modifica}: Descrizioni
+	\item \textbf{Precondizioni}:
+	\begin{itemize}
+		\item $\exists x \in Descrizioni : x.IdDescr = DescrID$
+	\end{itemize}
+	\item \textbf{Postcondizioni}: nessuna
+\end{itemize}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%   Inserisci Descrizione   %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Inserimento}
+\begin{itemize}
+	\item \textbf{Operazione}: inserisciDescrizione
+	\item \textbf{Obiettivo}: Inserisce una nuova descrizione, associandola ad un'Opera
+	\item \textbf{Parametri}:
+	\begin{enumerate}
+		\item \textbf{sessionID}: in (da definire)
+		\item \textbf{lingua}: in varchar2(25)
+		\item \textbf{livello}: in varchar2(25)
+		\item \textbf{testodescr}: in CLOB
+		\item \textbf{OperaID}: in number(5)
+	\end{enumerate}
+	\item \textbf{Risultato}: Inserisce la descrizione dell'Opera, restituisce errore se l'Opera non è presente nel database
+	\item \textbf{Errori}: 
+	\begin{itemize}
+		\item L'Opera a cui associare la descrizione non è presente nella base di dati
+	\end{itemize}
+	\item \textbf{Usa}: Descrizioni, Opere
+	\item \textbf{Modifica}: Descrizioni
+	\item \textbf{Precondizioni}:
+	\begin{itemize}
+		\item $\exists x \in Opere : x.IdOpera = OperaID$
+	\end{itemize}
+	\item \textbf{Postcondizioni}:
+	\begin{itemize}
+		\item $\exists x \in Descrizioni : x.Opera = OperaID \land x.Lingua = lingua \land x.Livello = livello \land x.Testo = testodescr$
+	\end{itemize}
+\end{itemize}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%    Modifica Descrizione    %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Modifica}
+\begin{itemize}
+	\item \textbf{Operazione}: ModificaDescrizione
+	\item \textbf{Obiettivo}: Modifica la descrizione di un'opera (è possibile modificare anche l'opera a cui una descrizione è associata)
+	\item \textbf{Parametri}:
+	\begin{enumerate}
+		\item \textbf{sessionID}: in (da definire)
+		\item \textbf{descrID}: in number(5)
+		\item \textbf{newlang}: in varchar2(25) default null
+		\item \textbf{newlevel}: in varchar2(25) default null
+		\item \textbf{newtext}: in CLOB default null
+		\item \textbf{newOpera}: in number(5) default null
+	\end{enumerate}
+	\item \textbf{Risultato}: Modifica gli attributi della descrizione individuata da descrID, oppure ritorna un errore
+	\item \textbf{Errori}: 
+	\begin{itemize}
+		\item La descrizione da modificare non è presente nella base di dati
+		\item La nuova Opera da associare alla descrizione non è presente nella base di dati
+	\end{itemize}
+	\item \textbf{Usa}: Opere, Descrizioni
+	\item \textbf{Modifica}: Descrizioni
+	\item \textbf{Precondizioni}:
+	\begin{itemize}
+		\item $\exists x \in Descrizioni : x.IdDescr = descrID$
+		\item $\exists x \in Opere : x.IdOpera = newOpera$
+	\end{itemize}
+	\item \textbf{Postcondizioni}:
+		\begin{align*} (\exists x \in Descrizioni.
+		& (newlang \ne null \Rightarrow x.Lingua = newlang) \\
+		& \land (newlevel \ne null \Rightarrow x.Livello = newlevel) \\
+		& \land (newtext \ne null \Rightarrow x.Testo = newtext) \\
+		& \land (newOpera \ne null \Rightarrow x.Opera = newOpera))
+		\end{align*}
+\end{itemize}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%   Rimozione Descrizione    %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Rimozione}
+\begin{itemize}
+	\item \textbf{Operazione}: rimuoviDesrizione
+	\item \textbf{Obiettivo}: Rimuove una descrizione, se presente
+	\item \textbf{Parametri}:
+	\begin{enumerate}
+		\item \textbf{sessionID}: in (da definire)
+		\item \textbf{descrID}: in number(5)
+	\end{enumerate}
+	\item \textbf{Risultato}: Rimuove la descrizione dell'Opera, restituendo errore se la descrizione non è presente nel database
+	\item \textbf{Errori}: 
+	\begin{itemize}
+		\item La Descrizione identificata da descrID non è presente nella base di dati
+	\end{itemize}
+	\item \textbf{Usa}: Descrizioni
+	\item \textbf{Modifica}: Descrizioni
+	\item \textbf{Precondizioni}:
+	\begin{itemize}
+		\item $\exists x \in Descrizioni : x.IdDescr = descrID$
+		\item $|Descrizioni| = n$
+	\end{itemize}
+	\item \textbf{Postcondizioni}:
+	\begin{itemize}
+		\item $\not\exists x \in Descrizioni : x.IdDescr = descrID$
+		\item $|Descrizioni| = n - 1$
+	\end{itemize}
+\end{itemize}
+
+\section{Operazioni statistiche}
+
+\end{document}

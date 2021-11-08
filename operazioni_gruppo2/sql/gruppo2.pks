@@ -4,6 +4,8 @@ root constant VARCHAR2(125) := 'http://131.114.73.203:8080/apex/';
 user constant VARCHAR2(25) := 'nvetrini.gruppo2.';
 
 /* OPERAZIONI SULLE OPERE */
+/* TODO */
+
 /* OPERAZIONI SUGLI AUTORI */
 PROCEDURE InserisciAutore(sessionID NUMBER DEFAULT NULL);
 
@@ -35,12 +37,12 @@ PROCEDURE ConfermaDatiDescrizione(
 	operaID NUMBER DEFAULT NULL
 );
 
-/*PROCEDURE InserisciDatiDescrizione(
+PROCEDURE InserisciDatiDescrizione(
 	sessionID NUMBER DEFAULT 0,
 	lingua VARCHAR2 DEFAULT 'Sconosciuta',
 	livello VARCHAR2 DEFAULT 'Sconosciuto',
 	testodescr VARCHAR2 DEFAULT NULL,
 	operaID NUMBER DEFAULT NULL
-);*/
+);
 
 END gruppo2;

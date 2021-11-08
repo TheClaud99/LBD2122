@@ -32,151 +32,165 @@ CREATE OR REPLACE PACKAGE BODY gruppo2 AS
  * - Autori in vita le cui Opere sono esposte in un Museo scelto ❌
  */
 
+ /*
+ * OPERAZIONI SULLE DESCRIZIONI
+ * - Inserimento ✅
+ * - Modifica ❌
+ * - Visualizzazione ❌
+ * - Cancellazione (rimozione) ❌
+ * OPERAZIONI STATISTICHE E MONITORAGGIO
+ * - Livello descrizione più presente ❌
+ * - Lingua più presente ❌
+ */
+
+
 -- Procedura per l'inserimento di nuovi Autori nella base di dati
 PROCEDURE InserisciAutore(
-	sessionID NUMBER DEFAULT NULL
+    sessionID NUMBER DEFAULT NULL
 ) IS
 BEGIN
-	-- sessionID sono hard-coded fino ad uno standard
-	MODGUI1.ApriPagina('Inserimento autore', 0);
-	
-	HTP.BodyOpen;
-	HTP.header(1,'Inserisci un nuovo autore', 'center');
-	MODGUI1.ApriDiv('style="margin-left: 2%; margin-right: 2%;"');
+    -- sessionID sono hard-coded fino ad uno standard
+    MODGUI1.ApriPagina('Inserimento autore', 0);
 
-	MODGUI1.ApriForm('ConfermaDatiAutore');
-	HTP.FORMHIDDEN('sessionID',0);
+    HTP.BodyOpen;
+    HTP.header(1,'Inserisci un nuovo autore', 'center');
+    MODGUI1.ApriDiv('style="margin-left: 2%; margin-right: 2%;"');
 
-	MODGUI1.Label('Nome*');
-	MODGUI1.InputText('nome', 'Nome autore', 1);
-	MODGUI1.Label('Cognome*');
-	MODGUI1.InputText('cognome', 'Cognome autore', 1);
-	MODGUI1.Label('Data nascita');
-	MODGUI1.InputDate('dataNascita', 'dataNascita');
-	MODGUI1.Label('Data morte');
-	MODGUI1.InputDate('dataMorte', 'dataMorte');
-	HTP.BR;
-	MODGUI1.Label('Nazionalità*');
-	MODGUI1.InputText('nazionalita', 'Nazionalita', 1);
-	HTP.BR;
-	MODGUI1.InputSubmit('Inserisci');
-	MODGUI1.ChiudiForm;
-	
-	MODGUI1.ChiudiDiv;
+    MODGUI1.ApriForm('ConfermaDatiAutore');
+    HTP.FORMHIDDEN('sessionID',0);
 
-	HTP.BodyClose;
-	HTP.HtmlClose;
+    MODGUI1.Label('Nome*');
+    MODGUI1.InputText('nome', 'Nome autore', 1);
+    MODGUI1.Label('Cognome*');
+    MODGUI1.InputText('cognome', 'Cognome autore', 1);
+    MODGUI1.Label('Data nascita');
+    MODGUI1.InputDate('dataNascita', 'dataNascita');
+    MODGUI1.Label('Data morte');
+    MODGUI1.InputDate('dataMorte', 'dataMorte');
+    HTP.BR;
+    MODGUI1.Label('Nazionalità*');
+    MODGUI1.InputText('nazionalita', 'Nazionalita', 1);
+    HTP.BR;
+    MODGUI1.InputSubmit('Inserisci');
+    MODGUI1.ChiudiForm;
+
+    MODGUI1.ChiudiDiv;
+
+    HTP.BodyClose;
+    HTP.HtmlClose;
 END;
 
 -- Procedura per confermare i dati dell'inserimento di un Autore
 PROCEDURE ConfermaDatiAutore(
-	sessionID NUMBER DEFAULT 0,
-	nome VARCHAR2 DEFAULT 'Sconosciuto',
-	cognome VARCHAR2 DEFAULT 'Sconosciuto',
-	dataNascita VARCHAR2 DEFAULT NULL,
-	dataMorte VARCHAR2 DEFAULT NULL,
-	nazionalita VARCHAR2 DEFAULT 'Sconosciuta'
+    sessionID NUMBER DEFAULT 0,
+    nome VARCHAR2 DEFAULT 'Sconosciuto',
+    cognome VARCHAR2 DEFAULT 'Sconosciuto',
+    dataNascita VARCHAR2 DEFAULT NULL,
+    dataMorte VARCHAR2 DEFAULT NULL,
+    nazionalita VARCHAR2 DEFAULT 'Sconosciuta'
 ) IS
 BEGIN
-	-- se utente non autorizzato: messaggio errore
-	IF nome IS NULL 
-	OR cognome IS NULL
-	OR (dataNascita IS NOT NULL 
-		AND dataMorte IS NOT NULL 
-		AND to_date(dataNascita, 'YYYY-MM-DD') > to_date(dataMorte, 'YYYY-MM-DD'))
-	OR nazionalita IS NULL
-	THEN
-		-- uno dei parametri con vincoli ha valori non validi
+    -- se utente non autorizzato: messaggio errore
+    IF nome IS NULL
+    OR cognome IS NULL
+    OR (dataNascita IS NOT NULL
+   	 AND dataMorte IS NOT NULL
+   	 AND to_date(dataNascita, 'YYYY-MM-DD') > to_date(dataMorte, 'YYYY-MM-DD'))
+    OR nazionalita IS NULL
+    THEN
+   		-- uno dei parametri con vincoli ha valori non validi
 		MODGUI1.APRIPAGINA('Pagina errore', 0);
-		HTP.BodyOpen;
-		MODGUI1.ApriDiv;
-		HTP.PRINT('Uno dei parametri immessi non valido');
-		MODGUI1.ChiudiDiv;
+   		HTP.BodyOpen;
+   		MODGUI1.ApriDiv;
+   		HTP.PRINT('Uno dei parametri immessi non valido');
+   		MODGUI1.ChiudiDiv;
+   		HTP.BodyClose;
+   		HTP.HtmlClose;
+    ELSE
+   	 	MODGUI1.APRIPAGINA('Pagina OK', 0);
+   	 	HTP.BodyOpen;
+   	 	HTP.header(1, 'Conferma immissione dati');
+
+   	 	MODGUI1.ApriDiv('style="margin-left: 2%; margin-right: 2%;"');
+   		HTP.header(2, 'Nuovo autore');
+
+   	 	HTP.TableOpen;
+   	 	HTP.TableRowOpen;
+   	 	HTP.TableData('Nome: ');
+   	 	HTP.TableData(nome);
+   	 	HTP.TableRowClose;
+   	 	HTP.TableRowOpen;
+   	 	HTP.TableData('Cognome: ');
+   	 	HTP.TableData(cognome);
+   	 	HTP.TableRowClose;
+   	 	HTP.TableRowOpen;
+   	 	HTP.TableData('Data Nascita: ');
+   	 	HTP.TableData(dataNascita);
+   	 	HTP.TableRowClose;
+   	 	HTP.TableRowOpen;
+   	 	HTP.TableData('Data Morte: ');
+   	 	HTP.TableData(dataMorte);
+   	 	HTP.TableRowClose;
+   	 	HTP.TableRowOpen;
+   	 	HTP.TableData('Nazionalità: ');
+   	 	HTP.TableData(nazionalita);
+   	 	HTP.TableRowClose;
+   	 	HTP.TableClose;
+		-- Form nascosto per inserimento dei dati con la procedura indicata sotto
+   	 	MODGUI1.ApriForm('InserisciDatiAutore');
+   	 	HTP.FORMHIDDEN('sessionID', 0);
+   		HTP.FORMHIDDEN('nome', nome);
+   	 	HTP.FORMHIDDEN('cognome', cognome);
+   	 	HTP.FORMHIDDEN('dataNascita', dataNascita);
+   	 	HTP.FORMHIDDEN('dataMorte', dataMorte);
+   	 	HTP.FORMHIDDEN('nazionalita', nazionalita);
+   	 	MODGUI1.InputSubmit('Conferma');
+   	 	MODGUI1.ChiudiForm;
+   	 	MODGUI1.Collegamento('Annulla', 'InserisciAutore', 'w3-btn');
+   	 	MODGUI1.ChiudiDiv;
+   	 	
 		HTP.BodyClose;
-		HTP.HtmlClose;
-	ELSE
-		MODGUI1.APRIPAGINA('Pagina OK', 0);
-		HTP.BodyOpen;
-		HTP.header(1, 'Conferma immissione dati');
-
-		MODGUI1.ApriDiv('style="margin-left: 2%; margin-right: 2%;"');
-		HTP.header(2, 'Nuovo autore');
-
-		HTP.TableOpen;
-		HTP.TableRowOpen;
-		HTP.TableData('Nome: ');
-		HTP.TableData(nome);
-		HTP.TableRowClose;
-		HTP.TableRowOpen;
-		HTP.TableData('Cognome: ');
-		HTP.TableData(cognome);
-		HTP.TableRowClose;
-		HTP.TableRowOpen;
-		HTP.TableData('Data Nascita: ');
-		HTP.TableData(dataNascita);
-		HTP.TableRowClose;
-		HTP.TableRowOpen;
-		HTP.TableData('Data Morte: ');
-		HTP.TableData(dataMorte);
-		HTP.TableRowClose;
-		HTP.TableRowOpen;
-		HTP.TableData('Nazionalità: ');
-		HTP.TableData(nazionalita);
-		HTP.TableRowClose;
-		HTP.TableClose;
-
-		MODGUI1.ApriForm('InserisciDatiAutore');
-		HTP.FORMHIDDEN('sessionID', 0);
-		HTP.FORMHIDDEN('nome', nome);
-		HTP.FORMHIDDEN('cognome', cognome);
-		HTP.FORMHIDDEN('dataNascita', dataNascita);
-		HTP.FORMHIDDEN('dataMorte', dataMorte);
-		HTP.FORMHIDDEN('nazionalita', nazionalita);
-		MODGUI1.InputSubmit('Conferma');
-		MODGUI1.ChiudiForm;
-		MODGUI1.Collegamento('Annulla', 'InserisciAutore', 'w3-btn');
-		MODGUI1.ChiudiDiv;
-		HTP.BodyClose;
-		HTP.HtmlClose;
-	END IF;
-	EXCEPTION WHEN OTHERS THEN
-		dbms_output.put_line('Error: '||sqlerrm);
+   	 	HTP.HtmlClose;
+    END IF;
+    EXCEPTION WHEN OTHERS THEN
+   	 dbms_output.put_line('Error: '||sqlerrm);
 END;
 
 -- Effettua l'inserimento di un nuovo Autore nella base di dati
 PROCEDURE InserisciDatiAutore(
-	sessionID NUMBER DEFAULT 0,
-	nome VARCHAR2 DEFAULT 'Sconosciuto',
-	cognome VARCHAR2 DEFAULT 'Sconosciuto',
-	dataNascita VARCHAR2 DEFAULT NULL,
-	dataMorte VARCHAR2 DEFAULT NULL,
-	nazionalita VARCHAR2 DEFAULT 'Sconosciuta'
+    sessionID NUMBER DEFAULT 0,
+    nome VARCHAR2 DEFAULT 'Sconosciuto',
+    cognome VARCHAR2 DEFAULT 'Sconosciuto',
+    dataNascita VARCHAR2 DEFAULT NULL,
+    dataMorte VARCHAR2 DEFAULT NULL,
+    nazionalita VARCHAR2 DEFAULT 'Sconosciuta'
 ) IS
 birth DATE := TO_DATE(dataNascita default NULL on conversion error, 'YYYY-MM-DD');
 death DATE := TO_DATE(dataMorte default NULL on conversion error, 'YYYY-MM-DD');
 numAutori NUMBER(10) := 0;
 AutorePresente EXCEPTION;
 BEGIN
-	-- Cerco se vi sono autori con gli stessi dati già nella tabella
-	SELECT count(*) INTO numAutori FROM Autori 
-	WHERE Nome=nome AND Cognome=cognome 
-		AND dataNascita=birth AND dataMorte=death 
-		AND nazionalità=nazionalita;
-	IF numAutori > 0
-	THEN
-		-- errore: esiste già un Autore nella base di dati
-		RAISE AutorePresente;
-	END IF;
-	INSERT INTO Autori VALUES 
-	(IdAutoreSeq.NEXTVAL, nome, cognome, birth, death, nazionalita);
+    -- Cerco se vi sono autori con gli stessi dati già nella tabella
+    SELECT count(*) INTO numAutori FROM Autori
+    WHERE Nome=nome AND Cognome=cognome
+   	 AND dataNascita=birth AND dataMorte=death
+   	 AND nazionalità=nazionalita;
+    IF numAutori > 0
+    THEN
+   		-- errore: esiste già un Autore nella base di dati
+   	 	RAISE AutorePresente;
+    END IF;
+    -- Autore non presente nella base di dati: posso inserirlo
+	INSERT INTO Autori VALUES
+    (IdAutoreSeq.NEXTVAL, nome, cognome, birth, death, nazionalita);
 
-	IF SQL%FOUND
-	THEN
-		-- faccio il commit dello statement precedente
-		commit;
+    IF SQL%FOUND
+    THEN
+   		-- faccio il commit dello statement precedente
+   	 	commit;
 
-		MODGUI1.ApriPagina('Autore inserito', sessionID);
-		HTP.BodyOpen;
+   	 	MODGUI1.ApriPagina('Autore inserito', sessionID);
+   	 	HTP.BodyOpen;
 
 		MODGUI1.ApriDiv;
 		HTP.tableopen;
@@ -201,7 +215,7 @@ BEGIN
 
 		HTP.BodyClose;
 		HTP.HtmlClose;
-	ELSE
+    ELSE
 		MODGUI1.ApriPagina('Autore non inserito', sessionID);
 		HTP.BodyOpen;
 
@@ -209,9 +223,10 @@ BEGIN
 
 		HTP.BodyClose;
 		HTP.HtmlClose;
-	END IF;
+    END IF;
+    -- Handling eccezione autore già presente nella base di dati
 	EXCEPTION
-	WHEN AutorePresente THEN
+    WHEN AutorePresente THEN
 		MODGUI1.ApriPagina('Errore', sessionID);
 		HTP.BodyOpen;
 
@@ -224,67 +239,56 @@ BEGIN
 		HTP.HtmlClose;
 END;
 
-
-/*
- * OPERAZIONI SULLE DESCRIZIONI
- * - Inserimento ❌
- * - Modifica ❌
- * - Visualizzazione ❌
- * - Cancellazione (rimozione) ❌
- * OPERAZIONI STATISTICHE E MONITORAGGIO
- * - Livello descrizione più presente ❌
- * - Lingua più presente ❌
- */
-
 -- Procedura per l'inserimento di nuove descrizioni nella base di dati
 PROCEDURE InserisciDescrizione(
-	sessionID NUMBER DEFAULT NULL
+    sessionID NUMBER DEFAULT NULL
 ) IS
 BEGIN
-	-- sessionID sono hard-coded fino ad uno standard
-	MODGUI1.ApriPagina('Inserimento descrizione', 0);
-	
-	HTP.BodyOpen;
-	HTP.header(1,'Inserisci una nuova descrizione', 'center');
-	MODGUI1.ApriDiv('style="margin-left: 2%; margin-right: 2%;"');
+    -- sessionID sono hard-coded fino ad uno standard
+    MODGUI1.ApriPagina('Inserimento descrizione', 0);
 
-	MODGUI1.ApriForm('ConfermaDatiDescrizione');
-	HTP.FORMHIDDEN('sessionID',0);
-	MODGUI1.Label('Lingua*'); -- TODO: usare dropdown per avere nome standardizzato
-	MODGUI1.InputText('lingua', 'Italiano', 1);
-	MODGUI1.Label('Livello*'); -- TODO: usare radiobutton
-	MODGUI1.InputText('livello', 'bambino || adulto || esperto', 1);
-	MODGUI1.Label('Testo descrizione*');
-	HTP.BR;
-	MODGUI1.InputTextArea('testodescr', '', 1); -- 1 significa campo obbligatorio
-	HTP.BR;
-	MODGUI1.Label('ID opera*');
-	MODGUI1.InputText('operaID', '', 1);
-	HTP.BR;
-	MODGUI1.InputSubmit('Inserisci');
-	MODGUI1.ChiudiForm;
-	
-	MODGUI1.ChiudiDiv;
+    HTP.BodyOpen;
+    HTP.header(1,'Inserisci una nuova descrizione', 'center');
+    MODGUI1.ApriDiv('style="margin-left: 2%; margin-right: 2%;"');
 
-	HTP.BodyClose;
-	HTP.HtmlClose;
+    MODGUI1.ApriForm('ConfermaDatiDescrizione');
+    HTP.FORMHIDDEN('sessionID',0);
+    MODGUI1.Label('Lingua*'); -- TODO: usare dropdown per avere nome standardizzato?
+    MODGUI1.InputText('lingua', 'Italiano', 1);
+    MODGUI1.Label('Livello*'); -- TODO: usare radiobutton o simili?
+    MODGUI1.InputText('livello', 'bambino || adulto || esperto', 1);
+    MODGUI1.Label('Testo descrizione*');
+    HTP.BR;
+    MODGUI1.InputTextArea('testodescr', '', 1); -- 1 significa campo obbligatorio
+    HTP.BR;
+    MODGUI1.Label('ID opera*');
+    MODGUI1.InputText('operaID', '', 1);
+    HTP.BR;
+    MODGUI1.InputSubmit('Inserisci');
+    MODGUI1.ChiudiForm;
+
+    MODGUI1.ChiudiDiv;
+
+    HTP.BodyClose;
+    HTP.HtmlClose;
 END;
 
+-- Procedura per la conferma dei dati della descrizione
 PROCEDURE ConfermaDatiDescrizione(
-	sessionID NUMBER DEFAULT 0,
-	lingua VARCHAR2 DEFAULT 'Sconosciuta',
-	livello VARCHAR2 DEFAULT 'Sconosciuto',
-	testodescr VARCHAR2 DEFAULT NULL,
-	operaID NUMBER DEFAULT NULL
+    sessionID NUMBER DEFAULT 0,
+    lingua VARCHAR2 DEFAULT 'Sconosciuta',
+    livello VARCHAR2 DEFAULT 'Sconosciuto',
+    testodescr VARCHAR2 DEFAULT NULL,
+    operaID NUMBER DEFAULT NULL
 ) IS
 
 BEGIN
-	-- TODO: controllo sessione 
-	IF lingua IS NULL 
-		OR livello not in ('bambino', 'adulto', 'esperto')
-		OR testodescr IS NULL
-		OR OperaID IS NULL
-	THEN
+    -- TODO: controllo sessione
+    IF lingua IS NULL
+   	 OR livello not in ('bambino', 'adulto', 'esperto')
+   	 OR testodescr IS NULL
+   	 OR OperaID IS NULL
+    THEN
 		-- uno dei parametri con vincoli ha valori non validi
 		MODGUI1.APRIPAGINA('Pagina errore', 0);
 		HTP.BodyOpen;
@@ -293,13 +297,13 @@ BEGIN
 		MODGUI1.ChiudiDiv;
 		HTP.BodyClose;
 		HTP.HtmlClose;
-	ELSE
+    ELSE
 		MODGUI1.APRIPAGINA('Pagina OK', 0);
 		HTP.BodyOpen;
 		HTP.header(1, 'Conferma immissione dati', 'center');
 
 		MODGUI1.ApriDiv('style="margin-left: 2%; margin-right: 2%;"');
-		HTP.header(2, 'Nuova Descrizione per l''Opera '||operaID); -- modo per fare escape ' dentro stringa
+		HTP.header(2, 'Nuova Descrizione per l''Opera '||TO_CHAR(operaID)); -- modo per fare escape ' dentro stringa
 
 		HTP.TableOpen;
 		HTP.TableRowOpen;
@@ -319,8 +323,8 @@ BEGIN
 		HTP.TableData(operaID);
 		HTP.TableRowClose;
 		HTP.TableClose;
-
-		MODGUI1.ApriForm('InserisciDatiDescr');
+		-- Form nascosto attraverso cui chiamare la procedura di inserimento descrizione
+		MODGUI1.ApriForm('InserisciDatiDescrizione');
 		HTP.FORMHIDDEN('sessionID', 0);
 		HTP.FORMHIDDEN('lingua', lingua);
 		HTP.FORMHIDDEN('livello', livello);
@@ -332,16 +336,62 @@ BEGIN
 		MODGUI1.ChiudiDiv;
 		HTP.BodyClose;
 		HTP.HtmlClose;
-	END IF;
+    END IF;
 END;
-/*
-	OperaInesistente EXCEPTION; -- eccezione lanciata se l'opera operaID non esiste
 
-	-- Controllo esistenza dell'opera riferita
-	Opera Opere%ROWTYPE := (SELECT IdOpera FROM Opere WHERE IdOpera=operaID);
+-- Effettua l'inserimento di una nuova descrizione nella base di dati
+PROCEDURE InserisciDatiDescrizione(
+    sessionID NUMBER DEFAULT 0,
+    lingua VARCHAR2 DEFAULT 'Sconosciuta',
+    livello VARCHAR2 DEFAULT 'Sconosciuto',
+    testodescr VARCHAR2 DEFAULT NULL,
+    operaID NUMBER DEFAULT NULL
+) IS
+OperaInesistente EXCEPTION; -- eccezione lanciata se l'opera operaID non esiste
+numOpere NUMBER := 0;
+BEGIN
+    -- Controllo esistenza dell'opera riferita
+    SELECT count(*) INTO numOpere FROM Opere WHERE IdOpera = operaID;
+    IF numOpere > 0
+    THEN
+		-- faccio il commit dello statement precedente
+		INSERT INTO Descrizioni VALUES (IdDescSeq.nextval, lingua, livello, TO_CLOB(testodescr), operaID);
+		commit;
 
-	EXCEPTION
-		WHEN OperaInesistente THEN
-		-- TODO: msg errore opera non esiste
-*/
+		MODGUI1.ApriPagina('Descrizione inserita', sessionID);
+		HTP.BodyOpen;
+
+		MODGUI1.ApriDiv;
+		HTP.tableopen;
+		HTP.tablerowopen;
+		HTP.tabledata('Lingua: '||lingua);
+		HTP.tablerowclose;
+		HTP.tablerowopen;
+		HTP.tabledata('Livello: '||livello);
+		HTP.tablerowclose;
+		HTP.tablerowopen;
+		HTP.tabledata('Testo: '||testodescr);
+		HTP.tablerowclose;
+		HTP.tablerowopen;
+		HTP.tabledata('Opera: '||TO_CHAR(operaID));
+		HTP.tablerowclose;
+		HTP.tableClose;
+		MODGUI1.ChiudiDiv;
+
+		HTP.BodyClose;
+		HTP.HtmlClose;
+    ELSE
+	 	-- opera non presente: eccezione
+	    RAISE OperaInesistente;
+    END IF;
+
+    EXCEPTION
+   	 	-- TODO: msg errore opera non esiste
+   	 	WHEN OperaInesistente THEN
+		HTP.BodyOpen;
+		HTP.prn('Nessuna descrizione inserita');
+		HTP.BodyClose;
+		HTP.HtmlOpen;
+END InserisciDatiDescrizione;
+
 END gruppo2;

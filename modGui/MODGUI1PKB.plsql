@@ -155,5 +155,9 @@ CREATE OR REPLACE PACKAGE BODY modGUI1 as
         htp.prn('<input type="time" id="'|| id ||'" name="'|| nome ||'" min="09:00" max="18:00" required>');
     end InputTime;
 
+    procedure InputNumber (id varchar2, nome varchar2) is /*Input di tipo orario*/
+    begin
+        htp.prn('<input type="number" id="'|| id ||'" name="'|| nome ||'" required>');
+    end InputNumber;
 
 end modGUI1;

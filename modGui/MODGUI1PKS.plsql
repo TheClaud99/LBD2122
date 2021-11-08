@@ -17,5 +17,6 @@ procedure InputTextArea (nome varchar2, placeholder varchar2 default '', require
 procedure InputSubmit (testo varchar2 default 'Submit');
 procedure InputDate (id varchar2, nome varchar2);
 procedure InputTime (id varchar2, nome varchar2);
+procedure InputNumber (id varchar2, nome varchar2);
 
 end modGUI1;

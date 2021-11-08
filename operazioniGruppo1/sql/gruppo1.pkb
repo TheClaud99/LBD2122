@@ -52,6 +52,11 @@ CREATE OR REPLACE PACKAGE BODY gruppo1 AS
  * - Abbonamenti in scadenza nel mese corrente ❌
 */
 
+--Procedura per inserimento Utente
+PROCEDURE InserisciUtente(
+    sessionID NUMBER DEFAULT NULL
+) IS
+BEGIN
 
 
 END gruppo1;

@@ -1,5 +1,46 @@
 CREATE OR REPLACE PACKAGE BODY operazioniGruppo3 as
 
+    /*
+    * OPERAZIONI SULLE STANZE
+    * - Inserimento ❌
+    * - Modifica ❌
+    * - Visualizzazione ❌
+    * - Cancellazione (rimozione) ❌
+    * - Monitoraggio e statistiche
+    * OPERAZIONI STATISTICHE E MONITORAGGIO
+    * - Opere presenti nella sala ❌
+    * - Numero visitatori unici in un arco temporale scelto ❌
+    * - Numero medio visitatori in un arco temporale scelto ❌
+    * - Media permanenza in una sala ❌
+    */
+
+    /*
+    * OPERAZIONI SUI VARCHI
+    * - Inserimento ❌
+    * - Modifica ❌
+    * - Visualizzazione ❌
+    * - Cancellazione (rimozione) ❌
+    * OPERAZIONI STATISTICHE E MONITORAGGIO
+    * - Numero visite che hanno attraversato il Varco in un arco temporale scelto ❌
+    * - Numero medio che hanno attraversato il Varco visite in una fascia oraria scelta ❌
+    * - Numero varchi in una stanza ❌
+    */
+
+    /*
+    * OPERAZIONI SULLE VISITE
+    * - Inserimento ✅
+    * - Modifica ❌
+    * - Visualizzazione ❌
+    * - Cancellazione (rimozione) ❌
+    * - Monitoraggio e statistiche
+    * OPERAZIONI STATISTICHE E MONITORAGGIO
+    * - Numero visitatori unici in un arco temporale scelto ❌
+    * - Numero medio visitatori in un arco temporale scelto ❌
+    * - Numero Visite effettuate con Abbonamenti in un arco temporale scelto ❌
+    * - Numero Visite effettuate con Biglietti in un arco temporale scelto ❌
+    * - Durata media di una visita in un arco temporale scelto ❌
+    */
+
     procedure formVisita is
         NomeUtente UTENTI.Nome%TYPE;
         CognomeUtente UTENTI.Cognome%TYPE;

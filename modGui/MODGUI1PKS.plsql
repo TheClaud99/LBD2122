@@ -17,5 +17,11 @@ procedure InputTextArea (nome varchar2, placeholder varchar2 default '', require
 procedure InputSubmit (testo varchar2 default 'Submit');
 procedure InputDate (id varchar2, nome varchar2);
 procedure InputTime (id varchar2, nome varchar2);
+procedure InputNumber (id varchar2, nome varchar2);
+procedure SelectOpen(nome varchar2 default 'mySelect');
+procedure SelectOption(valore int, testo varchar2 default 'Opzione');
+procedure SelectClose;
+procedure InputRadioButton (testo varchar2, nome varchar2, valore varchar2, checked int default 0, disabled int default 0);
+procedure InputCheckbox (testo varchar2, nome varchar2, checked int default 0, disabled int default 0);
 
 end modGUI1;

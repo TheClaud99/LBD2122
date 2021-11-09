@@ -14,9 +14,12 @@ CREATE OR REPLACE PACKAGE BODY modGUI1 as
     modGUI1.ApriDiv('class="w3-dropdown w3-bar w3-top w3-black w3-large"');
         htp.prn('<button onclick="myFunction()" class="w3-button w3-hover-white w3-black w3-xxxlarge">☰</button>');
         modGUI1.ApriDiv('id="Demo" class="w3-dropdown-content w3-bar-block w3-black w3-sidebar" style="width:20%"');
-            modGUI1.Collegamento('HOME','ApriPagina?idSessione='|| idSessione,'w3-bar-item w3-button');
-            modGUI1.Collegamento('Link 2','Link1','w3-bar-item w3-button');
-            modGUI1.Collegamento('Link 3','Link1','w3-bar-item w3-button');
+            modGUI1.Collegamento('HOME','Home?idSessione='|| idSessione,'w3-bar-item w3-button');
+            if (idSessione!=0)
+            then
+            modGUI1.Collegamento('Musei','MuseiHome?idSessione='|| idSessione,'w3-bar-item w3-button');
+            modGUI1.Collegamento('Campi Estivi','CampiEstiviHome?idSessione='|| idSessione,'w3-bar-item w3-button');
+            end if;
         modGUI1.ChiudiDiv;
         modGUI1.BannerUtente(idSessione);
     modGUI1.ChiudiDiv;
@@ -31,7 +34,7 @@ CREATE OR REPLACE PACKAGE BODY modGUI1 as
                 }
             }
         </script>
-    ');
+    ');   
     end Header;
 
 
@@ -78,9 +81,9 @@ CREATE OR REPLACE PACKAGE BODY modGUI1 as
     modGUI1.ChiudiDiv;
     end Login;
 
-    procedure Bottone (colore varchar2, text varchar2 default 'myButton') is /*Bottone(colore,testo) - specificare colore in inglese - testo contenuto nel bottone*/
+    procedure Bottone (colore varchar2, text varchar2 default 'myButton') is /*Bottone(colore,testo) - specificare colore in inglese preceduto da "w3-" - testo contenuto nel bottone*/
     begin
-        htp.prn ('<button class="w3-button w3-'|| colore ||' w3-margin">'||text||'</button>');
+        htp.prn ('<button class="w3-button '|| colore ||' w3-margin">'||text||'</button>');
     end Bottone;
 
     procedure ApriDiv (attributi varchar2 default '') is /*attributi -> parametri stile*/
@@ -155,9 +158,54 @@ CREATE OR REPLACE PACKAGE BODY modGUI1 as
         htp.prn('<input type="time" id="'|| id ||'" name="'|| nome ||'" min="09:00" max="18:00" required>');
     end InputTime;
 
-    procedure InputNumber (id varchar2, nome varchar2) is /*Input di tipo orario*/
+     procedure InputNumber (id varchar2, nome varchar2) is /*Input di tipo orario*/
     begin
         htp.prn('<input type="number" id="'|| id ||'" name="'|| nome ||'" required>');
     end InputNumber;
+
+    procedure SelectOpen(nome varchar2 default 'mySelect') is
+    begin
+        htp.prn('<select class="w3-select w3-border w3-round" style="max-width:150px;" name="'|| nome ||'">');
+    end SelectOpen;
+
+    procedure SelectOption(valore int, testo varchar2 default 'Opzione') is
+    begin
+        htp.prn('<option value="' ||valore|| '">'|| testo ||'</option>');
+    end SelectOption;
+
+    procedure SelectClose is
+    begin
+        htp.prn('</select>');
+    end SelectClose;
+    
+    procedure InputRadioButton (testo varchar2, nome varchar2, valore varchar2, checked int default 0, disabled int default 0) is
+    begin    
+        htp.print('<input class="w3-radio" type="radio" name="'|| nome ||'" value="'|| valore ||'"');
+        if (checked=1)
+        then
+            htp.prn(' checked');
+        end if;
+        if (disabled=1)
+        then 
+            htp.prn(' disabled');
+        end if;
+        htp.prn('>');
+        htp.prn(testo);
+    end InputRadioButton;
+
+    procedure InputCheckbox (testo varchar2, nome varchar2, checked int default 0, disabled int default 0) is
+    begin    
+        htp.print('<input class="w3-check" type="checkbox" name="'|| nome ||'"');
+        if (checked=1)
+        then
+            htp.prn(' checked');
+        end if;
+        if (disabled=1)
+        then 
+            htp.prn(' disabled');
+        end if;
+        htp.prn('>');
+        htp.prn(testo);
+    end InputCheckbox;
 
 end modGUI1;

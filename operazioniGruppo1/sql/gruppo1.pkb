@@ -1,7 +1,8 @@
 CREATE OR REPLACE PACKAGE BODY gruppo1 AS
 
 /*
- *http://131.114.73.203:8080/apex/fgiannotti.gruppo1.InserisciUtente
+ * grant execute on gruppo1 to anonymous;
+ * http://131.114.73.203:8080/apex/fgiannotti.gruppo1.InserisciUtente
  * OPERAZIONI SUGLI UTENTI
  * - Inserimento ✅ mancano checkbox
  * - Modifica ❌
@@ -49,6 +50,7 @@ BEGIN
     MODGUI1.ApriPagina('Inserimento utenti', 0);
 	
 	HTP.BodyOpen;
+	MODGUI1.Header(); --da capire come combinarlo con il resto
 	HTP.header(1,'Inserisci un nuovo utente', 'center');
 	MODGUI1.ApriDiv('style="margin-left: 2%; margin-right: 2%;"');
 
@@ -116,7 +118,7 @@ BEGIN
 		HTP.header(1, 'Conferma immissione dati');
 
 		MODGUI1.ApriDiv('style="margin-left: 2%; margin-right: 2%;"');
-		HTP.header(2, 'Nuovo autore');
+		HTP.header(2, 'Nuovo utente');
 
 		HTP.TableOpen;
 		HTP.TableRowOpen;
@@ -150,7 +152,7 @@ BEGIN
 		HTP.FORMHIDDEN('nome', nome);
 		HTP.FORMHIDDEN('cognome', cognome);
 		HTP.FORMHIDDEN('dataNascita', dataNascita);
-		HTP.FORMHIDDEN('indirizzo', Indirizzo);
+		HTP.FORMHIDDEN('Indirizzo', indirizzo);
 		HTP.FORMHIDDEN('Email', email);
         HTP.FORMHIDDEN('Telefono', telefono);
 		MODGUI1.InputSubmit('Conferma');
@@ -232,7 +234,7 @@ BEGIN
 		MODGUI1.ApriPagina('Utente non inserito', sessionID);
 		HTP.BodyOpen;
 
-		HTP.PRN('Autore non inserito');
+		HTP.PRN('Utente non inserito');
 
 		HTP.BodyClose;
 		HTP.HtmlClose;
@@ -263,7 +265,7 @@ BEGIN
 		HTP.HtmlClose;
 END;
 
-END gruppo1;
+
 
 /*
  *  OPERAZIONI SULLE NEWSLETTER
@@ -278,3 +280,206 @@ END gruppo1;
  * - Titoli d’ingresso appartenenti ai visitatori iscritti alla Newsletter scelta❌
  * - Lista Opere ordinate per numero di Autori in ordine decrescente ❌
 */
+
+/*
+ *  OPERAZIONI SUI TITOLI DI INGRESSO
+ * - Modifica ❌
+ * - Cancellazione❌
+ * - Visualizzazione ❌
+ * - Acquisto abbonamento museale ❌
+ * - Acquisto biglietto ❌
+ * OPERAZIONI STATISTICHE E MONITORAGGIO
+ * - Numero Titoli d’Ingresso emessi in un arco temporale scelto ❌
+ * - Numero Titoli d’Ingresso emessi da un Museo in un arco temporale scelto ❌
+ * - Abbonamenti in scadenza nel mese corrente ❌
+*/
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*
+PROCEDURE AcquistoBiglietto(
+ 	sessionID NUMBER DEFAULT 0
+	
+) IS
+	nomeUtente VARCHAR2(25) DEFAULT NULL;
+	cognomeUtente VARCHAR(25) DEFAULT NULL;
+	varIdUtente NUMBER(5) DEFAULT NULL;
+	varIdMuseo NUMBER(5) DEFAULT NULL;
+	NomeMuseo VARCHAR2(40) DEFAULT NULL;
+BEGIN
+
+    MODGUI1.ApriPagina('Acquisto Biglietto', 0);
+	
+	MODGUI1.Header();
+	HTP.header(1,'Inserisci un nuovo biglietto', 'center');
+	MODGUI1.ApriDiv('style="margin-left: 2%; margin-right: 2%;"');
+
+	MODGUI1.ApriForm('ConfermaAcquistoBiglietto');
+	HTP.FORMHIDDEN('sessionID',0);
+    MODGUI1.ApriDiv('style="margin-left: 2%; margin-right: 2%;"');
+	MODGUI1.Label('Data Emissione*');
+	MODGUI1.InputDate('dataEmiss', 'Data emissione');
+	HTP.BR;
+	MODGUI1.Label('Data Scadenza*');
+	MODGUI1.InputDate('dataScad', 'Data Scadenza');
+	HTP.BR;
+	
+	MODGUI1.Label('Utente');
+	MODGUI1.SelectOpen();
+		for utente in (SELECT IdUtente from UTENTIMUSEO)
+		loop
+			SELECT IdUtente, Nome, Cognome INTO varIdUtente, nomeUtente, cognomeUtente
+			FROM UTENTI
+			where IdUtente=utente.IdUtente;
+			MODGUI1.SelectOption(varIdUtente, ''|| nomeUtente ||' '||cognomeUtente||'');
+		end loop;
+	MODGUI1.SelectClose();
+	HTP.BR;
+	
+	MODGUI1.Label('Museo');
+	MODGUI1.SelectOpen();
+	    for museo in (SELECT IdMuseo from MUSEI)
+	    loop
+	        SELECT IdMuseo, Nome INTO varIdMuseo, NomeMuseo
+	        FROM MUSEI
+	        WHERE IdMuseo=museo.IdMuseo;
+	        MODGUI1.SelectOption(varIdMuseo, NomeMuseo);
+	    end loop;
+    MODGUI1.SelectClose();
+
+    MODGUI1.Label('Tipologia di Ingresso');
+    MODGUI1.SelectOpen()
+        for tipologie in (SELECT IdTipologi)
+	MODGUI1.InputSubmit('Acquista');
+    MODGUI1.ChiudiDiv();
+	MODGUI1.ChiudiForm();
+	
+	MODGUI1.ChiudiDiv();
+
+	HTP.BodyClose;
+	HTP.HtmlClose;
+
+END;
+
+-- Procedura per confermare i dati dell'inserimento di un Utente
+PROCEDURE ConfermaAcquistoBiglietto(
+	sessionID NUMBER DEFAULT 0,
+	dataEmiss VARCHAR2 DEFAULT NULL,
+	dataScad VARCHAR2 DEFAULT NULL,
+	nomeUtente VARCHAR2 DEFAULT NULL,
+	cognomeUtente VARCHAR2 DEFAULT NULL,
+	varIdUtente NUMBER DEFAULT NULL,
+	varIdMuseo NUMBER DEFAULT NULL,
+	NomeMuseo VARCHAR2 DEFAULT NULL
+) IS
+BEGIN
+	-- se utente non autorizzato: messaggio errore
+	IF nomeUtente IS NULL 
+	OR cognomeUtente IS NULL 
+	OR (dataEmiss IS NOT NULL 
+		AND to_date(dataEmiss, 'YYYY-MM-DD') > sysdate)
+	OR (dataScad IS NOT NULL
+		AND to_date(dataScad, 'YYYY-MM-DD') < sysdate)
+	OR (dataEmiss IS NOT NULL AND dataScad IS NOT NULL
+		AND to_date(dataEmiss, 'YYYY-MM-DD') > to_date(dataScad, 'YYYY-MM-DD'))
+	OR cognomeUtente IS NULL
+    OR nomeUtente IS NULL
+	OR varIdUtente IS NULL
+	OR varIdMuseo IS NULL
+	OR NomeMuseo IS NULL
+	THEN
+		-- uno dei parametri con vincoli ha valori non validi
+		MODGUI1.APRIPAGINA('Pagina errore', 0);
+		HTP.BodyOpen;
+		MODGUI1.ApriDiv;
+		HTP.PRINT('Uno dei parametri immessi non valido');
+		MODGUI1.ChiudiDiv;
+		HTP.BodyClose;
+		HTP.HtmlClose;
+	ELSE
+		MODGUI1.APRIPAGINA('Pagina OK', 0);
+		HTP.BodyOpen;
+		HTP.header(1, 'Conferma immissione dati');
+
+		MODGUI1.ApriDiv('style="margin-left: 2%; margin-right: 2%;"');
+		HTP.header(2, 'Nuovo utente');
+
+		HTP.TableOpen;
+		HTP.TableRowOpen;
+		HTP.TableData('Nome utente: ');
+		HTP.TableData(nomeUtente);
+		HTP.TableRowClose;
+		HTP.TableRowOpen;
+		HTP.TableData('Cognome utente: ');
+		HTP.TableData(cognomeUtente);
+		HTP.TableRowClose;
+		HTP.TableRowOpen;
+		HTP.TableData('Nome Museo: ');
+		HTP.TableData(NomeMuseo);
+		HTP.TableRowClose;
+		HTP.TableRowOpen;
+		HTP.TableData('Data Emissione biglietto: ');
+		HTP.TableData(dataEmiss);
+		HTP.TableRowClose;
+		HTP.TableRowOpen;
+		HTP.TableData('Data Scadenza biglietto: ');
+		HTP.TableData(dataScad);
+		HTP.TableRowClose;
+
+		MODGUI1.ApriForm('InserisciDatiBigliettoAcquistato');
+		HTP.FORMHIDDEN('sessionID', 0);
+		HTP.FORMHIDDEN('NomeUtente', nomeUtente);
+		HTP.FORMHIDDEN('CognomeUtente', cognomeUtente);
+		HTP.FORMHIDDEN('IDUtente', varIdUtente);
+		HTP.FORMHIDDEN('DataEmissione', dataEmiss);
+		HTP.FORMHIDDEN('DataScadenza', dataScad);
+		HTP.FORMHIDDEN('NomeMuseo', nomeMuseo);
+        HTP.FORMHIDDEN('IDMuseo', varIdMuseo);
+		MODGUI1.InputSubmit('Conferma');
+		MODGUI1.ChiudiForm;
+		MODGUI1.Collegamento('Annulla', 'InserisciUtente', 'w3-btn');
+		MODGUI1.ChiudiDiv;
+		HTP.BodyClose;
+		HTP.HtmlClose;
+	END IF;
+	EXCEPTION WHEN OTHERS THEN
+		dbms_output.put_line('Error: '||sqlerrm);
+END;
+
+PROCEDURE InserisciDatiBigliettoAcquistato (
+    sessionID NUMBER DEFAULT 0,
+	dataEmiss VARCHAR2 DEFAULT NULL,
+	dataScad VARCHAR2 DEFAULT NULL,
+	nomeUtente VARCHAR2 DEFAULT NULL,
+	cognomeUtente VARCHAR2 DEFAULT NULL,
+	varIdUtente NUMBER DEFAULT NULL,
+	varIdMuseo NUMBER DEFAULT NULL,
+	NomeMuseo VARCHAR2 DEFAULT NULL
+) IS 
+    emiss DATE := TO_DATE(dataEmiss default NULL on conversion error, 'YYYY-MM-DD');
+	scad DATE := TO_DATE(dataScad default NULL on conversion error, 'YYYY-MM-DD');
+
+BEGIN
+    -- tutti i parametri sono stati controllati prima, dobbiamo solo inserirli nella tabella
+    INSERT INTO TITOLIINGRESSO 
+    VALUES (IDTITOLOING.nextval, emiss, scad, user,)
+
+END; 
+*/
+
+END gruppo1;

@@ -23,6 +23,7 @@ procedure SelectOption(valore varchar2, testo varchar2 default 'Opzione');
 procedure SelectClose;
 procedure InputRadioButton (testo varchar2, nome varchar2, valore varchar2, checked int default 0, disabled int default 0);
 procedure InputCheckbox (testo varchar2, nome varchar2, checked int default 0, disabled int default 0);
+procedure InputCheckboxOnClick (testo varchar2, nome varchar2, fun varchar2, id varchar2, checked int default 0, disabled int default 0);
 procedure ApriDivCard;
 procedure InputReset;
 

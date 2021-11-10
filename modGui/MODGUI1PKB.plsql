@@ -208,6 +208,23 @@ CREATE OR REPLACE PACKAGE BODY modGUI1 as
         htp.prn(testo);
     end InputCheckbox;
 
+    procedure InputCheckboxOnClick (testo varchar2, nome varchar2, fun varchar2, id varchar2, checked int default 0, disabled int default 0) is 
+    begin
+        htp.print('<input class="w3-check" style="color:black;margin:10px;" type="checkbox" name="'|| nome ||'"');
+        if (checked=1)
+        then
+            htp.prn(' checked');
+        end if;
+        if (disabled=1)
+        then
+            htp.prn(' disabled');
+        end if;
+        htp.prn(' onClick="' || fun ||'"');
+        htp.prn(' id="' || id ||'"');
+        htp.prn('>');
+        htp.prn(testo);
+    end InputCheckboxOnClick;
+
     procedure ApriDivCard is --DIV di tipo w3-card: Rettangolo che può contenere FORM di inserimento. Si chiude con ChiudiDiv
     begin
         modGUI1.ApriDiv('class="w3-modal-content w3-card-4 w3-animate-zoom" style="max-width:600px"');

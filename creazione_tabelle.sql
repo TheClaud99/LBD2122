@@ -55,9 +55,9 @@ Create Table MUSEI
 Create Table OPERE
 (
    IdOpera number(5) primary key,
-   Titolo varchar2(15) not null,
+   Titolo varchar2(150) not null,
    Anno date not null,
-   FinePeriodo date not null,/*aggiunto*/
+   FinePeriodo date,
    Museo number(5) not null REFERENCES MUSEI(IdMuseo)
 );
 
@@ -100,7 +100,7 @@ Create Table AUTORI
    Cognome varchar2(25) not null,
    Datanascita DATE,
    Datamorte DATE,
-   Nazionalità varchar2(25) not null
+   Nazionalita varchar2(25) not null
 );
 
 Create Table AUTORIOPERE
@@ -124,8 +124,8 @@ Create Table CAMPIESTIVI
    IdCampiEstivi number(5) primary key,
    Stato varchar2(25) not null check(Stato in('increazione','sospeso','incorso','terminato')),/*aggiunto*/
    Nome varchar2(25) not null,
-   DataInizio DATE not null,
-   DataConclusione DATE not null,
+   DataInizio DATE,
+   DataConclusione DATE,
    Museo number(5)  not null REFERENCES MUSEI(IdMuseo)
 );
 
@@ -133,7 +133,6 @@ Create Table TARIFFECAMPIESTIVI
 (
    IdTariffa number(5) primary key,
    Prezzo number(5,2) not null,
-   -- al posto di fascia di età
    Etaminima number(3) not null,
    Etamassima number(3) not null,
    CampoEstivo number(5) not null REFERENCES CAMPIESTIVI(IdCampiEstivi)
@@ -159,9 +158,8 @@ Create Table UTENTIMUSEO
 Create Table UTENTICAMPIESTIVI
 (
    IdUtente number(5) primary key REFERENCES UTENTI(IdUtente),
-   -- FasciaEta varchar2(25) not null
-   Etaminima number(3) not null, /*cambio di nome*/
-   Etamassima number(3) not null /*cambio di nome*/
+   Etaminima number(3) not null,
+   Etamassima number(3) not null
 );
 
 Create Table PAGAMENTICAMPIESTIVI
@@ -204,16 +202,15 @@ Create Table TIPOLOGIEINGRESSO
 (
    IdTipologiaIng number(5) primary key,
    Costototale number(5,2) not null,
-   LimiteSala number(3),	/*da modellare*/
-   LimiteTempo number(3),	/*LimiteTempo e LimiteSale non entrambe null nello stesso record*/
-   Durata VARCHAR2(25) not null /*aggiunto*/
+   LimiteSala number(3),
+   LimiteTempo number(3), /*LimiteTempo e LimiteSale non entrambe null nello stesso record*/
+   Durata VARCHAR2(25) not null
 );
 
 Create Table TITOLIINGRESSO
 (
    IdTitoloing number(5) primary key,
    DataEmissione DATE not null,
-   OraEmissione DATE not null,
    DataScadenza DATE not null,
    Acquirente number(5) not null REFERENCES UTENTI(IdUtente), /*cambio nome da visitatore ad acquirente */
    Tipologia number(5) not null REFERENCES TIPOLOGIEINGRESSO(IdTipologiaIng),
@@ -263,7 +260,7 @@ Create Table VISITEVARCHI
    IdVisita number(5) not null REFERENCES VISITE(IdVisita),
    IdVarco number(5) not null REFERENCES VARCHI(IdVarchi),
    OraAttraversamentoVarco  timestamp not null,
-   Primary key(IdVisita,IdVarco)
+   Primary key(IdVisita,IdVarco,OraAttraversamentoVarco)
 );
 
 /*--------*/

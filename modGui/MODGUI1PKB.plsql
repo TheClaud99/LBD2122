@@ -183,7 +183,7 @@ CREATE OR REPLACE PACKAGE BODY modGUI1 as
         htp.prn('<select id="'|| id ||'" class="w3-select w3-border w3-margin-top w3-margin-bottom w3-round-xlarge" style="max-width:250px;" name="'|| nome ||'">');
     end SelectOpen;
 
-    procedure SelectOption(valore int, testo varchar2 default 'Opzione', selected int default 0) is
+    procedure SelectOption(valore varchar2, testo varchar2 default 'Opzione', selected int default 0) is
     begin
         htp.prn('<option');
         if (selected=1)
@@ -232,5 +232,10 @@ CREATE OR REPLACE PACKAGE BODY modGUI1 as
     begin
         modGUI1.ApriDiv('class="w3-modal-content w3-card-4 w3-animate-zoom" style="max-width:600px"');
     end ApriDivCard;
+
+    procedure InputReset is --RESET CAMPI del form
+    begin
+    htp.prn('<input type="reset" class="w3-button w3-right w3-grey w3-margin">');
+    end InputReset;
 
 end modGUI1;

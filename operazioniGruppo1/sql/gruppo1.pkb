@@ -1,8 +1,9 @@
 CREATE OR REPLACE PACKAGE BODY gruppo1 AS
 
 /*
+ *http://131.114.73.203:8080/apex/fgiannotti.gruppo1.InserisciUtente
  * OPERAZIONI SUGLI UTENTI
- * - Inserimento ❌
+ * - Inserimento ✅ mancano checkbox
  * - Modifica ❌
  * - Visualizzazione ❌
  * - Cancellazione (rimozione) ❌
@@ -69,14 +70,17 @@ BEGIN
 
 	MODGUI1.Label('Nome*');
 	MODGUI1.InputText('nome', 'Nome utente', 1);
+	HTP.BR;
 	MODGUI1.Label('Cognome*');
 	MODGUI1.InputText('cognome', 'Cognome utente', 1);
-	MODGUI1.Label('Data nascita');
-	MODGUI1.InputDate('dataNascita', 'dataNascita');
-	MODGUI1.Label('Indirizzo');
-	MODGUI1.InputText('indirizzo', 'Indirizzo');
 	HTP.BR;
-	MODGUI1.Label('Email');
+	MODGUI1.Label('Data nascita*');
+	MODGUI1.InputDate('dataNascita', 'dataNascita');
+	HTP.BR;
+	MODGUI1.Label('Indirizzo*');
+	MODGUI1.InputText('indirizzo', 'Indirizzo', 1);
+	HTP.BR;
+	MODGUI1.Label('Email*');
 	MODGUI1.InputText('email', 'Email', 1);
 	HTP.BR;
 	MODGUI1.Label('Telefono');
@@ -146,6 +150,8 @@ BEGIN
 		HTP.TableRowOpen;
 		HTP.TableData('Email: ');
 		HTP.TableData(email);
+		HTP.TableRowClose;
+		HTP.TableRowOpen;
         HTP.TableData('Telefono: ');
 		HTP.TableData(telefono);
 		HTP.TableRowClose;
@@ -176,8 +182,8 @@ PROCEDURE InserisciDatiUtente (
 	cognome VARCHAR2,
 	dataNascita VARCHAR2 DEFAULT NULL,
 	indirizzo VARCHAR2 DEFAULT NULL,
-	emailNEW VARCHAR2 DEFAULT NULL,
-    telefonoNEW VARCHAR2 DEFAULT NULL
+	email VARCHAR2 DEFAULT NULL,
+    telefono VARCHAR2 DEFAULT NULL
 ) IS 
     birth DATE := TO_DATE(dataNascita default NULL on conversion error, 'YYYY-MM-DD');
     EmailPresente EXCEPTION;
@@ -187,20 +193,20 @@ PROCEDURE InserisciDatiUtente (
 
 BEGIN
     -- tutti i parametri sono stati controllati prima, dobbiamo solo inserirli nella tabella
-    SELECT count(*) INTO temp FROM UTENTI WHERE Email = emailNEW;
+    SELECT count(*) INTO temp FROM UTENTI WHERE Email = email;
 
     IF temp > 0 THEN
         RAISE EmailPresente;
     END IF;
 
-    select count(*) INTO temp2 from UTENTI where RecapitoTelefonico = telefonoNEW;
+    select count(*) INTO temp2 from UTENTI where RecapitoTelefonico = telefono;
 
     IF temp2 > 0 THEN
         RAISE TelefonoPresente;
     END IF;
 
     insert into UTENTI
-    values (IdUtenteSeq.NEXTVAL, nome, cognome, birth, indirizzo, emailNEW, telefonoNEW);
+    values (IdUtenteSeq.NEXTVAL, nome, cognome, birth, indirizzo, email, telefono);
 
 	IF SQL%FOUND
 	THEN
@@ -209,7 +215,7 @@ BEGIN
 
 		MODGUI1.ApriPagina('Utente inserito', sessionID);
 		HTP.BodyOpen;
-		MODGUI1.ApriDiv;
+		MODGUI1.ApriDiv('style="margin-left: 2%; margin-right: 2%;"');
 		HTP.tableopen;
 		HTP.tablerowopen;
 		HTP.tabledata('Nome: '||nome);
@@ -225,10 +231,10 @@ BEGIN
 		HTP.tablerowopen;
 		HTP.tablerowclose;
 		HTP.tablerowopen;
-		HTP.tabledata('Email: '||emailNEW);
+		HTP.tabledata('Email: '||email);
 		HTP.tablerowclose;
 		HTP.tablerowopen;
-		HTP.tabledata('Telefono: '||telefonoNEW);
+		HTP.tabledata('Telefono: '||telefono);
 		HTP.tablerowclose;
 		HTP.tableClose;
 		MODGUI1.ChiudiDiv;

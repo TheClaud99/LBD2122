@@ -1,24 +1,23 @@
-create or replace package PackageVisite as
-
-procedure inserisciVisita(
-        DataVisitaChar in VARCHAR2,
-        OraVisita in VARCHAR2,
-        DurataVisita in NUMBER,
-        idUtenteSelezionato in UTENTI.IdUtente%TYPE,
-        idTitoloSelezionato in TITOLIINGRESSO.IDTITOLOING%TYPE
+CREATE OR REPLACE PACKAGE packagevisite AS
+    PROCEDURE inseriscivisita (
+        datavisitachar       IN  VARCHAR2,
+        oravisita            IN  VARCHAR2,
+        duratavisita         IN  NUMBER,
+        idutenteselezionato  IN  utenti.idutente%TYPE,
+        idtitoloselezionato  IN  titoliingresso.idtitoloing%TYPE
     );
 
-procedure formVisita(
-        DataVisitaChar in VARCHAR2 DEFAULT NULL,
-        OraVisita in VARCHAR2 DEFAULT NULL,
-        DurataVisita in NUMBER DEFAULT NULL,
-        idUtenteSelezionato in UTENTI.IdUtente%TYPE DEFAULT NULL,
-        idTitoloSelezionato in TITOLIINGRESSO.IDTITOLOING%TYPE DEFAULT NULL,
-        convalida in BOOLEAN DEFAULT null
+    PROCEDURE formvisita (
+        datavisitachar       IN  VARCHAR2 DEFAULT NULL,
+        oravisita            IN  VARCHAR2 DEFAULT NULL,
+        duratavisita         IN  NUMBER DEFAULT NULL,
+        idutenteselezionato  IN  utenti.idutente%TYPE DEFAULT NULL,
+        idtitoloselezionato  IN  titoliingresso.idtitoloing%TYPE DEFAULT NULL,
+        convalida            IN  BOOLEAN DEFAULT NULL
     );
 
-procedure visualizzaVisita(
-        idVisitaSelezionata in visite.IdVisita%TYPE
+    PROCEDURE visualizzavisita (
+        idvisitaselezionata IN visite.idvisita%TYPE
     );
 
-end PackageVisite;
+END packagevisite;

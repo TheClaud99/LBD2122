@@ -22,7 +22,32 @@ PROCEDURE InserisciDatiUtente (
 	email VARCHAR2 DEFAULT NULL,
     telefono VARCHAR2 DEFAULT NULL
 );
+/*
+PROCEDURE AcquistoBiglietto(
+    sessionID NUMBER DEFAULT 0
+);
 
+PROCEDURE ConfermaAcquistoBiglietto(
+	sessionID NUMBER DEFAULT 0,
+	dataEmiss VARCHAR2 DEFAULT NULL,
+	dataScad VARCHAR2 DEFAULT NULL,
+	nomeUtente UTENTI.Nome%TYPE DEFAULT NULL,
+	cognomeUtente UTENTI.Cognome%TYPE DEFAULT NULL,
+	varIdUtente UTENTI.IdUtente%TYPE DEFAULT NULL,
+	varIdMuseo MUSEI.IdMuseo%TYPE DEFAULT NULL,
+	NomeMuseo MUSEI.Nome%TYPE DEFAULT NULL
+);
 
+PROCEDURE InserisciDatiBigliettoAcquistato (
+    sessionID NUMBER DEFAULT 0,
+	dataEmiss VARCHAR2 DEFAULT NULL,
+	dataScad VARCHAR2 DEFAULT NULL,
+	nomeUtente UTENTI.Nome%TYPE DEFAULT NULL,
+	cognomeUtente UTENTI.Cognome%TYPE DEFAULT NULL,
+	varIdUtente UTENTI.IdUtente%TYPE DEFAULT NULL,
+	varIdMuseo MUSEI.IdMuseo%TYPE DEFAULT NULL,
+	NomeMuseo MUSEI.Nome%TYPE DEFAULT NULL
+);
+*/
 
 END gruppo1;

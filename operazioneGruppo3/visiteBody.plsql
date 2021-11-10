@@ -38,26 +38,26 @@ CREATE OR REPLACE PACKAGE BODY packagevisite AS
     BEGIN
         idvisitacreata := idvisiteseq.nextval;
         INSERT INTO visite (
-            idvisita,
-            oravisita,
-            datavisita,
-            duratavisita,
-            visitatore,
-            titoloingresso
+            IdVisita,
+            OraVisita,
+            DataVisita,
+            DurataVisita,
+            Visitatore,
+            TitoloIngresso
         ) VALUES (
-            idvisitacreata,
+            idvisiteseq.nextval,
             to_date(
-                oravisita, 'HH24:MI:SS'
+                oravisita|| ' ' || datavisitachar, 'HH24:MI YYYY/MM/DD'
             ),
             to_date(
-                datavisitachar, 'DD/MM/YYYY'
+                oravisita|| ' ' || datavisitachar, 'HH24:MI YYYY/MM/DD'
             ),
             duratavisita,
             idutenteselezionato,
             idtitoloselezionato
         );
 
-        visualizzavisita(idvisitacreata);
+        -- visualizzavisita(idvisitacreata);
     END;
 
     PROCEDURE formvisita (
@@ -66,7 +66,7 @@ CREATE OR REPLACE PACKAGE BODY packagevisite AS
         duratavisita         IN  NUMBER DEFAULT NULL,
         idutenteselezionato  IN  utenti.idutente%TYPE DEFAULT NULL,
         idtitoloselezionato  IN  titoliingresso.idtitoloing%TYPE DEFAULT NULL,
-        convalida            IN  BOOLEAN DEFAULT NULL
+        convalida            IN  NUMBER DEFAULT NULL
     ) IS
 
         nomeutente      utenti.nome%TYPE;
@@ -89,19 +89,25 @@ CREATE OR REPLACE PACKAGE BODY packagevisite AS
             modgui1.label('Inserisci data della visita:');
             modgui1.inputdate(
                              'DataVisitaChar',
-                             'DataVisitaChar'
+                             'DataVisitaChar',
+                             1,
+                             datavisitachar
             );
             htp.br;
             modgui1.label('Ora della visita');
             modgui1.inputtime(
                              'OraVisita',
-                             'OraVisita'
+                             'OraVisita',
+                             1,
+                             oravisita
             );
             htp.br;
             modgui1.label('Durata della visita (h)');
             modgui1.inputnumber(
                                'DurataVisita',
-                               'DurataVisita'
+                               'DurataVisita',
+                               1,
+                               duratavisita
             );
             htp.br;
             modgui1.label('Utente');
@@ -169,12 +175,9 @@ CREATE OR REPLACE PACKAGE BODY packagevisite AS
                 WHERE
                     acquirente = idutenteselezionato
             ) LOOP 
-                                    -- todo Non andrebbe aggiunto un nome alla tipologia di ingresso? 
-                                    -- select Nome into NomeTiologiaIngresso
-                                    -- from TIPOLOGIEINGRESSO
-                                    -- where IdTipologiaIng = titolo.Tipologia;
+                -- todo Non andrebbe aggiunto un nome alla tipologia di ingresso? 
                 -- SELECT
-                --     Durata
+                --     Nome
                 -- INTO
                 --     nome_tipologia
                 -- FROM
@@ -201,7 +204,7 @@ CREATE OR REPLACE PACKAGE BODY packagevisite AS
 
             htp.prn('</select>');
             htp.br;
-            htp.prn('<button class="w3-button w3-block w3-black w3-section w3-padding" type="submit" name="convalida" value="true">Invia</button>');
+            htp.prn('<button class="w3-button w3-block w3-black w3-section w3-padding" type="submit" name="convalida" value="1">Invia</button>');
             modgui1.chiudidiv;
             modgui1.chiudiform;
             modgui1.chiudidiv;

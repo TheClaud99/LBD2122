@@ -13,7 +13,7 @@ CREATE OR REPLACE PACKAGE packagevisite AS
         duratavisita         IN  NUMBER DEFAULT NULL,
         idutenteselezionato  IN  utenti.idutente%TYPE DEFAULT NULL,
         idtitoloselezionato  IN  titoliingresso.idtitoloing%TYPE DEFAULT NULL,
-        convalida            IN  BOOLEAN DEFAULT NULL
+        convalida            IN  NUMBER DEFAULT NULL
     );
 
     PROCEDURE visualizzavisita (

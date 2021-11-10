@@ -34,7 +34,7 @@ CREATE OR REPLACE PACKAGE BODY modGUI1 as
                 }
             }
         </script>
-    ');   
+    ');
     end Header;
 
 
@@ -111,9 +111,9 @@ CREATE OR REPLACE PACKAGE BODY modGUI1 as
       htp.print('</form>');
     end ChiudiForm;
 
-    procedure InputText (nome varchar2, placeholder varchar2 default '', required int default 0) is /*Casella di input testuale, nome -> nome casella, placeholder -> testo visualizzato quando vuota, required -> vincolo di NOT NULL*/
+    procedure InputText (nome varchar2, placeholder varchar2 default '', required int default 0, lunghezza int default 1000) is /*Casella di input testuale, nome -> nome casella, placeholder -> testo visualizzato quando vuota, required -> vincolo di NOT NULL*/
     begin
-    htp.prn('<input class="w3-input w3-round-xlarge w3-border" type="text" name="'|| nome ||'" placeholder="'|| placeholder ||'"');
+    htp.prn('<input class="w3-padding w3-round-xlarge w3-border w3-margin-top w3-margin-bottom" style="max-width:'|| lunghezza ||';height:35px;" type="text" name="'|| nome ||'" placeholder="'|| placeholder ||'"');
     if (required = 0)
     then
         htp.prn('>');
@@ -135,7 +135,7 @@ CREATE OR REPLACE PACKAGE BODY modGUI1 as
 
     procedure Label (testo varchar2) is /*Etichetta utilizzabile prima di un input*/
     begin
-        htp.prn('<label style="color:black"><b>'|| testo ||'</b></label>');
+        htp.prn('<label style="color:black;margin:10px;"><b>'|| testo ||'</b></label>');
     end Label;
 
     procedure InputImage (id varchar2, nome varchar2 ) is
@@ -145,12 +145,12 @@ CREATE OR REPLACE PACKAGE BODY modGUI1 as
 
     procedure InputSubmit (testo varchar2 default 'Submit') is /*Bottone per invio del form*/
     begin
-        htp.prn('<button class="w3-button w3-black w3-large">'|| testo ||'</button>');
+        htp.prn('<button class="w3-button w3-block w3-black w3-section w3-padding">'|| testo ||'</button>');
     end InputSubmit;
 
     procedure InputDate (id varchar2, nome varchar2) is /*Input di tipo calendario*/
     begin
-        htp.prn('<input class="w3-margin w3-round-large" type="date" id="'|| id ||'" name="'|| nome ||'" value="2020-09-09" min="2020-01-01" max="2030-12-31" required>');
+        htp.prn('<input class="w3-border w3-margin-top w3-margin-bottom w3-round-xlarge" style="max-width:300px;" type="date" id="'|| id ||'" name="'|| nome ||'" value="2020-09-09" min="2020-01-01" max="2030-12-31" required>');
     end InputDate;
 
     procedure InputTime (id varchar2, nome varchar2) is /*Input di tipo orario*/
@@ -158,14 +158,14 @@ CREATE OR REPLACE PACKAGE BODY modGUI1 as
         htp.prn('<input type="time" id="'|| id ||'" name="'|| nome ||'" min="09:00" max="18:00" required>');
     end InputTime;
 
-     procedure InputNumber (id varchar2, nome varchar2) is /*Input di tipo orario*/
+     procedure InputNumber (id varchar2, nome varchar2) is /*Input di tipo numerico*/
     begin
-        htp.prn('<input type="number" id="'|| id ||'" name="'|| nome ||'" required>');
+        htp.prn('<input class="w3-padding w3-border w3-margin-top w3-margin-bottom w3-round-xlarge" style="max-width:100px;" type="number" id="'|| id ||'" name="'|| nome ||'" required>');
     end InputNumber;
 
     procedure SelectOpen(nome varchar2 default 'mySelect') is
     begin
-        htp.prn('<select class="w3-select w3-border w3-round" style="max-width:150px;" name="'|| nome ||'">');
+        htp.prn('<select class="w3-select w3-border w3-margin-top w3-margin-bottom w3-round-xlarge" style="max-width:250px;" name="'|| nome ||'">');
     end SelectOpen;
 
     procedure SelectOption(valore int, testo varchar2 default 'Opzione') is
@@ -177,35 +177,40 @@ CREATE OR REPLACE PACKAGE BODY modGUI1 as
     begin
         htp.prn('</select>');
     end SelectClose;
-    
+
     procedure InputRadioButton (testo varchar2, nome varchar2, valore varchar2, checked int default 0, disabled int default 0) is
-    begin    
+    begin
         htp.print('<input class="w3-radio" type="radio" name="'|| nome ||'" value="'|| valore ||'"');
         if (checked=1)
         then
             htp.prn(' checked');
         end if;
         if (disabled=1)
-        then 
+        then
             htp.prn(' disabled');
         end if;
-        htp.prn('>');
+        htp.prn('> ');
         htp.prn(testo);
     end InputRadioButton;
 
-    procedure InputCheckbox (testo varchar2, nome varchar2, checked int default 0, disabled int default 0) is
-    begin    
+    procedure InputCheckbox (testo varchar2, nome varchar2, checked int default 0, disabled int default 0) is 
+    begin
         htp.print('<input class="w3-check" type="checkbox" name="'|| nome ||'"');
         if (checked=1)
         then
             htp.prn(' checked');
         end if;
         if (disabled=1)
-        then 
+        then
             htp.prn(' disabled');
         end if;
         htp.prn('>');
         htp.prn(testo);
     end InputCheckbox;
+
+    procedure ApriDivCard is --DIV di tipo w3-card: Rettangolo che può contenere FORM di inserimento. Si chiude con ChiudiDiv
+    begin
+        modGUI1.ApriDiv('class="w3-modal-content w3-card-4 w3-animate-zoom" style="max-width:600px"');
+    end ApriDivCard;
 
 end modGUI1;

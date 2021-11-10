@@ -69,9 +69,10 @@ CREATE OR REPLACE PACKAGE BODY packagevisite AS
         convalida            IN  BOOLEAN DEFAULT NULL
     ) IS
 
-        nomeutente     utenti.nome%TYPE;
-        cognomeutente  utenti.cognome%TYPE;
-        varidutente    utenti.idutente%TYPE;
+        nomeutente      utenti.nome%TYPE;
+        cognomeutente   utenti.cognome%TYPE;
+        varidutente     utenti.idutente%TYPE;
+        nome_tipologia  tipologieingresso.durata%TYPE;
     BEGIN
         modgui1.apripagina();
         modgui1.header();
@@ -155,10 +156,14 @@ CREATE OR REPLACE PACKAGE BODY packagevisite AS
             modgui1.selectclose();
             htp.br;
             modgui1.label('Titolo di ingresso');
-            htp.prn('<select name="idTitoloSelezionato">');
+            modgui1.selectopen(
+                              'idTitoloSelezionato',
+                              'titolo-selezionato'
+            );
             FOR titolo IN (
                 SELECT
-                    idtitoloing
+                    idtitoloing,
+                    tipologia
                 FROM
                     titoliingresso
                 WHERE
@@ -168,19 +173,30 @@ CREATE OR REPLACE PACKAGE BODY packagevisite AS
                                     -- select Nome into NomeTiologiaIngresso
                                     -- from TIPOLOGIEINGRESSO
                                     -- where IdTipologiaIng = titolo.Tipologia;
+                -- SELECT
+                --     Durata
+                -- INTO
+                --     nome_tipologia
+                -- FROM
+                --     TIPOLOGIEINGRESSO
+                -- WHERE
+                --     IdTipologiaIng = titolo.Tipologia;
+
+                nome_tipologia := to_char(titolo.idtitoloing);
                 IF titolo.idtitoloing = idtitoloselezionato THEN
                     modgui1.selectoption(
                                         titolo.idtitoloing,
-                                        to_char(titolo.idtitoloing),
+                                        nome_tipologia,
                                         1
                     );
                 ELSE
                     modgui1.selectoption(
                                         titolo.idtitoloing,
-                                        to_char(titolo.idtitoloing),
+                                        nome_tipologia,
                                         0
                     );
                 END IF;
+
             END LOOP;
 
             htp.prn('</select>');

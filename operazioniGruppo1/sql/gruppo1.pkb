@@ -60,8 +60,7 @@ PROCEDURE InserisciUtente(
 BEGIN
 
     MODGUI1.ApriPagina('Inserimento utenti', 0);
-	
-	HTP.BodyOpen;
+	MODGUI1.Header();
 	HTP.header(1,'Inserisci un nuovo utente', 'center');
 	MODGUI1.ApriDiv('style="margin-left: 2%; margin-right: 2%;"');
 
@@ -116,6 +115,7 @@ BEGIN
 	THEN
 		-- uno dei parametri con vincoli ha valori non validi
 		MODGUI1.APRIPAGINA('Pagina errore', 0);
+		MODGUI1.Header();
 		HTP.BodyOpen;
 		MODGUI1.ApriDiv;
 		HTP.PRINT('Uno dei parametri immessi non valido');

@@ -1,32 +1,6 @@
 CREATE OR REPLACE PACKAGE BODY PackageVisite as
 
     /*
-    * OPERAZIONI SULLE STANZE
-    * - Inserimento ❌
-    * - Modifica ❌
-    * - Visualizzazione ❌
-    * - Cancellazione (rimozione) ❌
-    * - Monitoraggio e statistiche
-    * OPERAZIONI STATISTICHE E MONITORAGGIO
-    * - Opere presenti nella sala ❌
-    * - Numero visitatori unici in un arco temporale scelto ❌
-    * - Numero medio visitatori in un arco temporale scelto ❌
-    * - Media permanenza in una sala ❌
-    */
-
-    /*
-    * OPERAZIONI SUI VARCHI
-    * - Inserimento ❌
-    * - Modifica ❌
-    * - Visualizzazione ❌
-    * - Cancellazione (rimozione) ❌
-    * OPERAZIONI STATISTICHE E MONITORAGGIO
-    * - Numero visite che hanno attraversato il Varco in un arco temporale scelto ❌
-    * - Numero medio che hanno attraversato il Varco visite in una fascia oraria scelta ❌
-    * - Numero varchi in una stanza ❌
-    */
-
-    /*
     * OPERAZIONI SULLE VISITE
     * - Inserimento ✅
     * - Modifica ❌
@@ -108,22 +82,20 @@ CREATE OR REPLACE PACKAGE BODY PackageVisite as
                             htp.br;
 
                             modGUI1.Label('Utente');
-                            htp.prn('<select name="idUtenteSelezionato" id="utente-selezionato" onchange="inviaFormCreaVisite()">');
+                            modGUI1.SelectOpen('idUtenteSelezionato', 'utente-selezionato');
                                 for utente in (select IdUtente from UTENTIMUSEO)
                                 loop 
                                     select IdUtente, Nome, Cognome into varIdUtente, NomeUtente, CognomeUtente
                                     from UTENTI
                                     where IdUtente = utente.IdUtente;
-                                    htp.print('<option value="'|| varIdUtente ||'"');
-                                    if utente.IdUtente = idUtenteSelezionato then
-                                        htp.print('selected');
-                                    end if;
-                                    htp.print('>
-                                            '|| NomeUtente ||' '|| CognomeUtente ||'
-                                        </option>
-                                    ');
+                                    IF utente.IdUtente = idUtenteSelezionato
+                                    THEN
+                                        modGUI1.SelectOption(varIdUtente, ''|| NomeUtente ||' '|| CognomeUtente ||'', 1);
+                                    ELSE
+                                        modGUI1.SelectOption(varIdUtente, ''|| NomeUtente ||' '|| CognomeUtente ||'', 0);
+                                    END IF;
                                 end loop;
-                            htp.prn('</select>');
+                            modGUI1.SelectClose();
                             htp.br;
 
                             modGUI1.Label('Titolo di ingresso');
@@ -134,11 +106,12 @@ CREATE OR REPLACE PACKAGE BODY PackageVisite as
                                     -- select Nome into NomeTiologiaIngresso
                                     -- from TIPOLOGIEINGRESSO
                                     -- where IdTipologiaIng = titolo.Tipologia;
-                                    htp.print('
-                                        <option value="'|| titolo.IdTitoloing ||'">
-                                            '|| titolo.IdTitoloing ||'
-                                        </option>
-                                    ');  
+                                    IF titolo.IdTitoloing = idTitoloSelezionato
+                                    THEN
+                                        modGUI1.SelectOption(titolo.IdTitoloing, TO_CHAR(titolo.IdTitoloing), 1);
+                                    ELSE
+                                        modGUI1.SelectOption(titolo.IdTitoloing, TO_CHAR(titolo.IdTitoloing), 0);
+                                    END IF;
                                 end loop;
                             htp.prn('</select>');
                             htp.br;

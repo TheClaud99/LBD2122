@@ -150,7 +150,7 @@ CREATE OR REPLACE PACKAGE BODY modGUI1 as
 
     procedure InputDate (id varchar2, nome varchar2, required int default 0, defaultValue varchar2 default '') is /*Input di tipo calendario*/
     begin
-        htp.prn('<input class="w3-border w3-margin-top w3-margin-bottom w3-round-xlarge" style="max-width:300px;" type="date" id="'|| id ||'" name="'|| nome ||'" value="' || defaultValue ||'" min="2020-01-01" max="2030-12-31"');
+        htp.prn('<input class="w3-border w3-margin-top w3-margin-bottom w3-round-xlarge" style="max-width:300px;" type="date" id="'|| id ||'" name="'|| nome ||'" value="' || defaultValue ||'" min="1900-01-01" max="2030-12-31"');
         if (required = 1)
         then
             htp.prn('required');
@@ -215,7 +215,7 @@ CREATE OR REPLACE PACKAGE BODY modGUI1 as
 
     procedure InputCheckbox (testo varchar2, nome varchar2, checked int default 0, disabled int default 0) is 
     begin
-        htp.print('<input class="w3-check" type="checkbox" name="'|| nome ||'"');
+        htp.print('<input class="w3-check" type="checkbox" style="color:black;margin:10px;" name="'|| nome ||'"');
         if (checked=1)
         then
             htp.prn(' checked');

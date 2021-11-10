@@ -15,19 +15,6 @@ CREATE OR REPLACE PACKAGE BODY gruppo1 AS
  * - Spesa media di un visitatore in un arco temporale scelto ❌
  */
 
-/*
- *  OPERAZIONI SULLE NEWSLETTER
- * - Inserimento ❌
- * - Cancellazione❌
- * - Visualizzazione❌
- * - Iscrizione(rimozione)❌
- * - Cancellazione Iscrizione❌
- * OPERAZIONI STATISTICHE E MONITORAGGIO
- * - Numero visitatori iscritti alla Newsletter scelta❌
- * - Età media dei visitatori iscritti alla Newsletter scelta ❌
- * - Titoli d’ingresso appartenenti ai visitatori iscritti alla Newsletter scelta❌
- * - Lista Opere ordinate per numero di Autori in ordine decrescente ❌
-*/
 
 /*
  *  OPERAZIONI SULLE TIPOLOGIE DI INGRESSO
@@ -60,7 +47,8 @@ PROCEDURE InserisciUtente(
 BEGIN
 
     MODGUI1.ApriPagina('Inserimento utenti', 0);
-	MODGUI1.Header();
+	
+	HTP.BodyOpen;
 	HTP.header(1,'Inserisci un nuovo utente', 'center');
 	MODGUI1.ApriDiv('style="margin-left: 2%; margin-right: 2%;"');
 
@@ -85,6 +73,7 @@ BEGIN
 	MODGUI1.Label('Telefono');
 	MODGUI1.InputText('telefono', 'Telefono', 0);
 	HTP.BR;
+	
 	MODGUI1.InputSubmit('Inserisci');
 	MODGUI1.ChiudiForm;
 	
@@ -115,7 +104,6 @@ BEGIN
 	THEN
 		-- uno dei parametri con vincoli ha valori non validi
 		MODGUI1.APRIPAGINA('Pagina errore', 0);
-		MODGUI1.Header();
 		HTP.BodyOpen;
 		MODGUI1.ApriDiv;
 		HTP.PRINT('Uno dei parametri immessi non valido');
@@ -276,3 +264,17 @@ BEGIN
 END;
 
 END gruppo1;
+
+/*
+ *  OPERAZIONI SULLE NEWSLETTER
+ * - Inserimento ❌
+ * - Cancellazione❌
+ * - Visualizzazione❌
+ * - Iscrizione(rimozione)❌
+ * - Cancellazione Iscrizione❌
+ * OPERAZIONI STATISTICHE E MONITORAGGIO
+ * - Numero visitatori iscritti alla Newsletter scelta❌
+ * - Età media dei visitatori iscritti alla Newsletter scelta ❌
+ * - Titoli d’ingresso appartenenti ai visitatori iscritti alla Newsletter scelta❌
+ * - Lista Opere ordinate per numero di Autori in ordine decrescente ❌
+*/

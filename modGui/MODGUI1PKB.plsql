@@ -148,29 +148,49 @@ CREATE OR REPLACE PACKAGE BODY modGUI1 as
         htp.prn('<button class="w3-button w3-block w3-black w3-section w3-padding">'|| testo ||'</button>');
     end InputSubmit;
 
-    procedure InputDate (id varchar2, nome varchar2) is /*Input di tipo calendario*/
+    procedure InputDate (id varchar2, nome varchar2, required int default 0, defaultValue varchar2 default '') is /*Input di tipo calendario*/
     begin
-        htp.prn('<input class="w3-border w3-margin-top w3-margin-bottom w3-round-xlarge" style="max-width:300px;" type="date" id="'|| id ||'" name="'|| nome ||'" value="2020-09-09" min="2020-01-01" max="2030-12-31" required>');
+        htp.prn('<input class="w3-border w3-margin-top w3-margin-bottom w3-round-xlarge" style="max-width:300px;" type="date" id="'|| id ||'" name="'|| nome ||'" value="' || defaultValue ||'" min="2020-01-01" max="2030-12-31"');
+        if (required = 1)
+        then
+            htp.prn('required');
+        end if;
+        htp.prn('>');
     end InputDate;
 
-    procedure InputTime (id varchar2, nome varchar2) is /*Input di tipo orario*/
+    procedure InputTime (id varchar2, nome varchar2, required int default 0, defaultValue varchar2 default '') is /*Input di tipo orario*/
     begin
-        htp.prn('<input type="time" id="'|| id ||'" name="'|| nome ||'" min="09:00" max="18:00" required>');
+        htp.prn('<input type="time" id="'|| id ||'" name="'|| nome ||'" value="'|| defaultValue ||'" min="09:00" max="18:00"');
+        if (required = 1)
+        then
+            htp.prn('required');
+        end if;
+        htp.prn('>');
     end InputTime;
 
-     procedure InputNumber (id varchar2, nome varchar2) is /*Input di tipo numerico*/
+    procedure InputNumber (id varchar2, nome varchar2, required int default 0, defaultValue int default 0) is /*Input di tipo numerico*/
     begin
-        htp.prn('<input class="w3-padding w3-border w3-margin-top w3-margin-bottom w3-round-xlarge" style="max-width:100px;" type="number" id="'|| id ||'" name="'|| nome ||'" required>');
+        htp.prn('<input class="w3-padding w3-border w3-margin-top w3-margin-bottom w3-round-xlarge" style="max-width:100px;" type="number" id="'|| id ||'" name="'|| nome ||'"  value="'|| defaultValue ||'"');
+        if (required = 1)
+        then
+            htp.prn('required');
+        end if;
+        htp.prn('>');
     end InputNumber;
 
-    procedure SelectOpen(nome varchar2 default 'mySelect') is
+    procedure SelectOpen(nome varchar2 default 'mySelect', id varchar2 default 'mySelect') is
     begin
-        htp.prn('<select class="w3-select w3-border w3-margin-top w3-margin-bottom w3-round-xlarge" style="max-width:250px;" name="'|| nome ||'">');
+        htp.prn('<select id="'|| id ||'" class="w3-select w3-border w3-margin-top w3-margin-bottom w3-round-xlarge" style="max-width:250px;" name="'|| nome ||'">');
     end SelectOpen;
 
-    procedure SelectOption(valore int, testo varchar2 default 'Opzione') is
+    procedure SelectOption(valore int, testo varchar2 default 'Opzione', selected int default 0) is
     begin
-        htp.prn('<option value="' ||valore|| '">'|| testo ||'</option>');
+        htp.prn('<option');
+        if (selected=1)
+        then
+            htp.prn('selected');
+        end if;
+        htp.prn('value="' ||valore|| '">'|| testo ||'</option>');
     end SelectOption;
 
     procedure SelectClose is

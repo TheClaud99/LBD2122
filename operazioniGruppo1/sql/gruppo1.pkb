@@ -311,4 +311,182 @@ BEGIN
 		HTP.HtmlClose;
 END;
 
-END gruppo1
+PROCEDURE VisualizzaDatiUtente (
+    sessionID NUMBER DEFAULT 0,
+	utenteID NUMBER 
+) 
+IS
+	NomeUtente UTENTI.Nome%TYPE;
+    CognomeUtente UTENTI.Cognome%TYPE;
+    DataNascitaUtente UTENTI.DataNascita%TYPE;
+	IndirizzoUtente UTENTI.Indirizzo%TYPE;
+	EmailUtente UTENTI.Email%TYPE;
+	RecapitoTelefonicoUtente UTENTI.RecapitoTelefonico%TYPE;
+
+BEGIN
+
+	select NOME, COGNOME, DATANASCITA, INDIRIZZO, EMAIL, RECAPITOTELEFONICO
+	into NomeUtente, CognomeUtente, DataNascitaUtente, IndirizzoUtente, EmailUtente, RecapitoTelefonicoUtente
+	from UTENTI
+	where IDUTENTE = utenteID;
+
+	IF SQL%FOUND
+	THEN
+	
+		MODGUI1.ApriPagina('Profile utente', sessionID);
+		HTP.BodyOpen;
+		MODGUI1.Header(sessionID);
+		MODGUI1.ApriDiv('class="w3-center" style="margin: 0;
+							position: absolute;
+							top: 40%;
+							left: 50%;
+							margin-right: -50%;
+							transform: translate(-50%, -50%)"');
+		HTP.tableopen;
+		HTP.tablerowopen;
+		HTP.tabledata('Nome: '||NomeUtente);
+		HTP.tablerowclose;
+		HTP.tablerowopen;
+		HTP.tabledata('Cognome: '||CognomeUtente);
+		HTP.tablerowclose;
+		HTP.tablerowopen;
+		HTP.tabledata('Data nascita: '||DataNascitaUtente);
+		HTP.tablerowclose;
+		HTP.tablerowopen;
+		HTP.tabledata('Indirizzo: '||IndirizzoUtente);
+		HTP.tablerowopen;
+		HTP.tablerowclose;
+		HTP.tablerowopen;
+		HTP.tabledata('Email: '||EmailUtente);
+		HTP.tablerowclose;
+		HTP.tablerowopen;
+		HTP.tabledata('Telefono: '||RecapitoTelefonicoUtente);
+		HTP.tablerowclose;
+		HTP.tableClose;
+		MODGUI1.Collegamento('Modifica', '/ModificaDatiUtente?sessionID=' || sessionID, 'w3-button w3-blue');
+		MODGUI1.ChiudiDiv;
+		HTP.BodyClose;
+		HTP.HtmlClose;
+	ELSE
+		MODGUI1.ApriPagina('Utente non trovato', sessionID);
+		HTP.BodyOpen;
+
+		HTP.PRN('Utente non trovato');
+
+		HTP.BodyClose;
+		HTP.HtmlClose;
+	END IF;
+END;
+
+PROCEDURE ModificaDatiUtente (
+    sessionID NUMBER DEFAULT 0,
+	utenteID NUMBER DEFAULT NULL
+) 
+IS
+	NomeUtente UTENTI.Nome%TYPE;
+    CognomeUtente UTENTI.Cognome%TYPE;
+    DataNascitaUtente UTENTI.DataNascita%TYPE;
+	IndirizzoUtente UTENTI.Indirizzo%TYPE;
+	EmailUtente UTENTI.Email%TYPE;
+	RecapitoTelefonicoUtente UTENTI.RecapitoTelefonico%TYPE;
+
+BEGIN
+
+	select NOME, COGNOME, DATANASCITA, INDIRIZZO, EMAIL, RECAPITOTELEFONICO
+	into NomeUtente, CognomeUtente, DataNascitaUtente, IndirizzoUtente, EmailUtente, RecapitoTelefonicoUtente
+	from UTENTI
+	where IDUTENTE = utenteID;
+
+	IF SQL%FOUND
+	THEN
+	
+		MODGUI1.ApriPagina('Profile utente', sessionID);
+		HTP.BodyOpen;
+		MODGUI1.Header(sessionID);
+		MODGUI1.ApriDiv('style="margin: 0;
+							position: absolute;
+							top: 40%;
+							left: 50%;
+							margin-right: -50%;
+							transform: translate(-50%, -50%)"');
+		MODGUI1.ApriForm('ConfermaDatiUtente');
+		HTP.FORMHIDDEN('sessionID',0);
+
+		MODGUI1.Label('Nome*');
+		MODGUI1.InputText('nome', 'Nome utente', 1, NomeUtente);
+		HTP.BR;
+		MODGUI1.Label('Cognome*');
+		MODGUI1.InputText('cognome', 'Cognome utente', 1, CognomeUtente);
+		HTP.BR;
+		MODGUI1.Label('Data nascita*');
+		MODGUI1.InputDate('dataNascita', 'dataNascita', 1, DataNascitaUtente);
+		HTP.BR;
+		MODGUI1.Label('Indirizzo*');
+		MODGUI1.InputText('indirizzo', 'Indirizzo', 1, IndirizzoUtente);
+		HTP.BR;
+		MODGUI1.Label('Email*');
+		MODGUI1.InputText('email', 'Email', 1, EmailUtente);
+		HTP.BR;
+		MODGUI1.Label('Telefono');
+		MODGUI1.InputText('telefono', 'Telefono', 0, RecapitoTelefonicoUtente);
+		HTP.BR;
+		MODGUI1.InputCheckboxOnClick('Utente museo', 'utentemuseo','check()','utentemuseo');
+		HTP.BR;
+		MODGUI1.ApriDiv('style="margin-left: 2%; margin-right: 2%; display: none" id="first"');
+		HTP.BR;
+		MODGUI1.InputCheckbox('Donatore', 'donatore');
+		HTP.BR;
+		MODGUI1.ChiudiDiv;
+		HTP.BR;
+		MODGUI1.InputCheckboxOnClick('Utente campi estivi', 'utentecampiestivi', 'check2()', 'utentecampiestivi');
+		HTP.BR;
+		MODGUI1.ApriDiv('style="margin-left: 2%; margin-right: 2%; display: none" id="second"');
+		MODGUI1.InputCheckbox('Richiede assistenza', 'assistenza');
+		HTP.BR;
+		MODGUI1.ChiudiDiv;
+		
+		MODGUI1.InputSubmit('Salva');
+		MODGUI1.ChiudiForm;
+		
+		MODGUI1.ChiudiDiv;
+		HTP.BodyClose;
+		HTP.HtmlClose;
+	ELSE
+		MODGUI1.ApriPagina('Utente non trovato', sessionID);
+		HTP.BodyOpen;
+
+		HTP.PRN('Utente non trovato');
+
+		HTP.BodyClose;
+		HTP.HtmlClose;
+	END IF;
+END;
+END GRUPPO1;
+
+/*
+ *  OPERAZIONI SUI TITOLI DI INGRESSO
+ * - Modifica ❌
+ * - Cancellazione❌
+ * - Visualizzazione ❌
+ * - Acquisto abbonamento museale ❌
+ * - Acquisto biglietto ❌
+ * OPERAZIONI STATISTICHE E MONITORAGGIO
+ * - Numero Titoli d’Ingresso emessi in un arco temporale scelto ❌
+ * - Numero Titoli d’Ingresso emessi da un Museo in un arco temporale scelto ❌
+ * - Abbonamenti in scadenza nel mese corrente ❌
+*/
+/*
+
+/*
+ *  OPERAZIONI SULLE NEWSLETTER
+ * - Inserimento ❌
+ * - Cancellazione❌
+ * - Visualizzazione❌
+ * - Iscrizione(rimozione)❌
+ * - Cancellazione Iscrizione❌
+ * OPERAZIONI STATISTICHE E MONITORAGGIO
+ * - Numero visitatori iscritti alla Newsletter scelta❌
+ * - Età media dei visitatori iscritti alla Newsletter scelta ❌
+ * - Titoli d’ingresso appartenenti ai visitatori iscritti alla Newsletter scelta❌
+ * - Lista Opere ordinate per numero di Autori in ordine decrescente ❌
+*/

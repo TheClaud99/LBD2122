@@ -12,6 +12,14 @@ CREATE OR REPLACE PACKAGE packagevisite AS
         oravisita            IN  VARCHAR2 DEFAULT NULL,
         duratavisita         IN  NUMBER DEFAULT NULL,
         idutenteselezionato  IN  utenti.idutente%TYPE DEFAULT NULL,
+        idtitoloselezionato  IN  titoliingresso.idtitoloing%TYPE DEFAULT NULL
+    );
+
+    PROCEDURE pagina_inserisci_visita (
+        datavisitachar       IN  VARCHAR2 DEFAULT NULL,
+        oravisita            IN  VARCHAR2 DEFAULT NULL,
+        duratavisita         IN  NUMBER DEFAULT NULL,
+        idutenteselezionato  IN  utenti.idutente%TYPE DEFAULT NULL,
         idtitoloselezionato  IN  titoliingresso.idtitoloing%TYPE DEFAULT NULL,
         convalida            IN  NUMBER DEFAULT NULL
     );

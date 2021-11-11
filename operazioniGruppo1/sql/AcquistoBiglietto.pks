@@ -1,27 +1,27 @@
-CREATE OR REPLACE PACKAGE AcquistaBiglietto AS
-PROCEDURE AcquistoBiglietto(
-    sessionID NUMBER DEFAULT 0
+CREATE OR REPLACE PACKAGE packageAcquistaBiglietto AS
+PROCEDURE acquistabiglietto(
+	dataEmissionechar IN VARCHAR2,
+	dataScadenzachar IN VARCHAR2,
+	idmuseoselezionato IN VARCHAR2,
+	idtipologiaselezionata IN VARCHAR2,
+	idutenteselezionato IN VARCHAR2
 );
 
-PROCEDURE ConfermaAcquistoBiglietto(
-	sessionID NUMBER DEFAULT 0,
-	dataEmiss VARCHAR2 DEFAULT NULL,
-	dataScad VARCHAR2 DEFAULT NULL,
-	nomeUtente UTENTI.Nome%TYPE DEFAULT NULL,
-	cognomeUtente UTENTI.Cognome%TYPE DEFAULT NULL,
-	varIdUtente UTENTI.IdUtente%TYPE DEFAULT NULL,
-	varIdMuseo MUSEI.IdMuseo%TYPE DEFAULT NULL,
-	NomeMuseo MUSEI.Nome%TYPE DEFAULT NULL
+PROCEDURE formacquistabiglietto(
+	dataEmissionechar IN VARCHAR2,
+	dataScadenzachar IN VARCHAR2,
+	idmuseoselezionato IN VARCHAR2 default null,
+	idtipologiaselezionata IN VARCHAR2 default null,
+	idutenteselezionato IN VARCHAR2 default null
 );
 
-PROCEDURE InserisciDatiBigliettoAcquistato (
-    sessionID NUMBER DEFAULT 0,
-	dataEmiss VARCHAR2 DEFAULT NULL,
-	dataScad VARCHAR2 DEFAULT NULL,
-	nomeUtente UTENTI.Nome%TYPE DEFAULT NULL,
-	cognomeUtente UTENTI.Cognome%TYPE DEFAULT NULL,
-	varIdUtente UTENTI.IdUtente%TYPE DEFAULT NULL,
-	varIdMuseo MUSEI.IdMuseo%TYPE DEFAULT NULL,
-	NomeMuseo MUSEI.Nome%TYPE DEFAULT NULL
+PROCEDURE pagina_acquista_biglietto(
+	dataEmissionechar IN VARCHAR2,
+	dataScadenzachar IN VARCHAR2,
+	idmuseoselezionato IN VARCHAR2,
+	idtipologiaselezionata IN VARCHAR2,
+	idutenteselezionato IN VARCHAR2,
+	convalida IN NUMBER DEFAULT NULL
 );
-*/
+
+END packageAcquistaBiglietto;

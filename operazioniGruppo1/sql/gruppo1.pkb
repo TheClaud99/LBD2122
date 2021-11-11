@@ -1,8 +1,8 @@
 CREATE OR REPLACE PACKAGE BODY gruppo1 AS
 
 /*
- * grant execute on gruppo1 to anonymous;
- * http://131.114.73.203:8080/apex/fgiannotti.gruppo1.InserisciUtente
+ grant execute on gruppo1 to anonymous;
+ *http://131.114.73.203:8080/apex/fgiannotti.gruppo1.InserisciUtente
  * OPERAZIONI SUGLI UTENTI
  * - Inserimento ✅ mancano checkbox
  * - Modifica ❌
@@ -75,11 +75,57 @@ BEGIN
 	MODGUI1.Label('Telefono');
 	MODGUI1.InputText('telefono', 'Telefono', 0);
 	HTP.BR;
+	MODGUI1.InputCheckboxOnClick('Utente museo', 'utentemuseo','check()','utentemuseo');
+	HTP.BR;
+	MODGUI1.ApriDiv('style="margin-left: 2%; margin-right: 2%; display: none" id="first"');
+	HTP.BR;
+	MODGUI1.InputCheckbox('Donatore', 'donatore');
+	HTP.BR;
+	MODGUI1.ChiudiDiv;
+	HTP.BR;
+	MODGUI1.InputCheckboxOnClick('Utente campi estivi', 'utentecampiestivi', 'check2()', 'utentecampiestivi');
+	HTP.BR;
+	MODGUI1.ApriDiv('style="margin-left: 2%; margin-right: 2%; display: none" id="second"');
+	MODGUI1.InputCheckbox('Richiede assistenza', 'assistenza');
+	HTP.BR;
+	MODGUI1.ChiudiDiv;
 	
 	MODGUI1.InputSubmit('Inserisci');
 	MODGUI1.ChiudiForm;
 	
 	MODGUI1.ChiudiDiv;
+
+	htp.print('<script type="text/javascript">
+			function check() {
+				const div1 = document.getElementById("first")
+				const checkbox1 = document.getElementById("utentemuseo")
+				if(checkbox1.checked == true) {
+					div1.style.display = "block"
+				}
+				else {
+					div1.style.display = "none"
+					const inputs = div1.getElementsByTagName("input")
+					for (let input of inputs) {
+						input.checked = false
+					}
+				}
+			}
+
+			function check2() {
+				const div1 = document.getElementById("second")
+				const checkbox1 = document.getElementById("utentecampiestivi")
+				if(checkbox1.checked == true) {
+					div1.style.display = "block"
+				}
+				else {
+					div1.style.display = "none"
+					const inputs = div1.getElementsByTagName("input")
+					for (let input of inputs) {
+						input.checked = false
+					}
+				}
+			}
+        </script>');
 
 	HTP.BodyClose;
 	HTP.HtmlClose;
@@ -265,22 +311,6 @@ BEGIN
 		HTP.HtmlClose;
 END;
 
-
-
-/*
- *  OPERAZIONI SULLE NEWSLETTER
- * - Inserimento ❌
- * - Cancellazione❌
- * - Visualizzazione❌
- * - Iscrizione(rimozione)❌
- * - Cancellazione Iscrizione❌
- * OPERAZIONI STATISTICHE E MONITORAGGIO
- * - Numero visitatori iscritti alla Newsletter scelta❌
- * - Età media dei visitatori iscritti alla Newsletter scelta ❌
- * - Titoli d’ingresso appartenenti ai visitatori iscritti alla Newsletter scelta❌
- * - Lista Opere ordinate per numero di Autori in ordine decrescente ❌
-*/
-
 /*
  *  OPERAZIONI SUI TITOLI DI INGRESSO
  * - Modifica ❌
@@ -293,24 +323,6 @@ END;
  * - Numero Titoli d’Ingresso emessi da un Museo in un arco temporale scelto ❌
  * - Abbonamenti in scadenza nel mese corrente ❌
 */
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 /*
 PROCEDURE AcquistoBiglietto(
  	sessionID NUMBER DEFAULT 0
@@ -480,6 +492,19 @@ BEGIN
     VALUES (IDTITOLOING.nextval, emiss, scad, user,)
 
 END; 
-*/
 
 END gruppo1;
+
+/*
+ *  OPERAZIONI SULLE NEWSLETTER
+ * - Inserimento ❌
+ * - Cancellazione❌
+ * - Visualizzazione❌
+ * - Iscrizione(rimozione)❌
+ * - Cancellazione Iscrizione❌
+ * OPERAZIONI STATISTICHE E MONITORAGGIO
+ * - Numero visitatori iscritti alla Newsletter scelta❌
+ * - Età media dei visitatori iscritti alla Newsletter scelta ❌
+ * - Titoli d’ingresso appartenenti ai visitatori iscritti alla Newsletter scelta❌
+ * - Lista Opere ordinate per numero di Autori in ordine decrescente ❌
+*/

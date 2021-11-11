@@ -4,7 +4,7 @@ CREATE OR REPLACE PACKAGE BODY gruppo1 AS
  grant execute on gruppo1 to anonymous;
  *http://131.114.73.203:8080/apex/fgiannotti.gruppo1.InserisciUtente
  * OPERAZIONI SUGLI UTENTI
- * - Inserimento ✅ mancano checkbox
+ * - Inserimento ✅ 
  * - Modifica ❌
  * - Visualizzazione ❌
  * - Cancellazione (rimozione) ❌

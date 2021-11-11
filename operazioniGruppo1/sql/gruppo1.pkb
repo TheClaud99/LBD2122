@@ -4,7 +4,7 @@ CREATE OR REPLACE PACKAGE BODY gruppo1 AS
  grant execute on gruppo1 to anonymous;
  *http://131.114.73.203:8080/apex/fgiannotti.gruppo1.InserisciUtente
  * OPERAZIONI SUGLI UTENTI
- * - Inserimento ✅ mancano checkbox
+ * - Inserimento ✅ 
  * - Modifica ❌
  * - Visualizzazione ❌
  * - Cancellazione (rimozione) ❌
@@ -310,6 +310,75 @@ BEGIN
 		HTP.BodyClose;
 		HTP.HtmlClose;
 END;
+
+PROCEDURE VisualizzaDatiUtente (
+    sessionID NUMBER DEFAULT 0,
+	utenteID NUMBER
+) 
+IS
+	NomeUtente UTENTI.Nome%TYPE;
+    CognomeUtente UTENTI.Cognome%TYPE;
+    DataNascitaUtente UTENTI.DataNascita%TYPE;
+	IndirizzoUtente UTENTI.Indirizzo%TYPE;
+	EmailUtente UTENTI.Email%TYPE;
+	RecapitoTelefonicoUtente UTENTI.RecapitoTelefonico%TYPE;
+
+BEGIN
+
+	select NOME, COGNOME, DATANASCITA, INDIRIZZO, EMAIL, RECAPITOTELEFONICO
+	into NomeUtente, CognomeUtente, DataNascitaUtente, IndirizzoUtente, EmailUtente, RecapitoTelefonicoUtente
+	from UTENTI
+	where IDUTENTE = utenteID;
+
+	IF SQL%FOUND
+	THEN
+	
+		MODGUI1.ApriPagina('Profile utente', sessionID);
+		HTP.BodyOpen;
+		MODGUI1.Header(sessionID);
+		MODGUI1.ApriDiv('class="w3-center" style="margin: 0;
+							position: absolute;
+							top: 40%;
+							left: 50%;
+							margin-right: -50%;
+							transform: translate(-50%, -50%)"');
+		HTP.tableopen;
+		HTP.tablerowopen;
+		HTP.tabledata('Nome: '||NomeUtente);
+		HTP.tablerowclose;
+		HTP.tablerowopen;
+		HTP.tabledata('Cognome: '||CognomeUtente);
+		HTP.tablerowclose;
+		HTP.tablerowopen;
+		HTP.tabledata('Data nascita: '||DataNascitaUtente);
+		HTP.tablerowclose;
+		HTP.tablerowopen;
+		HTP.tabledata('Indirizzo: '||IndirizzoUtente);
+		HTP.tablerowopen;
+		HTP.tablerowclose;
+		HTP.tablerowopen;
+		HTP.tabledata('Email: '||EmailUtente);
+		HTP.tablerowclose;
+		HTP.tablerowopen;
+		HTP.tabledata('Telefono: '||RecapitoTelefonicoUtente);
+		HTP.tablerowclose;
+		HTP.tableClose;
+		MODGUI1.Collegamento('Modifica', Costanti.server || Costanti.radice|| '/ModificaDatiUtente?sessionID='||sessionID||'&utenteID='||utenteID, 'w3-button w3-blue');
+		MODGUI1.ChiudiDiv;
+		HTP.BodyClose;
+		HTP.HtmlClose;
+	ELSE
+		MODGUI1.ApriPagina('Utente non trovato', sessionID);
+		HTP.BodyOpen;
+
+		HTP.PRN('Utente non trovato');
+
+		HTP.BodyClose;
+		HTP.HtmlClose;
+	END IF;
+END;
+
+END GRUPPO1;
 
 /*
  *  OPERAZIONI SUI TITOLI DI INGRESSO

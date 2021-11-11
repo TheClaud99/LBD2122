@@ -394,14 +394,22 @@ END GRUPPO1;
 */
 /*
 PROCEDURE AcquistoBiglietto(
- 	sessionID NUMBER DEFAULT 0
+ 	sessionID NUMBER DEFAULT 0,
+	dataEmiss VARCHAR2 DEFAULT NULL,
+	dataScad VARCHAR2 DEFAULT NULL,
+	nomeUtente VARCHAR2 DEFAULT NULL,
+	cognomeUtente VARCHAR2 DEFAULT NULL,
+	idutenteselezionato NUMBER DEFAULT NULL,
+	idmuseoselezionato NUMBER DEFAULT NULL,
 	
+	tipologiaTitolo VARCHAR2 DEFAULT NULL,
+	idtitoloselezionato VARCHAR2 DEFAULT NULL,
+	convalida NUMBER DEFAULT NULL
 ) IS
-	nomeUtente VARCHAR2(25) DEFAULT NULL;
-	cognomeUtente VARCHAR(25) DEFAULT NULL;
-	varIdUtente NUMBER(5) DEFAULT NULL;
-	varIdMuseo NUMBER(5) DEFAULT NULL;
-	NomeMuseo VARCHAR2(40) DEFAULT NULL;
+	varIdUtente NUMBER(5);
+	varIdMuseo NUMBER(5);
+	NomeMuseo VARCHAR2 DEFAULT NULL;
+
 BEGIN
 
     MODGUI1.ApriPagina('Acquisto Biglietto', 0);
@@ -410,48 +418,57 @@ BEGIN
 	HTP.header(1,'Inserisci un nuovo biglietto', 'center');
 	MODGUI1.ApriDiv('style="margin-left: 2%; margin-right: 2%;"');
 
-	MODGUI1.ApriForm('ConfermaAcquistoBiglietto');
-	HTP.FORMHIDDEN('sessionID',0);
-    MODGUI1.ApriDiv('style="margin-left: 2%; margin-right: 2%;"');
-	MODGUI1.Label('Data Emissione*');
-	MODGUI1.InputDate('dataEmiss', 'Data emissione');
-	HTP.BR;
-	MODGUI1.Label('Data Scadenza*');
-	MODGUI1.InputDate('dataScad', 'Data Scadenza');
-	HTP.BR;
+	if convalida is null
+		MODGUI1.ApriForm('gruppo1.ConfermaAcquistoBiglietto');
+		HTP.FORMHIDDEN('sessionID',0);
+    	MODGUI1.ApriDiv('style="margin-left: 2%; margin-right: 2%;"');
+		MODGUI1.Label('Data Emissione*');
+		MODGUI1.InputDate('dataEmiss', 'Data emissione');
+		HTP.BR;
+		MODGUI1.Label('Data Scadenza*');
+		MODGUI1.InputDate('dataScad', 'Data Scadenza');
+		HTP.BR;
 	
-	MODGUI1.Label('Utente');
-	MODGUI1.SelectOpen();
+		MODGUI1.Label('Utente');
+		MODGUI1.SelectOpen('idutenteselezionato');
 		for utente in (SELECT IdUtente from UTENTIMUSEO)
-		loop
-			SELECT IdUtente, Nome, Cognome INTO varIdUtente, nomeUtente, cognomeUtente
-			FROM UTENTI
-			where IdUtente=utente.IdUtente;
-			MODGUI1.SelectOption(varIdUtente, ''|| nomeUtente ||' '||cognomeUtente||'');
-		end loop;
-	MODGUI1.SelectClose();
-	HTP.BR;
+			loop
+				SELECT IdUtente, Nome, Cognome INTO varIdUtente, nomeUtente, cognomeUtente
+				FROM UTENTI
+				where IdUtente=utente.IdUtente;
+				MODGUI1.SelectOption(varIdUtente, ''|| nomeUtente ||' '||cognomeUtente||'');
+			end loop;
+		MODGUI1.SelectClose();
+		HTP.BR;
 	
-	MODGUI1.Label('Museo');
-	MODGUI1.SelectOpen();
+		MODGUI1.Label('Museo');
+		MODGUI1.SelectOpen('idmuseoselezionato', 'museo-selezionato');
 	    for museo in (SELECT IdMuseo from MUSEI)
-	    loop
-	        SELECT IdMuseo, Nome INTO varIdMuseo, NomeMuseo
-	        FROM MUSEI
-	        WHERE IdMuseo=museo.IdMuseo;
-	        MODGUI1.SelectOption(varIdMuseo, NomeMuseo);
-	    end loop;
-    MODGUI1.SelectClose();
+	    	loop
+	        	SELECT IdMuseo, Nome INTO varIdMuseo, NomeMuseo
+	        	FROM MUSEI
+	        	WHERE IdMuseo=museo.IdMuseo;
+	        	MODGUI1.SelectOption(varIdMuseo, NomeMuseo);
+	    	end loop;
+    	MODGUI1.SelectClose();
 
-    MODGUI1.Label('Tipologia di Ingresso');
-    MODGUI1.SelectOpen()
-        for tipologie in (SELECT IdTipologi)
-	MODGUI1.InputSubmit('Acquista');
-    MODGUI1.ChiudiDiv();
-	MODGUI1.ChiudiForm();
+    	MODGUI1.Label('Tipologia di Ingresso');
+    	MODGUI1.SelectOpen()
+    	for tipologia in (SELECT Tipologieingressomusei.IdTipologiaIng, Nome FROM TIPOLOGIEINGRESSOMUSEI, TIPOLOGIEINGRESSO
+						 WHERE IdMuseo=idmuseoselezionato AND TIPOLOGIEINGRESSOMUSEI.IdTipologiaIng=TIPOLOGIEINGRESSO.IdTipologiaIng)
+		loop
+			MODGUI1.SelectOption(tipologia.IdTipologiaIng, tipologia.Nome)
+		end loop;
+		htp.prn('<button class="w3-button w3-block w3-black w3-section w3-padding" type="submit" name="convalida" value="1">Acquista</button>')
+    	MODGUI1.ChiudiDiv();
+		MODGUI1.ChiudiForm();
 	
 	MODGUI1.ChiudiDiv();
-
+	htp.prn('<script>
+            document.getElementById("museo-selezionato").onchange = function inviaFormCreaMuseo() {
+                document.AcquistaBiglietto.submit();
+            }
+        </script>');
 	HTP.BodyClose;
 	HTP.HtmlClose;
 

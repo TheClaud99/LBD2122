@@ -17,8 +17,8 @@ CREATE OR REPLACE PACKAGE BODY modGUI1 as
             modGUI1.Collegamento('HOME','Home?idSessione='|| idSessione,'w3-bar-item w3-button');
             if (idSessione!=0)
             then
-            modGUI1.Collegamento('Musei','MuseiHome?idSessione='|| idSessione,'w3-bar-item w3-button');
-            modGUI1.Collegamento('Campi Estivi','CampiEstiviHome?idSessione='|| idSessione,'w3-bar-item w3-button');
+                modGUI1.Collegamento('Musei','MuseiHome?idSessione='|| idSessione,'w3-bar-item w3-button');
+                modGUI1.Collegamento('Campi Estivi','CampiEstiviHome?idSessione='|| idSessione,'w3-bar-item w3-button');
             end if;
         modGUI1.ChiudiDiv;
         modGUI1.BannerUtente(idSessione);
@@ -185,12 +185,14 @@ CREATE OR REPLACE PACKAGE BODY modGUI1 as
 
     procedure SelectOption(valore varchar2, testo varchar2 default 'Opzione', selected int default 0) is
     begin
-        htp.prn('<option');
+        htp.prn('<option value="'||valore||'"');
         if (selected=1)
         then
-            htp.prn(' selected');
+            htp.prn('selected>');
+        else
+            htp.prn('>');
         end if;
-        htp.prn(' value="' ||valore|| '">'|| testo ||'</option>');
+        htp.prn(''|| testo ||'</option>');
     end SelectOption;
 
     procedure SelectClose is

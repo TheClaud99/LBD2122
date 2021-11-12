@@ -2,8 +2,8 @@ CREATE OR REPLACE PACKAGE BODY gruppo2 AS
 
 /*
  * OPERAZIONI SULLE OPERE
- * - Inserimento ❌
- * - Modifica ❌  
+ * - Inserimento 
+ * - Modifica  
  * - Visualizzazione ❌
  * - Cancellazione (rimozione) ❌ 
  * - Spostamento ❌

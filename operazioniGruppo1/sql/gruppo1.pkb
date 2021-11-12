@@ -229,7 +229,7 @@ PROCEDURE InserisciDatiUtente (
 
 BEGIN
     -- tutti i parametri sono stati controllati prima, dobbiamo solo inserirli nella tabella
-    SELECT count(*) INTO temp FROM UTENTI WHERE Email = email;
+    SELECT count(*) INTO temp FROM UTENTI WHERE UTENTI.Email = email;
 
     IF temp > 0 THEN
         RAISE EmailPresente;
@@ -512,7 +512,7 @@ PROCEDURE formacquistabiglietto(
 	nometiping VARCHAR(25);
 BEGIN
 	modgui1.apridiv('class="w3-modal-content w3-card-4 w3-animate-zoom" style="max-width:600px"');
-	modgui1.apriform('package.pagina_acquista_biglietto', 'formCreaBiglietto', 'w3-container');
+	modgui1.apriform('pagina_acquista_biglietto', 'formAcquistaBiglietto', 'w3-container');
 	modgui1.apridiv('class="w3-section"');
 
 	modgui1.Label('Data emissione biglietto*: ');
@@ -525,7 +525,7 @@ BEGIN
 
 	modgui1.label('Utente*: ');
 	modgui1.selectopen('idutenteselezionato', 'utente-selezionato');
-	for utente in (select idutente from utentimuseo)
+	for utente in (select idutente from utenti)
 	loop
 		select idutente, nome, cognome
 		into varidutente, nomeutente, cognomeutente
@@ -543,33 +543,31 @@ BEGIN
 	
 	modgui1.label('Museo*: ');
 	modgui1.selectopen('idmuseoselezionato', 'museo-selezionato');
-	for museo in (select idmuseo from musei)
+	for museo in (select idmuseo, nome from musei )
 	loop
-		select idmuseo, Nome
-		into varidmuseo, nomeMuseo
-		from musei;
 		if museo.idmuseo=idmuseoselezionato
-		then modgui1.SelectOption(varidmuseo, nomeMuseo, 1);
-		else modgui1.SelectOption(varidmuseo, nomeMuseo, 0);
+		then modgui1.SelectOption(museo.idmuseo, museo.nome, 1);
+		else modgui1.SelectOption(museo.idmuseo, museo.nome, 0);
 		end if;
 	end loop;
 	modgui1.SelectClose();
+	htp.br;
 	
 	modgui1.label('Tipologia di biglietto*: ');
 	modgui1.selectopen('idtipologiaselezionata', 'tipologia-selezionata');
-	for tipologia in (select idtipologiaing from TIPOLOGIEINGRESSO)
-	LOOP
-		select TIPOLOGIEINGRESSO.IDTIPOLOGIAING, tipologieingresso.NOME
+	for tipologia in (		
+		select TIPOLOGIEINGRESSO.IDTIPOLOGIAING, NOME
 		into varidtipologia, nometiping
 		from TIPOLOGIEINGRESSOMUSEI JOIN TIPOLOGIEINGRESSO
         ON TIPOLOGIEINGRESSO.IDTIPOLOGIAING=TIPOLOGIEINGRESSOMUSEI.IDTIPOLOGIAING   
-		where IdMuseo=idmuseoselezionato 
-			and TIPOLOGIEINGRESSOMUSEI.IdTipologiaIng=TIPOLOGIEINGRESSO.IdTipologiaIng;
+		where IdMuseo=idmuseoselezionato
+	)
+	LOOP
 		if idtipologiaselezionata= tipologia.idtipologiaing
 		then
-			modgui1.SelectOption(varidtipologia, nometipologia, 1);
+			modgui1.SelectOption(tipologia.idtipologiaing, tipologia.nome, 1);
 		else
-			modgui1.SelectOption(varidtipologia, nometipologia, 0);
+			modgui1.SelectOption(tipologia.idtipologiaing, tipologia.nome, 0);
 		end if;
 	end loop;
 	modgui1.selectclose();
@@ -579,7 +577,7 @@ BEGIN
 	modgui1.chiudiform();
 	modgui1.chiudidiv();
 	htp.prn('<script> 
-				document.getElementById("museo-selezionato".onchange= function inviaFormAcquistaBiglietto{
+				document.getElementById("museo-selezionato").onchange= function inviaFormAcquistaBiglietto(){
 					document.formAcquistaBiglietto.submit();
 					}
 	</script>');
@@ -598,8 +596,8 @@ BEGIN
 	modgui1.header();
 	modgui1.apridiv('style="margin-top: 110px"');
 	htp.prn('<h1> Acquisto biglietto </h1>');
-	/*
-	if convalida is null
+	
+	if convalida IS NULL
 	then 
 		formacquistabiglietto(dataEmissionechar, dataScadenzachar,
 					idmuseoselezionato, idtipologiaselezionata, idutenteselezionato);
@@ -608,12 +606,8 @@ BEGIN
 		acquistabiglietto(dataEmissionechar, dataScadenzachar,
 							idmuseoselezionato, idtipologiaselezionata, idutenteselezionato);
 	end if;
-	*/
-	modgui1.chiudidiv();
-	htp.prn('<script> function inviaFormAcquistaBiglietto(){
-		document.formAcquistaBiglietto.submit();
-		}
-	</script>');
+	
+	modgui1.chiudidiv(); 
 	HTP.BodyClose;
 	HTP.HtmlClose;
 END;

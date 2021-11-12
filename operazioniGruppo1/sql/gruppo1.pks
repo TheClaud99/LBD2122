@@ -1,7 +1,7 @@
 CREATE OR REPLACE PACKAGE gruppo1 AS
 
 root constant VARCHAR2(125) := 'http://131.114.73.203:8080/apex/';
-user constant VARCHAR2(25) := 'nvetrini.gruppo1.';
+user constant VARCHAR2(25) := 'fgiannotti.gruppo1.';
 
 procedure InserisciUtente(sessionID NUMBER DEFAULT 0);
 PROCEDURE ConfermaDatiUtente(
@@ -22,32 +22,39 @@ PROCEDURE InserisciDatiUtente (
 	email VARCHAR2 DEFAULT NULL,
     telefono VARCHAR2 DEFAULT NULL
 );
-/*
-PROCEDURE AcquistoBiglietto(
-    sessionID NUMBER DEFAULT 0
-);
 
-PROCEDURE ConfermaAcquistoBiglietto(
-	sessionID NUMBER DEFAULT 0,
-	dataEmiss VARCHAR2 DEFAULT NULL,
-	dataScad VARCHAR2 DEFAULT NULL,
-	nomeUtente UTENTI.Nome%TYPE DEFAULT NULL,
-	cognomeUtente UTENTI.Cognome%TYPE DEFAULT NULL,
-	varIdUtente UTENTI.IdUtente%TYPE DEFAULT NULL,
-	varIdMuseo MUSEI.IdMuseo%TYPE DEFAULT NULL,
-	NomeMuseo MUSEI.Nome%TYPE DEFAULT NULL
-);
-
-PROCEDURE InserisciDatiBigliettoAcquistato (
+PROCEDURE VisualizzaDatiUtente (
     sessionID NUMBER DEFAULT 0,
-	dataEmiss VARCHAR2 DEFAULT NULL,
-	dataScad VARCHAR2 DEFAULT NULL,
-	nomeUtente UTENTI.Nome%TYPE DEFAULT NULL,
-	cognomeUtente UTENTI.Cognome%TYPE DEFAULT NULL,
-	varIdUtente UTENTI.IdUtente%TYPE DEFAULT NULL,
-	varIdMuseo MUSEI.IdMuseo%TYPE DEFAULT NULL,
-	NomeMuseo MUSEI.Nome%TYPE DEFAULT NULL
+	utenteID NUMBER
 );
-*/
 
+PROCEDURE ModificaDatiUtente (
+    sessionID NUMBER DEFAULT 0,
+	utenteID NUMBER DEFAULT NULL
+);
+
+PROCEDURE acquistabiglietto(
+	dataEmissionechar IN VARCHAR2,
+	dataScadenzachar IN VARCHAR2,
+	idmuseoselezionato IN VARCHAR2,
+	idtipologiaselezionata IN VARCHAR2,
+	idutenteselezionato IN VARCHAR2
+);
+
+PROCEDURE formacquistabiglietto(
+	dataEmissionechar IN VARCHAR2,
+	dataScadenzachar IN VARCHAR2,
+	idmuseoselezionato IN VARCHAR2 default null,
+	idtipologiaselezionata IN VARCHAR2 default null,
+	idutenteselezionato IN VARCHAR2 default null
+);
+
+PROCEDURE pagina_acquista_biglietto(
+	dataEmissionechar VARCHAR2 DEFAULT NULL,
+	dataScadenzachar VARCHAR2 DEFAULT NULL,
+	idmuseoselezionato VARCHAR2 DEFAULT NULL,
+	idtipologiaselezionata VARCHAR2 DEFAULT NULL,
+	idutenteselezionato VARCHAR2 DEFAULT NULL,
+	convalida IN NUMBER DEFAULT NULL
+);
 END gruppo1;

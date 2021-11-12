@@ -1,8 +1,12 @@
 CREATE OR REPLACE PACKAGE BODY WebPages as
 
-procedure Home (idSessione varchar2 default 0) is
+--SCHERMATA PRINCIPALE
+procedure BodyHome (idSessione varchar2 default 0) is
     begin
-    modGUI1.ApriPagina('HOME',idSessione);
+    htp.htmlOpen;
+    htp.headOpen;
+    htp.prn('<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css"> ');
+    htp.headClose;
     modGUI1.Header(idSessione);
     if (idSessione=1)
     then
@@ -31,105 +35,71 @@ procedure Home (idSessione varchar2 default 0) is
             modGUI1.ChiudiDiv;
         modGUI1.chiudiDiv;
     end if;
-    end Home;
+    end BodyHome;
 
-    procedure MuseiHome (idSessione int default 0) is
+
+
+--MENU GENERICO VISUALIZZAZIONE MUSEI E TASTO AGGIUNTA
+procedure MuseiHome (idSessione int default 0) is
     begin
-        modGUI1.ApriPagina('Musei',idSessione);
+        htp.prn('<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css"> ');
         modGUI1.Header(idSessione);
-        htp.br;
-        htp.br;
-        htp.br;
-        htp.br;
+        htp.br;htp.br;htp.br;htp.br;htp.br;htp.br;
         modGUI1.ApriDiv('class="w3-center"');
-            htp.prn('<h1>Musei</h1>');
+            htp.prn('<h1>Musei</h1>'); --TITOLO
+
+        if (idSessione=1)
+        then
+            modGUI1.Collegamento('Aggiungi','inserimento','w3-btn w3-round-xxlarge w3-black'); /*bottone che rimanda alla procedura inserimento solo se la sessione è 1*/
+        end if;
+ 
         modGUI1.ChiudiDiv;
         htp.br;
         modGUI1.ApriDiv('class="w3-row w3-container"');
-        if (idSessione=1)
-        then
-
-                modGUI1.ApriDiv('class="w3-col l4 w3-padding-large w3-center"');
-                    modGUI1.ApriDiv('class="w3-card-4" style="height:420px;"');
-                    htp.br;
-                    modGUI1.InputImage('ImmMuseo','ImmMuseo');
-                            modGUI1.ApriDiv('class="w3-container w3-margin w3-center"');
-                                modGUI1.ApriForm('InserisciMuseo','InserisciMuseo');
-                                    modGUI1.Label('Nome:');
-                                    modGUI1.InputText('nomeMuseo','Inserisci il nome del museo...', 1);
-                                    modGUI1.Label('Descrizione:');
-                                    htp.br;
-                                    modGUI1.InputTextArea('desMuseo','Inserisci la descrizione del museo...', 1);
-                                    htp.br;
-                                    modGUI1.InputSubmit('Aggiungi');
-                                modGUI1.ChiudiForm;
-                            modGUI1.ChiudiDiv;
-
-                    modGUI1.ChiudiDiv;
-                modGUI1.ChiudiDiv;
-
-
-        end if;
-
+        --INIZIO LOOP DELLA VISUALIZZAZIONE
             FOR k IN 1..10 LOOP
                 modGUI1.ApriDiv('class="w3-col l4 w3-padding-large w3-center"');
                     modGUI1.ApriDiv('class="w3-card-4"');
-                    htp.prn('<img src="https://cdn.pixabay.com/photo/2016/10/22/15/32/water-1761027__480.jpg" alt="Alps" style="width:100%;">');
+                    htp.prn('<img src="https://cdn.pixabay.com/photo/2016/10/22/15/32/water-1761027__480.jpg" alt="Alps" style="width:100%">');
                             modGUI1.ApriDiv('class="w3-container w3-center"');
+                            --INIZIO DESCRIZIONI
                                 htp.prn('<p>Museo '|| k ||'</p>');
+                                htp.prn('<p>testo di prova</p>');
+                            --FINE DESCRIZIONI
                             modGUI1.ChiudiDiv;
-                            if(idSessione=1) then
+                            
+                            if(idSessione=1) then --Bottoni visualizzati in base alla sessione 
                                modGUI1.Bottone('w3-black','Visualizza');
                                modGUI1.Bottone('w3-green','Modifica');
                                modGUI1.Bottone('w3-red','Rimuovi');
                             else
                             modGUI1.Bottone('w3-black','Visualizza');
                             end if;
+
                     modGUI1.ChiudiDiv;
                 modGUI1.ChiudiDiv;
             END LOOP;
+        --FINE LOOP
         modGUI1.chiudiDiv;
     end MuseiHome;
 
-    procedure CampiEstiviHome (idSessione int default 0) is
+--MENU VISUALIZZAZIONE CAMPI ESTIVI E TASTO AGGIUNTA
+procedure CampiEstiviHome (idSessione int default 0) is
     begin
-        modGUI1.ApriPagina('Campi Estivi',idSessione);
+        htp.prn('<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css"> ');
         modGUI1.Header(idSessione);
-        htp.br;
-        htp.br;
-        htp.br;
-        htp.br;
+        htp.br;htp.br;htp.br;htp.br;htp.br;htp.br;
         modGUI1.ApriDiv('class="w3-center"');
-            htp.prn('<h1>Campi estivi</h1>');
+            htp.prn('<h1>Campi estivi</h1>'); --TITOLO
+
+        if (idSessione=1)
+        then
+            modGUI1.Collegamento('Aggiungi','inserimento','w3-btn w3-round-xxlarge w3-black'); /*bottone che rimanda alla procedura inserimento*/
+        end if;
         modGUI1.ChiudiDiv;
         htp.br;
         modGUI1.ApriDiv('class="w3-container" style="width:100%"');
-        if(idSessione=1)
-        then
-        modGUI1.ApriForm('AggiuntaCampo','campoEstivo',NULL);
-            modGUI1.ApriDiv('class="w3-row w3-container w3-border w3-round-small w3-padding-large w3-hover-light-grey" style="width:100%"');
-                    modGUI1.ApriDiv('class="w3-container w3-cell" style="width:500px; height:300px;"');
-                        htp.br;htp.br;htp.br;htp.br;htp.br;htp.br;
-                        modGUI1.InputImage('imgEstivo','imgEstivo');
-                    modGUI1.ChiudiDiv;
-                    modGUI1.ApriDiv('class="w3-container w3-cell w3-cell-middle" style="width:1120px; height:300px"');
-                        modGUI1.Label('Titolo:');
-                        modGUI1.InputText('titoloEstivo','Inserisci il titolo del campo estivo...',1);
-                        modGUI1.Label('Descrizione:');
-                        modGUI1.InputTextArea('desEstivo','Inserisci la descrizione del campo estivo...',1);
-                        htp.prn('<b>Partenza:</b>');
-                        modGUI1.InputDate('dataEstivoInizio','DataInizio');
-                        htp.prn('<b>Ritorno:</b>');
-                        modGUI1.InputDate('dataEstivoFine','DataFine');
-                    modGUI1.ChiudiDiv;
-                    modGUI1.ApriDiv('class="w3-container w3-cell w3-cell-middle"');
-                        modGUI1.InputSubmit('Aggiungi');
-                    modGUI1.ChiudiDiv;
-            modGUI1.chiudiDiv;
-        modGUI1.ChiudiForm;
-            htp.br;
-            htp.br;
-        end if;
+        --INIZIO LOOP DELLA VISUALIZZAZIONE
             FOR k IN 1..10
             LOOP
             modGUI1.ApriDiv('class="w3-row w3-container w3-border w3-round-small w3-padding-large w3-hover-light-grey" style="width:100%"');
@@ -137,12 +107,15 @@ procedure Home (idSessione varchar2 default 0) is
                         htp.prn('<img src="https://cdn.pixabay.com/photo/2016/10/22/15/32/water-1761027__480.jpg" alt="Alps" style="width:500px; height:300px;">');
                     modGUI1.ChiudiDiv;
                     modGUI1.ApriDiv('class="w3-container w3-cell w3-border-right w3-cell-middle" style="width:1120px; height:300px"');
+                    --DESCRIZIONI DA MODIFICARE
                         htp.prn('<h5>Campo estivo A</h5>');
                         htp.prn('<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus eget erat at velit bibendum lobortis. Integer commodo sed libero blandit scelerisque. Cras tristique justo in nibh pharetra, hendrerit eleifend orci volutpat. Sed sed dapibus mauris, ut cursus nibh. Maecenas cursus dolor eu arcu tincidunt condimentum. Etiam cursus tellus purus, vel feugiat mi maximus sit amet. Pellentesque id faucibus nulla. Nam quis feugiat est, non interdum dui. Fusce venenatis vitae diam vitae tincidunt. Vestibulum dictum, quam vitae molestie vehicula, leo urna blandit mauris, ut efficitur mi purus venenatis turpis. </p>');
                         htp.prn('<p>Orario: 9:00 - 18:00</p>');
+                    --FINE DESCRIZIONI
                     modGUI1.ChiudiDiv;
                     modGUI1.ApriDiv('class="w3-container w3-cell w3-cell-middle"');
-                        if(idSessione=1) then
+
+                        if(idSessione=1) then --Bottoni visualizzati in base alla sessione 
                                         modGUI1.Bottone('w3-black','Visualizza');
                                         htp.br;
                                         modGUI1.Bottone('w3-green','Modifica');
@@ -151,23 +124,114 @@ procedure Home (idSessione varchar2 default 0) is
                             else
                                 modGUI1.Bottone('w3-black','Visualizza');
                             end if;
+
                     modGUI1.ChiudiDiv;
             modGUI1.chiudiDiv;
             htp.br;
             htp.br;
             END LOOP;
+        --FINE LOOP VISUALIZZAZIONE
         modGUI1.chiudiDiv;
     end CampiEstiviHome;
 
-    procedure Test (idSessione int default 0) is
-    begin
-        modGUI1.ApriPagina('Test',idSessione);
+
+--PROCEDURA PER INSERIMENTO
+PROCEDURE Inserimento(
+    idSessione NUMBER DEFAULT 0
+) IS
+BEGIN 
+        modGUI1.ApriPagina('PROVA',idSessione);--DA MODIFICARE campo PROVA
         modGUI1.Header(idSessione);
-        htp.br;
-        htp.br;
-        htp.br;
-        htp.br;
-        
-    end Test;
+        htp.br;htp.br;htp.br;htp.br;htp.br;htp.br;
+        htp.prn('<h1 align="center">PROVA</h1>');--DA MODIFICARE
+        modGUI1.ApriDiv('class="w3-modal-content w3-card-4 w3-animate-zoom" style="max-width:600px"');
+            modGUI1.ApriDiv('class="w3-section"');
+            modGUI1.Collegamento('X','COLLEGAMENTOPROVA',' w3-btn w3-large w3-red w3-display-topright'); --Bottone per tornare indietro, cambiare COLLEGAMENTOPROVA
+            --INIZIO SEZIONE DA MODIFICARE
+                modGUI1.ApriForm('prova',NULL,'w3-container');
+                    modGUI1.Label('Nome*');
+                    modGUI1.Inputtext('nome', 'Nome studente',0);
+                    htp.br;
+                    modGUI1.Label('cognome*');
+                    modGUI1.Inputtext('cognome', 'Cognome studente',0);
+                    htp.br;
+                    modGUI1.Label('Durata della prova*');
+                    modGUI1.InputNumber('durataProva', 'Durata della prova',0); 
+                    htp.br;
+                    modGUI1.Label('Inserisci data prova*:');
+                    modGUI1.InputDate('dataProva', 'Data della prova',0);
+                    htp.br;
+                    modGUI1.Label('Nome prova* ');
+                    modGUI1.InputText('nomeProva', 'Nome della prova',10);
+                    htp.br;
+                    modGUI1.InputSubmit('Aggiungi');
+                modGUI1.ChiudiForm;
+            --FINE SEZIONE DA MODIFICARE
+            modGUI1.ChiudiDiv;
+        modGUI1.ChiudiDiv;
+END Inserimento;
+
+
+
+--PAGINA PER CONFERMARE
+PROCEDURE Conferma(
+    idSessione NUMBER DEFAULT 0,
+    --LISTA VARIABILI PASSATE
+    nome VARCHAR2 DEFAULT 'Sconosciuto',
+    cognome VARCHAR2 DEFAULT 'Sconosciuto',
+    dataNascita VARCHAR2 DEFAULT NULL,
+    dataMorte VARCHAR2 DEFAULT NULL,
+    nazionalita VARCHAR2 DEFAULT 'Sconosciuta'
+) IS 
+BEGIN 
+    modGUI1.ApriPagina('Conferma',idSessione);
+        modGUI1.Header(idSessione);
+        htp.br;htp.br;htp.br;htp.br;htp.br;htp.br;
+        htp.prn('<h1 align="center">CONFERMA DATI</h1>');--DA MODIFICARE
+        modGUI1.ApriDiv('class="w3-modal-content w3-card-4 w3-animate-zoom" style="max-width:600px" ');
+            modGUI1.ApriDiv('class="w3-section"');
+
+            --INIZIO RIEPILOGO
+                htp.br;
+                modGUI1.Label('Nome:');
+                HTP.PRINT(nome);--parametro passato
+                htp.br;
+                modGUI1.Label('Cognome:');
+                HTP.PRINT(cognome);--parametro passato
+                htp.br;
+                modGUI1.Label('Data nascita:');
+                HTP.PRINT(dataNascita);--parametro passato
+                htp.br;
+                modGUI1.Label('Data morte:');
+                HTP.PRINT(dataMorte);--parametro passato
+                htp.br;
+                modGUI1.Label('Nazionalità:');
+                HTP.PRINT(nazionalita);--parametro passato
+                htp.br;
+            --FINE RIEPILOGO
+            modGUI1.ChiudiDiv;
+            --Due form nascosti 
+                --1)per inviare i dati alla procedura che inserisce i parametri nella tabella
+            modGUI1.ApriForm('InsertDati');
+            HTP.FORMHIDDEN('idSessione', idSessione);
+            HTP.FORMHIDDEN('nome', nome);
+            HTP.FORMHIDDEN('cognome', cognome);
+            HTP.FORMHIDDEN('dataNascita', dataNascita);
+            HTP.FORMHIDDEN('dataMorte', dataMorte);
+            HTP.FORMHIDDEN('nazionalita', nazionalita);
+            modGUI1.InputSubmit('Conferma');--bottone conferma
+            modGUI1.ChiudiForm;
+                --1)per inviare i dati alla procedura Menu
+            modGUI1.ApriForm('Menu');
+            HTP.FORMHIDDEN('idSessione', idSessione);
+            HTP.FORMHIDDEN('nome', nome);
+            HTP.FORMHIDDEN('cognome', cognome);
+            HTP.FORMHIDDEN('dataNascita', dataNascita);
+            HTP.FORMHIDDEN('dataMorte', dataMorte);
+            HTP.FORMHIDDEN('nazionalita', nazionalita);
+            modGUI1.InputSubmit('Annulla');--bottone annulla
+    modGUI1.ChiudiDiv;  
+END Conferma;
+
 
 end WebPages;

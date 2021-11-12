@@ -10,7 +10,7 @@ procedure ChiudiDiv;
 procedure Collegamento(testo varchar2, indirizzo varchar2, classe varchar2 default '');
 procedure ApriForm(azione varchar2, nome varchar2 default 'myForm', classe varchar2 default '');
 procedure ChiudiForm;
-procedure InputText (nome varchar2, placeholder varchar2 default '', required int default 0, lunghezza int default 1000);
+procedure InputText (nome varchar2, placeholder varchar2 default '', required int default 0, valore varchar2 default '', lunghezza int default 1000);
 procedure Label (testo varchar2);
 procedure InputImage (id varchar2, nome varchar2 );
 procedure InputTextArea (nome varchar2, placeholder varchar2 default '', required int default 0);

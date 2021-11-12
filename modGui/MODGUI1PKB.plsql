@@ -5,6 +5,7 @@ CREATE OR REPLACE PACKAGE BODY modGUI1 as
         htp.htmlOpen;
         htp.headOpen;
         htp.prn('<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css"> ');
+        htp.print('<script> ' || Costanti.jscript || ' </script>');
         htp.title(titolo);
         htp.headClose;
     end ApriPagina;
@@ -150,12 +151,18 @@ CREATE OR REPLACE PACKAGE BODY modGUI1 as
 
     procedure InputDate (id varchar2, nome varchar2, required int default 0, defaultValue varchar2 default '') is /*Input di tipo calendario*/
     begin
-        htp.prn('<input class="w3-border w3-margin-top w3-margin-bottom w3-round-xlarge" style="max-width:300px;" type="date" id="'|| id ||'" name="'|| nome ||'" value="' || defaultValue ||'" min="1900-01-01" max="2030-12-31"');
+        htp.prn('<input class="w3-border w3-margin-top w3-margin-bottom w3-round-xlarge" style="max-width:300px;" type="date" id="'|| id ||'" name="'|| nome ||'" value="" min="1900-01-01" max="2030-12-31"');
         if (required = 1)
         then
             htp.prn('required');
         end if;
         htp.prn('>');
+        htp.print('<script type="text/javascript">
+                if("'||defaultValue||'") {
+                    const res = new Date("'||defaultValue||'")
+                    document.getElementById("'||id||'").setAttribute("value", res.toISOString().split("T")[0])
+                }
+        </script>');
     end InputDate;
 
     procedure InputTime (id varchar2, nome varchar2, required int default 0, defaultValue varchar2 default '') is /*Input di tipo orario*/

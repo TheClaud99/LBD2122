@@ -602,8 +602,8 @@ BEGIN
 		formacquistabiglietto(dataEmissionechar, dataScadenzachar,
 					idmuseoselezionato, idtipologiaselezionata, idutenteselezionato);
 	else 
-		htp.prn('<h1> Biglietto acquistato </h1>');
-		acquistabiglietto(dataEmissionechar, dataScadenzachar,
+		htp.print('<h3>Biglietto acquistato</h3>');
+		confermaacquistobiglietto(dataEmissionechar, dataScadenzachar,
 							idmuseoselezionato, idtipologiaselezionata, idutenteselezionato);
 	end if;
 	

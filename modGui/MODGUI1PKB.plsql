@@ -5,6 +5,7 @@ CREATE OR REPLACE PACKAGE BODY modGUI1 as
         htp.htmlOpen;
         htp.headOpen;
         htp.prn('<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css"> ');
+        htp.print('<script> ' || Costanti.jscript || ' </script>');
         htp.title(titolo);
         htp.headClose;
     end ApriPagina;
@@ -111,9 +112,9 @@ CREATE OR REPLACE PACKAGE BODY modGUI1 as
       htp.print('</form>');
     end ChiudiForm;
 
-    procedure InputText (nome varchar2, placeholder varchar2 default '', required int default 0, lunghezza int default 1000) is /*Casella di input testuale, nome -> nome casella, placeholder -> testo visualizzato quando vuota, required -> vincolo di NOT NULL*/
+    procedure InputText (nome varchar2, placeholder varchar2 default '', required int default 0, valore varchar2 default '', lunghezza int default 1000) is /*Casella di input testuale, nome -> nome casella, placeholder -> testo visualizzato quando vuota, required -> vincolo di NOT NULL*/
     begin
-    htp.prn('<input class="w3-padding w3-round-xlarge w3-border w3-margin-top w3-margin-bottom" style="max-width:'|| lunghezza ||';height:35px;" type="text" name="'|| nome ||'" placeholder="'|| placeholder ||'"');
+    htp.prn('<input class="w3-padding w3-round-xlarge w3-border w3-margin-top w3-margin-bottom" style="max-width:'|| lunghezza ||';height:35px;" type="text" name="'|| nome ||'" placeholder="'|| placeholder ||'" value="' || valore || '"');
     if (required = 0)
     then
         htp.prn('>');
@@ -150,12 +151,18 @@ CREATE OR REPLACE PACKAGE BODY modGUI1 as
 
     procedure InputDate (id varchar2, nome varchar2, required int default 0, defaultValue varchar2 default '') is /*Input di tipo calendario*/
     begin
-        htp.prn('<input class="w3-border w3-margin-top w3-margin-bottom w3-round-xlarge" style="max-width:300px;" type="date" id="'|| id ||'" name="'|| nome ||'" value="' || defaultValue ||'" min="1900-01-01" max="2030-12-31"');
+        htp.prn('<input class="w3-border w3-margin-top w3-margin-bottom w3-round-xlarge" style="max-width:300px;" type="date" id="'|| id ||'" name="'|| nome ||'" value="" min="1900-01-01" max="2030-12-31"');
         if (required = 1)
         then
             htp.prn('required');
         end if;
         htp.prn('>');
+        htp.print('<script type="text/javascript">
+                if("'||defaultValue||'") {
+                    const res = new Date("'||defaultValue||'")
+                    document.getElementById("'||id||'").setAttribute("value", res.toISOString().split("T")[0])
+                }
+        </script>');
     end InputDate;
 
     procedure InputTime (id varchar2, nome varchar2, required int default 0, defaultValue varchar2 default '') is /*Input di tipo orario*/
@@ -215,7 +222,7 @@ CREATE OR REPLACE PACKAGE BODY modGUI1 as
         htp.prn(testo);
     end InputRadioButton;
 
-    procedure InputCheckbox (testo varchar2, nome varchar2, checked int default 0, disabled int default 0) is 
+    procedure InputCheckbox (testo varchar2, nome varchar2, checked int default 0, disabled int default 0) is
     begin
         htp.print('<input class="w3-check" type="checkbox" style="color:black;margin:10px;" name="'|| nome ||'"');
         if (checked=1)
@@ -230,7 +237,7 @@ CREATE OR REPLACE PACKAGE BODY modGUI1 as
         htp.prn(testo);
     end InputCheckbox;
 
-    procedure InputCheckboxOnClick (testo varchar2, nome varchar2, fun varchar2, id varchar2, checked int default 0, disabled int default 0) is 
+    procedure InputCheckboxOnClick (testo varchar2, nome varchar2, fun varchar2, id varchar2, checked int default 0, disabled int default 0) is
     begin
         htp.print('<input class="w3-check" style="color:black;margin:10px;" type="checkbox" name="'|| nome ||'"');
         if (checked=1)

@@ -57,4 +57,15 @@ PROCEDURE pagina_acquista_biglietto(
 	idutenteselezionato VARCHAR2 DEFAULT NULL,
 	convalida IN NUMBER DEFAULT NULL
 );
+
+--TODO DA TESTARE
+PROCEDURE inserisciNewsLetter (
+    sessionID NUMBER DEFAULT 0
+);
+
+PROCEDURE inserisci_newsletter (
+    sessionID NUMBER DEFAULT 0
+	nome varchar2(25) not null
+);
+
 END gruppo1;

@@ -4,7 +4,7 @@ CREATE OR REPLACE PACKAGE BODY gruppo1 AS
  grant execute on gruppo1 to anonymous;
  *http://131.114.73.203:8080/apex/fgiannotti.gruppo1.InserisciUtente
  * OPERAZIONI SUGLI UTENTI
- * - Inserimento ✅ 
+ * - Inserimento ✅
  * - Modifica ❌
  * - Visualizzazione ❌
  * - Cancellazione (rimozione) ❌
@@ -48,7 +48,7 @@ PROCEDURE InserisciUtente(
 BEGIN
 
     MODGUI1.ApriPagina('Inserimento utenti', 0);
-	
+
 	HTP.BodyOpen;
 	MODGUI1.Header(); --da capire come combinarlo con il resto
 	HTP.header(1,'Inserisci un nuovo utente', 'center');
@@ -89,10 +89,10 @@ BEGIN
 	MODGUI1.InputCheckbox('Richiede assistenza', 'assistenza');
 	HTP.BR;
 	MODGUI1.ChiudiDiv;
-	
+
 	MODGUI1.InputSubmit('Inserisci');
 	MODGUI1.ChiudiForm;
-	
+
 	MODGUI1.ChiudiDiv;
 
 	htp.print('<script type="text/javascript">
@@ -143,9 +143,9 @@ PROCEDURE ConfermaDatiUtente(
 ) IS
 BEGIN
 	-- se utente non autorizzato: messaggio errore
-	IF nome IS NULL 
-	OR cognome IS NULL 
-	OR (dataNascita IS NOT NULL 
+	IF nome IS NULL
+	OR cognome IS NULL
+	OR (dataNascita IS NOT NULL
 		AND to_date(dataNascita, 'YYYY-MM-DD') > sysdate)
 	OR indirizzo IS NULL
     OR email IS NULL
@@ -220,7 +220,7 @@ PROCEDURE InserisciDatiUtente (
 	indirizzo VARCHAR2 DEFAULT NULL,
 	email VARCHAR2 DEFAULT NULL,
     telefono VARCHAR2 DEFAULT NULL
-) IS 
+) IS
     birth DATE := TO_DATE(dataNascita default NULL on conversion error, 'YYYY-MM-DD');
     EmailPresente EXCEPTION;
     TelefonoPresente EXCEPTION;
@@ -298,7 +298,7 @@ BEGIN
 
 		HTP.BodyClose;
 		HTP.HtmlClose;
-    when TelefonoPresente then 
+    when TelefonoPresente then
         MODGUI1.ApriPagina('Errore', sessionID);
 		HTP.BodyOpen;
 
@@ -313,8 +313,8 @@ END;
 
 PROCEDURE VisualizzaDatiUtente (
     sessionID NUMBER DEFAULT 0,
-	utenteID NUMBER 
-) 
+	utenteID NUMBER
+)
 IS
 	NomeUtente UTENTI.Nome%TYPE;
     CognomeUtente UTENTI.Cognome%TYPE;
@@ -332,7 +332,7 @@ BEGIN
 
 	IF SQL%FOUND
 	THEN
-	
+
 		MODGUI1.ApriPagina('Profile utente', sessionID);
 		HTP.BodyOpen;
 		MODGUI1.Header(sessionID);
@@ -381,7 +381,7 @@ END;
 PROCEDURE ModificaDatiUtente (
     sessionID NUMBER DEFAULT 0,
 	utenteID NUMBER DEFAULT NULL
-) 
+)
 IS
 	NomeUtente UTENTI.Nome%TYPE;
     CognomeUtente UTENTI.Cognome%TYPE;
@@ -399,7 +399,7 @@ BEGIN
 
 	IF SQL%FOUND
 	THEN
-	
+
 		MODGUI1.ApriPagina('Profile utente', sessionID);
 		HTP.BodyOpen;
 		MODGUI1.Header(sessionID);
@@ -444,10 +444,10 @@ BEGIN
 		MODGUI1.InputCheckbox('Richiede assistenza', 'assistenza');
 		HTP.BR;
 		MODGUI1.ChiudiDiv;
-		
+
 		MODGUI1.InputSubmit('Salva');
 		MODGUI1.ChiudiForm;
-		
+
 		MODGUI1.ChiudiDiv;
 
 		HTP.BodyClose;
@@ -491,7 +491,7 @@ BEGIN
 		idtipologiaselezionata,
 		idmuseoselezionato
 	);
-	
+
 	--visualizzabiglietto(idbigliettocreato);
 END;
 
@@ -501,7 +501,7 @@ PROCEDURE formacquistabiglietto(
 	idmuseoselezionato IN VARCHAR2 default null,
 	idtipologiaselezionata IN VARCHAR2 default null,
 	idutenteselezionato IN VARCHAR2 default null
-)IS 
+)IS
 	nomeutente utenti.nome%TYPE;
 	cognomeutente utenti.cognome%TYPE;
 	varidutente utenti.Idutente%TYPE;
@@ -534,13 +534,13 @@ BEGIN
 		if utente.idutente = idutenteselezionato
 		then
 			MODGUI1.SelectOption(varidutente, ''|| nomeutente ||' '||cognomeutente||'', 1);
-		else 
+		else
 			MODGUI1.SelectOption(varidutente, ''|| nomeutente ||' '||cognomeutente||'', 0);
 		end if;
 	end loop;
 	modgui1.selectclose();
 	htp.br;
-	
+
 	modgui1.label('Museo*: ');
 	modgui1.selectopen('idmuseoselezionato', 'museo-selezionato');
 	for museo in (select idmuseo, nome from musei )
@@ -552,14 +552,14 @@ BEGIN
 	end loop;
 	modgui1.SelectClose();
 	htp.br;
-	
+
 	modgui1.label('Tipologia di biglietto*: ');
 	modgui1.selectopen('idtipologiaselezionata', 'tipologia-selezionata');
-	for tipologia in (		
+	for tipologia in (
 		select TIPOLOGIEINGRESSO.IDTIPOLOGIAING, NOME
 		into varidtipologia, nometiping
 		from TIPOLOGIEINGRESSOMUSEI JOIN TIPOLOGIEINGRESSO
-        ON TIPOLOGIEINGRESSO.IDTIPOLOGIAING=TIPOLOGIEINGRESSOMUSEI.IDTIPOLOGIAING   
+        ON TIPOLOGIEINGRESSO.IDTIPOLOGIAING=TIPOLOGIEINGRESSOMUSEI.IDTIPOLOGIAING
 		where IdMuseo=idmuseoselezionato
 	)
 	LOOP
@@ -576,7 +576,7 @@ BEGIN
 	modgui1.ChiudiDiv();
 	modgui1.chiudiform();
 	modgui1.chiudidiv();
-	htp.prn('<script> 
+	htp.prn('<script>
 				document.getElementById("museo-selezionato").onchange= function inviaFormAcquistaBiglietto(){
 					document.formAcquistaBiglietto.submit();
 					}
@@ -590,30 +590,84 @@ PROCEDURE pagina_acquista_biglietto(
 	idtipologiaselezionata VARCHAR2 DEFAULT NULL,
 	idutenteselezionato VARCHAR2 DEFAULT NULL,
 	convalida IN NUMBER DEFAULT NULL
-) IS 
-BEGIN 
+) IS
+BEGIN
 	modgui1.apripagina();
 	modgui1.header();
 	modgui1.apridiv('style="margin-top: 110px"');
 	htp.prn('<h1> Acquisto biglietto </h1>');
-	
+
 	if convalida IS NULL
-	then 
+	then
 		formacquistabiglietto(dataEmissionechar, dataScadenzachar,
 					idmuseoselezionato, idtipologiaselezionata, idutenteselezionato);
-	else 
+	else
 		htp.prn('<h1> Biglietto acquistato </h1>');
 		acquistabiglietto(dataEmissionechar, dataScadenzachar,
 							idmuseoselezionato, idtipologiaselezionata, idutenteselezionato);
 	end if;
-	
-	modgui1.chiudidiv(); 
+
+	modgui1.chiudidiv();
 	HTP.BodyClose;
 	HTP.HtmlClose;
 END;
 
+-------------------------------------------------------------TODO DA TESTARE
+PROCEDURE inserisciNewsLetter (
+    sessionID NUMBER DEFAULT 0
+) IS
+BEGIN
+	MODGUI1.ApriPagina('Inserimento newsletter', 0);
 
+	HTP.BodyOpen;
+	MODGUI1.Header(); --da capire come combinarlo con il resto
+	HTP.header(1,'Inserisci una nuova newsletter', 'center');
+	MODGUI1.ApriDiv('style="margin-left: 2%; margin-right: 2%;"');
 
+	MODGUI1.ApriForm('inserisci_newsletter');
+	HTP.FORMHIDDEN('sessionID',0);
+
+	MODGUI1.Label('Nome*');
+	MODGUI1.InputText('nome', 'Nome newsletter', 1);
+	HTP.BR;
+	MODGUI1.ChiudiDiv;
+
+	MODGUI1.InputSubmit('Inserisci');
+	MODGUI1.ChiudiForm;
+
+	MODGUI1.ChiudiDiv;
+
+END;
+
+PROCEDURE inserisci_newsletter (
+    sessionID NUMBER DEFAULT 0
+	nome varchar2(25) not null
+) IS
+BEGIN
+	MODGUI1.ApriPagina('Inserimento utenti', 0);
+
+	insert into NEWSLETTER
+    values (IdNewsSeq.NEXTVAL, nome);
+
+	HTP.BodyOpen;
+	MODGUI1.Header(); --da capire come combinarlo con il resto
+	HTP.header(1,'Newsletter inserita', 'center');
+	MODGUI1.ApriDiv('style="margin-left: 2%; margin-right: 2%;"');
+
+	MODGUI1.ApriForm('inseriscinewsletter');
+	HTP.FORMHIDDEN('sessionID',0);
+
+	MODGUI1.Label('Nome');
+	MODGUI1.label(nome);
+	MODGUI1.ChiudiDiv;
+
+	MODGUI1.InputSubmit('Continuare?');
+	MODGUI1.ChiudiForm;
+
+	MODGUI1.ChiudiDiv;
+
+END;
+-------------------------------------------------------------FINE TODO
 
 END GRUPPO1;
 
@@ -633,7 +687,7 @@ END GRUPPO1;
 
 /*
  *  OPERAZIONI SULLE NEWSLETTER
- * - Inserimento ❌
+ * - Inserimento ❌ (da testare)
  * - Cancellazione❌
  * - Visualizzazione❌
  * - Iscrizione(rimozione)❌

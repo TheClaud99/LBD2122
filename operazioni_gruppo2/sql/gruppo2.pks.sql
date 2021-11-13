@@ -21,7 +21,7 @@ PROCEDURE InserisciDatiOpera(
     idmusei NUMBER DEFAULT NULL
 );
 
-ROCEDURE ModificaOpera(
+PROCEDURE ModificaOpera(
     sessionID NUMBER DEFAULT NULL,
     operaID NUMBER DEFAULT 0,
     titoloOpera VARCHAR2 DEFAULT 'Sconosciuto'
@@ -49,14 +49,7 @@ PROCEDURE UpdateOpera(
 
 
 /* OPERAZIONI SUGLI AUTORI */
-procedure menuAutori (
-    sessionID NUMBER DEFAULT NULL,
-    authName VARCHAR2 DEFAULT NULL,
-    authSurname VARCHAR2 DEFAULT NULL,
-    dataNascita VARCHAR2 DEFAULT NULL,
-    dataMorte VARCHAR2 DEFAULT NULL,
-    nation VARCHAR2 DEFAULT NULL
-    );
+PROCEDURE menuAutori(sessionID NUMBER DEFAULT NULL);
 
 PROCEDURE InserisciAutore(
     sessionID NUMBER DEFAULT NULL,
@@ -85,8 +78,24 @@ PROCEDURE InserisciDatiAutore(
     nation VARCHAR2 DEFAULT 'Sconosciuta'
 );
 
+-- Il parametro operazione assume uno tra i seguenti valori:
+--  0: Visualizzazione
+--  1: Modifica
+--  2: Rimozione
+PROCEDURE ModificaAutore(
+    sessionID NUMBER DEFAULT 0,
+    authorID NUMBER DEFAULT 0,
+    operazione NUMBER DEFAULT 0
+);
+
 /* OPERAZIONI SULLE DESCRIZIONI  */
-PROCEDURE InserisciDescrizione(sessionID NUMBER DEFAULT NULL);
+PROCEDURE InserisciDescrizione(
+    sessionID NUMBER DEFAULT NULL,
+    lingua VARCHAR2 DEFAULT NULL,
+    livello VARCHAR2 DEFAULT NULL,
+    testodescr VARCHAR2 DEFAULT NULL,
+    operaID NUMBER DEFAULT NULL
+);
 
 PROCEDURE ConfermaDatiDescrizione(
     sessionID NUMBER DEFAULT 0,
@@ -102,12 +111,6 @@ PROCEDURE InserisciDatiDescrizione(
     livello VARCHAR2 DEFAULT 'Sconosciuto',
     testodescr VARCHAR2 DEFAULT NULL,
     operaID NUMBER DEFAULT NULL
-);
-
-PROCEDURE VisualizzaAutore(
-    sessionID NUMBER DEFAULT 0,
-    authorID NUMBER DEFAULT 0,
-    modifica NUMBER DEFAULT 0
 );
 
 END gruppo2;

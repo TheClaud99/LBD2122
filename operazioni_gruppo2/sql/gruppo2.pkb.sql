@@ -356,61 +356,54 @@ END;
 
 
 --procedura per la visualizzazione del menu Autori
-procedure menuAutori (
-    sessionID NUMBER DEFAULT NULL,
-    authName VARCHAR2 DEFAULT NULL,
-    authSurname VARCHAR2 DEFAULT NULL,
-    dataNascita VARCHAR2 DEFAULT NULL,
-    dataMorte VARCHAR2 DEFAULT NULL,
-    nation VARCHAR2 DEFAULT NULL
-    ) is
-    begin
-        modGUI1.ApriPagina('Autori',sessionID);
-        modGUI1.Header(sessionID);
-        htp.br;htp.br;htp.br;htp.br;
-        modGUI1.ApriDiv('class="w3-center"');
-            htp.prn('<h1>Autori</h1>');
-        modGUI1.ChiudiDiv;
+PROCEDURE menuAutori(sessionID NUMBER DEFAULT NULL) is
+BEGIN
+    modGUI1.ApriPagina('Autori',sessionID);
+    modGUI1.Header(sessionID);
+    htp.br;htp.br;htp.br;htp.br;
+    modGUI1.ApriDiv('class="w3-center"');
+        htp.prn('<h1>Autori</h1>');
+    modGUI1.ChiudiDiv;
+    htp.br;
+    modGUI1.ApriDiv('class="w3-row w3-container"');
+    -- Mostra form inserimento autori sse loggato con sessionID=1
+    IF (sessionID=1)
+    THEN
+        modGUI1.Collegamento('Inserisci', 'InserisciAutore?sessionID='||sessionID, 'w3-button w3-margin');
         htp.br;
-        modGUI1.ApriDiv('class="w3-row w3-container"');
-        -- Mostra form inserimento autori sse loggato con sessionID=1
-        IF (sessionID=1)
-        THEN
-            modGUI1.Collegamento('Inserisci', 'InserisciAutore?sessionID='||sessionID, 'w3-button w3-margin');
-            htp.br;
-        END IF;
-        --Visualizzazione TUTTI GLI AUTORI *temporanea*
-        -- TODO: filtraggio
-        FOR autore IN (Select IdAutore,nome,cognome from Autori)
-        LOOP
-            modGUI1.ApriDiv('class="w3-col l4 w3-padding-large w3-center"');
-                modGUI1.ApriDiv('class="w3-card-4"');
-                    htp.prn('<img src="https://cdn.pixabay.com/photo/2016/10/22/15/32/water-1761027__480.jpg" alt="Alps" style="width:100%;">');
-                    modGUI1.ApriDiv('class="w3-container w3-center"');
-                        htp.prn('<p>'|| autore.Nome ||' '||autore.Cognome||'</p>');
-                    modGUI1.ChiudiDiv;
-                    -- Azioni di modifica e rimozione mostrate solo se autorizzatii
-                    modGUI1.Collegamento('Visualizza', 
-                        'ModificaAutore?sessionID='||sessionID||'&authorID='||autore.IdAutore||'&operazione=0', 
-                        'w3-black w3-margin w3-button');
-                    if(sessionID=1) then
-                        -- parametro modifica messo a true: possibile fare editing dell'autore
-                        modGUI1.Collegamento('Modifica',
-                            'ModificaAutore?sessionID='||sessionID||'&authorID='||autore.IdAutore||'&operazione=1', 
-                            'w3-green w3-margin w3-button');
-                        -- TODO: sostituire con rimozione
-                        modGUI1.Collegamento('Rimuovi', 
-                            'ModificaAutore?sessionID='||sessionID||'&authorID='||autore.IdAutore||'&operazione=0', 
-                            'w3-red w3-margin w3-button');
-                    end if;
+    END IF;
+    --Visualizzazione TUTTI GLI AUTORI *temporanea*
+    -- TODO: filtraggio
+    FOR autore IN (Select IdAutore,nome,cognome from Autori)
+    LOOP
+        modGUI1.ApriDiv('class="w3-col l4 w3-padding-large w3-center"');
+            modGUI1.ApriDiv('class="w3-card-4"');
+                htp.prn('<img src="https://cdn.pixabay.com/photo/2016/10/22/15/32/water-1761027__480.jpg" alt="Alps" style="width:100%;">');
+                modGUI1.ApriDiv('class="w3-container w3-center"');
+                    htp.prn('<p>'|| autore.Nome ||' '||autore.Cognome||'</p>');
                 modGUI1.ChiudiDiv;
+                -- Azioni di modifica e rimozione mostrate solo se autorizzatii
+                modGUI1.Collegamento('Visualizza', 
+                    'ModificaAutore?sessionID='||sessionID||'&authorID='||autore.IdAutore||'&operazione=0', 
+                    'w3-black w3-margin w3-button');
+                IF sessionID=1 THEN
+                    -- parametro modifica messo a true: possibile fare editing dell'autore
+                    modGUI1.Collegamento('Modifica',
+                        'ModificaAutore?sessionID='||sessionID||'&authorID='||autore.IdAutore||'&operazione=1', 
+                        'w3-green w3-margin w3-button');
+                    -- TODO: sostituire con rimozione
+                    modGUI1.Collegamento('Rimuovi', 
+                        'ModificaAutore?sessionID='||sessionID||'&authorID='||autore.IdAutore||'&operazione=0', 
+                        'w3-red w3-margin w3-button');
+                END IF;
             modGUI1.ChiudiDiv;
-        END LOOP;
-        modGUI1.chiudiDiv;
-    end menuAutori;
+        modGUI1.ChiudiDiv;
+    END LOOP;
+    modGUI1.chiudiDiv;
+END menuAutori;
 
 -- Procedura per l'inserimento di nuovi Autori nella base di dati
--- I parametri (a parte sessionID) sono usati per effettuare il riempimento automatico del form ove necessario
+-- I parametri (a parte sessionID) sono usati per effettuare il riempimento automatico del form
 PROCEDURE InserisciAutore(
     sessionID NUMBER DEFAULT NULL,
     authName VARCHAR2 DEFAULT NULL,
@@ -428,87 +421,49 @@ BEGIN
         var in_date = (document.getElementById(name));
         in_date.disabled = !(in_date.disabled);
         }', 'Javascript');
+    
     modGUI1.ApriPagina('Inserimento Autore', sessionID);
-
     modGUI1.Header(sessionID);
     htp.br;htp.br;htp.br;htp.br;htp.br;htp.br;
-    htp.prn('<h1 align="center">Inserimento Autore</h1>');--DA MODIFICARE
+
+    htp.prn('<h1 align="center">Inserimento Autore</h1>');
     modGUI1.ApriDiv('class="w3-modal-content w3-card-4 w3-animate-zoom" style="max-width:600px"');
         modGUI1.ApriDiv('class="w3-section"');
-        modGUI1.Collegamento('X','menuAutori?sessionID='||sessionID,' w3-btn w3-large w3-red w3-display-topright'); --Bottone per tornare indietro, cambiare COLLEGAMENTOPROVA
-        -- Form per mandare dati alla procedura di conferma
-        modGUI1.ApriForm('ConfermaDatiAutore');
-        htp.FORMHIDDEN('sessionID',sessionID);
-        htp.br;
-        modGUI1.Label('Nome*');
-        modGUI1.InputText('authName', placeholderNome, 1, authName);
-        htp.br;
-        modGUI1.Label('Cognome*');
-        modGUI1.InputText('authSurname', placeholderCognome, 1, authSurname);
-        htp.br;
-        -- L'input di tipo data si disattiva se spuntata checkbox e viceversa
-        MODGUI1.Label('Data nascita');
-        MODGUI1.inputcheckboxonclick('Sconosciuta', null, 
-            'disable_date(''dataNascita'')', null, 0, 0);
-        htp.br;
-        MODGUI1.InputDate('dataNascita', 'dataNascita', 0, dataNascita);
-        htp.br;
-        MODGUI1.Label('Data morte');
-        MODGUI1.inputcheckboxonclick('Sconosciuta', null, 
-            'disable_date(''dataMorte'')', null, 0, 0);
-        htp.br;
-        MODGUI1.InputDate('dataMorte', 'dataMorte', 0, dataMorte);
-        htp.br;
-        modGUI1.Label('Nazionalita*');
-        modGUI1.InputText('nation', placeholderNazionalita, 1, nation);
-        htp.br;
-        modGUI1.InputSubmit('Aggiungi');
-        modGUI1.ChiudiForm;
+            -- Link di ritorno al menuAutori
+            modGUI1.Collegamento('X',
+                'menuAutori?sessionID='||sessionID,
+                'w3-btn w3-large w3-red w3-display-topright');
+            -- Form per mandare dati alla procedura di conferma
+            modGUI1.ApriForm('ConfermaDatiAutore');
+            htp.FORMHIDDEN('sessionID',sessionID);
+            htp.br;
+            modGUI1.Label('Nome*');
+            modGUI1.InputText('authName', placeholderNome, 1, authName);
+            htp.br;
+            modGUI1.Label('Cognome*');
+            modGUI1.InputText('authSurname', placeholderCognome, 1, authSurname);
+            htp.br;
+            -- L'input di tipo data è attivo sse la checkbox non è selezionata
+            MODGUI1.Label('Data nascita');
+            MODGUI1.inputcheckboxonclick('Sconosciuta', null, 
+                'disable_date(''dataNascita'')', null, 0, 0);
+            htp.br;
+            MODGUI1.InputDate('dataNascita', 'dataNascita', 0, dataNascita);
+            htp.br;
+            MODGUI1.Label('Data morte');
+            MODGUI1.inputcheckboxonclick('Sconosciuta', null, 
+                'disable_date(''dataMorte'')', null, 0, 0);
+            htp.br;
+            MODGUI1.InputDate('dataMorte', 'dataMorte', 0, dataMorte);
+            htp.br;
+            modGUI1.Label('Nazionalita*');
+            modGUI1.InputText('nation', placeholderNazionalita, 1, nation);
+            htp.br;
+            modGUI1.InputSubmit('Aggiungi');
+            modGUI1.ChiudiForm;
     
         modGUI1.ChiudiDiv;
     modGUI1.ChiudiDiv;
-
-    /*modGUI1.ApriDiv('class="w3-modal-content w3-card-4 w3-animate-zoom" style="max-width:600px"');
-        modGUI1.ApriDiv('class="w3-card-4"');           
-            htp.br;
-            modGUI1.InputImage('ImmAutore','fotoautore');
-            modGUI1.ApriDiv('class="w3-container w3-margin w3-center"');
-				-- Form per mandare dati alla procedura di conferma
-                modGUI1.ApriForm('ConfermaDatiAutore');
-                htp.FORMHIDDEN('sessionID',sessionID);
-                modGUI1.Label('Nome*');
-                htp.br;
-                modGUI1.InputText('authName', placeholderNome, 1, authName);
-                htp.br;
-                modGUI1.Label('Cognome*');
-                htp.br;
-                modGUI1.InputText('authSurname', placeholderCognome, 1, authSurname);
-                htp.br;
-                -- L'input di tipo data si disattiva se spuntata checkbox e viceversa
-                MODGUI1.Label('Data nascita');
-                MODGUI1.inputcheckboxonclick('Sconosciuta', null, 
-                    'disable_date(''dataNascita'')', null, 0, 0);
-                htp.br;
-                MODGUI1.InputDate('dataNascita', 'dataNascita', 0, dataNascita);
-                htp.br;
-                MODGUI1.Label('Data morte');
-                MODGUI1.inputcheckboxonclick('Sconosciuta', null, 
-                    'disable_date(''dataMorte'')', null, 0, 0);
-                htp.br;
-                MODGUI1.InputDate('dataMorte', 'dataMorte', 0, dataMorte);
-                htp.br;
-                modGUI1.Label('Nazionalita*');
-                htp.br;
-                modGUI1.InputText('nation', placeholderNazionalita, 1, nation);
-                htp.br;
-                modGUI1.InputSubmit('Aggiungi');
-                modGUI1.Collegamento('Torna al menu Autori', 
-                        'menuAutori?sessionID='||sessionID, 
-                        'w3-black w3-margin w3-button');
-                modGUI1.ChiudiForm;
-            modGUI1.ChiudiDiv;
-        modGUI1.ChiudiDiv;
-    modGUI1.ChiudiDiv;*/
 END;
 
 -- Procedura per confermare i dati dell'inserimento di un Autore
@@ -544,7 +499,7 @@ BEGIN
         modGUI1.ApriDiv('class="w3-modal-content w3-card-4 w3-animate-zoom" style="max-width:1000px" ');
             modGUI1.label(' Errore: ');
             IF sessionID <> 1 THEN
-                htp.prn('Operazione non autorizzata');
+                htp.prn('Operazione non autorizzata (controlla di essere loggato)');
             ELSIF numAutori > 0 THEN
                 htp.prn('Autore già presente');
             ELSE
@@ -561,7 +516,7 @@ BEGIN
                         ||') è posteriore alla data di morte ('||dataMorte||')');
                 END IF;
             END IF;
-			-- Un unico bottone OK per rimandare alla procedura di inserimento
+			-- Un unico bottone OK per rimandare alla procedura di inserimento con autofill
             MODGUI1.ApriForm('InserisciAutore');
             HTP.FORMHIDDEN('sessionID', sessionID);
             HTP.FORMHIDDEN('authName', authName);
@@ -572,7 +527,8 @@ BEGIN
             MODGUI1.InputSubmit('OK');
         MODGUI1.ChiudiDiv;
     ELSE
-		-- Parametri OK, pulsante conferma o annulla
+		-- Parametri OK: pulsante conferma per effettuare insert
+        -- o pulsante Annulla per tornare alla procedura di inserimento
         modGUI1.ApriPagina('Conferma dati',sessionID);
         modGUI1.Header(sessionID);
         htp.br;htp.br;htp.br;htp.br;htp.br;htp.br;
@@ -632,6 +588,7 @@ BEGIN
 END;
 
 -- Effettua l'inserimento di un nuovo Autore nella base di dati
+-- Oppure effettua rollback se non consentito
 PROCEDURE InserisciDatiAutore(
     sessionID NUMBER DEFAULT 0,
     authName VARCHAR2 DEFAULT 'Sconosciuto',
@@ -652,63 +609,78 @@ BEGIN
     THEN
         -- faccio il commit dello statement precedente  
         commit;
-		-- Ritorno al menu Autori direttamente
+		-- Ritorno al menu Autori senza mostrare alcuna pagina web
         gruppo2.menuautori(sessionID);
     ELSE
+        rollback;
         MODGUI1.ApriPagina('Errore', sessionID);
         modGUI1.ApriDiv;
-		modGUI1.Label('Errore: ');
-		htp.prn('Fallito inserimento autore');
+		    modGUI1.Label('Errore: ');
+		    htp.prn('Fallito inserimento autore');
 		modGUI1.ChiudiDiv;
     END IF;
     EXCEPTION
     WHEN AutorePresente THEN
         MODGUI1.ApriPagina('Errore', sessionID);
         MODGUI1.ApriDiv;
-        HTP.PRN('Autore già presente');
-        MODGUI1.collegamento('Inserisci nuovo autore', 'InserisciAutore');
+            HTP.PRN('Autore già presente');
+            MODGUI1.collegamento('Inserisci nuovo autore', 'InserisciAutore');
+            MODGUI1.collegamento('Torna al menu autori', 'menuAutori');
         MODGUI1.ChiudiDiv;
 END;
 
--- Procedura per visualizzare/modificare un Autore presente nella base di dati (raggiungibile dal menuAutori)
+-- Procedura per visualizzare/modificare un Autore presente nella base di dati
+-- (raggiungibile dal menuAutori)
+-- Il parametro operazione assume uno tra i seguenti valori:
+--  0: Visualizzazione
+--  1: Modifica
+--  2: Rimozione
 PROCEDURE ModificaAutore(
 	sessionID NUMBER DEFAULT 0,
 	authorID NUMBER DEFAULT 0,
-    operazione NUMBER DEFAULT 0
+    operazione NUMBER DEFAULT 0 
 ) IS
 this_autore Autori%ROWTYPE;
+op_title VARCHAR2(25);
 BEGIN
     SELECT * INTO this_autore FROM Autori where IdAutore = authorID;
-    IF operazione = 1 THEN
-        modGUI1.ApriPagina('Modifica Autore', sessionID);
-    ELSIF operazione = 2 THEN
-        modGUI1.ApriPagina('Rimuovi Autore', sessionID);
-	ELSE
-		modGUI1.ApriPagina('Visualizza Autore', sessionID);
+    IF operazione = 0 THEN
+        op_title := 'Visualizza';
+    ELSIF operazione = 1 THEN
+        op_title := 'Modifica';
+	ELSE 
+		op_title := 'Rimuovi';
     END IF;
+    modGUI1.ApriPagina(op_title||' Autore', sessionID);
 	modGUI1.Header(sessionID);
 	htp.br;htp.br;htp.br;htp.br;htp.br;htp.br;
+
 	modGUI1.ApriDiv('class="w3-modal-content w3-card-4 w3-animate-zoom" style="max-width:600px" ');
 		modGUI1.ApriDiv('class="w3-section"');
 		htp.br;
 		htp.header(2, 'Dettagli Autore', 'center');
-		-- caso modifica: un form
+		-- caso modifica o rimozione
 		IF operazione != 0 THEN
-			modGUI1.ApriForm('UpdateAutore');
+            -- form con action diverse a seconda dell'operazione
+			IF operazione = 1 THEN
+                modGUI1.ApriForm('UpdateAutore');
+            ELSE
+                modGUI1.ApriForm('RemoveAutore');
+            END IF;
                 modGUI1.Label('Nome:'); 
-				modGUI1.InputText('authName', this_autore.Nome, 1);
+				modGUI1.InputText('authName', this_autore.Nome, 1, this_autore.Nome);
                 htp.br;
                 modGUI1.Label('Cognome:');
-				modGUI1.InputText('authSurname', this_autore.Cognome, 1);
+				modGUI1.InputText('authSurname', this_autore.Cognome, 1, this_autore.Cognome);
                 htp.br;
                 modGUI1.Label('Data nascita:');
-				modGUI1.InputDate('', 'dataNascita', 1, TO_DATE(this_autore.DataNascita, 'DD-Mon-YYYY'));
+				modGUI1.InputDate('dataNascita', 'dataNascita', 1, TO_CHAR(this_autore.DataNascita, 'YYYY-MM-DD'));
                 htp.br;
                 modGUI1.Label('Data morte:');
-				modGUI1.InputDate('', 'dataMorte', 1, TO_DATE(this_autore.DataMorte, 'DD-Mon-YYYY'));
+				modGUI1.InputDate('dataMorte', 'dataMorte', 1, TO_CHAR(this_autore.DataMorte, 'YYYY-MM-DD'));
                 htp.br;
                 modGUI1.Label('Nazionalità:');
-				modGUI1.InputText('nation', this_autore.Nazionalita, 1);
+				modGUI1.InputText('nation', this_autore.Nazionalita, 1, this_autore.Nazionalita);
                 htp.br;
 				modGUI1.InputSubmit('Conferma');
 			modGUI1.ChiudiForm;
@@ -721,15 +693,15 @@ BEGIN
 			htp.prn(this_autore.Cognome);
 			htp.br;
 			modGUI1.Label('Data nascita:');
-			IF this_autore.DataNascita IS NULL THEN
-				htp.prn(this_autore.DataNascita);
+			IF this_autore.DataNascita IS NOT NULL THEN
+				htp.prn(TO_CHAR(this_autore.DataNascita, 'DD/MM/YYYY'));
 			ELSE
 				htp.prn('Sconosciuta');
 			END IF;
 			htp.br;
 			modGUI1.Label('Data morte:');
-			IF this_autore.DataMorte IS NULL THEN
-				htp.prn(this_autore.DataMorte);
+			IF this_autore.DataMorte IS NOT NULL THEN
+				htp.prn(TO_CHAR(this_autore.DataMorte, 'DD/MM/YYYY'));
 			ELSE
 				htp.prn('Sconosciuta');
 			END IF;

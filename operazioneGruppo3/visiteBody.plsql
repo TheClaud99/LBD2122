@@ -15,49 +15,6 @@ CREATE OR REPLACE PACKAGE BODY packagevisite AS
     * - Durata media di una visita in un arco temporale scelto �?�
     */
 
-    PROCEDURE visualizzavisita (
-        idvisitaselezionata IN visite.idvisita%TYPE
-    ) IS
-    BEGIN
-        modgui1.apripagina();
-        modgui1.header();
-        modgui1.apridivcard();
-        modgui1.chiudidiv();
-        htp.prn('</body>
-        </html>');
-    END;
-
-    PROCEDURE inseriscivisita (
-        datavisitachar       IN  VARCHAR2,
-        oravisita            IN  VARCHAR2,
-        duratavisita         IN  NUMBER,
-        idutenteselezionato  IN  utenti.idutente%TYPE,
-        idtitoloselezionato  IN  titoliingresso.idtitoloing%TYPE
-    ) IS
-        idvisitacreata visite.idvisita%TYPE;
-    BEGIN
-        idvisitacreata := idvisiteseq.nextval;
-        INSERT INTO visite (
-            idvisita,
-            datavisita,
-            duratavisita,
-            visitatore,
-            titoloingresso
-        ) VALUES (
-            idvisiteseq.NEXTVAL,
-            to_date(
-                oravisita
-                || ' '
-                || datavisitachar, 'HH24:MI YYYY/MM/DD'
-            ),
-            duratavisita,
-            idutenteselezionato,
-            idtitoloselezionato
-        );
-
-        -- visualizzavisita(idvisitacreata);
-    END;
-
     PROCEDURE tabella_dati_visita (
         datavisitachar       IN  VARCHAR2,
         oravisita            IN  VARCHAR2,
@@ -70,11 +27,10 @@ CREATE OR REPLACE PACKAGE BODY packagevisite AS
         cognomeutente   utenti.cognome%TYPE;
         nome_tipologia  tipologieingresso.nome%TYPE;
     BEGIN
-	-- se utente non autorizzato: messaggio errore
         modgui1.apridiv('style="margin-left: 2%; margin-right: 2%;"');
         htp.header(
                   2,
-                  'Nuovo utente'
+                  'Visita'
         );
         htp.tableopen;
         htp.tablerowopen;
@@ -124,6 +80,82 @@ CREATE OR REPLACE PACKAGE BODY packagevisite AS
     EXCEPTION
         WHEN OTHERS THEN
             dbms_output.put_line('Error: ' || sqlerrm);
+    END;
+
+    PROCEDURE visualizzavisita (
+        idvisitaselezionata  IN  visite.idvisita%TYPE,
+        titolo               IN  VARCHAR2 DEFAULT NULL
+    ) IS
+    BEGIN
+        modgui1.apripagina();
+        modgui1.header();
+        modgui1.apridiv('style="margin-top: 110px"');
+        IF titolo IS NOT NULL THEN
+            htp.header(
+                      2,
+                      titolo,
+                      'center'
+            );
+        END IF;
+        modgui1.apridivcard();
+        FOR visita IN (
+            SELECT
+                *
+            FROM
+                visite
+            WHERE
+                idvisita = idvisitaselezionata
+        ) LOOP
+            tabella_dati_visita(
+                               to_char(
+                                      visita.datavisita,
+                                      'YYYY/MM/DD'
+                               ),
+                               to_char(
+                                      visita.datavisita,
+                                      'HH24:MI'
+                               ),
+                               visita.duratavisita,
+                               visita.visitatore,
+                               visita.titoloingresso
+            );
+        END LOOP;
+
+        modgui1.chiudidiv();
+        modgui1.chiudidiv();
+        htp.prn('</body>
+        </html>');
+    END;
+
+    PROCEDURE inseriscivisita (
+        datavisitachar       IN  VARCHAR2,
+        oravisita            IN  VARCHAR2,
+        duratavisita         IN  NUMBER,
+        idutenteselezionato  IN  utenti.idutente%TYPE,
+        idtitoloselezionato  IN  titoliingresso.idtitoloing%TYPE
+    ) IS
+        idvisitacreata visite.idvisita%TYPE;
+    BEGIN
+        idvisitacreata := idvisiteseq.nextval;
+        INSERT INTO visite (
+            idvisita,
+            datavisita,
+            duratavisita,
+            visitatore,
+            titoloingresso
+        ) VALUES (
+            idvisitacreata,
+            to_date(
+                oravisita
+                || ' '
+                || datavisitachar, 'HH24:MI YYYY/MM/DD'
+            ),
+            duratavisita,
+            idutenteselezionato,
+            idtitoloselezionato
+        );
+
+        visualizzavisita(idvisitacreata, 'Visita creata');
     END;
 
     PROCEDURE formvisita (
@@ -288,7 +320,6 @@ CREATE OR REPLACE PACKAGE BODY packagevisite AS
                            idutenteselezionato,
                            idtitoloselezionato
         );
-        
         modgui1.apriform('packagevisite.InserisciVisita');
         htp.formhidden(
                       'datavisitachar',
@@ -318,10 +349,14 @@ CREATE OR REPLACE PACKAGE BODY packagevisite AS
             let button_annulla = document.getElementById("button_annulla");
             button_annulla.onclick = function goBack() {
                 let form = button_annulla.form;
-                form.action = "'|| Costanti.server || Costanti.radice ||'packagevisite.pagina_inserisci_visita";
+                form.action = "'
+                || costanti.server
+                || costanti.radice
+                || 'packagevisite.pagina_inserisci_visita";
                 form.submit();
             }
         </script>');
+
     END;
 
     PROCEDURE pagina_inserisci_visita (

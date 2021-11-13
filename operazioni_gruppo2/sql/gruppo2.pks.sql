@@ -88,6 +88,17 @@ PROCEDURE ModificaAutore(
     operazione NUMBER DEFAULT 0
 );
 
+
+PROCEDURE UpdateAutore(
+	sessionID NUMBER DEFAULT 0,
+	authID NUMBER DEFAULT 0,
+	newName VARCHAR2 DEFAULT 'Sconosciuto',
+	newSurname VARCHAR2 DEFAULT 'Sconosciuto',
+	newBirth VARCHAR2 DEFAULT NULL,
+	newDeath VARCHAR2 DEFAULT NULL,
+	newNation VARCHAR2 DEFAULT 'Sconosciuta'
+);
+
 /* OPERAZIONI SULLE DESCRIZIONI  */
 PROCEDURE InserisciDescrizione(
     sessionID NUMBER DEFAULT NULL,

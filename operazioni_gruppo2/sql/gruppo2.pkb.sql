@@ -667,21 +667,25 @@ BEGIN
             ELSE
                 modGUI1.ApriForm('RemoveAutore');
             END IF;
+            htp.formhidden('sessionID', sessionID);
+            htp.formhidden('authID', this_autore.IdAutore);
+            IF operazione = 1 THEN
                 modGUI1.Label('Nome:'); 
-				modGUI1.InputText('authName', this_autore.Nome, 1, this_autore.Nome);
+				modGUI1.InputText('newName', this_autore.Nome, 1, this_autore.Nome);
                 htp.br;
                 modGUI1.Label('Cognome:');
-				modGUI1.InputText('authSurname', this_autore.Cognome, 1, this_autore.Cognome);
+				modGUI1.InputText('newSurname', this_autore.Cognome, 1, this_autore.Cognome);
                 htp.br;
                 modGUI1.Label('Data nascita:');
-				modGUI1.InputDate('dataNascita', 'dataNascita', 1, TO_CHAR(this_autore.DataNascita, 'YYYY-MM-DD'));
+				modGUI1.InputDate('dataNascita', 'newBirth', 1, TO_CHAR(this_autore.DataNascita, 'YYYY-MM-DD'));
                 htp.br;
                 modGUI1.Label('Data morte:');
-				modGUI1.InputDate('dataMorte', 'dataMorte', 1, TO_CHAR(this_autore.DataMorte, 'YYYY-MM-DD'));
+				modGUI1.InputDate('dataMorte', 'newDeath', 1, TO_CHAR(this_autore.DataMorte, 'YYYY-MM-DD'));
                 htp.br;
                 modGUI1.Label('Nazionalità:');
-				modGUI1.InputText('nation', this_autore.Nazionalita, 1, this_autore.Nazionalita);
+				modGUI1.InputText('newNation', this_autore.Nazionalita, 1, this_autore.Nazionalita);
                 htp.br;
+            END IF;
 				modGUI1.InputSubmit('Conferma');
 			modGUI1.ChiudiForm;
 		-- caso visualizza: label + valore
@@ -728,19 +732,24 @@ PROCEDURE UpdateAutore(
 ) IS
 Errore_data EXCEPTION;
 BEGIN
-	IF TO_DATE(newBirth, 'YYYY-MM-DD') < TO_DATE(newDeath, 'YYYY-MM-DD') THEN
+    IF TO_DATE(newBirth, 'YYYY-MM-DD') > TO_DATE(newDeath, 'YYYY-MM-DD') THEN
 		RAISE Errore_data;
 	END IF;
 	UPDATE Autori SET 
 		Nome=newName, 
 		Cognome=newSurname, 
-		DataNascita=newBirth, 
-		DataMorte=newDeath, 
+		DataNascita=TO_DATE(newBirth, 'YYYY-MM-DD'), 
+		DataMorte=TO_DATE(newDeath, 'YYYY-MM-DD'), 
 		Nazionalita=newNation
 	WHERE IdAutore=authID;
-	EXCEPTION 
+    
+    commit;
+    gruppo2.menuAutori(sessionID);
+
+    EXCEPTION 
 		WHEN Errore_data THEN
-			DBMS_OUTPUT.PUT_LINE('A');
+			DBMS_OUTPUT.PUT_LINE('Error');
+            ROLLBACK;
 END;
 
 /*

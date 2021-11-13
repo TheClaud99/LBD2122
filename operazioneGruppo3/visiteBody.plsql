@@ -21,7 +21,7 @@ CREATE OR REPLACE PACKAGE BODY packagevisite AS
     BEGIN
         modgui1.apripagina();
         modgui1.header();
-        modgui1.apridiv('class="w3-modal-content w3-card-4 w3-animate-zoom" style="max-width:600px"');
+        modgui1.apridivcard();
         modgui1.chiudidiv();
         htp.prn('</body>
         </html>');
@@ -60,6 +60,60 @@ CREATE OR REPLACE PACKAGE BODY packagevisite AS
         -- visualizzavisita(idvisitacreata);
     END;
 
+    PROCEDURE tabella_dati_visita (
+        datavisitachar       IN  VARCHAR2,
+        oravisita            IN  VARCHAR2,
+        duratavisita         IN  NUMBER,
+        idutenteselezionato  IN  utenti.idutente%TYPE,
+        idtitoloselezionato  IN  titoliingresso.idtitoloing%TYPE
+    ) IS
+    BEGIN
+	-- se utente non autorizzato: messaggio errore
+        modgui1.apridiv('style="margin-left: 2%; margin-right: 2%;"');
+        htp.header(2, 'Nuovo utente');
+        htp.tableopen;
+        htp.tablerowopen;
+        htp.tabledata('Data visita: ');
+        htp.tabledata(datavisitachar);
+        htp.tablerowclose;
+        htp.tablerowopen;
+        htp.tabledata('Ora visita: ');
+        htp.tabledata(oravisita);
+        htp.tablerowclose;
+        htp.tablerowopen;
+        htp.tabledata('Durata visita: ');
+        htp.tabledata(datanascita);
+        htp.tablerowclose;
+        htp.tablerowopen;
+        htp.tabledata('Indirizzo: ');
+        htp.tabledata(indirizzo);
+        htp.tablerowclose;
+        htp.tablerowopen;
+        htp.tabledata('Email: ');
+        htp.tabledata(email);
+        htp.tablerowclose;
+        htp.tablerowopen;
+        htp.tabledata('Telefono: ');
+        htp.tabledata(telefono);
+        htp.tablerowclose;
+        htp.tableclose;
+        modgui1.apriform('InserisciDatiUtente');
+        htp.formhidden('sessionID', 0);
+        htp.formhidden('nome', nome);
+        htp.formhidden('cognome', cognome);
+        htp.formhidden('dataNascita', datanascita);
+        htp.formhidden('Indirizzo', indirizzo);
+        htp.formhidden('Email', email);
+        htp.formhidden('Telefono', telefono);
+        modgui1.inputsubmit('Conferma');
+        modgui1.chiudiform;
+        modgui1.collegamento('Annulla', 'InserisciUtente', 'w3-btn');
+        modgui1.chiudidiv;
+    EXCEPTION
+        WHEN OTHERS THEN
+            dbms_output.put_line('Error: ' || sqlerrm);
+    END;
+
     PROCEDURE formvisita (
         datavisitachar       IN  VARCHAR2 DEFAULT NULL,
         oravisita            IN  VARCHAR2 DEFAULT NULL,
@@ -73,20 +127,17 @@ CREATE OR REPLACE PACKAGE BODY packagevisite AS
         varidutente     utenti.idutente%TYPE;
         nome_tipologia  tipologieingresso.durata%TYPE;
     BEGIN
-        modgui1.apridiv('class="w3-modal-content w3-card-4 w3-animate-zoom" style="max-width:600px"');
-        modgui1.apriform('PackageVisite.pagina_inserisci_visita', 'formCreaVisita',
-                        'w3-container');
+        modgui1.apridivcard();
+        modgui1.apriform('PackageVisite.pagina_inserisci_visita', 'formCreaVisita', 'w3-container');
         modgui1.apridiv('class="w3-section"');
         modgui1.label('Inserisci data della visita:');
-        modgui1.inputdate('DataVisitaChar', 'DataVisitaChar', 1,
-                         datavisitachar);
+        modgui1.inputdate('DataVisitaChar', 'DataVisitaChar', 1, datavisitachar);
         htp.br;
         modgui1.label('Ora della visita');
         modgui1.inputtime('OraVisita', 'OraVisita', 1, oravisita);
         htp.br;
         modgui1.label('Durata della visita (h)');
-        modgui1.inputnumber('DurataVisita', 'DurataVisita', 1,
-                           duratavisita);
+        modgui1.inputnumber('DurataVisita', 'DurataVisita', 1, duratavisita);
         htp.br;
         modgui1.label('Utente');
         modgui1.selectopen('idUtenteSelezionato', 'utente-selezionato');
@@ -155,11 +206,9 @@ CREATE OR REPLACE PACKAGE BODY packagevisite AS
 
             nome_tipologia := to_char(titolo.idtitoloing);
             IF titolo.idtitoloing = idtitoloselezionato THEN
-                modgui1.selectoption(titolo.idtitoloing, nome_tipologia,
-                                    1);
+                modgui1.selectoption(titolo.idtitoloing, nome_tipologia, 1);
             ELSE
-                modgui1.selectoption(titolo.idtitoloing, nome_tipologia,
-                                    0);
+                modgui1.selectoption(titolo.idtitoloing, nome_tipologia, 0);
             END IF;
 
         END LOOP;
@@ -177,6 +226,30 @@ CREATE OR REPLACE PACKAGE BODY packagevisite AS
         </script>');
     END;
 
+    PROCEDURE conferma_dati_visita (
+        datavisitachar       IN  VARCHAR2 DEFAULT NULL,
+        oravisita            IN  VARCHAR2 DEFAULT NULL,
+        duratavisita         IN  NUMBER DEFAULT NULL,
+        idutenteselezionato  IN  utenti.idutente%TYPE DEFAULT NULL,
+        idtitoloselezionato  IN  titoliingresso.idtitoloing%TYPE DEFAULT NULL
+    ) IS
+    BEGIN
+        modgui1.apridivcard();
+        tabella_dati_visita(datavisitachar, oravisita, duratavisita, idutenteselezionato,
+                           idtitoloselezionato);
+        modgui1.chiudidiv();
+        modgui1.apriform('InserisciVisita');
+        htp.formhidden('datavisitachar', datavisitachar);
+        htp.formhidden('oravisita', oravisita);
+        htp.formhidden('duratavisita', duratavisita);
+        htp.formhidden('idutenteselezionato', idutenteselezionato);
+        htp.formhidden('idtitoloselezionato', idtitoloselezionato);
+        modgui1.inputsubmit('Conferma');
+        modgui1.chiudiform;
+        modgui1.collegamento('Annulla', 'packagevisite.pagina_inserisci_visita', 'w3-btn');
+        modgui1.chiudidiv;
+    END;
+
     PROCEDURE pagina_inserisci_visita (
         datavisitachar       IN  VARCHAR2 DEFAULT NULL,
         oravisita            IN  VARCHAR2 DEFAULT NULL,
@@ -191,22 +264,15 @@ CREATE OR REPLACE PACKAGE BODY packagevisite AS
         modgui1.apridiv('style="margin-top: 110px"');
         htp.prn('<h1>Inserimento visita</h1>');
         IF convalida IS NULL THEN
-            formvisita(datavisitachar, oravisita, duratavisita,
-                      idutenteselezionato,
+            formvisita(datavisitachar, oravisita, duratavisita, idutenteselezionato,
                       idtitoloselezionato);
         ELSE
-            htp.prn('<h1>Visita inserita</h1>');
-            inseriscivisita(datavisitachar, oravisita, duratavisita,
-                           idutenteselezionato,
-                           idtitoloselezionato);
+            htp.prn('<h1>Conferma dati visita</h1>');
+            conferma_dati_visita(datavisitachar, oravisita, duratavisita, idutenteselezionato,
+                                idtitoloselezionato);
         END IF;
 
         modgui1.chiudidiv();
-        htp.prn('<script>
-            function inviaFormCreaVisite() {
-                document.formCreaVisita.submit();
-            }
-        </script>');
         htp.prn('</body>
         </html>');
     END;

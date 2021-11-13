@@ -25,7 +25,8 @@ CREATE OR REPLACE PACKAGE packagevisite AS
     );
 
     PROCEDURE visualizzavisita (
-        idvisitaselezionata IN visite.idvisita%TYPE
+        idvisitaselezionata  IN  visite.idvisita%TYPE,
+        titolo               IN  VARCHAR2 DEFAULT NULL
     );
 
 END packagevisite;

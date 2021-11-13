@@ -82,9 +82,9 @@ CREATE OR REPLACE PACKAGE BODY modGUI1 as
     modGUI1.ChiudiDiv;
     end Login;
 
-    procedure Bottone (colore varchar2, text varchar2 default 'myButton') is /*Bottone(colore,testo) - specificare colore in inglese preceduto da "w3-" - testo contenuto nel bottone*/
+    procedure Bottone (colore varchar2, text varchar2 default 'myButton', id varchar2 default '') is /*Bottone(colore,testo) - specificare colore in inglese preceduto da "w3-" - testo contenuto nel bottone*/
     begin
-        htp.prn ('<button class="w3-button '|| colore ||' w3-margin">'||text||'</button>');
+        htp.prn ('<button id="'|| id ||'" class="w3-button '|| colore ||' w3-margin">'||text||'</button>');
     end Bottone;
 
     procedure ApriDiv (attributi varchar2 default '') is /*attributi -> parametri stile*/

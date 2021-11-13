@@ -4,7 +4,7 @@ procedure ApriPagina(titolo varchar2 default 'Senza titolo', idSessione int defa
 procedure Header (idSessione int default 0);
 procedure BannerUtente (idSessione int default 0);
 procedure Login;
-procedure Bottone (colore varchar2,text varchar2 default 'myButton');
+procedure Bottone (colore varchar2,text varchar2 default 'myButton', id varchar2 default '');
 procedure ApriDiv (attributi varchar2 default '');
 procedure ChiudiDiv;
 procedure Collegamento(testo varchar2, indirizzo varchar2, classe varchar2 default '');

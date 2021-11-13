@@ -311,13 +311,17 @@ CREATE OR REPLACE PACKAGE BODY packagevisite AS
                       idtitoloselezionato
         );
         modgui1.inputsubmit('Conferma');
+        htp.prn('<input id="button_annulla" type="submit" class="w3-button w3-block w3-black w3-section w3-padding" value="Annulla">');
         modgui1.chiudiform;
-        modgui1.collegamento(
-                            'Annulla',
-                            'packagevisite.pagina_inserisci_visita',
-                            'w3-btn'
-        );
         modgui1.chiudidiv();
+        htp.prn('<script>
+            let button_annulla = document.getElementById("button_annulla");
+            button_annulla.onclick = function goBack() {
+                let form = button_annulla.form;
+                form.action = "'|| Costanti.server || Costanti.radice ||'packagevisite.pagina_inserisci_visita";
+                form.submit();
+            }
+        </script>');
     END;
 
     PROCEDURE pagina_inserisci_visita (

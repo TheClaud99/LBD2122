@@ -613,6 +613,7 @@ BEGIN
 END;
 
 -------------------------------------------------------------TODO DA TESTARE
+/*
 PROCEDURE inserisciNewsLetter (
     sessionID NUMBER DEFAULT 0
 ) IS
@@ -667,7 +668,7 @@ BEGIN
 	MODGUI1.ChiudiDiv;
 
 END;
--------------------------------------------------------------FINE TODO
+-------------------------------------------------------------FINE TODO */
 
 END GRUPPO1;
 

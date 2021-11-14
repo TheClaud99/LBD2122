@@ -3,7 +3,20 @@ CREATE OR REPLACE PACKAGE gruppo1 AS
 root constant VARCHAR2(125) := 'http://131.114.73.203:8080/apex/';
 user constant VARCHAR2(25) := 'fgiannotti.gruppo1.';
 
-procedure InserisciUtente(sessionID NUMBER DEFAULT 0);
+procedure InserisciUtente(
+	sessionID NUMBER DEFAULT 0,
+	nome VARCHAR2 DEFAULT NULL,
+	cognome VARCHAR2 DEFAULT NULL,
+	dataNascita VARCHAR2 DEFAULT NULL,
+	indirizzo VARCHAR2 DEFAULT NULL,
+	email VARCHAR2 DEFAULT NULL,
+    telefono VARCHAR2 DEFAULT NULL,
+	utenteMuseo NUMBER DEFAULT 0,
+	utenteDonatore NUMBER DEFAULT 0,
+	utenteCampiEstivi NUMBER DEFAULT 0,
+	utenteAssistenza NUMBER DEFAULT 0
+);
+
 PROCEDURE ConfermaDatiUtente(
 	sessionID NUMBER DEFAULT 0,
 	nome VARCHAR2 DEFAULT NULL,
@@ -11,8 +24,13 @@ PROCEDURE ConfermaDatiUtente(
 	dataNascita VARCHAR2 DEFAULT NULL,
 	indirizzo VARCHAR2 DEFAULT NULL,
 	email VARCHAR2 DEFAULT NULL,
-    telefono VARCHAR2 DEFAULT NULL
+    telefono VARCHAR2 DEFAULT NULL,
+	utenteMuseo NUMBER DEFAULT 0,
+	utenteDonatore NUMBER DEFAULT 0,
+	utenteCampiEstivi NUMBER DEFAULT 0,
+	utenteAssistenza NUMBER DEFAULT 0
 );
+
 PROCEDURE InserisciDatiUtente (
     sessionID NUMBER DEFAULT 0,
 	nome VARCHAR2,
@@ -20,7 +38,11 @@ PROCEDURE InserisciDatiUtente (
 	dataNascita VARCHAR2 DEFAULT NULL,
 	indirizzo VARCHAR2 DEFAULT NULL,
 	email VARCHAR2 DEFAULT NULL,
-    telefono VARCHAR2 DEFAULT NULL
+    telefono VARCHAR2 DEFAULT NULL,
+	utenteMuseo NUMBER DEFAULT 0,
+	utenteDonatore NUMBER DEFAULT 0,
+	utenteCampiEstivi NUMBER DEFAULT 0,
+	utenteAssistenza NUMBER DEFAULT 0
 );
 
 PROCEDURE VisualizzaDatiUtente (
@@ -57,15 +79,15 @@ PROCEDURE pagina_acquista_biglietto(
 	idutenteselezionato VARCHAR2 DEFAULT NULL,
 	convalida IN NUMBER DEFAULT NULL
 );
-
 --TODO DA TESTARE
+/*
 PROCEDURE inserisciNewsLetter (
     sessionID NUMBER DEFAULT 0
 );
 
 PROCEDURE inserisci_newsletter (
-    sessionID NUMBER DEFAULT 0
+    sessionID NUMBER DEFAULT 0,
 	nome varchar2(25) not null
 );
-
+*/
 END gruppo1;

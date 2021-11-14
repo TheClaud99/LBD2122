@@ -1,7 +1,8 @@
-CREATE OR REPLACE PACKAGE gruppo2 AS
+CREATE OR REPLACE PACKAGE "FNICOLO".gruppo2 AS
 
 /* OPERAZIONI SULLE OPERE */
 procedure EsitoPositivoOpere(sessionID NUMBER DEFAULT NULL);
+procedure EsitoNegativoOpere(sessionID NUMBER DEFAULT NULL);
 procedure menuOpere (sessionID NUMBER DEFAULT NULL);
 PROCEDURE InserisciOpera(
     sessionID NUMBER DEFAULT NULL,
@@ -9,6 +10,15 @@ PROCEDURE InserisciOpera(
     anno VARCHAR2 DEFAULT NULL,
     fineperiodo VARCHAR2 DEFAULT NULL,
     idmusei NUMBER DEFAULT NULL
+);
+
+procedure EliminazioneOpera(
+    sessionID NUMBER default 0,
+    operaID NUMBER default 0   
+);
+procedure RimozioneOpera(
+    sessionID NUMBER default 0,
+    operaID NUMBER default 0   
 );
 PROCEDURE ConfermaDatiOpera(
     sessionID NUMBER DEFAULT 0,

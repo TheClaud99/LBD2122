@@ -11,10 +11,10 @@ procedure InserisciUtente(
 	indirizzo VARCHAR2 DEFAULT NULL,
 	email VARCHAR2 DEFAULT NULL,
     telefono VARCHAR2 DEFAULT NULL,
-	utenteMuseo NUMBER DEFAULT 0,
-	utenteDonatore NUMBER DEFAULT 0,
-	utenteCampiEstivi NUMBER DEFAULT 0,
-	utenteAssistenza NUMBER DEFAULT 0
+	utenteMuseo VARCHAR2 DEFAULT NULL,
+	utenteDonatore VARCHAR2 DEFAULT NULL,
+	utenteCampiEstivi VARCHAR2 DEFAULT NULL,
+	utenteAssistenza VARCHAR2 DEFAULT NULL
 );
 
 PROCEDURE ConfermaDatiUtente(
@@ -25,24 +25,24 @@ PROCEDURE ConfermaDatiUtente(
 	indirizzo VARCHAR2 DEFAULT NULL,
 	email VARCHAR2 DEFAULT NULL,
     telefono VARCHAR2 DEFAULT NULL,
-	utenteMuseo NUMBER DEFAULT 0,
-	utenteDonatore NUMBER DEFAULT 0,
-	utenteCampiEstivi NUMBER DEFAULT 0,
-	utenteAssistenza NUMBER DEFAULT 0
+	utenteMuseo VARCHAR2 DEFAULT NULL,
+	utenteDonatore VARCHAR2 DEFAULT NULL,
+	utenteCampiEstivi VARCHAR2 DEFAULT NULL,
+	utenteAssistenza VARCHAR2 DEFAULT NULL
 );
 
 PROCEDURE InserisciDatiUtente (
     sessionID NUMBER DEFAULT 0,
-	nome VARCHAR2,
-	cognome VARCHAR2,
+	nome VARCHAR2 DEFAULT NULL,
+	cognome VARCHAR2 DEFAULT NULL,
 	dataNascita VARCHAR2 DEFAULT NULL,
 	indirizzo VARCHAR2 DEFAULT NULL,
-	email VARCHAR2 DEFAULT NULL,
+	utenteEmail VARCHAR2 DEFAULT NULL,
     telefono VARCHAR2 DEFAULT NULL,
-	utenteMuseo NUMBER DEFAULT 0,
-	utenteDonatore NUMBER DEFAULT 0,
-	utenteCampiEstivi NUMBER DEFAULT 0,
-	utenteAssistenza NUMBER DEFAULT 0
+	utenteMuseo VARCHAR2 DEFAULT NULL,
+	utenteDonatore VARCHAR2 DEFAULT NULL,
+	utenteCampiEstivi VARCHAR2 DEFAULT NULL,
+	utenteAssistenza VARCHAR2 DEFAULT NULL
 );
 
 PROCEDURE VisualizzaDatiUtente (

@@ -993,7 +993,8 @@ procedure EsitoPositivoAutori(
         htp.br;htp.br;htp.br;htp.br;htp.br;htp.br;
             modGUI1.ApriDiv('class="w3-modal-content w3-card-4 w3-animate-zoom" style="max-width:450px"');
                 modGUI1.ApriDiv('class="w3-center"');
-                htp.print('<h1>Inserito correttamente </h1>');
+                htp.print('<h1>Autore inserito correttamente </h1>');
+                MODGUI1.collegamento('Inserisci nuovo autore','inserisciAutore?sessionID='||sessionID||'','w3-button w3-block w3-black w3-section w3-padding');
                 MODGUI1.collegamento('Torna al menu','menuAutori?sessionID='||sessionID||'','w3-button w3-block w3-black w3-section w3-padding');
                 modGUI1.ChiudiDiv;
             modGUI1.ChiudiDiv;

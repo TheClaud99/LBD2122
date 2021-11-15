@@ -88,14 +88,14 @@ BEGIN
 	if utenteMuseo = 'on' then
 		MODGUI1.InputCheckboxOnClick('Utente museo', 'utenteMuseo','check()','utentemuseo', 1);
 		MODGUI1.ApriDiv('style="margin-left: 2%; margin-right: 2%; display: block" id="first"');
-	else 
+	else
 		MODGUI1.InputCheckboxOnClick('Utente museo', 'utenteMuseo','check()','utentemuseo');
 		MODGUI1.ApriDiv('style="margin-left: 2%; margin-right: 2%; display: none" id="first"');
 	end if;
 	HTP.BR;
 	if utenteDonatore = 'on' then
 		MODGUI1.InputCheckbox('Donatore', 'utenteDonatore', 1);
-	else 
+	else
 		MODGUI1.InputCheckbox('Donatore', 'utenteDonatore');
 	end if;
 	HTP.BR;
@@ -111,7 +111,7 @@ BEGIN
 	HTP.BR;
 	if utenteAssistenza = 'on' then
 		MODGUI1.InputCheckbox('Richiede assistenza', 'utenteAssistenza', 1);
-	else 
+	else
 		MODGUI1.InputCheckbox('Richiede assistenza', 'utenteAssistenza');
 	end if;
 	HTP.BR;
@@ -241,7 +241,7 @@ BEGIN
 			HTP.TableData('Utente campi estivo: ');
 			HTP.TableData('&#10004');
 			HTP.TableRowClose;
-			if utenteAssistenza = 'on' then 
+			if utenteAssistenza = 'on' then
 				HTP.TableRowOpen;
 				HTP.TableData('Richiesta assistenza: ');
 				HTP.TableData('&#10004');
@@ -390,7 +390,7 @@ BEGIN
 			HTP.TableData('Utente campi estivo: ');
 			HTP.TableData('&#10004');
 			HTP.TableRowClose;
-			if utenteAssistenza = 'on' then 
+			if utenteAssistenza = 'on' then
 				HTP.TableRowOpen;
 				HTP.TableData('Richiesta assistenza: ');
 				HTP.TableData('&#10004');
@@ -530,7 +530,7 @@ BEGIN
 			HTP.TableData('Utente campi estivo: ');
 			HTP.TableData('&#10004');
 			HTP.TableRowClose;
-			if UtenteAssistenza > 0 then 
+			if UtenteAssistenza > 0 then
 				HTP.TableRowOpen;
 				HTP.TableData('Richiesta assistenza: ');
 				HTP.TableData('&#10004');
@@ -843,7 +843,42 @@ BEGIN
 	MODGUI1.ChiudiDiv;
 
 END;
+
+
+----- Numero visitatori iscritti alla Newsletter scelta❌
+
+
+
 -------------------------------------------------------------FINE TODO */
+
+
+PROCEDURE numeroVisitatoriNewsletter (
+    sessionID NUMBER DEFAULT 0,
+	newsletterID NUMBER DEFAULT -1
+) IS
+
+	temp NUMBER(10) := 10;
+	nomeNew VARCHAR2(100) := '';
+
+begin
+	SELECT NOME into nomeNew FROM NEWSLETTER WHERE NEWSLETTER.IDNEWS = newsletterID;
+	SELECT count(*) into temp from UTENTI where IdUtente IN (select VISITATORE from VISITE) AND IDUTENTE IN (SELECT IDUTENTE FROM NEWSLETTERUTENTI WHERE IDNEWS = newsletterID);
+	modgui1.apripagina('statistica');
+	modgui1.header();
+	modgui1.apridiv('style="margin-top: 110px"');
+	htp.prn('<h1> Numero visitatori per newsletter </h1>');
+	htp.br();
+	modgui1.Label(CONCAT('newsletter name:', nomeNew));
+	modgui1.Label(TO_CHAR(temp));
+	modgui1.chiudidiv;
+	htp.BodyClose;
+	htp.HtmlClose;
+
+	modgui1.chiudiDiv();
+	htp.bodyclose;
+	htp.htmlclose;
+
+end;
 
 END GRUPPO1;
 
@@ -869,7 +904,7 @@ END GRUPPO1;
  * - Iscrizione(rimozione)❌
  * - Cancellazione Iscrizione❌
  * OPERAZIONI STATISTICHE E MONITORAGGIO
- * - Numero visitatori iscritti alla Newsletter scelta❌
+ * - Numero visitatori iscritti alla Newsletter scelta FATTO!
  * - Età media dei visitatori iscritti alla Newsletter scelta ❌
  * - Titoli d’ingresso appartenenti ai visitatori iscritti alla Newsletter scelta❌
  * - Lista Opere ordinate per numero di Autori in ordine decrescente ❌

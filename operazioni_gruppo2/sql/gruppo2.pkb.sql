@@ -1,5 +1,25 @@
 CREATE OR REPLACE PACKAGE BODY gruppo2 AS
 
+PROCEDURE genericErrorPage(
+    sessionID NUMBER DEFAULT 0,
+    pageTitle VARCHAR2 DEFAULT 'Errore',
+    msg VARCHAR2 DEFAULT 'Errore sconosciuto',
+    redirectText VARCHAR2 DEFAULT 'OK',
+    redirect VARCHAR2 DEFAULT NULL
+) IS
+BEGIN
+    modGUI1.ApriPagina(pageTitle,sessionID);
+        modGUI1.Header(sessionID);
+        htp.br;htp.br;htp.br;htp.br;htp.br;htp.br;
+            modGUI1.ApriDiv('class="w3-modal-content w3-card-4 w3-animate-zoom" style="max-width:450px"');
+                modGUI1.ApriDiv('class="w3-center"');
+                htp.print('<h1>'||pageTitle||'</h1>');
+                htp.print(msg);
+                MODGUI1.collegamento(redirectText, redirect,'w3-button w3-block w3-black w3-section w3-padding');
+                modGUI1.ChiudiDiv;
+            modGUI1.ChiudiDiv;
+END;
+
 /*
  * OPERAZIONI SULLE OPERE
  * - Inserimento ✅
@@ -501,7 +521,7 @@ procedure VisualizzaOpera (
                     modGUI1.ApriDiv('class="w3-container w3-cell"');
                     htp.prn('<img src="https://cdn.pixabay.com/photo/2016/10/22/15/32/water-1761027__480.jpg" alt="Alps" style="width:500px; height:300px;">');
                     modGUI1.ChiudiDiv;
-                    modGUI1.ApriDiv('class="w3-container w3-cell w3-border-right w3-cell-middle" style="width:1120px; height:300px"');
+                    modGUI1.ApriDiv('class="w3-container w3-cell w3-border-right w3-cell-middle" style="width: 1000px; height:300px"');
                         htp.prn('<h5><b>'||var1||'</b></h5>');
                         htp.prn('<p>'||SUBSTR(des.testo,0,100)||'</p>');
                         htp.br;
@@ -579,8 +599,8 @@ end VisualizzaOpera;
 /*
  * OPERAZIONI SUGLI AUTORI
  * - Inserimento ✅
- * - Modifica ❌
- * - Visualizzazione ❌
+ * - Modifica ✅
+ * - Visualizzazione ✅
  * - Cancellazione (rimozione) ❌
  * OPERAZIONI STATISTICHE E MONITORAGGIO
  * - Opere realizzate dall’Autore ❌
@@ -1025,119 +1045,143 @@ end EsitoPositivoUpdateAutori;
  * - Lingua più presente ❌
  */
 
--- Procedura per l'inserimento di nuove descrizioni nella base di dati
--- TODO: autofill provenedo da ConfermaDatiDescrizione
+-- Procedura per l'inserimento di nuove descrizioni di Opere nella base di dati
 PROCEDURE InserisciDescrizione(
     sessionID NUMBER DEFAULT NULL,
-    lingua VARCHAR2 DEFAULT NULL,
-    livello VARCHAR2 DEFAULT NULL,
-    testodescr VARCHAR2 DEFAULT NULL,
+    language VARCHAR2 DEFAULT NULL,
+    d_level VARCHAR2 DEFAULT NULL,
+    d_text VARCHAR2 DEFAULT NULL,
     operaID NUMBER DEFAULT NULL
 ) IS
+def_lingua VARCHAR2(255) := 'Inserisci la lingua...';
+def_descr VARCHAR2(255) := 'Inserisci la descrizione...';
+bambino_selected NUMBER(1) := 0;
+adulto_selected NUMBER(1) := 0;
+esperto_selected NUMBER(1) := 0;
 BEGIN
     modGUI1.ApriPagina('Inserimento Descrizione', sessionID);
 
     modGUI1.Header(sessionID);
     htp.br;htp.br;htp.br;htp.br;htp.br;htp.br;
-    htp.prn('<h1 align="center">Inserimento Descrizione</h1>');--DA MODIFICARE
+    htp.prn('<h1 align="center">Inserimento Descrizione</h1>');
     modGUI1.ApriDiv('class="w3-modal-content w3-card-4 w3-animate-zoom" style="max-width:600px"');
         modGUI1.ApriDiv('class="w3-section"');
-        modGUI1.Collegamento('X','menuOpere?sessionID='||sessionID,' w3-btn w3-large w3-red w3-display-topright'); --Bottone per tornare indietro, cambiare COLLEGAMENTOPROVA
+        modGUI1.Collegamento('X','TODO?sessionID='||sessionID,' w3-btn w3-large w3-red w3-display-topright');
         -- Form per mandare dati alla procedura di conferma
         modGUI1.ApriForm('ConfermaDatiDescrizione');
         htp.FORMHIDDEN('sessionID',sessionID);
         htp.br;
         MODGUI1.Label('Lingua*'); -- TODO: usare dropdown per avere nome standardizzato
-        MODGUI1.InputText('lingua', 'Italiano', 1);
+        MODGUI1.InputText('language', def_lingua, 1, language);
         htp.br;
+        -- Codice per autoselezione livello
+        
+        IF d_level = 'bambino' THEN
+            bambino_selected := 1;
+        ELSIF d_level = 'adulto' THEN
+            adulto_selected := 1;
+        ELSIF d_level = 'esperto' THEN
+            esperto_selected := 1;
+        END IF;
         MODGUI1.Label('Livello*');
-        modGUI1.InputRadioButton('Bambino', 'livello', 'bambino', 0, 0);
-        modGUI1.InputRadioButton('Adulto', 'livello', 'adulto', 0, 0);
-        modGUI1.InputRadioButton('Esperto', 'livello', 'esperto', 0, 0);
+        modGUI1.InputRadioButton('Bambino', 'd_level', 'bambino', bambino_selected, 0);
+        modGUI1.InputRadioButton('Adulto', 'd_level', 'adulto', adulto_selected, 0);
+        modGUI1.InputRadioButton('Esperto', 'd_level', 'esperto', esperto_selected, 0);
         htp.br;
         MODGUI1.Label('Testo descrizione*');
         HTP.BR;
-        MODGUI1.InputTextArea('testodescr', '', 1);
+        MODGUI1.InputTextArea('d_text', def_descr, 1, d_text); -- FIXME: autofill
         HTP.BR;
-        MODGUI1.Label('ID opera*');
-        MODGUI1.InputText('operaID', '', 1);
-        HTP.BR;
+        MODGUI1.Label('Opera*');
+        -- Menu a tendina per selezione dell'opera: viene scelto il titolo dall'utente
+        -- ed inviato l'ID alla procedura chiamata (ConfermaDatiDescrizione)
+        MODGUI1.SELECTOPEN('operaID', 'operaID');
+        FOR an_opera IN (SELECT IdOpera,Titolo FROM Opere ORDER BY Titolo ASC)
+        LOOP
+            modGUI1.SELECTOPTION(an_opera.IdOpera, an_opera.Titolo, 0);
+        END LOOP;
+        MODGUI1.SelectClose;
         MODGUI1.InputSubmit('Inserisci');
+        MODGUI1.ChiudiForm;
     MODGUI1.ChiudiDiv;
     MODGUI1.ChiudiDiv;
 END;
 
+-- Conferma o annulla l'immissione di una nuova iscrizione per un'Opera
 PROCEDURE ConfermaDatiDescrizione(
     sessionID NUMBER DEFAULT 0,
-    lingua VARCHAR2 DEFAULT 'Sconosciuta',
-    livello VARCHAR2 DEFAULT 'Sconosciuto',
-    testodescr VARCHAR2 DEFAULT NULL,
+    language VARCHAR2 DEFAULT 'Sconosciuta',
+    d_level VARCHAR2 DEFAULT 'Sconosciuto',
+    d_text VARCHAR2 DEFAULT NULL,
     operaID NUMBER DEFAULT NULL
 ) IS
-
+v_opera Opere%ROWTYPE;
 BEGIN
-    IF lingua IS NULL
-        OR testodescr IS NULL
+    SELECT * INTO v_opera FROM Opere WHERE Opere.IdOpera = operaID;
+    IF language IS NULL
+        OR LOWER(d_level) NOT IN ('adulto', 'bambino', 'esperto')
+        OR d_text IS NULL
         OR OperaID IS NULL
     THEN
-        -- uno dei parametri con vincoli ha valori non validi
-        MODGUI1.APRIPAGINA('Pagina errore', 0);
-        HTP.BodyOpen;
-        MODGUI1.ApriDiv;
-        HTP.PRINT('Uno dei parametri immessi non valido');
-        MODGUI1.ChiudiDiv;
-        HTP.BodyClose;
-        HTP.HtmlClose;
+        gruppo2.genericErrorPage(sessionID, 
+            'Errore', 
+            'Uno dei parametri immessi è nullo', 
+            'Correggi', 
+            'InserisciDescrizione?sessionID='||sessionID||'&language='||language||'&d_level='||d_level||'&d_text='||d_text||'&operaID='||operaID);
+    ELSIF SQL%NOTFOUND THEN
+        gruppo2.genericErrorPage(sessionID, 
+            'Errore', 
+            'L''Opera immessa è inesistente', 
+            'Correggi', 
+            'InserisciDescrizione?sessionID='||sessionID||'&language='||language||'&d_level='||d_level||'&d_text='||d_text||'&operaID='||operaID);
     ELSE
-        	-- Parametri OK, pulsante conferma o annulla
-        modGUI1.ApriPagina('Conferma dati',sessionID);
+        -- Parametri OK, pulsante conferma o annulla
+        modGUI1.ApriPagina('Conferma Dati Descrizione', sessionID);
+
         modGUI1.Header(sessionID);
         htp.br;htp.br;htp.br;htp.br;htp.br;htp.br;
-
-        modGUI1.ApriDiv('class="w3-modal-content w3-card-4 w3-animate-zoom" style="max-width:600px" ');
+        htp.prn('<h1 align="center">Conferma Dati Descrizione</h1>');
+        modGUI1.ApriDiv('class="w3-modal-content w3-card-4 w3-animate-zoom" style="max-width:600px"');
             modGUI1.ApriDiv('class="w3-section"');
-            htp.br;
-            modGUI1.Label('Lingua:');
-            HTP.PRINT(lingua);
-            htp.br;
-            modGUI1.Label('Livello:');
-			HTP.PRINT(livello);
-            htp.br;
-            modGUI1.Label('Testo descrizione:');
-            HTP.PRINT(testodescr);
-            htp.br;
-            modGUI1.ChiudiDiv;
-            -- Form nascosto per conferma insert
-            MODGUI1.ApriForm('InserisciDatiDescrizione');
-            HTP.FORMHIDDEN('sessionID', sessionID);
-            HTP.FORMHIDDEN('lingua', lingua);
-            HTP.FORMHIDDEN('livello', livello);
-            HTP.FORMHIDDEN('testodescr', testodescr);
-            HTP.FORMHIDDEN('operaID', OperaID);
-            MODGUI1.InputSubmit('Conferma');
-            MODGUI1.ChiudiForm;
-            -- Form nascosto per ritorno ad InserisciAutore con form precompilato
-            MODGUI1.ApriForm('InserisciDescrizione');
-            HTP.FORMHIDDEN('sessionID', sessionID);
-            HTP.FORMHIDDEN('lingua', lingua);
-            HTP.FORMHIDDEN('livello', livello);
-            HTP.FORMHIDDEN('testodescr', testodescr);
-            HTP.FORMHIDDEN('operaID', OperaID);
-            MODGUI1.InputSubmit('Annulla');
+                modGUI1.Label('Lingua:');
+                HTP.PRINT(language);
+                htp.br;
+                modGUI1.Label('Livello:');
+                HTP.PRINT(d_level);
+                htp.br;
+                modGUI1.Label('Testo descrizione:');
+                HTP.PRINT(d_text);
+                -- Form nascosto per conferma insert
+                MODGUI1.ApriForm('InserisciDatiDescrizione');
+                HTP.FORMHIDDEN('sessionID', sessionID);
+                HTP.FORMHIDDEN('language', language);
+                HTP.FORMHIDDEN('d_level', d_level);
+                HTP.FORMHIDDEN('d_text', d_text);
+                HTP.FORMHIDDEN('operaID', OperaID);
+                MODGUI1.InputSubmit('Conferma');
+                MODGUI1.ChiudiForm;
+                -- Form nascosto per ritorno ad InserisciAutore con form precompilato
+                MODGUI1.ApriForm('InserisciDescrizione');
+                HTP.FORMHIDDEN('sessionID', sessionID);
+                HTP.FORMHIDDEN('language', language);
+                HTP.FORMHIDDEN('d_level', d_level);
+                HTP.FORMHIDDEN('d_text', d_text);
+                HTP.FORMHIDDEN('operaID', OperaID);
+                MODGUI1.InputSubmit('Annulla');
             MODGUI1.ChiudiDiv;
-        modGUI1.ChiudiDiv;
+    modGUI1.ChiudiDiv;
     END IF;
 END;
 
 -- Effettua l'inserimento di una nuova descrizione nella base di dati
 PROCEDURE InserisciDatiDescrizione(
     sessionID NUMBER DEFAULT 0,
-    lingua VARCHAR2 DEFAULT 'Sconosciuta',
-    livello VARCHAR2 DEFAULT 'Sconosciuto',
-    testodescr VARCHAR2 DEFAULT NULL,
+    language VARCHAR2 DEFAULT 'Sconosciuta',
+    d_level VARCHAR2 DEFAULT 'Sconosciuto',
+    d_text VARCHAR2 DEFAULT NULL,
     operaID NUMBER DEFAULT NULL
 ) IS
-OperaInesistente EXCEPTION; -- eccezione lanciata se l'opera operaID non esiste
+OperaInesistente EXCEPTION;  -- eccezione lanciata se l'opera operaID non esiste
 Opera Opere%ROWTYPE;
 BEGIN
     -- Controllo esistenza dell'opera riferita
@@ -1147,29 +1191,19 @@ BEGIN
     -- faccio il commit dello statement precedente
         commit;
 
-        MODGUI1.ApriPagina('Descrizione inserita', sessionID);
-        HTP.BodyOpen;
-
-        MODGUI1.ApriDiv;
-        HTP.tableopen;
-        HTP.tablerowopen;
-        HTP.tabledata('Lingua: '||lingua);
-        HTP.tablerowclose;
-        HTP.tablerowopen;
-        HTP.tabledata('Livello: '||livello);
-        HTP.tablerowclose;
-        HTP.tablerowopen;
-        HTP.tabledata('Testo: '||testodescr);
-        HTP.tablerowclose;
-        HTP.tablerowopen;
-        HTP.tabledata('Opera: '||operaID);
-        HTP.tablerowopen;
-        HTP.tablerowclose;
-        HTP.tableClose;
-        MODGUI1.ChiudiDiv;
-
-        HTP.BodyClose;
-        HTP.HtmlClose;
+        modGUI1.ApriPagina('Descrizione inserita',sessionID);
+        modGUI1.Header(sessionID);
+        htp.br;htp.br;htp.br;htp.br;htp.br;htp.br;
+        
+        modGUI1.ApriDiv('class="w3-modal-content w3-card-4 w3-animate-zoom" style="max-width:450px"');
+            modGUI1.ApriDiv('class="w3-center"');
+            htp.print('<h1>Descrizione inserita correttamente</h1>');
+            MODGUI1.collegamento(
+                'Inserisci una nuova descrizione',
+                'InserisciDescrizione?sessionID='||sessionID||'',
+                'w3-button w3-block w3-black w3-section w3-padding');
+            modGUI1.ChiudiDiv;
+        modGUI1.ChiudiDiv;
      ELSE
     -- opera non presente: eccezione
         RAISE OperaInesistente;

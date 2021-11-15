@@ -56,7 +56,7 @@ Create Table MUSEI
 Create Table OPERE
 (
    IdOpera number(5) primary key,
-   Titolo varchar2(15) not null,
+   Titolo varchar2(100) not null,
    Anno number(4) not null,
    FinePeriodo number(4),
    Museo number(5) not null REFERENCES MUSEI(IdMuseo)

@@ -126,25 +126,25 @@ procedure EsitoPositivoUpdateAutori(sessionID NUMBER DEFAULT NULL);
 /* OPERAZIONI SULLE DESCRIZIONI  */
 PROCEDURE InserisciDescrizione(
     sessionID NUMBER DEFAULT NULL,
-    lingua VARCHAR2 DEFAULT NULL,
-    livello VARCHAR2 DEFAULT NULL,
-    testodescr VARCHAR2 DEFAULT NULL,
+    language VARCHAR2 DEFAULT NULL,
+    d_level VARCHAR2 DEFAULT NULL,
+    d_text VARCHAR2 DEFAULT NULL,
     operaID NUMBER DEFAULT NULL
 );
 
 PROCEDURE ConfermaDatiDescrizione(
     sessionID NUMBER DEFAULT 0,
-    lingua VARCHAR2 DEFAULT 'Sconosciuta',
-    livello VARCHAR2 DEFAULT 'Sconosciuto',
-    testodescr VARCHAR2 DEFAULT NULL,
+    language VARCHAR2 DEFAULT 'Sconosciuta',
+    d_level VARCHAR2 DEFAULT 'Sconosciuto',
+    d_text VARCHAR2 DEFAULT NULL,
     operaID NUMBER DEFAULT NULL
 );
 
 PROCEDURE InserisciDatiDescrizione(
     sessionID NUMBER DEFAULT 0,
-    lingua VARCHAR2 DEFAULT 'Sconosciuta',
-    livello VARCHAR2 DEFAULT 'Sconosciuto',
-    testodescr VARCHAR2 DEFAULT NULL,
+    language VARCHAR2 DEFAULT 'Sconosciuta',
+    d_level VARCHAR2 DEFAULT 'Sconosciuto',
+    d_text VARCHAR2 DEFAULT NULL,
     operaID NUMBER DEFAULT NULL
 );
 

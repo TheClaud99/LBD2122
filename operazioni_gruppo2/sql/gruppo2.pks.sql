@@ -123,6 +123,11 @@ procedure EsitoPositivoAutori(sessionID NUMBER DEFAULT NULL);
 
 procedure EsitoPositivoUpdateAutori(sessionID NUMBER DEFAULT NULL);
 
+procedure EsitoNegativoUpdateAutori(
+    sessionID NUMBER DEFAULT 0,
+    authorID VARCHAR2 DEFAULT 'Sconosciuto'
+);
+
 /* OPERAZIONI SULLE DESCRIZIONI  */
 PROCEDURE InserisciDescrizione(
     sessionID NUMBER DEFAULT NULL,

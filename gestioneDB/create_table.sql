@@ -91,7 +91,7 @@ Create Table SALEOPERE
    Sala number(5) not null REFERENCES SALE(IdStanza),
    Opera number(5) not null REFERENCES OPERE(IdOpera),
    DataArrivo date not null,
-   DataUscita date 
+   DataUscita date
 );
 
 Create Table AUTORI
@@ -202,7 +202,7 @@ Create Table TIPOLOGIEINGRESSO
 (
    IdTipologiaIng number(5) primary key,
    Costototale number(5,2) not null,
-   Nome varchar(25) not null,
+   Nome varchar(100) not null,
    LimiteSala number(3),
    LimiteTempo number(3),	/*LimiteTempo e LimiteSale non entrambe null nello stesso record*/
    Durata VARCHAR2(25) not null
@@ -226,7 +226,7 @@ Create Table TIPOLOGIEINGRESSOMUSEI
 );
 
 Create Table BIGLIETTI
-(  
+(
   IdTipologiaIng number(5) primary key REFERENCES TIPOLOGIEINGRESSO(IdTipologiaIng)
 );
 
@@ -248,11 +248,11 @@ Create Table VARCHI
 
 Create Table VISITE
 (
-   IdVisita number(5) primary key,   
+   IdVisita number(5) primary key,
    DataVisita timestamp not null,
    DurataVisita number(6) not null,
    Visitatore number(5) not null REFERENCES UTENTIMUSEO(IdUtente),
-   TitoloIngresso number(5) not null REFERENCES TITOLIINGRESSO(IdTitoloIng) 
+   TitoloIngresso number(5) not null REFERENCES TITOLIINGRESSO(IdTitoloIng)
 );
 
 Create Table VISITEVARCHI

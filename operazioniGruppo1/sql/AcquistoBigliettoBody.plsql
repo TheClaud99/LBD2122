@@ -1,5 +1,18 @@
 CREATE OR REPLACE PACKAGE BODY packageAcquistaTitoli AS
 
+/*
+ *  OPERAZIONI SUI TITOLI DI INGRESSO
+ * - Modifica ❌
+ * - Cancellazione❌
+ * - Visualizzazione ❌
+ * - Acquisto abbonamento museale ❌
+ * - Acquisto biglietto ❌
+ * OPERAZIONI STATISTICHE E MONITORAGGIO
+ * - Numero Titoli d’Ingresso emessi in un arco temporale scelto ❌
+ * - Numero Titoli d’Ingresso emessi da un Museo in un arco temporale scelto ❌
+ * - Abbonamenti in scadenza nel mese corrente ❌
+ */
+
 PROCEDURE visualizzatitoliing(
 	varidtitoloing in number
 )is
@@ -19,7 +32,7 @@ begin
     join TIPOLOGIEINGRESSO on TITOLIINGRESSO.TIPOLOGIA=TIPOLOGIEINGRESSO.IDTIPOLOGIAING
 	where TITOLIINGRESSO.idtitoloing= varidtitoloing;
 	
-	MODGUI1.APRIPAGINA();
+	MODGUI1.APRIPAGINA('Visualizza titolo di ingresso');
 		modgui1.header();
 		modgui1.apridiv('style="margin-top: 110px"');
 
@@ -190,7 +203,7 @@ PROCEDURE pagina_acquista_abbonamento(
 	convalida IN NUMBER DEFAULT NULL
 ) IS
 BEGIN
-	modgui1.apripagina();
+	modgui1.apripagina('Pagina acquisto abbonamento');
 	modgui1.header();
 	modgui1.apridiv('style="margin-top: 110px"');
 	htp.prn('<h1> Acquisto abbonamento </h1>');
@@ -244,7 +257,7 @@ begin
     htp.BodyClose;
     htp.HtmlClose;
     ELSE
-		MODGUI1.APRIPAGINA('packageAcquistaTitoli.PaginaConferma', 0);
+		MODGUI1.APRIPAGINA('Pagina di conferma');
 		HTP.BodyOpen;
 		HTP.header(1, 'Conferma immissione dati');
 
@@ -480,7 +493,7 @@ PROCEDURE pagina_acquista_biglietto(
 	convalida IN NUMBER DEFAULT NULL
 )IS
 begin
-	modgui1.apripagina();
+	modgui1.apripagina('Pagina acquisto biglietto');
 	modgui1.header();
 	modgui1.apridiv('style="margin-top: 110px"');
 	htp.prn('<h1> Acquisto biglietto </h1>');
@@ -498,5 +511,55 @@ begin
 	HTP.BodyClose;
 	HTP.HtmlClose;
 end;
+
+procedure cancellazionetitoloing(
+	idtitoloingselezionato varchar2
+)
+IS
+	temp number(1);
+	temp2 number(1);
+BEGIN
+
+	select count(*)  into temp from TITOLIINGRESSO where IDTITOLOING=idtitoloingselezionato;
+	if temp>0
+	then
+		DELETE FROM TITOLIINGRESSO
+		WHERE IDTITOLOING=idtitoloingselezionato;
+		select count(*) into temp2 from TITOLIINGRESSO where IDTITOLOING=idtitoloingselezionato;
+		if temp2<1
+		then
+			modgui1.apripagina('Pagina conferma cancellazione');
+			modgui1.header();
+			modgui1.apridiv('style="margin-top: 110px"');
+			htp.prn('<h1> Successo! </h1>');
+			htp.br();
+			htp.print('Titolo di ingresso eliminato correttamente.');
+    		modgui1.chiudidiv;
+    		htp.BodyClose;
+    		htp.HtmlClose;
+		else
+			modgui1.apripagina('Pagina errore');
+			modgui1.header();
+			modgui1.apridiv('style="margin-top: 110px"');
+			htp.prn('<h1> Errore </h1>');
+			htp.br();
+			htp.print('Titolo di ingresso non eliminato correttamente.');
+    		modgui1.chiudidiv;
+    		htp.BodyClose;
+    		htp.HtmlClose;
+		end if;
+	ELSE
+		modgui1.apripagina('Pagina errore');
+		modgui1.header();
+		modgui1.apridiv('style="margin-top: 110px"');
+		htp.prn('<h1> Errore </h1>');
+		htp.br();
+		htp.print('Titolo di ingresso non presente.');
+    	modgui1.chiudidiv;
+    	htp.BodyClose;
+    	htp.HtmlClose;
+	end if;
+		
+END;
 
 END packageAcquistaTitoli;

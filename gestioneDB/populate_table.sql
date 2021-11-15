@@ -23759,9 +23759,9 @@ VALUES (IdTipologiaingSeq.nextVal, 10, 18, null, '1', 'Biglietto 18 sale, 10€'
 INSERT INTO TIPOLOGIEINGRESSO (IdTipologiaIng, Costototale, LimiteSala, LimiteTempo, Durata, Nome)
 VALUES (IdTipologiaingSeq.nextVal, 5, 9, null, '1', 'Biglietto 9 sale, 5€'); --idM=6
 INSERT INTO TIPOLOGIEINGRESSO (IdTipologiaIng, Costototale, LimiteSala, LimiteTempo, Durata, Nome)
-VALUES (IdTipologiaingSeq.nextVal, 30, 100, null, '365', 'Abb annuale 100 ore, 30€'); --abbonamento
+VALUES (IdTipologiaingSeq.nextVal, 30, 100, null, '365', 'Abbonamento annuale 100 ore, 30€'); --abbonamento
 INSERT INTO TIPOLOGIEINGRESSO (IdTipologiaIng, Costototale, LimiteSala, LimiteTempo, Durata, Nome)
-VALUES (IdTipologiaingSeq.nextVal, 35, null, 999, '365', 'Abb annuale no lim, 35€'); --abbonamento
+VALUES (IdTipologiaingSeq.nextVal, 35, null, 999, '365', 'Abbonamento annuale senza limiti, 35€'); --abbonamento
 /************TIPOLOGIEINGRESSOMUSEI************/
 INSERT INTO TIPOLOGIEINGRESSOMUSEI(IdTipologiaIng, IdMuseo)
 VALUES(1, 1);

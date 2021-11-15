@@ -638,7 +638,7 @@ BEGIN
                 modGUI1.ChiudiDiv;
                 -- Azioni di modifica e rimozione mostrate solo se autorizzatii
                 modGUI1.Collegamento('Visualizza',
-                    'ModificaAutore?sessionID='||sessionID||'0='||autore.IdAutore||'0=0',
+                    'ModificaAutore?sessionID='||sessionID||'&authorID='||autore.IdAutore||'&operazione=0',
                     'w3-black w3-margin w3-button');
                 IF sessionID=1 THEN
                     -- parametro modifica messo a true: possibile fare editing dell'autore
@@ -967,7 +967,7 @@ BEGIN
 			htp.br;
 			modGUI1.Label('Nazionalità:');
 			htp.prn(this_autore.Nazionalita);
-			htp.br;
+			htp.br; htp.br;
 		END IF;
 		modGUI1.ChiudiDiv;
 	modGUI1.ChiudiDiv;
@@ -989,7 +989,7 @@ BEGIN
 	END IF;
 	UPDATE Autori SET
 		Nome=newName,
-		Cognome=newSurname,
+		Cognome=upper(newSurname),
 		DataNascita=TO_DATE(newBirth, 'YYYY-MM-DD'),
 		DataMorte=TO_DATE(newDeath, 'YYYY-MM-DD'),
 		Nazionalita=newNation
@@ -1000,7 +1000,7 @@ BEGIN
 
     EXCEPTION
 		WHEN Errore_data THEN
-			DBMS_OUTPUT.PUT_LINE('Error');
+			gruppo2.EsitoNegativoUpdateAutori(sessionID, authID);
             ROLLBACK;
 END;
 
@@ -1034,6 +1034,27 @@ procedure EsitoPositivoUpdateAutori(
                 modGUI1.ChiudiDiv;
             modGUI1.ChiudiDiv;
 end EsitoPositivoUpdateAutori;
+
+procedure EsitoNegativoUpdateAutori(
+    sessionID NUMBER DEFAULT 0,
+    authorID VARCHAR2 DEFAULT 'Sconosciuto'
+) is /*feedbackNegativo*/
+    begin
+        modGUI1.ApriPagina('EsitoNegativoUpdateAutori',sessionID);
+        modGUI1.Header(sessionID);
+        htp.br;htp.br;htp.br;htp.br;htp.br;htp.br;
+            modGUI1.ApriDiv('class="w3-modal-content w3-card-4 w3-animate-zoom" style="max-width:450px"');
+                modGUI1.ApriDiv('class="w3-center"');
+                htp.print('<h1>Errore: data di nascita postuma alla data di morte</h1>');
+                MODGUI1.ApriForm('ModificaAutore');
+                HTP.FORMHIDDEN('sessionID', sessionID);
+                HTP.FORMHIDDEN('authorID', authorID);
+                HTP.FORMHIDDEN('operazione', 1);
+                MODGUI1.InputSubmit('Torna indietro');
+                modGUI1.ChiudiDiv;
+            modGUI1.ChiudiDiv;
+end EsitoNegativoUpdateAutori;
+
 /*
  * OPERAZIONI SULLE DESCRIZIONI
  * - Inserimento ❌

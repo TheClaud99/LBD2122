@@ -90,4 +90,10 @@ PROCEDURE inserisci_newsletter (
 	nome varchar2(25) not null
 );
 */
+
+PROCEDURE numeroVisitatoriNewsletter (
+    sessionID NUMBER DEFAULT 0,
+	newsletterID NUMBER DEFAULT -1
+);
+
 END gruppo1;

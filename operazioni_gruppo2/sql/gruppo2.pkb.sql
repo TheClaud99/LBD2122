@@ -134,7 +134,7 @@ BEGIN
 end RimozioneOpera;
 
 
---procedura popup
+--procedura popup 
 procedure lingua(
     sessionID NUMBER default 0,
     operaID NUMBER default 0
@@ -584,7 +584,8 @@ procedure VisualizzaOpera (
                     modGUI1.ApriDiv('class="w3-container w3-cell w3-cell-middle"');
                         if (sessionID=1)
                         then
-                            modGUI1.Bottone('w3-green','Modifica');
+                            --modGUI1.Bottone('w3-green','Modifica');
+                            MODGUI1.collegamento('Visualizza','visualizzaDescrizione?sessionID='||sessionID||'&descrID='||des.iddesc,'w3-btn w3-round-xxlarge w3-black');
                             htp.br;
                         end if;
                     modGUI1.ChiudiDiv;
@@ -1111,7 +1112,7 @@ BEGIN
         htp.br;
         MODGUI1.Label('Testo descrizione*');
         HTP.BR;
-        MODGUI1.InputTextArea('d_text', def_descr, 1, d_text); -- FIXME: autofill
+        MODGUI1.InputTextArea('d_text', def_descr, 1); -- FIXME: autofill
         HTP.BR;
         MODGUI1.Label('Opera*');
         -- Menu a tendina per selezione dell'opera: viene scelto il titolo dall'utente
@@ -1236,5 +1237,29 @@ BEGIN
     DBMS_OUTPUT.PUT_LINE('Errore');
    END;
 
+    PROCEDURE visualizzaDescrizione(
+         sessionID NUMBER DEFAULT 0,
+         descrID NUMBER DEFAULT NULL
+    ) IS
+    DESCR descrizioni%ROWTYPE;
+    tit VARCHAR2(100);
+    BEGIN
+    select * INTO DESCR FROM DESCRIZIONI WHERE IdDesc=descrID;
+    select titolo into tit from opere where Descr.opera=IDOPERA;
+    modGUI1.ApriDiv('class="w3-modal-content w3-card-4 w3-animate-zoom" style="max-width:600px" ');
+		modGUI1.ApriDiv('class="w3-section"');
+        modGUI1.Collegamento('X','menuAutori?sessionID='||sessionID||'',' w3-btn w3-large w3-red w3-display-topright');
+		htp.br;
+		htp.header(2, 'Dettagli Descrizione', 'center');
+			modGUI1.Label('Titolo:');
+			htp.prn(tit);
+			htp.br;
+			htp.prn(DESCR.Testo);
+			htp.br; htp.br;
+		modGUI1.ChiudiDiv;
+	modGUI1.ChiudiDiv;
+    END;
+
 
 END gruppo2;
+

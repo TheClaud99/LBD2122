@@ -52,7 +52,7 @@ procedure menuOpere (sessionID NUMBER DEFAULT NULL) is
 
                         --bottone modifica
                         modGUI1.Collegamento('Modifica',
-                            'ModificaOpera?sessionID='||sessionID||'0='||opera.IdOpera||'0='||opera.titolo,
+                            'ModificaOpera?sessionID='||sessionID||'&operaID='||opera.IdOpera||'&titoloOpera='||opera.titolo,
                             'w3-green w3-margin w3-button');
                         --bottone elimina
                         htp.prn('<button onclick="document.getElementById(''ElimOpera'||opera.idOpera||''').style.display=''block''" class="w3-margin w3-button w3-red w3-hover-white">Elimina</button>');

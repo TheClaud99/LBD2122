@@ -23759,9 +23759,9 @@ VALUES (IdTipologiaingSeq.nextVal, 10, 18, null, '1', 'Biglietto 18 sale, 10€'
 INSERT INTO TIPOLOGIEINGRESSO (IdTipologiaIng, Costototale, LimiteSala, LimiteTempo, Durata, Nome)
 VALUES (IdTipologiaingSeq.nextVal, 5, 9, null, '1', 'Biglietto 9 sale, 5€'); --idM=6
 INSERT INTO TIPOLOGIEINGRESSO (IdTipologiaIng, Costototale, LimiteSala, LimiteTempo, Durata, Nome)
-VALUES (IdTipologiaingSeq.nextVal, 30, 100, null, '365', 'Abbonamento annuale 100 ore, 30€'); --abbonamento
+VALUES (IdTipologiaingSeq.nextVal, 30, 100, null, '365', 'Abb annuale 100 ore, 30€'); --abbonamento
 INSERT INTO TIPOLOGIEINGRESSO (IdTipologiaIng, Costototale, LimiteSala, LimiteTempo, Durata, Nome)
-VALUES (IdTipologiaingSeq.nextVal, 35, null, 999, '365', 'Abbonamento annuale senza limiti, 35€'); --abbonamento
+VALUES (IdTipologiaingSeq.nextVal, 35, null, 999, '365', 'Abb annuale no lim, 35€'); --abbonamento
 /************TIPOLOGIEINGRESSOMUSEI************/
 INSERT INTO TIPOLOGIEINGRESSOMUSEI(IdTipologiaIng, IdMuseo)
 VALUES(1, 1);
@@ -26403,30 +26403,30 @@ VALUES(IdTitoloingseq.nextVal, to_date('8/08/2018', 'DD/MM/YYYY'), to_date('17:2
 INSERT INTO TITOLIINGRESSO(IdTitoloing, DataEmissione, OraEmissione, DataScadenza, Acquirente, Tipologia, Museo)
 VALUES(IdTitoloingseq.nextVal, to_date('13/10/2020', 'DD/MM/YYYY'), to_date('12:1:1', 'HH24:MI:SS'), to_date('13/10/2021', 'DD/MM/YYYY'), 474, 16, 2); --1280
 /***********BIGLIETTI***********/
-INSERT INTO BIGLIETTI(IdTipologiaIng, Nome)
-VALUES(1, 'tariffarossa');
-INSERT INTO BIGLIETTI(IdTipologiaIng, Nome)
-VALUES(2, 'tariffaarancione');
-INSERT INTO BIGLIETTI(IdTipologiaIng, Nome)
-VALUES(3, 'tariffarossa');
-INSERT INTO BIGLIETTI(IdTipologiaIng, Nome)
-VALUES(4, 'tariffaarancione');
-INSERT INTO BIGLIETTI(IdTipologiaIng, Nome)
-VALUES(5, 'tariffarossa');
-INSERT INTO BIGLIETTI(IdTipologiaIng, Nome)
-VALUES(6, 'tariffaarancione');
-INSERT INTO BIGLIETTI(IdTipologiaIng, Nome)
-VALUES(7, 'tariffarossa');
-INSERT INTO BIGLIETTI(IdTipologiaIng, Nome)
-VALUES(8, 'tariffaarancione');
-INSERT INTO BIGLIETTI(IdTipologiaIng, Nome)
-VALUES(9, 'tariffarossa');
-INSERT INTO BIGLIETTI(IdTipologiaIng, Nome)
-VALUES(10, 'tariffaarancione');
-INSERT INTO BIGLIETTI(IdTipologiaIng, Nome)
-VALUES(11, 'tariffarossa');
-INSERT INTO BIGLIETTI(IdTipologiaIng, Nome)
-VALUES(12, 'tariffaarancione');
+INSERT INTO BIGLIETTI(IdTipologiaIng)
+VALUES(1);
+INSERT INTO BIGLIETTI(IdTipologiaIng)
+VALUES(2);
+INSERT INTO BIGLIETTI(IdTipologiaIng)
+VALUES(3);
+INSERT INTO BIGLIETTI(IdTipologiaIng)
+VALUES(4);
+INSERT INTO BIGLIETTI(IdTipologiaIng)
+VALUES(5);
+INSERT INTO BIGLIETTI(IdTipologiaIng)
+VALUES(6);
+INSERT INTO BIGLIETTI(IdTipologiaIng)
+VALUES(7);
+INSERT INTO BIGLIETTI(IdTipologiaIng)
+VALUES(8);
+INSERT INTO BIGLIETTI(IdTipologiaIng)
+VALUES(9);
+INSERT INTO BIGLIETTI(IdTipologiaIng)
+VALUES(10);
+INSERT INTO BIGLIETTI(IdTipologiaIng)
+VALUES(11);
+INSERT INTO BIGLIETTI(IdTipologiaIng)
+VALUES(12);
 /***********ABBONAMENTI************/
 INSERT INTO ABBONAMENTI(IdTipologiaIng, Multiplo)
 VALUES(13, 0); --abbonamento a sale

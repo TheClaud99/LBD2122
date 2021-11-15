@@ -59,4 +59,8 @@ PROCEDURE pagina_acquista_biglietto(
 	convalida IN NUMBER DEFAULT NULL
 );
 
+procedure cancellazionetitoloing(
+	idtitoloingselezionato varchar2
+);
+
 END packageAcquistaTitoli;

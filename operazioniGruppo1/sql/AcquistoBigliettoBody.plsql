@@ -1,5 +1,18 @@
 CREATE OR REPLACE PACKAGE BODY packageAcquistaTitoli AS
 
+/*
+ *  OPERAZIONI SUI TITOLI DI INGRESSO
+ * - Modifica ❌
+ * - Cancellazione❌
+ * - Visualizzazione ❌
+ * - Acquisto abbonamento museale ❌
+ * - Acquisto biglietto ❌
+ * OPERAZIONI STATISTICHE E MONITORAGGIO
+ * - Numero Titoli d’Ingresso emessi in un arco temporale scelto ❌
+ * - Numero Titoli d’Ingresso emessi da un Museo in un arco temporale scelto ❌
+ * - Abbonamenti in scadenza nel mese corrente ❌
+ */
+
 PROCEDURE visualizzatitoliing(
 	varidtitoloing in number
 )is

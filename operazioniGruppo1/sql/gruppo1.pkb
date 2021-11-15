@@ -43,7 +43,17 @@ CREATE OR REPLACE PACKAGE BODY gruppo1 AS
 
 --Procedura per inserimento Utente
 PROCEDURE InserisciUtente(
-    sessionID NUMBER DEFAULT 0
+    sessionID NUMBER DEFAULT 0,
+	nome VARCHAR2 DEFAULT NULL,
+	cognome VARCHAR2 DEFAULT NULL,
+	dataNascita VARCHAR2 DEFAULT NULL,
+	indirizzo VARCHAR2 DEFAULT NULL,
+	email VARCHAR2 DEFAULT NULL,
+    telefono VARCHAR2 DEFAULT NULL,
+	utenteMuseo VARCHAR2 DEFAULT NULL,
+	utenteDonatore VARCHAR2 DEFAULT NULL,
+	utenteCampiEstivi VARCHAR2 DEFAULT NULL,
+	utenteAssistenza VARCHAR2 DEFAULT NULL
 ) IS
 BEGIN
 
@@ -52,41 +62,58 @@ BEGIN
 	HTP.BodyOpen;
 	MODGUI1.Header(); --da capire come combinarlo con il resto
 	HTP.header(1,'Inserisci un nuovo utente', 'center');
-	MODGUI1.ApriDiv('style="margin-left: 2%; margin-right: 2%;"');
+	modgui1.apridiv('class="w3-modal-content w3-card-4 w3-animate-zoom" style="max-width:600px; margin-top:110px"');
 
 	MODGUI1.ApriForm('ConfermaDatiUtente');
 	HTP.FORMHIDDEN('sessionID',0);
 
 	MODGUI1.Label('Nome*');
-	MODGUI1.InputText('nome', 'Nome utente', 1);
+	MODGUI1.InputText('nome', 'Nome utente', 1, nome);
 	HTP.BR;
 	MODGUI1.Label('Cognome*');
-	MODGUI1.InputText('cognome', 'Cognome utente', 1);
+	MODGUI1.InputText('cognome', 'Cognome utente', 1, cognome);
 	HTP.BR;
 	MODGUI1.Label('Data nascita*');
-	MODGUI1.InputDate('dataNascita', 'dataNascita');
+	MODGUI1.InputDate('dataNascita', 'dataNascita', 1, dataNascita);
 	HTP.BR;
 	MODGUI1.Label('Indirizzo*');
-	MODGUI1.InputText('indirizzo', 'Indirizzo', 1);
+	MODGUI1.InputText('indirizzo', 'Indirizzo', 1, indirizzo);
 	HTP.BR;
 	MODGUI1.Label('Email*');
-	MODGUI1.InputText('email', 'Email', 1);
+	MODGUI1.InputText('email', 'Email', 1, email);
 	HTP.BR;
 	MODGUI1.Label('Telefono');
-	MODGUI1.InputText('telefono', 'Telefono', 0);
+	MODGUI1.InputText('telefono', 'Telefono', 0, telefono);
 	HTP.BR;
-	MODGUI1.InputCheckboxOnClick('Utente museo', 'utentemuseo','check()','utentemuseo');
+	if utenteMuseo = 'on' then
+		MODGUI1.InputCheckboxOnClick('Utente museo', 'utenteMuseo','check()','utentemuseo', 1);
+		MODGUI1.ApriDiv('style="margin-left: 2%; margin-right: 2%; display: block" id="first"');
+	else 
+		MODGUI1.InputCheckboxOnClick('Utente museo', 'utenteMuseo','check()','utentemuseo');
+		MODGUI1.ApriDiv('style="margin-left: 2%; margin-right: 2%; display: none" id="first"');
+	end if;
 	HTP.BR;
-	MODGUI1.ApriDiv('style="margin-left: 2%; margin-right: 2%; display: none" id="first"');
-	HTP.BR;
-	MODGUI1.InputCheckbox('Donatore', 'donatore');
+	if utenteDonatore = 'on' then
+		MODGUI1.InputCheckbox('Donatore', 'utenteDonatore', 1);
+	else 
+		MODGUI1.InputCheckbox('Donatore', 'utenteDonatore');
+	end if;
 	HTP.BR;
 	MODGUI1.ChiudiDiv;
 	HTP.BR;
-	MODGUI1.InputCheckboxOnClick('Utente campi estivi', 'utentecampiestivi', 'check2()', 'utentecampiestivi');
+	if utenteCampiEstivi = 'on' then
+		MODGUI1.InputCheckboxOnClick('Utente campi estivi', 'utenteCampiEstivi', 'check2()', 'utentecampiestivi', 1);
+		MODGUI1.ApriDiv('style="margin-left: 2%; margin-right: 2%; display: block" id="second"');
+	else
+		MODGUI1.InputCheckboxOnClick('Utente campi estivi', 'utenteCampiEstivi', 'check2()', 'utentecampiestivi');
+		MODGUI1.ApriDiv('style="margin-left: 2%; margin-right: 2%; display: none" id="second"');
+	end if;
 	HTP.BR;
-	MODGUI1.ApriDiv('style="margin-left: 2%; margin-right: 2%; display: none" id="second"');
-	MODGUI1.InputCheckbox('Richiede assistenza', 'assistenza');
+	if utenteAssistenza = 'on' then
+		MODGUI1.InputCheckbox('Richiede assistenza', 'utenteAssistenza', 1);
+	else 
+		MODGUI1.InputCheckbox('Richiede assistenza', 'utenteAssistenza');
+	end if;
 	HTP.BR;
 	MODGUI1.ChiudiDiv;
 
@@ -139,7 +166,11 @@ PROCEDURE ConfermaDatiUtente(
 	dataNascita VARCHAR2 DEFAULT NULL,
 	indirizzo VARCHAR2 DEFAULT NULL,
 	email VARCHAR2 DEFAULT NULL,
-    telefono VARCHAR2 DEFAULT NULL
+    telefono VARCHAR2 DEFAULT NULL,
+	utenteMuseo VARCHAR2 DEFAULT NULL,
+	utenteDonatore VARCHAR2 DEFAULT NULL,
+	utenteCampiEstivi VARCHAR2 DEFAULT NULL,
+	utenteAssistenza VARCHAR2 DEFAULT NULL
 ) IS
 BEGIN
 	-- se utente non autorizzato: messaggio errore
@@ -153,6 +184,7 @@ BEGIN
 		-- uno dei parametri con vincoli ha valori non validi
 		MODGUI1.APRIPAGINA('Pagina errore', 0);
 		HTP.BodyOpen;
+		MODGUI1.Header();
 		MODGUI1.ApriDiv;
 		HTP.PRINT('Uno dei parametri immessi non valido');
 		MODGUI1.ChiudiDiv;
@@ -161,9 +193,10 @@ BEGIN
 	ELSE
 		MODGUI1.APRIPAGINA('Pagina OK', 0);
 		HTP.BodyOpen;
+		MODGUI1.Header();
 		HTP.header(1, 'Conferma immissione dati');
 
-		MODGUI1.ApriDiv('style="margin-left: 2%; margin-right: 2%;"');
+		modgui1.apridiv('class="w3-modal-content w3-card-4 w3-animate-zoom" style="max-width:600px; margin-top:110px"');
 		HTP.header(2, 'Nuovo utente');
 
 		HTP.TableOpen;
@@ -191,6 +224,30 @@ BEGIN
         HTP.TableData('Telefono: ');
 		HTP.TableData(telefono);
 		HTP.TableRowClose;
+		if utenteMuseo = 'on' then
+			HTP.TableRowOpen;
+			HTP.TableData('Utente museo: ');
+			HTP.TableData('&#10004');
+			HTP.TableRowClose;
+			if utenteDonatore = 'on' then
+				HTP.TableRowOpen;
+				HTP.TableData('Donatore: ');
+				HTP.TableData('&#10004');
+				HTP.TableRowClose;
+			end if;
+		end if;
+		if utenteCampiEstivi = 'on' then
+			HTP.TableRowOpen;
+			HTP.TableData('Utente campi estivo: ');
+			HTP.TableData('&#10004');
+			HTP.TableRowClose;
+			if utenteAssistenza = 'on' then 
+				HTP.TableRowOpen;
+				HTP.TableData('Richiesta assistenza: ');
+				HTP.TableData('&#10004');
+				HTP.TableRowClose;
+			end if;
+		end if;
 		HTP.TableClose;
 
 		MODGUI1.ApriForm('InserisciDatiUtente');
@@ -199,11 +256,27 @@ BEGIN
 		HTP.FORMHIDDEN('cognome', cognome);
 		HTP.FORMHIDDEN('dataNascita', dataNascita);
 		HTP.FORMHIDDEN('Indirizzo', indirizzo);
-		HTP.FORMHIDDEN('Email', email);
+		HTP.FORMHIDDEN('utenteEmail', email);
         HTP.FORMHIDDEN('Telefono', telefono);
+		if utenteMuseo = 'on' then
+			HTP.FORMHIDDEN('utenteMuseo', utenteMuseo);
+			if utenteDonatore = 'on' then
+				 HTP.FORMHIDDEN('utenteDonatore', utenteDonatore);
+			end if;
+		end if;
+		if utenteCampiEstivi = 'on' then
+			HTP.FORMHIDDEN('utenteCampiEstivi', utenteCampiEstivi);
+			if utenteAssistenza = 'on' then
+				HTP.FORMHIDDEN('utenteAssistenza', utenteAssistenza);
+			end if;
+		end if;
 		MODGUI1.InputSubmit('Conferma');
 		MODGUI1.ChiudiForm;
-		MODGUI1.Collegamento('Annulla', 'InserisciUtente', 'w3-btn');
+		MODGUI1.Collegamento(
+            'Annulla',
+			'InserisciUtente?nome='||nome||'&cognome='||cognome||'&dataNascita='||dataNascita||'&indirizzo='||indirizzo||'&email='||email||'&telefono='||telefono||'&utenteMuseo='||utenteMuseo||'&utenteDonatore='||utenteDonatore||'&utenteCampiEstivi='||utenteCampiEstivi||'&utenteAssistenza='||utenteAssistenza,
+			'w3-btn'
+        );
 		MODGUI1.ChiudiDiv;
 		HTP.BodyClose;
 		HTP.HtmlClose;
@@ -214,22 +287,27 @@ END;
 
 PROCEDURE InserisciDatiUtente (
     sessionID NUMBER DEFAULT 0,
-	nome VARCHAR2,
-	cognome VARCHAR2,
+	nome VARCHAR2 DEFAULT NULL,
+	cognome VARCHAR2 DEFAULT NULL,
 	dataNascita VARCHAR2 DEFAULT NULL,
 	indirizzo VARCHAR2 DEFAULT NULL,
-	email VARCHAR2 DEFAULT NULL,
-    telefono VARCHAR2 DEFAULT NULL
+	utenteEmail VARCHAR2 DEFAULT NULL,
+    telefono VARCHAR2 DEFAULT NULL,
+	utenteMuseo VARCHAR2 DEFAULT NULL,
+	utenteDonatore VARCHAR2 DEFAULT NULL,
+	utenteCampiEstivi VARCHAR2 DEFAULT NULL,
+	utenteAssistenza VARCHAR2 DEFAULT NULL
 ) IS
     birth DATE := TO_DATE(dataNascita default NULL on conversion error, 'YYYY-MM-DD');
     EmailPresente EXCEPTION;
     TelefonoPresente EXCEPTION;
     temp NUMBER(10) := 0;
     temp2 NUMBER(10) := 0;
+	tempIdUtente NUMBER(10) := 0;
 
 BEGIN
     -- tutti i parametri sono stati controllati prima, dobbiamo solo inserirli nella tabella
-    SELECT count(*) INTO temp FROM UTENTI WHERE UTENTI.Email = email;
+    SELECT count(*) INTO temp FROM UTENTI WHERE UTENTI.Email = utenteEmail;
 
     IF temp > 0 THEN
         RAISE EmailPresente;
@@ -242,7 +320,29 @@ BEGIN
     END IF;
 
     insert into UTENTI
-    values (IdUtenteSeq.NEXTVAL, nome, cognome, birth, indirizzo, email, telefono);
+    values (IdUtenteSeq.NEXTVAL, nome, cognome, birth, indirizzo, utenteEmail, telefono);
+
+	select IdUtente into tempIdUtente from UTENTI where UTENTI.Email = utenteEmail;
+
+	if utenteMuseo = 'on' then
+		if utenteDonatore = 'on' then
+			insert into UTENTIMUSEO
+			values (tempIdUtente, 1);
+		else
+			insert into UTENTIMUSEO
+			values (tempIdUtente, 0);
+		end if;
+	end if;
+
+	if utenteCampiEstivi = 'on' then
+		if utenteAssistenza = 'on' then
+			insert into UTENTICAMPIESTIVI
+			values (tempIdUtente, 1);
+		else
+			insert into UTENTICAMPIESTIVI
+			values (tempIdUtente, 0);
+		end if;
+	end if;
 
 	IF SQL%FOUND
 	THEN
@@ -251,7 +351,8 @@ BEGIN
 
 		MODGUI1.ApriPagina('Utente inserito', sessionID);
 		HTP.BodyOpen;
-		MODGUI1.ApriDiv('style="margin-left: 2%; margin-right: 2%;"');
+		MODGUI1.Header();
+		modgui1.apridiv('class="w3-modal-content w3-card-4 w3-animate-zoom" style="max-width:600px; margin-top:110px"');
 		HTP.tableopen;
 		HTP.tablerowopen;
 		HTP.tabledata('Nome: '||nome);
@@ -267,11 +368,35 @@ BEGIN
 		HTP.tablerowopen;
 		HTP.tablerowclose;
 		HTP.tablerowopen;
-		HTP.tabledata('Email: '||email);
+		HTP.tabledata('Email: '||utenteEmail);
 		HTP.tablerowclose;
 		HTP.tablerowopen;
 		HTP.tabledata('Telefono: '||telefono);
 		HTP.tablerowclose;
+		if utenteMuseo = 'on' then
+			HTP.TableRowOpen;
+			HTP.TableData('Utente museo: ');
+			HTP.TableData('&#10004');
+			HTP.TableRowClose;
+			if utenteDonatore = 'on' then
+				HTP.TableRowOpen;
+				HTP.TableData('Donatore: ');
+				HTP.TableData('&#10004');
+				HTP.TableRowClose;
+			end if;
+		end if;
+		if utenteCampiEstivi = 'on' then
+			HTP.TableRowOpen;
+			HTP.TableData('Utente campi estivo: ');
+			HTP.TableData('&#10004');
+			HTP.TableRowClose;
+			if utenteAssistenza = 'on' then 
+				HTP.TableRowOpen;
+				HTP.TableData('Richiesta assistenza: ');
+				HTP.TableData('&#10004');
+				HTP.TableRowClose;
+			end if;
+		end if;
 		HTP.tableClose;
 		MODGUI1.ChiudiDiv;
 		HTP.BodyClose;
@@ -289,6 +414,7 @@ BEGIN
     EXCEPTION
       when EmailPresente then
         MODGUI1.ApriPagina('Errore', sessionID);
+		MODGUI1.Header();
 		HTP.BodyOpen;
 
 		MODGUI1.ApriDiv;
@@ -300,6 +426,7 @@ BEGIN
 		HTP.HtmlClose;
     when TelefonoPresente then
         MODGUI1.ApriPagina('Errore', sessionID);
+		MODGUI1.Header();
 		HTP.BodyOpen;
 
 		MODGUI1.ApriDiv;
@@ -322,6 +449,11 @@ IS
 	IndirizzoUtente UTENTI.Indirizzo%TYPE;
 	EmailUtente UTENTI.Email%TYPE;
 	RecapitoTelefonicoUtente UTENTI.RecapitoTelefonico%TYPE;
+	UtenteDonatore UTENTIMUSEO.Donatore%TYPE;
+	UtenteAssistenza UTENTICAMPIESTIVI.Richiestaassistenza%TYPE;
+	temp NUMBER(10) := 0;
+    temp2 NUMBER(10) := 0;
+
 
 BEGIN
 
@@ -330,18 +462,37 @@ BEGIN
 	from UTENTI
 	where IDUTENTE = utenteID;
 
+	select count(*) into temp from UTENTIMUSEO
+	where utenteID = UTENTIMUSEO.idutente;
+
+	if temp > 0 then
+		select Donatore into UtenteDonatore from UTENTIMUSEO
+		where utenteID = UTENTIMUSEO.idutente;
+	end if;
+
+	select count(*) into temp2 from UTENTICAMPIESTIVI
+	where utenteID = UTENTICAMPIESTIVI.idutente;
+
+	if temp2 > 0 then
+		select Richiestaassistenza into UtenteAssistenza from UTENTICAMPIESTIVI
+		where utenteID = UTENTICAMPIESTIVI.idutente;
+	end if;
+
 	IF SQL%FOUND
 	THEN
 
 		MODGUI1.ApriPagina('Profile utente', sessionID);
 		HTP.BodyOpen;
 		MODGUI1.Header(sessionID);
+		modgui1.apridiv('class="w3-modal-content w3-card-4 w3-animate-zoom" style="max-width:600px; margin-top:110px"');
+		/*
 		MODGUI1.ApriDiv('class="w3-center" style="margin: 0;
 							position: absolute;
 							top: 40%;
 							left: 50%;
 							margin-right: -50%;
 							transform: translate(-50%, -50%)"');
+		*/
 		HTP.tableopen;
 		HTP.tablerowopen;
 		HTP.tabledata('Nome: '||NomeUtente);
@@ -362,8 +513,32 @@ BEGIN
 		HTP.tablerowopen;
 		HTP.tabledata('Telefono: '||RecapitoTelefonicoUtente);
 		HTP.tablerowclose;
+		if temp > 0 then
+			HTP.TableRowOpen;
+			HTP.TableData('Utente museo: ');
+			HTP.TableData('&#10004');
+			HTP.TableRowClose;
+			if utenteDonatore > 0 then
+				HTP.TableRowOpen;
+				HTP.TableData('Donatore: ');
+				HTP.TableData('&#10004');
+				HTP.TableRowClose;
+			end if;
+		end if;
+		if temp2 > 0 then
+			HTP.TableRowOpen;
+			HTP.TableData('Utente campi estivo: ');
+			HTP.TableData('&#10004');
+			HTP.TableRowClose;
+			if UtenteAssistenza > 0 then 
+				HTP.TableRowOpen;
+				HTP.TableData('Richiesta assistenza: ');
+				HTP.TableData('&#10004');
+				HTP.TableRowClose;
+			end if;
+		end if;
 		HTP.tableClose;
-		MODGUI1.Collegamento('Modifica', '/ModificaDatiUtente?sessionID=' || sessionID, 'w3-button w3-blue');
+		MODGUI1.Collegamento('Modifica', '/ModificaDatiUtente?sessionID=' || sessionID, 'w3-button w3-blue w3-margin');
 		MODGUI1.ChiudiDiv;
 		HTP.BodyClose;
 		HTP.HtmlClose;
@@ -613,6 +788,7 @@ BEGIN
 END;
 
 -------------------------------------------------------------TODO DA TESTARE
+/*
 PROCEDURE inserisciNewsLetter (
     sessionID NUMBER DEFAULT 0
 ) IS
@@ -667,7 +843,7 @@ BEGIN
 	MODGUI1.ChiudiDiv;
 
 END;
--------------------------------------------------------------FINE TODO
+-------------------------------------------------------------FINE TODO */
 
 END GRUPPO1;
 

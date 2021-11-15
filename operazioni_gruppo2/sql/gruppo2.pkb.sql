@@ -2,10 +2,10 @@ CREATE OR REPLACE PACKAGE BODY gruppo2 AS
 
 /*
  * OPERAZIONI SULLE OPERE
- * - Inserimento 
- * - Modifica  
- * - Visualizzazione ❌
- * - Cancellazione (rimozione) ❌ 
+ * - Inserimento ✅
+ * - Modifica ✅
+ * - Visualizzazione ✅
+ * - Cancellazione (rimozione) ✅
  * - Spostamento ❌
  * - Aggiunta Autore ❌
  * OPERAZIONI STATISTICHE E MONITORAGGIO
@@ -23,12 +23,12 @@ procedure menuOpere (sessionID NUMBER DEFAULT NULL) is
         htp.prn('<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css"> ');
         modGUI1.ApriPagina('Opere',sessionID);
         modGUI1.Header(sessionID);
-        htp.br;htp.br;htp.br;htp.br;htp.br;htp.br;
+        htp.br;htp.br;htp.br;htp.br;htp.br;
         modGUI1.ApriDiv('class="w3-center"');
         htp.prn('<h1>Opere</h1>'); --TITOLO
         if (sessionID=1)
         then
-            modGUI1.Collegamento('Aggiungi','InserisciOpera?sessionID='||sessionID||'','w3-btn w3-round-xxlarge w3-black');
+            modGUI1.Collegamento('Inserisci','InserisciOpera?sessionID='||sessionID||'','w3-btn w3-round-xxlarge w3-black');
         end if;
         modGUI1.ChiudiDiv;
         htp.br;
@@ -37,117 +37,193 @@ procedure menuOpere (sessionID NUMBER DEFAULT NULL) is
             FOR opera IN (Select * from Opere)
             LOOP
                 modGUI1.ApriDiv('class="w3-col l4 w3-padding-large w3-center"');
-                    modGUI1.ApriDiv('class="w3-card-4"');
+                    modGUI1.ApriDiv('class="w3-card-4" style="height:600px;"');
                     htp.prn('<img src="https://cdn.pixabay.com/photo/2016/10/22/15/32/water-1761027__480.jpg" alt="Alps" style="width:100%;">');
                             modGUI1.ApriDiv('class="w3-container w3-center"');
                                 htp.prn('<p>'|| opera.titolo ||'</p>');
                                 htp.br;
                                 htp.prn('<p>'|| opera.anno ||'</p>');
                             modGUI1.ChiudiDiv;
-                -- Azioni di modifica e rimozione mostrate solo se autorizzatii
-                    modGUI1.Collegamento('Visualizza',
-                        'VisualizzaOpera?sessionID='||sessionID||'&operaID='||opera.IdOpera||'&titoloOpera='||opera.titolo,
-                        'w3-black w3-margin w3-button');
-                    if sessionID = 1 then
+                        htp.prn('<button onclick="document.getElementById(''LinguaOpera'||opera.idOpera||''').style.display=''block''" class="w3-margin w3-button w3-black w3-hover-white">Visualizza</button>');
+                        gruppo2.lingua(sessionID,opera.idOpera);
+
+                        if sessionID = 1 then
                         -- parametro modifica messo a true: possibile fare editing dell'autore
+
+                        --bottone modifica
                         modGUI1.Collegamento('Modifica',
-                            'ModificaOpera?sessionID='||sessionID||'&operaID='||opera.IdOpera||'&titoloOpera='||opera.titolo,
+                            'ModificaOpera?sessionID='||sessionID||'0='||opera.IdOpera||'0='||opera.titolo,
                             'w3-green w3-margin w3-button');
-                        -- TODO: sostituire con rimozione
-                        modGUI1.Collegamento('Rimuovi',
-                            'RimozioneOpera?sessionID='||sessionID||'&operaID='||opera.IdOpera||'&titoloOpera='||opera.titolo,
-                            'w3-red w3-margin w3-button');
+                        --bottone elimina
+                        htp.prn('<button onclick="document.getElementById(''ElimOpera'||opera.idOpera||''').style.display=''block''" class="w3-margin w3-button w3-red w3-hover-white">Elimina</button>');
+                        gruppo2.EliminazioneOpera(sessionID,opera.idOpera);
                     end if;
                     modGUI1.ChiudiDiv;
                 modGUI1.ChiudiDiv;
             END LOOP;
+
         modGUI1.chiudiDiv;
-    end menuOpere;
+end menuOpere;
+
+--Procedura popUp per la conferma
+procedure EliminazioneOpera(
+    sessionID NUMBER default 0,
+    operaID NUMBER default 0
+)is /*Form popup lingua */
+var1 VARCHAR2(100);
+    begin
+        modGUI1.ApriDiv('id="ElimOpera'||operaID||'" class="w3-modal"');
+            modGUI1.ApriDiv('class="w3-modal-content w3-card-4 w3-animate-zoom" style="max-width:600px"');
+                modGUI1.ApriDiv('class="w3-center"');
+                    htp.br;
+                    htp.prn('<span onclick="document.getElementById(''ElimOpera'||operaID||''').style.display=''none''" class="w3-button w3-xlarge w3-red w3-display-topright" title="Close Modal">X</span>');
+                htp.print('<h1><b>Confermi?</b></h1>');
+                modGUI1.ChiudiDiv;
+                        modGUI1.ApriDiv('class="w3-section"');
+                            htp.br;
+                            select titolo INTO var1 FROM OPERE WHERE idOpera=operaId;
+                            htp.prn('stai per rimuovere: '||var1);
+                            modGUI1.Collegamento('Conferma',
+                            'RimozioneOpera?sessionID='||sessionID||'0='||operaID,
+                            'w3-button w3-block w3-green w3-section w3-padding');
+                            htp.prn('<span onclick="document.getElementById(''ElimOpera'||operaID||''').style.display=''none''" class="w3-button w3-block w3-red w3-section w3-padding" title="Close Modal">Annulla</span>');
+                        modGUI1.ChiudiDiv;
+                    modGUI1.ChiudiForm;
+            modGUI1.ChiudiDiv;
+        modGUI1.ChiudiDiv;
+end EliminazioneOpera;
 
 
+--Procedura rimozione opera
+procedure RimozioneOpera(
+    sessionID NUMBER default 0,
+    operaID NUMBER default 0
+)is
+esposizione NUMBER(5);
+BEGIN
+    SELECT COUNT(*) INTO esposizione FROM saleopere WHERE opera=operaID AND datauscita IS NULL;
+    IF esposizione > 0
+    THEN
+        gruppo2.EsitoNegativoOpere(sessionID);
+    ELSE
+        DELETE FROM OPERE WHERE idOpera = operaID;
+        -- Ritorno al menu opere
+        gruppo2.EsitoPositivoOpere(sessionID);
+    END IF;
+
+end RimozioneOpera;
+
+
+--procedura popup
+procedure lingua(
+    sessionID NUMBER default 0,
+    operaID NUMBER default 0
+)is /*Form popup lingua */
+    begin
+        modGUI1.ApriDiv('id="LinguaOpera'||operaID||'" class="w3-modal"');
+            modGUI1.ApriDiv('class="w3-modal-content w3-card-4 w3-animate-zoom" style="max-width:600px"');
+                modGUI1.ApriDiv('class="w3-center"');
+                    htp.br;
+                    htp.prn('<span onclick="document.getElementById(''LinguaOpera'||operaID||''').style.display=''none''" class="w3-button w3-xlarge w3-red w3-display-topright" title="Close Modal">X</span>');
+                htp.print('<h1>Seleziona la lingua</h1>');
+                modGUI1.ChiudiDiv;
+                    modGUI1.ApriForm('VisualizzaOpera','selezione lingue','w3-container');
+                        HTP.FORMHIDDEN('sessionID',sessionID);
+                        HTP.FORMHIDDEN('operaID',operaID);
+                        modGUI1.ApriDiv('class="w3-section"');
+                            htp.br;
+                            htp.print('<h5>');
+                            modGUI1.InputRadioButton('Italiano ', 'lingue', 'Italian', 0, 0);
+                            modGUI1.InputRadioButton('English ', 'lingue', 'English', 0, 0);
+                            modGUI1.InputRadioButton('中国人 ', 'lingue', 'Chinese', 0, 0);
+                            htp.print('</h5>');
+                            htp.br;
+                            htp.prn('<button class="w3-button w3-block w3-black w3-section w3-padding" type="submit">Seleziona</button>');
+                        modGUI1.ChiudiDiv;
+                    modGUI1.ChiudiForm;
+            modGUI1.ChiudiDiv;
+        modGUI1.ChiudiDiv;
+end lingua;
+
+--Procedura per feedback
+procedure EsitoPositivoOpere(
+    sessionID NUMBER DEFAULT NULL
+    ) is /*feedbackPositivo*/
+    begin
+        modGUI1.ApriPagina('EsitoPositivoOpere',sessionID);
+        modGUI1.Header(sessionID);
+        htp.br;htp.br;htp.br;htp.br;htp.br;htp.br;
+            modGUI1.ApriDiv('class="w3-modal-content w3-card-4 w3-animate-zoom" style="max-width:450px"');
+                modGUI1.ApriDiv('class="w3-center"');
+                htp.print('<h1>Operazione eseguita correttamente </h1>');
+                MODGUI1.collegamento('Inserisci nuova opera','inserisciOpera?sessionID='||sessionID||'','w3-button w3-block w3-black w3-section w3-padding');
+                MODGUI1.collegamento('Torna al menu','menuOpere?sessionID='||sessionID||'','w3-button w3-block w3-black w3-section w3-padding');
+                modGUI1.ChiudiDiv;
+            modGUI1.ChiudiDiv;
+end EsitoPositivoOpere;
+
+--Procedura per feedback
+procedure EsitoNegativoOpere(
+    sessionID NUMBER DEFAULT NULL
+    ) is /*feedbackPositivo*/
+    begin
+        modGUI1.ApriPagina('EsitoPositivoOpere',sessionID);
+        modGUI1.Header(sessionID);
+        htp.br;htp.br;htp.br;htp.br;htp.br;htp.br;
+            modGUI1.ApriDiv('class="w3-modal-content w3-card-4 w3-animate-zoom" style="max-width:450px"');
+                modGUI1.ApriDiv('class="w3-center"');
+                htp.print('<h1>Operazione NON eseguita</h1>');
+                MODGUI1.collegamento('Torna al menu','menuOpere?sessionID='||sessionID||'','w3-button w3-block w3-black w3-section w3-padding');
+                modGUI1.ChiudiDiv;
+            modGUI1.ChiudiDiv;
+end EsitoNegativoOpere;
 
 -- Procedura per l'inserimento di nuove Opere nella base di dati
 PROCEDURE InserisciOpera(
-    sessionID NUMBER DEFAULT NULL
-) IS
-BEGIN
-   modGUI1.ApriDiv('class="w3-col l4 w3-padding-large w3-center"');
-        modGUI1.ApriDiv('class="w3-card-4" style="height:420px;"');
-            htp.br;
-            modGUI1.InputImage('ImmOpera','fotoopera');
-            modGUI1.ApriDiv('class="w3-container w3-margin w3-center"');
-                modGUI1.ApriForm('ConfermaDatiOpera');
-                modGUI1.Label('Titolo*:');
-                modGUI1.InputText('titolo','Inserisci il titolo ...', 1);
-                htp.br;
-                modGUI1.Label('Anno*:');
-                modGUI1.InputText('anno','Inserisci anno ...', 1);
-                htp.br;
-                modGUI1.Label('Museo*:');
-                MODGUI1.SelectOpen('idmusei');
-                for museo in (SELECT idMuseo,nome FROM Musei)
-                loop
-                MODGUI1.SelectOption(museo.idMuseo,museo.nome);
-                end loop;
-                MODGUI1.SelectClose;
-                htp.br;
-                modGUI1.Label('Fine periodo:');
-                modGUI1.InputText('fineperiodo','Inserisci fine periodo...', 0);
-                htp.br;
-                modGUI1.InputSubmit('Aggiungi');
-                modGUI1.ChiudiForm;
-            modGUI1.ChiudiDiv;
-        modGUI1.ChiudiDiv;
-    modGUI1.ChiudiDiv;
-END;
-
-
-PROCEDURE InserisciDatiOpera(
-    sessionID NUMBER DEFAULT 0,
+    sessionID NUMBER DEFAULT NULL,
     titolo VARCHAR2 DEFAULT 'Sconosciuto',
+    --titolo VARCHAR2 DEFAULT NULL,
     anno VARCHAR2 DEFAULT NULL,
     fineperiodo VARCHAR2 DEFAULT NULL,
     idmusei NUMBER DEFAULT NULL
-)IS
-age DATE :=TO_DATE(anno,'yyyy-mm-dd');
-periodo DATE :=TO_DATE(fineperiodo,'yyyy-mm-dd');
+) IS
+placeholderTitolo VARCHAR2(255) := 'Titolo opera';
+placeholderAnno VARCHAR2(255) := 'Anno realizzazione';
+placeholderPeriodo VARCHAR2(255) := 'Periodo di realizzazione';
 BEGIN
-    INSERT INTO Opere VALUES
-    (IdOperaSeq.NEXTVAL,titolo,age,periodo,idmusei);
-    IF SQL%FOUND
-    THEN
-        -- faccio il commit dello statement precedente
-        commit;
- 
-        HTP.BodyOpen;
-        MODGUI1.ApriDiv;
-        HTP.tableopen;
-        HTP.tablerowopen;
-        HTP.tabledata('Nome: '||titolo);
-        HTP.tablerowclose;
-        HTP.tablerowopen;
-        HTP.tabledata('Anno: '||age);
-        HTP.tablerowclose;
-        HTP.tablerowopen;
-        HTP.tabledata('Periodo: '||periodo);
-        HTP.tablerowclose;
-        MODGUI1.ChiudiDiv;
- 
-        HTP.BodyClose;
-        HTP.HtmlClose;
-    ELSE
-        MODGUI1.ApriPagina('Opera non inserita', sessionID);
-        HTP.BodyOpen;
- 
-        HTP.PRN('Opera non inserita');
- 
-        HTP.BodyClose;
-        HTP.HtmlClose;
-    END IF;
-     EXCEPTION WHEN OTHERS THEN
-        dbms_output.put_line('Error: '||sqlerrm);
- 
-END InserisciDatiOpera;
+    modGUI1.ApriPagina('InserisciOpera',sessionID);--DA MODIFICARE campo PROVA
+            modGUI1.Header(sessionID);
+            htp.br;htp.br;htp.br;htp.br;htp.br;htp.br;
+            htp.prn('<h1 align="center">Inserimento Opera</h1>');--DA MODIFICARE
+            modGUI1.ApriDiv('class="w3-modal-content w3-card-4 w3-animate-zoom" style="max-width:600px"');
+                modGUI1.ApriDiv('class="w3-section"');
+                modGUI1.Collegamento('X','menuOpere?sessionID='||sessionID||'',' w3-btn w3-large w3-red w3-display-topright'); --Bottone per tornare indietro, cambiare COLLEGAMENTOPROVA
+                --INIZIO SEZIONE DA MODIFICARE
+                    modGUI1.ApriForm('ConfermaDatiOpera',NULL,'w3-container');
+                        htp.FORMHIDDEN('sessionID',sessionID);
+                        modGUI1.Label('Titolo*');
+                        modGUI1.Inputtext('titolo', placeholderTitolo, 1, titolo);
+                        htp.br;
+                        modGUI1.Label('Anno*');
+                        modGUI1.Inputtext('anno', placeholderAnno, 1, anno);
+                        htp.br;
+                        modGUI1.Label('Fine periodo');
+                        modGUI1.Inputtext('fineperiodo', placeholderPeriodo, 0, fineperiodo);
+                        htp.br;
+                        modGUI1.Label('Museo*:');
+                        MODGUI1.SelectOpen('idmusei');
+                        for museo in (SELECT idMuseo,nome FROM Musei)
+                        loop
+                        MODGUI1.SelectOption(museo.idMuseo,museo.nome);
+                        end loop;
+                        MODGUI1.SelectClose;
+                        htp.br;
+                        modGUI1.InputSubmit('Aggiungi');
+                    modGUI1.ChiudiForm;
+                --FINE SEZIONE DA MODIFICARE
+                modGUI1.ChiudiDiv;
+            modGUI1.ChiudiDiv;
+END;
 
 
 PROCEDURE ConfermaDatiOpera(
@@ -172,33 +248,44 @@ var1 varchar2(40);
         HTP.BodyClose;
         HTP.HtmlClose;
     ELSE
-        modGUI1.ApriPagina('Opere',sessionID);
+        modGUI1.ApriPagina('Conferma',sessionID);
         modGUI1.Header(sessionID);
         htp.br;htp.br;htp.br;htp.br;htp.br;htp.br;
+        htp.prn('<h1 align="center">CONFERMA DATI</h1>');--DA MODIFICARE
         modGUI1.ApriDiv('class="w3-modal-content w3-card-4 w3-animate-zoom" style="max-width:600px" ');
             modGUI1.ApriDiv('class="w3-section"');
-            htp.br;
-                    modGUI1.Label(' Titolo:');
-                    HTP.PRINT(titolo);
-                    htp.br;
-                    htp.br;
-                    modGUI1.Label(' Anno:');
-                    HTP.PRINT(anno);
-                    htp.br;
-                    htp.br;
-                    SELECT nome into var1 FROM Musei
-                    WHERE Musei.idMuseo=idmusei;
-                    modGUI1.Label(' Museo:');
-                    HTP.PRINT(var1);
-                    htp.br;
-                    htp.br;
-                modGUI1.ChiudiDiv;
+
+            --INIZIO RIEPILOGO
+                htp.br;
+                modGUI1.Label('Titolo:');
+                HTP.PRINT(titolo);--parametro passato
+                htp.br;
+                modGUI1.Label('Anno:');
+                HTP.PRINT(anno);--parametro passato
+                htp.br;
+                modGUI1.Label('Periodo:');
+                HTP.PRINT(fineperiodo);--parametro passato
+                htp.br;
+                modGUI1.Label('Nome museo:');
+                SELECT nome into var1 FROM Musei WHERE idMuseo=idMusei;
+                 HTP.PRINT(var1);
+            --FINE RIEPILOGO
+            modGUI1.ChiudiDiv;
             MODGUI1.ApriForm('InserisciDatiOpera');
             HTP.FORMHIDDEN('sessionID', sessionID);
             HTP.FORMHIDDEN('titolo', titolo);
             HTP.FORMHIDDEN('anno', anno);
+            HTP.FORMHIDDEN('fineperiodo', fineperiodo);
             HTP.FORMHIDDEN('idmusei', idmusei);
             MODGUI1.InputSubmit('Conferma');
+            MODGUI1.ChiudiForm;
+            MODGUI1.ApriForm('InserisciOpera');
+            HTP.FORMHIDDEN('sessionID', sessionID);
+            HTP.FORMHIDDEN('titolo', titolo);
+            HTP.FORMHIDDEN('anno', anno);
+            HTP.FORMHIDDEN('fineperiodo', fineperiodo);
+            HTP.FORMHIDDEN('idmusei', idmusei);
+            MODGUI1.InputSubmit('Annulla');
             MODGUI1.ChiudiForm;
             modGUI1.ChiudiDiv;
         modGUI1.ChiudiDiv;
@@ -207,6 +294,27 @@ var1 varchar2(40);
         dbms_output.put_line('Error: '||sqlerrm);
 END;
 
+
+PROCEDURE InserisciDatiOpera(
+    sessionID NUMBER DEFAULT 0,
+    titolo VARCHAR2 DEFAULT 'Sconosciuto',
+    anno NUMBER DEFAULT NULL,
+    fineperiodo NUMBER DEFAULT NULL,
+    idmusei NUMBER DEFAULT NULL
+)IS
+    BEGIN
+        INSERT INTO Opere VALUES
+            (IdOperaSeq.NEXTVAL,titolo,anno,fineperiodo,idmusei);
+        IF SQL%FOUND
+        THEN
+        -- faccio il commit dello statement precedente
+        commit;
+        gruppo2.EsitoPositivoOpere(sessionID);
+		-- Ritorno al menu opere
+        END IF;
+END InserisciDatiOpera;
+
+
 PROCEDURE ModificaOpera(
     sessionID NUMBER DEFAULT NULL,
     operaID NUMBER DEFAULT 0,
@@ -214,8 +322,9 @@ PROCEDURE ModificaOpera(
 ) IS
 var NUMBER DEFAULT 0;
 nomeMuseo VARCHAR2(30) DEFAULT NULL;
+age NUMBER DEFAULT 0;
+periodo NUMBER DEFAULT 0;
 BEGIN
- 
     modGUI1.ApriPagina('ModificaOpera',sessionID);--DA MODIFICARE campo PROVA
             modGUI1.Header(sessionID);
             htp.br;htp.br;htp.br;htp.br;htp.br;htp.br;
@@ -228,13 +337,14 @@ BEGIN
                         htp.FORMHIDDEN('sessionID',sessionID);
                         htp.FORMHIDDEN('operaID', operaID);
                         modGUI1.Label('Titolo*');
-                        modGUI1.Inputtext('titolo', titoloOpera,1);
+                        modGUI1.Inputtext('titolo', titoloOpera,1, titoloOpera);
                         htp.br;
+                        SELECT anno,fineperiodo INTO age,periodo FROM OPERE WHERE idOpera=operaId;
                         modGUI1.Label('Anno*');
-                        modGUI1.Inputtext('anno', 'Anno realizzazione',1);
-                        htp.br;  
+                        modGUI1.Inputtext('anno', 'Anno realizzazione',1,age);
+                        htp.br;
                         modGUI1.Label('Fine periodo');
-                        modGUI1.Inputtext('fineperiodo', 'Periodo di realizzazione',0);
+                        modGUI1.Inputtext('fineperiodo', 'Periodo di realizzazione',0,periodo);
                         htp.br;
                         modGUI1.Label('Museo*:');
                         SELECT MUSEO INTO var FROM OPERE WHERE idOpera = operaID;
@@ -283,7 +393,7 @@ var1 varchar2(40);
         htp.prn('<h1 align="center">CONFERMA DATI</h1>');--DA MODIFICARE
         modGUI1.ApriDiv('class="w3-modal-content w3-card-4 w3-animate-zoom" style="max-width:600px" ');
             modGUI1.ApriDiv('class="w3-section"');
- 
+
             --INIZIO RIEPILOGO
                 htp.br;
                 modGUI1.Label('Titolo:');
@@ -323,25 +433,151 @@ var1 varchar2(40);
 END;
 
 PROCEDURE UpdateOpera(
-    sessionID NUMBER DEFAULT 0,
-    operaID NUMBER DEFAULT 0,
-    newTitolo VARCHAR2 DEFAULT 'Sconosciuto',
-    newAnno VARCHAR2 DEFAULT 'Sconosciuto',
-    newFineperiodo NUMBER DEFAULT 0,
-    newIDmusei NUMBER DEFAULT 0
+	sessionID NUMBER DEFAULT 0,
+	operaID NUMBER DEFAULT 0,
+	newTitolo VARCHAR2 DEFAULT 'Sconosciuto',
+	newAnno VARCHAR2 DEFAULT 'Sconosciuto',
+	newFineperiodo NUMBER DEFAULT 0,
+	newIDmusei NUMBER DEFAULT 0
 ) IS
 BEGIN
-    UPDATE Opere SET
-        titolo=newTitolo,
-        anno=newAnno,
-        fineperiodo=newFineperiodo,
-        Museo=newIDmusei
-    WHERE IdOpera=operaID;
+	UPDATE Opere SET
+		titolo=newTitolo,
+		anno=newAnno,
+		fineperiodo=newFineperiodo,
+		Museo=newIDmusei
+	WHERE IdOpera=operaID;
+    gruppo2.EsitoPositivoOpere(sessionID);
 END;
 
 
+
+procedure VisualizzaOpera (
+    sessionID NUMBER default 0,
+    operaID NUMBER default 0,
+    lingue VARCHAR2 default 'sconosciuto'
+    ) is
+    var1 VARCHAR2 (40);
+    testo1 VARCHAR2 (100);
+    num NUMBER(10);
+    num1 NUMBER(10);
+    num2 NUMBER(10);
+    num3 NUMBER(10);
+
+
+    varSala NUMBER(5) DEFAULT 0;
+    varMuseo NUMBER(5) DEFAULT 0;
+    varNomeStanza VARCHAR2(100) DEFAULT 'Sconosciuto';
+    varNomeMuseo VARCHAR2(100) DEFAULT 'Sconosciuto';
+
+
+    begin
+        htp.prn('<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css"> ');
+        modGUI1.Header(sessionID);
+        htp.br;htp.br;htp.br;htp.br;htp.br;htp.br;
+        modGUI1.ApriDiv('class="w3-center"');
+        Select Titolo into var1 FROM OPERE WHERE idOpera=operaID;
+            htp.prn('<h1><b>'||var1||'</b></h1>'); --TITOLO
+        modGUI1.ChiudiDiv;
+        htp.br;
+        modGUI1.ApriDiv('class="w3-container" style="width:100%"');
+        FOR des IN (
+                SELECT * FROM Descrizioni WHERE operaID=Opera AND lingue=lingua Order by livello
+        )
+        LOOP
+            if(lingue='Italian')
+            then
+            htp.prn('<h2><b>Livello: </b>'||des.livello||'</h2>');
+            end if;
+            if(lingue='English')
+            then
+            htp.prn('<h2><b>Level: </b>'||des.livello||'</h2>');
+            end if;
+            if(lingue='Chinese')
+            then
+            htp.prn('<h2><b>等级: </b>'||des.livello||'</h2>');
+            end if;
+            modGUI1.ApriDiv('class="w3-row w3-container w3-border w3-round-small w3-padding-large w3-hover-light-grey" style="width:100%"');
+                    modGUI1.ApriDiv('class="w3-container w3-cell"');
+                    htp.prn('<img src="https://cdn.pixabay.com/photo/2016/10/22/15/32/water-1761027__480.jpg" alt="Alps" style="width:500px; height:300px;">');
+                    modGUI1.ChiudiDiv;
+                    modGUI1.ApriDiv('class="w3-container w3-cell w3-border-right w3-cell-middle" style="width:1120px; height:300px"');
+                        htp.prn('<h5><b>'||var1||'</b></h5>');
+                        htp.prn('<p>'||SUBSTR(des.testo,0,100)||'</p>');
+                        htp.br;
+
+                        SELECT COUNT(*) INTO num FROM saleopere WHERE opera=operaID AND datauscita IS NULL;
+                        IF num = 0 THEN
+                        varNomeMuseo := 'NonEsposta';
+                        ELSE
+                        SELECT sala INTO varSala FROM saleopere WHERE opera=operaID AND datauscita IS NULL;
+
+                        SELECT museo, nome INTO varMuseo, varNomeStanza FROM stanze WHERE idstanza = varSala;
+
+                        SELECT nome INTO varNomeMuseo FROM musei WHERE idmuseo=varMuseo;
+
+                        END IF;
+
+                        IF(varNomeMuseo='NonEsposta')
+                        THEN
+                            if(lingue='Italian')
+                            then
+                            htp.prn('<h5><b>Esposta: </b>❌</h5>');
+                            end if;
+
+                            if(lingue='English')
+                            then
+                            htp.prn('<h5><b>Exposed: </b>❌</h5>');
+                            end if;
+
+                            if(lingue='Chinese')
+                            then
+                            htp.prn('<h5><b>裸露: </b>❌</h5>');
+                            end if;
+
+                        ELSE
+                            if(lingue='Italian')
+                            then
+                            htp.prn('<h5><b>Esposta: ✅</b></h5>');
+                            htp.prn('<b>Museo: </b>'||varNomeMuseo);
+                            htp.br;
+                            htp.prn('<b>Sala: </b>'||varNomeStanza);
+                            end if;
+                            if(lingue='English')
+                            then
+                            htp.prn('<h5><b>Exposed: </b>✅</h5>');
+                            htp.prn('<b>Museum: </b>'||varNomeMuseo);
+                            htp.br;
+                            htp.prn('<b>Room: </b>'||varNomeStanza);
+                            end if;
+                            if(lingue='Chinese')
+                            then
+                            htp.prn('<h5><b>裸露: </b>✅</h5>');
+                            htp.prn('<b>博物馆: </b>'||varNomeMuseo);
+                            htp.br;
+                            htp.prn('<b>房间: </b>'||varNomeStanza);
+                            end if;
+                        END IF;
+
+
+                    modGUI1.ChiudiDiv;
+                    modGUI1.ApriDiv('class="w3-container w3-cell w3-cell-middle"');
+                        if (sessionID=1)
+                        then
+                            modGUI1.Bottone('w3-green','Modifica');
+                            htp.br;
+                        end if;
+                    modGUI1.ChiudiDiv;
+            modGUI1.chiudiDiv;
+            htp.br;
+            htp.br;
+        END LOOP;
+        --FINE LOOP VISUALIZZAZIONE
+
+end VisualizzaOpera;
+
 /*
- * OPERAZIONI SUGLI AUTORI 
+ * OPERAZIONI SUGLI AUTORI
  * - Inserimento ✅
  * - Modifica ❌
  * - Visualizzazione ❌
@@ -361,17 +597,15 @@ BEGIN
     modGUI1.ApriPagina('Autori',sessionID);
     modGUI1.Header(sessionID);
     htp.br;htp.br;htp.br;htp.br;
-    modGUI1.ApriDiv('class="w3-center"');
-        htp.prn('<h1>Autori</h1>');
+     modGUI1.ApriDiv('class="w3-center"');
+        htp.prn('<h1>Autori</h1>'); --TITOLO
+        if (sessionID=1)
+        then
+            modGUI1.Collegamento('Inserisci','InserisciAutore?sessionID='||sessionID||'','w3-btn w3-round-xxlarge w3-black');
+        end if;
     modGUI1.ChiudiDiv;
     htp.br;
     modGUI1.ApriDiv('class="w3-row w3-container"');
-    -- Mostra form inserimento autori sse loggato con sessionID=1
-    IF (sessionID=1)
-    THEN
-        modGUI1.Collegamento('Inserisci', 'InserisciAutore?sessionID='||sessionID, 'w3-button w3-margin');
-        htp.br;
-    END IF;
     --Visualizzazione TUTTI GLI AUTORI *temporanea*
     -- TODO: filtraggio
     FOR autore IN (Select IdAutore,nome,cognome from Autori)
@@ -383,17 +617,17 @@ BEGIN
                     htp.prn('<p>'|| autore.Nome ||' '||autore.Cognome||'</p>');
                 modGUI1.ChiudiDiv;
                 -- Azioni di modifica e rimozione mostrate solo se autorizzatii
-                modGUI1.Collegamento('Visualizza', 
-                    'ModificaAutore?sessionID='||sessionID||'&authorID='||autore.IdAutore||'&operazione=0', 
+                modGUI1.Collegamento('Visualizza',
+                    'ModificaAutore?sessionID='||sessionID||'0='||autore.IdAutore||'0=0',
                     'w3-black w3-margin w3-button');
                 IF sessionID=1 THEN
                     -- parametro modifica messo a true: possibile fare editing dell'autore
                     modGUI1.Collegamento('Modifica',
-                        'ModificaAutore?sessionID='||sessionID||'&authorID='||autore.IdAutore||'&operazione=1', 
+                        'ModificaAutore?sessionID='||sessionID||'&authorID='||autore.IdAutore||'&operazione=1',
                         'w3-green w3-margin w3-button');
                     -- TODO: sostituire con rimozione
-                    modGUI1.Collegamento('Rimuovi', 
-                        'ModificaAutore?sessionID='||sessionID||'&authorID='||autore.IdAutore||'&operazione=0', 
+                    modGUI1.Collegamento('Rimuovi',
+                        'ModificaAutore?sessionID='||sessionID||'0='||autore.IdAutore||'0=0',
                         'w3-red w3-margin w3-button');
                 END IF;
             modGUI1.ChiudiDiv;
@@ -421,10 +655,10 @@ BEGIN
         var in_date = (document.getElementById(name));
         in_date.disabled = !(in_date.disabled);
         }', 'Javascript');
-    
+
     modGUI1.ApriPagina('Inserimento Autore', sessionID);
     modGUI1.Header(sessionID);
-    htp.br;htp.br;htp.br;htp.br;htp.br;htp.br;
+    htp.br;htp.br;htp.br;htp.br;
 
     htp.prn('<h1 align="center">Inserimento Autore</h1>');
     modGUI1.ApriDiv('class="w3-modal-content w3-card-4 w3-animate-zoom" style="max-width:600px"');
@@ -445,13 +679,13 @@ BEGIN
             htp.br;
             -- L'input di tipo data è attivo sse la checkbox non è selezionata
             MODGUI1.Label('Data nascita');
-            MODGUI1.inputcheckboxonclick('Sconosciuta', null, 
+            MODGUI1.inputcheckboxonclick('Sconosciuta', null,
                 'disable_date(''dataNascita'')', null, 0, 0);
             htp.br;
             MODGUI1.InputDate('dataNascita', 'dataNascita', 0, dataNascita);
             htp.br;
             MODGUI1.Label('Data morte');
-            MODGUI1.inputcheckboxonclick('Sconosciuta', null, 
+            MODGUI1.inputcheckboxonclick('Sconosciuta', null,
                 'disable_date(''dataMorte'')', null, 0, 0);
             htp.br;
             MODGUI1.InputDate('dataMorte', 'dataMorte', 0, dataMorte);
@@ -461,7 +695,7 @@ BEGIN
             htp.br;
             modGUI1.InputSubmit('Aggiungi');
             modGUI1.ChiudiForm;
-    
+
         modGUI1.ChiudiDiv;
     modGUI1.ChiudiDiv;
 END;
@@ -473,14 +707,14 @@ PROCEDURE ConfermaDatiAutore(
     authSurname VARCHAR2 DEFAULT 'Sconosciuto',
     dataNascita VARCHAR2 DEFAULT NULL,
     dataMorte VARCHAR2 DEFAULT NULL,
-    nation VARCHAR2 DEFAULT 'Sconosciuta' 
+    nation VARCHAR2 DEFAULT 'Sconosciuta'
 ) IS
 numAutori NUMBER := 0;
 birth DATE := to_date(dataNascita, 'YYYY-MM-DD');
 death DATE := to_date(dataMorte, 'YYYY-MM-DD');
 BEGIN
     -- controllo parametri
-    SELECT count(*) INTO numAutori FROM Autori A 
+    SELECT count(*) INTO numAutori FROM Autori A
     WHERE A.Nome = authName
         AND A.Cognome = authSurname
         AND (A.DataNascita = birth OR (A.DataNascita IS NULL AND birth IS NULL))
@@ -607,10 +841,10 @@ BEGIN
     (IdAutoreSeq.NEXTVAL, authName, UPPER(authSurname), birth, death, nation);
     IF SQL%FOUND
     THEN
-        -- faccio il commit dello statement precedente  
+        -- faccio il commit dello statement precedente
         commit;
 		-- Ritorno al menu Autori senza mostrare alcuna pagina web
-        gruppo2.menuautori(sessionID);
+        gruppo2.EsitoPositivoAutori(sessionID);
     ELSE
         rollback;
         MODGUI1.ApriPagina('Errore', sessionID);
@@ -638,7 +872,7 @@ END;
 PROCEDURE ModificaAutore(
 	sessionID NUMBER DEFAULT 0,
 	authorID NUMBER DEFAULT 0,
-    operazione NUMBER DEFAULT 0 
+    operazione NUMBER DEFAULT 0
 ) IS
 this_autore Autori%ROWTYPE;
 op_title VARCHAR2(25);
@@ -648,7 +882,7 @@ BEGIN
         op_title := 'Visualizza';
     ELSIF operazione = 1 THEN
         op_title := 'Modifica';
-	ELSE 
+	ELSE
 		op_title := 'Rimuovi';
     END IF;
     modGUI1.ApriPagina(op_title||' Autore', sessionID);
@@ -657,6 +891,7 @@ BEGIN
 
 	modGUI1.ApriDiv('class="w3-modal-content w3-card-4 w3-animate-zoom" style="max-width:600px" ');
 		modGUI1.ApriDiv('class="w3-section"');
+        modGUI1.Collegamento('X','menuAutori?sessionID='||sessionID||'',' w3-btn w3-large w3-red w3-display-topright');
 		htp.br;
 		htp.header(2, 'Dettagli Autore', 'center');
 		-- caso modifica o rimozione
@@ -670,7 +905,7 @@ BEGIN
             htp.formhidden('sessionID', sessionID);
             htp.formhidden('authID', this_autore.IdAutore);
             IF operazione = 1 THEN
-                modGUI1.Label('Nome:'); 
+                modGUI1.Label('Nome:');
 				modGUI1.InputText('newName', this_autore.Nome, 1, this_autore.Nome);
                 htp.br;
                 modGUI1.Label('Cognome:');
@@ -714,9 +949,6 @@ BEGIN
 			htp.prn(this_autore.Nazionalita);
 			htp.br;
 		END IF;
-		modGUI1.Collegamento('Torna al menu principale', 
-					'menuAutori?sessionID='||sessionID, 
-					'w3-black w3-margin w3-button');
 		modGUI1.ChiudiDiv;
 	modGUI1.ChiudiDiv;
 END ModificaAutore;
@@ -735,23 +967,53 @@ BEGIN
     IF TO_DATE(newBirth, 'YYYY-MM-DD') > TO_DATE(newDeath, 'YYYY-MM-DD') THEN
 		RAISE Errore_data;
 	END IF;
-	UPDATE Autori SET 
-		Nome=newName, 
-		Cognome=newSurname, 
-		DataNascita=TO_DATE(newBirth, 'YYYY-MM-DD'), 
-		DataMorte=TO_DATE(newDeath, 'YYYY-MM-DD'), 
+	UPDATE Autori SET
+		Nome=newName,
+		Cognome=newSurname,
+		DataNascita=TO_DATE(newBirth, 'YYYY-MM-DD'),
+		DataMorte=TO_DATE(newDeath, 'YYYY-MM-DD'),
 		Nazionalita=newNation
 	WHERE IdAutore=authID;
-    
-    commit;
-    gruppo2.menuAutori(sessionID);
 
-    EXCEPTION 
+    commit;
+    gruppo2.EsitoPositivoUpdateAutori(sessionID);
+
+    EXCEPTION
 		WHEN Errore_data THEN
 			DBMS_OUTPUT.PUT_LINE('Error');
             ROLLBACK;
 END;
 
+procedure EsitoPositivoAutori(
+    sessionID NUMBER DEFAULT NULL
+    ) is /*feedbackPositivo*/
+    begin
+        modGUI1.ApriPagina('EsitoPositivoAutori',sessionID);
+        modGUI1.Header(sessionID);
+        htp.br;htp.br;htp.br;htp.br;htp.br;htp.br;
+            modGUI1.ApriDiv('class="w3-modal-content w3-card-4 w3-animate-zoom" style="max-width:450px"');
+                modGUI1.ApriDiv('class="w3-center"');
+                htp.print('<h1>Autore inserito correttamente </h1>');
+                MODGUI1.collegamento('Inserisci nuovo autore','inserisciAutore?sessionID='||sessionID||'','w3-button w3-block w3-black w3-section w3-padding');
+                MODGUI1.collegamento('Torna al menu','menuAutori?sessionID='||sessionID||'','w3-button w3-block w3-black w3-section w3-padding');
+                modGUI1.ChiudiDiv;
+            modGUI1.ChiudiDiv;
+end EsitoPositivoAutori;
+
+procedure EsitoPositivoUpdateAutori(
+    sessionID NUMBER DEFAULT NULL
+    ) is /*feedbackPositivo*/
+    begin
+        modGUI1.ApriPagina('EsitoPositivoUpdateAutori',sessionID);
+        modGUI1.Header(sessionID);
+        htp.br;htp.br;htp.br;htp.br;htp.br;htp.br;
+            modGUI1.ApriDiv('class="w3-modal-content w3-card-4 w3-animate-zoom" style="max-width:450px"');
+                modGUI1.ApriDiv('class="w3-center"');
+                htp.print('<h1>Aggiornamento eseguito correttamente </h1>');
+                MODGUI1.collegamento('Torna al menu','menuAutori?sessionID='||sessionID||'','w3-button w3-block w3-black w3-section w3-padding');
+                modGUI1.ChiudiDiv;
+            modGUI1.ChiudiDiv;
+end EsitoPositivoUpdateAutori;
 /*
  * OPERAZIONI SULLE DESCRIZIONI
  * - Inserimento ❌
@@ -851,7 +1113,7 @@ BEGIN
             HTP.FORMHIDDEN('lingua', lingua);
             HTP.FORMHIDDEN('livello', livello);
             HTP.FORMHIDDEN('testodescr', testodescr);
-            HTP.FORMHIDDEN('operaID', 0);
+            HTP.FORMHIDDEN('operaID', OperaID);
             MODGUI1.InputSubmit('Conferma');
             MODGUI1.ChiudiForm;
             -- Form nascosto per ritorno ad InserisciAutore con form precompilato
@@ -860,7 +1122,7 @@ BEGIN
             HTP.FORMHIDDEN('lingua', lingua);
             HTP.FORMHIDDEN('livello', livello);
             HTP.FORMHIDDEN('testodescr', testodescr);
-            HTP.FORMHIDDEN('operaID', 0);
+            HTP.FORMHIDDEN('operaID', OperaID);
             MODGUI1.InputSubmit('Annulla');
             MODGUI1.ChiudiDiv;
         modGUI1.ChiudiDiv;

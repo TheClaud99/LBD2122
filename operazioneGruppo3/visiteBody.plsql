@@ -86,18 +86,62 @@ CREATE OR REPLACE PACKAGE BODY packagevisite AS
         idvisitaselezionata  IN  visite.idvisita%TYPE,
         titolo               IN  VARCHAR2 DEFAULT NULL
     ) IS
+        visita visite%rowtype;
     BEGIN
         modgui1.apripagina();
         modgui1.header();
         modgui1.apridiv('style="margin-top: 110px"');
-        IF titolo IS NOT NULL THEN
-            htp.header(
-                      2,
-                      titolo,
-                      'center'
+        BEGIN
+
+            SELECT
+                *
+            INTO visita
+            FROM
+                visite
+            WHERE
+                idvisita = idvisitaselezionata;
+
+            IF titolo IS NOT NULL THEN
+                htp.header(
+                          2,
+                          titolo,
+                          'center'
+                );
+            END IF;
+
+            modgui1.apridivcard();
+            
+
+            tabella_dati_visita(
+                               to_char(
+                                      visita.datavisita,
+                                      'YYYY/MM/DD'
+                               ),
+                               to_char(
+                                      visita.datavisita,
+                                      'HH24:MI'
+                               ),
+                               visita.duratavisita,
+                               visita.visitatore,
+                               visita.titoloingresso
             );
-        END IF;
-        modgui1.apridivcard();
+
+            modgui1.chiudidiv();
+
+        EXCEPTION
+            WHEN no_data_found THEN
+                htp.header(
+                          2,
+                          'Visita non trovata',
+                          'center'
+                );
+        END;
+
+        
+        modgui1.chiudidiv();
+        htp.prn('</body>
+        </html>');
+    END;
         FOR visita IN (
             SELECT
                 *

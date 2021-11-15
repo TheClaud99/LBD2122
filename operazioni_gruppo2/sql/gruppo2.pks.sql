@@ -1,32 +1,33 @@
 CREATE OR REPLACE PACKAGE gruppo2 AS
 
-root constant VARCHAR2(125) := 'http://131.114.73.203:8080/apex/';
-user constant VARCHAR2(25) := 'nvetrini.gruppo2.';
-
 /* OPERAZIONI SULLE OPERE */
+procedure EsitoPositivoOpere(sessionID NUMBER DEFAULT NULL);
+procedure EsitoNegativoOpere(sessionID NUMBER DEFAULT NULL);
 procedure menuOpere (sessionID NUMBER DEFAULT NULL);
 PROCEDURE InserisciOpera(
-    sessionID NUMBER DEFAULT NULL
+    sessionID NUMBER DEFAULT NULL,
+    titolo VARCHAR2 DEFAULT 'Sconosciuto',
+    anno VARCHAR2 DEFAULT NULL,
+    fineperiodo VARCHAR2 DEFAULT NULL,
+    idmusei NUMBER DEFAULT NULL
+);
+
+procedure EliminazioneOpera(
+    sessionID NUMBER default 0,
+    operaID NUMBER default 0
+);
+procedure RimozioneOpera(
+    sessionID NUMBER default 0,
+    operaID NUMBER default 0
 );
 PROCEDURE ConfermaDatiOpera(
     sessionID NUMBER DEFAULT 0,
     titolo VARCHAR2 DEFAULT 'Sconosciuto',
     anno VARCHAR2 DEFAULT NULL,
-    idmusei NUMBER DEFAULT NULL
-);
-PROCEDURE InserisciDatiOpera(
-    sessionID NUMBER DEFAULT 0,
-    titolo VARCHAR2 DEFAULT 'Sconosciuto',
-    anno VARCHAR2 DEFAULT NULL,
+    fineperiodo VARCHAR2 DEFAULT NULL,
     idmusei NUMBER DEFAULT NULL
 );
 
-PROCEDURE ModificaOpera(
-    sessionID NUMBER DEFAULT NULL,
-    operaID NUMBER DEFAULT 0,
-    titoloOpera VARCHAR2 DEFAULT 'Sconosciuto'
-);
- 
 PROCEDURE ConfermaUpdateOpera(
     sessionID NUMBER DEFAULT 0,
     operaID NUMBER DEFAULT 0,
@@ -35,19 +36,38 @@ PROCEDURE ConfermaUpdateOpera(
     fineperiodo VARCHAR2 DEFAULT NULL,
     idmusei NUMBER DEFAULT 0
 );
- 
- 
- 
-PROCEDURE UpdateOpera(
-    sessionID NUMBER DEFAULT 0,
+
+PROCEDURE ModificaOpera(
+    sessionID NUMBER DEFAULT NULL,
     operaID NUMBER DEFAULT 0,
-    newTitolo VARCHAR2 DEFAULT 'Sconosciuto',
-    newAnno VARCHAR2 DEFAULT 'Sconosciuto',
-    newFineperiodo NUMBER DEFAULT 0,
-    newIDmusei NUMBER DEFAULT 0
+    titoloOpera VARCHAR2 DEFAULT 'Sconosciuto'
 );
 
+PROCEDURE UpdateOpera(
+	sessionID NUMBER DEFAULT 0,
+	operaID NUMBER DEFAULT 0,
+	newTitolo VARCHAR2 DEFAULT 'Sconosciuto',
+	newAnno VARCHAR2 DEFAULT 'Sconosciuto',
+	newFineperiodo NUMBER DEFAULT 0,
+	newIDmusei NUMBER DEFAULT 0
+);
 
+PROCEDURE InserisciDatiOpera(
+    sessionID NUMBER DEFAULT 0,
+    titolo VARCHAR2 DEFAULT 'Sconosciuto',
+    anno NUMBER DEFAULT NULL,
+    fineperiodo NUMBER DEFAULT NULL,
+    idmusei NUMBER DEFAULT NULL
+);
+procedure VisualizzaOpera (
+    sessionID NUMBER default 0,
+    operaID NUMBER default 0,
+    lingue VARCHAR2 default 'sconosciuto'
+);
+procedure lingua(
+    sessionID NUMBER default 0,
+    operaID NUMBER default 0
+);
 /* OPERAZIONI SUGLI AUTORI */
 PROCEDURE menuAutori(sessionID NUMBER DEFAULT NULL);
 
@@ -98,6 +118,10 @@ PROCEDURE UpdateAutore(
 	newDeath VARCHAR2 DEFAULT NULL,
 	newNation VARCHAR2 DEFAULT 'Sconosciuta'
 );
+
+procedure EsitoPositivoAutori(sessionID NUMBER DEFAULT NULL);
+
+procedure EsitoPositivoUpdateAutori(sessionID NUMBER DEFAULT NULL);
 
 /* OPERAZIONI SULLE DESCRIZIONI  */
 PROCEDURE InserisciDescrizione(

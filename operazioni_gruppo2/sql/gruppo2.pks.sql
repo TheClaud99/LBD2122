@@ -129,6 +129,12 @@ procedure EsitoNegativoUpdateAutori(
 );
 
 /* OPERAZIONI SULLE DESCRIZIONI  */
+
+PROCEDURE visualizzaDescrizione(
+         sessionID NUMBER DEFAULT 0,
+         descrID NUMBER DEFAULT NULL
+);
+
 PROCEDURE InserisciDescrizione(
     sessionID NUMBER DEFAULT NULL,
     language VARCHAR2 DEFAULT NULL,

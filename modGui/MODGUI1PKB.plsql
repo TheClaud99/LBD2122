@@ -12,14 +12,15 @@ CREATE OR REPLACE PACKAGE BODY modGUI1 as
 
     procedure Header (idSessione int default 0) is /*Testata pagina che include tendina ☰ e banner utente */
     begin
-    modGUI1.ApriDiv('class="w3-dropdown w3-bar w3-top w3-black w3-large"');
-        htp.prn('<button onclick="myFunction()" class="w3-button w3-hover-white w3-black w3-xxxlarge">☰</button>');
+    modGUI1.ApriDiv('class="w3-dropdown w3-bar w3-top w3-black w3-large" style="height:90px;"');
+        htp.prn('<button onclick="myFunction()" class="w3-button w3-hover-white w3-black w3-xxxlarge"><h1>☰</h1></button>');
         modGUI1.ApriDiv('id="Demo" class="w3-dropdown-content w3-bar-block w3-black w3-sidebar" style="width:20%"');
             modGUI1.Collegamento('HOME','Home?idSessione='|| idSessione,'w3-bar-item w3-button');
             if (idSessione!=0)
             then
                 modGUI1.Collegamento('Musei','MuseiHome?idSessione='|| idSessione,'w3-bar-item w3-button');
                 modGUI1.Collegamento('Campi Estivi','CampiEstiviHome?idSessione='|| idSessione,'w3-bar-item w3-button');
+                modGUI1.Collegamento('LOG OUT','Home?idSessione=0','w3-bar-item w3-button w3-red');
             end if;
         modGUI1.ChiudiDiv;
         modGUI1.BannerUtente(idSessione);
@@ -39,7 +40,9 @@ CREATE OR REPLACE PACKAGE BODY modGUI1 as
     end Header;
 
 
-    procedure BannerUtente (idSessione int default 0) is /*Banner Log-In o utente */
+    procedure BannerUtente (idSessione int default 0)is /*Banner Log-In o utente */
+    nome varchar2(50) default 'Sconosciuto';
+    impiego varchar(50) default 'Sconosciuto';
     begin
     if (idSessione = 0) then
         modGUI1.ApriDiv('class="w3-container w3-right w3-large"');
@@ -49,12 +52,19 @@ CREATE OR REPLACE PACKAGE BODY modGUI1 as
         modGUI1.chiudiDiv;
         modGUI1.Login;
     else
-    modGUI1.ApriDiv('class="w3-container w3-right w3-large"');
-        htp.prn('
-            Mario Rossi
-            <img src="https://www.sologossip.it/wp-content/uploads/2020/12/clementino-sologossip.jpg" class="w3-margin" style:"width=50px; height=50px;">
-        ');
+    modGUI1.ApriDiv('class="w3-right w3-padding"  style="max-height:80px; width:400px; margin-top:5px;"');
+    
+        SELECT Username,Ruolo INTO nome,impiego FROM UtentiLogin WHERE idSessione=idUtenteLogin;
+        modGUI1.ApriDiv('class="w3-threequarter" style="text-align:right;"');
+            htp.prn(nome);
+            htp.br;
+            htp.prn(impiego);
+        modGUI1.ChiudiDiv;
+        modGUI1.ApriDiv('class="w3-quarter w3-right"');
+            htp.prn('<img src="https://www.sologossip.it/wp-content/uploads/2020/12/clementino-sologossip.jpg" style="margin-left:6px; width:60px; height:60px;">');
+        modGUI1.ChiudiDiv;
     modGUI1.ChiudiDiv;
+
     end if;
     end BannerUtente;
 
@@ -68,19 +78,30 @@ CREATE OR REPLACE PACKAGE BODY modGUI1 as
                 htp.prn('<span onclick="document.getElementById(''id01'').style.display=''none''" class="w3-button w3-xlarge w3-red w3-display-topright" title="Close Modal">X</span>
                         <img src="https://termoidraulicabassini.it/wp-content/uploads/2015/12/utente.png" alt="Avatar" style="width:30%" class="w3-circle w3-margin-top">');
             modGUI1.ChiudiDiv;
-                modGUI1.ApriForm('Prova',NULL,'w3-container');
+                modGUI1.ApriForm('CreazioneSessione','formLogIn','w3-container',1);
                     modGUI1.ApriDiv('class="w3-section"');
                         modGUI1.Label('Username:');
-                        modGUI1.InputText('username','Enter Username',1);
+                        modGUI1.InputText('usernames','Enter Username',1);
                         htp.br;
                         modGUI1.Label ('Password:');
-                        modGUI1.InputText('password','Enter Password',1);
+                        modGUI1.InputText('passwords','Enter Password',1);
                         htp.prn('<button class="w3-button w3-block w3-black w3-section w3-padding" type="submit">Login</button>');
                     modGUI1.ChiudiDiv;
                 modGUI1.ChiudiForm;
         modGUI1.ChiudiDiv;
     modGUI1.ChiudiDiv;
     end Login;
+
+    procedure CreazioneSessione (usernames VARCHAR2 DEFAULT 'Sconosciuto', passwords VARCHAR2 DEFAULT 'Sconosciuto')is
+    var1 NUMBER DEFAULT 0;
+    begin
+        SELECT idUtenteLogin INTO var1 FROM UTENTILOGIN
+        WHERE username=usernames AND password=passwords;
+        modGUI1.Redirect('Home?idSessione='||var1);
+        --TODO 
+        --ECCEZIONI PER LOGIN FALLIO (reindirizzamento alla home con un flag di errore che mostrerà in home un popup con il login fallito)
+    end;
+
 
     procedure Bottone (colore varchar2, text varchar2 default 'myButton', id varchar2 default '') is /*Bottone(colore,testo) - specificare colore in inglese preceduto da "w3-" - testo contenuto nel bottone*/
     begin
@@ -102,9 +123,13 @@ CREATE OR REPLACE PACKAGE BODY modGUI1 as
       htp.prn('<a href="' || Costanti.server || Costanti.radice || indirizzo ||'" class="'|| classe ||'">' || testo || '</a>');
     end Collegamento;
 
-    procedure ApriForm(azione varchar2, nome varchar2 default 'myForm', classe varchar2 default '') is /*azione -> pagina di destinazione, nome -> nome form, classe -> parametri di stile*/
+    procedure ApriForm(azione varchar2, nome varchar2 default 'myForm', classe varchar2 default '', root varchar2 default 0) is /*azione -> pagina di destinazione, nome -> nome form, classe -> parametri di stile*/
     begin
-      htp.print('<form name="'|| nome || '" action="'|| Costanti.radice || azione || '" method="GET" class="' || classe || '">');
+        if (root=0) then
+            htp.print('<form name="'|| nome || '" action="'|| Costanti.radice || azione || '" method="GET" class="' || classe || '">');
+        else
+            htp.print('<form name="'|| nome || '" action="'|| Costanti.radice2 || azione || '" method="GET" class="' || classe || '">');
+        end if;
     end ApriForm;
 
     procedure ChiudiForm is
@@ -263,5 +288,10 @@ CREATE OR REPLACE PACKAGE BODY modGUI1 as
     begin
     htp.prn('<input type="reset" class="w3-button w3-right w3-grey w3-margin">');
     end InputReset;
+
+    procedure Redirect (destinazione VARCHAR2) is
+    begin
+    htp.print('<script> window.location = "'||costanti.server|| costanti.radice || destinazione||'"</script>');
+    end Redirect;
 
 end modGUI1;

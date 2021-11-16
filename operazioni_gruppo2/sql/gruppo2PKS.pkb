@@ -1,9 +1,16 @@
-CREATE OR REPLACE PACKAGE "FNICOLO".gruppo2 AS
+CREATE OR REPLACE PACKAGE gruppo2 AS
 
 /* OPERAZIONI SULLE OPERE */
 procedure EsitoPositivoOpere(sessionID NUMBER DEFAULT NULL);
 procedure EsitoNegativoOpere(sessionID NUMBER DEFAULT NULL);
+procedure StatisticheOpere(sessionID NUMBER DEFAULT NULL);
+procedure SpostamentiOpera (operaID NUMBER DEFAULT 0);
 procedure menuOpere (sessionID NUMBER DEFAULT NULL);
+procedure selezioneMuseo(sessionID NUMBER DEFAULT 0); 
+Procedure StatisticheOpere(
+    sessionID NUMBER DEFAULT 0,
+    museoID NUMBER DEFAULT 0
+);
 PROCEDURE InserisciOpera(
     sessionID NUMBER DEFAULT NULL,
     titolo VARCHAR2 DEFAULT 'Sconosciuto',
@@ -14,11 +21,11 @@ PROCEDURE InserisciOpera(
 
 procedure EliminazioneOpera(
     sessionID NUMBER default 0,
-    operaID NUMBER default 0   
+    operaID NUMBER default 0
 );
 procedure RimozioneOpera(
     sessionID NUMBER default 0,
-    operaID NUMBER default 0   
+    operaID NUMBER default 0
 );
 PROCEDURE ConfermaDatiOpera(
     sessionID NUMBER DEFAULT 0,
@@ -38,7 +45,7 @@ PROCEDURE ConfermaUpdateOpera(
 );
 
 PROCEDURE ModificaOpera(
-    sessionID NUMBER DEFAULT NULL,
+    sessionID NUMBER DEFAULT 0,
     operaID NUMBER DEFAULT 0,
     titoloOpera VARCHAR2 DEFAULT 'Sconosciuto'
 );
@@ -58,7 +65,7 @@ PROCEDURE InserisciDatiOpera(
     anno NUMBER DEFAULT NULL,
     fineperiodo NUMBER DEFAULT NULL,
     idmusei NUMBER DEFAULT NULL
-); 
+);
 procedure VisualizzaOpera (
     sessionID NUMBER default 0,
     operaID NUMBER default 0,
@@ -69,7 +76,20 @@ procedure lingua(
     operaID NUMBER default 0
 );
 /* OPERAZIONI SUGLI AUTORI */
-PROCEDURE menuAutori(sessionID NUMBER DEFAULT NULL);
+PROCEDURE menuAutori(sessionID NUMBER DEFAULT NULL); 
+
+procedure selezioneOpStatAut(sessionID NUMBER DEFAULT 0);
+
+procedure selezioneAutoreStatistica(
+    sessionID NUMBER DEFAULT 0,
+    operazione NUMBER DEFAULT 0
+);
+
+Procedure StatisticheAutori(
+    sessionID NUMBER DEFAULT 0,
+    operazione NUMBER DEFAULT 0,
+    authID NUMBER DEFAULT 0
+);
 
 PROCEDURE InserisciAutore(
     sessionID NUMBER DEFAULT NULL,
@@ -120,28 +140,42 @@ PROCEDURE UpdateAutore(
 );
 
 procedure EsitoPositivoAutori(sessionID NUMBER DEFAULT NULL);
+
+procedure EsitoPositivoUpdateAutori(sessionID NUMBER DEFAULT NULL);
+
+procedure EsitoNegativoUpdateAutori(
+    sessionID NUMBER DEFAULT 0,
+    authorID VARCHAR2 DEFAULT 'Sconosciuto'
+);
+
 /* OPERAZIONI SULLE DESCRIZIONI  */
+
+PROCEDURE visualizzaDescrizione(
+         sessionID NUMBER DEFAULT 0,
+         descrID NUMBER DEFAULT NULL
+);
+
 PROCEDURE InserisciDescrizione(
     sessionID NUMBER DEFAULT NULL,
-    lingua VARCHAR2 DEFAULT NULL,
-    livello VARCHAR2 DEFAULT NULL,
-    testodescr VARCHAR2 DEFAULT NULL,
+    language VARCHAR2 DEFAULT NULL,
+    d_level VARCHAR2 DEFAULT NULL,
+    d_text VARCHAR2 DEFAULT NULL,
     operaID NUMBER DEFAULT NULL
 );
 
 PROCEDURE ConfermaDatiDescrizione(
     sessionID NUMBER DEFAULT 0,
-    lingua VARCHAR2 DEFAULT 'Sconosciuta',
-    livello VARCHAR2 DEFAULT 'Sconosciuto',
-    testodescr VARCHAR2 DEFAULT NULL,
+    language VARCHAR2 DEFAULT 'Sconosciuta',
+    d_level VARCHAR2 DEFAULT 'Sconosciuto',
+    d_text VARCHAR2 DEFAULT NULL,
     operaID NUMBER DEFAULT NULL
 );
 
 PROCEDURE InserisciDatiDescrizione(
     sessionID NUMBER DEFAULT 0,
-    lingua VARCHAR2 DEFAULT 'Sconosciuta',
-    livello VARCHAR2 DEFAULT 'Sconosciuto',
-    testodescr VARCHAR2 DEFAULT NULL,
+    language VARCHAR2 DEFAULT 'Sconosciuta',
+    d_level VARCHAR2 DEFAULT 'Sconosciuto',
+    d_text VARCHAR2 DEFAULT NULL,
     operaID NUMBER DEFAULT NULL
 );
 

@@ -260,7 +260,6 @@ CREATE OR REPLACE PACKAGE BODY packagevisite AS
         idutenteselezionato  IN  utenti.idutente%TYPE,
         idtitoloselezionato  IN  titoliingresso.idtitoloing%TYPE
     ) IS
-        idvisitacreata visite.idvisita%TYPE;
     BEGIN
         UPDATE visite
         SET

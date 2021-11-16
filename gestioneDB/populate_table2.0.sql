@@ -19922,53 +19922,53 @@ VALUES (IdCampiEstiviSeq.nextval, 'sospeso', 'Campo Invernale', to_date('09/01/2
 INSERT INTO CAMPIESTIVI (IdCampiEstivi, Stato, Nome, DataInizio, DataConclusione, Museo)
 VALUES (IdCampiEstiviSeq.nextval, 'sospeso', 'Campo Invernale', to_date('06/01/2022', 'DD/MM/YYYY'), to_date('25/01/2022', 'DD/MM/YYYY'), 5);
 /**************TARIFFECAMPIESTIVI**************/
-INSERT INTO TARIFFECAMPIESTIVI (IdTariffa, Prezzo, Etaminima, Etamassima, CampoEstivo)
+INSERT INTO TARIFFECAMPIESTIVI (IdTariffa, Prezzo, RichiestaAssistenza, CampoEstivo)
 VALUES (IdTariffaSeq.nextval, 16.97, 5, 10, 4);
-INSERT INTO TARIFFECAMPIESTIVI (IdTariffa, Prezzo, Etaminima, Etamassima, CampoEstivo)
+INSERT INTO TARIFFECAMPIESTIVI (IdTariffa, Prezzo, RichiestaAssistenza, CampoEstivo)
 VALUES (IdTariffaSeq.nextval, 733.45, 8, 16, 4);
-INSERT INTO TARIFFECAMPIESTIVI (IdTariffa, Prezzo, Etaminima, Etamassima, CampoEstivo)
+INSERT INTO TARIFFECAMPIESTIVI (IdTariffa, Prezzo, RichiestaAssistenza, CampoEstivo)
 VALUES (IdTariffaSeq.nextval, 505.69, 15, 30, 3);
-INSERT INTO TARIFFECAMPIESTIVI (IdTariffa, Prezzo, Etaminima, Etamassima, CampoEstivo)
+INSERT INTO TARIFFECAMPIESTIVI (IdTariffa, Prezzo, RichiestaAssistenza, CampoEstivo)
 VALUES (IdTariffaSeq.nextval, 736.57, 18, 999, 7);
-INSERT INTO TARIFFECAMPIESTIVI (IdTariffa, Prezzo, Etaminima, Etamassima, CampoEstivo)
+INSERT INTO TARIFFECAMPIESTIVI (IdTariffa, Prezzo, RichiestaAssistenza, CampoEstivo)
 VALUES (IdTariffaSeq.nextval, 214.32, 5, 10, 1);
-INSERT INTO TARIFFECAMPIESTIVI (IdTariffa, Prezzo, Etaminima, Etamassima, CampoEstivo)
+INSERT INTO TARIFFECAMPIESTIVI (IdTariffa, Prezzo, RichiestaAssistenza, CampoEstivo)
 VALUES (IdTariffaSeq.nextval, 651.79, 8, 16, 2);
-INSERT INTO TARIFFECAMPIESTIVI (IdTariffa, Prezzo, Etaminima, Etamassima, CampoEstivo)
+INSERT INTO TARIFFECAMPIESTIVI (IdTariffa, Prezzo, RichiestaAssistenza, CampoEstivo)
 VALUES (IdTariffaSeq.nextval, 551.8, 15, 30, 7);
-INSERT INTO TARIFFECAMPIESTIVI (IdTariffa, Prezzo, Etaminima, Etamassima, CampoEstivo)
+INSERT INTO TARIFFECAMPIESTIVI (IdTariffa, Prezzo, RichiestaAssistenza, CampoEstivo)
 VALUES (IdTariffaSeq.nextval, 278.0, 18, 999, 2);
-INSERT INTO TARIFFECAMPIESTIVI (IdTariffa, Prezzo, Etaminima, Etamassima, CampoEstivo)
+INSERT INTO TARIFFECAMPIESTIVI (IdTariffa, Prezzo, RichiestaAssistenza, CampoEstivo)
 VALUES (IdTariffaSeq.nextval, 308.12, 5, 10, 9);
-INSERT INTO TARIFFECAMPIESTIVI (IdTariffa, Prezzo, Etaminima, Etamassima, CampoEstivo)
+INSERT INTO TARIFFECAMPIESTIVI (IdTariffa, Prezzo, RichiestaAssistenza, CampoEstivo)
 VALUES (IdTariffaSeq.nextval, 717.21, 8, 16, 1);
-INSERT INTO TARIFFECAMPIESTIVI (IdTariffa, Prezzo, Etaminima, Etamassima, CampoEstivo)
+INSERT INTO TARIFFECAMPIESTIVI (IdTariffa, Prezzo, RichiestaAssistenza, CampoEstivo)
 VALUES (IdTariffaSeq.nextval, 218.45, 15, 30, 5);
-INSERT INTO TARIFFECAMPIESTIVI (IdTariffa, Prezzo, Etaminima, Etamassima, CampoEstivo)
+INSERT INTO TARIFFECAMPIESTIVI (IdTariffa, Prezzo, RichiestaAssistenza, CampoEstivo)
 VALUES (IdTariffaSeq.nextval, 988.88, 18, 999, 7);
-INSERT INTO TARIFFECAMPIESTIVI (IdTariffa, Prezzo, Etaminima, Etamassima, CampoEstivo)
+INSERT INTO TARIFFECAMPIESTIVI (IdTariffa, Prezzo, RichiestaAssistenza, CampoEstivo)
 VALUES (IdTariffaSeq.nextval, 26.34, 5, 10, 3);
-INSERT INTO TARIFFECAMPIESTIVI (IdTariffa, Prezzo, Etaminima, Etamassima, CampoEstivo)
+INSERT INTO TARIFFECAMPIESTIVI (IdTariffa, Prezzo, RichiestaAssistenza, CampoEstivo)
 VALUES (IdTariffaSeq.nextval, 841.69, 8, 16, 1);
-INSERT INTO TARIFFECAMPIESTIVI (IdTariffa, Prezzo, Etaminima, Etamassima, CampoEstivo)
+INSERT INTO TARIFFECAMPIESTIVI (IdTariffa, Prezzo, RichiestaAssistenza, CampoEstivo)
 VALUES (IdTariffaSeq.nextval, 588.12, 15, 30, 6);
-INSERT INTO TARIFFECAMPIESTIVI (IdTariffa, Prezzo, Etaminima, Etamassima, CampoEstivo)
+INSERT INTO TARIFFECAMPIESTIVI (IdTariffa, Prezzo, RichiestaAssistenza, CampoEstivo)
 VALUES (IdTariffaSeq.nextval, 161.41, 18, 999, 7);
-INSERT INTO TARIFFECAMPIESTIVI (IdTariffa, Prezzo, Etaminima, Etamassima, CampoEstivo)
+INSERT INTO TARIFFECAMPIESTIVI (IdTariffa, Prezzo, RichiestaAssistenza, CampoEstivo)
 VALUES (IdTariffaSeq.nextval, 898.35, 5, 10, 4);
-INSERT INTO TARIFFECAMPIESTIVI (IdTariffa, Prezzo, Etaminima, Etamassima, CampoEstivo)
+INSERT INTO TARIFFECAMPIESTIVI (IdTariffa, Prezzo, RichiestaAssistenza, CampoEstivo)
 VALUES (IdTariffaSeq.nextval, 770.56, 8, 16, 9);
-INSERT INTO TARIFFECAMPIESTIVI (IdTariffa, Prezzo, Etaminima, Etamassima, CampoEstivo)
+INSERT INTO TARIFFECAMPIESTIVI (IdTariffa, Prezzo, RichiestaAssistenza, CampoEstivo)
 VALUES (IdTariffaSeq.nextval, 638.69, 15, 30, 6);
-INSERT INTO TARIFFECAMPIESTIVI (IdTariffa, Prezzo, Etaminima, Etamassima, CampoEstivo)
+INSERT INTO TARIFFECAMPIESTIVI (IdTariffa, Prezzo, RichiestaAssistenza, CampoEstivo)
 VALUES (IdTariffaSeq.nextval, 819.34, 18, 999, 1);
-INSERT INTO TARIFFECAMPIESTIVI (IdTariffa, Prezzo, Etaminima, Etamassima, CampoEstivo)
+INSERT INTO TARIFFECAMPIESTIVI (IdTariffa, Prezzo, RichiestaAssistenza, CampoEstivo)
 VALUES (IdTariffaSeq.nextval, 263.23, 5, 10, 3);
-INSERT INTO TARIFFECAMPIESTIVI (IdTariffa, Prezzo, Etaminima, Etamassima, CampoEstivo)
+INSERT INTO TARIFFECAMPIESTIVI (IdTariffa, Prezzo, RichiestaAssistenza, CampoEstivo)
 VALUES (IdTariffaSeq.nextval, 956.11, 8, 16, 8);
-INSERT INTO TARIFFECAMPIESTIVI (IdTariffa, Prezzo, Etaminima, Etamassima, CampoEstivo)
+INSERT INTO TARIFFECAMPIESTIVI (IdTariffa, Prezzo, RichiestaAssistenza, CampoEstivo)
 VALUES (IdTariffaSeq.nextval, 320.18, 15, 30, 8);
-INSERT INTO TARIFFECAMPIESTIVI (IdTariffa, Prezzo, Etaminima, Etamassima, CampoEstivo)
+INSERT INTO TARIFFECAMPIESTIVI (IdTariffa, Prezzo, RichiestaAssistenza, CampoEstivo)
 VALUES (IdTariffaSeq.nextval, 751.17, 18, 999, 4);
 /************UTENTI*************/
 INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico)
@@ -22070,1005 +22070,1005 @@ VALUES (IdUtenteseq.nextval,'Lev','Neumann',to_date('02/10/1988','DD/MM/YYYY'),'
 INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico)
 VALUES (IdUtenteseq.nextval,'Airidas','Bildhauer',to_date('06/03/2000','DD/MM/YYYY'),'3601 South Portland Avenue, Oklahoma City','airidas@bildhauer.it','2261244476');
 /*************UTENTICAMPIESTIVI*************/
-INSERT INTO UTENTICAMPIESTIVI (IdUtente, Etaminima, Etamassima)
+INSERT INTO UTENTICAMPIESTIVI (IdUtente, RichiestaAssistenza)
 VALUES (951, 7, 7);
-INSERT INTO UTENTICAMPIESTIVI (IdUtente, Etaminima, Etamassima)
+INSERT INTO UTENTICAMPIESTIVI (IdUtente, RichiestaAssistenza)
 VALUES (698, 16, 16);
-INSERT INTO UTENTICAMPIESTIVI (IdUtente, Etaminima, Etamassima)
+INSERT INTO UTENTICAMPIESTIVI (IdUtente, RichiestaAssistenza)
 VALUES (4, 15, 15);
-INSERT INTO UTENTICAMPIESTIVI (IdUtente, Etaminima, Etamassima)
+INSERT INTO UTENTICAMPIESTIVI (IdUtente, RichiestaAssistenza)
 VALUES (441, 8, 8);
-INSERT INTO UTENTICAMPIESTIVI (IdUtente, Etaminima, Etamassima)
+INSERT INTO UTENTICAMPIESTIVI (IdUtente, RichiestaAssistenza)
 VALUES (195, 7, 7);
-INSERT INTO UTENTICAMPIESTIVI (IdUtente, Etaminima, Etamassima)
+INSERT INTO UTENTICAMPIESTIVI (IdUtente, RichiestaAssistenza)
 VALUES (72, 7, 7);
-INSERT INTO UTENTICAMPIESTIVI (IdUtente, Etaminima, Etamassima)
+INSERT INTO UTENTICAMPIESTIVI (IdUtente, RichiestaAssistenza)
 VALUES (114, 16, 16);
-INSERT INTO UTENTICAMPIESTIVI (IdUtente, Etaminima, Etamassima)
+INSERT INTO UTENTICAMPIESTIVI (IdUtente, RichiestaAssistenza)
 VALUES (940, 16, 16);
-INSERT INTO UTENTICAMPIESTIVI (IdUtente, Etaminima, Etamassima)
+INSERT INTO UTENTICAMPIESTIVI (IdUtente, RichiestaAssistenza)
 VALUES (438, 7, 7);
-INSERT INTO UTENTICAMPIESTIVI (IdUtente, Etaminima, Etamassima)
+INSERT INTO UTENTICAMPIESTIVI (IdUtente, RichiestaAssistenza)
 VALUES (807, 7, 7);
-INSERT INTO UTENTICAMPIESTIVI (IdUtente, Etaminima, Etamassima)
+INSERT INTO UTENTICAMPIESTIVI (IdUtente, RichiestaAssistenza)
 VALUES (38, 7, 7);
-INSERT INTO UTENTICAMPIESTIVI (IdUtente, Etaminima, Etamassima)
+INSERT INTO UTENTICAMPIESTIVI (IdUtente, RichiestaAssistenza)
 VALUES (736, 17, 17);
-INSERT INTO UTENTICAMPIESTIVI (IdUtente, Etaminima, Etamassima)
+INSERT INTO UTENTICAMPIESTIVI (IdUtente, RichiestaAssistenza)
 VALUES (138, 15, 15);
-INSERT INTO UTENTICAMPIESTIVI (IdUtente, Etaminima, Etamassima)
+INSERT INTO UTENTICAMPIESTIVI (IdUtente, RichiestaAssistenza)
 VALUES (1018, 17, 17);
-INSERT INTO UTENTICAMPIESTIVI (IdUtente, Etaminima, Etamassima)
+INSERT INTO UTENTICAMPIESTIVI (IdUtente, RichiestaAssistenza)
 VALUES (430, 7, 7);
-INSERT INTO UTENTICAMPIESTIVI (IdUtente, Etaminima, Etamassima)
+INSERT INTO UTENTICAMPIESTIVI (IdUtente, RichiestaAssistenza)
 VALUES (400, 16, 16);
-INSERT INTO UTENTICAMPIESTIVI (IdUtente, Etaminima, Etamassima)
+INSERT INTO UTENTICAMPIESTIVI (IdUtente, RichiestaAssistenza)
 VALUES (682, 8, 8);
-INSERT INTO UTENTICAMPIESTIVI (IdUtente, Etaminima, Etamassima)
+INSERT INTO UTENTICAMPIESTIVI (IdUtente, RichiestaAssistenza)
 VALUES (697, 16, 16);
-INSERT INTO UTENTICAMPIESTIVI (IdUtente, Etaminima, Etamassima)
+INSERT INTO UTENTICAMPIESTIVI (IdUtente, RichiestaAssistenza)
 VALUES (405, 7, 7);
-INSERT INTO UTENTICAMPIESTIVI (IdUtente, Etaminima, Etamassima)
+INSERT INTO UTENTICAMPIESTIVI (IdUtente, RichiestaAssistenza)
 VALUES (136, 7, 7);
-INSERT INTO UTENTICAMPIESTIVI (IdUtente, Etaminima, Etamassima)
+INSERT INTO UTENTICAMPIESTIVI (IdUtente, RichiestaAssistenza)
 VALUES (439, 7, 7);
-INSERT INTO UTENTICAMPIESTIVI (IdUtente, Etaminima, Etamassima)
+INSERT INTO UTENTICAMPIESTIVI (IdUtente, RichiestaAssistenza)
 VALUES (102, 15, 15);
-INSERT INTO UTENTICAMPIESTIVI (IdUtente, Etaminima, Etamassima)
+INSERT INTO UTENTICAMPIESTIVI (IdUtente, RichiestaAssistenza)
 VALUES (506, 16, 16);
-INSERT INTO UTENTICAMPIESTIVI (IdUtente, Etaminima, Etamassima)
+INSERT INTO UTENTICAMPIESTIVI (IdUtente, RichiestaAssistenza)
 VALUES (292, 17, 17);
-INSERT INTO UTENTICAMPIESTIVI (IdUtente, Etaminima, Etamassima)
+INSERT INTO UTENTICAMPIESTIVI (IdUtente, RichiestaAssistenza)
 VALUES (597, 14, 14);
-INSERT INTO UTENTICAMPIESTIVI (IdUtente, Etaminima, Etamassima)
+INSERT INTO UTENTICAMPIESTIVI (IdUtente, RichiestaAssistenza)
 VALUES (509, 7, 7);
-INSERT INTO UTENTICAMPIESTIVI (IdUtente, Etaminima, Etamassima)
+INSERT INTO UTENTICAMPIESTIVI (IdUtente, RichiestaAssistenza)
 VALUES (985, 17, 17);
-INSERT INTO UTENTICAMPIESTIVI (IdUtente, Etaminima, Etamassima)
+INSERT INTO UTENTICAMPIESTIVI (IdUtente, RichiestaAssistenza)
 VALUES (494, 7, 7);
-INSERT INTO UTENTICAMPIESTIVI (IdUtente, Etaminima, Etamassima)
+INSERT INTO UTENTICAMPIESTIVI (IdUtente, RichiestaAssistenza)
 VALUES (477, 16, 16);
-INSERT INTO UTENTICAMPIESTIVI (IdUtente, Etaminima, Etamassima)
+INSERT INTO UTENTICAMPIESTIVI (IdUtente, RichiestaAssistenza)
 VALUES (602, 17, 17);
-INSERT INTO UTENTICAMPIESTIVI (IdUtente, Etaminima, Etamassima)
+INSERT INTO UTENTICAMPIESTIVI (IdUtente, RichiestaAssistenza)
 VALUES (840, 15, 15);
-INSERT INTO UTENTICAMPIESTIVI (IdUtente, Etaminima, Etamassima)
+INSERT INTO UTENTICAMPIESTIVI (IdUtente, RichiestaAssistenza)
 VALUES (791, 16, 16);
-INSERT INTO UTENTICAMPIESTIVI (IdUtente, Etaminima, Etamassima)
+INSERT INTO UTENTICAMPIESTIVI (IdUtente, RichiestaAssistenza)
 VALUES (297, 17, 17);
-INSERT INTO UTENTICAMPIESTIVI (IdUtente, Etaminima, Etamassima)
+INSERT INTO UTENTICAMPIESTIVI (IdUtente, RichiestaAssistenza)
 VALUES (938, 9, 9);
-INSERT INTO UTENTICAMPIESTIVI (IdUtente, Etaminima, Etamassima)
+INSERT INTO UTENTICAMPIESTIVI (IdUtente, RichiestaAssistenza)
 VALUES (570, 7, 7);
-INSERT INTO UTENTICAMPIESTIVI (IdUtente, Etaminima, Etamassima)
+INSERT INTO UTENTICAMPIESTIVI (IdUtente, RichiestaAssistenza)
 VALUES (868, 17, 17);
-INSERT INTO UTENTICAMPIESTIVI (IdUtente, Etaminima, Etamassima)
+INSERT INTO UTENTICAMPIESTIVI (IdUtente, RichiestaAssistenza)
 VALUES (455, 16, 16);
-INSERT INTO UTENTICAMPIESTIVI (IdUtente, Etaminima, Etamassima)
+INSERT INTO UTENTICAMPIESTIVI (IdUtente, RichiestaAssistenza)
 VALUES (565, 7, 7);
-INSERT INTO UTENTICAMPIESTIVI (IdUtente, Etaminima, Etamassima)
+INSERT INTO UTENTICAMPIESTIVI (IdUtente, RichiestaAssistenza)
 VALUES (657, 7, 7);
-INSERT INTO UTENTICAMPIESTIVI (IdUtente, Etaminima, Etamassima)
+INSERT INTO UTENTICAMPIESTIVI (IdUtente, RichiestaAssistenza)
 VALUES (586, 10, 10);
-INSERT INTO UTENTICAMPIESTIVI (IdUtente, Etaminima, Etamassima)
+INSERT INTO UTENTICAMPIESTIVI (IdUtente, RichiestaAssistenza)
 VALUES (389, 10, 10);
-INSERT INTO UTENTICAMPIESTIVI (IdUtente, Etaminima, Etamassima)
+INSERT INTO UTENTICAMPIESTIVI (IdUtente, RichiestaAssistenza)
 VALUES (704, 13, 13);
-INSERT INTO UTENTICAMPIESTIVI (IdUtente, Etaminima, Etamassima)
+INSERT INTO UTENTICAMPIESTIVI (IdUtente, RichiestaAssistenza)
 VALUES (420, 17, 17);
-INSERT INTO UTENTICAMPIESTIVI (IdUtente, Etaminima, Etamassima)
+INSERT INTO UTENTICAMPIESTIVI (IdUtente, RichiestaAssistenza)
 VALUES (986, 10, 10);
-INSERT INTO UTENTICAMPIESTIVI (IdUtente, Etaminima, Etamassima)
+INSERT INTO UTENTICAMPIESTIVI (IdUtente, RichiestaAssistenza)
 VALUES (819, 9, 9);
-INSERT INTO UTENTICAMPIESTIVI (IdUtente, Etaminima, Etamassima)
+INSERT INTO UTENTICAMPIESTIVI (IdUtente, RichiestaAssistenza)
 VALUES (896, 17, 17);
-INSERT INTO UTENTICAMPIESTIVI (IdUtente, Etaminima, Etamassima)
+INSERT INTO UTENTICAMPIESTIVI (IdUtente, RichiestaAssistenza)
 VALUES (672, 7, 7);
-INSERT INTO UTENTICAMPIESTIVI (IdUtente, Etaminima, Etamassima)
+INSERT INTO UTENTICAMPIESTIVI (IdUtente, RichiestaAssistenza)
 VALUES (183, 16, 16);
-INSERT INTO UTENTICAMPIESTIVI (IdUtente, Etaminima, Etamassima)
+INSERT INTO UTENTICAMPIESTIVI (IdUtente, RichiestaAssistenza)
 VALUES (817, 17, 17);
-INSERT INTO UTENTICAMPIESTIVI (IdUtente, Etaminima, Etamassima)
+INSERT INTO UTENTICAMPIESTIVI (IdUtente, RichiestaAssistenza)
 VALUES (924, 14, 14);
-INSERT INTO UTENTICAMPIESTIVI (IdUtente, Etaminima, Etamassima)
+INSERT INTO UTENTICAMPIESTIVI (IdUtente, RichiestaAssistenza)
 VALUES (390, 10, 10);
-INSERT INTO UTENTICAMPIESTIVI (IdUtente, Etaminima, Etamassima)
+INSERT INTO UTENTICAMPIESTIVI (IdUtente, RichiestaAssistenza)
 VALUES (127, 12, 12);
-INSERT INTO UTENTICAMPIESTIVI (IdUtente, Etaminima, Etamassima)
+INSERT INTO UTENTICAMPIESTIVI (IdUtente, RichiestaAssistenza)
 VALUES (953, 12, 12);
-INSERT INTO UTENTICAMPIESTIVI (IdUtente, Etaminima, Etamassima)
+INSERT INTO UTENTICAMPIESTIVI (IdUtente, RichiestaAssistenza)
 VALUES (982, 12, 12);
-INSERT INTO UTENTICAMPIESTIVI (IdUtente, Etaminima, Etamassima)
+INSERT INTO UTENTICAMPIESTIVI (IdUtente, RichiestaAssistenza)
 VALUES (630, 10, 10);
-INSERT INTO UTENTICAMPIESTIVI (IdUtente, Etaminima, Etamassima)
+INSERT INTO UTENTICAMPIESTIVI (IdUtente, RichiestaAssistenza)
 VALUES (780, 7, 7);
-INSERT INTO UTENTICAMPIESTIVI (IdUtente, Etaminima, Etamassima)
+INSERT INTO UTENTICAMPIESTIVI (IdUtente, RichiestaAssistenza)
 VALUES (264, 16, 16);
-INSERT INTO UTENTICAMPIESTIVI (IdUtente, Etaminima, Etamassima)
+INSERT INTO UTENTICAMPIESTIVI (IdUtente, RichiestaAssistenza)
 VALUES (667, 7, 7);
-INSERT INTO UTENTICAMPIESTIVI (IdUtente, Etaminima, Etamassima)
+INSERT INTO UTENTICAMPIESTIVI (IdUtente, RichiestaAssistenza)
 VALUES (935, 15, 15);
-INSERT INTO UTENTICAMPIESTIVI (IdUtente, Etaminima, Etamassima)
+INSERT INTO UTENTICAMPIESTIVI (IdUtente, RichiestaAssistenza)
 VALUES (770, 12, 12);
-INSERT INTO UTENTICAMPIESTIVI (IdUtente, Etaminima, Etamassima)
+INSERT INTO UTENTICAMPIESTIVI (IdUtente, RichiestaAssistenza)
 VALUES (1, 16, 16);
-INSERT INTO UTENTICAMPIESTIVI (IdUtente, Etaminima, Etamassima)
+INSERT INTO UTENTICAMPIESTIVI (IdUtente, RichiestaAssistenza)
 VALUES (351, 16, 16);
-INSERT INTO UTENTICAMPIESTIVI (IdUtente, Etaminima, Etamassima)
+INSERT INTO UTENTICAMPIESTIVI (IdUtente, RichiestaAssistenza)
 VALUES (782, 7, 7);
-INSERT INTO UTENTICAMPIESTIVI (IdUtente, Etaminima, Etamassima)
+INSERT INTO UTENTICAMPIESTIVI (IdUtente, RichiestaAssistenza)
 VALUES (646, 17, 17);
-INSERT INTO UTENTICAMPIESTIVI (IdUtente, Etaminima, Etamassima)
+INSERT INTO UTENTICAMPIESTIVI (IdUtente, RichiestaAssistenza)
 VALUES (729, 10, 10);
-INSERT INTO UTENTICAMPIESTIVI (IdUtente, Etaminima, Etamassima)
+INSERT INTO UTENTICAMPIESTIVI (IdUtente, RichiestaAssistenza)
 VALUES (413, 9, 9);
-INSERT INTO UTENTICAMPIESTIVI (IdUtente, Etaminima, Etamassima)
+INSERT INTO UTENTICAMPIESTIVI (IdUtente, RichiestaAssistenza)
 VALUES (541, 11, 11);
-INSERT INTO UTENTICAMPIESTIVI (IdUtente, Etaminima, Etamassima)
+INSERT INTO UTENTICAMPIESTIVI (IdUtente, RichiestaAssistenza)
 VALUES (486, 13, 13);
-INSERT INTO UTENTICAMPIESTIVI (IdUtente, Etaminima, Etamassima)
+INSERT INTO UTENTICAMPIESTIVI (IdUtente, RichiestaAssistenza)
 VALUES (370, 7, 7);
-INSERT INTO UTENTICAMPIESTIVI (IdUtente, Etaminima, Etamassima)
+INSERT INTO UTENTICAMPIESTIVI (IdUtente, RichiestaAssistenza)
 VALUES (362, 7, 7);
-INSERT INTO UTENTICAMPIESTIVI (IdUtente, Etaminima, Etamassima)
+INSERT INTO UTENTICAMPIESTIVI (IdUtente, RichiestaAssistenza)
 VALUES (803, 14, 14);
-INSERT INTO UTENTICAMPIESTIVI (IdUtente, Etaminima, Etamassima)
+INSERT INTO UTENTICAMPIESTIVI (IdUtente, RichiestaAssistenza)
 VALUES (870, 17, 17);
-INSERT INTO UTENTICAMPIESTIVI (IdUtente, Etaminima, Etamassima)
+INSERT INTO UTENTICAMPIESTIVI (IdUtente, RichiestaAssistenza)
 VALUES (248, 9, 9);
-INSERT INTO UTENTICAMPIESTIVI (IdUtente, Etaminima, Etamassima)
+INSERT INTO UTENTICAMPIESTIVI (IdUtente, RichiestaAssistenza)
 VALUES (500, 7, 7);
-INSERT INTO UTENTICAMPIESTIVI (IdUtente, Etaminima, Etamassima)
+INSERT INTO UTENTICAMPIESTIVI (IdUtente, RichiestaAssistenza)
 VALUES (976, 16, 16);
-INSERT INTO UTENTICAMPIESTIVI (IdUtente, Etaminima, Etamassima)
+INSERT INTO UTENTICAMPIESTIVI (IdUtente, RichiestaAssistenza)
 VALUES (656, 17, 17);
-INSERT INTO UTENTICAMPIESTIVI (IdUtente, Etaminima, Etamassima)
+INSERT INTO UTENTICAMPIESTIVI (IdUtente, RichiestaAssistenza)
 VALUES (47, 12, 12);
-INSERT INTO UTENTICAMPIESTIVI (IdUtente, Etaminima, Etamassima)
+INSERT INTO UTENTICAMPIESTIVI (IdUtente, RichiestaAssistenza)
 VALUES (942, 7, 7);
-INSERT INTO UTENTICAMPIESTIVI (IdUtente, Etaminima, Etamassima)
+INSERT INTO UTENTICAMPIESTIVI (IdUtente, RichiestaAssistenza)
 VALUES (508, 7, 7);
-INSERT INTO UTENTICAMPIESTIVI (IdUtente, Etaminima, Etamassima)
+INSERT INTO UTENTICAMPIESTIVI (IdUtente, RichiestaAssistenza)
 VALUES (70, 14, 14);
-INSERT INTO UTENTICAMPIESTIVI (IdUtente, Etaminima, Etamassima)
+INSERT INTO UTENTICAMPIESTIVI (IdUtente, RichiestaAssistenza)
 VALUES (679, 13, 13);
-INSERT INTO UTENTICAMPIESTIVI (IdUtente, Etaminima, Etamassima)
+INSERT INTO UTENTICAMPIESTIVI (IdUtente, RichiestaAssistenza)
 VALUES (333, 8, 8);
-INSERT INTO UTENTICAMPIESTIVI (IdUtente, Etaminima, Etamassima)
+INSERT INTO UTENTICAMPIESTIVI (IdUtente, RichiestaAssistenza)
 VALUES (101, 10, 10);
-INSERT INTO UTENTICAMPIESTIVI (IdUtente, Etaminima, Etamassima)
+INSERT INTO UTENTICAMPIESTIVI (IdUtente, RichiestaAssistenza)
 VALUES (329, 16, 16);
-INSERT INTO UTENTICAMPIESTIVI (IdUtente, Etaminima, Etamassima)
+INSERT INTO UTENTICAMPIESTIVI (IdUtente, RichiestaAssistenza)
 VALUES (754, 15, 15);
-INSERT INTO UTENTICAMPIESTIVI (IdUtente, Etaminima, Etamassima)
+INSERT INTO UTENTICAMPIESTIVI (IdUtente, RichiestaAssistenza)
 VALUES (1027, 13, 13);
-INSERT INTO UTENTICAMPIESTIVI (IdUtente, Etaminima, Etamassima)
+INSERT INTO UTENTICAMPIESTIVI (IdUtente, RichiestaAssistenza)
 VALUES (1022, 7, 7);
-INSERT INTO UTENTICAMPIESTIVI (IdUtente, Etaminima, Etamassima)
+INSERT INTO UTENTICAMPIESTIVI (IdUtente, RichiestaAssistenza)
 VALUES (761, 17, 17);
-INSERT INTO UTENTICAMPIESTIVI (IdUtente, Etaminima, Etamassima)
+INSERT INTO UTENTICAMPIESTIVI (IdUtente, RichiestaAssistenza)
 VALUES (168, 12, 12);
-INSERT INTO UTENTICAMPIESTIVI (IdUtente, Etaminima, Etamassima)
+INSERT INTO UTENTICAMPIESTIVI (IdUtente, RichiestaAssistenza)
 VALUES (651, 7, 7);
-INSERT INTO UTENTICAMPIESTIVI (IdUtente, Etaminima, Etamassima)
+INSERT INTO UTENTICAMPIESTIVI (IdUtente, RichiestaAssistenza)
 VALUES (128, 7, 7);
-INSERT INTO UTENTICAMPIESTIVI (IdUtente, Etaminima, Etamassima)
+INSERT INTO UTENTICAMPIESTIVI (IdUtente, RichiestaAssistenza)
 VALUES (68, 14, 14);
-INSERT INTO UTENTICAMPIESTIVI (IdUtente, Etaminima, Etamassima)
+INSERT INTO UTENTICAMPIESTIVI (IdUtente, RichiestaAssistenza)
 VALUES (519, 10, 10);
-INSERT INTO UTENTICAMPIESTIVI (IdUtente, Etaminima, Etamassima)
+INSERT INTO UTENTICAMPIESTIVI (IdUtente, RichiestaAssistenza)
 VALUES (722, 12, 12);
-INSERT INTO UTENTICAMPIESTIVI (IdUtente, Etaminima, Etamassima)
+INSERT INTO UTENTICAMPIESTIVI (IdUtente, RichiestaAssistenza)
 VALUES (153, 7, 7);
-INSERT INTO UTENTICAMPIESTIVI (IdUtente, Etaminima, Etamassima)
+INSERT INTO UTENTICAMPIESTIVI (IdUtente, RichiestaAssistenza)
 VALUES (239, 16, 16);
-INSERT INTO UTENTICAMPIESTIVI (IdUtente, Etaminima, Etamassima)
+INSERT INTO UTENTICAMPIESTIVI (IdUtente, RichiestaAssistenza)
 VALUES (614, 7, 7);
-INSERT INTO UTENTICAMPIESTIVI (IdUtente, Etaminima, Etamassima)
+INSERT INTO UTENTICAMPIESTIVI (IdUtente, RichiestaAssistenza)
 VALUES (91, 7, 7);
-INSERT INTO UTENTICAMPIESTIVI (IdUtente, Etaminima, Etamassima)
+INSERT INTO UTENTICAMPIESTIVI (IdUtente, RichiestaAssistenza)
 VALUES (366, 15, 15);
-INSERT INTO UTENTICAMPIESTIVI (IdUtente, Etaminima, Etamassima)
+INSERT INTO UTENTICAMPIESTIVI (IdUtente, RichiestaAssistenza)
 VALUES (812, 7, 7);
-INSERT INTO UTENTICAMPIESTIVI (IdUtente, Etaminima, Etamassima)
+INSERT INTO UTENTICAMPIESTIVI (IdUtente, RichiestaAssistenza)
 VALUES (481, 17, 17);
-INSERT INTO UTENTICAMPIESTIVI (IdUtente, Etaminima, Etamassima)
+INSERT INTO UTENTICAMPIESTIVI (IdUtente, RichiestaAssistenza)
 VALUES (373, 14, 14);
-INSERT INTO UTENTICAMPIESTIVI (IdUtente, Etaminima, Etamassima)
+INSERT INTO UTENTICAMPIESTIVI (IdUtente, RichiestaAssistenza)
 VALUES (845, 7, 7);
-INSERT INTO UTENTICAMPIESTIVI (IdUtente, Etaminima, Etamassima)
+INSERT INTO UTENTICAMPIESTIVI (IdUtente, RichiestaAssistenza)
 VALUES (332, 9, 9);
-INSERT INTO UTENTICAMPIESTIVI (IdUtente, Etaminima, Etamassima)
+INSERT INTO UTENTICAMPIESTIVI (IdUtente, RichiestaAssistenza)
 VALUES (212, 16, 16);
-INSERT INTO UTENTICAMPIESTIVI (IdUtente, Etaminima, Etamassima)
+INSERT INTO UTENTICAMPIESTIVI (IdUtente, RichiestaAssistenza)
 VALUES (87, 15, 15);
-INSERT INTO UTENTICAMPIESTIVI (IdUtente, Etaminima, Etamassima)
+INSERT INTO UTENTICAMPIESTIVI (IdUtente, RichiestaAssistenza)
 VALUES (299, 9, 9);
-INSERT INTO UTENTICAMPIESTIVI (IdUtente, Etaminima, Etamassima)
+INSERT INTO UTENTICAMPIESTIVI (IdUtente, RichiestaAssistenza)
 VALUES (903, 13, 13);
-INSERT INTO UTENTICAMPIESTIVI (IdUtente, Etaminima, Etamassima)
+INSERT INTO UTENTICAMPIESTIVI (IdUtente, RichiestaAssistenza)
 VALUES (1042, 17, 17);
-INSERT INTO UTENTICAMPIESTIVI (IdUtente, Etaminima, Etamassima)
+INSERT INTO UTENTICAMPIESTIVI (IdUtente, RichiestaAssistenza)
 VALUES (1045, 7, 7);
-INSERT INTO UTENTICAMPIESTIVI (IdUtente, Etaminima, Etamassima)
+INSERT INTO UTENTICAMPIESTIVI (IdUtente, RichiestaAssistenza)
 VALUES (747, 7, 7);
-INSERT INTO UTENTICAMPIESTIVI (IdUtente, Etaminima, Etamassima)
+INSERT INTO UTENTICAMPIESTIVI (IdUtente, RichiestaAssistenza)
 VALUES (9, 15, 15);
-INSERT INTO UTENTICAMPIESTIVI (IdUtente, Etaminima, Etamassima)
+INSERT INTO UTENTICAMPIESTIVI (IdUtente, RichiestaAssistenza)
 VALUES (911, 17, 17);
-INSERT INTO UTENTICAMPIESTIVI (IdUtente, Etaminima, Etamassima)
+INSERT INTO UTENTICAMPIESTIVI (IdUtente, RichiestaAssistenza)
 VALUES (312, 14, 14);
-INSERT INTO UTENTICAMPIESTIVI (IdUtente, Etaminima, Etamassima)
+INSERT INTO UTENTICAMPIESTIVI (IdUtente, RichiestaAssistenza)
 VALUES (263, 16, 16);
-INSERT INTO UTENTICAMPIESTIVI (IdUtente, Etaminima, Etamassima)
+INSERT INTO UTENTICAMPIESTIVI (IdUtente, RichiestaAssistenza)
 VALUES (665, 16, 16);
-INSERT INTO UTENTICAMPIESTIVI (IdUtente, Etaminima, Etamassima)
+INSERT INTO UTENTICAMPIESTIVI (IdUtente, RichiestaAssistenza)
 VALUES (112, 12, 12);
-INSERT INTO UTENTICAMPIESTIVI (IdUtente, Etaminima, Etamassima)
+INSERT INTO UTENTICAMPIESTIVI (IdUtente, RichiestaAssistenza)
 VALUES (134, 14, 14);
-INSERT INTO UTENTICAMPIESTIVI (IdUtente, Etaminima, Etamassima)
+INSERT INTO UTENTICAMPIESTIVI (IdUtente, RichiestaAssistenza)
 VALUES (706, 7, 7);
-INSERT INTO UTENTICAMPIESTIVI (IdUtente, Etaminima, Etamassima)
+INSERT INTO UTENTICAMPIESTIVI (IdUtente, RichiestaAssistenza)
 VALUES (989, 7, 7);
-INSERT INTO UTENTICAMPIESTIVI (IdUtente, Etaminima, Etamassima)
+INSERT INTO UTENTICAMPIESTIVI (IdUtente, RichiestaAssistenza)
 VALUES (216, 17, 17);
-INSERT INTO UTENTICAMPIESTIVI (IdUtente, Etaminima, Etamassima)
+INSERT INTO UTENTICAMPIESTIVI (IdUtente, RichiestaAssistenza)
 VALUES (372, 10, 10);
-INSERT INTO UTENTICAMPIESTIVI (IdUtente, Etaminima, Etamassima)
+INSERT INTO UTENTICAMPIESTIVI (IdUtente, RichiestaAssistenza)
 VALUES (259, 9, 9);
-INSERT INTO UTENTICAMPIESTIVI (IdUtente, Etaminima, Etamassima)
+INSERT INTO UTENTICAMPIESTIVI (IdUtente, RichiestaAssistenza)
 VALUES (475, 11, 11);
-INSERT INTO UTENTICAMPIESTIVI (IdUtente, Etaminima, Etamassima)
+INSERT INTO UTENTICAMPIESTIVI (IdUtente, RichiestaAssistenza)
 VALUES (97, 8, 8);
-INSERT INTO UTENTICAMPIESTIVI (IdUtente, Etaminima, Etamassima)
+INSERT INTO UTENTICAMPIESTIVI (IdUtente, RichiestaAssistenza)
 VALUES (256, 7, 7);
-INSERT INTO UTENTICAMPIESTIVI (IdUtente, Etaminima, Etamassima)
+INSERT INTO UTENTICAMPIESTIVI (IdUtente, RichiestaAssistenza)
 VALUES (507, 13, 13);
-INSERT INTO UTENTICAMPIESTIVI (IdUtente, Etaminima, Etamassima)
+INSERT INTO UTENTICAMPIESTIVI (IdUtente, RichiestaAssistenza)
 VALUES (925, 7, 7);
-INSERT INTO UTENTICAMPIESTIVI (IdUtente, Etaminima, Etamassima)
+INSERT INTO UTENTICAMPIESTIVI (IdUtente, RichiestaAssistenza)
 VALUES (164, 7, 7);
-INSERT INTO UTENTICAMPIESTIVI (IdUtente, Etaminima, Etamassima)
+INSERT INTO UTENTICAMPIESTIVI (IdUtente, RichiestaAssistenza)
 VALUES (45, 17, 17);
-INSERT INTO UTENTICAMPIESTIVI (IdUtente, Etaminima, Etamassima)
+INSERT INTO UTENTICAMPIESTIVI (IdUtente, RichiestaAssistenza)
 VALUES (977, 17, 17);
-INSERT INTO UTENTICAMPIESTIVI (IdUtente, Etaminima, Etamassima)
+INSERT INTO UTENTICAMPIESTIVI (IdUtente, RichiestaAssistenza)
 VALUES (490, 7, 7);
-INSERT INTO UTENTICAMPIESTIVI (IdUtente, Etaminima, Etamassima)
+INSERT INTO UTENTICAMPIESTIVI (IdUtente, RichiestaAssistenza)
 VALUES (367, 15, 15);
-INSERT INTO UTENTICAMPIESTIVI (IdUtente, Etaminima, Etamassima)
+INSERT INTO UTENTICAMPIESTIVI (IdUtente, RichiestaAssistenza)
 VALUES (784, 12, 12);
-INSERT INTO UTENTICAMPIESTIVI (IdUtente, Etaminima, Etamassima)
+INSERT INTO UTENTICAMPIESTIVI (IdUtente, RichiestaAssistenza)
 VALUES (223, 12, 12);
-INSERT INTO UTENTICAMPIESTIVI (IdUtente, Etaminima, Etamassima)
+INSERT INTO UTENTICAMPIESTIVI (IdUtente, RichiestaAssistenza)
 VALUES (752, 7, 7);
-INSERT INTO UTENTICAMPIESTIVI (IdUtente, Etaminima, Etamassima)
+INSERT INTO UTENTICAMPIESTIVI (IdUtente, RichiestaAssistenza)
 VALUES (765, 7, 7);
-INSERT INTO UTENTICAMPIESTIVI (IdUtente, Etaminima, Etamassima)
+INSERT INTO UTENTICAMPIESTIVI (IdUtente, RichiestaAssistenza)
 VALUES (179, 7, 7);
-INSERT INTO UTENTICAMPIESTIVI (IdUtente, Etaminima, Etamassima)
+INSERT INTO UTENTICAMPIESTIVI (IdUtente, RichiestaAssistenza)
 VALUES (763, 15, 15);
-INSERT INTO UTENTICAMPIESTIVI (IdUtente, Etaminima, Etamassima)
+INSERT INTO UTENTICAMPIESTIVI (IdUtente, RichiestaAssistenza)
 VALUES (106, 10, 10);
-INSERT INTO UTENTICAMPIESTIVI (IdUtente, Etaminima, Etamassima)
+INSERT INTO UTENTICAMPIESTIVI (IdUtente, RichiestaAssistenza)
 VALUES (483, 15, 15);
-INSERT INTO UTENTICAMPIESTIVI (IdUtente, Etaminima, Etamassima)
+INSERT INTO UTENTICAMPIESTIVI (IdUtente, RichiestaAssistenza)
 VALUES (209, 7, 7);
-INSERT INTO UTENTICAMPIESTIVI (IdUtente, Etaminima, Etamassima)
+INSERT INTO UTENTICAMPIESTIVI (IdUtente, RichiestaAssistenza)
 VALUES (620, 11, 11);
-INSERT INTO UTENTICAMPIESTIVI (IdUtente, Etaminima, Etamassima)
+INSERT INTO UTENTICAMPIESTIVI (IdUtente, RichiestaAssistenza)
 VALUES (487, 7, 7);
-INSERT INTO UTENTICAMPIESTIVI (IdUtente, Etaminima, Etamassima)
+INSERT INTO UTENTICAMPIESTIVI (IdUtente, RichiestaAssistenza)
 VALUES (623, 17, 17);
-INSERT INTO UTENTICAMPIESTIVI (IdUtente, Etaminima, Etamassima)
+INSERT INTO UTENTICAMPIESTIVI (IdUtente, RichiestaAssistenza)
 VALUES (634, 17, 17);
-INSERT INTO UTENTICAMPIESTIVI (IdUtente, Etaminima, Etamassima)
+INSERT INTO UTENTICAMPIESTIVI (IdUtente, RichiestaAssistenza)
 VALUES (617, 10, 10);
-INSERT INTO UTENTICAMPIESTIVI (IdUtente, Etaminima, Etamassima)
+INSERT INTO UTENTICAMPIESTIVI (IdUtente, RichiestaAssistenza)
 VALUES (995, 7, 7);
-INSERT INTO UTENTICAMPIESTIVI (IdUtente, Etaminima, Etamassima)
+INSERT INTO UTENTICAMPIESTIVI (IdUtente, RichiestaAssistenza)
 VALUES (150, 7, 7);
-INSERT INTO UTENTICAMPIESTIVI (IdUtente, Etaminima, Etamassima)
+INSERT INTO UTENTICAMPIESTIVI (IdUtente, RichiestaAssistenza)
 VALUES (748, 16, 16);
-INSERT INTO UTENTICAMPIESTIVI (IdUtente, Etaminima, Etamassima)
+INSERT INTO UTENTICAMPIESTIVI (IdUtente, RichiestaAssistenza)
 VALUES (326, 7, 7);
-INSERT INTO UTENTICAMPIESTIVI (IdUtente, Etaminima, Etamassima)
+INSERT INTO UTENTICAMPIESTIVI (IdUtente, RichiestaAssistenza)
 VALUES (503, 10, 10);
-INSERT INTO UTENTICAMPIESTIVI (IdUtente, Etaminima, Etamassima)
+INSERT INTO UTENTICAMPIESTIVI (IdUtente, RichiestaAssistenza)
 VALUES (186, 7, 7);
-INSERT INTO UTENTICAMPIESTIVI (IdUtente, Etaminima, Etamassima)
+INSERT INTO UTENTICAMPIESTIVI (IdUtente, RichiestaAssistenza)
 VALUES (643, 14, 14);
-INSERT INTO UTENTICAMPIESTIVI (IdUtente, Etaminima, Etamassima)
+INSERT INTO UTENTICAMPIESTIVI (IdUtente, RichiestaAssistenza)
 VALUES (988, 7, 7);
-INSERT INTO UTENTICAMPIESTIVI (IdUtente, Etaminima, Etamassima)
+INSERT INTO UTENTICAMPIESTIVI (IdUtente, RichiestaAssistenza)
 VALUES (207, 7, 7);
-INSERT INTO UTENTICAMPIESTIVI (IdUtente, Etaminima, Etamassima)
+INSERT INTO UTENTICAMPIESTIVI (IdUtente, RichiestaAssistenza)
 VALUES (719, 8, 8);
-INSERT INTO UTENTICAMPIESTIVI (IdUtente, Etaminima, Etamassima)
+INSERT INTO UTENTICAMPIESTIVI (IdUtente, RichiestaAssistenza)
 VALUES (467, 9, 9);
-INSERT INTO UTENTICAMPIESTIVI (IdUtente, Etaminima, Etamassima)
+INSERT INTO UTENTICAMPIESTIVI (IdUtente, RichiestaAssistenza)
 VALUES (709, 14, 14);
-INSERT INTO UTENTICAMPIESTIVI (IdUtente, Etaminima, Etamassima)
+INSERT INTO UTENTICAMPIESTIVI (IdUtente, RichiestaAssistenza)
 VALUES (916, 9, 9);
-INSERT INTO UTENTICAMPIESTIVI (IdUtente, Etaminima, Etamassima)
+INSERT INTO UTENTICAMPIESTIVI (IdUtente, RichiestaAssistenza)
 VALUES (272, 16, 16);
-INSERT INTO UTENTICAMPIESTIVI (IdUtente, Etaminima, Etamassima)
+INSERT INTO UTENTICAMPIESTIVI (IdUtente, RichiestaAssistenza)
 VALUES (552, 8, 8);
-INSERT INTO UTENTICAMPIESTIVI (IdUtente, Etaminima, Etamassima)
+INSERT INTO UTENTICAMPIESTIVI (IdUtente, RichiestaAssistenza)
 VALUES (1023, 7, 7);
-INSERT INTO UTENTICAMPIESTIVI (IdUtente, Etaminima, Etamassima)
+INSERT INTO UTENTICAMPIESTIVI (IdUtente, RichiestaAssistenza)
 VALUES (123, 11, 11);
-INSERT INTO UTENTICAMPIESTIVI (IdUtente, Etaminima, Etamassima)
+INSERT INTO UTENTICAMPIESTIVI (IdUtente, RichiestaAssistenza)
 VALUES (69, 7, 7);
-INSERT INTO UTENTICAMPIESTIVI (IdUtente, Etaminima, Etamassima)
+INSERT INTO UTENTICAMPIESTIVI (IdUtente, RichiestaAssistenza)
 VALUES (936, 10, 10);
-INSERT INTO UTENTICAMPIESTIVI (IdUtente, Etaminima, Etamassima)
+INSERT INTO UTENTICAMPIESTIVI (IdUtente, RichiestaAssistenza)
 VALUES (1040, 9, 9);
-INSERT INTO UTENTICAMPIESTIVI (IdUtente, Etaminima, Etamassima)
+INSERT INTO UTENTICAMPIESTIVI (IdUtente, RichiestaAssistenza)
 VALUES (344, 11, 11);
-INSERT INTO UTENTICAMPIESTIVI (IdUtente, Etaminima, Etamassima)
+INSERT INTO UTENTICAMPIESTIVI (IdUtente, RichiestaAssistenza)
 VALUES (684, 16, 16);
-INSERT INTO UTENTICAMPIESTIVI (IdUtente, Etaminima, Etamassima)
+INSERT INTO UTENTICAMPIESTIVI (IdUtente, RichiestaAssistenza)
 VALUES (291, 12, 12);
-INSERT INTO UTENTICAMPIESTIVI (IdUtente, Etaminima, Etamassima)
+INSERT INTO UTENTICAMPIESTIVI (IdUtente, RichiestaAssistenza)
 VALUES (364, 16, 16);
-INSERT INTO UTENTICAMPIESTIVI (IdUtente, Etaminima, Etamassima)
+INSERT INTO UTENTICAMPIESTIVI (IdUtente, RichiestaAssistenza)
 VALUES (197, 12, 12);
-INSERT INTO UTENTICAMPIESTIVI (IdUtente, Etaminima, Etamassima)
+INSERT INTO UTENTICAMPIESTIVI (IdUtente, RichiestaAssistenza)
 VALUES (932, 11, 11);
-INSERT INTO UTENTICAMPIESTIVI (IdUtente, Etaminima, Etamassima)
+INSERT INTO UTENTICAMPIESTIVI (IdUtente, RichiestaAssistenza)
 VALUES (966, 15, 15);
-INSERT INTO UTENTICAMPIESTIVI (IdUtente, Etaminima, Etamassima)
+INSERT INTO UTENTICAMPIESTIVI (IdUtente, RichiestaAssistenza)
 VALUES (1020, 11, 11);
-INSERT INTO UTENTICAMPIESTIVI (IdUtente, Etaminima, Etamassima)
+INSERT INTO UTENTICAMPIESTIVI (IdUtente, RichiestaAssistenza)
 VALUES (998, 7, 7);
-INSERT INTO UTENTICAMPIESTIVI (IdUtente, Etaminima, Etamassima)
+INSERT INTO UTENTICAMPIESTIVI (IdUtente, RichiestaAssistenza)
 VALUES (554, 7, 7);
-INSERT INTO UTENTICAMPIESTIVI (IdUtente, Etaminima, Etamassima)
+INSERT INTO UTENTICAMPIESTIVI (IdUtente, RichiestaAssistenza)
 VALUES (79, 8, 8);
-INSERT INTO UTENTICAMPIESTIVI (IdUtente, Etaminima, Etamassima)
+INSERT INTO UTENTICAMPIESTIVI (IdUtente, RichiestaAssistenza)
 VALUES (377, 10, 10);
-INSERT INTO UTENTICAMPIESTIVI (IdUtente, Etaminima, Etamassima)
+INSERT INTO UTENTICAMPIESTIVI (IdUtente, RichiestaAssistenza)
 VALUES (921, 15, 15);
-INSERT INTO UTENTICAMPIESTIVI (IdUtente, Etaminima, Etamassima)
+INSERT INTO UTENTICAMPIESTIVI (IdUtente, RichiestaAssistenza)
 VALUES (230, 13, 13);
-INSERT INTO UTENTICAMPIESTIVI (IdUtente, Etaminima, Etamassima)
+INSERT INTO UTENTICAMPIESTIVI (IdUtente, RichiestaAssistenza)
 VALUES (132, 13, 13);
-INSERT INTO UTENTICAMPIESTIVI (IdUtente, Etaminima, Etamassima)
+INSERT INTO UTENTICAMPIESTIVI (IdUtente, RichiestaAssistenza)
 VALUES (246, 8, 8);
-INSERT INTO UTENTICAMPIESTIVI (IdUtente, Etaminima, Etamassima)
+INSERT INTO UTENTICAMPIESTIVI (IdUtente, RichiestaAssistenza)
 VALUES (341, 12, 12);
-INSERT INTO UTENTICAMPIESTIVI (IdUtente, Etaminima, Etamassima)
+INSERT INTO UTENTICAMPIESTIVI (IdUtente, RichiestaAssistenza)
 VALUES (314, 7, 7);
-INSERT INTO UTENTICAMPIESTIVI (IdUtente, Etaminima, Etamassima)
+INSERT INTO UTENTICAMPIESTIVI (IdUtente, RichiestaAssistenza)
 VALUES (727, 7, 7);
-INSERT INTO UTENTICAMPIESTIVI (IdUtente, Etaminima, Etamassima)
+INSERT INTO UTENTICAMPIESTIVI (IdUtente, RichiestaAssistenza)
 VALUES (890, 7, 7);
-INSERT INTO UTENTICAMPIESTIVI (IdUtente, Etaminima, Etamassima)
+INSERT INTO UTENTICAMPIESTIVI (IdUtente, RichiestaAssistenza)
 VALUES (222, 12, 12);
-INSERT INTO UTENTICAMPIESTIVI (IdUtente, Etaminima, Etamassima)
+INSERT INTO UTENTICAMPIESTIVI (IdUtente, RichiestaAssistenza)
 VALUES (35, 16, 16);
-INSERT INTO UTENTICAMPIESTIVI (IdUtente, Etaminima, Etamassima)
+INSERT INTO UTENTICAMPIESTIVI (IdUtente, RichiestaAssistenza)
 VALUES (544, 9, 9);
-INSERT INTO UTENTICAMPIESTIVI (IdUtente, Etaminima, Etamassima)
+INSERT INTO UTENTICAMPIESTIVI (IdUtente, RichiestaAssistenza)
 VALUES (758, 9, 9);
-INSERT INTO UTENTICAMPIESTIVI (IdUtente, Etaminima, Etamassima)
+INSERT INTO UTENTICAMPIESTIVI (IdUtente, RichiestaAssistenza)
 VALUES (718, 14, 14);
-INSERT INTO UTENTICAMPIESTIVI (IdUtente, Etaminima, Etamassima)
+INSERT INTO UTENTICAMPIESTIVI (IdUtente, RichiestaAssistenza)
 VALUES (792, 7, 7);
-INSERT INTO UTENTICAMPIESTIVI (IdUtente, Etaminima, Etamassima)
+INSERT INTO UTENTICAMPIESTIVI (IdUtente, RichiestaAssistenza)
 VALUES (55, 7, 7);
-INSERT INTO UTENTICAMPIESTIVI (IdUtente, Etaminima, Etamassima)
+INSERT INTO UTENTICAMPIESTIVI (IdUtente, RichiestaAssistenza)
 VALUES (520, 14, 14);
-INSERT INTO UTENTICAMPIESTIVI (IdUtente, Etaminima, Etamassima)
+INSERT INTO UTENTICAMPIESTIVI (IdUtente, RichiestaAssistenza)
 VALUES (644, 17, 17);
-INSERT INTO UTENTICAMPIESTIVI (IdUtente, Etaminima, Etamassima)
+INSERT INTO UTENTICAMPIESTIVI (IdUtente, RichiestaAssistenza)
 VALUES (825, 12, 12);
-INSERT INTO UTENTICAMPIESTIVI (IdUtente, Etaminima, Etamassima)
+INSERT INTO UTENTICAMPIESTIVI (IdUtente, RichiestaAssistenza)
 VALUES (943, 7, 7);
-INSERT INTO UTENTICAMPIESTIVI (IdUtente, Etaminima, Etamassima)
+INSERT INTO UTENTICAMPIESTIVI (IdUtente, RichiestaAssistenza)
 VALUES (51, 9, 9);
-INSERT INTO UTENTICAMPIESTIVI (IdUtente, Etaminima, Etamassima)
+INSERT INTO UTENTICAMPIESTIVI (IdUtente, RichiestaAssistenza)
 VALUES (814, 7, 7);
-INSERT INTO UTENTICAMPIESTIVI (IdUtente, Etaminima, Etamassima)
+INSERT INTO UTENTICAMPIESTIVI (IdUtente, RichiestaAssistenza)
 VALUES (510, 21, 21);
-INSERT INTO UTENTICAMPIESTIVI (IdUtente, Etaminima, Etamassima)
+INSERT INTO UTENTICAMPIESTIVI (IdUtente, RichiestaAssistenza)
 VALUES (274, 33, 33);
-INSERT INTO UTENTICAMPIESTIVI (IdUtente, Etaminima, Etamassima)
+INSERT INTO UTENTICAMPIESTIVI (IdUtente, RichiestaAssistenza)
 VALUES (900, 21, 21);
-INSERT INTO UTENTICAMPIESTIVI (IdUtente, Etaminima, Etamassima)
+INSERT INTO UTENTICAMPIESTIVI (IdUtente, RichiestaAssistenza)
 VALUES (730, 51, 51);
-INSERT INTO UTENTICAMPIESTIVI (IdUtente, Etaminima, Etamassima)
+INSERT INTO UTENTICAMPIESTIVI (IdUtente, RichiestaAssistenza)
 VALUES (1046, 21, 21);
-INSERT INTO UTENTICAMPIESTIVI (IdUtente, Etaminima, Etamassima)
+INSERT INTO UTENTICAMPIESTIVI (IdUtente, RichiestaAssistenza)
 VALUES (847, 34, 34);
-INSERT INTO UTENTICAMPIESTIVI (IdUtente, Etaminima, Etamassima)
+INSERT INTO UTENTICAMPIESTIVI (IdUtente, RichiestaAssistenza)
 VALUES (129, 19, 19);
-INSERT INTO UTENTICAMPIESTIVI (IdUtente, Etaminima, Etamassima)
+INSERT INTO UTENTICAMPIESTIVI (IdUtente, RichiestaAssistenza)
 VALUES (557, 51, 51);
-INSERT INTO UTENTICAMPIESTIVI (IdUtente, Etaminima, Etamassima)
+INSERT INTO UTENTICAMPIESTIVI (IdUtente, RichiestaAssistenza)
 VALUES (751, 24, 24);
-INSERT INTO UTENTICAMPIESTIVI (IdUtente, Etaminima, Etamassima)
+INSERT INTO UTENTICAMPIESTIVI (IdUtente, RichiestaAssistenza)
 VALUES (798, 21, 21);
-INSERT INTO UTENTICAMPIESTIVI (IdUtente, Etaminima, Etamassima)
+INSERT INTO UTENTICAMPIESTIVI (IdUtente, RichiestaAssistenza)
 VALUES (960, 49, 49);
-INSERT INTO UTENTICAMPIESTIVI (IdUtente, Etaminima, Etamassima)
+INSERT INTO UTENTICAMPIESTIVI (IdUtente, RichiestaAssistenza)
 VALUES (492, 43, 43);
-INSERT INTO UTENTICAMPIESTIVI (IdUtente, Etaminima, Etamassima)
+INSERT INTO UTENTICAMPIESTIVI (IdUtente, RichiestaAssistenza)
 VALUES (842, 25, 25);
-INSERT INTO UTENTICAMPIESTIVI (IdUtente, Etaminima, Etamassima)
+INSERT INTO UTENTICAMPIESTIVI (IdUtente, RichiestaAssistenza)
 VALUES (1039, 28, 28);
-INSERT INTO UTENTICAMPIESTIVI (IdUtente, Etaminima, Etamassima)
+INSERT INTO UTENTICAMPIESTIVI (IdUtente, RichiestaAssistenza)
 VALUES (664, 32, 32);
-INSERT INTO UTENTICAMPIESTIVI (IdUtente, Etaminima, Etamassima)
+INSERT INTO UTENTICAMPIESTIVI (IdUtente, RichiestaAssistenza)
 VALUES (473, 33, 33);
-INSERT INTO UTENTICAMPIESTIVI (IdUtente, Etaminima, Etamassima)
+INSERT INTO UTENTICAMPIESTIVI (IdUtente, RichiestaAssistenza)
 VALUES (317, 27, 27);
-INSERT INTO UTENTICAMPIESTIVI (IdUtente, Etaminima, Etamassima)
+INSERT INTO UTENTICAMPIESTIVI (IdUtente, RichiestaAssistenza)
 VALUES (113, 48, 48);
-INSERT INTO UTENTICAMPIESTIVI (IdUtente, Etaminima, Etamassima)
+INSERT INTO UTENTICAMPIESTIVI (IdUtente, RichiestaAssistenza)
 VALUES (548, 25, 25);
-INSERT INTO UTENTICAMPIESTIVI (IdUtente, Etaminima, Etamassima)
+INSERT INTO UTENTICAMPIESTIVI (IdUtente, RichiestaAssistenza)
 VALUES (928, 19, 19);
-INSERT INTO UTENTICAMPIESTIVI (IdUtente, Etaminima, Etamassima)
+INSERT INTO UTENTICAMPIESTIVI (IdUtente, RichiestaAssistenza)
 VALUES (40, 34, 34);
-INSERT INTO UTENTICAMPIESTIVI (IdUtente, Etaminima, Etamassima)
+INSERT INTO UTENTICAMPIESTIVI (IdUtente, RichiestaAssistenza)
 VALUES (398, 37, 37);
-INSERT INTO UTENTICAMPIESTIVI (IdUtente, Etaminima, Etamassima)
+INSERT INTO UTENTICAMPIESTIVI (IdUtente, RichiestaAssistenza)
 VALUES (984, 33, 33);
-INSERT INTO UTENTICAMPIESTIVI (IdUtente, Etaminima, Etamassima)
+INSERT INTO UTENTICAMPIESTIVI (IdUtente, RichiestaAssistenza)
 VALUES (281, 51, 51);
-INSERT INTO UTENTICAMPIESTIVI (IdUtente, Etaminima, Etamassima)
+INSERT INTO UTENTICAMPIESTIVI (IdUtente, RichiestaAssistenza)
 VALUES (658, 22, 22);
-INSERT INTO UTENTICAMPIESTIVI (IdUtente, Etaminima, Etamassima)
+INSERT INTO UTENTICAMPIESTIVI (IdUtente, RichiestaAssistenza)
 VALUES (919, 21, 21);
-INSERT INTO UTENTICAMPIESTIVI (IdUtente, Etaminima, Etamassima)
+INSERT INTO UTENTICAMPIESTIVI (IdUtente, RichiestaAssistenza)
 VALUES (363, 19, 19);
-INSERT INTO UTENTICAMPIESTIVI (IdUtente, Etaminima, Etamassima)
+INSERT INTO UTENTICAMPIESTIVI (IdUtente, RichiestaAssistenza)
 VALUES (95, 33, 33);
-INSERT INTO UTENTICAMPIESTIVI (IdUtente, Etaminima, Etamassima)
+INSERT INTO UTENTICAMPIESTIVI (IdUtente, RichiestaAssistenza)
 VALUES (325, 51, 51);
-INSERT INTO UTENTICAMPIESTIVI (IdUtente, Etaminima, Etamassima)
+INSERT INTO UTENTICAMPIESTIVI (IdUtente, RichiestaAssistenza)
 VALUES (478, 20, 20);
-INSERT INTO UTENTICAMPIESTIVI (IdUtente, Etaminima, Etamassima)
+INSERT INTO UTENTICAMPIESTIVI (IdUtente, RichiestaAssistenza)
 VALUES (451, 30, 30);
-INSERT INTO UTENTICAMPIESTIVI (IdUtente, Etaminima, Etamassima)
+INSERT INTO UTENTICAMPIESTIVI (IdUtente, RichiestaAssistenza)
 VALUES (225, 41, 41);
-INSERT INTO UTENTICAMPIESTIVI (IdUtente, Etaminima, Etamassima)
+INSERT INTO UTENTICAMPIESTIVI (IdUtente, RichiestaAssistenza)
 VALUES (954, 37, 37);
-INSERT INTO UTENTICAMPIESTIVI (IdUtente, Etaminima, Etamassima)
+INSERT INTO UTENTICAMPIESTIVI (IdUtente, RichiestaAssistenza)
 VALUES (360, 51, 51);
-INSERT INTO UTENTICAMPIESTIVI (IdUtente, Etaminima, Etamassima)
+INSERT INTO UTENTICAMPIESTIVI (IdUtente, RichiestaAssistenza)
 VALUES (830, 23, 23);
-INSERT INTO UTENTICAMPIESTIVI (IdUtente, Etaminima, Etamassima)
+INSERT INTO UTENTICAMPIESTIVI (IdUtente, RichiestaAssistenza)
 VALUES (568, 36, 36);
-INSERT INTO UTENTICAMPIESTIVI (IdUtente, Etaminima, Etamassima)
+INSERT INTO UTENTICAMPIESTIVI (IdUtente, RichiestaAssistenza)
 VALUES (650, 36, 36);
-INSERT INTO UTENTICAMPIESTIVI (IdUtente, Etaminima, Etamassima)
+INSERT INTO UTENTICAMPIESTIVI (IdUtente, RichiestaAssistenza)
 VALUES (615, 50, 50);
-INSERT INTO UTENTICAMPIESTIVI (IdUtente, Etaminima, Etamassima)
+INSERT INTO UTENTICAMPIESTIVI (IdUtente, RichiestaAssistenza)
 VALUES (498, 32, 32);
-INSERT INTO UTENTICAMPIESTIVI (IdUtente, Etaminima, Etamassima)
+INSERT INTO UTENTICAMPIESTIVI (IdUtente, RichiestaAssistenza)
 VALUES (1043, 18, 18);
-INSERT INTO UTENTICAMPIESTIVI (IdUtente, Etaminima, Etamassima)
+INSERT INTO UTENTICAMPIESTIVI (IdUtente, RichiestaAssistenza)
 VALUES (550, 31, 31);
-INSERT INTO UTENTICAMPIESTIVI (IdUtente, Etaminima, Etamassima)
+INSERT INTO UTENTICAMPIESTIVI (IdUtente, RichiestaAssistenza)
 VALUES (873, 30, 30);
-INSERT INTO UTENTICAMPIESTIVI (IdUtente, Etaminima, Etamassima)
+INSERT INTO UTENTICAMPIESTIVI (IdUtente, RichiestaAssistenza)
 VALUES (189, 44, 44);
-INSERT INTO UTENTICAMPIESTIVI (IdUtente, Etaminima, Etamassima)
+INSERT INTO UTENTICAMPIESTIVI (IdUtente, RichiestaAssistenza)
 VALUES (83, 22, 22);
-INSERT INTO UTENTICAMPIESTIVI (IdUtente, Etaminima, Etamassima)
+INSERT INTO UTENTICAMPIESTIVI (IdUtente, RichiestaAssistenza)
 VALUES (493, 22, 22);
-INSERT INTO UTENTICAMPIESTIVI (IdUtente, Etaminima, Etamassima)
+INSERT INTO UTENTICAMPIESTIVI (IdUtente, RichiestaAssistenza)
 VALUES (7, 37, 37);
-INSERT INTO UTENTICAMPIESTIVI (IdUtente, Etaminima, Etamassima)
+INSERT INTO UTENTICAMPIESTIVI (IdUtente, RichiestaAssistenza)
 VALUES (1001, 33, 33);
-INSERT INTO UTENTICAMPIESTIVI (IdUtente, Etaminima, Etamassima)
+INSERT INTO UTENTICAMPIESTIVI (IdUtente, RichiestaAssistenza)
 VALUES (987, 23, 23);
-INSERT INTO UTENTICAMPIESTIVI (IdUtente, Etaminima, Etamassima)
+INSERT INTO UTENTICAMPIESTIVI (IdUtente, RichiestaAssistenza)
 VALUES (23, 18, 18);
-INSERT INTO UTENTICAMPIESTIVI (IdUtente, Etaminima, Etamassima)
+INSERT INTO UTENTICAMPIESTIVI (IdUtente, RichiestaAssistenza)
 VALUES (881, 51, 51);
-INSERT INTO UTENTICAMPIESTIVI (IdUtente, Etaminima, Etamassima)
+INSERT INTO UTENTICAMPIESTIVI (IdUtente, RichiestaAssistenza)
 VALUES (93, 18, 18);
-INSERT INTO UTENTICAMPIESTIVI (IdUtente, Etaminima, Etamassima)
+INSERT INTO UTENTICAMPIESTIVI (IdUtente, RichiestaAssistenza)
 VALUES (24, 18, 18);
-INSERT INTO UTENTICAMPIESTIVI (IdUtente, Etaminima, Etamassima)
+INSERT INTO UTENTICAMPIESTIVI (IdUtente, RichiestaAssistenza)
 VALUES (582, 34, 34);
-INSERT INTO UTENTICAMPIESTIVI (IdUtente, Etaminima, Etamassima)
+INSERT INTO UTENTICAMPIESTIVI (IdUtente, RichiestaAssistenza)
 VALUES (385, 51, 51);
-INSERT INTO UTENTICAMPIESTIVI (IdUtente, Etaminima, Etamassima)
+INSERT INTO UTENTICAMPIESTIVI (IdUtente, RichiestaAssistenza)
 VALUES (627, 41, 41);
-INSERT INTO UTENTICAMPIESTIVI (IdUtente, Etaminima, Etamassima)
+INSERT INTO UTENTICAMPIESTIVI (IdUtente, RichiestaAssistenza)
 VALUES (701, 34, 34);
-INSERT INTO UTENTICAMPIESTIVI (IdUtente, Etaminima, Etamassima)
+INSERT INTO UTENTICAMPIESTIVI (IdUtente, RichiestaAssistenza)
 VALUES (417, 30, 30);
-INSERT INTO UTENTICAMPIESTIVI (IdUtente, Etaminima, Etamassima)
+INSERT INTO UTENTICAMPIESTIVI (IdUtente, RichiestaAssistenza)
 VALUES (342, 27, 27);
-INSERT INTO UTENTICAMPIESTIVI (IdUtente, Etaminima, Etamassima)
+INSERT INTO UTENTICAMPIESTIVI (IdUtente, RichiestaAssistenza)
 VALUES (795, 43, 43);
-INSERT INTO UTENTICAMPIESTIVI (IdUtente, Etaminima, Etamassima)
+INSERT INTO UTENTICAMPIESTIVI (IdUtente, RichiestaAssistenza)
 VALUES (57, 23, 23);
-INSERT INTO UTENTICAMPIESTIVI (IdUtente, Etaminima, Etamassima)
+INSERT INTO UTENTICAMPIESTIVI (IdUtente, RichiestaAssistenza)
 VALUES (571, 25, 25);
-INSERT INTO UTENTICAMPIESTIVI (IdUtente, Etaminima, Etamassima)
+INSERT INTO UTENTICAMPIESTIVI (IdUtente, RichiestaAssistenza)
 VALUES (152, 43, 43);
-INSERT INTO UTENTICAMPIESTIVI (IdUtente, Etaminima, Etamassima)
+INSERT INTO UTENTICAMPIESTIVI (IdUtente, RichiestaAssistenza)
 VALUES (514, 19, 19);
-INSERT INTO UTENTICAMPIESTIVI (IdUtente, Etaminima, Etamassima)
+INSERT INTO UTENTICAMPIESTIVI (IdUtente, RichiestaAssistenza)
 VALUES (910, 37, 37);
-INSERT INTO UTENTICAMPIESTIVI (IdUtente, Etaminima, Etamassima)
+INSERT INTO UTENTICAMPIESTIVI (IdUtente, RichiestaAssistenza)
 VALUES (181, 39, 39);
-INSERT INTO UTENTICAMPIESTIVI (IdUtente, Etaminima, Etamassima)
+INSERT INTO UTENTICAMPIESTIVI (IdUtente, RichiestaAssistenza)
 VALUES (29, 35, 35);
-INSERT INTO UTENTICAMPIESTIVI (IdUtente, Etaminima, Etamassima)
+INSERT INTO UTENTICAMPIESTIVI (IdUtente, RichiestaAssistenza)
 VALUES (823, 39, 39);
-INSERT INTO UTENTICAMPIESTIVI (IdUtente, Etaminima, Etamassima)
+INSERT INTO UTENTICAMPIESTIVI (IdUtente, RichiestaAssistenza)
 VALUES (793, 32, 32);
-INSERT INTO UTENTICAMPIESTIVI (IdUtente, Etaminima, Etamassima)
+INSERT INTO UTENTICAMPIESTIVI (IdUtente, RichiestaAssistenza)
 VALUES (759, 31, 31);
-INSERT INTO UTENTICAMPIESTIVI (IdUtente, Etaminima, Etamassima)
+INSERT INTO UTENTICAMPIESTIVI (IdUtente, RichiestaAssistenza)
 VALUES (393, 41, 41);
-INSERT INTO UTENTICAMPIESTIVI (IdUtente, Etaminima, Etamassima)
+INSERT INTO UTENTICAMPIESTIVI (IdUtente, RichiestaAssistenza)
 VALUES (287, 18, 18);
-INSERT INTO UTENTICAMPIESTIVI (IdUtente, Etaminima, Etamassima)
+INSERT INTO UTENTICAMPIESTIVI (IdUtente, RichiestaAssistenza)
 VALUES (601, 43, 43);
-INSERT INTO UTENTICAMPIESTIVI (IdUtente, Etaminima, Etamassima)
+INSERT INTO UTENTICAMPIESTIVI (IdUtente, RichiestaAssistenza)
 VALUES (1019, 37, 37);
-INSERT INTO UTENTICAMPIESTIVI (IdUtente, Etaminima, Etamassima)
+INSERT INTO UTENTICAMPIESTIVI (IdUtente, RichiestaAssistenza)
 VALUES (403, 29, 29);
-INSERT INTO UTENTICAMPIESTIVI (IdUtente, Etaminima, Etamassima)
+INSERT INTO UTENTICAMPIESTIVI (IdUtente, RichiestaAssistenza)
 VALUES (608, 43, 43);
-INSERT INTO UTENTICAMPIESTIVI (IdUtente, Etaminima, Etamassima)
+INSERT INTO UTENTICAMPIESTIVI (IdUtente, RichiestaAssistenza)
 VALUES (39, 45, 45);
-INSERT INTO UTENTICAMPIESTIVI (IdUtente, Etaminima, Etamassima)
+INSERT INTO UTENTICAMPIESTIVI (IdUtente, RichiestaAssistenza)
 VALUES (716, 25, 25);
-INSERT INTO UTENTICAMPIESTIVI (IdUtente, Etaminima, Etamassima)
+INSERT INTO UTENTICAMPIESTIVI (IdUtente, RichiestaAssistenza)
 VALUES (204, 22, 22);
-INSERT INTO UTENTICAMPIESTIVI (IdUtente, Etaminima, Etamassima)
+INSERT INTO UTENTICAMPIESTIVI (IdUtente, RichiestaAssistenza)
 VALUES (427, 30, 30);
-INSERT INTO UTENTICAMPIESTIVI (IdUtente, Etaminima, Etamassima)
+INSERT INTO UTENTICAMPIESTIVI (IdUtente, RichiestaAssistenza)
 VALUES (315, 39, 39);
-INSERT INTO UTENTICAMPIESTIVI (IdUtente, Etaminima, Etamassima)
+INSERT INTO UTENTICAMPIESTIVI (IdUtente, RichiestaAssistenza)
 VALUES (178, 25, 25);
-INSERT INTO UTENTICAMPIESTIVI (IdUtente, Etaminima, Etamassima)
+INSERT INTO UTENTICAMPIESTIVI (IdUtente, RichiestaAssistenza)
 VALUES (218, 22, 22);
-INSERT INTO UTENTICAMPIESTIVI (IdUtente, Etaminima, Etamassima)
+INSERT INTO UTENTICAMPIESTIVI (IdUtente, RichiestaAssistenza)
 VALUES (959, 46, 46);
-INSERT INTO UTENTICAMPIESTIVI (IdUtente, Etaminima, Etamassima)
+INSERT INTO UTENTICAMPIESTIVI (IdUtente, RichiestaAssistenza)
 VALUES (970, 37, 37);
-INSERT INTO UTENTICAMPIESTIVI (IdUtente, Etaminima, Etamassima)
+INSERT INTO UTENTICAMPIESTIVI (IdUtente, RichiestaAssistenza)
 VALUES (963, 36, 36);
-INSERT INTO UTENTICAMPIESTIVI (IdUtente, Etaminima, Etamassima)
+INSERT INTO UTENTICAMPIESTIVI (IdUtente, RichiestaAssistenza)
 VALUES (67, 21, 21);
-INSERT INTO UTENTICAMPIESTIVI (IdUtente, Etaminima, Etamassima)
+INSERT INTO UTENTICAMPIESTIVI (IdUtente, RichiestaAssistenza)
 VALUES (862, 43, 43);
-INSERT INTO UTENTICAMPIESTIVI (IdUtente, Etaminima, Etamassima)
+INSERT INTO UTENTICAMPIESTIVI (IdUtente, RichiestaAssistenza)
 VALUES (59, 35, 35);
-INSERT INTO UTENTICAMPIESTIVI (IdUtente, Etaminima, Etamassima)
+INSERT INTO UTENTICAMPIESTIVI (IdUtente, RichiestaAssistenza)
 VALUES (6, 21, 21);
-INSERT INTO UTENTICAMPIESTIVI (IdUtente, Etaminima, Etamassima)
+INSERT INTO UTENTICAMPIESTIVI (IdUtente, RichiestaAssistenza)
 VALUES (654, 29, 29);
-INSERT INTO UTENTICAMPIESTIVI (IdUtente, Etaminima, Etamassima)
+INSERT INTO UTENTICAMPIESTIVI (IdUtente, RichiestaAssistenza)
 VALUES (460, 32, 32);
-INSERT INTO UTENTICAMPIESTIVI (IdUtente, Etaminima, Etamassima)
+INSERT INTO UTENTICAMPIESTIVI (IdUtente, RichiestaAssistenza)
 VALUES (1038, 44, 44);
-INSERT INTO UTENTICAMPIESTIVI (IdUtente, Etaminima, Etamassima)
+INSERT INTO UTENTICAMPIESTIVI (IdUtente, RichiestaAssistenza)
 VALUES (739, 38, 38);
-INSERT INTO UTENTICAMPIESTIVI (IdUtente, Etaminima, Etamassima)
+INSERT INTO UTENTICAMPIESTIVI (IdUtente, RichiestaAssistenza)
 VALUES (466, 30, 30);
-INSERT INTO UTENTICAMPIESTIVI (IdUtente, Etaminima, Etamassima)
+INSERT INTO UTENTICAMPIESTIVI (IdUtente, RichiestaAssistenza)
 VALUES (878, 36, 36);
-INSERT INTO UTENTICAMPIESTIVI (IdUtente, Etaminima, Etamassima)
+INSERT INTO UTENTICAMPIESTIVI (IdUtente, RichiestaAssistenza)
 VALUES (22, 29, 29);
-INSERT INTO UTENTICAMPIESTIVI (IdUtente, Etaminima, Etamassima)
+INSERT INTO UTENTICAMPIESTIVI (IdUtente, RichiestaAssistenza)
 VALUES (923, 47, 47);
-INSERT INTO UTENTICAMPIESTIVI (IdUtente, Etaminima, Etamassima)
+INSERT INTO UTENTICAMPIESTIVI (IdUtente, RichiestaAssistenza)
 VALUES (865, 34, 34);
-INSERT INTO UTENTICAMPIESTIVI (IdUtente, Etaminima, Etamassima)
+INSERT INTO UTENTICAMPIESTIVI (IdUtente, RichiestaAssistenza)
 VALUES (1002, 31, 31);
-INSERT INTO UTENTICAMPIESTIVI (IdUtente, Etaminima, Etamassima)
+INSERT INTO UTENTICAMPIESTIVI (IdUtente, RichiestaAssistenza)
 VALUES (980, 32, 32);
-INSERT INTO UTENTICAMPIESTIVI (IdUtente, Etaminima, Etamassima)
+INSERT INTO UTENTICAMPIESTIVI (IdUtente, RichiestaAssistenza)
 VALUES (585, 22, 22);
-INSERT INTO UTENTICAMPIESTIVI (IdUtente, Etaminima, Etamassima)
+INSERT INTO UTENTICAMPIESTIVI (IdUtente, RichiestaAssistenza)
 VALUES (109, 26, 26);
-INSERT INTO UTENTICAMPIESTIVI (IdUtente, Etaminima, Etamassima)
+INSERT INTO UTENTICAMPIESTIVI (IdUtente, RichiestaAssistenza)
 VALUES (242, 26, 26);
-INSERT INTO UTENTICAMPIESTIVI (IdUtente, Etaminima, Etamassima)
+INSERT INTO UTENTICAMPIESTIVI (IdUtente, RichiestaAssistenza)
 VALUES (148, 20, 20);
-INSERT INTO UTENTICAMPIESTIVI (IdUtente, Etaminima, Etamassima)
+INSERT INTO UTENTICAMPIESTIVI (IdUtente, RichiestaAssistenza)
 VALUES (426, 23, 23);
-INSERT INTO UTENTICAMPIESTIVI (IdUtente, Etaminima, Etamassima)
+INSERT INTO UTENTICAMPIESTIVI (IdUtente, RichiestaAssistenza)
 VALUES (233, 26, 26);
-INSERT INTO UTENTICAMPIESTIVI (IdUtente, Etaminima, Etamassima)
+INSERT INTO UTENTICAMPIESTIVI (IdUtente, RichiestaAssistenza)
 VALUES (562, 41, 41);
-INSERT INTO UTENTICAMPIESTIVI (IdUtente, Etaminima, Etamassima)
+INSERT INTO UTENTICAMPIESTIVI (IdUtente, RichiestaAssistenza)
 VALUES (275, 36, 36);
-INSERT INTO UTENTICAMPIESTIVI (IdUtente, Etaminima, Etamassima)
+INSERT INTO UTENTICAMPIESTIVI (IdUtente, RichiestaAssistenza)
 VALUES (244, 46, 46);
-INSERT INTO UTENTICAMPIESTIVI (IdUtente, Etaminima, Etamassima)
+INSERT INTO UTENTICAMPIESTIVI (IdUtente, RichiestaAssistenza)
 VALUES (671, 40, 40);
-INSERT INTO UTENTICAMPIESTIVI (IdUtente, Etaminima, Etamassima)
+INSERT INTO UTENTICAMPIESTIVI (IdUtente, RichiestaAssistenza)
 VALUES (1008, 35, 35);
-INSERT INTO UTENTICAMPIESTIVI (IdUtente, Etaminima, Etamassima)
+INSERT INTO UTENTICAMPIESTIVI (IdUtente, RichiestaAssistenza)
 VALUES (674, 26, 26);
-INSERT INTO UTENTICAMPIESTIVI (IdUtente, Etaminima, Etamassima)
+INSERT INTO UTENTICAMPIESTIVI (IdUtente, RichiestaAssistenza)
 VALUES (13, 32, 32);
-INSERT INTO UTENTICAMPIESTIVI (IdUtente, Etaminima, Etamassima)
+INSERT INTO UTENTICAMPIESTIVI (IdUtente, RichiestaAssistenza)
 VALUES (2, 25, 25);
-INSERT INTO UTENTICAMPIESTIVI (IdUtente, Etaminima, Etamassima)
+INSERT INTO UTENTICAMPIESTIVI (IdUtente, RichiestaAssistenza)
 VALUES (912, 44, 44);
-INSERT INTO UTENTICAMPIESTIVI (IdUtente, Etaminima, Etamassima)
+INSERT INTO UTENTICAMPIESTIVI (IdUtente, RichiestaAssistenza)
 VALUES (836, 42, 42);
-INSERT INTO UTENTICAMPIESTIVI (IdUtente, Etaminima, Etamassima)
+INSERT INTO UTENTICAMPIESTIVI (IdUtente, RichiestaAssistenza)
 VALUES (527, 30, 30);
-INSERT INTO UTENTICAMPIESTIVI (IdUtente, Etaminima, Etamassima)
+INSERT INTO UTENTICAMPIESTIVI (IdUtente, RichiestaAssistenza)
 VALUES (196, 20, 20);
-INSERT INTO UTENTICAMPIESTIVI (IdUtente, Etaminima, Etamassima)
+INSERT INTO UTENTICAMPIESTIVI (IdUtente, RichiestaAssistenza)
 VALUES (927, 28, 28);
-INSERT INTO UTENTICAMPIESTIVI (IdUtente, Etaminima, Etamassima)
+INSERT INTO UTENTICAMPIESTIVI (IdUtente, RichiestaAssistenza)
 VALUES (296, 28, 28);
-INSERT INTO UTENTICAMPIESTIVI (IdUtente, Etaminima, Etamassima)
+INSERT INTO UTENTICAMPIESTIVI (IdUtente, RichiestaAssistenza)
 VALUES (445, 22, 22);
-INSERT INTO UTENTICAMPIESTIVI (IdUtente, Etaminima, Etamassima)
+INSERT INTO UTENTICAMPIESTIVI (IdUtente, RichiestaAssistenza)
 VALUES (348, 18, 18);
-INSERT INTO UTENTICAMPIESTIVI (IdUtente, Etaminima, Etamassima)
+INSERT INTO UTENTICAMPIESTIVI (IdUtente, RichiestaAssistenza)
 VALUES (146, 51, 51);
-INSERT INTO UTENTICAMPIESTIVI (IdUtente, Etaminima, Etamassima)
+INSERT INTO UTENTICAMPIESTIVI (IdUtente, RichiestaAssistenza)
 VALUES (929, 51, 51);
-INSERT INTO UTENTICAMPIESTIVI (IdUtente, Etaminima, Etamassima)
+INSERT INTO UTENTICAMPIESTIVI (IdUtente, RichiestaAssistenza)
 VALUES (343, 44, 44);
-INSERT INTO UTENTICAMPIESTIVI (IdUtente, Etaminima, Etamassima)
+INSERT INTO UTENTICAMPIESTIVI (IdUtente, RichiestaAssistenza)
 VALUES (16, 19, 19);
-INSERT INTO UTENTICAMPIESTIVI (IdUtente, Etaminima, Etamassima)
+INSERT INTO UTENTICAMPIESTIVI (IdUtente, RichiestaAssistenza)
 VALUES (511, 51, 51);
-INSERT INTO UTENTICAMPIESTIVI (IdUtente, Etaminima, Etamassima)
+INSERT INTO UTENTICAMPIESTIVI (IdUtente, RichiestaAssistenza)
 VALUES (42, 51, 51);
-INSERT INTO UTENTICAMPIESTIVI (IdUtente, Etaminima, Etamassima)
+INSERT INTO UTENTICAMPIESTIVI (IdUtente, RichiestaAssistenza)
 VALUES (90, 26, 26);
-INSERT INTO UTENTICAMPIESTIVI (IdUtente, Etaminima, Etamassima)
+INSERT INTO UTENTICAMPIESTIVI (IdUtente, RichiestaAssistenza)
 VALUES (231, 31, 31);
-INSERT INTO UTENTICAMPIESTIVI (IdUtente, Etaminima, Etamassima)
+INSERT INTO UTENTICAMPIESTIVI (IdUtente, RichiestaAssistenza)
 VALUES (811, 49, 49);
-INSERT INTO UTENTICAMPIESTIVI (IdUtente, Etaminima, Etamassima)
+INSERT INTO UTENTICAMPIESTIVI (IdUtente, RichiestaAssistenza)
 VALUES (160, 40, 40);
-INSERT INTO UTENTICAMPIESTIVI (IdUtente, Etaminima, Etamassima)
+INSERT INTO UTENTICAMPIESTIVI (IdUtente, RichiestaAssistenza)
 VALUES (726, 40, 40);
-INSERT INTO UTENTICAMPIESTIVI (IdUtente, Etaminima, Etamassima)
+INSERT INTO UTENTICAMPIESTIVI (IdUtente, RichiestaAssistenza)
 VALUES (892, 27, 27);
-INSERT INTO UTENTICAMPIESTIVI (IdUtente, Etaminima, Etamassima)
+INSERT INTO UTENTICAMPIESTIVI (IdUtente, RichiestaAssistenza)
 VALUES (402, 31, 31);
-INSERT INTO UTENTICAMPIESTIVI (IdUtente, Etaminima, Etamassima)
+INSERT INTO UTENTICAMPIESTIVI (IdUtente, RichiestaAssistenza)
 VALUES (388, 18, 18);
-INSERT INTO UTENTICAMPIESTIVI (IdUtente, Etaminima, Etamassima)
+INSERT INTO UTENTICAMPIESTIVI (IdUtente, RichiestaAssistenza)
 VALUES (436, 51, 51);
-INSERT INTO UTENTICAMPIESTIVI (IdUtente, Etaminima, Etamassima)
+INSERT INTO UTENTICAMPIESTIVI (IdUtente, RichiestaAssistenza)
 VALUES (663, 21, 21);
-INSERT INTO UTENTICAMPIESTIVI (IdUtente, Etaminima, Etamassima)
+INSERT INTO UTENTICAMPIESTIVI (IdUtente, RichiestaAssistenza)
 VALUES (365, 30, 30);
-INSERT INTO UTENTICAMPIESTIVI (IdUtente, Etaminima, Etamassima)
+INSERT INTO UTENTICAMPIESTIVI (IdUtente, RichiestaAssistenza)
 VALUES (968, 30, 30);
-INSERT INTO UTENTICAMPIESTIVI (IdUtente, Etaminima, Etamassima)
+INSERT INTO UTENTICAMPIESTIVI (IdUtente, RichiestaAssistenza)
 VALUES (648, 26, 26);
-INSERT INTO UTENTICAMPIESTIVI (IdUtente, Etaminima, Etamassima)
+INSERT INTO UTENTICAMPIESTIVI (IdUtente, RichiestaAssistenza)
 VALUES (531, 29, 29);
-INSERT INTO UTENTICAMPIESTIVI (IdUtente, Etaminima, Etamassima)
+INSERT INTO UTENTICAMPIESTIVI (IdUtente, RichiestaAssistenza)
 VALUES (649, 36, 36);
-INSERT INTO UTENTICAMPIESTIVI (IdUtente, Etaminima, Etamassima)
+INSERT INTO UTENTICAMPIESTIVI (IdUtente, RichiestaAssistenza)
 VALUES (772, 32, 32);
-INSERT INTO UTENTICAMPIESTIVI (IdUtente, Etaminima, Etamassima)
+INSERT INTO UTENTICAMPIESTIVI (IdUtente, RichiestaAssistenza)
 VALUES (190, 30, 30);
-INSERT INTO UTENTICAMPIESTIVI (IdUtente, Etaminima, Etamassima)
+INSERT INTO UTENTICAMPIESTIVI (IdUtente, RichiestaAssistenza)
 VALUES (18, 31, 31);
-INSERT INTO UTENTICAMPIESTIVI (IdUtente, Etaminima, Etamassima)
+INSERT INTO UTENTICAMPIESTIVI (IdUtente, RichiestaAssistenza)
 VALUES (598, 38, 38);
-INSERT INTO UTENTICAMPIESTIVI (IdUtente, Etaminima, Etamassima)
+INSERT INTO UTENTICAMPIESTIVI (IdUtente, RichiestaAssistenza)
 VALUES (1006, 51, 51);
-INSERT INTO UTENTICAMPIESTIVI (IdUtente, Etaminima, Etamassima)
+INSERT INTO UTENTICAMPIESTIVI (IdUtente, RichiestaAssistenza)
 VALUES (224, 39, 39);
-INSERT INTO UTENTICAMPIESTIVI (IdUtente, Etaminima, Etamassima)
+INSERT INTO UTENTICAMPIESTIVI (IdUtente, RichiestaAssistenza)
 VALUES (578, 35, 35);
-INSERT INTO UTENTICAMPIESTIVI (IdUtente, Etaminima, Etamassima)
+INSERT INTO UTENTICAMPIESTIVI (IdUtente, RichiestaAssistenza)
 VALUES (177, 23, 23);
-INSERT INTO UTENTICAMPIESTIVI (IdUtente, Etaminima, Etamassima)
+INSERT INTO UTENTICAMPIESTIVI (IdUtente, RichiestaAssistenza)
 VALUES (276, 47, 47);
-INSERT INTO UTENTICAMPIESTIVI (IdUtente, Etaminima, Etamassima)
+INSERT INTO UTENTICAMPIESTIVI (IdUtente, RichiestaAssistenza)
 VALUES (476, 24, 24);
-INSERT INTO UTENTICAMPIESTIVI (IdUtente, Etaminima, Etamassima)
+INSERT INTO UTENTICAMPIESTIVI (IdUtente, RichiestaAssistenza)
 VALUES (607, 38, 38);
-INSERT INTO UTENTICAMPIESTIVI (IdUtente, Etaminima, Etamassima)
+INSERT INTO UTENTICAMPIESTIVI (IdUtente, RichiestaAssistenza)
 VALUES (175, 27, 27);
-INSERT INTO UTENTICAMPIESTIVI (IdUtente, Etaminima, Etamassima)
+INSERT INTO UTENTICAMPIESTIVI (IdUtente, RichiestaAssistenza)
 VALUES (465, 32, 32);
-INSERT INTO UTENTICAMPIESTIVI (IdUtente, Etaminima, Etamassima)
+INSERT INTO UTENTICAMPIESTIVI (IdUtente, RichiestaAssistenza)
 VALUES (103, 36, 36);
-INSERT INTO UTENTICAMPIESTIVI (IdUtente, Etaminima, Etamassima)
+INSERT INTO UTENTICAMPIESTIVI (IdUtente, RichiestaAssistenza)
 VALUES (733, 30, 30);
-INSERT INTO UTENTICAMPIESTIVI (IdUtente, Etaminima, Etamassima)
+INSERT INTO UTENTICAMPIESTIVI (IdUtente, RichiestaAssistenza)
 VALUES (775, 38, 38);
-INSERT INTO UTENTICAMPIESTIVI (IdUtente, Etaminima, Etamassima)
+INSERT INTO UTENTICAMPIESTIVI (IdUtente, RichiestaAssistenza)
 VALUES (353, 24, 24);
-INSERT INTO UTENTICAMPIESTIVI (IdUtente, Etaminima, Etamassima)
+INSERT INTO UTENTICAMPIESTIVI (IdUtente, RichiestaAssistenza)
 VALUES (883, 29, 29);
-INSERT INTO UTENTICAMPIESTIVI (IdUtente, Etaminima, Etamassima)
+INSERT INTO UTENTICAMPIESTIVI (IdUtente, RichiestaAssistenza)
 VALUES (532, 35, 35);
-INSERT INTO UTENTICAMPIESTIVI (IdUtente, Etaminima, Etamassima)
+INSERT INTO UTENTICAMPIESTIVI (IdUtente, RichiestaAssistenza)
 VALUES (871, 28, 28);
-INSERT INTO UTENTICAMPIESTIVI (IdUtente, Etaminima, Etamassima)
+INSERT INTO UTENTICAMPIESTIVI (IdUtente, RichiestaAssistenza)
 VALUES (416, 51, 51);
-INSERT INTO UTENTICAMPIESTIVI (IdUtente, Etaminima, Etamassima)
+INSERT INTO UTENTICAMPIESTIVI (IdUtente, RichiestaAssistenza)
 VALUES (738, 30, 30);
-INSERT INTO UTENTICAMPIESTIVI (IdUtente, Etaminima, Etamassima)
+INSERT INTO UTENTICAMPIESTIVI (IdUtente, RichiestaAssistenza)
 VALUES (469, 34, 34);
-INSERT INTO UTENTICAMPIESTIVI (IdUtente, Etaminima, Etamassima)
+INSERT INTO UTENTICAMPIESTIVI (IdUtente, RichiestaAssistenza)
 VALUES (720, 23, 23);
-INSERT INTO UTENTICAMPIESTIVI (IdUtente, Etaminima, Etamassima)
+INSERT INTO UTENTICAMPIESTIVI (IdUtente, RichiestaAssistenza)
 VALUES (575, 28, 28);
-INSERT INTO UTENTICAMPIESTIVI (IdUtente, Etaminima, Etamassima)
+INSERT INTO UTENTICAMPIESTIVI (IdUtente, RichiestaAssistenza)
 VALUES (760, 35, 35);
-INSERT INTO UTENTICAMPIESTIVI (IdUtente, Etaminima, Etamassima)
+INSERT INTO UTENTICAMPIESTIVI (IdUtente, RichiestaAssistenza)
 VALUES (21, 27, 27);
-INSERT INTO UTENTICAMPIESTIVI (IdUtente, Etaminima, Etamassima)
+INSERT INTO UTENTICAMPIESTIVI (IdUtente, RichiestaAssistenza)
 VALUES (221, 47, 47);
-INSERT INTO UTENTICAMPIESTIVI (IdUtente, Etaminima, Etamassima)
+INSERT INTO UTENTICAMPIESTIVI (IdUtente, RichiestaAssistenza)
 VALUES (714, 31, 31);
-INSERT INTO UTENTICAMPIESTIVI (IdUtente, Etaminima, Etamassima)
+INSERT INTO UTENTICAMPIESTIVI (IdUtente, RichiestaAssistenza)
 VALUES (624, 37, 37);
-INSERT INTO UTENTICAMPIESTIVI (IdUtente, Etaminima, Etamassima)
+INSERT INTO UTENTICAMPIESTIVI (IdUtente, RichiestaAssistenza)
 VALUES (257, 32, 32);
-INSERT INTO UTENTICAMPIESTIVI (IdUtente, Etaminima, Etamassima)
+INSERT INTO UTENTICAMPIESTIVI (IdUtente, RichiestaAssistenza)
 VALUES (356, 25, 25);
-INSERT INTO UTENTICAMPIESTIVI (IdUtente, Etaminima, Etamassima)
+INSERT INTO UTENTICAMPIESTIVI (IdUtente, RichiestaAssistenza)
 VALUES (528, 47, 47);
-INSERT INTO UTENTICAMPIESTIVI (IdUtente, Etaminima, Etamassima)
+INSERT INTO UTENTICAMPIESTIVI (IdUtente, RichiestaAssistenza)
 VALUES (433, 34, 34);
-INSERT INTO UTENTICAMPIESTIVI (IdUtente, Etaminima, Etamassima)
+INSERT INTO UTENTICAMPIESTIVI (IdUtente, RichiestaAssistenza)
 VALUES (604, 31, 31);
-INSERT INTO UTENTICAMPIESTIVI (IdUtente, Etaminima, Etamassima)
+INSERT INTO UTENTICAMPIESTIVI (IdUtente, RichiestaAssistenza)
 VALUES (56, 43, 43);
-INSERT INTO UTENTICAMPIESTIVI (IdUtente, Etaminima, Etamassima)
+INSERT INTO UTENTICAMPIESTIVI (IdUtente, RichiestaAssistenza)
 VALUES (319, 24, 24);
-INSERT INTO UTENTICAMPIESTIVI (IdUtente, Etaminima, Etamassima)
+INSERT INTO UTENTICAMPIESTIVI (IdUtente, RichiestaAssistenza)
 VALUES (559, 33, 33);
-INSERT INTO UTENTICAMPIESTIVI (IdUtente, Etaminima, Etamassima)
+INSERT INTO UTENTICAMPIESTIVI (IdUtente, RichiestaAssistenza)
 VALUES (584, 28, 28);
-INSERT INTO UTENTICAMPIESTIVI (IdUtente, Etaminima, Etamassima)
+INSERT INTO UTENTICAMPIESTIVI (IdUtente, RichiestaAssistenza)
 VALUES (474, 36, 36);
-INSERT INTO UTENTICAMPIESTIVI (IdUtente, Etaminima, Etamassima)
+INSERT INTO UTENTICAMPIESTIVI (IdUtente, RichiestaAssistenza)
 VALUES (993, 38, 38);
-INSERT INTO UTENTICAMPIESTIVI (IdUtente, Etaminima, Etamassima)
+INSERT INTO UTENTICAMPIESTIVI (IdUtente, RichiestaAssistenza)
 VALUES (962, 25, 25);
-INSERT INTO UTENTICAMPIESTIVI (IdUtente, Etaminima, Etamassima)
+INSERT INTO UTENTICAMPIESTIVI (IdUtente, RichiestaAssistenza)
 VALUES (8, 28, 28);
-INSERT INTO UTENTICAMPIESTIVI (IdUtente, Etaminima, Etamassima)
+INSERT INTO UTENTICAMPIESTIVI (IdUtente, RichiestaAssistenza)
 VALUES (535, 26, 26);
-INSERT INTO UTENTICAMPIESTIVI (IdUtente, Etaminima, Etamassima)
+INSERT INTO UTENTICAMPIESTIVI (IdUtente, RichiestaAssistenza)
 VALUES (777, 39, 39);
-INSERT INTO UTENTICAMPIESTIVI (IdUtente, Etaminima, Etamassima)
+INSERT INTO UTENTICAMPIESTIVI (IdUtente, RichiestaAssistenza)
 VALUES (236, 51, 51);
-INSERT INTO UTENTICAMPIESTIVI (IdUtente, Etaminima, Etamassima)
+INSERT INTO UTENTICAMPIESTIVI (IdUtente, RichiestaAssistenza)
 VALUES (76, 18, 18);
-INSERT INTO UTENTICAMPIESTIVI (IdUtente, Etaminima, Etamassima)
+INSERT INTO UTENTICAMPIESTIVI (IdUtente, RichiestaAssistenza)
 VALUES (282, 30, 30);
-INSERT INTO UTENTICAMPIESTIVI (IdUtente, Etaminima, Etamassima)
+INSERT INTO UTENTICAMPIESTIVI (IdUtente, RichiestaAssistenza)
 VALUES (399, 34, 34);
-INSERT INTO UTENTICAMPIESTIVI (IdUtente, Etaminima, Etamassima)
+INSERT INTO UTENTICAMPIESTIVI (IdUtente, RichiestaAssistenza)
 VALUES (380, 35, 35);
-INSERT INTO UTENTICAMPIESTIVI (IdUtente, Etaminima, Etamassima)
+INSERT INTO UTENTICAMPIESTIVI (IdUtente, RichiestaAssistenza)
 VALUES (945, 25, 25);
-INSERT INTO UTENTICAMPIESTIVI (IdUtente, Etaminima, Etamassima)
+INSERT INTO UTENTICAMPIESTIVI (IdUtente, RichiestaAssistenza)
 VALUES (978, 27, 27);
-INSERT INTO UTENTICAMPIESTIVI (IdUtente, Etaminima, Etamassima)
+INSERT INTO UTENTICAMPIESTIVI (IdUtente, RichiestaAssistenza)
 VALUES (678, 51, 51);
-INSERT INTO UTENTICAMPIESTIVI (IdUtente, Etaminima, Etamassima)
+INSERT INTO UTENTICAMPIESTIVI (IdUtente, RichiestaAssistenza)
 VALUES (1048, 33, 33);
-INSERT INTO UTENTICAMPIESTIVI (IdUtente, Etaminima, Etamassima)
+INSERT INTO UTENTICAMPIESTIVI (IdUtente, RichiestaAssistenza)
 VALUES (926, 28, 28);
-INSERT INTO UTENTICAMPIESTIVI (IdUtente, Etaminima, Etamassima)
+INSERT INTO UTENTICAMPIESTIVI (IdUtente, RichiestaAssistenza)
 VALUES (990, 33, 33);
-INSERT INTO UTENTICAMPIESTIVI (IdUtente, Etaminima, Etamassima)
+INSERT INTO UTENTICAMPIESTIVI (IdUtente, RichiestaAssistenza)
 VALUES (824, 37, 37);
-INSERT INTO UTENTICAMPIESTIVI (IdUtente, Etaminima, Etamassima)
+INSERT INTO UTENTICAMPIESTIVI (IdUtente, RichiestaAssistenza)
 VALUES (36, 37, 37);
-INSERT INTO UTENTICAMPIESTIVI (IdUtente, Etaminima, Etamassima)
+INSERT INTO UTENTICAMPIESTIVI (IdUtente, RichiestaAssistenza)
 VALUES (626, 50, 50);
-INSERT INTO UTENTICAMPIESTIVI (IdUtente, Etaminima, Etamassima)
+INSERT INTO UTENTICAMPIESTIVI (IdUtente, RichiestaAssistenza)
 VALUES (345, 40, 40);
-INSERT INTO UTENTICAMPIESTIVI (IdUtente, Etaminima, Etamassima)
+INSERT INTO UTENTICAMPIESTIVI (IdUtente, RichiestaAssistenza)
 VALUES (77, 30, 30);
-INSERT INTO UTENTICAMPIESTIVI (IdUtente, Etaminima, Etamassima)
+INSERT INTO UTENTICAMPIESTIVI (IdUtente, RichiestaAssistenza)
 VALUES (1024, 37, 37);
-INSERT INTO UTENTICAMPIESTIVI (IdUtente, Etaminima, Etamassima)
+INSERT INTO UTENTICAMPIESTIVI (IdUtente, RichiestaAssistenza)
 VALUES (174, 20, 20);
-INSERT INTO UTENTICAMPIESTIVI (IdUtente, Etaminima, Etamassima)
+INSERT INTO UTENTICAMPIESTIVI (IdUtente, RichiestaAssistenza)
 VALUES (629, 34, 34);
-INSERT INTO UTENTICAMPIESTIVI (IdUtente, Etaminima, Etamassima)
+INSERT INTO UTENTICAMPIESTIVI (IdUtente, RichiestaAssistenza)
 VALUES (346, 39, 39);
-INSERT INTO UTENTICAMPIESTIVI (IdUtente, Etaminima, Etamassima)
+INSERT INTO UTENTICAMPIESTIVI (IdUtente, RichiestaAssistenza)
 VALUES (513, 48, 48);
-INSERT INTO UTENTICAMPIESTIVI (IdUtente, Etaminima, Etamassima)
+INSERT INTO UTENTICAMPIESTIVI (IdUtente, RichiestaAssistenza)
 VALUES (841, 40, 40);
-INSERT INTO UTENTICAMPIESTIVI (IdUtente, Etaminima, Etamassima)
+INSERT INTO UTENTICAMPIESTIVI (IdUtente, RichiestaAssistenza)
 VALUES (522, 45, 45);
-INSERT INTO UTENTICAMPIESTIVI (IdUtente, Etaminima, Etamassima)
+INSERT INTO UTENTICAMPIESTIVI (IdUtente, RichiestaAssistenza)
 VALUES (117, 24, 24);
-INSERT INTO UTENTICAMPIESTIVI (IdUtente, Etaminima, Etamassima)
+INSERT INTO UTENTICAMPIESTIVI (IdUtente, RichiestaAssistenza)
 VALUES (401, 41, 41);
-INSERT INTO UTENTICAMPIESTIVI (IdUtente, Etaminima, Etamassima)
+INSERT INTO UTENTICAMPIESTIVI (IdUtente, RichiestaAssistenza)
 VALUES (141, 27, 27);
-INSERT INTO UTENTICAMPIESTIVI (IdUtente, Etaminima, Etamassima)
+INSERT INTO UTENTICAMPIESTIVI (IdUtente, RichiestaAssistenza)
 VALUES (277, 51, 51);
-INSERT INTO UTENTICAMPIESTIVI (IdUtente, Etaminima, Etamassima)
+INSERT INTO UTENTICAMPIESTIVI (IdUtente, RichiestaAssistenza)
 VALUES (561, 32, 32);
-INSERT INTO UTENTICAMPIESTIVI (IdUtente, Etaminima, Etamassima)
+INSERT INTO UTENTICAMPIESTIVI (IdUtente, RichiestaAssistenza)
 VALUES (74, 25, 25);
-INSERT INTO UTENTICAMPIESTIVI (IdUtente, Etaminima, Etamassima)
+INSERT INTO UTENTICAMPIESTIVI (IdUtente, RichiestaAssistenza)
 VALUES (489, 51, 51);
-INSERT INTO UTENTICAMPIESTIVI (IdUtente, Etaminima, Etamassima)
+INSERT INTO UTENTICAMPIESTIVI (IdUtente, RichiestaAssistenza)
 VALUES (991, 30, 30);
-INSERT INTO UTENTICAMPIESTIVI (IdUtente, Etaminima, Etamassima)
+INSERT INTO UTENTICAMPIESTIVI (IdUtente, RichiestaAssistenza)
 VALUES (955, 40, 40);
-INSERT INTO UTENTICAMPIESTIVI (IdUtente, Etaminima, Etamassima)
+INSERT INTO UTENTICAMPIESTIVI (IdUtente, RichiestaAssistenza)
 VALUES (542, 35, 35);
-INSERT INTO UTENTICAMPIESTIVI (IdUtente, Etaminima, Etamassima)
+INSERT INTO UTENTICAMPIESTIVI (IdUtente, RichiestaAssistenza)
 VALUES (300, 20, 20);
-INSERT INTO UTENTICAMPIESTIVI (IdUtente, Etaminima, Etamassima)
+INSERT INTO UTENTICAMPIESTIVI (IdUtente, RichiestaAssistenza)
 VALUES (397, 44, 44);
-INSERT INTO UTENTICAMPIESTIVI (IdUtente, Etaminima, Etamassima)
+INSERT INTO UTENTICAMPIESTIVI (IdUtente, RichiestaAssistenza)
 VALUES (866, 38, 38);
-INSERT INTO UTENTICAMPIESTIVI (IdUtente, Etaminima, Etamassima)
+INSERT INTO UTENTICAMPIESTIVI (IdUtente, RichiestaAssistenza)
 VALUES (144, 42, 42);
-INSERT INTO UTENTICAMPIESTIVI (IdUtente, Etaminima, Etamassima)
+INSERT INTO UTENTICAMPIESTIVI (IdUtente, RichiestaAssistenza)
 VALUES (1030, 21, 21);
-INSERT INTO UTENTICAMPIESTIVI (IdUtente, Etaminima, Etamassima)
+INSERT INTO UTENTICAMPIESTIVI (IdUtente, RichiestaAssistenza)
 VALUES (64, 35, 35);
-INSERT INTO UTENTICAMPIESTIVI (IdUtente, Etaminima, Etamassima)
+INSERT INTO UTENTICAMPIESTIVI (IdUtente, RichiestaAssistenza)
 VALUES (418, 31, 31);
-INSERT INTO UTENTICAMPIESTIVI (IdUtente, Etaminima, Etamassima)
+INSERT INTO UTENTICAMPIESTIVI (IdUtente, RichiestaAssistenza)
 VALUES (918, 41, 41);
-INSERT INTO UTENTICAMPIESTIVI (IdUtente, Etaminima, Etamassima)
+INSERT INTO UTENTICAMPIESTIVI (IdUtente, RichiestaAssistenza)
 VALUES (854, 22, 22);
-INSERT INTO UTENTICAMPIESTIVI (IdUtente, Etaminima, Etamassima)
+INSERT INTO UTENTICAMPIESTIVI (IdUtente, RichiestaAssistenza)
 VALUES (448, 51, 51);
-INSERT INTO UTENTICAMPIESTIVI (IdUtente, Etaminima, Etamassima)
+INSERT INTO UTENTICAMPIESTIVI (IdUtente, RichiestaAssistenza)
 VALUES (17, 39, 39);
-INSERT INTO UTENTICAMPIESTIVI (IdUtente, Etaminima, Etamassima)
+INSERT INTO UTENTICAMPIESTIVI (IdUtente, RichiestaAssistenza)
 VALUES (170, 32, 32);
-INSERT INTO UTENTICAMPIESTIVI (IdUtente, Etaminima, Etamassima)
+INSERT INTO UTENTICAMPIESTIVI (IdUtente, RichiestaAssistenza)
 VALUES (972, 29, 29);
-INSERT INTO UTENTICAMPIESTIVI (IdUtente, Etaminima, Etamassima)
+INSERT INTO UTENTICAMPIESTIVI (IdUtente, RichiestaAssistenza)
 VALUES (135, 31, 31);
-INSERT INTO UTENTICAMPIESTIVI (IdUtente, Etaminima, Etamassima)
+INSERT INTO UTENTICAMPIESTIVI (IdUtente, RichiestaAssistenza)
 VALUES (746, 30, 30);
-INSERT INTO UTENTICAMPIESTIVI (IdUtente, Etaminima, Etamassima)
+INSERT INTO UTENTICAMPIESTIVI (IdUtente, RichiestaAssistenza)
 VALUES (668, 22, 22);
-INSERT INTO UTENTICAMPIESTIVI (IdUtente, Etaminima, Etamassima)
+INSERT INTO UTENTICAMPIESTIVI (IdUtente, RichiestaAssistenza)
 VALUES (774, 46, 46);
-INSERT INTO UTENTICAMPIESTIVI (IdUtente, Etaminima, Etamassima)
+INSERT INTO UTENTICAMPIESTIVI (IdUtente, RichiestaAssistenza)
 VALUES (502, 43, 43);
-INSERT INTO UTENTICAMPIESTIVI (IdUtente, Etaminima, Etamassima)
+INSERT INTO UTENTICAMPIESTIVI (IdUtente, RichiestaAssistenza)
 VALUES (749, 39, 39);
-INSERT INTO UTENTICAMPIESTIVI (IdUtente, Etaminima, Etamassima)
+INSERT INTO UTENTICAMPIESTIVI (IdUtente, RichiestaAssistenza)
 VALUES (846, 40, 40);
-INSERT INTO UTENTICAMPIESTIVI (IdUtente, Etaminima, Etamassima)
+INSERT INTO UTENTICAMPIESTIVI (IdUtente, RichiestaAssistenza)
 VALUES (85, 43, 43);
-INSERT INTO UTENTICAMPIESTIVI (IdUtente, Etaminima, Etamassima)
+INSERT INTO UTENTICAMPIESTIVI (IdUtente, RichiestaAssistenza)
 VALUES (1012, 38, 38);
-INSERT INTO UTENTICAMPIESTIVI (IdUtente, Etaminima, Etamassima)
+INSERT INTO UTENTICAMPIESTIVI (IdUtente, RichiestaAssistenza)
 VALUES (894, 36, 36);
-INSERT INTO UTENTICAMPIESTIVI (IdUtente, Etaminima, Etamassima)
+INSERT INTO UTENTICAMPIESTIVI (IdUtente, RichiestaAssistenza)
 VALUES (696, 28, 28);
-INSERT INTO UTENTICAMPIESTIVI (IdUtente, Etaminima, Etamassima)
+INSERT INTO UTENTICAMPIESTIVI (IdUtente, RichiestaAssistenza)
 VALUES (316, 20, 20);
-INSERT INTO UTENTICAMPIESTIVI (IdUtente, Etaminima, Etamassima)
+INSERT INTO UTENTICAMPIESTIVI (IdUtente, RichiestaAssistenza)
 VALUES (105, 35, 35);
-INSERT INTO UTENTICAMPIESTIVI (IdUtente, Etaminima, Etamassima)
+INSERT INTO UTENTICAMPIESTIVI (IdUtente, RichiestaAssistenza)
 VALUES (337, 28, 28);
-INSERT INTO UTENTICAMPIESTIVI (IdUtente, Etaminima, Etamassima)
+INSERT INTO UTENTICAMPIESTIVI (IdUtente, RichiestaAssistenza)
 VALUES (25, 29, 29);
-INSERT INTO UTENTICAMPIESTIVI (IdUtente, Etaminima, Etamassima)
+INSERT INTO UTENTICAMPIESTIVI (IdUtente, RichiestaAssistenza)
 VALUES (764, 32, 32);
-INSERT INTO UTENTICAMPIESTIVI (IdUtente, Etaminima, Etamassima)
+INSERT INTO UTENTICAMPIESTIVI (IdUtente, RichiestaAssistenza)
 VALUES (265, 40, 40);
-INSERT INTO UTENTICAMPIESTIVI (IdUtente, Etaminima, Etamassima)
+INSERT INTO UTENTICAMPIESTIVI (IdUtente, RichiestaAssistenza)
 VALUES (158, 18, 18);
-INSERT INTO UTENTICAMPIESTIVI (IdUtente, Etaminima, Etamassima)
+INSERT INTO UTENTICAMPIESTIVI (IdUtente, RichiestaAssistenza)
 VALUES (538, 42, 42);
-INSERT INTO UTENTICAMPIESTIVI (IdUtente, Etaminima, Etamassima)
+INSERT INTO UTENTICAMPIESTIVI (IdUtente, RichiestaAssistenza)
 VALUES (468, 35, 35);
-INSERT INTO UTENTICAMPIESTIVI (IdUtente, Etaminima, Etamassima)
+INSERT INTO UTENTICAMPIESTIVI (IdUtente, RichiestaAssistenza)
 VALUES (558, 51, 51);
-INSERT INTO UTENTICAMPIESTIVI (IdUtente, Etaminima, Etamassima)
+INSERT INTO UTENTICAMPIESTIVI (IdUtente, RichiestaAssistenza)
 VALUES (126, 29, 29);
-INSERT INTO UTENTICAMPIESTIVI (IdUtente, Etaminima, Etamassima)
+INSERT INTO UTENTICAMPIESTIVI (IdUtente, RichiestaAssistenza)
 VALUES (659, 41, 41);
-INSERT INTO UTENTICAMPIESTIVI (IdUtente, Etaminima, Etamassima)
+INSERT INTO UTENTICAMPIESTIVI (IdUtente, RichiestaAssistenza)
 VALUES (660, 51, 51);
-INSERT INTO UTENTICAMPIESTIVI (IdUtente, Etaminima, Etamassima)
+INSERT INTO UTENTICAMPIESTIVI (IdUtente, RichiestaAssistenza)
 VALUES (305, 28, 28);
-INSERT INTO UTENTICAMPIESTIVI (IdUtente, Etaminima, Etamassima)
+INSERT INTO UTENTICAMPIESTIVI (IdUtente, RichiestaAssistenza)
 VALUES (885, 44, 44);
-INSERT INTO UTENTICAMPIESTIVI (IdUtente, Etaminima, Etamassima)
+INSERT INTO UTENTICAMPIESTIVI (IdUtente, RichiestaAssistenza)
 VALUES (588, 49, 49);
-INSERT INTO UTENTICAMPIESTIVI (IdUtente, Etaminima, Etamassima)
+INSERT INTO UTENTICAMPIESTIVI (IdUtente, RichiestaAssistenza)
 VALUES (119, 28, 28);
-INSERT INTO UTENTICAMPIESTIVI (IdUtente, Etaminima, Etamassima)
+INSERT INTO UTENTICAMPIESTIVI (IdUtente, RichiestaAssistenza)
 VALUES (858, 33, 33);
-INSERT INTO UTENTICAMPIESTIVI (IdUtente, Etaminima, Etamassima)
+INSERT INTO UTENTICAMPIESTIVI (IdUtente, RichiestaAssistenza)
 VALUES (816, 38, 38);
-INSERT INTO UTENTICAMPIESTIVI (IdUtente, Etaminima, Etamassima)
+INSERT INTO UTENTICAMPIESTIVI (IdUtente, RichiestaAssistenza)
 VALUES (268, 30, 30);
-INSERT INTO UTENTICAMPIESTIVI (IdUtente, Etaminima, Etamassima)
+INSERT INTO UTENTICAMPIESTIVI (IdUtente, RichiestaAssistenza)
 VALUES (1011, 33, 33);
-INSERT INTO UTENTICAMPIESTIVI (IdUtente, Etaminima, Etamassima)
+INSERT INTO UTENTICAMPIESTIVI (IdUtente, RichiestaAssistenza)
 VALUES (73, 20, 20);
-INSERT INTO UTENTICAMPIESTIVI (IdUtente, Etaminima, Etamassima)
+INSERT INTO UTENTICAMPIESTIVI (IdUtente, RichiestaAssistenza)
 VALUES (750, 33, 33);
-INSERT INTO UTENTICAMPIESTIVI (IdUtente, Etaminima, Etamassima)
+INSERT INTO UTENTICAMPIESTIVI (IdUtente, RichiestaAssistenza)
 VALUES (354, 18, 18);
-INSERT INTO UTENTICAMPIESTIVI (IdUtente, Etaminima, Etamassima)
+INSERT INTO UTENTICAMPIESTIVI (IdUtente, RichiestaAssistenza)
 VALUES (610, 34, 34);
-INSERT INTO UTENTICAMPIESTIVI (IdUtente, Etaminima, Etamassima)
+INSERT INTO UTENTICAMPIESTIVI (IdUtente, RichiestaAssistenza)
 VALUES (187, 21, 21);
-INSERT INTO UTENTICAMPIESTIVI (IdUtente, Etaminima, Etamassima)
+INSERT INTO UTENTICAMPIESTIVI (IdUtente, RichiestaAssistenza)
 VALUES (566, 32, 32);
-INSERT INTO UTENTICAMPIESTIVI (IdUtente, Etaminima, Etamassima)
+INSERT INTO UTENTICAMPIESTIVI (IdUtente, RichiestaAssistenza)
 VALUES (947, 51, 51);
-INSERT INTO UTENTICAMPIESTIVI (IdUtente, Etaminima, Etamassima)
+INSERT INTO UTENTICAMPIESTIVI (IdUtente, RichiestaAssistenza)
 VALUES (766, 46, 46);
-INSERT INTO UTENTICAMPIESTIVI (IdUtente, Etaminima, Etamassima)
+INSERT INTO UTENTICAMPIESTIVI (IdUtente, RichiestaAssistenza)
 VALUES (628, 37, 37);
-INSERT INTO UTENTICAMPIESTIVI (IdUtente, Etaminima, Etamassima)
+INSERT INTO UTENTICAMPIESTIVI (IdUtente, RichiestaAssistenza)
 VALUES (27, 51, 51);
-INSERT INTO UTENTICAMPIESTIVI (IdUtente, Etaminima, Etamassima)
+INSERT INTO UTENTICAMPIESTIVI (IdUtente, RichiestaAssistenza)
 VALUES (1031, 51, 51);
-INSERT INTO UTENTICAMPIESTIVI (IdUtente, Etaminima, Etamassima)
+INSERT INTO UTENTICAMPIESTIVI (IdUtente, RichiestaAssistenza)
 VALUES (536, 38, 38);
-INSERT INTO UTENTICAMPIESTIVI (IdUtente, Etaminima, Etamassima)
+INSERT INTO UTENTICAMPIESTIVI (IdUtente, RichiestaAssistenza)
 VALUES (905, 29, 29);
-INSERT INTO UTENTICAMPIESTIVI (IdUtente, Etaminima, Etamassima)
+INSERT INTO UTENTICAMPIESTIVI (IdUtente, RichiestaAssistenza)
 VALUES (100, 40, 40);
-INSERT INTO UTENTICAMPIESTIVI (IdUtente, Etaminima, Etamassima)
+INSERT INTO UTENTICAMPIESTIVI (IdUtente, RichiestaAssistenza)
 VALUES (802, 32, 32);
-INSERT INTO UTENTICAMPIESTIVI (IdUtente, Etaminima, Etamassima)
+INSERT INTO UTENTICAMPIESTIVI (IdUtente, RichiestaAssistenza)
 VALUES (632, 34, 34);
-INSERT INTO UTENTICAMPIESTIVI (IdUtente, Etaminima, Etamassima)
+INSERT INTO UTENTICAMPIESTIVI (IdUtente, RichiestaAssistenza)
 VALUES (334, 38, 38);
-INSERT INTO UTENTICAMPIESTIVI (IdUtente, Etaminima, Etamassima)
+INSERT INTO UTENTICAMPIESTIVI (IdUtente, RichiestaAssistenza)
 VALUES (49, 45, 45);
-INSERT INTO UTENTICAMPIESTIVI (IdUtente, Etaminima, Etamassima)
+INSERT INTO UTENTICAMPIESTIVI (IdUtente, RichiestaAssistenza)
 VALUES (234, 43, 43);
-INSERT INTO UTENTICAMPIESTIVI (IdUtente, Etaminima, Etamassima)
+INSERT INTO UTENTICAMPIESTIVI (IdUtente, RichiestaAssistenza)
 VALUES (891, 32, 32);
-INSERT INTO UTENTICAMPIESTIVI (IdUtente, Etaminima, Etamassima)
+INSERT INTO UTENTICAMPIESTIVI (IdUtente, RichiestaAssistenza)
 VALUES (288, 43, 43);
-INSERT INTO UTENTICAMPIESTIVI (IdUtente, Etaminima, Etamassima)
+INSERT INTO UTENTICAMPIESTIVI (IdUtente, RichiestaAssistenza)
 VALUES (521, 39, 39);
-INSERT INTO UTENTICAMPIESTIVI (IdUtente, Etaminima, Etamassima)
+INSERT INTO UTENTICAMPIESTIVI (IdUtente, RichiestaAssistenza)
 VALUES (605, 19, 19);
-INSERT INTO UTENTICAMPIESTIVI (IdUtente, Etaminima, Etamassima)
+INSERT INTO UTENTICAMPIESTIVI (IdUtente, RichiestaAssistenza)
 VALUES (983, 38, 38);
-INSERT INTO UTENTICAMPIESTIVI (IdUtente, Etaminima, Etamassima)
+INSERT INTO UTENTICAMPIESTIVI (IdUtente, RichiestaAssistenza)
 VALUES (526, 35, 35);
-INSERT INTO UTENTICAMPIESTIVI (IdUtente, Etaminima, Etamassima)
+INSERT INTO UTENTICAMPIESTIVI (IdUtente, RichiestaAssistenza)
 VALUES (693, 49, 49);
-INSERT INTO UTENTICAMPIESTIVI (IdUtente, Etaminima, Etamassima)
+INSERT INTO UTENTICAMPIESTIVI (IdUtente, RichiestaAssistenza)
 VALUES (838, 42, 42);
-INSERT INTO UTENTICAMPIESTIVI (IdUtente, Etaminima, Etamassima)
+INSERT INTO UTENTICAMPIESTIVI (IdUtente, RichiestaAssistenza)
 VALUES (732, 31, 31);
-INSERT INTO UTENTICAMPIESTIVI (IdUtente, Etaminima, Etamassima)
+INSERT INTO UTENTICAMPIESTIVI (IdUtente, RichiestaAssistenza)
 VALUES (744, 22, 22);
-INSERT INTO UTENTICAMPIESTIVI (IdUtente, Etaminima, Etamassima)
+INSERT INTO UTENTICAMPIESTIVI (IdUtente, RichiestaAssistenza)
 VALUES (829, 41, 41);
-INSERT INTO UTENTICAMPIESTIVI (IdUtente, Etaminima, Etamassima)
+INSERT INTO UTENTICAMPIESTIVI (IdUtente, RichiestaAssistenza)
 VALUES (887, 19, 19);
-INSERT INTO UTENTICAMPIESTIVI (IdUtente, Etaminima, Etamassima)
+INSERT INTO UTENTICAMPIESTIVI (IdUtente, RichiestaAssistenza)
 VALUES (48, 28, 28);
-INSERT INTO UTENTICAMPIESTIVI (IdUtente, Etaminima, Etamassima)
+INSERT INTO UTENTICAMPIESTIVI (IdUtente, RichiestaAssistenza)
 VALUES (779, 47, 47);
-INSERT INTO UTENTICAMPIESTIVI (IdUtente, Etaminima, Etamassima)
+INSERT INTO UTENTICAMPIESTIVI (IdUtente, RichiestaAssistenza)
 VALUES (26, 46, 46);
 /************UTENTIMUSEO************/
 INSERT INTO UTENTIMUSEO(IdUtente, donatore) VALUES(1, 1);

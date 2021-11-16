@@ -843,23 +843,26 @@ PROCEDURE EliminaUtente(
 IS
 BEGIN
 
-	delete from UTENTI where idutente=utenteID;
+	delete from UTENTIMUSEO where IDUTENTE=utenteID;
+	delete from UTENTICAMPIESTIVI where IDUTENTE=utenteID;
+	delete from UTENTI where IDUTENTE=utenteID;
 
 	IF SQL%FOUND THEN
 		MODGUI1.ApriPagina('Utente eliminato', sessionID);
 		HTP.BodyOpen;
 		MODGUI1.Header(sessionID);
 		modgui1.apridiv('class="w3-modal-content w3-card-4 w3-animate-zoom" style="max-width:600px; margin-top:110px"');
-		htp.print('<p>Utente aggiornato</p>');
+		htp.print('<p>Utente eliminato</p>');
 		modgui1.chiudiDiv;
 		HTP.BodyClose;
 		HTP.HtmlClose;
 	ELSE
-		MODGUI1.ApriPagina('Impossibile eliminare il profilo selezionato', sessionID);
+		MODGUI1.ApriPagina('Errore', sessionID);
 		HTP.BodyOpen;
 		MODGUI1.Header(sessionID);
-		HTP.PRN('Utente non inserito');
-
+		modgui1.apridiv('class="w3-modal-content w3-card-4 w3-animate-zoom" style="max-width:600px; margin-top:110px"');
+		HTP.PRN('Impossibile eliminare il profilo selezionato');
+		modgui1.chiudiDiv;
 		HTP.BodyClose;
 		HTP.HtmlClose;
 	END IF;

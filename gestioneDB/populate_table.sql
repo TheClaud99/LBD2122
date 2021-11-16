@@ -2,31 +2,31 @@ WHENEVER SQLERROR EXIT FAILURE;
 /* table: line
 MUSEI:31
 OPERE:45
-STANZE:1246
+STANZE:1247
 SALE:1526
 AMBIENTIDISERVIZIO:1759
 SALEOPERE:1815
-AUTORI:4234
-AUTORIOPERE:4355
-DESCRIZIONI:5556
-CAMPIESTIVI:16357
-TARIFFECAMPIESTIVI:16376
-UTENTI:16425
-UTENTICAMPIESTIVI:18524
-UTENTIMUSEO:19525
-PAGAMENTICAMPIESTIVI:20326
-UTENTIPAGAMENTI:20925
-TUTORI:21524
-NEWSLETTER:22591
-NEWSLETTERUTENTI:22596
-TIPOLOGIEINGRESSO:23735
-TIPOLOGIEINGRESSOMUSEI:23768
-TITOLIINGRESSO:23841
-BIGLIETTI:26408
-ABBONAMENTI:26433
-VARCHI:26442
-VISITE:26757
-VISITEVARCHI:26785
+AUTORI:7782
+AUTORIOPERE:7903
+DESCRIZIONI:9104
+CAMPIESTIVI:19905
+TARIFFECAMPIESTIVI:19924
+UTENTI:19973
+UTENTICAMPIESTIVI:22072
+UTENTIMUSEO:23073
+PAGAMENTICAMPIESTIVI:23874
+UTENTIPAGAMENTI:24473
+TUTORI:25072
+NEWSLETTER:26139
+NEWSLETTERUTENTI:26144
+TIPOLOGIEINGRESSO:27283
+TIPOLOGIEINGRESSOMUSEI:27312
+TITOLIINGRESSO:27385
+BIGLIETTI:29952
+ABBONAMENTI:29977
+VARCHI:29986
+VISITE:30301
+VISITEVARCHI:30329
 */
 /**********MUSEI*********/
 SET DEFINE OFF;
@@ -1815,2423 +1815,5970 @@ INSERT INTO AMBIENTIDISERVIZIO (IdStanza, TipoAmbiente)
 VALUES (118, 'Bagno');
 /**************SALEOPERE***************/
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 111, 1, to_date('19/2/1949', 'DD/MM/YYYY'), to_date('19/2/1949', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 2, 1, to_date('2/7/2021', 'DD/MM/YYYY'), to_date('13/8/2021', 'DD/MM/YYYY'));
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 35, 1, to_date('15/2/2016', 'DD/MM/YYYY'), to_date('15/2/2016', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 61, 1, to_date('13/8/2021', 'DD/MM/YYYY'), to_date('25/9/2021', 'DD/MM/YYYY'));
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 133, 2, to_date('23/3/1936', 'DD/MM/YYYY'), to_date('23/3/1936', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 5, 1, to_date('25/9/2021', 'DD/MM/YYYY'), NULL);
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 60, 2, to_date('21/2/1952', 'DD/MM/YYYY'), to_date('21/2/1952', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 126, 2, to_date('8/1/2021', 'DD/MM/YYYY'), to_date('15/2/2021', 'DD/MM/YYYY'));
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 45, 2, to_date('13/9/1993', 'DD/MM/YYYY'), to_date('13/9/1993', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 70, 2, to_date('15/2/2021', 'DD/MM/YYYY'), to_date('3/4/2021', 'DD/MM/YYYY'));
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 63, 3, to_date('6/5/1943', 'DD/MM/YYYY'), to_date('6/5/1943', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 63, 2, to_date('3/4/2021', 'DD/MM/YYYY'), to_date('21/5/2021', 'DD/MM/YYYY'));
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 68, 3, to_date('18/2/1957', 'DD/MM/YYYY'), to_date('18/2/1957', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 3, 2, to_date('21/5/2021', 'DD/MM/YYYY'), to_date('19/6/2021', 'DD/MM/YYYY'));
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 104, 3, to_date('26/10/1989', 'DD/MM/YYYY'), to_date('26/10/1989', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 16, 2, to_date('19/6/2021', 'DD/MM/YYYY'), to_date('9/7/2021', 'DD/MM/YYYY'));
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 119, 4, to_date('12/10/1940', 'DD/MM/YYYY'), to_date('12/10/1940', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 18, 2, to_date('9/7/2021', 'DD/MM/YYYY'), to_date('27/8/2021', 'DD/MM/YYYY'));
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 133, 4, to_date('8/9/1955', 'DD/MM/YYYY'), to_date('8/9/1955', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 28, 2, to_date('27/8/2021', 'DD/MM/YYYY'), NULL);
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 53, 5, to_date('5/2/2005', 'DD/MM/YYYY'), to_date('5/2/2005', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 92, 3, to_date('5/3/2021', 'DD/MM/YYYY'), to_date('24/4/2021', 'DD/MM/YYYY'));
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 53, 6, to_date('15/1/1957', 'DD/MM/YYYY'), to_date('15/1/1957', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 132, 3, to_date('24/4/2021', 'DD/MM/YYYY'), to_date('14/5/2021', 'DD/MM/YYYY'));
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 108, 6, to_date('10/1/1989', 'DD/MM/YYYY'), to_date('10/1/1989', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 120, 3, to_date('14/5/2021', 'DD/MM/YYYY'), to_date('2/7/2021', 'DD/MM/YYYY'));
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 109, 7, to_date('3/4/1927', 'DD/MM/YYYY'), to_date('3/4/1927', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 57, 3, to_date('2/7/2021', 'DD/MM/YYYY'), to_date('20/8/2021', 'DD/MM/YYYY'));
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 20, 7, to_date('20/10/1961', 'DD/MM/YYYY'), to_date('20/10/1961', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 131, 3, to_date('20/8/2021', 'DD/MM/YYYY'), to_date('18/9/2021', 'DD/MM/YYYY'));
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 109, 8, to_date('11/4/2006', 'DD/MM/YYYY'), to_date('11/4/2006', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 102, 3, to_date('18/9/2021', 'DD/MM/YYYY'), NULL);
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 20, 8, to_date('25/5/1943', 'DD/MM/YYYY'), to_date('25/5/1943', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 112, 4, to_date('10/4/2021', 'DD/MM/YYYY'), to_date('14/5/2021', 'DD/MM/YYYY'));
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 36, 9, to_date('7/1/1940', 'DD/MM/YYYY'), to_date('7/1/1940', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 134, 4, to_date('14/5/2021', 'DD/MM/YYYY'), to_date('5/6/2021', 'DD/MM/YYYY'));
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 36, 10, to_date('13/7/1932', 'DD/MM/YYYY'), to_date('13/7/1932', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 15, 4, to_date('5/6/2021', 'DD/MM/YYYY'), to_date('9/7/2021', 'DD/MM/YYYY'));
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 26, 10, to_date('16/10/2015', 'DD/MM/YYYY'), to_date('16/10/2015', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 78, 4, to_date('9/7/2021', 'DD/MM/YYYY'), to_date('27/8/2021', 'DD/MM/YYYY'));
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 114, 11, to_date('24/2/2018', 'DD/MM/YYYY'), to_date('24/2/2018', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 27, 4, to_date('27/8/2021', 'DD/MM/YYYY'), NULL);
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 114, 11, to_date('4/9/1983', 'DD/MM/YYYY'), to_date('4/9/1983', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 112, 5, to_date('30/7/2021', 'DD/MM/YYYY'), to_date('20/8/2021', 'DD/MM/YYYY'));
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 114, 12, to_date('14/9/1987', 'DD/MM/YYYY'), to_date('14/9/1987', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 134, 5, to_date('20/8/2021', 'DD/MM/YYYY'), to_date('18/9/2021', 'DD/MM/YYYY'));
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 43, 13, to_date('8/8/1946', 'DD/MM/YYYY'), to_date('8/8/1946', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 15, 5, to_date('18/9/2021', 'DD/MM/YYYY'), NULL);
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 12, 13, to_date('4/6/1988', 'DD/MM/YYYY'), to_date('4/6/1988', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 51, 6, to_date('25/02/2021', 'DD/MM/YYYY'), to_date('3/4/2021', 'DD/MM/YYYY'));
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 37, 13, to_date('6/9/2002', 'DD/MM/YYYY'), to_date('6/9/2002', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 102, 6, to_date('3/4/2021', 'DD/MM/YYYY'), to_date('21/5/2021', 'DD/MM/YYYY'));
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 21, 14, to_date('3/5/2007', 'DD/MM/YYYY'), to_date('3/5/2007', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 103, 6, to_date('21/5/2021', 'DD/MM/YYYY'), to_date('9/7/2021', 'DD/MM/YYYY'));
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 115, 14, to_date('13/1/1920', 'DD/MM/YYYY'), to_date('13/1/1920', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 105, 6, to_date('9/7/2021', 'DD/MM/YYYY'), to_date('6/8/2021', 'DD/MM/YYYY'));
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 21, 15, to_date('2/5/1988', 'DD/MM/YYYY'), to_date('2/5/1988', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 18, 6, to_date('6/8/2021', 'DD/MM/YYYY'), to_date('4/9/2021', 'DD/MM/YYYY'));
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 115, 15, to_date('13/4/2004', 'DD/MM/YYYY'), to_date('13/4/2004', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 13, 6, to_date('4/9/2021', 'DD/MM/YYYY'), NULL);
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 86, 15, to_date('21/6/1962', 'DD/MM/YYYY'), to_date('21/6/1962', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 110, 7, to_date('26/3/2021', 'DD/MM/YYYY'), to_date('24/4/2021', 'DD/MM/YYYY'));
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 86, 16, to_date('12/6/1943', 'DD/MM/YYYY'), to_date('12/6/1943', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 33, 7, to_date('24/4/2021', 'DD/MM/YYYY'), to_date('28/5/2021', 'DD/MM/YYYY'));
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 123, 16, to_date('9/3/1967', 'DD/MM/YYYY'), to_date('9/3/1967', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 50, 7, to_date('28/5/2021', 'DD/MM/YYYY'), to_date('9/7/2021', 'DD/MM/YYYY'));
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 8, 16, to_date('16/1/2000', 'DD/MM/YYYY'), to_date('16/1/2000', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 69, 7, to_date('9/7/2021', 'DD/MM/YYYY'), to_date('27/8/2021', 'DD/MM/YYYY'));
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 26, 17, to_date('17/10/2011', 'DD/MM/YYYY'), to_date('17/10/2011', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 102, 7, to_date('27/8/2021', 'DD/MM/YYYY'), NULL);
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 26, 18, to_date('25/7/1946', 'DD/MM/YYYY'), to_date('25/7/1946', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 36, 8, to_date('14/5/2021', 'DD/MM/YYYY'), to_date('19/6/2021', 'DD/MM/YYYY'));
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 91, 18, to_date('15/1/1996', 'DD/MM/YYYY'), to_date('15/1/1996', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 43, 8, to_date('19/6/2021', 'DD/MM/YYYY'), to_date('23/7/2021', 'DD/MM/YYYY'));
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 57, 18, to_date('22/2/1997', 'DD/MM/YYYY'), to_date('22/2/1997', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 36, 8, to_date('23/7/2021', 'DD/MM/YYYY'), to_date('27/8/2021', 'DD/MM/YYYY'));
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 26, 19, to_date('5/5/2015', 'DD/MM/YYYY'), to_date('5/5/2015', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 6, 8, to_date('27/8/2021', 'DD/MM/YYYY'), NULL);
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 91, 19, to_date('22/7/2012', 'DD/MM/YYYY'), to_date('22/7/2012', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 102, 9, to_date('8/1/2021', 'DD/MM/YYYY'), to_date('25/02/2021', 'DD/MM/YYYY'));
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 91, 20, to_date('1/1/2015', 'DD/MM/YYYY'), to_date('1/1/2015', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 121, 9, to_date('25/02/2021', 'DD/MM/YYYY'), to_date('3/4/2021', 'DD/MM/YYYY'));
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 107, 20, to_date('4/10/2004', 'DD/MM/YYYY'), to_date('4/10/2004', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 125, 9, to_date('3/4/2021', 'DD/MM/YYYY'), to_date('7/5/2021', 'DD/MM/YYYY'));
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 19, 20, to_date('16/6/2000', 'DD/MM/YYYY'), to_date('16/6/2000', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 89, 9, to_date('7/5/2021', 'DD/MM/YYYY'), to_date('19/6/2021', 'DD/MM/YYYY'));
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 91, 21, to_date('1/5/1984', 'DD/MM/YYYY'), to_date('1/5/1984', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 77, 9, to_date('19/6/2021', 'DD/MM/YYYY'), to_date('30/7/2021', 'DD/MM/YYYY'));
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 91, 22, to_date('16/4/1962', 'DD/MM/YYYY'), to_date('16/4/1962', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 40, 9, to_date('30/7/2021', 'DD/MM/YYYY'), to_date('27/8/2021', 'DD/MM/YYYY'));
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 107, 22, to_date('21/1/1953', 'DD/MM/YYYY'), to_date('21/1/1953', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 33, 9, to_date('27/8/2021', 'DD/MM/YYYY'), NULL);
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 19, 23, to_date('12/3/2007', 'DD/MM/YYYY'), to_date('12/3/2007', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 41, 10, to_date('26/6/2021', 'DD/MM/YYYY'), to_date('23/7/2021', 'DD/MM/YYYY'));
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 19, 24, to_date('17/9/1987', 'DD/MM/YYYY'), to_date('17/9/1987', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 6, 10, to_date('23/7/2021', 'DD/MM/YYYY'), to_date('11/9/2021', 'DD/MM/YYYY'));
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 131, 24, to_date('11/3/1950', 'DD/MM/YYYY'), to_date('11/3/1950', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 16, 10, to_date('11/9/2021', 'DD/MM/YYYY'), NULL);
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 134, 24, to_date('5/9/1928', 'DD/MM/YYYY'), to_date('5/9/1928', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 107, 11, to_date('19/6/2021', 'DD/MM/YYYY'), to_date('9/7/2021', 'DD/MM/YYYY'));
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 19, 25, to_date('13/6/1998', 'DD/MM/YYYY'), to_date('13/6/1998', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 14, 11, to_date('9/7/2021', 'DD/MM/YYYY'), to_date('27/8/2021', 'DD/MM/YYYY'));
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 131, 25, to_date('19/10/1995', 'DD/MM/YYYY'), to_date('19/10/1995', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 132, 11, to_date('27/8/2021', 'DD/MM/YYYY'), NULL);
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 76, 26, to_date('5/10/1987', 'DD/MM/YYYY'), to_date('5/10/1987', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 26, 12, to_date('7/5/2021', 'DD/MM/YYYY'), to_date('26/6/2021', 'DD/MM/YYYY'));
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 27, 26, to_date('14/1/1983', 'DD/MM/YYYY'), to_date('14/1/1983', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 25, 12, to_date('26/6/2021', 'DD/MM/YYYY'), to_date('30/7/2021', 'DD/MM/YYYY'));
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 107, 26, to_date('3/5/1929', 'DD/MM/YYYY'), to_date('3/5/1929', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 91, 12, to_date('30/7/2021', 'DD/MM/YYYY'), to_date('11/9/2021', 'DD/MM/YYYY'));
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 76, 27, to_date('25/6/2008', 'DD/MM/YYYY'), to_date('25/6/2008', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 89, 12, to_date('11/9/2021', 'DD/MM/YYYY'), NULL);
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 27, 27, to_date('10/4/2018', 'DD/MM/YYYY'), to_date('10/4/2018', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 92, 13, to_date('17/4/2021', 'DD/MM/YYYY'), to_date('14/5/2021', 'DD/MM/YYYY'));
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 107, 27, to_date('10/5/2008', 'DD/MM/YYYY'), to_date('10/5/2008', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 78, 13, to_date('14/5/2021', 'DD/MM/YYYY'), to_date('5/6/2021', 'DD/MM/YYYY'));
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 16, 28, to_date('11/1/1941', 'DD/MM/YYYY'), to_date('11/1/1941', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 83, 13, to_date('5/6/2021', 'DD/MM/YYYY'), to_date('9/7/2021', 'DD/MM/YYYY'));
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 3, 28, to_date('5/9/2010', 'DD/MM/YYYY'), to_date('5/9/2010', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 36, 13, to_date('9/7/2021', 'DD/MM/YYYY'), to_date('30/7/2021', 'DD/MM/YYYY'));
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 16, 29, to_date('7/6/1928', 'DD/MM/YYYY'), to_date('7/6/1928', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 33, 13, to_date('30/7/2021', 'DD/MM/YYYY'), to_date('20/8/2021', 'DD/MM/YYYY'));
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 16, 30, to_date('13/1/1936', 'DD/MM/YYYY'), to_date('13/1/1936', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 69, 13, to_date('20/8/2021', 'DD/MM/YYYY'), to_date('11/9/2021', 'DD/MM/YYYY'));
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 16, 31, to_date('14/5/2014', 'DD/MM/YYYY'), to_date('14/5/2014', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 35, 13, to_date('11/9/2021', 'DD/MM/YYYY'), NULL);
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 3, 31, to_date('11/5/1988', 'DD/MM/YYYY'), to_date('11/5/1988', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 31, 14, to_date('12/6/2021', 'DD/MM/YYYY'), to_date('2/7/2021', 'DD/MM/YYYY'));
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 81, 32, to_date('14/3/1929', 'DD/MM/YYYY'), to_date('14/3/1929', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 44, 14, to_date('2/7/2021', 'DD/MM/YYYY'), to_date('30/7/2021', 'DD/MM/YYYY'));
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 125, 32, to_date('9/10/1974', 'DD/MM/YYYY'), to_date('9/10/1974', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 71, 14, to_date('30/7/2021', 'DD/MM/YYYY'), to_date('4/9/2021', 'DD/MM/YYYY'));
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 50, 32, to_date('25/8/1941', 'DD/MM/YYYY'), to_date('25/8/1941', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 131, 14, to_date('4/9/2021', 'DD/MM/YYYY'), NULL);
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 81, 33, to_date('12/10/1934', 'DD/MM/YYYY'), to_date('12/10/1934', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 102, 15, to_date('24/4/2021', 'DD/MM/YYYY'), to_date('28/5/2021', 'DD/MM/YYYY'));
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 81, 34, to_date('8/6/2014', 'DD/MM/YYYY'), to_date('8/6/2014', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 9, 15, to_date('28/5/2021', 'DD/MM/YYYY'), to_date('19/6/2021', 'DD/MM/YYYY'));
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 125, 34, to_date('6/5/1990', 'DD/MM/YYYY'), to_date('6/5/1990', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 136, 15, to_date('19/6/2021', 'DD/MM/YYYY'), to_date('16/7/2021', 'DD/MM/YYYY'));
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 59, 35, to_date('18/10/1964', 'DD/MM/YYYY'), to_date('18/10/1964', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 59, 15, to_date('16/7/2021', 'DD/MM/YYYY'), to_date('13/8/2021', 'DD/MM/YYYY'));
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 18, 35, to_date('8/1/1984', 'DD/MM/YYYY'), to_date('8/1/1984', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 123, 15, to_date('13/8/2021', 'DD/MM/YYYY'), to_date('18/9/2021', 'DD/MM/YYYY'));
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 59, 36, to_date('22/10/1982', 'DD/MM/YYYY'), to_date('22/10/1982', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 49, 15, to_date('18/9/2021', 'DD/MM/YYYY'), NULL);
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 18, 36, to_date('13/9/1984', 'DD/MM/YYYY'), to_date('13/9/1984', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 66, 16, to_date('1/2/2021', 'DD/MM/YYYY'), to_date('19/3/2021', 'DD/MM/YYYY'));
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 43, 36, to_date('21/5/2012', 'DD/MM/YYYY'), to_date('21/5/2012', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 21, 16, to_date('19/3/2021', 'DD/MM/YYYY'), to_date('17/4/2021', 'DD/MM/YYYY'));
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 59, 37, to_date('26/1/1990', 'DD/MM/YYYY'), to_date('26/1/1990', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 7, 16, to_date('17/4/2021', 'DD/MM/YYYY'), to_date('28/5/2021', 'DD/MM/YYYY'));
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 18, 37, to_date('26/6/2019', 'DD/MM/YYYY'), to_date('26/6/2019', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 124, 16, to_date('28/5/2021', 'DD/MM/YYYY'), to_date('9/7/2021', 'DD/MM/YYYY'));
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 59, 38, to_date('14/1/2004', 'DD/MM/YYYY'), to_date('14/1/2004', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 41, 16, to_date('9/7/2021', 'DD/MM/YYYY'), to_date('13/8/2021', 'DD/MM/YYYY'));
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 18, 38, to_date('9/4/1977', 'DD/MM/YYYY'), to_date('9/4/1977', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 29, 16, to_date('13/8/2021', 'DD/MM/YYYY'), to_date('4/9/2021', 'DD/MM/YYYY'));
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 67, 39, to_date('6/5/1969', 'DD/MM/YYYY'), to_date('6/5/1969', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 58, 16, to_date('4/9/2021', 'DD/MM/YYYY'), NULL);
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 67, 39, to_date('7/3/2009', 'DD/MM/YYYY'), to_date('7/3/2009', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 66, 17, to_date('21/5/2021', 'DD/MM/YYYY'), to_date('19/6/2021', 'DD/MM/YYYY'));
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 77, 39, to_date('14/10/2000', 'DD/MM/YYYY'), to_date('14/10/2000', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 21, 17, to_date('19/6/2021', 'DD/MM/YYYY'), to_date('16/7/2021', 'DD/MM/YYYY'));
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 51, 40, to_date('2/1/1996', 'DD/MM/YYYY'), to_date('2/1/1996', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 7, 17, to_date('16/7/2021', 'DD/MM/YYYY'), to_date('6/8/2021', 'DD/MM/YYYY'));
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 7, 40, to_date('6/3/1996', 'DD/MM/YYYY'), to_date('6/3/1996', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 124, 17, to_date('6/8/2021', 'DD/MM/YYYY'), to_date('4/9/2021', 'DD/MM/YYYY'));
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 51, 41, to_date('7/1/1934', 'DD/MM/YYYY'), to_date('7/1/1934', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 41, 17, to_date('4/9/2021', 'DD/MM/YYYY'), NULL);
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 7, 41, to_date('8/6/1978', 'DD/MM/YYYY'), to_date('8/6/1978', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 132, 18, to_date('19/6/2021', 'DD/MM/YYYY'), to_date('9/7/2021', 'DD/MM/YYYY'));
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 124, 41, to_date('10/1/1933', 'DD/MM/YYYY'), to_date('10/1/1933', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 29, 18, to_date('9/7/2021', 'DD/MM/YYYY'), to_date('6/8/2021', 'DD/MM/YYYY'));
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 51, 42, to_date('5/4/1967', 'DD/MM/YYYY'), to_date('5/4/1967', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 66, 18, to_date('6/8/2021', 'DD/MM/YYYY'), to_date('18/9/2021', 'DD/MM/YYYY'));
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 51, 43, to_date('1/9/2000', 'DD/MM/YYYY'), to_date('1/9/2000', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 70, 18, to_date('18/9/2021', 'DD/MM/YYYY'), NULL);
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 7, 43, to_date('26/9/1923', 'DD/MM/YYYY'), to_date('26/9/1923', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 71, 19, to_date('5/6/2021', 'DD/MM/YYYY'), to_date('26/6/2021', 'DD/MM/YYYY'));
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 124, 43, to_date('1/5/2005', 'DD/MM/YYYY'), to_date('1/5/2005', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 5, 19, to_date('26/6/2021', 'DD/MM/YYYY'), to_date('30/7/2021', 'DD/MM/YYYY'));
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 127, 44, to_date('20/10/1971', 'DD/MM/YYYY'), to_date('20/10/1971', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 26, 19, to_date('30/7/2021', 'DD/MM/YYYY'), to_date('20/8/2021', 'DD/MM/YYYY'));
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 99, 44, to_date('20/4/1978', 'DD/MM/YYYY'), to_date('20/4/1978', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 83, 19, to_date('20/8/2021', 'DD/MM/YYYY'), to_date('11/9/2021', 'DD/MM/YYYY'));
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 127, 45, to_date('20/1/1989', 'DD/MM/YYYY'), to_date('20/1/1989', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 119, 19, to_date('11/9/2021', 'DD/MM/YYYY'), NULL);
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 99, 45, to_date('14/6/1923', 'DD/MM/YYYY'), to_date('14/6/1923', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 13, 20, to_date('14/5/2021', 'DD/MM/YYYY'), to_date('12/6/2021', 'DD/MM/YYYY'));
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 127, 46, to_date('13/4/1995', 'DD/MM/YYYY'), to_date('13/4/1995', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 84, 20, to_date('12/6/2021', 'DD/MM/YYYY'), to_date('2/7/2021', 'DD/MM/YYYY'));
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 99, 46, to_date('8/8/1987', 'DD/MM/YYYY'), to_date('8/8/1987', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 42, 20, to_date('2/7/2021', 'DD/MM/YYYY'), to_date('6/8/2021', 'DD/MM/YYYY'));
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 125, 46, to_date('26/4/2012', 'DD/MM/YYYY'), to_date('26/4/2012', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 126, 20, to_date('6/8/2021', 'DD/MM/YYYY'), to_date('27/8/2021', 'DD/MM/YYYY'));
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 57, 47, to_date('22/3/1949', 'DD/MM/YYYY'), to_date('22/3/1949', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 74, 20, to_date('27/8/2021', 'DD/MM/YYYY'), NULL);
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 107, 47, to_date('9/5/1957', 'DD/MM/YYYY'), to_date('9/5/1957', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 13, 21, to_date('25/02/2021', 'DD/MM/YYYY'), to_date('26/3/2021', 'DD/MM/YYYY'));
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 57, 48, to_date('19/9/1977', 'DD/MM/YYYY'), to_date('19/9/1977', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 84, 21, to_date('26/3/2021', 'DD/MM/YYYY'), to_date('27/4/2021', 'DD/MM/YYYY'));
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 107, 48, to_date('15/6/1999', 'DD/MM/YYYY'), to_date('15/6/1999', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 42, 21, to_date('27/4/2021', 'DD/MM/YYYY'), to_date('5/6/2021', 'DD/MM/YYYY'));
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 57, 49, to_date('26/1/1951', 'DD/MM/YYYY'), to_date('26/1/1951', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 126, 21, to_date('5/6/2021', 'DD/MM/YYYY'), to_date('16/7/2021', 'DD/MM/YYYY'));
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 57, 50, to_date('18/3/1947', 'DD/MM/YYYY'), to_date('18/3/1947', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 74, 21, to_date('16/7/2021', 'DD/MM/YYYY'), to_date('6/8/2021', 'DD/MM/YYYY'));
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 107, 50, to_date('5/8/1957', 'DD/MM/YYYY'), to_date('5/8/1957', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 75, 21, to_date('6/8/2021', 'DD/MM/YYYY'), to_date('4/9/2021', 'DD/MM/YYYY'));
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 57, 51, to_date('20/6/1934', 'DD/MM/YYYY'), to_date('20/6/1934', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 33, 21, to_date('4/9/2021', 'DD/MM/YYYY'), NULL);
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 107, 51, to_date('26/4/2000', 'DD/MM/YYYY'), to_date('26/4/2000', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 56, 22, to_date('7/5/2021', 'DD/MM/YYYY'), to_date('26/6/2021', 'DD/MM/YYYY'));
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 132, 52, to_date('15/4/2002', 'DD/MM/YYYY'), to_date('15/4/2002', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 61, 22, to_date('26/6/2021', 'DD/MM/YYYY'), to_date('13/8/2021', 'DD/MM/YYYY'));
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 83, 52, to_date('10/7/1949', 'DD/MM/YYYY'), to_date('10/7/1949', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 113, 22, to_date('13/8/2021', 'DD/MM/YYYY'), to_date('11/9/2021', 'DD/MM/YYYY'));
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 136, 52, to_date('17/3/1977', 'DD/MM/YYYY'), to_date('17/3/1977', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 35, 22, to_date('11/9/2021', 'DD/MM/YYYY'), NULL);
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 132, 53, to_date('25/7/2011', 'DD/MM/YYYY'), to_date('25/7/2011', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 61, 23, to_date('12/6/2021', 'DD/MM/YYYY'), to_date('30/7/2021', 'DD/MM/YYYY'));
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 132, 54, to_date('5/7/2001', 'DD/MM/YYYY'), to_date('5/7/2001', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 45, 23, to_date('30/7/2021', 'DD/MM/YYYY'), to_date('4/9/2021', 'DD/MM/YYYY'));
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 132, 55, to_date('15/1/1968', 'DD/MM/YYYY'), to_date('15/1/1968', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 132, 23, to_date('4/9/2021', 'DD/MM/YYYY'), NULL);
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 83, 55, to_date('11/10/2000', 'DD/MM/YYYY'), to_date('11/10/2000', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 127, 24, to_date('21/5/2021', 'DD/MM/YYYY'), to_date('9/7/2021', 'DD/MM/YYYY'));
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 91, 56, to_date('20/5/2016', 'DD/MM/YYYY'), to_date('20/5/2016', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 53, 24, to_date('9/7/2021', 'DD/MM/YYYY'), to_date('27/8/2021', 'DD/MM/YYYY'));
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 58, 56, to_date('13/2/1931', 'DD/MM/YYYY'), to_date('13/2/1931', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 55, 24, to_date('27/8/2021', 'DD/MM/YYYY'), NULL);
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 91, 57, to_date('15/6/1988', 'DD/MM/YYYY'), to_date('15/6/1988', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 127, 25, to_date('22/2/2021', 'DD/MM/YYYY'), to_date('10/4/2021', 'DD/MM/YYYY'));
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 91, 58, to_date('9/5/1952', 'DD/MM/YYYY'), to_date('9/5/1952', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 53, 25, to_date('10/4/2021', 'DD/MM/YYYY'), to_date('21/5/2021', 'DD/MM/YYYY'));
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 91, 59, to_date('24/6/1948', 'DD/MM/YYYY'), to_date('24/6/1948', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 55, 25, to_date('21/5/2021', 'DD/MM/YYYY'), to_date('12/6/2021', 'DD/MM/YYYY'));
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 58, 59, to_date('20/1/1934', 'DD/MM/YYYY'), to_date('20/1/1934', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 89, 25, to_date('12/6/2021', 'DD/MM/YYYY'), to_date('2/7/2021', 'DD/MM/YYYY'));
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 60, 60, to_date('1/7/2016', 'DD/MM/YYYY'), to_date('1/7/2016', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 43, 25, to_date('2/7/2021', 'DD/MM/YYYY'), to_date('30/7/2021', 'DD/MM/YYYY'));
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 92, 60, to_date('22/5/1943', 'DD/MM/YYYY'), to_date('22/5/1943', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 10, 25, to_date('30/7/2021', 'DD/MM/YYYY'), to_date('11/9/2021', 'DD/MM/YYYY'));
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 76, 60, to_date('16/1/2019', 'DD/MM/YYYY'), to_date('16/1/2019', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 41, 25, to_date('11/9/2021', 'DD/MM/YYYY'), NULL);
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 60, 61, to_date('15/6/1995', 'DD/MM/YYYY'), to_date('15/6/1995', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 127, 26, to_date('8/2/2021', 'DD/MM/YYYY'), to_date('25/02/2021', 'DD/MM/YYYY'));
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 92, 61, to_date('17/5/1955', 'DD/MM/YYYY'), to_date('17/5/1955', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 53, 26, to_date('25/02/2021', 'DD/MM/YYYY'), to_date('26/3/2021', 'DD/MM/YYYY'));
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 60, 62, to_date('20/9/1996', 'DD/MM/YYYY'), to_date('20/9/1996', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 55, 26, to_date('26/3/2021', 'DD/MM/YYYY'), to_date('14/5/2021', 'DD/MM/YYYY'));
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 92, 62, to_date('4/1/1960', 'DD/MM/YYYY'), to_date('4/1/1960', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 89, 26, to_date('14/5/2021', 'DD/MM/YYYY'), to_date('19/6/2021', 'DD/MM/YYYY'));
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 76, 62, to_date('26/9/1949', 'DD/MM/YYYY'), to_date('26/9/1949', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 43, 26, to_date('19/6/2021', 'DD/MM/YYYY'), to_date('30/7/2021', 'DD/MM/YYYY'));
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 65, 63, to_date('26/1/1950', 'DD/MM/YYYY'), to_date('26/1/1950', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 10, 26, to_date('30/7/2021', 'DD/MM/YYYY'), to_date('11/9/2021', 'DD/MM/YYYY'));
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 65, 64, to_date('24/8/1971', 'DD/MM/YYYY'), to_date('24/8/1971', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 41, 26, to_date('11/9/2021', 'DD/MM/YYYY'), NULL);
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 130, 65, to_date('9/3/1979', 'DD/MM/YYYY'), to_date('9/3/1979', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 101, 27, to_date('27/4/2021', 'DD/MM/YYYY'), to_date('21/5/2021', 'DD/MM/YYYY'));
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 76, 65, to_date('17/5/1933', 'DD/MM/YYYY'), to_date('17/5/1933', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 84, 27, to_date('21/5/2021', 'DD/MM/YYYY'), to_date('12/6/2021', 'DD/MM/YYYY'));
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 17, 65, to_date('1/6/2007', 'DD/MM/YYYY'), to_date('1/6/2007', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 83, 27, to_date('12/6/2021', 'DD/MM/YYYY'), to_date('30/7/2021', 'DD/MM/YYYY'));
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 130, 66, to_date('23/2/2006', 'DD/MM/YYYY'), to_date('23/2/2006', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 10, 27, to_date('30/7/2021', 'DD/MM/YYYY'), to_date('20/8/2021', 'DD/MM/YYYY'));
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 76, 66, to_date('2/7/1928', 'DD/MM/YYYY'), to_date('2/7/1928', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 113, 27, to_date('20/8/2021', 'DD/MM/YYYY'), to_date('25/9/2021', 'DD/MM/YYYY'));
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 130, 67, to_date('2/4/1998', 'DD/MM/YYYY'), to_date('2/4/1998', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 84, 27, to_date('25/9/2021', 'DD/MM/YYYY'), NULL);
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 76, 67, to_date('14/1/2013', 'DD/MM/YYYY'), to_date('14/1/2013', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 101, 28, to_date('8/2/2021', 'DD/MM/YYYY'), to_date('5/3/2021', 'DD/MM/YYYY'));
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 17, 67, to_date('18/8/1995', 'DD/MM/YYYY'), to_date('18/8/1995', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 84, 28, to_date('5/3/2021', 'DD/MM/YYYY'), to_date('24/4/2021', 'DD/MM/YYYY'));
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 130, 68, to_date('19/8/1998', 'DD/MM/YYYY'), to_date('19/8/1998', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 83, 28, to_date('24/4/2021', 'DD/MM/YYYY'), to_date('14/5/2021', 'DD/MM/YYYY'));
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 76, 68, to_date('14/2/1963', 'DD/MM/YYYY'), to_date('14/2/1963', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 10, 28, to_date('14/5/2021', 'DD/MM/YYYY'), to_date('2/7/2021', 'DD/MM/YYYY'));
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 50, 69, to_date('10/9/1920', 'DD/MM/YYYY'), to_date('10/9/1920', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 113, 28, to_date('2/7/2021', 'DD/MM/YYYY'), to_date('13/8/2021', 'DD/MM/YYYY'));
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 50, 70, to_date('10/6/1971', 'DD/MM/YYYY'), to_date('10/6/1971', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 84, 28, to_date('13/8/2021', 'DD/MM/YYYY'), to_date('11/9/2021', 'DD/MM/YYYY'));
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 132, 70, to_date('16/10/1930', 'DD/MM/YYYY'), to_date('16/10/1930', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 60, 28, to_date('11/9/2021', 'DD/MM/YYYY'), NULL);
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 70, 70, to_date('2/4/2007', 'DD/MM/YYYY'), to_date('2/4/2007', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 112, 29, to_date('18/0/2021', 'DD/MM/YYYY'), to_date('8/2/2021', 'DD/MM/YYYY'));
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 50, 71, to_date('13/1/1951', 'DD/MM/YYYY'), to_date('13/1/1951', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 7, 29, to_date('8/2/2021', 'DD/MM/YYYY'), to_date('19/3/2021', 'DD/MM/YYYY'));
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 132, 71, to_date('15/3/1967', 'DD/MM/YYYY'), to_date('15/3/1967', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 28, 29, to_date('19/3/2021', 'DD/MM/YYYY'), to_date('7/5/2021', 'DD/MM/YYYY'));
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 50, 72, to_date('4/9/2014', 'DD/MM/YYYY'), to_date('4/9/2014', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 61, 29, to_date('7/5/2021', 'DD/MM/YYYY'), to_date('26/6/2021', 'DD/MM/YYYY'));
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 105, 73, to_date('18/2/1987', 'DD/MM/YYYY'), to_date('18/2/1987', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 10, 29, to_date('26/6/2021', 'DD/MM/YYYY'), to_date('23/7/2021', 'DD/MM/YYYY'));
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 16, 73, to_date('5/7/1922', 'DD/MM/YYYY'), to_date('5/7/1922', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 104, 29, to_date('23/7/2021', 'DD/MM/YYYY'), to_date('4/9/2021', 'DD/MM/YYYY'));
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 103, 73, to_date('21/9/1926', 'DD/MM/YYYY'), to_date('21/9/1926', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 129, 29, to_date('4/9/2021', 'DD/MM/YYYY'), NULL);
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 105, 74, to_date('15/8/1928', 'DD/MM/YYYY'), to_date('15/8/1928', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 112, 30, to_date('26/3/2021', 'DD/MM/YYYY'), to_date('24/4/2021', 'DD/MM/YYYY'));
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 16, 74, to_date('12/4/1994', 'DD/MM/YYYY'), to_date('12/4/1994', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 7, 30, to_date('24/4/2021', 'DD/MM/YYYY'), to_date('28/5/2021', 'DD/MM/YYYY'));
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 103, 74, to_date('15/9/1958', 'DD/MM/YYYY'), to_date('15/9/1958', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 28, 30, to_date('28/5/2021', 'DD/MM/YYYY'), to_date('16/7/2021', 'DD/MM/YYYY'));
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 105, 75, to_date('14/1/1994', 'DD/MM/YYYY'), to_date('14/1/1994', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 61, 30, to_date('16/7/2021', 'DD/MM/YYYY'), to_date('20/8/2021', 'DD/MM/YYYY'));
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 105, 76, to_date('18/4/1996', 'DD/MM/YYYY'), to_date('18/4/1996', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 10, 30, to_date('20/8/2021', 'DD/MM/YYYY'), to_date('11/9/2021', 'DD/MM/YYYY'));
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 16, 76, to_date('23/2/1989', 'DD/MM/YYYY'), to_date('23/2/1989', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 104, 30, to_date('11/9/2021', 'DD/MM/YYYY'), NULL);
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 105, 77, to_date('1/3/1934', 'DD/MM/YYYY'), to_date('1/3/1934', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 52, 31, to_date('19/3/2021', 'DD/MM/YYYY'), to_date('27/4/2021', 'DD/MM/YYYY'));
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 16, 77, to_date('12/7/1950', 'DD/MM/YYYY'), to_date('12/7/1950', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 85, 31, to_date('27/4/2021', 'DD/MM/YYYY'), to_date('21/5/2021', 'DD/MM/YYYY'));
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 103, 77, to_date('16/10/2008', 'DD/MM/YYYY'), to_date('16/10/2008', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 63, 31, to_date('21/5/2021', 'DD/MM/YYYY'), to_date('2/7/2021', 'DD/MM/YYYY'));
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 55, 78, to_date('17/2/1979', 'DD/MM/YYYY'), to_date('17/2/1979', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 52, 31, to_date('2/7/2021', 'DD/MM/YYYY'), to_date('6/8/2021', 'DD/MM/YYYY'));
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 108, 78, to_date('4/2/1947', 'DD/MM/YYYY'), to_date('4/2/1947', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 16, 31, to_date('6/8/2021', 'DD/MM/YYYY'), to_date('4/9/2021', 'DD/MM/YYYY'));
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 55, 79, to_date('21/5/1970', 'DD/MM/YYYY'), to_date('21/5/1970', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 131, 31, to_date('4/9/2021', 'DD/MM/YYYY'), to_date('25/9/2021', 'DD/MM/YYYY'));
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 108, 79, to_date('19/9/1985', 'DD/MM/YYYY'), to_date('19/9/1985', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 2, 31, to_date('25/9/2021', 'DD/MM/YYYY'), NULL);
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 55, 80, to_date('26/10/1928', 'DD/MM/YYYY'), to_date('26/10/1928', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 93, 32, to_date('24/4/2021', 'DD/MM/YYYY'), to_date('12/6/2021', 'DD/MM/YYYY'));
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 55, 81, to_date('23/1/1964', 'DD/MM/YYYY'), to_date('23/1/1964', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 17, 32, to_date('12/6/2021', 'DD/MM/YYYY'), to_date('2/7/2021', 'DD/MM/YYYY'));
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 108, 81, to_date('15/8/2012', 'DD/MM/YYYY'), to_date('15/8/2012', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 9, 32, to_date('2/7/2021', 'DD/MM/YYYY'), to_date('20/8/2021', 'DD/MM/YYYY'));
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 57, 81, to_date('24/3/1977', 'DD/MM/YYYY'), to_date('24/3/1977', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 103, 32, to_date('20/8/2021', 'DD/MM/YYYY'), to_date('18/9/2021', 'DD/MM/YYYY'));
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 55, 82, to_date('15/7/1965', 'DD/MM/YYYY'), to_date('15/7/1965', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 107, 32, to_date('18/9/2021', 'DD/MM/YYYY'), NULL);
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 108, 82, to_date('12/2/2017', 'DD/MM/YYYY'), to_date('12/2/2017', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 93, 33, to_date('21/5/2021', 'DD/MM/YYYY'), to_date('2/7/2021', 'DD/MM/YYYY'));
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 57, 82, to_date('5/1/1999', 'DD/MM/YYYY'), to_date('5/1/1999', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 17, 33, to_date('2/7/2021', 'DD/MM/YYYY'), to_date('30/7/2021', 'DD/MM/YYYY'));
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 121, 83, to_date('4/10/1958', 'DD/MM/YYYY'), to_date('4/10/1958', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 9, 33, to_date('30/7/2021', 'DD/MM/YYYY'), to_date('20/8/2021', 'DD/MM/YYYY'));
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 125, 83, to_date('25/3/1953', 'DD/MM/YYYY'), to_date('25/3/1953', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 103, 33, to_date('20/8/2021', 'DD/MM/YYYY'), to_date('25/9/2021', 'DD/MM/YYYY'));
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 9, 83, to_date('6/5/1925', 'DD/MM/YYYY'), to_date('6/5/1925', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 107, 33, to_date('25/9/2021', 'DD/MM/YYYY'), NULL);
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 121, 84, to_date('2/9/1948', 'DD/MM/YYYY'), to_date('2/9/1948', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 37, 34, to_date('16/7/2021', 'DD/MM/YYYY'), to_date('27/8/2021', 'DD/MM/YYYY'));
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 125, 84, to_date('6/5/1995', 'DD/MM/YYYY'), to_date('6/5/1995', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 5, 34, to_date('27/8/2021', 'DD/MM/YYYY'), to_date('18/9/2021', 'DD/MM/YYYY'));
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 121, 85, to_date('14/1/1974', 'DD/MM/YYYY'), to_date('14/1/1974', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 2, 34, to_date('18/9/2021', 'DD/MM/YYYY'), NULL);
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 121, 86, to_date('18/4/2003', 'DD/MM/YYYY'), to_date('18/4/2003', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 37, 35, to_date('28/5/2021', 'DD/MM/YYYY'), to_date('2/7/2021', 'DD/MM/YYYY'));
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 125, 86, to_date('8/1/1975', 'DD/MM/YYYY'), to_date('8/1/1975', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 5, 35, to_date('2/7/2021', 'DD/MM/YYYY'), to_date('20/8/2021', 'DD/MM/YYYY'));
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 9, 86, to_date('14/8/1935', 'DD/MM/YYYY'), to_date('14/8/1935', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 2, 35, to_date('20/8/2021', 'DD/MM/YYYY'), to_date('25/9/2021', 'DD/MM/YYYY'));
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 40, 87, to_date('18/8/1965', 'DD/MM/YYYY'), to_date('18/8/1965', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 71, 35, to_date('25/9/2021', 'DD/MM/YYYY'), NULL);
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 35, 87, to_date('4/9/1950', 'DD/MM/YYYY'), to_date('4/9/1950', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 102, 36, to_date('5/6/2021', 'DD/MM/YYYY'), to_date('23/7/2021', 'DD/MM/YYYY'));
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 9, 87, to_date('4/10/1982', 'DD/MM/YYYY'), to_date('4/10/1982', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 21, 36, to_date('23/7/2021', 'DD/MM/YYYY'), to_date('13/8/2021', 'DD/MM/YYYY'));
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 40, 88, to_date('14/10/1957', 'DD/MM/YYYY'), to_date('14/10/1957', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 105, 36, to_date('13/8/2021', 'DD/MM/YYYY'), to_date('4/9/2021', 'DD/MM/YYYY'));
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 35, 88, to_date('14/5/1926', 'DD/MM/YYYY'), to_date('14/5/1926', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 76, 36, to_date('4/9/2021', 'DD/MM/YYYY'), NULL);
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 9, 88, to_date('1/4/1925', 'DD/MM/YYYY'), to_date('1/4/1925', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 102, 37, to_date('5/3/2021', 'DD/MM/YYYY'), to_date('3/4/2021', 'DD/MM/YYYY'));
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 40, 89, to_date('20/3/1948', 'DD/MM/YYYY'), to_date('20/3/1948', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 21, 37, to_date('3/4/2021', 'DD/MM/YYYY'), to_date('24/4/2021', 'DD/MM/YYYY'));
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 40, 90, to_date('26/1/2018', 'DD/MM/YYYY'), to_date('26/1/2018', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 105, 37, to_date('24/4/2021', 'DD/MM/YYYY'), to_date('28/5/2021', 'DD/MM/YYYY'));
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 35, 90, to_date('17/4/2008', 'DD/MM/YYYY'), to_date('17/4/2008', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 76, 37, to_date('28/5/2021', 'DD/MM/YYYY'), to_date('9/7/2021', 'DD/MM/YYYY'));
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 9, 90, to_date('5/7/2002', 'DD/MM/YYYY'), to_date('5/7/2002', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 114, 37, to_date('9/7/2021', 'DD/MM/YYYY'), to_date('27/8/2021', 'DD/MM/YYYY'));
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 43, 91, to_date('17/7/1927', 'DD/MM/YYYY'), to_date('17/7/1927', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 94, 37, to_date('27/8/2021', 'DD/MM/YYYY'), NULL);
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 67, 91, to_date('7/10/1959', 'DD/MM/YYYY'), to_date('7/10/1959', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 107, 38, to_date('21/5/2021', 'DD/MM/YYYY'), to_date('2/7/2021', 'DD/MM/YYYY'));
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 64, 91, to_date('12/10/1938', 'DD/MM/YYYY'), to_date('12/10/1938', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 133, 38, to_date('2/7/2021', 'DD/MM/YYYY'), to_date('20/8/2021', 'DD/MM/YYYY'));
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 43, 92, to_date('4/8/1957', 'DD/MM/YYYY'), to_date('4/8/1957', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 124, 38, to_date('20/8/2021', 'DD/MM/YYYY'), to_date('18/9/2021', 'DD/MM/YYYY'));
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 67, 92, to_date('11/7/2016', 'DD/MM/YYYY'), to_date('11/7/2016', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 56, 38, to_date('18/9/2021', 'DD/MM/YYYY'), NULL);
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 64, 92, to_date('22/3/2015', 'DD/MM/YYYY'), to_date('22/3/2015', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 105, 39, to_date('24/4/2021', 'DD/MM/YYYY'), to_date('28/5/2021', 'DD/MM/YYYY'));
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 43, 93, to_date('20/3/1965', 'DD/MM/YYYY'), to_date('20/3/1965', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 134, 39, to_date('28/5/2021', 'DD/MM/YYYY'), to_date('26/6/2021', 'DD/MM/YYYY'));
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 67, 93, to_date('22/9/1937', 'DD/MM/YYYY'), to_date('22/9/1937', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 5, 39, to_date('26/6/2021', 'DD/MM/YYYY'), to_date('13/8/2021', 'DD/MM/YYYY'));
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 64, 93, to_date('17/1/1929', 'DD/MM/YYYY'), to_date('17/1/1929', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 63, 39, to_date('13/8/2021', 'DD/MM/YYYY'), to_date('25/9/2021', 'DD/MM/YYYY'));
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 43, 94, to_date('14/10/1975', 'DD/MM/YYYY'), to_date('14/10/1975', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 98, 39, to_date('25/9/2021', 'DD/MM/YYYY'), NULL);
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 67, 94, to_date('2/1/2003', 'DD/MM/YYYY'), to_date('2/1/2003', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 35, 40, to_date('26/3/2021', 'DD/MM/YYYY'), to_date('24/4/2021', 'DD/MM/YYYY'));
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 43, 95, to_date('7/9/1963', 'DD/MM/YYYY'), to_date('7/9/1963', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 6, 40, to_date('24/4/2021', 'DD/MM/YYYY'), to_date('28/5/2021', 'DD/MM/YYYY'));
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 67, 95, to_date('1/7/1960', 'DD/MM/YYYY'), to_date('1/7/1960', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 64, 40, to_date('28/5/2021', 'DD/MM/YYYY'), to_date('2/7/2021', 'DD/MM/YYYY'));
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 64, 95, to_date('16/8/2008', 'DD/MM/YYYY'), to_date('16/8/2008', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 9, 40, to_date('2/7/2021', 'DD/MM/YYYY'), to_date('30/7/2021', 'DD/MM/YYYY'));
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 45, 96, to_date('10/9/1956', 'DD/MM/YYYY'), to_date('10/9/1956', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 2, 40, to_date('30/7/2021', 'DD/MM/YYYY'), to_date('18/9/2021', 'DD/MM/YYYY'));
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 45, 97, to_date('1/8/1959', 'DD/MM/YYYY'), to_date('1/8/1959', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 53, 40, to_date('18/9/2021', 'DD/MM/YYYY'), NULL);
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 12, 97, to_date('6/8/1931', 'DD/MM/YYYY'), to_date('6/8/1931', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 35, 41, to_date('2/7/2021', 'DD/MM/YYYY'), to_date('30/7/2021', 'DD/MM/YYYY'));
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 27, 97, to_date('18/8/1945', 'DD/MM/YYYY'), to_date('18/8/1945', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 6, 41, to_date('30/7/2021', 'DD/MM/YYYY'), to_date('20/8/2021', 'DD/MM/YYYY'));
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 45, 98, to_date('20/1/1934', 'DD/MM/YYYY'), to_date('20/1/1934', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 64, 41, to_date('20/8/2021', 'DD/MM/YYYY'), to_date('25/9/2021', 'DD/MM/YYYY'));
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 12, 98, to_date('5/10/2002', 'DD/MM/YYYY'), to_date('5/10/2002', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 9, 41, to_date('25/9/2021', 'DD/MM/YYYY'), NULL);
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 27, 98, to_date('21/9/1963', 'DD/MM/YYYY'), to_date('21/9/1963', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 110, 42, to_date('14/5/2021', 'DD/MM/YYYY'), to_date('2/7/2021', 'DD/MM/YYYY'));
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 45, 99, to_date('16/2/1941', 'DD/MM/YYYY'), to_date('16/2/1941', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 110, 42, to_date('2/7/2021', 'DD/MM/YYYY'), to_date('23/7/2021', 'DD/MM/YYYY'));
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 12, 99, to_date('1/9/1972', 'DD/MM/YYYY'), to_date('1/9/1972', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 16, 42, to_date('23/7/2021', 'DD/MM/YYYY'), to_date('20/8/2021', 'DD/MM/YYYY'));
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 45, 100, to_date('22/5/2004', 'DD/MM/YYYY'), to_date('22/5/2004', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 43, 42, to_date('20/8/2021', 'DD/MM/YYYY'), to_date('18/9/2021', 'DD/MM/YYYY'));
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 111, 101, to_date('3/4/1997', 'DD/MM/YYYY'), to_date('3/4/1997', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 129, 42, to_date('18/9/2021', 'DD/MM/YYYY'), NULL);
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 28, 101, to_date('19/10/1957', 'DD/MM/YYYY'), to_date('19/10/1957', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 110, 43, to_date('9/7/2021', 'DD/MM/YYYY'), to_date('27/8/2021', 'DD/MM/YYYY'));
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 111, 102, to_date('9/4/1946', 'DD/MM/YYYY'), to_date('9/4/1946', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 110, 43, to_date('27/8/2021', 'DD/MM/YYYY'), to_date('18/9/2021', 'DD/MM/YYYY'));
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 111, 103, to_date('13/1/1992', 'DD/MM/YYYY'), to_date('13/1/1992', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 16, 43, to_date('18/9/2021', 'DD/MM/YYYY'), NULL);
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 28, 103, to_date('9/10/1928', 'DD/MM/YYYY'), to_date('9/10/1928', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 40, 44, to_date('3/4/2021', 'DD/MM/YYYY'), to_date('21/5/2021', 'DD/MM/YYYY'));
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 86, 103, to_date('24/2/1968', 'DD/MM/YYYY'), to_date('24/2/1968', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 126, 44, to_date('21/5/2021', 'DD/MM/YYYY'), to_date('9/7/2021', 'DD/MM/YYYY'));
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 111, 104, to_date('21/5/2017', 'DD/MM/YYYY'), to_date('21/5/2017', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 75, 44, to_date('9/7/2021', 'DD/MM/YYYY'), to_date('30/7/2021', 'DD/MM/YYYY'));
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 28, 104, to_date('24/1/1927', 'DD/MM/YYYY'), to_date('24/1/1927', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 44, 44, to_date('30/7/2021', 'DD/MM/YYYY'), to_date('27/8/2021', 'DD/MM/YYYY'));
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 86, 104, to_date('22/1/1972', 'DD/MM/YYYY'), to_date('22/1/1972', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 7, 44, to_date('27/8/2021', 'DD/MM/YYYY'), NULL);
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 111, 105, to_date('4/6/1967', 'DD/MM/YYYY'), to_date('4/6/1967', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 40, 45, to_date('22/1/2021', 'DD/MM/YYYY'), to_date('12/3/2021', 'DD/MM/YYYY'));
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 111, 106, to_date('22/3/1929', 'DD/MM/YYYY'), to_date('22/3/1929', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 126, 45, to_date('12/3/2021', 'DD/MM/YYYY'), to_date('17/4/2021', 'DD/MM/YYYY'));
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 28, 106, to_date('24/2/1967', 'DD/MM/YYYY'), to_date('24/2/1967', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 75, 45, to_date('17/4/2021', 'DD/MM/YYYY'), to_date('28/5/2021', 'DD/MM/YYYY'));
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 86, 106, to_date('7/2/1980', 'DD/MM/YYYY'), to_date('7/2/1980', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 44, 45, to_date('28/5/2021', 'DD/MM/YYYY'), to_date('26/6/2021', 'DD/MM/YYYY'));
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 75, 107, to_date('26/3/1925', 'DD/MM/YYYY'), to_date('26/3/1925', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 7, 45, to_date('26/6/2021', 'DD/MM/YYYY'), to_date('30/7/2021', 'DD/MM/YYYY'));
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 115, 107, to_date('6/2/1990', 'DD/MM/YYYY'), to_date('6/2/1990', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 109, 45, to_date('30/7/2021', 'DD/MM/YYYY'), to_date('27/8/2021', 'DD/MM/YYYY'));
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 37, 107, to_date('10/1/1936', 'DD/MM/YYYY'), to_date('10/1/1936', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 3, 45, to_date('27/8/2021', 'DD/MM/YYYY'), NULL);
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 75, 108, to_date('16/8/1995', 'DD/MM/YYYY'), to_date('16/8/1995', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 40, 46, to_date('3/4/2021', 'DD/MM/YYYY'), to_date('7/5/2021', 'DD/MM/YYYY'));
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 115, 108, to_date('7/1/1941', 'DD/MM/YYYY'), to_date('7/1/1941', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 126, 46, to_date('7/5/2021', 'DD/MM/YYYY'), to_date('12/6/2021', 'DD/MM/YYYY'));
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 75, 109, to_date('25/4/1991', 'DD/MM/YYYY'), to_date('25/4/1991', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 75, 46, to_date('12/6/2021', 'DD/MM/YYYY'), to_date('9/7/2021', 'DD/MM/YYYY'));
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 75, 110, to_date('14/6/1954', 'DD/MM/YYYY'), to_date('14/6/1954', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 44, 46, to_date('9/7/2021', 'DD/MM/YYYY'), to_date('30/7/2021', 'DD/MM/YYYY'));
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 115, 110, to_date('1/8/2011', 'DD/MM/YYYY'), to_date('1/8/2011', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 7, 46, to_date('30/7/2021', 'DD/MM/YYYY'), to_date('27/8/2021', 'DD/MM/YYYY'));
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 75, 111, to_date('6/7/2013', 'DD/MM/YYYY'), to_date('6/7/2013', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 109, 46, to_date('27/8/2021', 'DD/MM/YYYY'), to_date('18/9/2021', 'DD/MM/YYYY'));
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 115, 111, to_date('14/2/2011', 'DD/MM/YYYY'), to_date('14/2/2011', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 3, 46, to_date('18/9/2021', 'DD/MM/YYYY'), NULL);
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 75, 112, to_date('10/5/1989', 'DD/MM/YYYY'), to_date('10/5/1989', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 37, 47, to_date('12/3/2021', 'DD/MM/YYYY'), to_date('10/4/2021', 'DD/MM/YYYY'));
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 115, 112, to_date('26/9/1992', 'DD/MM/YYYY'), to_date('26/9/1992', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 104, 47, to_date('10/4/2021', 'DD/MM/YYYY'), to_date('7/5/2021', 'DD/MM/YYYY'));
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 37, 112, to_date('20/1/2001', 'DD/MM/YYYY'), to_date('20/1/2001', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 110, 47, to_date('7/5/2021', 'DD/MM/YYYY'), to_date('28/5/2021', 'DD/MM/YYYY'));
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 75, 113, to_date('9/1/1926', 'DD/MM/YYYY'), to_date('9/1/1926', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 12, 47, to_date('28/5/2021', 'DD/MM/YYYY'), to_date('26/6/2021', 'DD/MM/YYYY'));
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 115, 113, to_date('17/1/1992', 'DD/MM/YYYY'), to_date('17/1/1992', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 55, 47, to_date('26/6/2021', 'DD/MM/YYYY'), to_date('6/8/2021', 'DD/MM/YYYY'));
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 83, 114, to_date('18/6/2015', 'DD/MM/YYYY'), to_date('18/6/2015', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 68, 47, to_date('6/8/2021', 'DD/MM/YYYY'), to_date('11/9/2021', 'DD/MM/YYYY'));
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 111, 114, to_date('14/5/1996', 'DD/MM/YYYY'), to_date('14/5/1996', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 120, 47, to_date('11/9/2021', 'DD/MM/YYYY'), NULL);
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 134, 115, to_date('16/1/1977', 'DD/MM/YYYY'), to_date('16/1/1977', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 37, 48, to_date('28/5/2021', 'DD/MM/YYYY'), to_date('9/7/2021', 'DD/MM/YYYY'));
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 83, 115, to_date('4/1/1930', 'DD/MM/YYYY'), to_date('4/1/1930', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 104, 48, to_date('9/7/2021', 'DD/MM/YYYY'), to_date('27/8/2021', 'DD/MM/YYYY'));
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 126, 115, to_date('26/5/2007', 'DD/MM/YYYY'), to_date('26/5/2007', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 110, 48, to_date('27/8/2021', 'DD/MM/YYYY'), NULL);
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 134, 116, to_date('19/1/1988', 'DD/MM/YYYY'), to_date('19/1/1988', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 25, 49, to_date('17/4/2021', 'DD/MM/YYYY'), to_date('14/5/2021', 'DD/MM/YYYY'));
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 51, 117, to_date('12/10/1997', 'DD/MM/YYYY'), to_date('12/10/1997', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 45, 49, to_date('14/5/2021', 'DD/MM/YYYY'), to_date('12/6/2021', 'DD/MM/YYYY'));
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 90, 117, to_date('2/3/1970', 'DD/MM/YYYY'), to_date('2/3/1970', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 26, 49, to_date('12/6/2021', 'DD/MM/YYYY'), to_date('23/7/2021', 'DD/MM/YYYY'));
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 51, 118, to_date('2/6/2005', 'DD/MM/YYYY'), to_date('2/6/2005', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 56, 49, to_date('23/7/2021', 'DD/MM/YYYY'), to_date('11/9/2021', 'DD/MM/YYYY'));
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 51, 119, to_date('4/7/1997', 'DD/MM/YYYY'), to_date('4/7/1997', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 55, 49, to_date('11/9/2021', 'DD/MM/YYYY'), NULL);
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 51, 120, to_date('13/9/1990', 'DD/MM/YYYY'), to_date('13/9/1990', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 25, 50, to_date('15/2/2021', 'DD/MM/YYYY'), to_date('12/3/2021', 'DD/MM/YYYY'));
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 51, 121, to_date('19/9/2018', 'DD/MM/YYYY'), to_date('19/9/2018', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 45, 50, to_date('12/3/2021', 'DD/MM/YYYY'), to_date('17/4/2021', 'DD/MM/YYYY'));
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 90, 121, to_date('12/1/2008', 'DD/MM/YYYY'), to_date('12/1/2008', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 26, 50, to_date('17/4/2021', 'DD/MM/YYYY'), to_date('5/6/2021', 'DD/MM/YYYY'));
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 67, 121, to_date('22/3/1972', 'DD/MM/YYYY'), to_date('22/3/1972', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 56, 50, to_date('5/6/2021', 'DD/MM/YYYY'), to_date('2/7/2021', 'DD/MM/YYYY'));
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 59, 122, to_date('9/5/1935', 'DD/MM/YYYY'), to_date('9/5/1935', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 55, 50, to_date('2/7/2021', 'DD/MM/YYYY'), to_date('6/8/2021', 'DD/MM/YYYY'));
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 115, 122, to_date('25/10/1946', 'DD/MM/YYYY'), to_date('25/10/1946', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 2, 50, to_date('6/8/2021', 'DD/MM/YYYY'), to_date('4/9/2021', 'DD/MM/YYYY'));
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 124, 123, to_date('12/2/1998', 'DD/MM/YYYY'), to_date('12/2/1998', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 114, 50, to_date('4/9/2021', 'DD/MM/YYYY'), NULL);
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 123, 123, to_date('13/5/1973', 'DD/MM/YYYY'), to_date('13/5/1973', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 25, 51, to_date('9/7/2021', 'DD/MM/YYYY'), to_date('13/8/2021', 'DD/MM/YYYY'));
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 124, 124, to_date('9/6/2005', 'DD/MM/YYYY'), to_date('9/6/2005', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 45, 51, to_date('13/8/2021', 'DD/MM/YYYY'), to_date('4/9/2021', 'DD/MM/YYYY'));
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 123, 124, to_date('9/3/1957', 'DD/MM/YYYY'), to_date('9/3/1957', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 26, 51, to_date('4/9/2021', 'DD/MM/YYYY'), to_date('25/9/2021', 'DD/MM/YYYY'));
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 89, 124, to_date('12/1/1962', 'DD/MM/YYYY'), to_date('12/1/1962', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 56, 51, to_date('25/9/2021', 'DD/MM/YYYY'), NULL);
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 124, 125, to_date('9/5/1946', 'DD/MM/YYYY'), to_date('9/5/1946', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 101, 52, to_date('17/4/2021', 'DD/MM/YYYY'), to_date('5/6/2021', 'DD/MM/YYYY'));
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 124, 126, to_date('1/3/1931', 'DD/MM/YYYY'), to_date('1/3/1931', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 14, 52, to_date('5/6/2021', 'DD/MM/YYYY'), to_date('23/7/2021', 'DD/MM/YYYY'));
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 123, 126, to_date('17/1/2000', 'DD/MM/YYYY'), to_date('17/1/2000', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 122, 52, to_date('23/7/2021', 'DD/MM/YYYY'), to_date('4/9/2021', 'DD/MM/YYYY'));
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 124, 127, to_date('14/3/1966', 'DD/MM/YYYY'), to_date('14/3/1966', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 91, 52, to_date('4/9/2021', 'DD/MM/YYYY'), NULL);
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 64, 128, to_date('14/8/1942', 'DD/MM/YYYY'), to_date('14/8/1942', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 101, 53, to_date('27/4/2021', 'DD/MM/YYYY'), to_date('5/6/2021', 'DD/MM/YYYY'));
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 91, 128, to_date('17/9/1968', 'DD/MM/YYYY'), to_date('17/9/1968', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 14, 53, to_date('5/6/2021', 'DD/MM/YYYY'), to_date('16/7/2021', 'DD/MM/YYYY'));
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 49, 128, to_date('9/4/1957', 'DD/MM/YYYY'), to_date('9/4/1957', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 122, 53, to_date('16/7/2021', 'DD/MM/YYYY'), to_date('20/8/2021', 'DD/MM/YYYY'));
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 64, 129, to_date('26/6/1958', 'DD/MM/YYYY'), to_date('26/6/1958', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 91, 53, to_date('20/8/2021', 'DD/MM/YYYY'), to_date('11/9/2021', 'DD/MM/YYYY'));
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 64, 130, to_date('16/6/1957', 'DD/MM/YYYY'), to_date('16/6/1957', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 81, 53, to_date('11/9/2021', 'DD/MM/YYYY'), NULL);
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 91, 130, to_date('21/9/1987', 'DD/MM/YYYY'), to_date('21/9/1987', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 101, 54, to_date('14/5/2021', 'DD/MM/YYYY'), to_date('26/6/2021', 'DD/MM/YYYY'));
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 64, 131, to_date('2/4/1964', 'DD/MM/YYYY'), to_date('2/4/1964', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 14, 54, to_date('26/6/2021', 'DD/MM/YYYY'), to_date('6/8/2021', 'DD/MM/YYYY'));
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 64, 132, to_date('1/6/1936', 'DD/MM/YYYY'), to_date('1/6/1936', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 122, 54, to_date('6/8/2021', 'DD/MM/YYYY'), to_date('4/9/2021', 'DD/MM/YYYY'));
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 64, 133, to_date('2/1/1937', 'DD/MM/YYYY'), to_date('2/1/1937', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 91, 54, to_date('4/9/2021', 'DD/MM/YYYY'), to_date('25/9/2021', 'DD/MM/YYYY'));
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 91, 133, to_date('12/3/1977', 'DD/MM/YYYY'), to_date('12/3/1977', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 81, 54, to_date('25/9/2021', 'DD/MM/YYYY'), NULL);
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 64, 134, to_date('6/9/1940', 'DD/MM/YYYY'), to_date('6/9/1940', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 45, 55, to_date('15/2/2021', 'DD/MM/YYYY'), to_date('26/3/2021', 'DD/MM/YYYY'));
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 64, 135, to_date('5/10/1988', 'DD/MM/YYYY'), to_date('5/10/1988', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 36, 55, to_date('26/3/2021', 'DD/MM/YYYY'), to_date('27/4/2021', 'DD/MM/YYYY'));
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 91, 135, to_date('17/7/1990', 'DD/MM/YYYY'), to_date('17/7/1990', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 92, 55, to_date('27/4/2021', 'DD/MM/YYYY'), to_date('19/6/2021', 'DD/MM/YYYY'));
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 129, 136, to_date('4/3/1936', 'DD/MM/YYYY'), to_date('4/3/1936', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 64, 55, to_date('19/6/2021', 'DD/MM/YYYY'), to_date('30/7/2021', 'DD/MM/YYYY'));
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 99, 136, to_date('12/9/1994', 'DD/MM/YYYY'), to_date('12/9/1994', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 31, 55, to_date('30/7/2021', 'DD/MM/YYYY'), to_date('4/9/2021', 'DD/MM/YYYY'));
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 108, 136, to_date('1/10/1986', 'DD/MM/YYYY'), to_date('1/10/1986', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 36, 55, to_date('4/9/2021', 'DD/MM/YYYY'), to_date('25/9/2021', 'DD/MM/YYYY'));
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 129, 137, to_date('22/1/2003', 'DD/MM/YYYY'), to_date('22/1/2003', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 126, 55, to_date('25/9/2021', 'DD/MM/YYYY'), NULL);
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 129, 138, to_date('14/3/1971', 'DD/MM/YYYY'), to_date('14/3/1971', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 45, 56, to_date('16/7/2021', 'DD/MM/YYYY'), to_date('13/8/2021', 'DD/MM/YYYY'));
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 129, 139, to_date('13/3/1950', 'DD/MM/YYYY'), to_date('13/3/1950', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 36, 56, to_date('13/8/2021', 'DD/MM/YYYY'), to_date('11/9/2021', 'DD/MM/YYYY'));
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 99, 139, to_date('1/7/1933', 'DD/MM/YYYY'), to_date('1/7/1933', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 92, 56, to_date('11/9/2021', 'DD/MM/YYYY'), NULL);
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 129, 140, to_date('15/9/1989', 'DD/MM/YYYY'), to_date('15/9/1989', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 86, 57, to_date('15/2/2021', 'DD/MM/YYYY'), to_date('3/4/2021', 'DD/MM/YYYY'));
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 99, 140, to_date('14/7/2019', 'DD/MM/YYYY'), to_date('14/7/2019', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 77, 57, to_date('3/4/2021', 'DD/MM/YYYY'), to_date('21/5/2021', 'DD/MM/YYYY'));
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 129, 141, to_date('10/4/2000', 'DD/MM/YYYY'), to_date('10/4/2000', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 74, 57, to_date('21/5/2021', 'DD/MM/YYYY'), to_date('19/6/2021', 'DD/MM/YYYY'));
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 99, 141, to_date('25/4/1992', 'DD/MM/YYYY'), to_date('25/4/1992', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 29, 57, to_date('19/6/2021', 'DD/MM/YYYY'), to_date('6/8/2021', 'DD/MM/YYYY'));
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 108, 141, to_date('22/1/1950', 'DD/MM/YYYY'), to_date('22/1/1950', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 64, 57, to_date('6/8/2021', 'DD/MM/YYYY'), to_date('11/9/2021', 'DD/MM/YYYY'));
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 129, 142, to_date('20/3/1932', 'DD/MM/YYYY'), to_date('20/3/1932', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 132, 57, to_date('11/9/2021', 'DD/MM/YYYY'), NULL);
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 129, 143, to_date('15/8/2001', 'DD/MM/YYYY'), to_date('15/8/2001', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 86, 58, to_date('9/7/2021', 'DD/MM/YYYY'), to_date('30/7/2021', 'DD/MM/YYYY'));
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 129, 144, to_date('4/6/2017', 'DD/MM/YYYY'), to_date('4/6/2017', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 77, 58, to_date('30/7/2021', 'DD/MM/YYYY'), to_date('27/8/2021', 'DD/MM/YYYY'));
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 99, 144, to_date('5/8/1955', 'DD/MM/YYYY'), to_date('5/8/1955', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 74, 58, to_date('27/8/2021', 'DD/MM/YYYY'), to_date('18/9/2021', 'DD/MM/YYYY'));
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 108, 144, to_date('12/5/2003', 'DD/MM/YYYY'), to_date('12/5/2003', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 29, 58, to_date('18/9/2021', 'DD/MM/YYYY'), NULL);
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 49, 145, to_date('22/10/1969', 'DD/MM/YYYY'), to_date('22/10/1969', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 15, 59, to_date('3/4/2021', 'DD/MM/YYYY'), to_date('14/5/2021', 'DD/MM/YYYY'));
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 49, 146, to_date('6/4/1987', 'DD/MM/YYYY'), to_date('6/4/1987', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 85, 59, to_date('14/5/2021', 'DD/MM/YYYY'), to_date('5/6/2021', 'DD/MM/YYYY'));
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 49, 147, to_date('6/1/1990', 'DD/MM/YYYY'), to_date('6/1/1990', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 133, 59, to_date('5/6/2021', 'DD/MM/YYYY'), to_date('26/6/2021', 'DD/MM/YYYY'));
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 18, 147, to_date('3/1/1935', 'DD/MM/YYYY'), to_date('3/1/1935', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 103, 59, to_date('26/6/2021', 'DD/MM/YYYY'), to_date('13/8/2021', 'DD/MM/YYYY'));
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 49, 148, to_date('22/3/1936', 'DD/MM/YYYY'), to_date('22/3/1936', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 115, 59, to_date('13/8/2021', 'DD/MM/YYYY'), to_date('11/9/2021', 'DD/MM/YYYY'));
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 18, 148, to_date('12/7/1947', 'DD/MM/YYYY'), to_date('12/7/1947', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 6, 59, to_date('11/9/2021', 'DD/MM/YYYY'), NULL);
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 76, 148, to_date('24/9/1968', 'DD/MM/YYYY'), to_date('24/9/1968', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 15, 60, to_date('25/02/2021', 'DD/MM/YYYY'), to_date('3/4/2021', 'DD/MM/YYYY'));
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 49, 149, to_date('19/7/1967', 'DD/MM/YYYY'), to_date('19/7/1967', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 85, 60, to_date('3/4/2021', 'DD/MM/YYYY'), to_date('21/5/2021', 'DD/MM/YYYY'));
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 18, 149, to_date('26/2/1992', 'DD/MM/YYYY'), to_date('26/2/1992', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 133, 60, to_date('21/5/2021', 'DD/MM/YYYY'), to_date('19/6/2021', 'DD/MM/YYYY'));
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 76, 149, to_date('3/3/1977', 'DD/MM/YYYY'), to_date('3/3/1977', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 103, 60, to_date('19/6/2021', 'DD/MM/YYYY'), to_date('9/7/2021', 'DD/MM/YYYY'));
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 49, 150, to_date('12/4/1974', 'DD/MM/YYYY'), to_date('12/4/1974', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 115, 60, to_date('9/7/2021', 'DD/MM/YYYY'), to_date('6/8/2021', 'DD/MM/YYYY'));
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 18, 150, to_date('1/2/1975', 'DD/MM/YYYY'), to_date('1/2/1975', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 6, 60, to_date('6/8/2021', 'DD/MM/YYYY'), to_date('18/9/2021', 'DD/MM/YYYY'));
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 76, 150, to_date('17/2/1948', 'DD/MM/YYYY'), to_date('17/2/1948', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 99, 60, to_date('18/9/2021', 'DD/MM/YYYY'), NULL);
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 49, 151, to_date('15/10/1921', 'DD/MM/YYYY'), to_date('15/10/1921', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 15, 61, to_date('14/5/2021', 'DD/MM/YYYY'), to_date('5/6/2021', 'DD/MM/YYYY'));
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 49, 152, to_date('18/3/1928', 'DD/MM/YYYY'), to_date('18/3/1928', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 85, 61, to_date('5/6/2021', 'DD/MM/YYYY'), to_date('26/6/2021', 'DD/MM/YYYY'));
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 18, 152, to_date('24/7/1964', 'DD/MM/YYYY'), to_date('24/7/1964', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 133, 61, to_date('26/6/2021', 'DD/MM/YYYY'), to_date('13/8/2021', 'DD/MM/YYYY'));
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 76, 152, to_date('16/9/1931', 'DD/MM/YYYY'), to_date('16/9/1931', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 103, 61, to_date('13/8/2021', 'DD/MM/YYYY'), to_date('18/9/2021', 'DD/MM/YYYY'));
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 114, 153, to_date('19/1/2002', 'DD/MM/YYYY'), to_date('19/1/2002', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 115, 61, to_date('18/9/2021', 'DD/MM/YYYY'), NULL);
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 26, 153, to_date('5/1/2008', 'DD/MM/YYYY'), to_date('5/1/2008', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 91, 62, to_date('22/2/2021', 'DD/MM/YYYY'), to_date('3/4/2021', 'DD/MM/YYYY'));
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 59, 153, to_date('11/5/1955', 'DD/MM/YYYY'), to_date('11/5/1955', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 53, 62, to_date('3/4/2021', 'DD/MM/YYYY'), to_date('24/4/2021', 'DD/MM/YYYY'));
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 114, 154, to_date('9/9/1920', 'DD/MM/YYYY'), to_date('9/9/1920', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 93, 62, to_date('24/4/2021', 'DD/MM/YYYY'), to_date('5/6/2021', 'DD/MM/YYYY'));
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 26, 154, to_date('21/9/2007', 'DD/MM/YYYY'), to_date('21/9/2007', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 2, 62, to_date('5/6/2021', 'DD/MM/YYYY'), to_date('2/7/2021', 'DD/MM/YYYY'));
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 114, 155, to_date('5/5/2019', 'DD/MM/YYYY'), to_date('5/5/2019', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 85, 62, to_date('2/7/2021', 'DD/MM/YYYY'), to_date('20/8/2021', 'DD/MM/YYYY'));
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 26, 155, to_date('1/10/2006', 'DD/MM/YYYY'), to_date('1/10/2006', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 37, 62, to_date('20/8/2021', 'DD/MM/YYYY'), to_date('25/9/2021', 'DD/MM/YYYY'));
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 114, 156, to_date('3/1/1957', 'DD/MM/YYYY'), to_date('3/1/1957', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 15, 62, to_date('25/9/2021', 'DD/MM/YYYY'), NULL);
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 26, 156, to_date('13/6/1971', 'DD/MM/YYYY'), to_date('13/6/1971', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 91, 63, to_date('6/8/2021', 'DD/MM/YYYY'), to_date('27/8/2021', 'DD/MM/YYYY'));
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 114, 157, to_date('16/7/1932', 'DD/MM/YYYY'), to_date('16/7/1932', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 53, 63, to_date('27/8/2021', 'DD/MM/YYYY'), to_date('18/9/2021', 'DD/MM/YYYY'));
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 26, 157, to_date('13/5/1939', 'DD/MM/YYYY'), to_date('13/5/1939', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 93, 63, to_date('18/9/2021', 'DD/MM/YYYY'), NULL);
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 19, 158, to_date('18/5/1992', 'DD/MM/YYYY'), to_date('18/5/1992', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 91, 64, to_date('21/5/2021', 'DD/MM/YYYY'), to_date('19/6/2021', 'DD/MM/YYYY'));
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 10, 158, to_date('14/3/1980', 'DD/MM/YYYY'), to_date('14/3/1980', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 53, 64, to_date('19/6/2021', 'DD/MM/YYYY'), to_date('30/7/2021', 'DD/MM/YYYY'));
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 122, 159, to_date('7/8/1988', 'DD/MM/YYYY'), to_date('7/8/1988', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 93, 64, to_date('30/7/2021', 'DD/MM/YYYY'), to_date('18/9/2021', 'DD/MM/YYYY'));
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 123, 159, to_date('14/3/2013', 'DD/MM/YYYY'), to_date('14/3/2013', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 2, 64, to_date('18/9/2021', 'DD/MM/YYYY'), NULL);
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 69, 159, to_date('4/2/2006', 'DD/MM/YYYY'), to_date('4/2/2006', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 91, 65, to_date('5/3/2021', 'DD/MM/YYYY'), to_date('3/4/2021', 'DD/MM/YYYY'));
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 122, 160, to_date('21/1/1980', 'DD/MM/YYYY'), to_date('21/1/1980', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 53, 65, to_date('3/4/2021', 'DD/MM/YYYY'), to_date('7/5/2021', 'DD/MM/YYYY'));
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 122, 161, to_date('17/3/1981', 'DD/MM/YYYY'), to_date('17/3/1981', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 93, 65, to_date('7/5/2021', 'DD/MM/YYYY'), to_date('26/6/2021', 'DD/MM/YYYY'));
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 123, 161, to_date('2/1/1924', 'DD/MM/YYYY'), to_date('2/1/1924', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 2, 65, to_date('26/6/2021', 'DD/MM/YYYY'), to_date('23/7/2021', 'DD/MM/YYYY'));
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 69, 161, to_date('5/3/2007', 'DD/MM/YYYY'), to_date('5/3/2007', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 85, 65, to_date('23/7/2021', 'DD/MM/YYYY'), to_date('13/8/2021', 'DD/MM/YYYY'));
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 122, 162, to_date('3/4/1960', 'DD/MM/YYYY'), to_date('3/4/1960', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 37, 65, to_date('13/8/2021', 'DD/MM/YYYY'), to_date('25/9/2021', 'DD/MM/YYYY'));
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 123, 162, to_date('23/3/1938', 'DD/MM/YYYY'), to_date('23/3/1938', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 15, 65, to_date('25/9/2021', 'DD/MM/YYYY'), NULL);
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 122, 163, to_date('6/9/1960', 'DD/MM/YYYY'), to_date('6/9/1960', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 20, 66, to_date('24/4/2021', 'DD/MM/YYYY'), to_date('21/5/2021', 'DD/MM/YYYY'));
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 122, 164, to_date('22/1/1987', 'DD/MM/YYYY'), to_date('22/1/1987', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 69, 66, to_date('21/5/2021', 'DD/MM/YYYY'), to_date('12/6/2021', 'DD/MM/YYYY'));
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 123, 164, to_date('23/3/1965', 'DD/MM/YYYY'), to_date('23/3/1965', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 15, 66, to_date('12/6/2021', 'DD/MM/YYYY'), to_date('2/7/2021', 'DD/MM/YYYY'));
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 122, 165, to_date('17/1/1986', 'DD/MM/YYYY'), to_date('17/1/1986', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 84, 66, to_date('2/7/2021', 'DD/MM/YYYY'), to_date('23/7/2021', 'DD/MM/YYYY'));
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 123, 165, to_date('25/4/1959', 'DD/MM/YYYY'), to_date('25/4/1959', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 21, 66, to_date('23/7/2021', 'DD/MM/YYYY'), to_date('20/8/2021', 'DD/MM/YYYY'));
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 69, 165, to_date('5/6/1931', 'DD/MM/YYYY'), to_date('5/6/1931', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 40, 66, to_date('20/8/2021', 'DD/MM/YYYY'), to_date('11/9/2021', 'DD/MM/YYYY'));
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 122, 166, to_date('20/7/1920', 'DD/MM/YYYY'), to_date('20/7/1920', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 20, 66, to_date('11/9/2021', 'DD/MM/YYYY'), NULL);
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 123, 166, to_date('4/6/1980', 'DD/MM/YYYY'), to_date('4/6/1980', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 20, 67, to_date('12/6/2021', 'DD/MM/YYYY'), to_date('9/7/2021', 'DD/MM/YYYY'));
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 52, 167, to_date('6/5/1974', 'DD/MM/YYYY'), to_date('6/5/1974', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 69, 67, to_date('9/7/2021', 'DD/MM/YYYY'), to_date('6/8/2021', 'DD/MM/YYYY'));
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 52, 168, to_date('11/1/1922', 'DD/MM/YYYY'), to_date('11/1/1922', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 15, 67, to_date('6/8/2021', 'DD/MM/YYYY'), to_date('27/8/2021', 'DD/MM/YYYY'));
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 131, 168, to_date('20/6/1991', 'DD/MM/YYYY'), to_date('20/6/1991', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 84, 67, to_date('27/8/2021', 'DD/MM/YYYY'), NULL);
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 29, 168, to_date('9/6/1931', 'DD/MM/YYYY'), to_date('9/6/1931', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 20, 68, to_date('21/5/2021', 'DD/MM/YYYY'), to_date('9/7/2021', 'DD/MM/YYYY'));
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 52, 169, to_date('11/4/1931', 'DD/MM/YYYY'), to_date('11/4/1931', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 69, 68, to_date('9/7/2021', 'DD/MM/YYYY'), to_date('30/7/2021', 'DD/MM/YYYY'));
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 52, 170, to_date('25/2/1961', 'DD/MM/YYYY'), to_date('25/2/1961', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 15, 68, to_date('30/7/2021', 'DD/MM/YYYY'), to_date('4/9/2021', 'DD/MM/YYYY'));
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 131, 170, to_date('21/8/1997', 'DD/MM/YYYY'), to_date('21/8/1997', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 84, 68, to_date('4/9/2021', 'DD/MM/YYYY'), to_date('25/9/2021', 'DD/MM/YYYY'));
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 29, 170, to_date('21/5/1961', 'DD/MM/YYYY'), to_date('21/5/1961', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 21, 68, to_date('25/9/2021', 'DD/MM/YYYY'), NULL);
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 52, 171, to_date('3/9/1921', 'DD/MM/YYYY'), to_date('3/9/1921', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 20, 69, to_date('19/6/2021', 'DD/MM/YYYY'), to_date('9/7/2021', 'DD/MM/YYYY'));
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 131, 171, to_date('23/1/1941', 'DD/MM/YYYY'), to_date('23/1/1941', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 69, 69, to_date('9/7/2021', 'DD/MM/YYYY'), to_date('30/7/2021', 'DD/MM/YYYY'));
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 29, 171, to_date('20/10/1927', 'DD/MM/YYYY'), to_date('20/10/1927', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 15, 69, to_date('30/7/2021', 'DD/MM/YYYY'), to_date('11/9/2021', 'DD/MM/YYYY'));
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 52, 172, to_date('13/3/1930', 'DD/MM/YYYY'), to_date('13/3/1930', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 84, 69, to_date('11/9/2021', 'DD/MM/YYYY'), NULL);
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 131, 172, to_date('26/7/1948', 'DD/MM/YYYY'), to_date('26/7/1948', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 20, 70, to_date('8/2/2021', 'DD/MM/YYYY'), to_date('5/3/2021', 'DD/MM/YYYY'));
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 29, 172, to_date('23/8/1935', 'DD/MM/YYYY'), to_date('23/8/1935', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 69, 70, to_date('5/3/2021', 'DD/MM/YYYY'), to_date('17/4/2021', 'DD/MM/YYYY'));
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 52, 173, to_date('14/10/1927', 'DD/MM/YYYY'), to_date('14/10/1927', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 15, 70, to_date('17/4/2021', 'DD/MM/YYYY'), to_date('5/6/2021', 'DD/MM/YYYY'));
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 131, 173, to_date('3/8/2000', 'DD/MM/YYYY'), to_date('3/8/2000', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 84, 70, to_date('5/6/2021', 'DD/MM/YYYY'), to_date('26/6/2021', 'DD/MM/YYYY'));
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 52, 174, to_date('26/2/1998', 'DD/MM/YYYY'), to_date('26/2/1998', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 21, 70, to_date('26/6/2021', 'DD/MM/YYYY'), to_date('6/8/2021', 'DD/MM/YYYY'));
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 131, 174, to_date('3/9/1985', 'DD/MM/YYYY'), to_date('3/9/1985', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 40, 70, to_date('6/8/2021', 'DD/MM/YYYY'), to_date('4/9/2021', 'DD/MM/YYYY'));
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 29, 174, to_date('8/7/1927', 'DD/MM/YYYY'), to_date('8/7/1927', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 20, 70, to_date('4/9/2021', 'DD/MM/YYYY'), NULL);
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 108, 175, to_date('23/4/1932', 'DD/MM/YYYY'), to_date('23/4/1932', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 76, 71, to_date('5/6/2021', 'DD/MM/YYYY'), to_date('23/7/2021', 'DD/MM/YYYY'));
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 43, 175, to_date('23/2/1969', 'DD/MM/YYYY'), to_date('23/2/1969', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 45, 71, to_date('23/7/2021', 'DD/MM/YYYY'), to_date('11/9/2021', 'DD/MM/YYYY'));
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 58, 175, to_date('1/6/1980', 'DD/MM/YYYY'), to_date('1/6/1980', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 77, 71, to_date('11/9/2021', 'DD/MM/YYYY'), NULL);
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 108, 176, to_date('2/1/2010', 'DD/MM/YYYY'), to_date('2/1/2010', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 76, 72, to_date('21/5/2021', 'DD/MM/YYYY'), to_date('26/6/2021', 'DD/MM/YYYY'));
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 43, 176, to_date('5/2/1983', 'DD/MM/YYYY'), to_date('5/2/1983', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 45, 72, to_date('26/6/2021', 'DD/MM/YYYY'), to_date('30/7/2021', 'DD/MM/YYYY'));
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 108, 177, to_date('12/8/2005', 'DD/MM/YYYY'), to_date('12/8/2005', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 77, 72, to_date('30/7/2021', 'DD/MM/YYYY'), to_date('27/8/2021', 'DD/MM/YYYY'));
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 43, 177, to_date('25/1/1939', 'DD/MM/YYYY'), to_date('25/1/1939', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 80, 72, to_date('27/8/2021', 'DD/MM/YYYY'), NULL);
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 108, 178, to_date('20/1/1989', 'DD/MM/YYYY'), to_date('20/1/1989', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 76, 73, to_date('12/3/2021', 'DD/MM/YYYY'), to_date('24/4/2021', 'DD/MM/YYYY'));
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 43, 178, to_date('2/4/2000', 'DD/MM/YYYY'), to_date('2/4/2000', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 45, 73, to_date('24/4/2021', 'DD/MM/YYYY'), to_date('28/5/2021', 'DD/MM/YYYY'));
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 108, 179, to_date('23/1/1969', 'DD/MM/YYYY'), to_date('23/1/1969', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 77, 73, to_date('28/5/2021', 'DD/MM/YYYY'), to_date('16/7/2021', 'DD/MM/YYYY'));
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 108, 180, to_date('19/4/1933', 'DD/MM/YYYY'), to_date('19/4/1933', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 80, 73, to_date('16/7/2021', 'DD/MM/YYYY'), to_date('20/8/2021', 'DD/MM/YYYY'));
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 88, 181, to_date('22/4/2017', 'DD/MM/YYYY'), to_date('22/4/2017', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 102, 73, to_date('20/8/2021', 'DD/MM/YYYY'), to_date('18/9/2021', 'DD/MM/YYYY'));
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 131, 181, to_date('3/5/1925', 'DD/MM/YYYY'), to_date('3/5/1925', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 134, 73, to_date('18/9/2021', 'DD/MM/YYYY'), NULL);
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 18, 182, to_date('25/2/1998', 'DD/MM/YYYY'), to_date('25/2/1998', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 6, 74, to_date('1/2/2021', 'DD/MM/YYYY'), to_date('19/3/2021', 'DD/MM/YYYY'));
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 3, 182, to_date('16/1/1944', 'DD/MM/YYYY'), to_date('16/1/1944', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 125, 74, to_date('19/3/2021', 'DD/MM/YYYY'), to_date('17/4/2021', 'DD/MM/YYYY'));
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 49, 182, to_date('20/8/1952', 'DD/MM/YYYY'), to_date('20/8/1952', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 103, 74, to_date('17/4/2021', 'DD/MM/YYYY'), to_date('28/5/2021', 'DD/MM/YYYY'));
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 18, 183, to_date('8/10/1944', 'DD/MM/YYYY'), to_date('8/10/1944', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 32, 74, to_date('28/5/2021', 'DD/MM/YYYY'), to_date('26/6/2021', 'DD/MM/YYYY'));
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 3, 183, to_date('8/6/1929', 'DD/MM/YYYY'), to_date('8/6/1929', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 28, 74, to_date('26/6/2021', 'DD/MM/YYYY'), to_date('30/7/2021', 'DD/MM/YYYY'));
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 49, 183, to_date('17/1/1980', 'DD/MM/YYYY'), to_date('17/1/1980', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 93, 74, to_date('30/7/2021', 'DD/MM/YYYY'), to_date('4/9/2021', 'DD/MM/YYYY'));
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 18, 184, to_date('1/4/1985', 'DD/MM/YYYY'), to_date('1/4/1985', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 35, 74, to_date('4/9/2021', 'DD/MM/YYYY'), NULL);
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 3, 184, to_date('11/10/2013', 'DD/MM/YYYY'), to_date('11/10/2013', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 6, 75, to_date('2/7/2021', 'DD/MM/YYYY'), to_date('23/7/2021', 'DD/MM/YYYY'));
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 49, 184, to_date('4/9/2011', 'DD/MM/YYYY'), to_date('4/9/2011', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 125, 75, to_date('23/7/2021', 'DD/MM/YYYY'), to_date('13/8/2021', 'DD/MM/YYYY'));
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 18, 185, to_date('6/8/2000', 'DD/MM/YYYY'), to_date('6/8/2000', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 103, 75, to_date('13/8/2021', 'DD/MM/YYYY'), to_date('18/9/2021', 'DD/MM/YYYY'));
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 18, 186, to_date('18/7/1980', 'DD/MM/YYYY'), to_date('18/7/1980', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 32, 75, to_date('18/9/2021', 'DD/MM/YYYY'), NULL);
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 3, 186, to_date('8/7/1989', 'DD/MM/YYYY'), to_date('8/7/1989', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 6, 76, to_date('1/2/2021', 'DD/MM/YYYY'), to_date('25/02/2021', 'DD/MM/YYYY'));
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 18, 187, to_date('25/1/2003', 'DD/MM/YYYY'), to_date('25/1/2003', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 125, 76, to_date('25/02/2021', 'DD/MM/YYYY'), to_date('10/4/2021', 'DD/MM/YYYY'));
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 3, 187, to_date('20/9/1954', 'DD/MM/YYYY'), to_date('20/9/1954', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 103, 76, to_date('10/4/2021', 'DD/MM/YYYY'), to_date('28/5/2021', 'DD/MM/YYYY'));
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 49, 187, to_date('6/5/1936', 'DD/MM/YYYY'), to_date('6/5/1936', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 32, 76, to_date('28/5/2021', 'DD/MM/YYYY'), to_date('26/6/2021', 'DD/MM/YYYY'));
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 18, 188, to_date('3/1/1953', 'DD/MM/YYYY'), to_date('3/1/1953', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 28, 76, to_date('26/6/2021', 'DD/MM/YYYY'), to_date('6/8/2021', 'DD/MM/YYYY'));
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 18, 189, to_date('14/8/1975', 'DD/MM/YYYY'), to_date('14/8/1975', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 93, 76, to_date('6/8/2021', 'DD/MM/YYYY'), to_date('4/9/2021', 'DD/MM/YYYY'));
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 93, 190, to_date('5/4/1965', 'DD/MM/YYYY'), to_date('5/4/1965', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 35, 76, to_date('4/9/2021', 'DD/MM/YYYY'), NULL);
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 107, 190, to_date('9/7/1935', 'DD/MM/YYYY'), to_date('9/7/1935', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 6, 77, to_date('5/6/2021', 'DD/MM/YYYY'), to_date('9/7/2021', 'DD/MM/YYYY'));
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 10, 190, to_date('19/2/1932', 'DD/MM/YYYY'), to_date('19/2/1932', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 125, 77, to_date('9/7/2021', 'DD/MM/YYYY'), to_date('6/8/2021', 'DD/MM/YYYY'));
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 93, 191, to_date('16/7/1981', 'DD/MM/YYYY'), to_date('16/7/1981', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 103, 77, to_date('6/8/2021', 'DD/MM/YYYY'), to_date('4/9/2021', 'DD/MM/YYYY'));
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 93, 192, to_date('14/1/1922', 'DD/MM/YYYY'), to_date('14/1/1922', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 32, 77, to_date('4/9/2021', 'DD/MM/YYYY'), NULL);
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 107, 192, to_date('10/1/1977', 'DD/MM/YYYY'), to_date('10/1/1977', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 6, 78, to_date('7/5/2021', 'DD/MM/YYYY'), to_date('28/5/2021', 'DD/MM/YYYY'));
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 10, 192, to_date('6/7/1969', 'DD/MM/YYYY'), to_date('6/7/1969', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 125, 78, to_date('28/5/2021', 'DD/MM/YYYY'), to_date('26/6/2021', 'DD/MM/YYYY'));
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 93, 193, to_date('15/10/1941', 'DD/MM/YYYY'), to_date('15/10/1941', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 103, 78, to_date('26/6/2021', 'DD/MM/YYYY'), to_date('6/8/2021', 'DD/MM/YYYY'));
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 107, 193, to_date('14/1/1921', 'DD/MM/YYYY'), to_date('14/1/1921', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 32, 78, to_date('6/8/2021', 'DD/MM/YYYY'), to_date('27/8/2021', 'DD/MM/YYYY'));
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 10, 193, to_date('2/3/1971', 'DD/MM/YYYY'), to_date('2/3/1971', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 28, 78, to_date('27/8/2021', 'DD/MM/YYYY'), NULL);
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 93, 194, to_date('23/1/2013', 'DD/MM/YYYY'), to_date('23/1/2013', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 81, 79, to_date('22/1/2021', 'DD/MM/YYYY'), to_date('12/3/2021', 'DD/MM/YYYY'));
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 107, 194, to_date('10/1/1935', 'DD/MM/YYYY'), to_date('10/1/1935', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 93, 79, to_date('12/3/2021', 'DD/MM/YYYY'), to_date('24/4/2021', 'DD/MM/YYYY'));
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 93, 195, to_date('11/2/1934', 'DD/MM/YYYY'), to_date('11/2/1934', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 55, 79, to_date('24/4/2021', 'DD/MM/YYYY'), to_date('5/6/2021', 'DD/MM/YYYY'));
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 93, 196, to_date('7/8/1936', 'DD/MM/YYYY'), to_date('7/8/1936', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 49, 79, to_date('5/6/2021', 'DD/MM/YYYY'), to_date('23/7/2021', 'DD/MM/YYYY'));
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 107, 196, to_date('5/3/1942', 'DD/MM/YYYY'), to_date('5/3/1942', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 34, 79, to_date('23/7/2021', 'DD/MM/YYYY'), to_date('11/9/2021', 'DD/MM/YYYY'));
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 93, 197, to_date('15/1/1976', 'DD/MM/YYYY'), to_date('15/1/1976', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 128, 79, to_date('11/9/2021', 'DD/MM/YYYY'), NULL);
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 107, 197, to_date('4/1/1947', 'DD/MM/YYYY'), to_date('4/1/1947', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 81, 80, to_date('1/2/2021', 'DD/MM/YYYY'), to_date('19/3/2021', 'DD/MM/YYYY'));
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 115, 198, to_date('12/8/2014', 'DD/MM/YYYY'), to_date('12/8/2014', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 93, 80, to_date('19/3/2021', 'DD/MM/YYYY'), to_date('24/4/2021', 'DD/MM/YYYY'));
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 68, 198, to_date('5/9/1928', 'DD/MM/YYYY'), to_date('5/9/1928', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 55, 80, to_date('24/4/2021', 'DD/MM/YYYY'), to_date('14/5/2021', 'DD/MM/YYYY'));
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 69, 198, to_date('10/8/1930', 'DD/MM/YYYY'), to_date('10/8/1930', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 49, 80, to_date('14/5/2021', 'DD/MM/YYYY'), to_date('26/6/2021', 'DD/MM/YYYY'));
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 115, 199, to_date('16/10/1962', 'DD/MM/YYYY'), to_date('16/10/1962', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 34, 80, to_date('26/6/2021', 'DD/MM/YYYY'), to_date('6/8/2021', 'DD/MM/YYYY'));
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 68, 199, to_date('2/5/1922', 'DD/MM/YYYY'), to_date('2/5/1922', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 128, 80, to_date('6/8/2021', 'DD/MM/YYYY'), to_date('25/9/2021', 'DD/MM/YYYY'));
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 115, 200, to_date('4/4/1980', 'DD/MM/YYYY'), to_date('4/4/1980', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 52, 80, to_date('25/9/2021', 'DD/MM/YYYY'), NULL);
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 68, 200, to_date('7/4/1962', 'DD/MM/YYYY'), to_date('7/4/1962', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 81, 81, to_date('23/7/2021', 'DD/MM/YYYY'), to_date('27/8/2021', 'DD/MM/YYYY'));
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 136, 201, to_date('26/7/1957', 'DD/MM/YYYY'), to_date('26/7/1957', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 93, 81, to_date('27/8/2021', 'DD/MM/YYYY'), to_date('18/9/2021', 'DD/MM/YYYY'));
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 136, 202, to_date('6/9/1957', 'DD/MM/YYYY'), to_date('6/9/1957', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 55, 81, to_date('18/9/2021', 'DD/MM/YYYY'), NULL);
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 82, 202, to_date('18/4/1976', 'DD/MM/YYYY'), to_date('18/4/1976', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 81, 82, to_date('28/5/2021', 'DD/MM/YYYY'), to_date('2/7/2021', 'DD/MM/YYYY'));
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 109, 202, to_date('19/7/1968', 'DD/MM/YYYY'), to_date('19/7/1968', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 93, 82, to_date('2/7/2021', 'DD/MM/YYYY'), to_date('6/8/2021', 'DD/MM/YYYY'));
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 136, 203, to_date('5/7/1947', 'DD/MM/YYYY'), to_date('5/7/1947', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 55, 82, to_date('6/8/2021', 'DD/MM/YYYY'), to_date('27/8/2021', 'DD/MM/YYYY'));
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 82, 203, to_date('18/1/2001', 'DD/MM/YYYY'), to_date('18/1/2001', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 49, 82, to_date('27/8/2021', 'DD/MM/YYYY'), NULL);
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 136, 204, to_date('25/6/1993', 'DD/MM/YYYY'), to_date('25/6/1993', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 109, 83, to_date('9/7/2021', 'DD/MM/YYYY'), to_date('6/8/2021', 'DD/MM/YYYY'));
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 82, 204, to_date('4/9/1989', 'DD/MM/YYYY'), to_date('4/9/1989', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 114, 83, to_date('6/8/2021', 'DD/MM/YYYY'), to_date('11/9/2021', 'DD/MM/YYYY'));
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 136, 205, to_date('13/7/2009', 'DD/MM/YYYY'), to_date('13/7/2009', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 131, 83, to_date('11/9/2021', 'DD/MM/YYYY'), NULL);
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 82, 205, to_date('26/4/2008', 'DD/MM/YYYY'), to_date('26/4/2008', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 109, 84, to_date('27/4/2021', 'DD/MM/YYYY'), to_date('12/6/2021', 'DD/MM/YYYY'));
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 109, 205, to_date('12/3/2004', 'DD/MM/YYYY'), to_date('12/3/2004', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 114, 84, to_date('12/6/2021', 'DD/MM/YYYY'), to_date('9/7/2021', 'DD/MM/YYYY'));
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 136, 206, to_date('24/4/1955', 'DD/MM/YYYY'), to_date('24/4/1955', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 131, 84, to_date('9/7/2021', 'DD/MM/YYYY'), to_date('13/8/2021', 'DD/MM/YYYY'));
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 82, 206, to_date('13/4/2016', 'DD/MM/YYYY'), to_date('13/4/2016', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 74, 84, to_date('13/8/2021', 'DD/MM/YYYY'), to_date('4/9/2021', 'DD/MM/YYYY'));
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 136, 207, to_date('19/2/1942', 'DD/MM/YYYY'), to_date('19/2/1942', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 125, 84, to_date('4/9/2021', 'DD/MM/YYYY'), NULL);
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 82, 207, to_date('25/6/1994', 'DD/MM/YYYY'), to_date('25/6/1994', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 109, 85, to_date('28/5/2021', 'DD/MM/YYYY'), to_date('2/7/2021', 'DD/MM/YYYY'));
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 109, 207, to_date('14/9/2016', 'DD/MM/YYYY'), to_date('14/9/2016', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 114, 85, to_date('2/7/2021', 'DD/MM/YYYY'), to_date('13/8/2021', 'DD/MM/YYYY'));
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 136, 208, to_date('20/5/1920', 'DD/MM/YYYY'), to_date('20/5/1920', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 131, 85, to_date('13/8/2021', 'DD/MM/YYYY'), to_date('11/9/2021', 'DD/MM/YYYY'));
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 82, 208, to_date('9/4/1921', 'DD/MM/YYYY'), to_date('9/4/1921', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 74, 85, to_date('11/9/2021', 'DD/MM/YYYY'), NULL);
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 136, 209, to_date('26/6/1978', 'DD/MM/YYYY'), to_date('26/6/1978', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 109, 86, to_date('9/7/2021', 'DD/MM/YYYY'), to_date('13/8/2021', 'DD/MM/YYYY'));
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 82, 209, to_date('3/9/1967', 'DD/MM/YYYY'), to_date('3/9/1967', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 114, 86, to_date('13/8/2021', 'DD/MM/YYYY'), to_date('4/9/2021', 'DD/MM/YYYY'));
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 109, 209, to_date('14/3/1975', 'DD/MM/YYYY'), to_date('14/3/1975', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 131, 86, to_date('4/9/2021', 'DD/MM/YYYY'), NULL);
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 136, 210, to_date('21/7/1977', 'DD/MM/YYYY'), to_date('21/7/1977', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 124, 87, to_date('19/6/2021', 'DD/MM/YYYY'), to_date('9/7/2021', 'DD/MM/YYYY'));
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 136, 211, to_date('13/1/1923', 'DD/MM/YYYY'), to_date('13/1/1923', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 77, 87, to_date('9/7/2021', 'DD/MM/YYYY'), to_date('6/8/2021', 'DD/MM/YYYY'));
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 65, 212, to_date('2/10/1945', 'DD/MM/YYYY'), to_date('2/10/1945', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 27, 87, to_date('6/8/2021', 'DD/MM/YYYY'), to_date('27/8/2021', 'DD/MM/YYYY'));
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 90, 212, to_date('21/6/2005', 'DD/MM/YYYY'), to_date('21/6/2005', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 110, 87, to_date('27/8/2021', 'DD/MM/YYYY'), NULL);
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 65, 213, to_date('5/4/1964', 'DD/MM/YYYY'), to_date('5/4/1964', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 124, 88, to_date('25/02/2021', 'DD/MM/YYYY'), to_date('26/3/2021', 'DD/MM/YYYY'));
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 90, 213, to_date('11/3/2010', 'DD/MM/YYYY'), to_date('11/3/2010', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 77, 88, to_date('26/3/2021', 'DD/MM/YYYY'), to_date('7/5/2021', 'DD/MM/YYYY'));
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 40, 213, to_date('9/9/1955', 'DD/MM/YYYY'), to_date('9/9/1955', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 27, 88, to_date('7/5/2021', 'DD/MM/YYYY'), to_date('28/5/2021', 'DD/MM/YYYY'));
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 65, 214, to_date('11/5/1970', 'DD/MM/YYYY'), to_date('11/5/1970', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 110, 88, to_date('28/5/2021', 'DD/MM/YYYY'), to_date('26/6/2021', 'DD/MM/YYYY'));
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 90, 214, to_date('3/8/1928', 'DD/MM/YYYY'), to_date('3/8/1928', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 69, 88, to_date('26/6/2021', 'DD/MM/YYYY'), to_date('23/7/2021', 'DD/MM/YYYY'));
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 40, 214, to_date('20/9/2007', 'DD/MM/YYYY'), to_date('20/9/2007', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 19, 88, to_date('23/7/2021', 'DD/MM/YYYY'), to_date('27/8/2021', 'DD/MM/YYYY'));
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 65, 215, to_date('24/7/1952', 'DD/MM/YYYY'), to_date('24/7/1952', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 129, 88, to_date('27/8/2021', 'DD/MM/YYYY'), NULL);
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 90, 215, to_date('24/10/1993', 'DD/MM/YYYY'), to_date('24/10/1993', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 124, 89, to_date('7/5/2021', 'DD/MM/YYYY'), to_date('19/6/2021', 'DD/MM/YYYY'));
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 65, 216, to_date('18/9/1970', 'DD/MM/YYYY'), to_date('18/9/1970', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 77, 89, to_date('19/6/2021', 'DD/MM/YYYY'), to_date('23/7/2021', 'DD/MM/YYYY'));
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 65, 217, to_date('10/8/1979', 'DD/MM/YYYY'), to_date('10/8/1979', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 27, 89, to_date('23/7/2021', 'DD/MM/YYYY'), to_date('13/8/2021', 'DD/MM/YYYY'));
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 90, 217, to_date('25/8/1949', 'DD/MM/YYYY'), to_date('25/8/1949', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 110, 89, to_date('13/8/2021', 'DD/MM/YYYY'), to_date('25/9/2021', 'DD/MM/YYYY'));
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 65, 218, to_date('5/1/1933', 'DD/MM/YYYY'), to_date('5/1/1933', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 69, 89, to_date('25/9/2021', 'DD/MM/YYYY'), NULL);
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 90, 218, to_date('10/1/1956', 'DD/MM/YYYY'), to_date('10/1/1956', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 124, 90, to_date('12/3/2021', 'DD/MM/YYYY'), to_date('10/4/2021', 'DD/MM/YYYY'));
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 65, 219, to_date('19/7/1937', 'DD/MM/YYYY'), to_date('19/7/1937', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 77, 90, to_date('10/4/2021', 'DD/MM/YYYY'), to_date('27/4/2021', 'DD/MM/YYYY'));
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 90, 219, to_date('4/6/1952', 'DD/MM/YYYY'), to_date('4/6/1952', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 27, 90, to_date('27/4/2021', 'DD/MM/YYYY'), to_date('28/5/2021', 'DD/MM/YYYY'));
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 65, 220, to_date('15/1/1991', 'DD/MM/YYYY'), to_date('15/1/1991', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 110, 90, to_date('28/5/2021', 'DD/MM/YYYY'), to_date('9/7/2021', 'DD/MM/YYYY'));
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 90, 220, to_date('5/3/1953', 'DD/MM/YYYY'), to_date('5/3/1953', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 69, 90, to_date('9/7/2021', 'DD/MM/YYYY'), to_date('27/8/2021', 'DD/MM/YYYY'));
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 65, 221, to_date('23/4/1920', 'DD/MM/YYYY'), to_date('23/4/1920', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 19, 90, to_date('27/8/2021', 'DD/MM/YYYY'), NULL);
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 65, 222, to_date('26/9/1946', 'DD/MM/YYYY'), to_date('26/9/1946', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 53, 91, to_date('15/2/2021', 'DD/MM/YYYY'), to_date('3/4/2021', 'DD/MM/YYYY'));
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 5, 223, to_date('7/8/1986', 'DD/MM/YYYY'), to_date('7/8/1986', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 85, 91, to_date('3/4/2021', 'DD/MM/YYYY'), to_date('24/4/2021', 'DD/MM/YYYY'));
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 5, 224, to_date('25/9/2006', 'DD/MM/YYYY'), to_date('25/9/2006', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 85, 91, to_date('24/4/2021', 'DD/MM/YYYY'), to_date('5/6/2021', 'DD/MM/YYYY'));
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 5, 225, to_date('24/4/1972', 'DD/MM/YYYY'), to_date('24/4/1972', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 120, 91, to_date('5/6/2021', 'DD/MM/YYYY'), to_date('9/7/2021', 'DD/MM/YYYY'));
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 5, 226, to_date('7/4/2007', 'DD/MM/YYYY'), to_date('7/4/2007', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 110, 91, to_date('9/7/2021', 'DD/MM/YYYY'), to_date('27/8/2021', 'DD/MM/YYYY'));
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 66, 226, to_date('12/5/1957', 'DD/MM/YYYY'), to_date('12/5/1957', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 109, 91, to_date('27/8/2021', 'DD/MM/YYYY'), NULL);
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 5, 227, to_date('22/6/1945', 'DD/MM/YYYY'), to_date('22/6/1945', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 53, 92, to_date('10/4/2021', 'DD/MM/YYYY'), to_date('27/4/2021', 'DD/MM/YYYY'));
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 66, 227, to_date('7/4/1927', 'DD/MM/YYYY'), to_date('7/4/1927', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 85, 92, to_date('27/4/2021', 'DD/MM/YYYY'), to_date('19/6/2021', 'DD/MM/YYYY'));
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 5, 228, to_date('13/9/2009', 'DD/MM/YYYY'), to_date('13/9/2009', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 85, 92, to_date('19/6/2021', 'DD/MM/YYYY'), to_date('6/8/2021', 'DD/MM/YYYY'));
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 66, 228, to_date('8/1/2008', 'DD/MM/YYYY'), to_date('8/1/2008', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 120, 92, to_date('6/8/2021', 'DD/MM/YYYY'), to_date('25/9/2021', 'DD/MM/YYYY'));
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 128, 228, to_date('21/1/1998', 'DD/MM/YYYY'), to_date('21/1/1998', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 110, 92, to_date('25/9/2021', 'DD/MM/YYYY'), NULL);
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 5, 229, to_date('14/4/1925', 'DD/MM/YYYY'), to_date('14/4/1925', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 53, 93, to_date('10/4/2021', 'DD/MM/YYYY'), to_date('27/4/2021', 'DD/MM/YYYY'));
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 5, 230, to_date('16/8/1951', 'DD/MM/YYYY'), to_date('16/8/1951', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 85, 93, to_date('27/4/2021', 'DD/MM/YYYY'), to_date('12/6/2021', 'DD/MM/YYYY'));
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 5, 231, to_date('13/10/1933', 'DD/MM/YYYY'), to_date('13/10/1933', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 85, 93, to_date('12/6/2021', 'DD/MM/YYYY'), to_date('23/7/2021', 'DD/MM/YYYY'));
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 66, 231, to_date('4/2/1943', 'DD/MM/YYYY'), to_date('4/2/1943', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 120, 93, to_date('23/7/2021', 'DD/MM/YYYY'), to_date('4/9/2021', 'DD/MM/YYYY'));
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 128, 231, to_date('6/3/1979', 'DD/MM/YYYY'), to_date('6/3/1979', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 110, 93, to_date('4/9/2021', 'DD/MM/YYYY'), NULL);
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 5, 232, to_date('15/4/1924', 'DD/MM/YYYY'), to_date('15/4/1924', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 53, 94, to_date('21/5/2021', 'DD/MM/YYYY'), to_date('19/6/2021', 'DD/MM/YYYY'));
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 66, 232, to_date('12/10/1968', 'DD/MM/YYYY'), to_date('12/10/1968', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 85, 94, to_date('19/6/2021', 'DD/MM/YYYY'), to_date('30/7/2021', 'DD/MM/YYYY'));
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 128, 232, to_date('16/1/1972', 'DD/MM/YYYY'), to_date('16/1/1972', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 85, 94, to_date('30/7/2021', 'DD/MM/YYYY'), to_date('4/9/2021', 'DD/MM/YYYY'));
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 5, 233, to_date('20/8/2014', 'DD/MM/YYYY'), to_date('20/8/2014', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 120, 94, to_date('4/9/2021', 'DD/MM/YYYY'), NULL);
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 5, 234, to_date('7/7/1920', 'DD/MM/YYYY'), to_date('7/7/1920', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 53, 95, to_date('14/5/2021', 'DD/MM/YYYY'), to_date('12/6/2021', 'DD/MM/YYYY'));
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 66, 234, to_date('14/1/1923', 'DD/MM/YYYY'), to_date('14/1/1923', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 85, 95, to_date('12/6/2021', 'DD/MM/YYYY'), to_date('23/7/2021', 'DD/MM/YYYY'));
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 128, 234, to_date('14/1/1942', 'DD/MM/YYYY'), to_date('14/1/1942', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 85, 95, to_date('23/7/2021', 'DD/MM/YYYY'), to_date('27/8/2021', 'DD/MM/YYYY'));
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 70, 235, to_date('1/9/2001', 'DD/MM/YYYY'), to_date('1/9/2001', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 120, 95, to_date('27/8/2021', 'DD/MM/YYYY'), NULL);
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 70, 236, to_date('7/1/1973', 'DD/MM/YYYY'), to_date('7/1/1973', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 53, 96, to_date('12/3/2021', 'DD/MM/YYYY'), to_date('10/4/2021', 'DD/MM/YYYY'));
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 74, 236, to_date('20/3/1974', 'DD/MM/YYYY'), to_date('20/3/1974', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 85, 96, to_date('10/4/2021', 'DD/MM/YYYY'), to_date('7/5/2021', 'DD/MM/YYYY'));
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 50, 236, to_date('4/6/2006', 'DD/MM/YYYY'), to_date('4/6/2006', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 85, 96, to_date('7/5/2021', 'DD/MM/YYYY'), to_date('19/6/2021', 'DD/MM/YYYY'));
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 70, 237, to_date('15/1/1938', 'DD/MM/YYYY'), to_date('15/1/1938', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 120, 96, to_date('19/6/2021', 'DD/MM/YYYY'), to_date('9/7/2021', 'DD/MM/YYYY'));
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 70, 238, to_date('3/4/1936', 'DD/MM/YYYY'), to_date('3/4/1936', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 110, 96, to_date('9/7/2021', 'DD/MM/YYYY'), to_date('27/8/2021', 'DD/MM/YYYY'));
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 74, 238, to_date('19/7/1930', 'DD/MM/YYYY'), to_date('19/7/1930', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 109, 96, to_date('27/8/2021', 'DD/MM/YYYY'), NULL);
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 50, 238, to_date('24/1/1977', 'DD/MM/YYYY'), to_date('24/1/1977', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 129, 97, to_date('21/5/2021', 'DD/MM/YYYY'), to_date('12/6/2021', 'DD/MM/YYYY'));
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 70, 239, to_date('23/2/1968', 'DD/MM/YYYY'), to_date('23/2/1968', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 53, 97, to_date('12/6/2021', 'DD/MM/YYYY'), to_date('30/7/2021', 'DD/MM/YYYY'));
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 74, 239, to_date('16/3/1976', 'DD/MM/YYYY'), to_date('16/3/1976', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 37, 97, to_date('30/7/2021', 'DD/MM/YYYY'), to_date('4/9/2021', 'DD/MM/YYYY'));
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 50, 239, to_date('11/6/1958', 'DD/MM/YYYY'), to_date('11/6/1958', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 82, 97, to_date('4/9/2021', 'DD/MM/YYYY'), NULL);
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 70, 240, to_date('11/8/1978', 'DD/MM/YYYY'), to_date('11/8/1978', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 129, 98, to_date('14/5/2021', 'DD/MM/YYYY'), to_date('26/6/2021', 'DD/MM/YYYY'));
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 74, 240, to_date('6/5/2006', 'DD/MM/YYYY'), to_date('6/5/2006', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 53, 98, to_date('26/6/2021', 'DD/MM/YYYY'), to_date('30/7/2021', 'DD/MM/YYYY'));
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 50, 240, to_date('5/9/1952', 'DD/MM/YYYY'), to_date('5/9/1952', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 37, 98, to_date('30/7/2021', 'DD/MM/YYYY'), to_date('4/9/2021', 'DD/MM/YYYY'));
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 70, 241, to_date('10/4/2015', 'DD/MM/YYYY'), to_date('10/4/2015', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 82, 98, to_date('4/9/2021', 'DD/MM/YYYY'), NULL);
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 70, 242, to_date('6/4/1983', 'DD/MM/YYYY'), to_date('6/4/1983', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 129, 99, to_date('15/2/2021', 'DD/MM/YYYY'), to_date('26/3/2021', 'DD/MM/YYYY'));
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 74, 242, to_date('24/2/1959', 'DD/MM/YYYY'), to_date('24/2/1959', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 53, 99, to_date('26/3/2021', 'DD/MM/YYYY'), to_date('14/5/2021', 'DD/MM/YYYY'));
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 50, 242, to_date('26/1/2005', 'DD/MM/YYYY'), to_date('26/1/2005', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 37, 99, to_date('14/5/2021', 'DD/MM/YYYY'), to_date('12/6/2021', 'DD/MM/YYYY'));
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 70, 243, to_date('3/2/2013', 'DD/MM/YYYY'), to_date('3/2/2013', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 82, 99, to_date('12/6/2021', 'DD/MM/YYYY'), to_date('16/7/2021', 'DD/MM/YYYY'));
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 74, 243, to_date('3/3/1969', 'DD/MM/YYYY'), to_date('3/3/1969', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 111, 99, to_date('16/7/2021', 'DD/MM/YYYY'), to_date('27/8/2021', 'DD/MM/YYYY'));
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 70, 244, to_date('20/5/1947', 'DD/MM/YYYY'), to_date('20/5/1947', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 108, 99, to_date('27/8/2021', 'DD/MM/YYYY'), NULL);
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 74, 244, to_date('3/1/2006', 'DD/MM/YYYY'), to_date('3/1/2006', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 129, 100, to_date('12/3/2021', 'DD/MM/YYYY'), to_date('3/4/2021', 'DD/MM/YYYY'));
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 70, 245, to_date('17/4/1990', 'DD/MM/YYYY'), to_date('17/4/1990', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 53, 100, to_date('3/4/2021', 'DD/MM/YYYY'), to_date('21/5/2021', 'DD/MM/YYYY'));
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 70, 246, to_date('15/1/1922', 'DD/MM/YYYY'), to_date('15/1/1922', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 37, 100, to_date('21/5/2021', 'DD/MM/YYYY'), to_date('2/7/2021', 'DD/MM/YYYY'));
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 74, 246, to_date('21/10/1927', 'DD/MM/YYYY'), to_date('21/10/1927', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 82, 100, to_date('2/7/2021', 'DD/MM/YYYY'), to_date('13/8/2021', 'DD/MM/YYYY'));
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 50, 246, to_date('5/9/1929', 'DD/MM/YYYY'), to_date('5/9/1929', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 111, 100, to_date('13/8/2021', 'DD/MM/YYYY'), to_date('25/9/2021', 'DD/MM/YYYY'));
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 126, 247, to_date('3/10/1982', 'DD/MM/YYYY'), to_date('3/10/1982', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 108, 100, to_date('25/9/2021', 'DD/MM/YYYY'), NULL);
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 122, 247, to_date('6/6/1992', 'DD/MM/YYYY'), to_date('6/6/1992', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 58, 101, to_date('30/7/2021', 'DD/MM/YYYY'), to_date('27/8/2021', 'DD/MM/YYYY'));
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 126, 248, to_date('7/2/2004', 'DD/MM/YYYY'), to_date('7/2/2004', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 61, 101, to_date('27/8/2021', 'DD/MM/YYYY'), to_date('18/9/2021', 'DD/MM/YYYY'));
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 126, 249, to_date('24/1/2007', 'DD/MM/YYYY'), to_date('24/1/2007', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 28, 101, to_date('18/9/2021', 'DD/MM/YYYY'), NULL);
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 122, 249, to_date('4/10/1920', 'DD/MM/YYYY'), to_date('4/10/1920', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 58, 102, to_date('22/2/2021', 'DD/MM/YYYY'), to_date('10/4/2021', 'DD/MM/YYYY'));
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 110, 249, to_date('14/9/1998', 'DD/MM/YYYY'), to_date('14/9/1998', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 61, 102, to_date('10/4/2021', 'DD/MM/YYYY'), to_date('21/5/2021', 'DD/MM/YYYY'));
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 126, 250, to_date('4/2/1936', 'DD/MM/YYYY'), to_date('4/2/1936', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 28, 102, to_date('21/5/2021', 'DD/MM/YYYY'), to_date('19/6/2021', 'DD/MM/YYYY'));
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 122, 250, to_date('17/2/1924', 'DD/MM/YYYY'), to_date('17/2/1924', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 18, 102, to_date('19/6/2021', 'DD/MM/YYYY'), to_date('30/7/2021', 'DD/MM/YYYY'));
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 110, 250, to_date('12/7/1961', 'DD/MM/YYYY'), to_date('12/7/1961', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 63, 102, to_date('30/7/2021', 'DD/MM/YYYY'), to_date('4/9/2021', 'DD/MM/YYYY'));
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 126, 251, to_date('18/1/2011', 'DD/MM/YYYY'), to_date('18/1/2011', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 135, 102, to_date('4/9/2021', 'DD/MM/YYYY'), NULL);
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 122, 251, to_date('23/8/1983', 'DD/MM/YYYY'), to_date('23/8/1983', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 58, 103, to_date('17/4/2021', 'DD/MM/YYYY'), to_date('21/5/2021', 'DD/MM/YYYY'));
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 126, 252, to_date('18/1/1994', 'DD/MM/YYYY'), to_date('18/1/1994', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 61, 103, to_date('21/5/2021', 'DD/MM/YYYY'), to_date('19/6/2021', 'DD/MM/YYYY'));
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 122, 252, to_date('5/1/1944', 'DD/MM/YYYY'), to_date('5/1/1944', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 28, 103, to_date('19/6/2021', 'DD/MM/YYYY'), to_date('9/7/2021', 'DD/MM/YYYY'));
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 110, 252, to_date('5/4/2012', 'DD/MM/YYYY'), to_date('5/4/2012', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 18, 103, to_date('9/7/2021', 'DD/MM/YYYY'), to_date('27/8/2021', 'DD/MM/YYYY'));
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 126, 253, to_date('19/4/1961', 'DD/MM/YYYY'), to_date('19/4/1961', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 63, 103, to_date('27/8/2021', 'DD/MM/YYYY'), to_date('18/9/2021', 'DD/MM/YYYY'));
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 126, 254, to_date('1/7/1990', 'DD/MM/YYYY'), to_date('1/7/1990', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 135, 103, to_date('18/9/2021', 'DD/MM/YYYY'), NULL);
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 122, 254, to_date('22/5/1963', 'DD/MM/YYYY'), to_date('22/5/1963', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 58, 104, to_date('17/4/2021', 'DD/MM/YYYY'), to_date('7/5/2021', 'DD/MM/YYYY'));
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 110, 254, to_date('16/9/1944', 'DD/MM/YYYY'), to_date('16/9/1944', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 61, 104, to_date('7/5/2021', 'DD/MM/YYYY'), to_date('28/5/2021', 'DD/MM/YYYY'));
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 126, 255, to_date('3/9/1954', 'DD/MM/YYYY'), to_date('3/9/1954', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 28, 104, to_date('28/5/2021', 'DD/MM/YYYY'), to_date('16/7/2021', 'DD/MM/YYYY'));
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 122, 255, to_date('2/7/1923', 'DD/MM/YYYY'), to_date('2/7/1923', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 18, 104, to_date('16/7/2021', 'DD/MM/YYYY'), to_date('4/9/2021', 'DD/MM/YYYY'));
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 126, 256, to_date('6/1/1960', 'DD/MM/YYYY'), to_date('6/1/1960', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 63, 104, to_date('4/9/2021', 'DD/MM/YYYY'), NULL);
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 122, 256, to_date('10/4/1923', 'DD/MM/YYYY'), to_date('10/4/1923', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 58, 105, to_date('21/5/2021', 'DD/MM/YYYY'), to_date('2/7/2021', 'DD/MM/YYYY'));
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 126, 257, to_date('24/4/2014', 'DD/MM/YYYY'), to_date('24/4/2014', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 61, 105, to_date('2/7/2021', 'DD/MM/YYYY'), to_date('23/7/2021', 'DD/MM/YYYY'));
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 56, 258, to_date('5/5/1971', 'DD/MM/YYYY'), to_date('5/5/1971', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 28, 105, to_date('23/7/2021', 'DD/MM/YYYY'), to_date('27/8/2021', 'DD/MM/YYYY'));
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 2, 258, to_date('21/8/1995', 'DD/MM/YYYY'), to_date('21/8/1995', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 18, 105, to_date('27/8/2021', 'DD/MM/YYYY'), NULL);
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 56, 259, to_date('5/5/1934', 'DD/MM/YYYY'), to_date('5/5/1934', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 58, 106, to_date('3/4/2021', 'DD/MM/YYYY'), to_date('7/5/2021', 'DD/MM/YYYY'));
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 56, 260, to_date('9/8/1952', 'DD/MM/YYYY'), to_date('9/8/1952', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 61, 106, to_date('7/5/2021', 'DD/MM/YYYY'), to_date('26/6/2021', 'DD/MM/YYYY'));
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 2, 260, to_date('10/1/1950', 'DD/MM/YYYY'), to_date('10/1/1950', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 28, 106, to_date('26/6/2021', 'DD/MM/YYYY'), to_date('16/7/2021', 'DD/MM/YYYY'));
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 56, 261, to_date('24/1/1927', 'DD/MM/YYYY'), to_date('24/1/1927', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 18, 106, to_date('16/7/2021', 'DD/MM/YYYY'), to_date('13/8/2021', 'DD/MM/YYYY'));
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 56, 262, to_date('20/9/1961', 'DD/MM/YYYY'), to_date('20/9/1961', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 63, 106, to_date('13/8/2021', 'DD/MM/YYYY'), to_date('18/9/2021', 'DD/MM/YYYY'));
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 56, 263, to_date('26/1/1925', 'DD/MM/YYYY'), to_date('26/1/1925', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 135, 106, to_date('18/9/2021', 'DD/MM/YYYY'), NULL);
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 2, 263, to_date('24/4/1945', 'DD/MM/YYYY'), to_date('24/4/1945', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 114, 107, to_date('10/4/2021', 'DD/MM/YYYY'), to_date('21/5/2021', 'DD/MM/YYYY'));
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 2, 263, to_date('24/6/1955', 'DD/MM/YYYY'), to_date('24/6/1955', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 125, 107, to_date('21/5/2021', 'DD/MM/YYYY'), to_date('12/6/2021', 'DD/MM/YYYY'));
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 56, 264, to_date('16/1/1972', 'DD/MM/YYYY'), to_date('16/1/1972', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 21, 107, to_date('12/6/2021', 'DD/MM/YYYY'), to_date('9/7/2021', 'DD/MM/YYYY'));
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 56, 265, to_date('22/7/1989', 'DD/MM/YYYY'), to_date('22/7/1989', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 122, 107, to_date('9/7/2021', 'DD/MM/YYYY'), to_date('20/8/2021', 'DD/MM/YYYY'));
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 56, 266, to_date('26/6/1949', 'DD/MM/YYYY'), to_date('26/6/1949', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 103, 107, to_date('20/8/2021', 'DD/MM/YYYY'), to_date('18/9/2021', 'DD/MM/YYYY'));
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 2, 266, to_date('25/3/1950', 'DD/MM/YYYY'), to_date('25/3/1950', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 82, 107, to_date('18/9/2021', 'DD/MM/YYYY'), NULL);
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 56, 267, to_date('22/8/1959', 'DD/MM/YYYY'), to_date('22/8/1959', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 114, 108, to_date('27/4/2021', 'DD/MM/YYYY'), to_date('12/6/2021', 'DD/MM/YYYY'));
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 2, 267, to_date('10/1/1942', 'DD/MM/YYYY'), to_date('10/1/1942', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 125, 108, to_date('12/6/2021', 'DD/MM/YYYY'), to_date('16/7/2021', 'DD/MM/YYYY'));
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 2, 267, to_date('26/10/2009', 'DD/MM/YYYY'), to_date('26/10/2009', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 21, 108, to_date('16/7/2021', 'DD/MM/YYYY'), to_date('27/8/2021', 'DD/MM/YYYY'));
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 56, 268, to_date('17/9/1947', 'DD/MM/YYYY'), to_date('17/9/1947', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 122, 108, to_date('27/8/2021', 'DD/MM/YYYY'), NULL);
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 2, 268, to_date('18/8/1970', 'DD/MM/YYYY'), to_date('18/8/1970', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 114, 109, to_date('12/6/2021', 'DD/MM/YYYY'), to_date('9/7/2021', 'DD/MM/YYYY'));
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 2, 268, to_date('1/6/1962', 'DD/MM/YYYY'), to_date('1/6/1962', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 125, 109, to_date('9/7/2021', 'DD/MM/YYYY'), to_date('30/7/2021', 'DD/MM/YYYY'));
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 56, 269, to_date('16/7/1964', 'DD/MM/YYYY'), to_date('16/7/1964', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 21, 109, to_date('30/7/2021', 'DD/MM/YYYY'), to_date('27/8/2021', 'DD/MM/YYYY'));
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 2, 269, to_date('10/7/1923', 'DD/MM/YYYY'), to_date('10/7/1923', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 122, 109, to_date('27/8/2021', 'DD/MM/YYYY'), NULL);
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 2, 269, to_date('18/9/1936', 'DD/MM/YYYY'), to_date('18/9/1936', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 114, 110, to_date('23/7/2021', 'DD/MM/YYYY'), to_date('20/8/2021', 'DD/MM/YYYY'));
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 56, 270, to_date('16/9/1930', 'DD/MM/YYYY'), to_date('16/9/1930', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 125, 110, to_date('20/8/2021', 'DD/MM/YYYY'), to_date('25/9/2021', 'DD/MM/YYYY'));
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 131, 271, to_date('8/8/1969', 'DD/MM/YYYY'), to_date('8/8/1969', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 21, 110, to_date('25/9/2021', 'DD/MM/YYYY'), NULL);
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 98, 271, to_date('13/3/1966', 'DD/MM/YYYY'), to_date('13/3/1966', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 114, 111, to_date('25/02/2021', 'DD/MM/YYYY'), to_date('17/4/2021', 'DD/MM/YYYY'));
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 76, 271, to_date('14/10/1945', 'DD/MM/YYYY'), to_date('14/10/1945', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 125, 111, to_date('17/4/2021', 'DD/MM/YYYY'), to_date('5/6/2021', 'DD/MM/YYYY'));
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 131, 272, to_date('8/9/1957', 'DD/MM/YYYY'), to_date('8/9/1957', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 21, 111, to_date('5/6/2021', 'DD/MM/YYYY'), to_date('2/7/2021', 'DD/MM/YYYY'));
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 98, 272, to_date('10/1/2017', 'DD/MM/YYYY'), to_date('10/1/2017', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 122, 111, to_date('2/7/2021', 'DD/MM/YYYY'), to_date('6/8/2021', 'DD/MM/YYYY'));
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 76, 272, to_date('15/4/1958', 'DD/MM/YYYY'), to_date('15/4/1958', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 103, 111, to_date('6/8/2021', 'DD/MM/YYYY'), to_date('27/8/2021', 'DD/MM/YYYY'));
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 131, 273, to_date('5/10/2014', 'DD/MM/YYYY'), to_date('5/10/2014', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 82, 111, to_date('27/8/2021', 'DD/MM/YYYY'), NULL);
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 131, 274, to_date('21/4/2000', 'DD/MM/YYYY'), to_date('21/4/2000', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 114, 112, to_date('27/4/2021', 'DD/MM/YYYY'), to_date('5/6/2021', 'DD/MM/YYYY'));
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 131, 275, to_date('17/9/1924', 'DD/MM/YYYY'), to_date('17/9/1924', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 125, 112, to_date('5/6/2021', 'DD/MM/YYYY'), to_date('9/7/2021', 'DD/MM/YYYY'));
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 131, 276, to_date('14/7/1967', 'DD/MM/YYYY'), to_date('14/7/1967', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 21, 112, to_date('9/7/2021', 'DD/MM/YYYY'), to_date('6/8/2021', 'DD/MM/YYYY'));
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 131, 277, to_date('8/3/1992', 'DD/MM/YYYY'), to_date('8/3/1992', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 122, 112, to_date('6/8/2021', 'DD/MM/YYYY'), to_date('27/8/2021', 'DD/MM/YYYY'));
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 98, 277, to_date('25/4/1990', 'DD/MM/YYYY'), to_date('25/4/1990', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 103, 112, to_date('27/8/2021', 'DD/MM/YYYY'), to_date('18/9/2021', 'DD/MM/YYYY'));
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 76, 277, to_date('16/9/1977', 'DD/MM/YYYY'), to_date('16/9/1977', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 82, 112, to_date('18/9/2021', 'DD/MM/YYYY'), NULL);
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 131, 278, to_date('26/8/1979', 'DD/MM/YYYY'), to_date('26/8/1979', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 44, 113, to_date('21/5/2021', 'DD/MM/YYYY'), to_date('26/6/2021', 'DD/MM/YYYY'));
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 131, 279, to_date('23/8/2003', 'DD/MM/YYYY'), to_date('23/8/2003', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 124, 113, to_date('26/6/2021', 'DD/MM/YYYY'), to_date('16/7/2021', 'DD/MM/YYYY'));
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 98, 279, to_date('25/10/1999', 'DD/MM/YYYY'), to_date('25/10/1999', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 56, 113, to_date('16/7/2021', 'DD/MM/YYYY'), to_date('27/8/2021', 'DD/MM/YYYY'));
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 76, 279, to_date('20/10/1952', 'DD/MM/YYYY'), to_date('20/10/1952', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 103, 113, to_date('27/8/2021', 'DD/MM/YYYY'), NULL);
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 131, 280, to_date('23/1/2003', 'DD/MM/YYYY'), to_date('23/1/2003', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 44, 114, to_date('10/4/2021', 'DD/MM/YYYY'), to_date('21/5/2021', 'DD/MM/YYYY'));
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 98, 280, to_date('23/2/1926', 'DD/MM/YYYY'), to_date('23/2/1926', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 124, 114, to_date('21/5/2021', 'DD/MM/YYYY'), to_date('12/6/2021', 'DD/MM/YYYY'));
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 76, 280, to_date('14/6/1938', 'DD/MM/YYYY'), to_date('14/6/1938', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 56, 114, to_date('12/6/2021', 'DD/MM/YYYY'), to_date('9/7/2021', 'DD/MM/YYYY'));
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 131, 281, to_date('24/4/1970', 'DD/MM/YYYY'), to_date('24/4/1970', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 103, 114, to_date('9/7/2021', 'DD/MM/YYYY'), to_date('27/8/2021', 'DD/MM/YYYY'));
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 98, 281, to_date('18/8/1976', 'DD/MM/YYYY'), to_date('18/8/1976', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 37, 114, to_date('27/8/2021', 'DD/MM/YYYY'), NULL);
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 76, 281, to_date('6/3/1949', 'DD/MM/YYYY'), to_date('6/3/1949', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 44, 115, to_date('12/3/2021', 'DD/MM/YYYY'), to_date('10/4/2021', 'DD/MM/YYYY'));
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 131, 282, to_date('24/6/2016', 'DD/MM/YYYY'), to_date('24/6/2016', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 124, 115, to_date('10/4/2021', 'DD/MM/YYYY'), to_date('7/5/2021', 'DD/MM/YYYY'));
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 61, 283, to_date('7/10/1985', 'DD/MM/YYYY'), to_date('7/10/1985', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 56, 115, to_date('7/5/2021', 'DD/MM/YYYY'), to_date('28/5/2021', 'DD/MM/YYYY'));
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 114, 283, to_date('24/5/2007', 'DD/MM/YYYY'), to_date('24/5/2007', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 103, 115, to_date('28/5/2021', 'DD/MM/YYYY'), to_date('16/7/2021', 'DD/MM/YYYY'));
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 21, 283, to_date('4/8/1947', 'DD/MM/YYYY'), to_date('4/8/1947', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 37, 115, to_date('16/7/2021', 'DD/MM/YYYY'), to_date('6/8/2021', 'DD/MM/YYYY'));
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 61, 284, to_date('13/7/1994', 'DD/MM/YYYY'), to_date('13/7/1994', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 58, 115, to_date('6/8/2021', 'DD/MM/YYYY'), to_date('4/9/2021', 'DD/MM/YYYY'));
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 114, 284, to_date('12/10/1984', 'DD/MM/YYYY'), to_date('12/10/1984', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 64, 115, to_date('4/9/2021', 'DD/MM/YYYY'), NULL);
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 21, 284, to_date('26/6/1980', 'DD/MM/YYYY'), to_date('26/6/1980', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 44, 116, to_date('8/2/2021', 'DD/MM/YYYY'), to_date('12/3/2021', 'DD/MM/YYYY'));
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 61, 285, to_date('5/1/1963', 'DD/MM/YYYY'), to_date('5/1/1963', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 124, 116, to_date('12/3/2021', 'DD/MM/YYYY'), to_date('24/4/2021', 'DD/MM/YYYY'));
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 61, 286, to_date('22/1/1988', 'DD/MM/YYYY'), to_date('22/1/1988', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 56, 116, to_date('24/4/2021', 'DD/MM/YYYY'), to_date('21/5/2021', 'DD/MM/YYYY'));
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 61, 287, to_date('19/8/1972', 'DD/MM/YYYY'), to_date('19/8/1972', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 103, 116, to_date('21/5/2021', 'DD/MM/YYYY'), to_date('9/7/2021', 'DD/MM/YYYY'));
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 114, 287, to_date('15/1/1970', 'DD/MM/YYYY'), to_date('15/1/1970', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 37, 116, to_date('9/7/2021', 'DD/MM/YYYY'), to_date('30/7/2021', 'DD/MM/YYYY'));
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 61, 288, to_date('24/9/1963', 'DD/MM/YYYY'), to_date('24/9/1963', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 58, 116, to_date('30/7/2021', 'DD/MM/YYYY'), to_date('11/9/2021', 'DD/MM/YYYY'));
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 61, 289, to_date('23/8/1940', 'DD/MM/YYYY'), to_date('23/8/1940', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 64, 116, to_date('11/9/2021', 'DD/MM/YYYY'), NULL);
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 114, 289, to_date('4/1/2013', 'DD/MM/YYYY'), to_date('4/1/2013', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 44, 117, to_date('2/7/2021', 'DD/MM/YYYY'), to_date('6/8/2021', 'DD/MM/YYYY'));
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 21, 289, to_date('3/1/2014', 'DD/MM/YYYY'), to_date('3/1/2014', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 124, 117, to_date('6/8/2021', 'DD/MM/YYYY'), to_date('4/9/2021', 'DD/MM/YYYY'));
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 61, 290, to_date('12/2/1986', 'DD/MM/YYYY'), to_date('12/2/1986', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 56, 117, to_date('4/9/2021', 'DD/MM/YYYY'), NULL);
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 114, 290, to_date('6/10/1942', 'DD/MM/YYYY'), to_date('6/10/1942', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 44, 118, to_date('7/5/2021', 'DD/MM/YYYY'), to_date('12/6/2021', 'DD/MM/YYYY'));
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 61, 291, to_date('5/4/1961', 'DD/MM/YYYY'), to_date('5/4/1961', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 124, 118, to_date('12/6/2021', 'DD/MM/YYYY'), to_date('30/7/2021', 'DD/MM/YYYY'));
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 61, 292, to_date('16/3/1993', 'DD/MM/YYYY'), to_date('16/3/1993', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 56, 118, to_date('30/7/2021', 'DD/MM/YYYY'), to_date('4/9/2021', 'DD/MM/YYYY'));
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 114, 292, to_date('2/1/1920', 'DD/MM/YYYY'), to_date('2/1/1920', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 103, 118, to_date('4/9/2021', 'DD/MM/YYYY'), NULL);
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 61, 293, to_date('8/8/1938', 'DD/MM/YYYY'), to_date('8/8/1938', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 119, 119, to_date('17/4/2021', 'DD/MM/YYYY'), to_date('14/5/2021', 'DD/MM/YYYY'));
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 114, 293, to_date('13/10/1954', 'DD/MM/YYYY'), to_date('13/10/1954', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 93, 119, to_date('14/5/2021', 'DD/MM/YYYY'), to_date('2/7/2021', 'DD/MM/YYYY'));
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 61, 294, to_date('10/1/2006', 'DD/MM/YYYY'), to_date('10/1/2006', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 8, 119, to_date('2/7/2021', 'DD/MM/YYYY'), to_date('20/8/2021', 'DD/MM/YYYY'));
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 61, 295, to_date('18/3/1948', 'DD/MM/YYYY'), to_date('18/3/1948', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 130, 119, to_date('20/8/2021', 'DD/MM/YYYY'), to_date('11/9/2021', 'DD/MM/YYYY'));
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 114, 295, to_date('5/10/1939', 'DD/MM/YYYY'), to_date('5/10/1939', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 27, 119, to_date('11/9/2021', 'DD/MM/YYYY'), NULL);
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 26, 296, to_date('2/4/2017', 'DD/MM/YYYY'), to_date('2/4/2017', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 119, 120, to_date('16/7/2021', 'DD/MM/YYYY'), to_date('13/8/2021', 'DD/MM/YYYY'));
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 50, 296, to_date('8/3/2015', 'DD/MM/YYYY'), to_date('8/3/2015', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 93, 120, to_date('13/8/2021', 'DD/MM/YYYY'), to_date('18/9/2021', 'DD/MM/YYYY'));
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 26, 297, to_date('4/4/1963', 'DD/MM/YYYY'), to_date('4/4/1963', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 8, 120, to_date('18/9/2021', 'DD/MM/YYYY'), NULL);
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 50, 297, to_date('18/10/1922', 'DD/MM/YYYY'), to_date('18/10/1922', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 119, 121, to_date('24/4/2021', 'DD/MM/YYYY'), to_date('12/6/2021', 'DD/MM/YYYY'));
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 26, 298, to_date('14/9/1934', 'DD/MM/YYYY'), to_date('14/9/1934', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 93, 121, to_date('12/6/2021', 'DD/MM/YYYY'), to_date('23/7/2021', 'DD/MM/YYYY'));
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 50, 298, to_date('22/7/1989', 'DD/MM/YYYY'), to_date('22/7/1989', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 8, 121, to_date('23/7/2021', 'DD/MM/YYYY'), to_date('20/8/2021', 'DD/MM/YYYY'));
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 26, 299, to_date('16/9/1954', 'DD/MM/YYYY'), to_date('16/9/1954', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 130, 121, to_date('20/8/2021', 'DD/MM/YYYY'), to_date('25/9/2021', 'DD/MM/YYYY'));
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 26, 300, to_date('3/1/2010', 'DD/MM/YYYY'), to_date('3/1/2010', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 27, 121, to_date('25/9/2021', 'DD/MM/YYYY'), NULL);
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 50, 300, to_date('17/3/1985', 'DD/MM/YYYY'), to_date('17/3/1985', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 119, 122, to_date('19/6/2021', 'DD/MM/YYYY'), to_date('23/7/2021', 'DD/MM/YYYY'));
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 7, 300, to_date('9/1/1981', 'DD/MM/YYYY'), to_date('9/1/1981', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 93, 122, to_date('23/7/2021', 'DD/MM/YYYY'), to_date('11/9/2021', 'DD/MM/YYYY'));
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 26, 301, to_date('24/3/1997', 'DD/MM/YYYY'), to_date('24/3/1997', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 8, 122, to_date('11/9/2021', 'DD/MM/YYYY'), NULL);
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 26, 302, to_date('11/1/1992', 'DD/MM/YYYY'), to_date('11/1/1992', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 119, 123, to_date('6/8/2021', 'DD/MM/YYYY'), to_date('27/8/2021', 'DD/MM/YYYY'));
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 26, 303, to_date('20/7/2004', 'DD/MM/YYYY'), to_date('20/7/2004', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 93, 123, to_date('27/8/2021', 'DD/MM/YYYY'), to_date('25/9/2021', 'DD/MM/YYYY'));
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 26, 304, to_date('24/7/1962', 'DD/MM/YYYY'), to_date('24/7/1962', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 8, 123, to_date('25/9/2021', 'DD/MM/YYYY'), NULL);
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 50, 304, to_date('22/6/2016', 'DD/MM/YYYY'), to_date('22/6/2016', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 119, 124, to_date('28/5/2021', 'DD/MM/YYYY'), to_date('9/7/2021', 'DD/MM/YYYY'));
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 26, 305, to_date('6/4/1959', 'DD/MM/YYYY'), to_date('6/4/1959', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 93, 124, to_date('9/7/2021', 'DD/MM/YYYY'), to_date('13/8/2021', 'DD/MM/YYYY'));
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 50, 305, to_date('16/2/1977', 'DD/MM/YYYY'), to_date('16/2/1977', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 8, 124, to_date('13/8/2021', 'DD/MM/YYYY'), to_date('11/9/2021', 'DD/MM/YYYY'));
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 7, 305, to_date('8/3/1949', 'DD/MM/YYYY'), to_date('8/3/1949', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 130, 124, to_date('11/9/2021', 'DD/MM/YYYY'), NULL);
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 26, 306, to_date('26/8/1936', 'DD/MM/YYYY'), to_date('26/8/1936', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 49, 125, to_date('18/0/2021', 'DD/MM/YYYY'), to_date('8/2/2021', 'DD/MM/YYYY'));
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 50, 306, to_date('12/7/1992', 'DD/MM/YYYY'), to_date('12/7/1992', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 101, 125, to_date('8/2/2021', 'DD/MM/YYYY'), to_date('12/3/2021', 'DD/MM/YYYY'));
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 7, 306, to_date('26/10/1989', 'DD/MM/YYYY'), to_date('26/10/1989', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 67, 125, to_date('12/3/2021', 'DD/MM/YYYY'), to_date('10/4/2021', 'DD/MM/YYYY'));
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 26, 307, to_date('23/1/1996', 'DD/MM/YYYY'), to_date('23/1/1996', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 76, 125, to_date('10/4/2021', 'DD/MM/YYYY'), to_date('28/5/2021', 'DD/MM/YYYY'));
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 26, 308, to_date('12/5/1922', 'DD/MM/YYYY'), to_date('12/5/1922', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 12, 125, to_date('28/5/2021', 'DD/MM/YYYY'), to_date('16/7/2021', 'DD/MM/YYYY'));
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 50, 308, to_date('2/9/1978', 'DD/MM/YYYY'), to_date('2/9/1978', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 91, 125, to_date('16/7/2021', 'DD/MM/YYYY'), to_date('27/8/2021', 'DD/MM/YYYY'));
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 42, 309, to_date('15/3/1923', 'DD/MM/YYYY'), to_date('15/3/1923', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 120, 125, to_date('27/8/2021', 'DD/MM/YYYY'), NULL);
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 109, 309, to_date('19/3/2011', 'DD/MM/YYYY'), to_date('19/3/2011', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 49, 126, to_date('5/6/2021', 'DD/MM/YYYY'), to_date('23/7/2021', 'DD/MM/YYYY'));
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 42, 310, to_date('22/6/1930', 'DD/MM/YYYY'), to_date('22/6/1930', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 101, 126, to_date('23/7/2021', 'DD/MM/YYYY'), to_date('4/9/2021', 'DD/MM/YYYY'));
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 42, 311, to_date('14/2/1940', 'DD/MM/YYYY'), to_date('14/2/1940', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 67, 126, to_date('4/9/2021', 'DD/MM/YYYY'), NULL);
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 109, 311, to_date('17/2/2003', 'DD/MM/YYYY'), to_date('17/2/2003', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 49, 127, to_date('16/7/2021', 'DD/MM/YYYY'), to_date('13/8/2021', 'DD/MM/YYYY'));
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 42, 312, to_date('10/7/1922', 'DD/MM/YYYY'), to_date('10/7/1922', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 101, 127, to_date('13/8/2021', 'DD/MM/YYYY'), to_date('4/9/2021', 'DD/MM/YYYY'));
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 109, 312, to_date('18/9/1956', 'DD/MM/YYYY'), to_date('18/9/1956', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 67, 127, to_date('4/9/2021', 'DD/MM/YYYY'), NULL);
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 89, 312, to_date('9/7/1943', 'DD/MM/YYYY'), to_date('9/7/1943', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 49, 128, to_date('26/3/2021', 'DD/MM/YYYY'), to_date('14/5/2021', 'DD/MM/YYYY'));
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 42, 313, to_date('21/4/1928', 'DD/MM/YYYY'), to_date('21/4/1928', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 101, 128, to_date('14/5/2021', 'DD/MM/YYYY'), to_date('2/7/2021', 'DD/MM/YYYY'));
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 109, 313, to_date('10/6/1945', 'DD/MM/YYYY'), to_date('10/6/1945', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 67, 128, to_date('2/7/2021', 'DD/MM/YYYY'), to_date('30/7/2021', 'DD/MM/YYYY'));
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 42, 314, to_date('1/4/1997', 'DD/MM/YYYY'), to_date('1/4/1997', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 76, 128, to_date('30/7/2021', 'DD/MM/YYYY'), to_date('4/9/2021', 'DD/MM/YYYY'));
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 109, 314, to_date('16/7/2012', 'DD/MM/YYYY'), to_date('16/7/2012', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 12, 128, to_date('4/9/2021', 'DD/MM/YYYY'), NULL);
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 89, 314, to_date('8/8/1983', 'DD/MM/YYYY'), to_date('8/8/1983', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 104, 129, to_date('22/2/2021', 'DD/MM/YYYY'), to_date('26/3/2021', 'DD/MM/YYYY'));
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 42, 315, to_date('13/7/1972', 'DD/MM/YYYY'), to_date('13/7/1972', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 20, 129, to_date('26/3/2021', 'DD/MM/YYYY'), to_date('7/5/2021', 'DD/MM/YYYY'));
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 109, 315, to_date('4/10/1960', 'DD/MM/YYYY'), to_date('4/10/1960', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 69, 129, to_date('7/5/2021', 'DD/MM/YYYY'), to_date('19/6/2021', 'DD/MM/YYYY'));
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 89, 315, to_date('22/4/1948', 'DD/MM/YYYY'), to_date('22/4/1948', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 52, 129, to_date('19/6/2021', 'DD/MM/YYYY'), to_date('9/7/2021', 'DD/MM/YYYY'));
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 42, 316, to_date('14/8/1964', 'DD/MM/YYYY'), to_date('14/8/1964', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 37, 129, to_date('9/7/2021', 'DD/MM/YYYY'), to_date('6/8/2021', 'DD/MM/YYYY'));
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 42, 317, to_date('26/8/1982', 'DD/MM/YYYY'), to_date('26/8/1982', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 58, 129, to_date('6/8/2021', 'DD/MM/YYYY'), to_date('27/8/2021', 'DD/MM/YYYY'));
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 109, 317, to_date('12/5/1941', 'DD/MM/YYYY'), to_date('12/5/1941', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 133, 129, to_date('27/8/2021', 'DD/MM/YYYY'), NULL);
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 42, 318, to_date('25/9/1922', 'DD/MM/YYYY'), to_date('25/9/1922', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 104, 130, to_date('3/4/2021', 'DD/MM/YYYY'), to_date('21/5/2021', 'DD/MM/YYYY'));
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 109, 318, to_date('14/6/1932', 'DD/MM/YYYY'), to_date('14/6/1932', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 20, 130, to_date('21/5/2021', 'DD/MM/YYYY'), to_date('26/6/2021', 'DD/MM/YYYY'));
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 89, 318, to_date('9/7/1926', 'DD/MM/YYYY'), to_date('9/7/1926', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 69, 130, to_date('26/6/2021', 'DD/MM/YYYY'), to_date('16/7/2021', 'DD/MM/YYYY'));
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 42, 319, to_date('2/1/1963', 'DD/MM/YYYY'), to_date('2/1/1963', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 52, 130, to_date('16/7/2021', 'DD/MM/YYYY'), to_date('4/9/2021', 'DD/MM/YYYY'));
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 109, 319, to_date('3/8/1929', 'DD/MM/YYYY'), to_date('3/8/1929', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 37, 130, to_date('4/9/2021', 'DD/MM/YYYY'), NULL);
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 42, 320, to_date('2/7/1955', 'DD/MM/YYYY'), to_date('2/7/1955', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 104, 131, to_date('1/2/2021', 'DD/MM/YYYY'), to_date('19/3/2021', 'DD/MM/YYYY'));
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 109, 320, to_date('15/5/1997', 'DD/MM/YYYY'), to_date('15/5/1997', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 20, 131, to_date('19/3/2021', 'DD/MM/YYYY'), to_date('10/4/2021', 'DD/MM/YYYY'));
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 89, 320, to_date('12/1/1928', 'DD/MM/YYYY'), to_date('12/1/1928', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 69, 131, to_date('10/4/2021', 'DD/MM/YYYY'), to_date('21/5/2021', 'DD/MM/YYYY'));
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 121, 321, to_date('23/1/1983', 'DD/MM/YYYY'), to_date('23/1/1983', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 52, 131, to_date('21/5/2021', 'DD/MM/YYYY'), to_date('9/7/2021', 'DD/MM/YYYY'));
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 10, 321, to_date('23/5/1981', 'DD/MM/YYYY'), to_date('23/5/1981', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 37, 131, to_date('9/7/2021', 'DD/MM/YYYY'), to_date('27/8/2021', 'DD/MM/YYYY'));
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 61, 321, to_date('14/1/1997', 'DD/MM/YYYY'), to_date('14/1/1997', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 58, 131, to_date('27/8/2021', 'DD/MM/YYYY'), NULL);
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 121, 322, to_date('5/5/1977', 'DD/MM/YYYY'), to_date('5/5/1977', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 104, 132, to_date('3/4/2021', 'DD/MM/YYYY'), to_date('24/4/2021', 'DD/MM/YYYY'));
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 121, 323, to_date('3/6/1963', 'DD/MM/YYYY'), to_date('3/6/1963', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 20, 132, to_date('24/4/2021', 'DD/MM/YYYY'), to_date('14/5/2021', 'DD/MM/YYYY'));
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 10, 323, to_date('10/1/1950', 'DD/MM/YYYY'), to_date('10/1/1950', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 69, 132, to_date('14/5/2021', 'DD/MM/YYYY'), to_date('5/6/2021', 'DD/MM/YYYY'));
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 121, 324, to_date('10/10/2019', 'DD/MM/YYYY'), to_date('10/10/2019', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 52, 132, to_date('5/6/2021', 'DD/MM/YYYY'), to_date('23/7/2021', 'DD/MM/YYYY'));
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 10, 324, to_date('25/2/1939', 'DD/MM/YYYY'), to_date('25/2/1939', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 37, 132, to_date('23/7/2021', 'DD/MM/YYYY'), to_date('20/8/2021', 'DD/MM/YYYY'));
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 61, 324, to_date('15/9/1952', 'DD/MM/YYYY'), to_date('15/9/1952', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 58, 132, to_date('20/8/2021', 'DD/MM/YYYY'), to_date('11/9/2021', 'DD/MM/YYYY'));
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 121, 325, to_date('9/3/1977', 'DD/MM/YYYY'), to_date('9/3/1977', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 133, 132, to_date('11/9/2021', 'DD/MM/YYYY'), NULL);
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 10, 325, to_date('18/7/1928', 'DD/MM/YYYY'), to_date('18/7/1928', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 104, 133, to_date('12/3/2021', 'DD/MM/YYYY'), to_date('3/4/2021', 'DD/MM/YYYY'));
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 121, 326, to_date('17/7/2013', 'DD/MM/YYYY'), to_date('17/7/2013', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 20, 133, to_date('3/4/2021', 'DD/MM/YYYY'), to_date('7/5/2021', 'DD/MM/YYYY'));
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 10, 326, to_date('8/9/1925', 'DD/MM/YYYY'), to_date('8/9/1925', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 69, 133, to_date('7/5/2021', 'DD/MM/YYYY'), to_date('5/6/2021', 'DD/MM/YYYY'));
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 121, 327, to_date('3/8/1973', 'DD/MM/YYYY'), to_date('3/8/1973', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 52, 133, to_date('5/6/2021', 'DD/MM/YYYY'), to_date('9/7/2021', 'DD/MM/YYYY'));
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 10, 327, to_date('26/3/2005', 'DD/MM/YYYY'), to_date('26/3/2005', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 37, 133, to_date('9/7/2021', 'DD/MM/YYYY'), to_date('27/8/2021', 'DD/MM/YYYY'));
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 61, 327, to_date('19/5/2016', 'DD/MM/YYYY'), to_date('19/5/2016', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 58, 133, to_date('27/8/2021', 'DD/MM/YYYY'), to_date('18/9/2021', 'DD/MM/YYYY'));
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 121, 328, to_date('7/1/1980', 'DD/MM/YYYY'), to_date('7/1/1980', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 133, 133, to_date('18/9/2021', 'DD/MM/YYYY'), NULL);
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 10, 328, to_date('6/3/1978', 'DD/MM/YYYY'), to_date('6/3/1978', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 104, 134, to_date('19/3/2021', 'DD/MM/YYYY'), to_date('24/4/2021', 'DD/MM/YYYY'));
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 121, 329, to_date('22/9/1993', 'DD/MM/YYYY'), to_date('22/9/1993', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 20, 134, to_date('24/4/2021', 'DD/MM/YYYY'), to_date('28/5/2021', 'DD/MM/YYYY'));
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 10, 329, to_date('5/10/2005', 'DD/MM/YYYY'), to_date('5/10/2005', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 69, 134, to_date('28/5/2021', 'DD/MM/YYYY'), to_date('2/7/2021', 'DD/MM/YYYY'));
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 121, 330, to_date('5/5/1954', 'DD/MM/YYYY'), to_date('5/5/1954', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 52, 134, to_date('2/7/2021', 'DD/MM/YYYY'), to_date('30/7/2021', 'DD/MM/YYYY'));
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 10, 330, to_date('23/8/1923', 'DD/MM/YYYY'), to_date('23/8/1923', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 37, 134, to_date('30/7/2021', 'DD/MM/YYYY'), to_date('27/8/2021', 'DD/MM/YYYY'));
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 121, 331, to_date('24/1/1981', 'DD/MM/YYYY'), to_date('24/1/1981', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 58, 134, to_date('27/8/2021', 'DD/MM/YYYY'), to_date('18/9/2021', 'DD/MM/YYYY'));
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 10, 331, to_date('13/4/1920', 'DD/MM/YYYY'), to_date('13/4/1920', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 133, 134, to_date('18/9/2021', 'DD/MM/YYYY'), NULL);
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 51, 332, to_date('10/5/1967', 'DD/MM/YYYY'), to_date('10/5/1967', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 104, 135, to_date('19/3/2021', 'DD/MM/YYYY'), to_date('10/4/2021', 'DD/MM/YYYY'));
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 51, 333, to_date('14/7/1932', 'DD/MM/YYYY'), to_date('14/7/1932', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 20, 135, to_date('10/4/2021', 'DD/MM/YYYY'), to_date('28/5/2021', 'DD/MM/YYYY'));
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 51, 334, to_date('12/7/1935', 'DD/MM/YYYY'), to_date('12/7/1935', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 69, 135, to_date('28/5/2021', 'DD/MM/YYYY'), to_date('19/6/2021', 'DD/MM/YYYY'));
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 51, 335, to_date('9/5/2009', 'DD/MM/YYYY'), to_date('9/5/2009', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 52, 135, to_date('19/6/2021', 'DD/MM/YYYY'), to_date('30/7/2021', 'DD/MM/YYYY'));
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 18, 335, to_date('14/2/1990', 'DD/MM/YYYY'), to_date('14/2/1990', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 37, 135, to_date('30/7/2021', 'DD/MM/YYYY'), to_date('4/9/2021', 'DD/MM/YYYY'));
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 127, 335, to_date('8/8/2003', 'DD/MM/YYYY'), to_date('8/8/2003', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 58, 135, to_date('4/9/2021', 'DD/MM/YYYY'), NULL);
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 51, 336, to_date('9/8/1994', 'DD/MM/YYYY'), to_date('9/8/1994', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 34, 136, to_date('19/6/2021', 'DD/MM/YYYY'), to_date('23/7/2021', 'DD/MM/YYYY'));
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 18, 336, to_date('21/5/1995', 'DD/MM/YYYY'), to_date('21/5/1995', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 28, 136, to_date('23/7/2021', 'DD/MM/YYYY'), to_date('27/8/2021', 'DD/MM/YYYY'));
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 127, 336, to_date('13/10/1986', 'DD/MM/YYYY'), to_date('13/10/1986', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 18, 136, to_date('27/8/2021', 'DD/MM/YYYY'), NULL);
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 51, 337, to_date('11/7/2003', 'DD/MM/YYYY'), to_date('11/7/2003', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 34, 137, to_date('26/6/2021', 'DD/MM/YYYY'), to_date('13/8/2021', 'DD/MM/YYYY'));
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 18, 337, to_date('4/9/2017', 'DD/MM/YYYY'), to_date('4/9/2017', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 28, 137, to_date('13/8/2021', 'DD/MM/YYYY'), to_date('4/9/2021', 'DD/MM/YYYY'));
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 127, 337, to_date('2/9/1931', 'DD/MM/YYYY'), to_date('2/9/1931', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 18, 137, to_date('4/9/2021', 'DD/MM/YYYY'), NULL);
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 51, 338, to_date('21/3/1995', 'DD/MM/YYYY'), to_date('21/3/1995', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 34, 138, to_date('17/4/2021', 'DD/MM/YYYY'), to_date('28/5/2021', 'DD/MM/YYYY'));
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 18, 338, to_date('5/1/1921', 'DD/MM/YYYY'), to_date('5/1/1921', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 28, 138, to_date('28/5/2021', 'DD/MM/YYYY'), to_date('9/7/2021', 'DD/MM/YYYY'));
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 51, 339, to_date('24/6/1978', 'DD/MM/YYYY'), to_date('24/6/1978', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 18, 138, to_date('9/7/2021', 'DD/MM/YYYY'), to_date('13/8/2021', 'DD/MM/YYYY'));
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 18, 339, to_date('20/5/1960', 'DD/MM/YYYY'), to_date('20/5/1960', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 14, 138, to_date('13/8/2021', 'DD/MM/YYYY'), to_date('18/9/2021', 'DD/MM/YYYY'));
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 51, 340, to_date('5/1/2014', 'DD/MM/YYYY'), to_date('5/1/2014', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 89, 138, to_date('18/9/2021', 'DD/MM/YYYY'), NULL);
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 51, 341, to_date('19/1/1977', 'DD/MM/YYYY'), to_date('19/1/1977', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 34, 139, to_date('25/0/2021', 'DD/MM/YYYY'), to_date('15/2/2021', 'DD/MM/YYYY'));
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 18, 341, to_date('15/2/1978', 'DD/MM/YYYY'), to_date('15/2/1978', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 28, 139, to_date('15/2/2021', 'DD/MM/YYYY'), to_date('3/4/2021', 'DD/MM/YYYY'));
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 51, 342, to_date('11/10/1986', 'DD/MM/YYYY'), to_date('11/10/1986', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 18, 139, to_date('3/4/2021', 'DD/MM/YYYY'), to_date('24/4/2021', 'DD/MM/YYYY'));
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 51, 343, to_date('1/2/1978', 'DD/MM/YYYY'), to_date('1/2/1978', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 14, 139, to_date('24/4/2021', 'DD/MM/YYYY'), to_date('5/6/2021', 'DD/MM/YYYY'));
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 51, 344, to_date('17/8/1990', 'DD/MM/YYYY'), to_date('17/8/1990', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 89, 139, to_date('5/6/2021', 'DD/MM/YYYY'), to_date('23/7/2021', 'DD/MM/YYYY'));
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 18, 344, to_date('5/2/2019', 'DD/MM/YYYY'), to_date('5/2/2019', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 135, 139, to_date('23/7/2021', 'DD/MM/YYYY'), to_date('11/9/2021', 'DD/MM/YYYY'));
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 127, 344, to_date('15/2/1977', 'DD/MM/YYYY'), to_date('15/2/1977', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 28, 139, to_date('11/9/2021', 'DD/MM/YYYY'), NULL);
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 51, 345, to_date('17/1/1992', 'DD/MM/YYYY'), to_date('17/1/1992', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 34, 140, to_date('15/2/2021', 'DD/MM/YYYY'), to_date('3/4/2021', 'DD/MM/YYYY'));
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 66, 346, to_date('25/5/1987', 'DD/MM/YYYY'), to_date('25/5/1987', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 28, 140, to_date('3/4/2021', 'DD/MM/YYYY'), to_date('14/5/2021', 'DD/MM/YYYY'));
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 66, 347, to_date('22/10/2015', 'DD/MM/YYYY'), to_date('22/10/2015', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 18, 140, to_date('14/5/2021', 'DD/MM/YYYY'), to_date('5/6/2021', 'DD/MM/YYYY'));
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 12, 347, to_date('11/1/2011', 'DD/MM/YYYY'), to_date('11/1/2011', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 14, 140, to_date('5/6/2021', 'DD/MM/YYYY'), to_date('9/7/2021', 'DD/MM/YYYY'));
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 66, 348, to_date('24/1/2011', 'DD/MM/YYYY'), to_date('24/1/2011', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 89, 140, to_date('9/7/2021', 'DD/MM/YYYY'), to_date('27/8/2021', 'DD/MM/YYYY'));
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 12, 348, to_date('18/10/1940', 'DD/MM/YYYY'), to_date('18/10/1940', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 135, 140, to_date('27/8/2021', 'DD/MM/YYYY'), to_date('25/9/2021', 'DD/MM/YYYY'));
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 66, 349, to_date('18/4/1948', 'DD/MM/YYYY'), to_date('18/4/1948', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 28, 140, to_date('25/9/2021', 'DD/MM/YYYY'), NULL);
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 12, 349, to_date('8/2/1931', 'DD/MM/YYYY'), to_date('8/2/1931', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 34, 141, to_date('17/4/2021', 'DD/MM/YYYY'), to_date('5/6/2021', 'DD/MM/YYYY'));
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 66, 350, to_date('15/2/1996', 'DD/MM/YYYY'), to_date('15/2/1996', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 28, 141, to_date('5/6/2021', 'DD/MM/YYYY'), to_date('9/7/2021', 'DD/MM/YYYY'));
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 12, 350, to_date('24/1/1920', 'DD/MM/YYYY'), to_date('24/1/1920', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 18, 141, to_date('9/7/2021', 'DD/MM/YYYY'), to_date('6/8/2021', 'DD/MM/YYYY'));
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 31, 350, to_date('14/5/1977', 'DD/MM/YYYY'), to_date('14/5/1977', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 14, 141, to_date('6/8/2021', 'DD/MM/YYYY'), to_date('25/9/2021', 'DD/MM/YYYY'));
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 66, 351, to_date('14/1/1971', 'DD/MM/YYYY'), to_date('14/1/1971', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 89, 141, to_date('25/9/2021', 'DD/MM/YYYY'), NULL);
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 12, 351, to_date('12/6/1929', 'DD/MM/YYYY'), to_date('12/6/1929', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 34, 142, to_date('19/6/2021', 'DD/MM/YYYY'), to_date('16/7/2021', 'DD/MM/YYYY'));
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 31, 351, to_date('13/3/1958', 'DD/MM/YYYY'), to_date('13/3/1958', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 28, 142, to_date('16/7/2021', 'DD/MM/YYYY'), to_date('4/9/2021', 'DD/MM/YYYY'));
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 66, 352, to_date('22/5/1969', 'DD/MM/YYYY'), to_date('22/5/1969', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 18, 142, to_date('4/9/2021', 'DD/MM/YYYY'), to_date('25/9/2021', 'DD/MM/YYYY'));
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 12, 352, to_date('13/6/2005', 'DD/MM/YYYY'), to_date('13/6/2005', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 14, 142, to_date('25/9/2021', 'DD/MM/YYYY'), NULL);
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 66, 353, to_date('19/2/1991', 'DD/MM/YYYY'), to_date('19/2/1991', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 34, 143, to_date('12/6/2021', 'DD/MM/YYYY'), to_date('23/7/2021', 'DD/MM/YYYY'));
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 12, 353, to_date('9/9/1962', 'DD/MM/YYYY'), to_date('9/9/1962', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 28, 143, to_date('23/7/2021', 'DD/MM/YYYY'), to_date('4/9/2021', 'DD/MM/YYYY'));
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 66, 354, to_date('11/1/1961', 'DD/MM/YYYY'), to_date('11/1/1961', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 18, 143, to_date('4/9/2021', 'DD/MM/YYYY'), NULL);
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 12, 354, to_date('3/1/2013', 'DD/MM/YYYY'), to_date('3/1/2013', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 109, 144, to_date('24/4/2021', 'DD/MM/YYYY'), to_date('21/5/2021', 'DD/MM/YYYY'));
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 31, 354, to_date('8/7/1977', 'DD/MM/YYYY'), to_date('8/7/1977', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 132, 144, to_date('21/5/2021', 'DD/MM/YYYY'), to_date('9/7/2021', 'DD/MM/YYYY'));
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 66, 355, to_date('5/9/1965', 'DD/MM/YYYY'), to_date('5/9/1965', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 114, 144, to_date('9/7/2021', 'DD/MM/YYYY'), to_date('30/7/2021', 'DD/MM/YYYY'));
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 66, 356, to_date('3/3/1981', 'DD/MM/YYYY'), to_date('3/3/1981', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 41, 144, to_date('30/7/2021', 'DD/MM/YYYY'), to_date('18/9/2021', 'DD/MM/YYYY'));
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 12, 356, to_date('17/4/2005', 'DD/MM/YYYY'), to_date('17/4/2005', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 80, 144, to_date('18/9/2021', 'DD/MM/YYYY'), NULL);
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 66, 357, to_date('6/2/1993', 'DD/MM/YYYY'), to_date('6/2/1993', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 109, 145, to_date('5/6/2021', 'DD/MM/YYYY'), to_date('2/7/2021', 'DD/MM/YYYY'));
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 12, 357, to_date('23/8/1982', 'DD/MM/YYYY'), to_date('23/8/1982', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 132, 145, to_date('2/7/2021', 'DD/MM/YYYY'), to_date('30/7/2021', 'DD/MM/YYYY'));
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 31, 357, to_date('10/9/1926', 'DD/MM/YYYY'), to_date('10/9/1926', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 114, 145, to_date('30/7/2021', 'DD/MM/YYYY'), to_date('11/9/2021', 'DD/MM/YYYY'));
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 66, 358, to_date('23/3/1936', 'DD/MM/YYYY'), to_date('23/3/1936', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 41, 145, to_date('11/9/2021', 'DD/MM/YYYY'), NULL);
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 66, 359, to_date('20/6/2019', 'DD/MM/YYYY'), to_date('20/6/2019', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 109, 146, to_date('12/3/2021', 'DD/MM/YYYY'), to_date('27/4/2021', 'DD/MM/YYYY'));
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 12, 359, to_date('20/5/1972', 'DD/MM/YYYY'), to_date('20/5/1972', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 132, 146, to_date('27/4/2021', 'DD/MM/YYYY'), to_date('21/5/2021', 'DD/MM/YYYY'));
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 31, 359, to_date('10/9/1934', 'DD/MM/YYYY'), to_date('10/9/1934', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 114, 146, to_date('21/5/2021', 'DD/MM/YYYY'), to_date('12/6/2021', 'DD/MM/YYYY'));
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 36, 360, to_date('12/5/1941', 'DD/MM/YYYY'), to_date('12/5/1941', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 41, 146, to_date('12/6/2021', 'DD/MM/YYYY'), to_date('30/7/2021', 'DD/MM/YYYY'));
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 82, 360, to_date('5/8/2016', 'DD/MM/YYYY'), to_date('5/8/2016', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 80, 146, to_date('30/7/2021', 'DD/MM/YYYY'), to_date('4/9/2021', 'DD/MM/YYYY'));
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 36, 361, to_date('9/1/1970', 'DD/MM/YYYY'), to_date('9/1/1970', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 6, 146, to_date('4/9/2021', 'DD/MM/YYYY'), NULL);
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 36, 362, to_date('13/10/1975', 'DD/MM/YYYY'), to_date('13/10/1975', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 109, 147, to_date('25/02/2021', 'DD/MM/YYYY'), to_date('10/4/2021', 'DD/MM/YYYY'));
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 36, 363, to_date('26/7/1928', 'DD/MM/YYYY'), to_date('26/7/1928', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 132, 147, to_date('10/4/2021', 'DD/MM/YYYY'), to_date('28/5/2021', 'DD/MM/YYYY'));
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 36, 364, to_date('10/7/2001', 'DD/MM/YYYY'), to_date('10/7/2001', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 114, 147, to_date('28/5/2021', 'DD/MM/YYYY'), to_date('19/6/2021', 'DD/MM/YYYY'));
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 36, 365, to_date('2/5/1994', 'DD/MM/YYYY'), to_date('2/5/1994', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 41, 147, to_date('19/6/2021', 'DD/MM/YYYY'), to_date('23/7/2021', 'DD/MM/YYYY'));
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 82, 365, to_date('18/7/1971', 'DD/MM/YYYY'), to_date('18/7/1971', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 80, 147, to_date('23/7/2021', 'DD/MM/YYYY'), to_date('4/9/2021', 'DD/MM/YYYY'));
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 136, 365, to_date('25/6/1931', 'DD/MM/YYYY'), to_date('25/6/1931', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 6, 147, to_date('4/9/2021', 'DD/MM/YYYY'), NULL);
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 36, 366, to_date('3/9/1950', 'DD/MM/YYYY'), to_date('3/9/1950', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 109, 148, to_date('24/4/2021', 'DD/MM/YYYY'), to_date('21/5/2021', 'DD/MM/YYYY'));
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 82, 366, to_date('13/7/1961', 'DD/MM/YYYY'), to_date('13/7/1961', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 132, 148, to_date('21/5/2021', 'DD/MM/YYYY'), to_date('19/6/2021', 'DD/MM/YYYY'));
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 136, 366, to_date('20/5/2017', 'DD/MM/YYYY'), to_date('20/5/2017', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 114, 148, to_date('19/6/2021', 'DD/MM/YYYY'), to_date('23/7/2021', 'DD/MM/YYYY'));
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 36, 367, to_date('15/7/1950', 'DD/MM/YYYY'), to_date('15/7/1950', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 41, 148, to_date('23/7/2021', 'DD/MM/YYYY'), to_date('20/8/2021', 'DD/MM/YYYY'));
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 82, 367, to_date('22/7/1998', 'DD/MM/YYYY'), to_date('22/7/1998', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 80, 148, to_date('20/8/2021', 'DD/MM/YYYY'), to_date('25/9/2021', 'DD/MM/YYYY'));
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 136, 367, to_date('8/1/1925', 'DD/MM/YYYY'), to_date('8/1/1925', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 6, 148, to_date('25/9/2021', 'DD/MM/YYYY'), NULL);
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 36, 368, to_date('11/4/1990', 'DD/MM/YYYY'), to_date('11/4/1990', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 109, 149, to_date('19/3/2021', 'DD/MM/YYYY'), to_date('7/5/2021', 'DD/MM/YYYY'));
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 82, 368, to_date('12/1/1948', 'DD/MM/YYYY'), to_date('12/1/1948', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 132, 149, to_date('7/5/2021', 'DD/MM/YYYY'), to_date('5/6/2021', 'DD/MM/YYYY'));
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 136, 368, to_date('24/5/1979', 'DD/MM/YYYY'), to_date('24/5/1979', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 114, 149, to_date('5/6/2021', 'DD/MM/YYYY'), to_date('2/7/2021', 'DD/MM/YYYY'));
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 36, 369, to_date('11/1/2018', 'DD/MM/YYYY'), to_date('11/1/2018', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 41, 149, to_date('2/7/2021', 'DD/MM/YYYY'), to_date('6/8/2021', 'DD/MM/YYYY'));
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 82, 369, to_date('3/7/1938', 'DD/MM/YYYY'), to_date('3/7/1938', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 80, 149, to_date('6/8/2021', 'DD/MM/YYYY'), to_date('25/9/2021', 'DD/MM/YYYY'));
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 36, 370, to_date('6/1/1992', 'DD/MM/YYYY'), to_date('6/1/1992', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 6, 149, to_date('25/9/2021', 'DD/MM/YYYY'), NULL);
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 82, 370, to_date('20/1/1937', 'DD/MM/YYYY'), to_date('20/1/1937', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 109, 150, to_date('17/4/2021', 'DD/MM/YYYY'), to_date('5/6/2021', 'DD/MM/YYYY'));
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 36, 371, to_date('6/10/1961', 'DD/MM/YYYY'), to_date('6/10/1961', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 132, 150, to_date('5/6/2021', 'DD/MM/YYYY'), to_date('9/7/2021', 'DD/MM/YYYY'));
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 82, 371, to_date('1/9/1976', 'DD/MM/YYYY'), to_date('1/9/1976', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 114, 150, to_date('9/7/2021', 'DD/MM/YYYY'), to_date('13/8/2021', 'DD/MM/YYYY'));
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 136, 371, to_date('20/9/1996', 'DD/MM/YYYY'), to_date('20/9/1996', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 41, 150, to_date('13/8/2021', 'DD/MM/YYYY'), to_date('25/9/2021', 'DD/MM/YYYY'));
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 36, 372, to_date('10/7/2010', 'DD/MM/YYYY'), to_date('10/7/2010', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 80, 150, to_date('25/9/2021', 'DD/MM/YYYY'), NULL);
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 82, 372, to_date('14/3/1990', 'DD/MM/YYYY'), to_date('14/3/1990', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 39, 151, to_date('21/5/2021', 'DD/MM/YYYY'), to_date('2/7/2021', 'DD/MM/YYYY'));
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 36, 373, to_date('4/3/1976', 'DD/MM/YYYY'), to_date('4/3/1976', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 12, 151, to_date('2/7/2021', 'DD/MM/YYYY'), to_date('13/8/2021', 'DD/MM/YYYY'));
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 82, 373, to_date('17/6/1920', 'DD/MM/YYYY'), to_date('17/6/1920', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 37, 151, to_date('13/8/2021', 'DD/MM/YYYY'), to_date('18/9/2021', 'DD/MM/YYYY'));
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 136, 373, to_date('13/10/1958', 'DD/MM/YYYY'), to_date('13/10/1958', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 123, 151, to_date('18/9/2021', 'DD/MM/YYYY'), NULL);
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 111, 374, to_date('15/7/1925', 'DD/MM/YYYY'), to_date('15/7/1925', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 39, 152, to_date('22/2/2021', 'DD/MM/YYYY'), to_date('26/3/2021', 'DD/MM/YYYY'));
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 50, 374, to_date('10/6/2017', 'DD/MM/YYYY'), to_date('10/6/2017', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 12, 152, to_date('26/3/2021', 'DD/MM/YYYY'), to_date('14/5/2021', 'DD/MM/YYYY'));
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 111, 375, to_date('14/7/1984', 'DD/MM/YYYY'), to_date('14/7/1984', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 37, 152, to_date('14/5/2021', 'DD/MM/YYYY'), to_date('2/7/2021', 'DD/MM/YYYY'));
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 111, 376, to_date('11/1/1960', 'DD/MM/YYYY'), to_date('11/1/1960', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 123, 152, to_date('2/7/2021', 'DD/MM/YYYY'), to_date('6/8/2021', 'DD/MM/YYYY'));
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 111, 377, to_date('15/4/1992', 'DD/MM/YYYY'), to_date('15/4/1992', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 131, 152, to_date('6/8/2021', 'DD/MM/YYYY'), to_date('25/9/2021', 'DD/MM/YYYY'));
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 50, 377, to_date('14/1/1994', 'DD/MM/YYYY'), to_date('14/1/1994', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 13, 152, to_date('25/9/2021', 'DD/MM/YYYY'), NULL);
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 31, 377, to_date('18/1/1979', 'DD/MM/YYYY'), to_date('18/1/1979', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 39, 153, to_date('19/3/2021', 'DD/MM/YYYY'), to_date('27/4/2021', 'DD/MM/YYYY'));
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 111, 378, to_date('1/8/1981', 'DD/MM/YYYY'), to_date('1/8/1981', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 12, 153, to_date('27/4/2021', 'DD/MM/YYYY'), to_date('21/5/2021', 'DD/MM/YYYY'));
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 111, 379, to_date('17/6/1952', 'DD/MM/YYYY'), to_date('17/6/1952', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 37, 153, to_date('21/5/2021', 'DD/MM/YYYY'), to_date('9/7/2021', 'DD/MM/YYYY'));
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 50, 379, to_date('24/6/2007', 'DD/MM/YYYY'), to_date('24/6/2007', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 123, 153, to_date('9/7/2021', 'DD/MM/YYYY'), to_date('13/8/2021', 'DD/MM/YYYY'));
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 31, 379, to_date('7/10/2006', 'DD/MM/YYYY'), to_date('7/10/2006', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 131, 153, to_date('13/8/2021', 'DD/MM/YYYY'), to_date('25/9/2021', 'DD/MM/YYYY'));
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 111, 380, to_date('12/2/1966', 'DD/MM/YYYY'), to_date('12/2/1966', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 13, 153, to_date('25/9/2021', 'DD/MM/YYYY'), NULL);
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 50, 380, to_date('7/5/1933', 'DD/MM/YYYY'), to_date('7/5/1933', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 39, 154, to_date('5/6/2021', 'DD/MM/YYYY'), to_date('16/7/2021', 'DD/MM/YYYY'));
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 111, 381, to_date('10/6/1937', 'DD/MM/YYYY'), to_date('10/6/1937', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 12, 154, to_date('16/7/2021', 'DD/MM/YYYY'), to_date('6/8/2021', 'DD/MM/YYYY'));
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 50, 381, to_date('10/4/1932', 'DD/MM/YYYY'), to_date('10/4/1932', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 37, 154, to_date('6/8/2021', 'DD/MM/YYYY'), to_date('11/9/2021', 'DD/MM/YYYY'));
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 31, 381, to_date('13/9/2010', 'DD/MM/YYYY'), to_date('13/9/2010', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 123, 154, to_date('11/9/2021', 'DD/MM/YYYY'), NULL);
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 111, 382, to_date('25/3/1930', 'DD/MM/YYYY'), to_date('25/3/1930', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 39, 155, to_date('5/3/2021', 'DD/MM/YYYY'), to_date('3/4/2021', 'DD/MM/YYYY'));
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 50, 382, to_date('10/5/1952', 'DD/MM/YYYY'), to_date('10/5/1952', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 12, 155, to_date('3/4/2021', 'DD/MM/YYYY'), to_date('21/5/2021', 'DD/MM/YYYY'));
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 31, 382, to_date('22/1/2012', 'DD/MM/YYYY'), to_date('22/1/2012', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 37, 155, to_date('21/5/2021', 'DD/MM/YYYY'), to_date('2/7/2021', 'DD/MM/YYYY'));
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 111, 383, to_date('16/6/1940', 'DD/MM/YYYY'), to_date('16/6/1940', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 123, 155, to_date('2/7/2021', 'DD/MM/YYYY'), to_date('23/7/2021', 'DD/MM/YYYY'));
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 50, 383, to_date('4/4/1980', 'DD/MM/YYYY'), to_date('4/4/1980', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 131, 155, to_date('23/7/2021', 'DD/MM/YYYY'), to_date('11/9/2021', 'DD/MM/YYYY'));
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 31, 383, to_date('26/5/1954', 'DD/MM/YYYY'), to_date('26/5/1954', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 13, 155, to_date('11/9/2021', 'DD/MM/YYYY'), NULL);
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 111, 384, to_date('24/6/1933', 'DD/MM/YYYY'), to_date('24/6/1933', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 39, 156, to_date('26/6/2021', 'DD/MM/YYYY'), to_date('6/8/2021', 'DD/MM/YYYY'));
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 50, 384, to_date('25/9/1997', 'DD/MM/YYYY'), to_date('25/9/1997', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 12, 156, to_date('6/8/2021', 'DD/MM/YYYY'), to_date('27/8/2021', 'DD/MM/YYYY'));
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 31, 384, to_date('13/3/1945', 'DD/MM/YYYY'), to_date('13/3/1945', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 37, 156, to_date('27/8/2021', 'DD/MM/YYYY'), NULL);
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 41, 385, to_date('26/4/1982', 'DD/MM/YYYY'), to_date('26/4/1982', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 39, 157, to_date('14/5/2021', 'DD/MM/YYYY'), to_date('2/7/2021', 'DD/MM/YYYY'));
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 58, 385, to_date('12/7/1929', 'DD/MM/YYYY'), to_date('12/7/1929', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 12, 157, to_date('2/7/2021', 'DD/MM/YYYY'), to_date('30/7/2021', 'DD/MM/YYYY'));
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 90, 385, to_date('6/6/2014', 'DD/MM/YYYY'), to_date('6/6/2014', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 37, 157, to_date('30/7/2021', 'DD/MM/YYYY'), to_date('27/8/2021', 'DD/MM/YYYY'));
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 41, 386, to_date('21/9/1986', 'DD/MM/YYYY'), to_date('21/9/1986', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 123, 157, to_date('27/8/2021', 'DD/MM/YYYY'), NULL);
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 41, 387, to_date('19/1/1929', 'DD/MM/YYYY'), to_date('19/1/1929', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 39, 158, to_date('25/02/2021', 'DD/MM/YYYY'), to_date('17/4/2021', 'DD/MM/YYYY'));
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 58, 387, to_date('9/2/1940', 'DD/MM/YYYY'), to_date('9/2/1940', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 12, 158, to_date('17/4/2021', 'DD/MM/YYYY'), to_date('14/5/2021', 'DD/MM/YYYY'));
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 41, 388, to_date('14/1/1985', 'DD/MM/YYYY'), to_date('14/1/1985', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 37, 158, to_date('14/5/2021', 'DD/MM/YYYY'), to_date('5/6/2021', 'DD/MM/YYYY'));
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 41, 389, to_date('23/9/1921', 'DD/MM/YYYY'), to_date('23/9/1921', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 123, 158, to_date('5/6/2021', 'DD/MM/YYYY'), to_date('2/7/2021', 'DD/MM/YYYY'));
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 58, 389, to_date('14/8/1961', 'DD/MM/YYYY'), to_date('14/8/1961', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 131, 158, to_date('2/7/2021', 'DD/MM/YYYY'), to_date('6/8/2021', 'DD/MM/YYYY'));
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 41, 390, to_date('3/2/2009', 'DD/MM/YYYY'), to_date('3/2/2009', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 13, 158, to_date('6/8/2021', 'DD/MM/YYYY'), to_date('18/9/2021', 'DD/MM/YYYY'));
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 41, 391, to_date('23/1/1996', 'DD/MM/YYYY'), to_date('23/1/1996', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 49, 158, to_date('18/9/2021', 'DD/MM/YYYY'), NULL);
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 58, 391, to_date('8/2/1945', 'DD/MM/YYYY'), to_date('8/2/1945', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 94, 159, to_date('22/2/2021', 'DD/MM/YYYY'), to_date('3/4/2021', 'DD/MM/YYYY'));
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 41, 392, to_date('25/1/1986', 'DD/MM/YYYY'), to_date('25/1/1986', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 60, 159, to_date('3/4/2021', 'DD/MM/YYYY'), to_date('24/4/2021', 'DD/MM/YYYY'));
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 58, 392, to_date('17/3/1949', 'DD/MM/YYYY'), to_date('17/3/1949', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 66, 159, to_date('24/4/2021', 'DD/MM/YYYY'), to_date('12/6/2021', 'DD/MM/YYYY'));
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 41, 393, to_date('21/4/2008', 'DD/MM/YYYY'), to_date('21/4/2008', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 99, 159, to_date('12/6/2021', 'DD/MM/YYYY'), to_date('2/7/2021', 'DD/MM/YYYY'));
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 58, 393, to_date('25/9/1929', 'DD/MM/YYYY'), to_date('25/9/1929', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 129, 159, to_date('2/7/2021', 'DD/MM/YYYY'), to_date('30/7/2021', 'DD/MM/YYYY'));
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 90, 393, to_date('25/2/2003', 'DD/MM/YYYY'), to_date('25/2/2003', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 36, 159, to_date('30/7/2021', 'DD/MM/YYYY'), to_date('11/9/2021', 'DD/MM/YYYY'));
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 41, 394, to_date('10/6/1943', 'DD/MM/YYYY'), to_date('10/6/1943', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 127, 159, to_date('11/9/2021', 'DD/MM/YYYY'), NULL);
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 58, 394, to_date('26/3/1932', 'DD/MM/YYYY'), to_date('26/3/1932', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 94, 160, to_date('16/7/2021', 'DD/MM/YYYY'), to_date('6/8/2021', 'DD/MM/YYYY'));
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 41, 395, to_date('10/6/2000', 'DD/MM/YYYY'), to_date('10/6/2000', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 60, 160, to_date('6/8/2021', 'DD/MM/YYYY'), to_date('4/9/2021', 'DD/MM/YYYY'));
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 41, 396, to_date('20/5/1951', 'DD/MM/YYYY'), to_date('20/5/1951', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 66, 160, to_date('4/9/2021', 'DD/MM/YYYY'), NULL);
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 58, 396, to_date('12/4/1924', 'DD/MM/YYYY'), to_date('12/4/1924', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 94, 161, to_date('7/5/2021', 'DD/MM/YYYY'), to_date('12/6/2021', 'DD/MM/YYYY'));
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 39, 397, to_date('10/3/2008', 'DD/MM/YYYY'), to_date('10/3/2008', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 60, 161, to_date('12/6/2021', 'DD/MM/YYYY'), to_date('30/7/2021', 'DD/MM/YYYY'));
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 58, 397, to_date('18/1/1950', 'DD/MM/YYYY'), to_date('18/1/1950', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 66, 161, to_date('30/7/2021', 'DD/MM/YYYY'), to_date('4/9/2021', 'DD/MM/YYYY'));
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 107, 397, to_date('26/4/1949', 'DD/MM/YYYY'), to_date('26/4/1949', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 99, 161, to_date('4/9/2021', 'DD/MM/YYYY'), NULL);
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 39, 398, to_date('2/6/2013', 'DD/MM/YYYY'), to_date('2/6/2013', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 94, 162, to_date('15/2/2021', 'DD/MM/YYYY'), to_date('26/3/2021', 'DD/MM/YYYY'));
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 58, 398, to_date('1/1/1994', 'DD/MM/YYYY'), to_date('1/1/1994', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 60, 162, to_date('26/3/2021', 'DD/MM/YYYY'), to_date('14/5/2021', 'DD/MM/YYYY'));
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 107, 398, to_date('23/2/1985', 'DD/MM/YYYY'), to_date('23/2/1985', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 66, 162, to_date('14/5/2021', 'DD/MM/YYYY'), to_date('5/6/2021', 'DD/MM/YYYY'));
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 39, 399, to_date('20/8/1958', 'DD/MM/YYYY'), to_date('20/8/1958', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 99, 162, to_date('5/6/2021', 'DD/MM/YYYY'), to_date('26/6/2021', 'DD/MM/YYYY'));
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 58, 399, to_date('23/5/1949', 'DD/MM/YYYY'), to_date('23/5/1949', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 129, 162, to_date('26/6/2021', 'DD/MM/YYYY'), to_date('6/8/2021', 'DD/MM/YYYY'));
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 39, 400, to_date('20/8/1935', 'DD/MM/YYYY'), to_date('20/8/1935', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 36, 162, to_date('6/8/2021', 'DD/MM/YYYY'), to_date('11/9/2021', 'DD/MM/YYYY'));
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 39, 401, to_date('10/10/1992', 'DD/MM/YYYY'), to_date('10/10/1992', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 127, 162, to_date('11/9/2021', 'DD/MM/YYYY'), NULL);
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 39, 402, to_date('1/3/1941', 'DD/MM/YYYY'), to_date('1/3/1941', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 94, 163, to_date('17/4/2021', 'DD/MM/YYYY'), to_date('28/5/2021', 'DD/MM/YYYY'));
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 58, 402, to_date('7/5/1980', 'DD/MM/YYYY'), to_date('7/5/1980', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 60, 163, to_date('28/5/2021', 'DD/MM/YYYY'), to_date('9/7/2021', 'DD/MM/YYYY'));
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 39, 403, to_date('25/10/2016', 'DD/MM/YYYY'), to_date('25/10/2016', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 66, 163, to_date('9/7/2021', 'DD/MM/YYYY'), to_date('20/8/2021', 'DD/MM/YYYY'));
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 58, 403, to_date('5/6/1963', 'DD/MM/YYYY'), to_date('5/6/1963', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 99, 163, to_date('20/8/2021', 'DD/MM/YYYY'), to_date('25/9/2021', 'DD/MM/YYYY'));
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 39, 404, to_date('16/1/1941', 'DD/MM/YYYY'), to_date('16/1/1941', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 129, 163, to_date('25/9/2021', 'DD/MM/YYYY'), NULL);
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 39, 405, to_date('24/1/1963', 'DD/MM/YYYY'), to_date('24/1/1963', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 94, 164, to_date('22/1/2021', 'DD/MM/YYYY'), to_date('5/3/2021', 'DD/MM/YYYY'));
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 39, 406, to_date('7/4/1954', 'DD/MM/YYYY'), to_date('7/4/1954', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 60, 164, to_date('5/3/2021', 'DD/MM/YYYY'), to_date('24/4/2021', 'DD/MM/YYYY'));
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 39, 407, to_date('3/7/2014', 'DD/MM/YYYY'), to_date('3/7/2014', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 66, 164, to_date('24/4/2021', 'DD/MM/YYYY'), to_date('5/6/2021', 'DD/MM/YYYY'));
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 58, 407, to_date('10/1/2001', 'DD/MM/YYYY'), to_date('10/1/2001', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 99, 164, to_date('5/6/2021', 'DD/MM/YYYY'), to_date('9/7/2021', 'DD/MM/YYYY'));
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 39, 408, to_date('7/7/2016', 'DD/MM/YYYY'), to_date('7/7/2016', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 129, 164, to_date('9/7/2021', 'DD/MM/YYYY'), to_date('30/7/2021', 'DD/MM/YYYY'));
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 39, 409, to_date('5/4/1972', 'DD/MM/YYYY'), to_date('5/4/1972', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 36, 164, to_date('30/7/2021', 'DD/MM/YYYY'), to_date('18/9/2021', 'DD/MM/YYYY'));
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 58, 409, to_date('12/1/2007', 'DD/MM/YYYY'), to_date('12/1/2007', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 127, 164, to_date('18/9/2021', 'DD/MM/YYYY'), NULL);
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 107, 409, to_date('13/1/1975', 'DD/MM/YYYY'), to_date('13/1/1975', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 68, 165, to_date('19/3/2021', 'DD/MM/YYYY'), to_date('24/4/2021', 'DD/MM/YYYY'));
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 39, 410, to_date('14/10/1947', 'DD/MM/YYYY'), to_date('14/10/1947', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 125, 165, to_date('24/4/2021', 'DD/MM/YYYY'), to_date('28/5/2021', 'DD/MM/YYYY'));
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 58, 410, to_date('17/6/1958', 'DD/MM/YYYY'), to_date('17/6/1958', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 6, 165, to_date('28/5/2021', 'DD/MM/YYYY'), to_date('9/7/2021', 'DD/MM/YYYY'));
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 39, 411, to_date('2/4/1968', 'DD/MM/YYYY'), to_date('2/4/1968', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 84, 165, to_date('9/7/2021', 'DD/MM/YYYY'), to_date('27/8/2021', 'DD/MM/YYYY'));
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 39, 412, to_date('25/4/1937', 'DD/MM/YYYY'), to_date('25/4/1937', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 119, 165, to_date('27/8/2021', 'DD/MM/YYYY'), NULL);
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 58, 412, to_date('7/5/2014', 'DD/MM/YYYY'), to_date('7/5/2014', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 68, 166, to_date('26/6/2021', 'DD/MM/YYYY'), to_date('30/7/2021', 'DD/MM/YYYY'));
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 105, 413, to_date('7/5/1939', 'DD/MM/YYYY'), to_date('7/5/1939', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 125, 166, to_date('30/7/2021', 'DD/MM/YYYY'), to_date('4/9/2021', 'DD/MM/YYYY'));
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 66, 413, to_date('10/2/1988', 'DD/MM/YYYY'), to_date('10/2/1988', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 6, 166, to_date('4/9/2021', 'DD/MM/YYYY'), NULL);
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 69, 413, to_date('7/7/1955', 'DD/MM/YYYY'), to_date('7/7/1955', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 68, 167, to_date('16/7/2021', 'DD/MM/YYYY'), to_date('13/8/2021', 'DD/MM/YYYY'));
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 105, 414, to_date('22/4/1958', 'DD/MM/YYYY'), to_date('22/4/1958', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 125, 167, to_date('13/8/2021', 'DD/MM/YYYY'), to_date('25/9/2021', 'DD/MM/YYYY'));
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 66, 414, to_date('26/10/1993', 'DD/MM/YYYY'), to_date('26/10/1993', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 6, 167, to_date('25/9/2021', 'DD/MM/YYYY'), NULL);
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 69, 414, to_date('17/6/2010', 'DD/MM/YYYY'), to_date('17/6/2010', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 68, 168, to_date('27/4/2021', 'DD/MM/YYYY'), to_date('5/6/2021', 'DD/MM/YYYY'));
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 105, 415, to_date('10/8/1963', 'DD/MM/YYYY'), to_date('10/8/1963', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 125, 168, to_date('5/6/2021', 'DD/MM/YYYY'), to_date('2/7/2021', 'DD/MM/YYYY'));
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 66, 415, to_date('26/6/2008', 'DD/MM/YYYY'), to_date('26/6/2008', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 6, 168, to_date('2/7/2021', 'DD/MM/YYYY'), to_date('13/8/2021', 'DD/MM/YYYY'));
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 105, 416, to_date('14/9/1969', 'DD/MM/YYYY'), to_date('14/9/1969', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 84, 168, to_date('13/8/2021', 'DD/MM/YYYY'), to_date('4/9/2021', 'DD/MM/YYYY'));
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 105, 417, to_date('3/7/2010', 'DD/MM/YYYY'), to_date('3/7/2010', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 119, 168, to_date('4/9/2021', 'DD/MM/YYYY'), to_date('25/9/2021', 'DD/MM/YYYY'));
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 105, 418, to_date('13/5/1929', 'DD/MM/YYYY'), to_date('13/5/1929', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 124, 168, to_date('25/9/2021', 'DD/MM/YYYY'), NULL);
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 66, 418, to_date('16/1/2015', 'DD/MM/YYYY'), to_date('16/1/2015', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 68, 169, to_date('12/3/2021', 'DD/MM/YYYY'), to_date('24/4/2021', 'DD/MM/YYYY'));
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 105, 419, to_date('20/4/1993', 'DD/MM/YYYY'), to_date('20/4/1993', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 125, 169, to_date('24/4/2021', 'DD/MM/YYYY'), to_date('28/5/2021', 'DD/MM/YYYY'));
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 66, 419, to_date('25/8/2003', 'DD/MM/YYYY'), to_date('25/8/2003', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 6, 169, to_date('28/5/2021', 'DD/MM/YYYY'), to_date('16/7/2021', 'DD/MM/YYYY'));
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 69, 419, to_date('22/9/2000', 'DD/MM/YYYY'), to_date('22/9/2000', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 84, 169, to_date('16/7/2021', 'DD/MM/YYYY'), to_date('27/8/2021', 'DD/MM/YYYY'));
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 105, 420, to_date('14/4/2017', 'DD/MM/YYYY'), to_date('14/4/2017', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 119, 169, to_date('27/8/2021', 'DD/MM/YYYY'), NULL);
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 66, 420, to_date('8/2/1998', 'DD/MM/YYYY'), to_date('8/2/1998', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 68, 170, to_date('2/7/2021', 'DD/MM/YYYY'), to_date('30/7/2021', 'DD/MM/YYYY'));
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 69, 420, to_date('9/1/1937', 'DD/MM/YYYY'), to_date('9/1/1937', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 125, 170, to_date('30/7/2021', 'DD/MM/YYYY'), to_date('4/9/2021', 'DD/MM/YYYY'));
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 105, 421, to_date('1/4/1998', 'DD/MM/YYYY'), to_date('1/4/1998', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 6, 170, to_date('4/9/2021', 'DD/MM/YYYY'), NULL);
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 66, 421, to_date('20/9/1982', 'DD/MM/YYYY'), to_date('20/9/1982', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 68, 171, to_date('22/2/2021', 'DD/MM/YYYY'), to_date('26/3/2021', 'DD/MM/YYYY'));
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 105, 422, to_date('12/4/1969', 'DD/MM/YYYY'), to_date('12/4/1969', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 125, 171, to_date('26/3/2021', 'DD/MM/YYYY'), to_date('7/5/2021', 'DD/MM/YYYY'));
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 66, 422, to_date('2/9/1926', 'DD/MM/YYYY'), to_date('2/9/1926', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 6, 171, to_date('7/5/2021', 'DD/MM/YYYY'), to_date('12/6/2021', 'DD/MM/YYYY'));
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 105, 423, to_date('22/5/1975', 'DD/MM/YYYY'), to_date('22/5/1975', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 84, 171, to_date('12/6/2021', 'DD/MM/YYYY'), to_date('23/7/2021', 'DD/MM/YYYY'));
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 66, 423, to_date('16/9/1920', 'DD/MM/YYYY'), to_date('16/9/1920', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 119, 171, to_date('23/7/2021', 'DD/MM/YYYY'), to_date('27/8/2021', 'DD/MM/YYYY'));
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 69, 423, to_date('19/5/1953', 'DD/MM/YYYY'), to_date('19/5/1953', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 124, 171, to_date('27/8/2021', 'DD/MM/YYYY'), to_date('25/9/2021', 'DD/MM/YYYY'));
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 105, 424, to_date('4/3/1969', 'DD/MM/YYYY'), to_date('4/3/1969', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 120, 171, to_date('25/9/2021', 'DD/MM/YYYY'), NULL);
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 66, 424, to_date('18/10/1994', 'DD/MM/YYYY'), to_date('18/10/1994', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 99, 172, to_date('16/7/2021', 'DD/MM/YYYY'), to_date('6/8/2021', 'DD/MM/YYYY'));
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 69, 424, to_date('6/5/1937', 'DD/MM/YYYY'), to_date('6/5/1937', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 36, 172, to_date('6/8/2021', 'DD/MM/YYYY'), to_date('4/9/2021', 'DD/MM/YYYY'));
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 105, 425, to_date('9/4/1974', 'DD/MM/YYYY'), to_date('9/4/1974', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 77, 172, to_date('4/9/2021', 'DD/MM/YYYY'), NULL);
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 105, 426, to_date('24/9/1994', 'DD/MM/YYYY'), to_date('24/9/1994', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 99, 173, to_date('15/2/2021', 'DD/MM/YYYY'), to_date('12/3/2021', 'DD/MM/YYYY'));
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 66, 426, to_date('10/1/1974', 'DD/MM/YYYY'), to_date('10/1/1974', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 36, 173, to_date('12/3/2021', 'DD/MM/YYYY'), to_date('27/4/2021', 'DD/MM/YYYY'));
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 69, 426, to_date('10/10/2002', 'DD/MM/YYYY'), to_date('10/10/2002', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 77, 173, to_date('27/4/2021', 'DD/MM/YYYY'), to_date('28/5/2021', 'DD/MM/YYYY'));
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 44, 427, to_date('7/1/2017', 'DD/MM/YYYY'), to_date('7/1/2017', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 90, 173, to_date('28/5/2021', 'DD/MM/YYYY'), to_date('26/6/2021', 'DD/MM/YYYY'));
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 44, 428, to_date('9/2/1996', 'DD/MM/YYYY'), to_date('9/2/1996', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 5, 173, to_date('26/6/2021', 'DD/MM/YYYY'), to_date('23/7/2021', 'DD/MM/YYYY'));
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 34, 428, to_date('21/8/1986', 'DD/MM/YYYY'), to_date('21/8/1986', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 21, 173, to_date('23/7/2021', 'DD/MM/YYYY'), to_date('11/9/2021', 'DD/MM/YYYY'));
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 104, 428, to_date('6/9/1954', 'DD/MM/YYYY'), to_date('6/9/1954', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 69, 173, to_date('11/9/2021', 'DD/MM/YYYY'), NULL);
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 44, 429, to_date('13/7/1971', 'DD/MM/YYYY'), to_date('13/7/1971', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 99, 174, to_date('26/3/2021', 'DD/MM/YYYY'), to_date('7/5/2021', 'DD/MM/YYYY'));
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 44, 430, to_date('19/1/1996', 'DD/MM/YYYY'), to_date('19/1/1996', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 36, 174, to_date('7/5/2021', 'DD/MM/YYYY'), to_date('28/5/2021', 'DD/MM/YYYY'));
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 34, 430, to_date('4/6/1953', 'DD/MM/YYYY'), to_date('4/6/1953', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 77, 174, to_date('28/5/2021', 'DD/MM/YYYY'), to_date('2/7/2021', 'DD/MM/YYYY'));
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 104, 430, to_date('24/3/2000', 'DD/MM/YYYY'), to_date('24/3/2000', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 90, 174, to_date('2/7/2021', 'DD/MM/YYYY'), to_date('20/8/2021', 'DD/MM/YYYY'));
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 44, 431, to_date('24/6/1964', 'DD/MM/YYYY'), to_date('24/6/1964', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 5, 174, to_date('20/8/2021', 'DD/MM/YYYY'), to_date('11/9/2021', 'DD/MM/YYYY'));
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 34, 431, to_date('3/4/1927', 'DD/MM/YYYY'), to_date('3/4/1927', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 21, 174, to_date('11/9/2021', 'DD/MM/YYYY'), NULL);
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 44, 432, to_date('4/3/1948', 'DD/MM/YYYY'), to_date('4/3/1948', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 99, 175, to_date('26/6/2021', 'DD/MM/YYYY'), to_date('6/8/2021', 'DD/MM/YYYY'));
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 34, 432, to_date('9/9/1958', 'DD/MM/YYYY'), to_date('9/9/1958', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 36, 175, to_date('6/8/2021', 'DD/MM/YYYY'), to_date('27/8/2021', 'DD/MM/YYYY'));
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 44, 433, to_date('2/7/1974', 'DD/MM/YYYY'), to_date('2/7/1974', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 77, 175, to_date('27/8/2021', 'DD/MM/YYYY'), NULL);
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 44, 434, to_date('26/1/1963', 'DD/MM/YYYY'), to_date('26/1/1963', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 99, 176, to_date('25/02/2021', 'DD/MM/YYYY'), to_date('17/4/2021', 'DD/MM/YYYY'));
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 44, 435, to_date('15/1/1931', 'DD/MM/YYYY'), to_date('15/1/1931', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 36, 176, to_date('17/4/2021', 'DD/MM/YYYY'), to_date('21/5/2021', 'DD/MM/YYYY'));
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 44, 436, to_date('22/2/1995', 'DD/MM/YYYY'), to_date('22/2/1995', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 77, 176, to_date('21/5/2021', 'DD/MM/YYYY'), to_date('12/6/2021', 'DD/MM/YYYY'));
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 34, 436, to_date('25/7/1999', 'DD/MM/YYYY'), to_date('25/7/1999', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 90, 176, to_date('12/6/2021', 'DD/MM/YYYY'), to_date('9/7/2021', 'DD/MM/YYYY'));
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 110, 437, to_date('6/8/1982', 'DD/MM/YYYY'), to_date('6/8/1982', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 5, 176, to_date('9/7/2021', 'DD/MM/YYYY'), to_date('20/8/2021', 'DD/MM/YYYY'));
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 50, 437, to_date('13/5/1958', 'DD/MM/YYYY'), to_date('13/5/1958', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 21, 176, to_date('20/8/2021', 'DD/MM/YYYY'), to_date('11/9/2021', 'DD/MM/YYYY'));
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 110, 438, to_date('26/3/1921', 'DD/MM/YYYY'), to_date('26/3/1921', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 69, 176, to_date('11/9/2021', 'DD/MM/YYYY'), NULL);
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 110, 439, to_date('2/6/1934', 'DD/MM/YYYY'), to_date('2/6/1934', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 99, 177, to_date('21/5/2021', 'DD/MM/YYYY'), to_date('9/7/2021', 'DD/MM/YYYY'));
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 50, 439, to_date('18/1/1989', 'DD/MM/YYYY'), to_date('18/1/1989', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 36, 177, to_date('9/7/2021', 'DD/MM/YYYY'), to_date('6/8/2021', 'DD/MM/YYYY'));
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 41, 439, to_date('16/5/1986', 'DD/MM/YYYY'), to_date('16/5/1986', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 77, 177, to_date('6/8/2021', 'DD/MM/YYYY'), to_date('25/9/2021', 'DD/MM/YYYY'));
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 110, 440, to_date('20/8/1933', 'DD/MM/YYYY'), to_date('20/8/1933', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 90, 177, to_date('25/9/2021', 'DD/MM/YYYY'), NULL);
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 110, 441, to_date('9/6/2018', 'DD/MM/YYYY'), to_date('9/6/2018', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 29, 178, to_date('12/6/2021', 'DD/MM/YYYY'), to_date('2/7/2021', 'DD/MM/YYYY'));
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 110, 442, to_date('1/10/1993', 'DD/MM/YYYY'), to_date('1/10/1993', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 52, 178, to_date('2/7/2021', 'DD/MM/YYYY'), to_date('6/8/2021', 'DD/MM/YYYY'));
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 50, 442, to_date('8/7/2017', 'DD/MM/YYYY'), to_date('8/7/2017', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 7, 178, to_date('6/8/2021', 'DD/MM/YYYY'), to_date('27/8/2021', 'DD/MM/YYYY'));
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 110, 443, to_date('16/8/2004', 'DD/MM/YYYY'), to_date('16/8/2004', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 34, 178, to_date('27/8/2021', 'DD/MM/YYYY'), NULL);
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 50, 443, to_date('22/6/1956', 'DD/MM/YYYY'), to_date('22/6/1956', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 29, 179, to_date('16/7/2021', 'DD/MM/YYYY'), to_date('27/8/2021', 'DD/MM/YYYY'));
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 41, 443, to_date('19/10/1984', 'DD/MM/YYYY'), to_date('19/10/1984', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 52, 179, to_date('27/8/2021', 'DD/MM/YYYY'), to_date('18/9/2021', 'DD/MM/YYYY'));
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 110, 444, to_date('18/6/1960', 'DD/MM/YYYY'), to_date('18/6/1960', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 7, 179, to_date('18/9/2021', 'DD/MM/YYYY'), NULL);
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 50, 444, to_date('20/2/2007', 'DD/MM/YYYY'), to_date('20/2/2007', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 29, 180, to_date('3/4/2021', 'DD/MM/YYYY'), to_date('21/5/2021', 'DD/MM/YYYY'));
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 41, 444, to_date('10/2/1981', 'DD/MM/YYYY'), to_date('10/2/1981', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 52, 180, to_date('21/5/2021', 'DD/MM/YYYY'), to_date('12/6/2021', 'DD/MM/YYYY'));
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 110, 445, to_date('15/1/1993', 'DD/MM/YYYY'), to_date('15/1/1993', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 7, 180, to_date('12/6/2021', 'DD/MM/YYYY'), to_date('16/7/2021', 'DD/MM/YYYY'));
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 50, 445, to_date('13/1/1933', 'DD/MM/YYYY'), to_date('13/1/1933', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 34, 180, to_date('16/7/2021', 'DD/MM/YYYY'), to_date('20/8/2021', 'DD/MM/YYYY'));
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 41, 445, to_date('16/2/1933', 'DD/MM/YYYY'), to_date('16/2/1933', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 45, 180, to_date('20/8/2021', 'DD/MM/YYYY'), to_date('25/9/2021', 'DD/MM/YYYY'));
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 29, 446, to_date('15/10/1960', 'DD/MM/YYYY'), to_date('15/10/1960', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 2, 180, to_date('25/9/2021', 'DD/MM/YYYY'), NULL);
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 98, 446, to_date('3/1/1978', 'DD/MM/YYYY'), to_date('3/1/1978', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 29, 181, to_date('28/5/2021', 'DD/MM/YYYY'), to_date('2/7/2021', 'DD/MM/YYYY'));
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 29, 447, to_date('26/6/2003', 'DD/MM/YYYY'), to_date('26/6/2003', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 52, 181, to_date('2/7/2021', 'DD/MM/YYYY'), to_date('6/8/2021', 'DD/MM/YYYY'));
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 98, 447, to_date('8/9/2013', 'DD/MM/YYYY'), to_date('8/9/2013', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 7, 181, to_date('6/8/2021', 'DD/MM/YYYY'), to_date('4/9/2021', 'DD/MM/YYYY'));
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 70, 447, to_date('12/4/2003', 'DD/MM/YYYY'), to_date('12/4/2003', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 34, 181, to_date('4/9/2021', 'DD/MM/YYYY'), NULL);
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 29, 448, to_date('20/9/1938', 'DD/MM/YYYY'), to_date('20/9/1938', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 27, 182, to_date('27/4/2021', 'DD/MM/YYYY'), to_date('21/5/2021', 'DD/MM/YYYY'));
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 98, 448, to_date('18/1/1978', 'DD/MM/YYYY'), to_date('18/1/1978', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 45, 182, to_date('21/5/2021', 'DD/MM/YYYY'), to_date('12/6/2021', 'DD/MM/YYYY'));
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 70, 448, to_date('14/1/1995', 'DD/MM/YYYY'), to_date('14/1/1995', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 17, 182, to_date('12/6/2021', 'DD/MM/YYYY'), to_date('2/7/2021', 'DD/MM/YYYY'));
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 29, 449, to_date('12/6/1946', 'DD/MM/YYYY'), to_date('12/6/1946', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 49, 182, to_date('2/7/2021', 'DD/MM/YYYY'), to_date('20/8/2021', 'DD/MM/YYYY'));
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 29, 450, to_date('11/7/1951', 'DD/MM/YYYY'), to_date('11/7/1951', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 123, 182, to_date('20/8/2021', 'DD/MM/YYYY'), to_date('25/9/2021', 'DD/MM/YYYY'));
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 98, 450, to_date('7/5/2012', 'DD/MM/YYYY'), to_date('7/5/2012', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 88, 182, to_date('25/9/2021', 'DD/MM/YYYY'), NULL);
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 29, 451, to_date('26/1/1929', 'DD/MM/YYYY'), to_date('26/1/1929', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 27, 183, to_date('7/5/2021', 'DD/MM/YYYY'), to_date('19/6/2021', 'DD/MM/YYYY'));
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 98, 451, to_date('1/7/1938', 'DD/MM/YYYY'), to_date('1/7/1938', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 45, 183, to_date('19/6/2021', 'DD/MM/YYYY'), to_date('9/7/2021', 'DD/MM/YYYY'));
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 29, 452, to_date('4/1/1942', 'DD/MM/YYYY'), to_date('4/1/1942', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 17, 183, to_date('9/7/2021', 'DD/MM/YYYY'), to_date('13/8/2021', 'DD/MM/YYYY'));
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 98, 452, to_date('24/8/1945', 'DD/MM/YYYY'), to_date('24/8/1945', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 49, 183, to_date('13/8/2021', 'DD/MM/YYYY'), to_date('18/9/2021', 'DD/MM/YYYY'));
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 29, 453, to_date('14/1/1938', 'DD/MM/YYYY'), to_date('14/1/1938', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 123, 183, to_date('18/9/2021', 'DD/MM/YYYY'), NULL);
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 29, 454, to_date('1/6/1948', 'DD/MM/YYYY'), to_date('1/6/1948', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 27, 184, to_date('22/1/2021', 'DD/MM/YYYY'), to_date('5/3/2021', 'DD/MM/YYYY'));
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 98, 454, to_date('8/6/1993', 'DD/MM/YYYY'), to_date('8/6/1993', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 45, 184, to_date('5/3/2021', 'DD/MM/YYYY'), to_date('26/3/2021', 'DD/MM/YYYY'));
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 70, 454, to_date('26/9/1969', 'DD/MM/YYYY'), to_date('26/9/1969', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 17, 184, to_date('26/3/2021', 'DD/MM/YYYY'), to_date('7/5/2021', 'DD/MM/YYYY'));
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 29, 455, to_date('21/10/2005', 'DD/MM/YYYY'), to_date('21/10/2005', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 49, 184, to_date('7/5/2021', 'DD/MM/YYYY'), to_date('5/6/2021', 'DD/MM/YYYY'));
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 29, 456, to_date('13/5/1948', 'DD/MM/YYYY'), to_date('13/5/1948', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 123, 184, to_date('5/6/2021', 'DD/MM/YYYY'), to_date('16/7/2021', 'DD/MM/YYYY'));
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 98, 456, to_date('24/4/1922', 'DD/MM/YYYY'), to_date('24/4/1922', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 88, 184, to_date('16/7/2021', 'DD/MM/YYYY'), to_date('4/9/2021', 'DD/MM/YYYY'));
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 70, 456, to_date('24/3/2014', 'DD/MM/YYYY'), to_date('24/3/2014', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 14, 184, to_date('4/9/2021', 'DD/MM/YYYY'), NULL);
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 29, 457, to_date('24/2/2016', 'DD/MM/YYYY'), to_date('24/2/2016', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 27, 185, to_date('28/5/2021', 'DD/MM/YYYY'), to_date('16/7/2021', 'DD/MM/YYYY'));
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 98, 457, to_date('20/1/1958', 'DD/MM/YYYY'), to_date('20/1/1958', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 45, 185, to_date('16/7/2021', 'DD/MM/YYYY'), to_date('13/8/2021', 'DD/MM/YYYY'));
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 70, 457, to_date('7/7/1983', 'DD/MM/YYYY'), to_date('7/7/1983', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 17, 185, to_date('13/8/2021', 'DD/MM/YYYY'), to_date('11/9/2021', 'DD/MM/YYYY'));
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 29, 458, to_date('22/2/1970', 'DD/MM/YYYY'), to_date('22/2/1970', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 49, 185, to_date('11/9/2021', 'DD/MM/YYYY'), NULL);
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 98, 458, to_date('14/1/1969', 'DD/MM/YYYY'), to_date('14/1/1969', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 27, 186, to_date('5/6/2021', 'DD/MM/YYYY'), to_date('16/7/2021', 'DD/MM/YYYY'));
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 29, 459, to_date('18/8/1986', 'DD/MM/YYYY'), to_date('18/8/1986', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 45, 186, to_date('16/7/2021', 'DD/MM/YYYY'), to_date('4/9/2021', 'DD/MM/YYYY'));
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 98, 459, to_date('7/1/1945', 'DD/MM/YYYY'), to_date('7/1/1945', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 17, 186, to_date('4/9/2021', 'DD/MM/YYYY'), NULL);
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 70, 459, to_date('3/7/1922', 'DD/MM/YYYY'), to_date('3/7/1922', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 27, 187, to_date('16/7/2021', 'DD/MM/YYYY'), to_date('13/8/2021', 'DD/MM/YYYY'));
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 136, 460, to_date('26/3/1994', 'DD/MM/YYYY'), to_date('26/3/1994', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 45, 187, to_date('13/8/2021', 'DD/MM/YYYY'), to_date('18/9/2021', 'DD/MM/YYYY'));
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 6, 460, to_date('10/4/1942', 'DD/MM/YYYY'), to_date('10/4/1942', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 17, 187, to_date('18/9/2021', 'DD/MM/YYYY'), NULL);
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 18, 460, to_date('11/3/1939', 'DD/MM/YYYY'), to_date('11/3/1939', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 27, 188, to_date('7/5/2021', 'DD/MM/YYYY'), to_date('26/6/2021', 'DD/MM/YYYY'));
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 136, 461, to_date('23/7/1996', 'DD/MM/YYYY'), to_date('23/7/1996', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 45, 188, to_date('26/6/2021', 'DD/MM/YYYY'), to_date('23/7/2021', 'DD/MM/YYYY'));
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 136, 462, to_date('22/5/1947', 'DD/MM/YYYY'), to_date('22/5/1947', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 17, 188, to_date('23/7/2021', 'DD/MM/YYYY'), to_date('11/9/2021', 'DD/MM/YYYY'));
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 6, 462, to_date('9/5/1982', 'DD/MM/YYYY'), to_date('9/5/1982', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 49, 188, to_date('11/9/2021', 'DD/MM/YYYY'), NULL);
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 136, 463, to_date('22/9/1990', 'DD/MM/YYYY'), to_date('22/9/1990', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 27, 189, to_date('25/02/2021', 'DD/MM/YYYY'), to_date('3/4/2021', 'DD/MM/YYYY'));
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 6, 463, to_date('21/8/1999', 'DD/MM/YYYY'), to_date('21/8/1999', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 45, 189, to_date('3/4/2021', 'DD/MM/YYYY'), to_date('14/5/2021', 'DD/MM/YYYY'));
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 18, 463, to_date('16/6/1986', 'DD/MM/YYYY'), to_date('16/6/1986', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 17, 189, to_date('14/5/2021', 'DD/MM/YYYY'), to_date('2/7/2021', 'DD/MM/YYYY'));
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 136, 464, to_date('20/8/1956', 'DD/MM/YYYY'), to_date('20/8/1956', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 49, 189, to_date('2/7/2021', 'DD/MM/YYYY'), to_date('6/8/2021', 'DD/MM/YYYY'));
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 6, 464, to_date('9/2/1930', 'DD/MM/YYYY'), to_date('9/2/1930', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 123, 189, to_date('6/8/2021', 'DD/MM/YYYY'), to_date('4/9/2021', 'DD/MM/YYYY'));
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 18, 464, to_date('11/10/1949', 'DD/MM/YYYY'), to_date('11/10/1949', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 88, 189, to_date('4/9/2021', 'DD/MM/YYYY'), NULL);
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 136, 465, to_date('13/10/1958', 'DD/MM/YYYY'), to_date('13/10/1958', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 93, 190, to_date('16/7/2021', 'DD/MM/YYYY'), to_date('13/8/2021', 'DD/MM/YYYY'));
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 136, 466, to_date('10/2/1985', 'DD/MM/YYYY'), to_date('10/2/1985', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 61, 190, to_date('13/8/2021', 'DD/MM/YYYY'), to_date('4/9/2021', 'DD/MM/YYYY'));
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 6, 466, to_date('7/7/2011', 'DD/MM/YYYY'), to_date('7/7/2011', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 75, 190, to_date('4/9/2021', 'DD/MM/YYYY'), NULL);
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 136, 467, to_date('16/4/2016', 'DD/MM/YYYY'), to_date('16/4/2016', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 93, 191, to_date('25/02/2021', 'DD/MM/YYYY'), to_date('3/4/2021', 'DD/MM/YYYY'));
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 6, 467, to_date('26/1/1992', 'DD/MM/YYYY'), to_date('26/1/1992', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 61, 191, to_date('3/4/2021', 'DD/MM/YYYY'), to_date('21/5/2021', 'DD/MM/YYYY'));
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 18, 467, to_date('13/3/2014', 'DD/MM/YYYY'), to_date('13/3/2014', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 75, 191, to_date('21/5/2021', 'DD/MM/YYYY'), to_date('9/7/2021', 'DD/MM/YYYY'));
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 136, 468, to_date('18/4/2004', 'DD/MM/YYYY'), to_date('18/4/2004', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 131, 191, to_date('9/7/2021', 'DD/MM/YYYY'), to_date('27/8/2021', 'DD/MM/YYYY'));
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 136, 469, to_date('17/8/1958', 'DD/MM/YYYY'), to_date('17/8/1958', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 43, 191, to_date('27/8/2021', 'DD/MM/YYYY'), NULL);
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 6, 469, to_date('22/8/1950', 'DD/MM/YYYY'), to_date('22/8/1950', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 93, 192, to_date('12/6/2021', 'DD/MM/YYYY'), to_date('30/7/2021', 'DD/MM/YYYY'));
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 18, 469, to_date('24/8/1966', 'DD/MM/YYYY'), to_date('24/8/1966', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 61, 192, to_date('30/7/2021', 'DD/MM/YYYY'), to_date('11/9/2021', 'DD/MM/YYYY'));
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 136, 470, to_date('10/9/2019', 'DD/MM/YYYY'), to_date('10/9/2019', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 75, 192, to_date('11/9/2021', 'DD/MM/YYYY'), NULL);
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 136, 471, to_date('3/5/1959', 'DD/MM/YYYY'), to_date('3/5/1959', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 93, 193, to_date('25/02/2021', 'DD/MM/YYYY'), to_date('17/4/2021', 'DD/MM/YYYY'));
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 136, 472, to_date('26/1/1955', 'DD/MM/YYYY'), to_date('26/1/1955', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 61, 193, to_date('17/4/2021', 'DD/MM/YYYY'), to_date('7/5/2021', 'DD/MM/YYYY'));
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 6, 472, to_date('26/2/1993', 'DD/MM/YYYY'), to_date('26/2/1993', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 75, 193, to_date('7/5/2021', 'DD/MM/YYYY'), to_date('26/6/2021', 'DD/MM/YYYY'));
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 136, 473, to_date('5/5/1938', 'DD/MM/YYYY'), to_date('5/5/1938', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 131, 193, to_date('26/6/2021', 'DD/MM/YYYY'), to_date('23/7/2021', 'DD/MM/YYYY'));
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 6, 473, to_date('11/5/1969', 'DD/MM/YYYY'), to_date('11/5/1969', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 43, 193, to_date('23/7/2021', 'DD/MM/YYYY'), to_date('13/8/2021', 'DD/MM/YYYY'));
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 136, 474, to_date('18/3/2007', 'DD/MM/YYYY'), to_date('18/3/2007', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 15, 193, to_date('13/8/2021', 'DD/MM/YYYY'), to_date('25/9/2021', 'DD/MM/YYYY'));
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 34, 475, to_date('13/4/2019', 'DD/MM/YYYY'), to_date('13/4/2019', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 51, 193, to_date('25/9/2021', 'DD/MM/YYYY'), NULL);
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 34, 476, to_date('15/7/1930', 'DD/MM/YYYY'), to_date('15/7/1930', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 93, 194, to_date('15/1/2021', 'DD/MM/YYYY'), to_date('5/3/2021', 'DD/MM/YYYY'));
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 74, 476, to_date('6/8/1974', 'DD/MM/YYYY'), to_date('6/8/1974', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 61, 194, to_date('5/3/2021', 'DD/MM/YYYY'), to_date('3/4/2021', 'DD/MM/YYYY'));
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 34, 477, to_date('5/10/2013', 'DD/MM/YYYY'), to_date('5/10/2013', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 75, 194, to_date('3/4/2021', 'DD/MM/YYYY'), to_date('14/5/2021', 'DD/MM/YYYY'));
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 74, 477, to_date('16/2/1949', 'DD/MM/YYYY'), to_date('16/2/1949', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 131, 194, to_date('14/5/2021', 'DD/MM/YYYY'), to_date('19/6/2021', 'DD/MM/YYYY'));
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 34, 478, to_date('5/6/1993', 'DD/MM/YYYY'), to_date('5/6/1993', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 43, 194, to_date('19/6/2021', 'DD/MM/YYYY'), to_date('30/7/2021', 'DD/MM/YYYY'));
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 74, 478, to_date('5/10/1968', 'DD/MM/YYYY'), to_date('5/10/1968', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 15, 194, to_date('30/7/2021', 'DD/MM/YYYY'), to_date('18/9/2021', 'DD/MM/YYYY'));
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 88, 478, to_date('14/3/2004', 'DD/MM/YYYY'), to_date('14/3/2004', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 51, 194, to_date('18/9/2021', 'DD/MM/YYYY'), NULL);
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 34, 479, to_date('19/3/1995', 'DD/MM/YYYY'), to_date('19/3/1995', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 93, 195, to_date('23/7/2021', 'DD/MM/YYYY'), to_date('27/8/2021', 'DD/MM/YYYY'));
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 74, 479, to_date('4/2/1990', 'DD/MM/YYYY'), to_date('4/2/1990', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 61, 195, to_date('27/8/2021', 'DD/MM/YYYY'), to_date('18/9/2021', 'DD/MM/YYYY'));
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 34, 480, to_date('22/3/2008', 'DD/MM/YYYY'), to_date('22/3/2008', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 75, 195, to_date('18/9/2021', 'DD/MM/YYYY'), NULL);
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 74, 480, to_date('21/2/1941', 'DD/MM/YYYY'), to_date('21/2/1941', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 32, 196, to_date('17/4/2021', 'DD/MM/YYYY'), to_date('28/5/2021', 'DD/MM/YYYY'));
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 88, 480, to_date('17/1/1980', 'DD/MM/YYYY'), to_date('17/1/1980', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 29, 196, to_date('28/5/2021', 'DD/MM/YYYY'), to_date('19/6/2021', 'DD/MM/YYYY'));
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 34, 481, to_date('6/3/1934', 'DD/MM/YYYY'), to_date('6/3/1934', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 36, 196, to_date('19/6/2021', 'DD/MM/YYYY'), to_date('16/7/2021', 'DD/MM/YYYY'));
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 74, 481, to_date('1/3/1935', 'DD/MM/YYYY'), to_date('1/3/1935', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 21, 196, to_date('16/7/2021', 'DD/MM/YYYY'), to_date('27/8/2021', 'DD/MM/YYYY'));
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 88, 481, to_date('8/4/1972', 'DD/MM/YYYY'), to_date('8/4/1972', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 29, 196, to_date('27/8/2021', 'DD/MM/YYYY'), NULL);
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 34, 482, to_date('21/2/1920', 'DD/MM/YYYY'), to_date('21/2/1920', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 32, 197, to_date('16/7/2021', 'DD/MM/YYYY'), to_date('6/8/2021', 'DD/MM/YYYY'));
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 34, 483, to_date('26/5/1974', 'DD/MM/YYYY'), to_date('26/5/1974', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 29, 197, to_date('6/8/2021', 'DD/MM/YYYY'), to_date('27/8/2021', 'DD/MM/YYYY'));
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 74, 483, to_date('11/1/2008', 'DD/MM/YYYY'), to_date('11/1/2008', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 36, 197, to_date('27/8/2021', 'DD/MM/YYYY'), to_date('18/9/2021', 'DD/MM/YYYY'));
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 88, 483, to_date('10/9/1965', 'DD/MM/YYYY'), to_date('10/9/1965', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 21, 197, to_date('18/9/2021', 'DD/MM/YYYY'), NULL);
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 34, 484, to_date('10/2/1961', 'DD/MM/YYYY'), to_date('10/2/1961', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 32, 198, to_date('5/3/2021', 'DD/MM/YYYY'), to_date('24/4/2021', 'DD/MM/YYYY'));
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 74, 484, to_date('6/3/2000', 'DD/MM/YYYY'), to_date('6/3/2000', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 29, 198, to_date('24/4/2021', 'DD/MM/YYYY'), to_date('5/6/2021', 'DD/MM/YYYY'));
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 34, 485, to_date('2/3/1928', 'DD/MM/YYYY'), to_date('2/3/1928', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 36, 198, to_date('5/6/2021', 'DD/MM/YYYY'), to_date('23/7/2021', 'DD/MM/YYYY'));
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 74, 485, to_date('18/10/1955', 'DD/MM/YYYY'), to_date('18/10/1955', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 21, 198, to_date('23/7/2021', 'DD/MM/YYYY'), to_date('4/9/2021', 'DD/MM/YYYY'));
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 88, 485, to_date('1/7/2009', 'DD/MM/YYYY'), to_date('1/7/2009', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 29, 198, to_date('4/9/2021', 'DD/MM/YYYY'), NULL);
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 34, 486, to_date('19/9/1945', 'DD/MM/YYYY'), to_date('19/9/1945', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 32, 199, to_date('3/4/2021', 'DD/MM/YYYY'), to_date('27/4/2021', 'DD/MM/YYYY'));
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 74, 486, to_date('24/3/1955', 'DD/MM/YYYY'), to_date('24/3/1955', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 29, 199, to_date('27/4/2021', 'DD/MM/YYYY'), to_date('28/5/2021', 'DD/MM/YYYY'));
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 34, 487, to_date('1/1/2011', 'DD/MM/YYYY'), to_date('1/1/2011', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 36, 199, to_date('28/5/2021', 'DD/MM/YYYY'), to_date('2/7/2021', 'DD/MM/YYYY'));
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 74, 487, to_date('14/6/2009', 'DD/MM/YYYY'), to_date('14/6/2009', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 21, 199, to_date('2/7/2021', 'DD/MM/YYYY'), to_date('6/8/2021', 'DD/MM/YYYY'));
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 88, 487, to_date('9/2/1939', 'DD/MM/YYYY'), to_date('9/2/1939', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 29, 199, to_date('6/8/2021', 'DD/MM/YYYY'), to_date('18/9/2021', 'DD/MM/YYYY'));
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 100, 488, to_date('19/6/1947', 'DD/MM/YYYY'), to_date('19/6/1947', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 49, 199, to_date('18/9/2021', 'DD/MM/YYYY'), NULL);
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 100, 489, to_date('21/9/1998', 'DD/MM/YYYY'), to_date('21/9/1998', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 32, 200, to_date('15/1/2021', 'DD/MM/YYYY'), to_date('5/3/2021', 'DD/MM/YYYY'));
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 90, 489, to_date('6/6/2005', 'DD/MM/YYYY'), to_date('6/6/2005', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 29, 200, to_date('5/3/2021', 'DD/MM/YYYY'), to_date('3/4/2021', 'DD/MM/YYYY'));
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 65, 489, to_date('12/4/1957', 'DD/MM/YYYY'), to_date('12/4/1957', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 36, 200, to_date('3/4/2021', 'DD/MM/YYYY'), to_date('21/5/2021', 'DD/MM/YYYY'));
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 100, 490, to_date('15/1/2014', 'DD/MM/YYYY'), to_date('15/1/2014', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 21, 200, to_date('21/5/2021', 'DD/MM/YYYY'), to_date('12/6/2021', 'DD/MM/YYYY'));
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 100, 491, to_date('14/2/1989', 'DD/MM/YYYY'), to_date('14/2/1989', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 29, 200, to_date('12/6/2021', 'DD/MM/YYYY'), to_date('23/7/2021', 'DD/MM/YYYY'));
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 90, 491, to_date('13/6/1973', 'DD/MM/YYYY'), to_date('13/6/1973', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 49, 200, to_date('23/7/2021', 'DD/MM/YYYY'), to_date('27/8/2021', 'DD/MM/YYYY'));
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 65, 491, to_date('19/7/1963', 'DD/MM/YYYY'), to_date('19/7/1963', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 42, 200, to_date('27/8/2021', 'DD/MM/YYYY'), NULL);
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 100, 492, to_date('2/8/1965', 'DD/MM/YYYY'), to_date('2/8/1965', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 32, 201, to_date('23/7/2021', 'DD/MM/YYYY'), to_date('20/8/2021', 'DD/MM/YYYY'));
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 90, 492, to_date('10/1/1992', 'DD/MM/YYYY'), to_date('10/1/1992', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 29, 201, to_date('20/8/2021', 'DD/MM/YYYY'), to_date('18/9/2021', 'DD/MM/YYYY'));
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 100, 493, to_date('19/2/1982', 'DD/MM/YYYY'), to_date('19/2/1982', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 36, 201, to_date('18/9/2021', 'DD/MM/YYYY'), NULL);
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 100, 494, to_date('19/7/2001', 'DD/MM/YYYY'), to_date('19/7/2001', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 32, 202, to_date('24/4/2021', 'DD/MM/YYYY'), to_date('5/6/2021', 'DD/MM/YYYY'));
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 100, 495, to_date('5/4/1959', 'DD/MM/YYYY'), to_date('5/4/1959', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 29, 202, to_date('5/6/2021', 'DD/MM/YYYY'), to_date('16/7/2021', 'DD/MM/YYYY'));
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 100, 496, to_date('20/1/1939', 'DD/MM/YYYY'), to_date('20/1/1939', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 36, 202, to_date('16/7/2021', 'DD/MM/YYYY'), to_date('4/9/2021', 'DD/MM/YYYY'));
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 90, 496, to_date('7/1/2009', 'DD/MM/YYYY'), to_date('7/1/2009', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 21, 202, to_date('4/9/2021', 'DD/MM/YYYY'), NULL);
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 100, 497, to_date('1/6/1973', 'DD/MM/YYYY'), to_date('1/6/1973', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 32, 203, to_date('18/0/2021', 'DD/MM/YYYY'), to_date('8/2/2021', 'DD/MM/YYYY'));
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 90, 497, to_date('21/3/1978', 'DD/MM/YYYY'), to_date('21/3/1978', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 29, 203, to_date('8/2/2021', 'DD/MM/YYYY'), to_date('19/3/2021', 'DD/MM/YYYY'));
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 65, 497, to_date('24/7/1962', 'DD/MM/YYYY'), to_date('24/7/1962', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 36, 203, to_date('19/3/2021', 'DD/MM/YYYY'), to_date('7/5/2021', 'DD/MM/YYYY'));
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 100, 498, to_date('21/9/1968', 'DD/MM/YYYY'), to_date('21/9/1968', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 21, 203, to_date('7/5/2021', 'DD/MM/YYYY'), to_date('26/6/2021', 'DD/MM/YYYY'));
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 90, 498, to_date('11/1/2006', 'DD/MM/YYYY'), to_date('11/1/2006', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 29, 203, to_date('26/6/2021', 'DD/MM/YYYY'), to_date('6/8/2021', 'DD/MM/YYYY'));
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 100, 499, to_date('22/7/1994', 'DD/MM/YYYY'), to_date('22/7/1994', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 49, 203, to_date('6/8/2021', 'DD/MM/YYYY'), to_date('18/9/2021', 'DD/MM/YYYY'));
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 90, 499, to_date('1/10/1942', 'DD/MM/YYYY'), to_date('1/10/1942', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 42, 203, to_date('18/9/2021', 'DD/MM/YYYY'), NULL);
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 100, 500, to_date('4/10/1945', 'DD/MM/YYYY'), to_date('4/10/1945', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 98, 204, to_date('9/7/2021', 'DD/MM/YYYY'), to_date('20/8/2021', 'DD/MM/YYYY'));
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 100, 501, to_date('2/10/1975', 'DD/MM/YYYY'), to_date('2/10/1975', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 37, 204, to_date('20/8/2021', 'DD/MM/YYYY'), to_date('11/9/2021', 'DD/MM/YYYY'));
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 90, 501, to_date('1/6/1994', 'DD/MM/YYYY'), to_date('1/6/1994', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 94, 204, to_date('11/9/2021', 'DD/MM/YYYY'), NULL);
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 100, 502, to_date('25/5/1957', 'DD/MM/YYYY'), to_date('25/5/1957', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 98, 205, to_date('28/5/2021', 'DD/MM/YYYY'), to_date('16/7/2021', 'DD/MM/YYYY'));
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 90, 502, to_date('15/8/2008', 'DD/MM/YYYY'), to_date('15/8/2008', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 37, 205, to_date('16/7/2021', 'DD/MM/YYYY'), to_date('4/9/2021', 'DD/MM/YYYY'));
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 100, 503, to_date('5/5/1943', 'DD/MM/YYYY'), to_date('5/5/1943', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 94, 205, to_date('4/9/2021', 'DD/MM/YYYY'), NULL);
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 90, 503, to_date('9/2/1977', 'DD/MM/YYYY'), to_date('9/2/1977', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 98, 206, to_date('2/7/2021', 'DD/MM/YYYY'), to_date('13/8/2021', 'DD/MM/YYYY'));
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 65, 503, to_date('17/10/1967', 'DD/MM/YYYY'), to_date('17/10/1967', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 37, 206, to_date('13/8/2021', 'DD/MM/YYYY'), to_date('25/9/2021', 'DD/MM/YYYY'));
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 19, 504, to_date('6/5/1936', 'DD/MM/YYYY'), to_date('6/5/1936', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 94, 206, to_date('25/9/2021', 'DD/MM/YYYY'), NULL);
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 2, 504, to_date('20/4/1992', 'DD/MM/YYYY'), to_date('20/4/1992', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 98, 207, to_date('22/2/2021', 'DD/MM/YYYY'), to_date('12/3/2021', 'DD/MM/YYYY'));
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 19, 505, to_date('13/1/2014', 'DD/MM/YYYY'), to_date('13/1/2014', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 37, 207, to_date('12/3/2021', 'DD/MM/YYYY'), to_date('24/4/2021', 'DD/MM/YYYY'));
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 2, 505, to_date('24/5/2006', 'DD/MM/YYYY'), to_date('24/5/2006', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 94, 207, to_date('24/4/2021', 'DD/MM/YYYY'), to_date('14/5/2021', 'DD/MM/YYYY'));
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 19, 506, to_date('26/1/2011', 'DD/MM/YYYY'), to_date('26/1/2011', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 103, 207, to_date('14/5/2021', 'DD/MM/YYYY'), to_date('19/6/2021', 'DD/MM/YYYY'));
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 2, 506, to_date('3/7/1935', 'DD/MM/YYYY'), to_date('3/7/1935', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 5, 207, to_date('19/6/2021', 'DD/MM/YYYY'), to_date('6/8/2021', 'DD/MM/YYYY'));
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 19, 507, to_date('26/5/1957', 'DD/MM/YYYY'), to_date('26/5/1957', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 33, 207, to_date('6/8/2021', 'DD/MM/YYYY'), to_date('27/8/2021', 'DD/MM/YYYY'));
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 2, 507, to_date('7/4/1924', 'DD/MM/YYYY'), to_date('7/4/1924', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 105, 207, to_date('27/8/2021', 'DD/MM/YYYY'), NULL);
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 19, 508, to_date('9/5/1929', 'DD/MM/YYYY'), to_date('9/5/1929', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 98, 208, to_date('27/4/2021', 'DD/MM/YYYY'), to_date('28/5/2021', 'DD/MM/YYYY'));
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 19, 509, to_date('2/4/2007', 'DD/MM/YYYY'), to_date('2/4/2007', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 37, 208, to_date('28/5/2021', 'DD/MM/YYYY'), to_date('16/7/2021', 'DD/MM/YYYY'));
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 2, 509, to_date('24/3/1954', 'DD/MM/YYYY'), to_date('24/3/1954', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 94, 208, to_date('16/7/2021', 'DD/MM/YYYY'), to_date('4/9/2021', 'DD/MM/YYYY'));
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 40, 509, to_date('15/2/2013', 'DD/MM/YYYY'), to_date('15/2/2013', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 103, 208, to_date('4/9/2021', 'DD/MM/YYYY'), NULL);
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 19, 510, to_date('24/2/1959', 'DD/MM/YYYY'), to_date('24/2/1959', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 98, 209, to_date('9/7/2021', 'DD/MM/YYYY'), to_date('6/8/2021', 'DD/MM/YYYY'));
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 19, 511, to_date('25/3/1958', 'DD/MM/YYYY'), to_date('25/3/1958', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 37, 209, to_date('6/8/2021', 'DD/MM/YYYY'), to_date('11/9/2021', 'DD/MM/YYYY'));
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 19, 512, to_date('23/2/1948', 'DD/MM/YYYY'), to_date('23/2/1948', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 94, 209, to_date('11/9/2021', 'DD/MM/YYYY'), NULL);
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 19, 513, to_date('23/4/1945', 'DD/MM/YYYY'), to_date('23/4/1945', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 98, 210, to_date('9/7/2021', 'DD/MM/YYYY'), to_date('27/8/2021', 'DD/MM/YYYY'));
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 2, 513, to_date('2/10/1937', 'DD/MM/YYYY'), to_date('2/10/1937', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 37, 210, to_date('27/8/2021', 'DD/MM/YYYY'), to_date('18/9/2021', 'DD/MM/YYYY'));
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 19, 514, to_date('1/8/1973', 'DD/MM/YYYY'), to_date('1/8/1973', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 94, 210, to_date('18/9/2021', 'DD/MM/YYYY'), NULL);
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 2, 514, to_date('8/8/1925', 'DD/MM/YYYY'), to_date('8/8/1925', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 17, 211, to_date('27/4/2021', 'DD/MM/YYYY'), to_date('19/6/2021', 'DD/MM/YYYY'));
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 40, 514, to_date('16/9/1972', 'DD/MM/YYYY'), to_date('16/9/1972', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 85, 211, to_date('19/6/2021', 'DD/MM/YYYY'), to_date('16/7/2021', 'DD/MM/YYYY'));
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 19, 515, to_date('8/6/1933', 'DD/MM/YYYY'), to_date('8/6/1933', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 123, 211, to_date('16/7/2021', 'DD/MM/YYYY'), to_date('13/8/2021', 'DD/MM/YYYY'));
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 19, 516, to_date('9/1/1981', 'DD/MM/YYYY'), to_date('9/1/1981', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 40, 211, to_date('13/8/2021', 'DD/MM/YYYY'), to_date('18/9/2021', 'DD/MM/YYYY'));
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 2, 516, to_date('8/8/1951', 'DD/MM/YYYY'), to_date('8/8/1951', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 36, 211, to_date('18/9/2021', 'DD/MM/YYYY'), NULL);
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 19, 517, to_date('12/1/1971', 'DD/MM/YYYY'), to_date('12/1/1971', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 17, 212, to_date('1/1/2021', 'DD/MM/YYYY'), to_date('8/2/2021', 'DD/MM/YYYY'));
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 2, 517, to_date('1/1/1977', 'DD/MM/YYYY'), to_date('1/1/1977', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 85, 212, to_date('8/2/2021', 'DD/MM/YYYY'), to_date('26/3/2021', 'DD/MM/YYYY'));
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 40, 517, to_date('11/9/1938', 'DD/MM/YYYY'), to_date('11/9/1938', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 123, 212, to_date('26/3/2021', 'DD/MM/YYYY'), to_date('27/4/2021', 'DD/MM/YYYY'));
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 85, 518, to_date('4/7/1923', 'DD/MM/YYYY'), to_date('4/7/1923', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 40, 212, to_date('27/4/2021', 'DD/MM/YYYY'), to_date('19/6/2021', 'DD/MM/YYYY'));
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 10, 518, to_date('5/10/1951', 'DD/MM/YYYY'), to_date('5/10/1951', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 36, 212, to_date('19/6/2021', 'DD/MM/YYYY'), to_date('23/7/2021', 'DD/MM/YYYY'));
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 99, 518, to_date('22/2/1931', 'DD/MM/YYYY'), to_date('22/2/1931', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 115, 212, to_date('23/7/2021', 'DD/MM/YYYY'), to_date('4/9/2021', 'DD/MM/YYYY'));
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 85, 519, to_date('25/5/1998', 'DD/MM/YYYY'), to_date('25/5/1998', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 43, 212, to_date('4/9/2021', 'DD/MM/YYYY'), NULL);
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 85, 520, to_date('2/4/1972', 'DD/MM/YYYY'), to_date('2/4/1972', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 17, 213, to_date('5/6/2021', 'DD/MM/YYYY'), to_date('2/7/2021', 'DD/MM/YYYY'));
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 10, 520, to_date('13/5/2010', 'DD/MM/YYYY'), to_date('13/5/2010', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 85, 213, to_date('2/7/2021', 'DD/MM/YYYY'), to_date('30/7/2021', 'DD/MM/YYYY'));
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 99, 520, to_date('5/7/1953', 'DD/MM/YYYY'), to_date('5/7/1953', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 123, 213, to_date('30/7/2021', 'DD/MM/YYYY'), to_date('4/9/2021', 'DD/MM/YYYY'));
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 85, 521, to_date('22/10/1966', 'DD/MM/YYYY'), to_date('22/10/1966', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 40, 213, to_date('4/9/2021', 'DD/MM/YYYY'), NULL);
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 85, 522, to_date('6/4/1938', 'DD/MM/YYYY'), to_date('6/4/1938', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 17, 214, to_date('14/5/2021', 'DD/MM/YYYY'), to_date('12/6/2021', 'DD/MM/YYYY'));
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 85, 523, to_date('8/8/1952', 'DD/MM/YYYY'), to_date('8/8/1952', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 85, 214, to_date('12/6/2021', 'DD/MM/YYYY'), to_date('30/7/2021', 'DD/MM/YYYY'));
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 10, 523, to_date('9/7/1996', 'DD/MM/YYYY'), to_date('9/7/1996', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 123, 214, to_date('30/7/2021', 'DD/MM/YYYY'), to_date('27/8/2021', 'DD/MM/YYYY'));
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 99, 523, to_date('25/4/1971', 'DD/MM/YYYY'), to_date('25/4/1971', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 40, 214, to_date('27/8/2021', 'DD/MM/YYYY'), NULL);
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 85, 524, to_date('7/8/1986', 'DD/MM/YYYY'), to_date('7/8/1986', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 17, 215, to_date('26/3/2021', 'DD/MM/YYYY'), to_date('14/5/2021', 'DD/MM/YYYY'));
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 10, 524, to_date('15/4/1940', 'DD/MM/YYYY'), to_date('15/4/1940', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 85, 215, to_date('14/5/2021', 'DD/MM/YYYY'), to_date('5/6/2021', 'DD/MM/YYYY'));
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 85, 525, to_date('2/5/1954', 'DD/MM/YYYY'), to_date('2/5/1954', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 123, 215, to_date('5/6/2021', 'DD/MM/YYYY'), to_date('2/7/2021', 'DD/MM/YYYY'));
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 85, 526, to_date('7/6/1957', 'DD/MM/YYYY'), to_date('7/6/1957', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 40, 215, to_date('2/7/2021', 'DD/MM/YYYY'), to_date('20/8/2021', 'DD/MM/YYYY'));
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 85, 527, to_date('12/8/1975', 'DD/MM/YYYY'), to_date('12/8/1975', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 36, 215, to_date('20/8/2021', 'DD/MM/YYYY'), to_date('18/9/2021', 'DD/MM/YYYY'));
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 10, 527, to_date('10/5/1970', 'DD/MM/YYYY'), to_date('10/5/1970', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 115, 215, to_date('18/9/2021', 'DD/MM/YYYY'), NULL);
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 99, 527, to_date('8/1/1940', 'DD/MM/YYYY'), to_date('8/1/1940', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 17, 216, to_date('5/3/2021', 'DD/MM/YYYY'), to_date('26/3/2021', 'DD/MM/YYYY'));
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 85, 528, to_date('16/3/1986', 'DD/MM/YYYY'), to_date('16/3/1986', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 85, 216, to_date('26/3/2021', 'DD/MM/YYYY'), to_date('14/5/2021', 'DD/MM/YYYY'));
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 85, 529, to_date('25/10/1924', 'DD/MM/YYYY'), to_date('25/10/1924', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 123, 216, to_date('14/5/2021', 'DD/MM/YYYY'), to_date('19/6/2021', 'DD/MM/YYYY'));
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 10, 529, to_date('4/1/1959', 'DD/MM/YYYY'), to_date('4/1/1959', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 40, 216, to_date('19/6/2021', 'DD/MM/YYYY'), to_date('16/7/2021', 'DD/MM/YYYY'));
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 85, 530, to_date('16/10/1942', 'DD/MM/YYYY'), to_date('16/10/1942', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 36, 216, to_date('16/7/2021', 'DD/MM/YYYY'), to_date('27/8/2021', 'DD/MM/YYYY'));
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 85, 531, to_date('14/1/1961', 'DD/MM/YYYY'), to_date('14/1/1961', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 115, 216, to_date('27/8/2021', 'DD/MM/YYYY'), to_date('18/9/2021', 'DD/MM/YYYY'));
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 10, 531, to_date('26/9/1973', 'DD/MM/YYYY'), to_date('26/9/1973', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 43, 216, to_date('18/9/2021', 'DD/MM/YYYY'), NULL);
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 85, 532, to_date('17/6/2007', 'DD/MM/YYYY'), to_date('17/6/2007', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 83, 217, to_date('26/6/2021', 'DD/MM/YYYY'), to_date('13/8/2021', 'DD/MM/YYYY'));
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 10, 532, to_date('18/7/1964', 'DD/MM/YYYY'), to_date('18/7/1964', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 101, 217, to_date('13/8/2021', 'DD/MM/YYYY'), to_date('4/9/2021', 'DD/MM/YYYY'));
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 85, 533, to_date('13/2/1926', 'DD/MM/YYYY'), to_date('13/2/1926', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 42, 217, to_date('4/9/2021', 'DD/MM/YYYY'), NULL);
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 10, 533, to_date('12/2/2012', 'DD/MM/YYYY'), to_date('12/2/2012', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 83, 218, to_date('28/5/2021', 'DD/MM/YYYY'), to_date('19/6/2021', 'DD/MM/YYYY'));
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 122, 534, to_date('10/1/1942', 'DD/MM/YYYY'), to_date('10/1/1942', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 101, 218, to_date('19/6/2021', 'DD/MM/YYYY'), to_date('6/8/2021', 'DD/MM/YYYY'));
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 122, 535, to_date('5/10/1936', 'DD/MM/YYYY'), to_date('5/10/1936', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 42, 218, to_date('6/8/2021', 'DD/MM/YYYY'), to_date('25/9/2021', 'DD/MM/YYYY'));
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 59, 535, to_date('14/10/1984', 'DD/MM/YYYY'), to_date('14/10/1984', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 91, 218, to_date('25/9/2021', 'DD/MM/YYYY'), NULL);
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 122, 536, to_date('12/1/1934', 'DD/MM/YYYY'), to_date('12/1/1934', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 83, 219, to_date('21/5/2021', 'DD/MM/YYYY'), to_date('26/6/2021', 'DD/MM/YYYY'));
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 59, 536, to_date('15/9/1986', 'DD/MM/YYYY'), to_date('15/9/1986', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 101, 219, to_date('26/6/2021', 'DD/MM/YYYY'), to_date('16/7/2021', 'DD/MM/YYYY'));
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 74, 536, to_date('25/1/1995', 'DD/MM/YYYY'), to_date('25/1/1995', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 42, 219, to_date('16/7/2021', 'DD/MM/YYYY'), to_date('13/8/2021', 'DD/MM/YYYY'));
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 122, 537, to_date('26/7/1991', 'DD/MM/YYYY'), to_date('26/7/1991', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 91, 219, to_date('13/8/2021', 'DD/MM/YYYY'), to_date('11/9/2021', 'DD/MM/YYYY'));
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 59, 537, to_date('8/5/1930', 'DD/MM/YYYY'), to_date('8/5/1930', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 128, 219, to_date('11/9/2021', 'DD/MM/YYYY'), NULL);
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 74, 537, to_date('14/10/1940', 'DD/MM/YYYY'), to_date('14/10/1940', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 83, 220, to_date('15/1/2021', 'DD/MM/YYYY'), to_date('22/2/2021', 'DD/MM/YYYY'));
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 122, 538, to_date('14/2/1986', 'DD/MM/YYYY'), to_date('14/2/1986', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 101, 220, to_date('22/2/2021', 'DD/MM/YYYY'), to_date('3/4/2021', 'DD/MM/YYYY'));
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 59, 538, to_date('21/6/1952', 'DD/MM/YYYY'), to_date('21/6/1952', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 42, 220, to_date('3/4/2021', 'DD/MM/YYYY'), to_date('21/5/2021', 'DD/MM/YYYY'));
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 122, 539, to_date('16/1/2013', 'DD/MM/YYYY'), to_date('16/1/2013', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 91, 220, to_date('21/5/2021', 'DD/MM/YYYY'), to_date('9/7/2021', 'DD/MM/YYYY'));
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 59, 539, to_date('18/5/1977', 'DD/MM/YYYY'), to_date('18/5/1977', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 128, 220, to_date('9/7/2021', 'DD/MM/YYYY'), to_date('13/8/2021', 'DD/MM/YYYY'));
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 122, 540, to_date('22/2/1946', 'DD/MM/YYYY'), to_date('22/2/1946', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 80, 220, to_date('13/8/2021', 'DD/MM/YYYY'), to_date('4/9/2021', 'DD/MM/YYYY'));
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 122, 541, to_date('9/10/1973', 'DD/MM/YYYY'), to_date('9/10/1973', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 133, 220, to_date('4/9/2021', 'DD/MM/YYYY'), NULL);
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 122, 542, to_date('23/6/1973', 'DD/MM/YYYY'), to_date('23/6/1973', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 83, 221, to_date('8/2/2021', 'DD/MM/YYYY'), to_date('19/3/2021', 'DD/MM/YYYY'));
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 59, 542, to_date('21/10/1978', 'DD/MM/YYYY'), to_date('21/10/1978', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 101, 221, to_date('19/3/2021', 'DD/MM/YYYY'), to_date('17/4/2021', 'DD/MM/YYYY'));
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 74, 542, to_date('26/3/1939', 'DD/MM/YYYY'), to_date('26/3/1939', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 42, 221, to_date('17/4/2021', 'DD/MM/YYYY'), to_date('21/5/2021', 'DD/MM/YYYY'));
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 122, 543, to_date('16/1/1994', 'DD/MM/YYYY'), to_date('16/1/1994', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 91, 221, to_date('21/5/2021', 'DD/MM/YYYY'), to_date('2/7/2021', 'DD/MM/YYYY'));
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 59, 543, to_date('9/2/1974', 'DD/MM/YYYY'), to_date('9/2/1974', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 128, 221, to_date('2/7/2021', 'DD/MM/YYYY'), to_date('13/8/2021', 'DD/MM/YYYY'));
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 74, 543, to_date('22/8/1943', 'DD/MM/YYYY'), to_date('22/8/1943', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 80, 221, to_date('13/8/2021', 'DD/MM/YYYY'), to_date('11/9/2021', 'DD/MM/YYYY'));
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 122, 544, to_date('12/10/1968', 'DD/MM/YYYY'), to_date('12/10/1968', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 133, 221, to_date('11/9/2021', 'DD/MM/YYYY'), NULL);
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 59, 544, to_date('16/3/1946', 'DD/MM/YYYY'), to_date('16/3/1946', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 69, 222, to_date('19/3/2021', 'DD/MM/YYYY'), to_date('17/4/2021', 'DD/MM/YYYY'));
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 74, 544, to_date('20/1/1994', 'DD/MM/YYYY'), to_date('20/1/1994', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 134, 222, to_date('17/4/2021', 'DD/MM/YYYY'), to_date('14/5/2021', 'DD/MM/YYYY'));
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 122, 545, to_date('6/1/1998', 'DD/MM/YYYY'), to_date('6/1/1998', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 69, 222, to_date('14/5/2021', 'DD/MM/YYYY'), to_date('26/6/2021', 'DD/MM/YYYY'));
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 122, 546, to_date('7/4/1948', 'DD/MM/YYYY'), to_date('7/4/1948', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 81, 222, to_date('26/6/2021', 'DD/MM/YYYY'), to_date('16/7/2021', 'DD/MM/YYYY'));
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 122, 547, to_date('3/1/2006', 'DD/MM/YYYY'), to_date('3/1/2006', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 134, 222, to_date('16/7/2021', 'DD/MM/YYYY'), to_date('13/8/2021', 'DD/MM/YYYY'));
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 59, 547, to_date('9/5/1958', 'DD/MM/YYYY'), to_date('9/5/1958', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 6, 222, to_date('13/8/2021', 'DD/MM/YYYY'), to_date('11/9/2021', 'DD/MM/YYYY'));
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 122, 548, to_date('16/4/1923', 'DD/MM/YYYY'), to_date('16/4/1923', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 34, 222, to_date('11/9/2021', 'DD/MM/YYYY'), NULL);
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 122, 549, to_date('2/1/1974', 'DD/MM/YYYY'), to_date('2/1/1974', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 69, 223, to_date('22/2/2021', 'DD/MM/YYYY'), to_date('19/3/2021', 'DD/MM/YYYY'));
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 59, 549, to_date('18/1/1962', 'DD/MM/YYYY'), to_date('18/1/1962', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 134, 223, to_date('19/3/2021', 'DD/MM/YYYY'), to_date('17/4/2021', 'DD/MM/YYYY'));
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 74, 549, to_date('15/6/1927', 'DD/MM/YYYY'), to_date('15/6/1927', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 69, 223, to_date('17/4/2021', 'DD/MM/YYYY'), to_date('14/5/2021', 'DD/MM/YYYY'));
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 122, 550, to_date('26/4/1942', 'DD/MM/YYYY'), to_date('26/4/1942', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 81, 223, to_date('14/5/2021', 'DD/MM/YYYY'), to_date('12/6/2021', 'DD/MM/YYYY'));
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 59, 550, to_date('14/4/1962', 'DD/MM/YYYY'), to_date('14/4/1962', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 134, 223, to_date('12/6/2021', 'DD/MM/YYYY'), to_date('30/7/2021', 'DD/MM/YYYY'));
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 74, 550, to_date('1/3/1920', 'DD/MM/YYYY'), to_date('1/3/1920', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 6, 223, to_date('30/7/2021', 'DD/MM/YYYY'), to_date('11/9/2021', 'DD/MM/YYYY'));
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 90, 551, to_date('22/2/1964', 'DD/MM/YYYY'), to_date('22/2/1964', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 34, 223, to_date('11/9/2021', 'DD/MM/YYYY'), NULL);
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 130, 551, to_date('7/9/1970', 'DD/MM/YYYY'), to_date('7/9/1970', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 69, 224, to_date('17/4/2021', 'DD/MM/YYYY'), to_date('28/5/2021', 'DD/MM/YYYY'));
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 90, 552, to_date('17/2/1949', 'DD/MM/YYYY'), to_date('17/2/1949', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 134, 224, to_date('28/5/2021', 'DD/MM/YYYY'), to_date('2/7/2021', 'DD/MM/YYYY'));
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 130, 552, to_date('12/1/1947', 'DD/MM/YYYY'), to_date('12/1/1947', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 69, 224, to_date('2/7/2021', 'DD/MM/YYYY'), to_date('20/8/2021', 'DD/MM/YYYY'));
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 90, 553, to_date('25/1/1946', 'DD/MM/YYYY'), to_date('25/1/1946', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 81, 224, to_date('20/8/2021', 'DD/MM/YYYY'), to_date('11/9/2021', 'DD/MM/YYYY'));
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 130, 553, to_date('20/7/1988', 'DD/MM/YYYY'), to_date('20/7/1988', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 134, 224, to_date('11/9/2021', 'DD/MM/YYYY'), NULL);
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 90, 554, to_date('11/4/1971', 'DD/MM/YYYY'), to_date('11/4/1971', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 69, 225, to_date('26/3/2021', 'DD/MM/YYYY'), to_date('17/4/2021', 'DD/MM/YYYY'));
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 130, 554, to_date('21/3/1927', 'DD/MM/YYYY'), to_date('21/3/1927', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 134, 225, to_date('17/4/2021', 'DD/MM/YYYY'), to_date('14/5/2021', 'DD/MM/YYYY'));
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 90, 555, to_date('8/8/1967', 'DD/MM/YYYY'), to_date('8/8/1967', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 69, 225, to_date('14/5/2021', 'DD/MM/YYYY'), to_date('26/6/2021', 'DD/MM/YYYY'));
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 130, 555, to_date('6/9/1982', 'DD/MM/YYYY'), to_date('6/9/1982', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 81, 225, to_date('26/6/2021', 'DD/MM/YYYY'), to_date('16/7/2021', 'DD/MM/YYYY'));
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 90, 556, to_date('4/2/1928', 'DD/MM/YYYY'), to_date('4/2/1928', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 134, 225, to_date('16/7/2021', 'DD/MM/YYYY'), to_date('6/8/2021', 'DD/MM/YYYY'));
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 90, 557, to_date('20/9/1958', 'DD/MM/YYYY'), to_date('20/9/1958', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 6, 225, to_date('6/8/2021', 'DD/MM/YYYY'), to_date('11/9/2021', 'DD/MM/YYYY'));
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 130, 557, to_date('3/2/1992', 'DD/MM/YYYY'), to_date('3/2/1992', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 34, 225, to_date('11/9/2021', 'DD/MM/YYYY'), NULL);
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 90, 558, to_date('14/1/1920', 'DD/MM/YYYY'), to_date('14/1/1920', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 69, 226, to_date('28/5/2021', 'DD/MM/YYYY'), to_date('16/7/2021', 'DD/MM/YYYY'));
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 130, 558, to_date('4/8/1964', 'DD/MM/YYYY'), to_date('4/8/1964', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 134, 226, to_date('16/7/2021', 'DD/MM/YYYY'), to_date('4/9/2021', 'DD/MM/YYYY'));
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 90, 559, to_date('2/2/2008', 'DD/MM/YYYY'), to_date('2/2/2008', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 69, 226, to_date('4/9/2021', 'DD/MM/YYYY'), NULL);
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 90, 560, to_date('4/1/1991', 'DD/MM/YYYY'), to_date('4/1/1991', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 88, 227, to_date('24/4/2021', 'DD/MM/YYYY'), to_date('5/6/2021', 'DD/MM/YYYY'));
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 130, 560, to_date('25/10/1944', 'DD/MM/YYYY'), to_date('25/10/1944', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 77, 227, to_date('5/6/2021', 'DD/MM/YYYY'), to_date('23/7/2021', 'DD/MM/YYYY'));
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 90, 561, to_date('3/5/1984', 'DD/MM/YYYY'), to_date('3/5/1984', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 57, 227, to_date('23/7/2021', 'DD/MM/YYYY'), to_date('27/8/2021', 'DD/MM/YYYY'));
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 130, 561, to_date('18/1/2017', 'DD/MM/YYYY'), to_date('18/1/2017', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 14, 227, to_date('27/8/2021', 'DD/MM/YYYY'), NULL);
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 90, 562, to_date('23/5/1947', 'DD/MM/YYYY'), to_date('23/5/1947', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 88, 228, to_date('8/2/2021', 'DD/MM/YYYY'), to_date('26/3/2021', 'DD/MM/YYYY'));
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 90, 563, to_date('13/7/1982', 'DD/MM/YYYY'), to_date('13/7/1982', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 77, 228, to_date('26/3/2021', 'DD/MM/YYYY'), to_date('7/5/2021', 'DD/MM/YYYY'));
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 90, 564, to_date('22/9/1927', 'DD/MM/YYYY'), to_date('22/9/1927', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 57, 228, to_date('7/5/2021', 'DD/MM/YYYY'), to_date('12/6/2021', 'DD/MM/YYYY'));
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 130, 564, to_date('20/5/1987', 'DD/MM/YYYY'), to_date('20/5/1987', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 14, 228, to_date('12/6/2021', 'DD/MM/YYYY'), to_date('23/7/2021', 'DD/MM/YYYY'));
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 8, 564, to_date('1/2/1996', 'DD/MM/YYYY'), to_date('1/2/1996', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 133, 228, to_date('23/7/2021', 'DD/MM/YYYY'), to_date('27/8/2021', 'DD/MM/YYYY'));
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 90, 565, to_date('23/4/2001', 'DD/MM/YYYY'), to_date('23/4/2001', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 81, 228, to_date('27/8/2021', 'DD/MM/YYYY'), to_date('18/9/2021', 'DD/MM/YYYY'));
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 90, 566, to_date('22/9/1927', 'DD/MM/YYYY'), to_date('22/9/1927', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 124, 228, to_date('18/9/2021', 'DD/MM/YYYY'), NULL);
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 10, 567, to_date('4/5/1921', 'DD/MM/YYYY'), to_date('4/5/1921', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 88, 229, to_date('28/5/2021', 'DD/MM/YYYY'), to_date('16/7/2021', 'DD/MM/YYYY'));
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 10, 568, to_date('16/10/1975', 'DD/MM/YYYY'), to_date('16/10/1975', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 77, 229, to_date('16/7/2021', 'DD/MM/YYYY'), to_date('27/8/2021', 'DD/MM/YYYY'));
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 42, 568, to_date('12/7/1968', 'DD/MM/YYYY'), to_date('12/7/1968', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 57, 229, to_date('27/8/2021', 'DD/MM/YYYY'), NULL);
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 85, 568, to_date('26/6/2015', 'DD/MM/YYYY'), to_date('26/6/2015', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 88, 230, to_date('27/4/2021', 'DD/MM/YYYY'), to_date('19/6/2021', 'DD/MM/YYYY'));
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 10, 569, to_date('5/1/1946', 'DD/MM/YYYY'), to_date('5/1/1946', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 77, 230, to_date('19/6/2021', 'DD/MM/YYYY'), to_date('16/7/2021', 'DD/MM/YYYY'));
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 10, 570, to_date('6/5/1997', 'DD/MM/YYYY'), to_date('6/5/1997', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 57, 230, to_date('16/7/2021', 'DD/MM/YYYY'), to_date('13/8/2021', 'DD/MM/YYYY'));
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 42, 570, to_date('17/1/1926', 'DD/MM/YYYY'), to_date('17/1/1926', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 14, 230, to_date('13/8/2021', 'DD/MM/YYYY'), to_date('4/9/2021', 'DD/MM/YYYY'));
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 10, 571, to_date('12/3/1953', 'DD/MM/YYYY'), to_date('12/3/1953', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 133, 230, to_date('4/9/2021', 'DD/MM/YYYY'), NULL);
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 10, 572, to_date('14/7/1956', 'DD/MM/YYYY'), to_date('14/7/1956', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 88, 231, to_date('26/3/2021', 'DD/MM/YYYY'), to_date('7/5/2021', 'DD/MM/YYYY'));
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 42, 572, to_date('3/7/2011', 'DD/MM/YYYY'), to_date('3/7/2011', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 77, 231, to_date('7/5/2021', 'DD/MM/YYYY'), to_date('12/6/2021', 'DD/MM/YYYY'));
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 10, 573, to_date('18/6/1965', 'DD/MM/YYYY'), to_date('18/6/1965', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 57, 231, to_date('12/6/2021', 'DD/MM/YYYY'), to_date('23/7/2021', 'DD/MM/YYYY'));
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 10, 574, to_date('12/9/1998', 'DD/MM/YYYY'), to_date('12/9/1998', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 14, 231, to_date('23/7/2021', 'DD/MM/YYYY'), to_date('4/9/2021', 'DD/MM/YYYY'));
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 10, 575, to_date('7/2/1978', 'DD/MM/YYYY'), to_date('7/2/1978', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 133, 231, to_date('4/9/2021', 'DD/MM/YYYY'), to_date('25/9/2021', 'DD/MM/YYYY'));
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 10, 576, to_date('15/10/1929', 'DD/MM/YYYY'), to_date('15/10/1929', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 81, 231, to_date('25/9/2021', 'DD/MM/YYYY'), NULL);
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 10, 577, to_date('10/9/2011', 'DD/MM/YYYY'), to_date('10/9/2011', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 88, 232, to_date('23/7/2021', 'DD/MM/YYYY'), to_date('20/8/2021', 'DD/MM/YYYY'));
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 42, 577, to_date('3/1/1986', 'DD/MM/YYYY'), to_date('3/1/1986', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 77, 232, to_date('20/8/2021', 'DD/MM/YYYY'), to_date('11/9/2021', 'DD/MM/YYYY'));
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 85, 577, to_date('12/2/1966', 'DD/MM/YYYY'), to_date('12/2/1966', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 57, 232, to_date('11/9/2021', 'DD/MM/YYYY'), NULL);
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 10, 578, to_date('1/2/1952', 'DD/MM/YYYY'), to_date('1/2/1952', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 88, 233, to_date('12/6/2021', 'DD/MM/YYYY'), to_date('23/7/2021', 'DD/MM/YYYY'));
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 42, 578, to_date('14/6/1985', 'DD/MM/YYYY'), to_date('14/6/1985', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 77, 233, to_date('23/7/2021', 'DD/MM/YYYY'), to_date('4/9/2021', 'DD/MM/YYYY'));
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 85, 578, to_date('6/3/1936', 'DD/MM/YYYY'), to_date('6/3/1936', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 57, 233, to_date('4/9/2021', 'DD/MM/YYYY'), NULL);
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 10, 579, to_date('2/1/1941', 'DD/MM/YYYY'), to_date('2/1/1941', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 88, 234, to_date('5/3/2021', 'DD/MM/YYYY'), to_date('24/4/2021', 'DD/MM/YYYY'));
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 42, 579, to_date('25/6/1948', 'DD/MM/YYYY'), to_date('25/6/1948', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 77, 234, to_date('24/4/2021', 'DD/MM/YYYY'), to_date('12/6/2021', 'DD/MM/YYYY'));
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 85, 579, to_date('25/8/1957', 'DD/MM/YYYY'), to_date('25/8/1957', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 57, 234, to_date('12/6/2021', 'DD/MM/YYYY'), to_date('30/7/2021', 'DD/MM/YYYY'));
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 80, 580, to_date('17/4/1953', 'DD/MM/YYYY'), to_date('17/4/1953', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 14, 234, to_date('30/7/2021', 'DD/MM/YYYY'), to_date('4/9/2021', 'DD/MM/YYYY'));
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 34, 580, to_date('12/1/1953', 'DD/MM/YYYY'), to_date('12/1/1953', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 133, 234, to_date('4/9/2021', 'DD/MM/YYYY'), NULL);
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 80, 581, to_date('15/5/1971', 'DD/MM/YYYY'), to_date('15/5/1971', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 7, 235, to_date('25/02/2021', 'DD/MM/YYYY'), to_date('17/4/2021', 'DD/MM/YYYY'));
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 34, 581, to_date('16/1/1975', 'DD/MM/YYYY'), to_date('16/1/1975', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 133, 235, to_date('17/4/2021', 'DD/MM/YYYY'), to_date('21/5/2021', 'DD/MM/YYYY'));
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 88, 581, to_date('18/1/1925', 'DD/MM/YYYY'), to_date('18/1/1925', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 86, 235, to_date('21/5/2021', 'DD/MM/YYYY'), to_date('12/6/2021', 'DD/MM/YYYY'));
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 80, 582, to_date('12/4/1945', 'DD/MM/YYYY'), to_date('12/4/1945', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 8, 235, to_date('12/6/2021', 'DD/MM/YYYY'), to_date('9/7/2021', 'DD/MM/YYYY'));
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 34, 582, to_date('18/10/2010', 'DD/MM/YYYY'), to_date('18/10/2010', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 92, 235, to_date('9/7/2021', 'DD/MM/YYYY'), to_date('27/8/2021', 'DD/MM/YYYY'));
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 88, 582, to_date('13/9/2014', 'DD/MM/YYYY'), to_date('13/9/2014', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 121, 235, to_date('27/8/2021', 'DD/MM/YYYY'), NULL);
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 80, 583, to_date('8/9/1936', 'DD/MM/YYYY'), to_date('8/9/1936', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 7, 236, to_date('17/4/2021', 'DD/MM/YYYY'), to_date('21/5/2021', 'DD/MM/YYYY'));
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 80, 584, to_date('21/4/2010', 'DD/MM/YYYY'), to_date('21/4/2010', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 133, 236, to_date('21/5/2021', 'DD/MM/YYYY'), to_date('26/6/2021', 'DD/MM/YYYY'));
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 80, 585, to_date('23/7/2014', 'DD/MM/YYYY'), to_date('23/7/2014', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 86, 236, to_date('26/6/2021', 'DD/MM/YYYY'), to_date('6/8/2021', 'DD/MM/YYYY'));
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 80, 586, to_date('2/9/1933', 'DD/MM/YYYY'), to_date('2/9/1933', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 8, 236, to_date('6/8/2021', 'DD/MM/YYYY'), to_date('11/9/2021', 'DD/MM/YYYY'));
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 80, 587, to_date('25/3/1958', 'DD/MM/YYYY'), to_date('25/3/1958', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 92, 236, to_date('11/9/2021', 'DD/MM/YYYY'), NULL);
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 34, 587, to_date('5/2/1936', 'DD/MM/YYYY'), to_date('5/2/1936', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 7, 237, to_date('22/1/2021', 'DD/MM/YYYY'), to_date('12/3/2021', 'DD/MM/YYYY'));
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 88, 587, to_date('25/4/1934', 'DD/MM/YYYY'), to_date('25/4/1934', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 133, 237, to_date('12/3/2021', 'DD/MM/YYYY'), to_date('17/4/2021', 'DD/MM/YYYY'));
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 26, 588, to_date('15/7/2016', 'DD/MM/YYYY'), to_date('15/7/2016', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 86, 237, to_date('17/4/2021', 'DD/MM/YYYY'), to_date('21/5/2021', 'DD/MM/YYYY'));
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 82, 588, to_date('16/6/1973', 'DD/MM/YYYY'), to_date('16/6/1973', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 8, 237, to_date('21/5/2021', 'DD/MM/YYYY'), to_date('2/7/2021', 'DD/MM/YYYY'));
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 26, 589, to_date('9/7/1991', 'DD/MM/YYYY'), to_date('9/7/1991', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 92, 237, to_date('2/7/2021', 'DD/MM/YYYY'), to_date('13/8/2021', 'DD/MM/YYYY'));
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 82, 589, to_date('7/10/2015', 'DD/MM/YYYY'), to_date('7/10/2015', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 121, 237, to_date('13/8/2021', 'DD/MM/YYYY'), to_date('18/9/2021', 'DD/MM/YYYY'));
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 36, 589, to_date('26/8/1925', 'DD/MM/YYYY'), to_date('26/8/1925', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 71, 237, to_date('18/9/2021', 'DD/MM/YYYY'), NULL);
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 26, 590, to_date('17/1/1923', 'DD/MM/YYYY'), to_date('17/1/1923', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 7, 238, to_date('12/6/2021', 'DD/MM/YYYY'), to_date('23/7/2021', 'DD/MM/YYYY'));
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 82, 590, to_date('13/7/1946', 'DD/MM/YYYY'), to_date('13/7/1946', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 133, 238, to_date('23/7/2021', 'DD/MM/YYYY'), to_date('27/8/2021', 'DD/MM/YYYY'));
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 26, 591, to_date('21/8/1993', 'DD/MM/YYYY'), to_date('21/8/1993', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 86, 238, to_date('27/8/2021', 'DD/MM/YYYY'), to_date('25/9/2021', 'DD/MM/YYYY'));
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 26, 592, to_date('9/1/1941', 'DD/MM/YYYY'), to_date('9/1/1941', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 8, 238, to_date('25/9/2021', 'DD/MM/YYYY'), NULL);
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 82, 592, to_date('3/8/1942', 'DD/MM/YYYY'), to_date('3/8/1942', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 7, 239, to_date('10/4/2021', 'DD/MM/YYYY'), to_date('28/5/2021', 'DD/MM/YYYY'));
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 26, 593, to_date('15/9/1941', 'DD/MM/YYYY'), to_date('15/9/1941', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 133, 239, to_date('28/5/2021', 'DD/MM/YYYY'), to_date('26/6/2021', 'DD/MM/YYYY'));
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 26, 594, to_date('17/1/1970', 'DD/MM/YYYY'), to_date('17/1/1970', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 86, 239, to_date('26/6/2021', 'DD/MM/YYYY'), to_date('16/7/2021', 'DD/MM/YYYY'));
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 82, 594, to_date('14/4/1945', 'DD/MM/YYYY'), to_date('14/4/1945', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 8, 239, to_date('16/7/2021', 'DD/MM/YYYY'), to_date('6/8/2021', 'DD/MM/YYYY'));
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 36, 594, to_date('19/5/1960', 'DD/MM/YYYY'), to_date('19/5/1960', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 92, 239, to_date('6/8/2021', 'DD/MM/YYYY'), to_date('25/9/2021', 'DD/MM/YYYY'));
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 26, 595, to_date('19/4/1979', 'DD/MM/YYYY'), to_date('19/4/1979', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 121, 239, to_date('25/9/2021', 'DD/MM/YYYY'), NULL);
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 82, 595, to_date('7/9/1970', 'DD/MM/YYYY'), to_date('7/9/1970', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 7, 240, to_date('5/6/2021', 'DD/MM/YYYY'), to_date('16/7/2021', 'DD/MM/YYYY'));
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 26, 596, to_date('12/1/1941', 'DD/MM/YYYY'), to_date('12/1/1941', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 133, 240, to_date('16/7/2021', 'DD/MM/YYYY'), to_date('4/9/2021', 'DD/MM/YYYY'));
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 26, 597, to_date('25/1/1956', 'DD/MM/YYYY'), to_date('25/1/1956', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 86, 240, to_date('4/9/2021', 'DD/MM/YYYY'), NULL);
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 82, 597, to_date('25/4/2005', 'DD/MM/YYYY'), to_date('25/4/2005', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 7, 241, to_date('10/4/2021', 'DD/MM/YYYY'), to_date('21/5/2021', 'DD/MM/YYYY'));
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 36, 597, to_date('20/3/1930', 'DD/MM/YYYY'), to_date('20/3/1930', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 133, 241, to_date('21/5/2021', 'DD/MM/YYYY'), to_date('9/7/2021', 'DD/MM/YYYY'));
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 26, 598, to_date('19/7/1929', 'DD/MM/YYYY'), to_date('19/7/1929', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 86, 241, to_date('9/7/2021', 'DD/MM/YYYY'), to_date('27/8/2021', 'DD/MM/YYYY'));
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 82, 598, to_date('16/1/1937', 'DD/MM/YYYY'), to_date('16/1/1937', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 8, 241, to_date('27/8/2021', 'DD/MM/YYYY'), NULL);
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 26, 599, to_date('12/10/2010', 'DD/MM/YYYY'), to_date('12/10/2010', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 7, 242, to_date('30/7/2021', 'DD/MM/YYYY'), to_date('20/8/2021', 'DD/MM/YYYY'));
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 82, 599, to_date('23/4/1996', 'DD/MM/YYYY'), to_date('23/4/1996', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 133, 242, to_date('20/8/2021', 'DD/MM/YYYY'), to_date('25/9/2021', 'DD/MM/YYYY'));
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 36, 599, to_date('1/8/1988', 'DD/MM/YYYY'), to_date('1/8/1988', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 86, 242, to_date('25/9/2021', 'DD/MM/YYYY'), NULL);
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 26, 600, to_date('13/1/1961', 'DD/MM/YYYY'), to_date('13/1/1961', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 7, 243, to_date('1/1/2021', 'DD/MM/YYYY'), to_date('22/2/2021', 'DD/MM/YYYY'));
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 82, 600, to_date('9/6/1933', 'DD/MM/YYYY'), to_date('9/6/1933', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 133, 243, to_date('22/2/2021', 'DD/MM/YYYY'), to_date('26/3/2021', 'DD/MM/YYYY'));
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 36, 600, to_date('21/10/2012', 'DD/MM/YYYY'), to_date('21/10/2012', 'DD/MM/YYYY'));
+VALUES(idMovimentoSeq.nextVal, 86, 243, to_date('26/3/2021', 'DD/MM/YYYY'), to_date('7/5/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 8, 243, to_date('7/5/2021', 'DD/MM/YYYY'), to_date('12/6/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 92, 243, to_date('12/6/2021', 'DD/MM/YYYY'), to_date('16/7/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 121, 243, to_date('16/7/2021', 'DD/MM/YYYY'), to_date('4/9/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 71, 243, to_date('4/9/2021', 'DD/MM/YYYY'), NULL);
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 5, 244, to_date('9/7/2021', 'DD/MM/YYYY'), to_date('30/7/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 8, 244, to_date('30/7/2021', 'DD/MM/YYYY'), to_date('11/9/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 89, 244, to_date('11/9/2021', 'DD/MM/YYYY'), NULL);
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 5, 245, to_date('22/2/2021', 'DD/MM/YYYY'), to_date('3/4/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 8, 245, to_date('3/4/2021', 'DD/MM/YYYY'), to_date('14/5/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 89, 245, to_date('14/5/2021', 'DD/MM/YYYY'), to_date('19/6/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 7, 245, to_date('19/6/2021', 'DD/MM/YYYY'), to_date('9/7/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 76, 245, to_date('9/7/2021', 'DD/MM/YYYY'), to_date('20/8/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 108, 245, to_date('20/8/2021', 'DD/MM/YYYY'), to_date('25/9/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 36, 245, to_date('25/9/2021', 'DD/MM/YYYY'), NULL);
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 5, 246, to_date('5/3/2021', 'DD/MM/YYYY'), to_date('17/4/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 8, 246, to_date('17/4/2021', 'DD/MM/YYYY'), to_date('28/5/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 89, 246, to_date('28/5/2021', 'DD/MM/YYYY'), to_date('2/7/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 7, 246, to_date('2/7/2021', 'DD/MM/YYYY'), to_date('23/7/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 76, 246, to_date('23/7/2021', 'DD/MM/YYYY'), to_date('27/8/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 108, 246, to_date('27/8/2021', 'DD/MM/YYYY'), NULL);
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 5, 247, to_date('25/02/2021', 'DD/MM/YYYY'), to_date('26/3/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 8, 247, to_date('26/3/2021', 'DD/MM/YYYY'), to_date('14/5/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 89, 247, to_date('14/5/2021', 'DD/MM/YYYY'), to_date('26/6/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 7, 247, to_date('26/6/2021', 'DD/MM/YYYY'), to_date('30/7/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 76, 247, to_date('30/7/2021', 'DD/MM/YYYY'), to_date('11/9/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 108, 247, to_date('11/9/2021', 'DD/MM/YYYY'), NULL);
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 5, 248, to_date('8/1/2021', 'DD/MM/YYYY'), to_date('15/2/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 8, 248, to_date('15/2/2021', 'DD/MM/YYYY'), to_date('3/4/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 89, 248, to_date('3/4/2021', 'DD/MM/YYYY'), to_date('21/5/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 7, 248, to_date('21/5/2021', 'DD/MM/YYYY'), to_date('2/7/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 76, 248, to_date('2/7/2021', 'DD/MM/YYYY'), to_date('23/7/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 108, 248, to_date('23/7/2021', 'DD/MM/YYYY'), to_date('11/9/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 36, 248, to_date('11/9/2021', 'DD/MM/YYYY'), NULL);
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 12, 249, to_date('10/4/2021', 'DD/MM/YYYY'), to_date('7/5/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 109, 249, to_date('7/5/2021', 'DD/MM/YYYY'), to_date('26/6/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 105, 249, to_date('26/6/2021', 'DD/MM/YYYY'), to_date('13/8/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 124, 249, to_date('13/8/2021', 'DD/MM/YYYY'), to_date('18/9/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 134, 249, to_date('18/9/2021', 'DD/MM/YYYY'), NULL);
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 12, 250, to_date('16/7/2021', 'DD/MM/YYYY'), to_date('6/8/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 109, 250, to_date('6/8/2021', 'DD/MM/YYYY'), to_date('27/8/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 105, 250, to_date('27/8/2021', 'DD/MM/YYYY'), NULL);
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 12, 251, to_date('7/5/2021', 'DD/MM/YYYY'), to_date('19/6/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 109, 251, to_date('19/6/2021', 'DD/MM/YYYY'), to_date('30/7/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 105, 251, to_date('30/7/2021', 'DD/MM/YYYY'), to_date('18/9/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 124, 251, to_date('18/9/2021', 'DD/MM/YYYY'), NULL);
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 12, 252, to_date('16/7/2021', 'DD/MM/YYYY'), to_date('13/8/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 109, 252, to_date('13/8/2021', 'DD/MM/YYYY'), to_date('25/9/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 105, 252, to_date('25/9/2021', 'DD/MM/YYYY'), NULL);
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 12, 253, to_date('15/2/2021', 'DD/MM/YYYY'), to_date('5/3/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 109, 253, to_date('5/3/2021', 'DD/MM/YYYY'), to_date('24/4/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 105, 253, to_date('24/4/2021', 'DD/MM/YYYY'), to_date('28/5/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 124, 253, to_date('28/5/2021', 'DD/MM/YYYY'), to_date('19/6/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 134, 253, to_date('19/6/2021', 'DD/MM/YYYY'), to_date('23/7/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 83, 253, to_date('23/7/2021', 'DD/MM/YYYY'), to_date('4/9/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 125, 253, to_date('4/9/2021', 'DD/MM/YYYY'), NULL);
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 78, 254, to_date('2/7/2021', 'DD/MM/YYYY'), to_date('6/8/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 27, 254, to_date('6/8/2021', 'DD/MM/YYYY'), to_date('27/8/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 49, 254, to_date('27/8/2021', 'DD/MM/YYYY'), NULL);
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 78, 255, to_date('15/1/2021', 'DD/MM/YYYY'), to_date('5/3/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 27, 255, to_date('5/3/2021', 'DD/MM/YYYY'), to_date('3/4/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 49, 255, to_date('3/4/2021', 'DD/MM/YYYY'), to_date('7/5/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 80, 255, to_date('7/5/2021', 'DD/MM/YYYY'), to_date('26/6/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 26, 255, to_date('26/6/2021', 'DD/MM/YYYY'), to_date('13/8/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 13, 255, to_date('13/8/2021', 'DD/MM/YYYY'), to_date('11/9/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 66, 255, to_date('11/9/2021', 'DD/MM/YYYY'), NULL);
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 78, 256, to_date('28/5/2021', 'DD/MM/YYYY'), to_date('9/7/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 27, 256, to_date('9/7/2021', 'DD/MM/YYYY'), to_date('20/8/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 49, 256, to_date('20/8/2021', 'DD/MM/YYYY'), to_date('25/9/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 80, 256, to_date('25/9/2021', 'DD/MM/YYYY'), NULL);
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 78, 257, to_date('10/4/2021', 'DD/MM/YYYY'), to_date('7/5/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 27, 257, to_date('7/5/2021', 'DD/MM/YYYY'), to_date('28/5/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 49, 257, to_date('28/5/2021', 'DD/MM/YYYY'), to_date('9/7/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 80, 257, to_date('9/7/2021', 'DD/MM/YYYY'), to_date('6/8/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 26, 257, to_date('6/8/2021', 'DD/MM/YYYY'), to_date('18/9/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 13, 257, to_date('18/9/2021', 'DD/MM/YYYY'), NULL);
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 78, 258, to_date('5/3/2021', 'DD/MM/YYYY'), to_date('24/4/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 27, 258, to_date('24/4/2021', 'DD/MM/YYYY'), to_date('5/6/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 49, 258, to_date('5/6/2021', 'DD/MM/YYYY'), to_date('23/7/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 80, 258, to_date('23/7/2021', 'DD/MM/YYYY'), to_date('27/8/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 26, 258, to_date('27/8/2021', 'DD/MM/YYYY'), NULL);
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 78, 259, to_date('7/5/2021', 'DD/MM/YYYY'), to_date('12/6/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 27, 259, to_date('12/6/2021', 'DD/MM/YYYY'), to_date('30/7/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 49, 259, to_date('30/7/2021', 'DD/MM/YYYY'), to_date('4/9/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 80, 259, to_date('4/9/2021', 'DD/MM/YYYY'), NULL);
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 78, 260, to_date('24/4/2021', 'DD/MM/YYYY'), to_date('5/6/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 27, 260, to_date('5/6/2021', 'DD/MM/YYYY'), to_date('23/7/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 49, 260, to_date('23/7/2021', 'DD/MM/YYYY'), to_date('11/9/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 80, 260, to_date('11/9/2021', 'DD/MM/YYYY'), NULL);
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 78, 261, to_date('26/6/2021', 'DD/MM/YYYY'), to_date('23/7/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 27, 261, to_date('23/7/2021', 'DD/MM/YYYY'), to_date('27/8/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 49, 261, to_date('27/8/2021', 'DD/MM/YYYY'), to_date('25/9/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 80, 261, to_date('25/9/2021', 'DD/MM/YYYY'), NULL);
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 78, 262, to_date('27/4/2021', 'DD/MM/YYYY'), to_date('12/6/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 27, 262, to_date('12/6/2021', 'DD/MM/YYYY'), to_date('2/7/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 49, 262, to_date('2/7/2021', 'DD/MM/YYYY'), to_date('23/7/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 80, 262, to_date('23/7/2021', 'DD/MM/YYYY'), to_date('13/8/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 26, 262, to_date('13/8/2021', 'DD/MM/YYYY'), to_date('4/9/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 13, 262, to_date('4/9/2021', 'DD/MM/YYYY'), to_date('25/9/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 66, 262, to_date('25/9/2021', 'DD/MM/YYYY'), NULL);
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 78, 263, to_date('15/2/2021', 'DD/MM/YYYY'), to_date('19/3/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 27, 263, to_date('19/3/2021', 'DD/MM/YYYY'), to_date('10/4/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 49, 263, to_date('10/4/2021', 'DD/MM/YYYY'), to_date('21/5/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 80, 263, to_date('21/5/2021', 'DD/MM/YYYY'), to_date('26/6/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 26, 263, to_date('26/6/2021', 'DD/MM/YYYY'), to_date('6/8/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 13, 263, to_date('6/8/2021', 'DD/MM/YYYY'), to_date('27/8/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 66, 263, to_date('27/8/2021', 'DD/MM/YYYY'), NULL);
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 134, 264, to_date('12/6/2021', 'DD/MM/YYYY'), to_date('2/7/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 37, 264, to_date('2/7/2021', 'DD/MM/YYYY'), to_date('6/8/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 56, 264, to_date('6/8/2021', 'DD/MM/YYYY'), to_date('18/9/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 55, 264, to_date('18/9/2021', 'DD/MM/YYYY'), NULL);
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 134, 265, to_date('25/02/2021', 'DD/MM/YYYY'), to_date('3/4/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 37, 265, to_date('3/4/2021', 'DD/MM/YYYY'), to_date('27/4/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 56, 265, to_date('27/4/2021', 'DD/MM/YYYY'), to_date('12/6/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 55, 265, to_date('12/6/2021', 'DD/MM/YYYY'), to_date('16/7/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 17, 265, to_date('16/7/2021', 'DD/MM/YYYY'), to_date('27/8/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 70, 265, to_date('27/8/2021', 'DD/MM/YYYY'), NULL);
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 134, 266, to_date('14/5/2021', 'DD/MM/YYYY'), to_date('19/6/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 37, 266, to_date('19/6/2021', 'DD/MM/YYYY'), to_date('30/7/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 56, 266, to_date('30/7/2021', 'DD/MM/YYYY'), to_date('11/9/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 55, 266, to_date('11/9/2021', 'DD/MM/YYYY'), NULL);
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 134, 267, to_date('17/4/2021', 'DD/MM/YYYY'), to_date('5/6/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 37, 267, to_date('5/6/2021', 'DD/MM/YYYY'), to_date('2/7/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 56, 267, to_date('2/7/2021', 'DD/MM/YYYY'), to_date('6/8/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 55, 267, to_date('6/8/2021', 'DD/MM/YYYY'), to_date('27/8/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 17, 267, to_date('27/8/2021', 'DD/MM/YYYY'), to_date('18/9/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 70, 267, to_date('18/9/2021', 'DD/MM/YYYY'), NULL);
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 134, 268, to_date('25/0/2021', 'DD/MM/YYYY'), to_date('15/2/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 37, 268, to_date('15/2/2021', 'DD/MM/YYYY'), to_date('3/4/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 56, 268, to_date('3/4/2021', 'DD/MM/YYYY'), to_date('14/5/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 55, 268, to_date('14/5/2021', 'DD/MM/YYYY'), to_date('12/6/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 17, 268, to_date('12/6/2021', 'DD/MM/YYYY'), to_date('9/7/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 70, 268, to_date('9/7/2021', 'DD/MM/YYYY'), to_date('27/8/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 26, 268, to_date('27/8/2021', 'DD/MM/YYYY'), NULL);
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 134, 269, to_date('15/2/2021', 'DD/MM/YYYY'), to_date('19/3/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 37, 269, to_date('19/3/2021', 'DD/MM/YYYY'), to_date('7/5/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 56, 269, to_date('7/5/2021', 'DD/MM/YYYY'), to_date('5/6/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 55, 269, to_date('5/6/2021', 'DD/MM/YYYY'), to_date('26/6/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 17, 269, to_date('26/6/2021', 'DD/MM/YYYY'), to_date('13/8/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 70, 269, to_date('13/8/2021', 'DD/MM/YYYY'), to_date('18/9/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 26, 269, to_date('18/9/2021', 'DD/MM/YYYY'), NULL);
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 134, 270, to_date('19/3/2021', 'DD/MM/YYYY'), to_date('10/4/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 37, 270, to_date('10/4/2021', 'DD/MM/YYYY'), to_date('14/5/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 56, 270, to_date('14/5/2021', 'DD/MM/YYYY'), to_date('2/7/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 55, 270, to_date('2/7/2021', 'DD/MM/YYYY'), to_date('6/8/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 17, 270, to_date('6/8/2021', 'DD/MM/YYYY'), to_date('11/9/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 70, 270, to_date('11/9/2021', 'DD/MM/YYYY'), NULL);
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 63, 271, to_date('22/2/2021', 'DD/MM/YYYY'), to_date('12/3/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 45, 271, to_date('12/3/2021', 'DD/MM/YYYY'), to_date('3/4/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 115, 271, to_date('3/4/2021', 'DD/MM/YYYY'), to_date('14/5/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 60, 271, to_date('14/5/2021', 'DD/MM/YYYY'), to_date('19/6/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 25, 271, to_date('19/6/2021', 'DD/MM/YYYY'), to_date('23/7/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 17, 271, to_date('23/7/2021', 'DD/MM/YYYY'), to_date('11/9/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 9, 271, to_date('11/9/2021', 'DD/MM/YYYY'), NULL);
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 63, 272, to_date('1/2/2021', 'DD/MM/YYYY'), to_date('12/3/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 45, 272, to_date('12/3/2021', 'DD/MM/YYYY'), to_date('17/4/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 115, 272, to_date('17/4/2021', 'DD/MM/YYYY'), to_date('14/5/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 60, 272, to_date('14/5/2021', 'DD/MM/YYYY'), to_date('5/6/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 25, 272, to_date('5/6/2021', 'DD/MM/YYYY'), to_date('23/7/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 17, 272, to_date('23/7/2021', 'DD/MM/YYYY'), to_date('4/9/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 9, 272, to_date('4/9/2021', 'DD/MM/YYYY'), NULL);
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 63, 273, to_date('26/3/2021', 'DD/MM/YYYY'), to_date('14/5/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 45, 273, to_date('14/5/2021', 'DD/MM/YYYY'), to_date('5/6/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 115, 273, to_date('5/6/2021', 'DD/MM/YYYY'), to_date('23/7/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 60, 273, to_date('23/7/2021', 'DD/MM/YYYY'), to_date('4/9/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 25, 273, to_date('4/9/2021', 'DD/MM/YYYY'), NULL);
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 63, 274, to_date('10/4/2021', 'DD/MM/YYYY'), to_date('14/5/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 45, 274, to_date('14/5/2021', 'DD/MM/YYYY'), to_date('5/6/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 115, 274, to_date('5/6/2021', 'DD/MM/YYYY'), to_date('9/7/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 60, 274, to_date('9/7/2021', 'DD/MM/YYYY'), to_date('27/8/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 25, 274, to_date('27/8/2021', 'DD/MM/YYYY'), NULL);
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 63, 275, to_date('17/4/2021', 'DD/MM/YYYY'), to_date('28/5/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 45, 275, to_date('28/5/2021', 'DD/MM/YYYY'), to_date('2/7/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 115, 275, to_date('2/7/2021', 'DD/MM/YYYY'), to_date('6/8/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 60, 275, to_date('6/8/2021', 'DD/MM/YYYY'), to_date('4/9/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 25, 275, to_date('4/9/2021', 'DD/MM/YYYY'), to_date('25/9/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 17, 275, to_date('25/9/2021', 'DD/MM/YYYY'), NULL);
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 63, 276, to_date('19/3/2021', 'DD/MM/YYYY'), to_date('24/4/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 45, 276, to_date('24/4/2021', 'DD/MM/YYYY'), to_date('28/5/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 115, 276, to_date('28/5/2021', 'DD/MM/YYYY'), to_date('26/6/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 60, 276, to_date('26/6/2021', 'DD/MM/YYYY'), to_date('30/7/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 25, 276, to_date('30/7/2021', 'DD/MM/YYYY'), to_date('4/9/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 17, 276, to_date('4/9/2021', 'DD/MM/YYYY'), NULL);
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 3, 277, to_date('24/4/2021', 'DD/MM/YYYY'), to_date('21/5/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 13, 277, to_date('21/5/2021', 'DD/MM/YYYY'), to_date('26/6/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 75, 277, to_date('26/6/2021', 'DD/MM/YYYY'), to_date('30/7/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 35, 277, to_date('30/7/2021', 'DD/MM/YYYY'), to_date('4/9/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 58, 277, to_date('4/9/2021', 'DD/MM/YYYY'), NULL);
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 3, 278, to_date('26/3/2021', 'DD/MM/YYYY'), to_date('14/5/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 13, 278, to_date('14/5/2021', 'DD/MM/YYYY'), to_date('19/6/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 75, 278, to_date('19/6/2021', 'DD/MM/YYYY'), to_date('6/8/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 35, 278, to_date('6/8/2021', 'DD/MM/YYYY'), to_date('27/8/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 58, 278, to_date('27/8/2021', 'DD/MM/YYYY'), NULL);
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 3, 279, to_date('27/4/2021', 'DD/MM/YYYY'), to_date('19/6/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 13, 279, to_date('19/6/2021', 'DD/MM/YYYY'), to_date('23/7/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 75, 279, to_date('23/7/2021', 'DD/MM/YYYY'), to_date('20/8/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 35, 279, to_date('20/8/2021', 'DD/MM/YYYY'), to_date('18/9/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 58, 279, to_date('18/9/2021', 'DD/MM/YYYY'), NULL);
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 3, 280, to_date('15/2/2021', 'DD/MM/YYYY'), to_date('3/4/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 13, 280, to_date('3/4/2021', 'DD/MM/YYYY'), to_date('27/4/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 75, 280, to_date('27/4/2021', 'DD/MM/YYYY'), to_date('21/5/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 35, 280, to_date('21/5/2021', 'DD/MM/YYYY'), to_date('26/6/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 58, 280, to_date('26/6/2021', 'DD/MM/YYYY'), to_date('6/8/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 31, 280, to_date('6/8/2021', 'DD/MM/YYYY'), to_date('4/9/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 53, 280, to_date('4/9/2021', 'DD/MM/YYYY'), NULL);
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 3, 281, to_date('24/4/2021', 'DD/MM/YYYY'), to_date('21/5/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 13, 281, to_date('21/5/2021', 'DD/MM/YYYY'), to_date('19/6/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 75, 281, to_date('19/6/2021', 'DD/MM/YYYY'), to_date('9/7/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 35, 281, to_date('9/7/2021', 'DD/MM/YYYY'), to_date('6/8/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 58, 281, to_date('6/8/2021', 'DD/MM/YYYY'), to_date('27/8/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 31, 281, to_date('27/8/2021', 'DD/MM/YYYY'), NULL);
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 68, 282, to_date('27/4/2021', 'DD/MM/YYYY'), to_date('12/6/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 21, 282, to_date('12/6/2021', 'DD/MM/YYYY'), to_date('23/7/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 134, 282, to_date('23/7/2021', 'DD/MM/YYYY'), to_date('20/8/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 102, 282, to_date('20/8/2021', 'DD/MM/YYYY'), to_date('18/9/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 115, 282, to_date('18/9/2021', 'DD/MM/YYYY'), NULL);
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 68, 283, to_date('12/3/2021', 'DD/MM/YYYY'), to_date('24/4/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 21, 283, to_date('24/4/2021', 'DD/MM/YYYY'), to_date('5/6/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 134, 283, to_date('5/6/2021', 'DD/MM/YYYY'), to_date('23/7/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 102, 283, to_date('23/7/2021', 'DD/MM/YYYY'), to_date('20/8/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 115, 283, to_date('20/8/2021', 'DD/MM/YYYY'), to_date('25/9/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 44, 283, to_date('25/9/2021', 'DD/MM/YYYY'), NULL);
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 68, 284, to_date('19/6/2021', 'DD/MM/YYYY'), to_date('30/7/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 21, 284, to_date('30/7/2021', 'DD/MM/YYYY'), to_date('18/9/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 134, 284, to_date('18/9/2021', 'DD/MM/YYYY'), NULL);
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 45, 285, to_date('26/3/2021', 'DD/MM/YYYY'), to_date('17/4/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 124, 285, to_date('17/4/2021', 'DD/MM/YYYY'), to_date('14/5/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 88, 285, to_date('14/5/2021', 'DD/MM/YYYY'), to_date('26/6/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 8, 285, to_date('26/6/2021', 'DD/MM/YYYY'), to_date('30/7/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 50, 285, to_date('30/7/2021', 'DD/MM/YYYY'), to_date('4/9/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 103, 285, to_date('4/9/2021', 'DD/MM/YYYY'), NULL);
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 45, 286, to_date('5/6/2021', 'DD/MM/YYYY'), to_date('23/7/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 124, 286, to_date('23/7/2021', 'DD/MM/YYYY'), to_date('11/9/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 88, 286, to_date('11/9/2021', 'DD/MM/YYYY'), NULL);
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 45, 287, to_date('26/6/2021', 'DD/MM/YYYY'), to_date('30/7/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 124, 287, to_date('30/7/2021', 'DD/MM/YYYY'), to_date('18/9/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 88, 287, to_date('18/9/2021', 'DD/MM/YYYY'), NULL);
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 45, 288, to_date('15/2/2021', 'DD/MM/YYYY'), to_date('12/3/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 124, 288, to_date('12/3/2021', 'DD/MM/YYYY'), to_date('17/4/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 88, 288, to_date('17/4/2021', 'DD/MM/YYYY'), to_date('14/5/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 8, 288, to_date('14/5/2021', 'DD/MM/YYYY'), to_date('26/6/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 50, 288, to_date('26/6/2021', 'DD/MM/YYYY'), to_date('6/8/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 103, 288, to_date('6/8/2021', 'DD/MM/YYYY'), to_date('27/8/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 120, 288, to_date('27/8/2021', 'DD/MM/YYYY'), NULL);
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 111, 289, to_date('24/4/2021', 'DD/MM/YYYY'), to_date('21/5/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 34, 289, to_date('21/5/2021', 'DD/MM/YYYY'), to_date('2/7/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 12, 289, to_date('2/7/2021', 'DD/MM/YYYY'), to_date('20/8/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 99, 289, to_date('20/8/2021', 'DD/MM/YYYY'), to_date('25/9/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 33, 289, to_date('25/9/2021', 'DD/MM/YYYY'), NULL);
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 111, 290, to_date('24/4/2021', 'DD/MM/YYYY'), to_date('21/5/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 34, 290, to_date('21/5/2021', 'DD/MM/YYYY'), to_date('12/6/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 12, 290, to_date('12/6/2021', 'DD/MM/YYYY'), to_date('2/7/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 99, 290, to_date('2/7/2021', 'DD/MM/YYYY'), to_date('30/7/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 33, 290, to_date('30/7/2021', 'DD/MM/YYYY'), to_date('27/8/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 60, 290, to_date('27/8/2021', 'DD/MM/YYYY'), NULL);
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 111, 291, to_date('19/3/2021', 'DD/MM/YYYY'), to_date('10/4/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 34, 291, to_date('10/4/2021', 'DD/MM/YYYY'), to_date('27/4/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 12, 291, to_date('27/4/2021', 'DD/MM/YYYY'), to_date('19/6/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 99, 291, to_date('19/6/2021', 'DD/MM/YYYY'), to_date('16/7/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 33, 291, to_date('16/7/2021', 'DD/MM/YYYY'), to_date('4/9/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 60, 291, to_date('4/9/2021', 'DD/MM/YYYY'), NULL);
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 111, 292, to_date('14/5/2021', 'DD/MM/YYYY'), to_date('12/6/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 34, 292, to_date('12/6/2021', 'DD/MM/YYYY'), to_date('30/7/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 12, 292, to_date('30/7/2021', 'DD/MM/YYYY'), to_date('11/9/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 99, 292, to_date('11/9/2021', 'DD/MM/YYYY'), NULL);
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 111, 293, to_date('26/3/2021', 'DD/MM/YYYY'), to_date('14/5/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 34, 293, to_date('14/5/2021', 'DD/MM/YYYY'), to_date('5/6/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 12, 293, to_date('5/6/2021', 'DD/MM/YYYY'), to_date('2/7/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 99, 293, to_date('2/7/2021', 'DD/MM/YYYY'), to_date('6/8/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 33, 293, to_date('6/8/2021', 'DD/MM/YYYY'), to_date('4/9/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 60, 293, to_date('4/9/2021', 'DD/MM/YYYY'), NULL);
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 111, 294, to_date('19/6/2021', 'DD/MM/YYYY'), to_date('23/7/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 34, 294, to_date('23/7/2021', 'DD/MM/YYYY'), to_date('27/8/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 12, 294, to_date('27/8/2021', 'DD/MM/YYYY'), to_date('25/9/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 99, 294, to_date('25/9/2021', 'DD/MM/YYYY'), NULL);
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 50, 295, to_date('16/7/2021', 'DD/MM/YYYY'), to_date('13/8/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 108, 295, to_date('13/8/2021', 'DD/MM/YYYY'), to_date('4/9/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 57, 295, to_date('4/9/2021', 'DD/MM/YYYY'), NULL);
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 50, 296, to_date('21/5/2021', 'DD/MM/YYYY'), to_date('9/7/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 108, 296, to_date('9/7/2021', 'DD/MM/YYYY'), to_date('6/8/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 57, 296, to_date('6/8/2021', 'DD/MM/YYYY'), to_date('27/8/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 68, 296, to_date('27/8/2021', 'DD/MM/YYYY'), NULL);
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 50, 297, to_date('14/5/2021', 'DD/MM/YYYY'), to_date('5/6/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 108, 297, to_date('5/6/2021', 'DD/MM/YYYY'), to_date('23/7/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 57, 297, to_date('23/7/2021', 'DD/MM/YYYY'), to_date('4/9/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 68, 297, to_date('4/9/2021', 'DD/MM/YYYY'), NULL);
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 50, 298, to_date('17/4/2021', 'DD/MM/YYYY'), to_date('7/5/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 108, 298, to_date('7/5/2021', 'DD/MM/YYYY'), to_date('26/6/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 57, 298, to_date('26/6/2021', 'DD/MM/YYYY'), to_date('23/7/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 68, 298, to_date('23/7/2021', 'DD/MM/YYYY'), to_date('20/8/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 3, 298, to_date('20/8/2021', 'DD/MM/YYYY'), to_date('11/9/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 69, 298, to_date('11/9/2021', 'DD/MM/YYYY'), NULL);
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 50, 299, to_date('28/5/2021', 'DD/MM/YYYY'), to_date('19/6/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 108, 299, to_date('19/6/2021', 'DD/MM/YYYY'), to_date('9/7/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 57, 299, to_date('9/7/2021', 'DD/MM/YYYY'), to_date('30/7/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 68, 299, to_date('30/7/2021', 'DD/MM/YYYY'), to_date('27/8/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 3, 299, to_date('27/8/2021', 'DD/MM/YYYY'), NULL);
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 50, 300, to_date('26/3/2021', 'DD/MM/YYYY'), to_date('27/4/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 108, 300, to_date('27/4/2021', 'DD/MM/YYYY'), to_date('5/6/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 57, 300, to_date('5/6/2021', 'DD/MM/YYYY'), to_date('23/7/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 68, 300, to_date('23/7/2021', 'DD/MM/YYYY'), to_date('20/8/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 3, 300, to_date('20/8/2021', 'DD/MM/YYYY'), to_date('11/9/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 69, 300, to_date('11/9/2021', 'DD/MM/YYYY'), NULL);
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 50, 301, to_date('15/2/2021', 'DD/MM/YYYY'), to_date('26/3/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 108, 301, to_date('26/3/2021', 'DD/MM/YYYY'), to_date('7/5/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 57, 301, to_date('7/5/2021', 'DD/MM/YYYY'), to_date('12/6/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 68, 301, to_date('12/6/2021', 'DD/MM/YYYY'), to_date('30/7/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 3, 301, to_date('30/7/2021', 'DD/MM/YYYY'), to_date('4/9/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 69, 301, to_date('4/9/2021', 'DD/MM/YYYY'), to_date('25/9/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 12, 301, to_date('25/9/2021', 'DD/MM/YYYY'), NULL);
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 6, 302, to_date('3/4/2021', 'DD/MM/YYYY'), to_date('24/4/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 53, 302, to_date('24/4/2021', 'DD/MM/YYYY'), to_date('14/5/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 59, 302, to_date('14/5/2021', 'DD/MM/YYYY'), to_date('12/6/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 58, 302, to_date('12/6/2021', 'DD/MM/YYYY'), to_date('30/7/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 37, 302, to_date('30/7/2021', 'DD/MM/YYYY'), to_date('20/8/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 122, 302, to_date('20/8/2021', 'DD/MM/YYYY'), to_date('25/9/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 109, 302, to_date('25/9/2021', 'DD/MM/YYYY'), NULL);
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 6, 303, to_date('12/6/2021', 'DD/MM/YYYY'), to_date('9/7/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 53, 303, to_date('9/7/2021', 'DD/MM/YYYY'), to_date('13/8/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 59, 303, to_date('13/8/2021', 'DD/MM/YYYY'), to_date('18/9/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 58, 303, to_date('18/9/2021', 'DD/MM/YYYY'), NULL);
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 6, 304, to_date('12/3/2021', 'DD/MM/YYYY'), to_date('24/4/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 53, 304, to_date('24/4/2021', 'DD/MM/YYYY'), to_date('12/6/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 59, 304, to_date('12/6/2021', 'DD/MM/YYYY'), to_date('23/7/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 58, 304, to_date('23/7/2021', 'DD/MM/YYYY'), to_date('4/9/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 37, 304, to_date('4/9/2021', 'DD/MM/YYYY'), to_date('25/9/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 122, 304, to_date('25/9/2021', 'DD/MM/YYYY'), NULL);
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 6, 305, to_date('16/7/2021', 'DD/MM/YYYY'), to_date('13/8/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 53, 305, to_date('13/8/2021', 'DD/MM/YYYY'), to_date('4/9/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 59, 305, to_date('4/9/2021', 'DD/MM/YYYY'), NULL);
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 6, 306, to_date('3/4/2021', 'DD/MM/YYYY'), to_date('27/4/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 53, 306, to_date('27/4/2021', 'DD/MM/YYYY'), to_date('21/5/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 59, 306, to_date('21/5/2021', 'DD/MM/YYYY'), to_date('19/6/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 58, 306, to_date('19/6/2021', 'DD/MM/YYYY'), to_date('16/7/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 37, 306, to_date('16/7/2021', 'DD/MM/YYYY'), to_date('27/8/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 122, 306, to_date('27/8/2021', 'DD/MM/YYYY'), NULL);
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 6, 307, to_date('2/7/2021', 'DD/MM/YYYY'), to_date('30/7/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 53, 307, to_date('30/7/2021', 'DD/MM/YYYY'), to_date('11/9/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 59, 307, to_date('11/9/2021', 'DD/MM/YYYY'), NULL);
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 6, 308, to_date('5/6/2021', 'DD/MM/YYYY'), to_date('23/7/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 53, 308, to_date('23/7/2021', 'DD/MM/YYYY'), to_date('27/8/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 59, 308, to_date('27/8/2021', 'DD/MM/YYYY'), to_date('18/9/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 58, 308, to_date('18/9/2021', 'DD/MM/YYYY'), NULL);
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 6, 309, to_date('19/6/2021', 'DD/MM/YYYY'), to_date('9/7/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 53, 309, to_date('9/7/2021', 'DD/MM/YYYY'), to_date('30/7/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 59, 309, to_date('30/7/2021', 'DD/MM/YYYY'), to_date('18/9/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 58, 309, to_date('18/9/2021', 'DD/MM/YYYY'), NULL);
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 6, 310, to_date('17/4/2021', 'DD/MM/YYYY'), to_date('14/5/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 53, 310, to_date('14/5/2021', 'DD/MM/YYYY'), to_date('12/6/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 59, 310, to_date('12/6/2021', 'DD/MM/YYYY'), to_date('9/7/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 58, 310, to_date('9/7/2021', 'DD/MM/YYYY'), to_date('13/8/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 37, 310, to_date('13/8/2021', 'DD/MM/YYYY'), to_date('25/9/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 122, 310, to_date('25/9/2021', 'DD/MM/YYYY'), NULL);
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 36, 311, to_date('14/5/2021', 'DD/MM/YYYY'), to_date('19/6/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 28, 311, to_date('19/6/2021', 'DD/MM/YYYY'), to_date('9/7/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 9, 311, to_date('9/7/2021', 'DD/MM/YYYY'), to_date('27/8/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 135, 311, to_date('27/8/2021', 'DD/MM/YYYY'), NULL);
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 36, 312, to_date('21/5/2021', 'DD/MM/YYYY'), to_date('19/6/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 28, 312, to_date('19/6/2021', 'DD/MM/YYYY'), to_date('9/7/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 9, 312, to_date('9/7/2021', 'DD/MM/YYYY'), to_date('30/7/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 135, 312, to_date('30/7/2021', 'DD/MM/YYYY'), to_date('4/9/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 93, 312, to_date('4/9/2021', 'DD/MM/YYYY'), NULL);
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 36, 313, to_date('21/5/2021', 'DD/MM/YYYY'), to_date('26/6/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 28, 313, to_date('26/6/2021', 'DD/MM/YYYY'), to_date('13/8/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 9, 313, to_date('13/8/2021', 'DD/MM/YYYY'), to_date('11/9/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 135, 313, to_date('11/9/2021', 'DD/MM/YYYY'), NULL);
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 36, 314, to_date('10/4/2021', 'DD/MM/YYYY'), to_date('7/5/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 28, 314, to_date('7/5/2021', 'DD/MM/YYYY'), to_date('26/6/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 9, 314, to_date('26/6/2021', 'DD/MM/YYYY'), to_date('30/7/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 135, 314, to_date('30/7/2021', 'DD/MM/YYYY'), to_date('4/9/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 93, 314, to_date('4/9/2021', 'DD/MM/YYYY'), NULL);
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 36, 315, to_date('10/4/2021', 'DD/MM/YYYY'), to_date('28/5/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 28, 315, to_date('28/5/2021', 'DD/MM/YYYY'), to_date('16/7/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 9, 315, to_date('16/7/2021', 'DD/MM/YYYY'), to_date('6/8/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 135, 315, to_date('6/8/2021', 'DD/MM/YYYY'), to_date('25/9/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 93, 315, to_date('25/9/2021', 'DD/MM/YYYY'), NULL);
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 36, 316, to_date('28/5/2021', 'DD/MM/YYYY'), to_date('16/7/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 28, 316, to_date('16/7/2021', 'DD/MM/YYYY'), to_date('4/9/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 9, 316, to_date('4/9/2021', 'DD/MM/YYYY'), to_date('25/9/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 135, 316, to_date('25/9/2021', 'DD/MM/YYYY'), NULL);
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 101, 317, to_date('25/02/2021', 'DD/MM/YYYY'), to_date('3/4/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 44, 317, to_date('3/4/2021', 'DD/MM/YYYY'), to_date('14/5/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 67, 317, to_date('14/5/2021', 'DD/MM/YYYY'), to_date('5/6/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 81, 317, to_date('5/6/2021', 'DD/MM/YYYY'), to_date('9/7/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 65, 317, to_date('9/7/2021', 'DD/MM/YYYY'), to_date('27/8/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 125, 317, to_date('27/8/2021', 'DD/MM/YYYY'), NULL);
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 101, 318, to_date('19/3/2021', 'DD/MM/YYYY'), to_date('24/4/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 44, 318, to_date('24/4/2021', 'DD/MM/YYYY'), to_date('12/6/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 67, 318, to_date('12/6/2021', 'DD/MM/YYYY'), to_date('30/7/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 81, 318, to_date('30/7/2021', 'DD/MM/YYYY'), to_date('27/8/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 65, 318, to_date('27/8/2021', 'DD/MM/YYYY'), NULL);
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 101, 319, to_date('17/4/2021', 'DD/MM/YYYY'), to_date('28/5/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 44, 319, to_date('28/5/2021', 'DD/MM/YYYY'), to_date('9/7/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 67, 319, to_date('9/7/2021', 'DD/MM/YYYY'), to_date('30/7/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 81, 319, to_date('30/7/2021', 'DD/MM/YYYY'), to_date('4/9/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 65, 319, to_date('4/9/2021', 'DD/MM/YYYY'), NULL);
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 101, 320, to_date('12/6/2021', 'DD/MM/YYYY'), to_date('16/7/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 44, 320, to_date('16/7/2021', 'DD/MM/YYYY'), to_date('20/8/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 67, 320, to_date('20/8/2021', 'DD/MM/YYYY'), to_date('18/9/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 81, 320, to_date('18/9/2021', 'DD/MM/YYYY'), NULL);
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 101, 321, to_date('12/6/2021', 'DD/MM/YYYY'), to_date('2/7/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 44, 321, to_date('2/7/2021', 'DD/MM/YYYY'), to_date('23/7/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 67, 321, to_date('23/7/2021', 'DD/MM/YYYY'), to_date('20/8/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 81, 321, to_date('20/8/2021', 'DD/MM/YYYY'), to_date('18/9/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 65, 321, to_date('18/9/2021', 'DD/MM/YYYY'), NULL);
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 101, 322, to_date('7/5/2021', 'DD/MM/YYYY'), to_date('19/6/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 44, 322, to_date('19/6/2021', 'DD/MM/YYYY'), to_date('16/7/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 67, 322, to_date('16/7/2021', 'DD/MM/YYYY'), to_date('27/8/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 81, 322, to_date('27/8/2021', 'DD/MM/YYYY'), to_date('18/9/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 65, 322, to_date('18/9/2021', 'DD/MM/YYYY'), NULL);
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 101, 323, to_date('17/4/2021', 'DD/MM/YYYY'), to_date('28/5/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 44, 323, to_date('28/5/2021', 'DD/MM/YYYY'), to_date('19/6/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 67, 323, to_date('19/6/2021', 'DD/MM/YYYY'), to_date('30/7/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 81, 323, to_date('30/7/2021', 'DD/MM/YYYY'), to_date('18/9/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 65, 323, to_date('18/9/2021', 'DD/MM/YYYY'), NULL);
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 41, 324, to_date('9/7/2021', 'DD/MM/YYYY'), to_date('6/8/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 12, 324, to_date('6/8/2021', 'DD/MM/YYYY'), to_date('27/8/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 20, 324, to_date('27/8/2021', 'DD/MM/YYYY'), NULL);
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 41, 325, to_date('5/6/2021', 'DD/MM/YYYY'), to_date('26/6/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 12, 325, to_date('26/6/2021', 'DD/MM/YYYY'), to_date('6/8/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 20, 325, to_date('6/8/2021', 'DD/MM/YYYY'), to_date('18/9/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 55, 325, to_date('18/9/2021', 'DD/MM/YYYY'), NULL);
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 41, 326, to_date('26/3/2021', 'DD/MM/YYYY'), to_date('27/4/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 12, 326, to_date('27/4/2021', 'DD/MM/YYYY'), to_date('5/6/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 20, 326, to_date('5/6/2021', 'DD/MM/YYYY'), to_date('2/7/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 55, 326, to_date('2/7/2021', 'DD/MM/YYYY'), to_date('6/8/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 49, 326, to_date('6/8/2021', 'DD/MM/YYYY'), to_date('4/9/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 136, 326, to_date('4/9/2021', 'DD/MM/YYYY'), NULL);
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 41, 327, to_date('14/5/2021', 'DD/MM/YYYY'), to_date('2/7/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 12, 327, to_date('2/7/2021', 'DD/MM/YYYY'), to_date('30/7/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 20, 327, to_date('30/7/2021', 'DD/MM/YYYY'), to_date('18/9/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 55, 327, to_date('18/9/2021', 'DD/MM/YYYY'), NULL);
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 41, 328, to_date('3/4/2021', 'DD/MM/YYYY'), to_date('24/4/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 12, 328, to_date('24/4/2021', 'DD/MM/YYYY'), to_date('12/6/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 20, 328, to_date('12/6/2021', 'DD/MM/YYYY'), to_date('9/7/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 55, 328, to_date('9/7/2021', 'DD/MM/YYYY'), to_date('20/8/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 49, 328, to_date('20/8/2021', 'DD/MM/YYYY'), to_date('18/9/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 136, 328, to_date('18/9/2021', 'DD/MM/YYYY'), NULL);
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 41, 329, to_date('26/3/2021', 'DD/MM/YYYY'), to_date('7/5/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 12, 329, to_date('7/5/2021', 'DD/MM/YYYY'), to_date('28/5/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 20, 329, to_date('28/5/2021', 'DD/MM/YYYY'), to_date('19/6/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 55, 329, to_date('19/6/2021', 'DD/MM/YYYY'), to_date('23/7/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 49, 329, to_date('23/7/2021', 'DD/MM/YYYY'), to_date('4/9/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 136, 329, to_date('4/9/2021', 'DD/MM/YYYY'), NULL);
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 41, 330, to_date('14/5/2021', 'DD/MM/YYYY'), to_date('12/6/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 12, 330, to_date('12/6/2021', 'DD/MM/YYYY'), to_date('23/7/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 20, 330, to_date('23/7/2021', 'DD/MM/YYYY'), to_date('27/8/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 55, 330, to_date('27/8/2021', 'DD/MM/YYYY'), to_date('18/9/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 49, 330, to_date('18/9/2021', 'DD/MM/YYYY'), NULL);
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 20, 331, to_date('7/5/2021', 'DD/MM/YYYY'), to_date('28/5/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 86, 331, to_date('28/5/2021', 'DD/MM/YYYY'), to_date('16/7/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 107, 331, to_date('16/7/2021', 'DD/MM/YYYY'), to_date('27/8/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 2, 331, to_date('27/8/2021', 'DD/MM/YYYY'), NULL);
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 20, 332, to_date('1/2/2021', 'DD/MM/YYYY'), to_date('19/3/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 86, 332, to_date('19/3/2021', 'DD/MM/YYYY'), to_date('10/4/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 107, 332, to_date('10/4/2021', 'DD/MM/YYYY'), to_date('7/5/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 2, 332, to_date('7/5/2021', 'DD/MM/YYYY'), to_date('28/5/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 15, 332, to_date('28/5/2021', 'DD/MM/YYYY'), to_date('9/7/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 86, 332, to_date('9/7/2021', 'DD/MM/YYYY'), to_date('27/8/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 84, 332, to_date('27/8/2021', 'DD/MM/YYYY'), NULL);
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 20, 333, to_date('21/5/2021', 'DD/MM/YYYY'), to_date('26/6/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 86, 333, to_date('26/6/2021', 'DD/MM/YYYY'), to_date('16/7/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 107, 333, to_date('16/7/2021', 'DD/MM/YYYY'), to_date('20/8/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 2, 333, to_date('20/8/2021', 'DD/MM/YYYY'), to_date('18/9/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 15, 333, to_date('18/9/2021', 'DD/MM/YYYY'), NULL);
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 20, 334, to_date('12/3/2021', 'DD/MM/YYYY'), to_date('3/4/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 86, 334, to_date('3/4/2021', 'DD/MM/YYYY'), to_date('27/4/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 107, 334, to_date('27/4/2021', 'DD/MM/YYYY'), to_date('12/6/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 2, 334, to_date('12/6/2021', 'DD/MM/YYYY'), to_date('2/7/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 15, 334, to_date('2/7/2021', 'DD/MM/YYYY'), to_date('6/8/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 86, 334, to_date('6/8/2021', 'DD/MM/YYYY'), to_date('11/9/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 84, 334, to_date('11/9/2021', 'DD/MM/YYYY'), NULL);
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 20, 335, to_date('5/6/2021', 'DD/MM/YYYY'), to_date('16/7/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 86, 335, to_date('16/7/2021', 'DD/MM/YYYY'), to_date('6/8/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 107, 335, to_date('6/8/2021', 'DD/MM/YYYY'), to_date('11/9/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 2, 335, to_date('11/9/2021', 'DD/MM/YYYY'), NULL);
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 20, 336, to_date('12/6/2021', 'DD/MM/YYYY'), to_date('23/7/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 86, 336, to_date('23/7/2021', 'DD/MM/YYYY'), to_date('27/8/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 107, 336, to_date('27/8/2021', 'DD/MM/YYYY'), to_date('25/9/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 2, 336, to_date('25/9/2021', 'DD/MM/YYYY'), NULL);
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 20, 337, to_date('21/5/2021', 'DD/MM/YYYY'), to_date('19/6/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 86, 337, to_date('19/6/2021', 'DD/MM/YYYY'), to_date('6/8/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 107, 337, to_date('6/8/2021', 'DD/MM/YYYY'), to_date('27/8/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 2, 337, to_date('27/8/2021', 'DD/MM/YYYY'), NULL);
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 20, 338, to_date('17/4/2021', 'DD/MM/YYYY'), to_date('21/5/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 86, 338, to_date('21/5/2021', 'DD/MM/YYYY'), to_date('2/7/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 107, 338, to_date('2/7/2021', 'DD/MM/YYYY'), to_date('23/7/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 2, 338, to_date('23/7/2021', 'DD/MM/YYYY'), to_date('4/9/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 15, 338, to_date('4/9/2021', 'DD/MM/YYYY'), NULL);
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 26, 339, to_date('22/2/2021', 'DD/MM/YYYY'), to_date('10/4/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 68, 339, to_date('10/4/2021', 'DD/MM/YYYY'), to_date('14/5/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 107, 339, to_date('14/5/2021', 'DD/MM/YYYY'), to_date('26/6/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 55, 339, to_date('26/6/2021', 'DD/MM/YYYY'), to_date('16/7/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 74, 339, to_date('16/7/2021', 'DD/MM/YYYY'), to_date('27/8/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 41, 339, to_date('27/8/2021', 'DD/MM/YYYY'), NULL);
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 26, 340, to_date('21/5/2021', 'DD/MM/YYYY'), to_date('12/6/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 68, 340, to_date('12/6/2021', 'DD/MM/YYYY'), to_date('30/7/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 107, 340, to_date('30/7/2021', 'DD/MM/YYYY'), to_date('4/9/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 55, 340, to_date('4/9/2021', 'DD/MM/YYYY'), NULL);
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 26, 341, to_date('5/6/2021', 'DD/MM/YYYY'), to_date('16/7/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 68, 341, to_date('16/7/2021', 'DD/MM/YYYY'), to_date('6/8/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 107, 341, to_date('6/8/2021', 'DD/MM/YYYY'), to_date('4/9/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 55, 341, to_date('4/9/2021', 'DD/MM/YYYY'), NULL);
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 26, 342, to_date('2/7/2021', 'DD/MM/YYYY'), to_date('30/7/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 68, 342, to_date('30/7/2021', 'DD/MM/YYYY'), to_date('27/8/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 107, 342, to_date('27/8/2021', 'DD/MM/YYYY'), NULL);
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 26, 343, to_date('14/5/2021', 'DD/MM/YYYY'), to_date('5/6/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 68, 343, to_date('5/6/2021', 'DD/MM/YYYY'), to_date('26/6/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 107, 343, to_date('26/6/2021', 'DD/MM/YYYY'), to_date('6/8/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 55, 343, to_date('6/8/2021', 'DD/MM/YYYY'), to_date('27/8/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 74, 343, to_date('27/8/2021', 'DD/MM/YYYY'), NULL);
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 26, 344, to_date('17/4/2021', 'DD/MM/YYYY'), to_date('21/5/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 68, 344, to_date('21/5/2021', 'DD/MM/YYYY'), to_date('12/6/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 107, 344, to_date('12/6/2021', 'DD/MM/YYYY'), to_date('23/7/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 55, 344, to_date('23/7/2021', 'DD/MM/YYYY'), to_date('4/9/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 74, 344, to_date('4/9/2021', 'DD/MM/YYYY'), NULL);
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 26, 345, to_date('24/4/2021', 'DD/MM/YYYY'), to_date('14/5/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 68, 345, to_date('14/5/2021', 'DD/MM/YYYY'), to_date('19/6/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 107, 345, to_date('19/6/2021', 'DD/MM/YYYY'), to_date('9/7/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 55, 345, to_date('9/7/2021', 'DD/MM/YYYY'), to_date('30/7/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 74, 345, to_date('30/7/2021', 'DD/MM/YYYY'), to_date('27/8/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 41, 345, to_date('27/8/2021', 'DD/MM/YYYY'), NULL);
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 91, 346, to_date('3/4/2021', 'DD/MM/YYYY'), to_date('24/4/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 84, 346, to_date('24/4/2021', 'DD/MM/YYYY'), to_date('21/5/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 128, 346, to_date('21/5/2021', 'DD/MM/YYYY'), to_date('26/6/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 133, 346, to_date('26/6/2021', 'DD/MM/YYYY'), to_date('30/7/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 88, 346, to_date('30/7/2021', 'DD/MM/YYYY'), to_date('11/9/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 7, 346, to_date('11/9/2021', 'DD/MM/YYYY'), NULL);
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 91, 347, to_date('12/6/2021', 'DD/MM/YYYY'), to_date('16/7/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 84, 347, to_date('16/7/2021', 'DD/MM/YYYY'), to_date('27/8/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 128, 347, to_date('27/8/2021', 'DD/MM/YYYY'), NULL);
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 91, 348, to_date('12/3/2021', 'DD/MM/YYYY'), to_date('10/4/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 84, 348, to_date('10/4/2021', 'DD/MM/YYYY'), to_date('27/4/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 128, 348, to_date('27/4/2021', 'DD/MM/YYYY'), to_date('21/5/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 133, 348, to_date('21/5/2021', 'DD/MM/YYYY'), to_date('2/7/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 88, 348, to_date('2/7/2021', 'DD/MM/YYYY'), to_date('6/8/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 7, 348, to_date('6/8/2021', 'DD/MM/YYYY'), to_date('27/8/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 17, 348, to_date('27/8/2021', 'DD/MM/YYYY'), NULL);
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 91, 349, to_date('8/1/2021', 'DD/MM/YYYY'), to_date('15/2/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 84, 349, to_date('15/2/2021', 'DD/MM/YYYY'), to_date('12/3/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 128, 349, to_date('12/3/2021', 'DD/MM/YYYY'), to_date('17/4/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 133, 349, to_date('17/4/2021', 'DD/MM/YYYY'), to_date('5/6/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 88, 349, to_date('5/6/2021', 'DD/MM/YYYY'), to_date('16/7/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 7, 349, to_date('16/7/2021', 'DD/MM/YYYY'), to_date('4/9/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 17, 349, to_date('4/9/2021', 'DD/MM/YYYY'), NULL);
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 91, 350, to_date('30/7/2021', 'DD/MM/YYYY'), to_date('27/8/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 84, 350, to_date('27/8/2021', 'DD/MM/YYYY'), to_date('25/9/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 128, 350, to_date('25/9/2021', 'DD/MM/YYYY'), NULL);
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 91, 351, to_date('3/4/2021', 'DD/MM/YYYY'), to_date('14/5/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 84, 351, to_date('14/5/2021', 'DD/MM/YYYY'), to_date('19/6/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 128, 351, to_date('19/6/2021', 'DD/MM/YYYY'), to_date('16/7/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 133, 351, to_date('16/7/2021', 'DD/MM/YYYY'), to_date('4/9/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 88, 351, to_date('4/9/2021', 'DD/MM/YYYY'), to_date('25/9/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 7, 351, to_date('25/9/2021', 'DD/MM/YYYY'), NULL);
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 91, 352, to_date('17/4/2021', 'DD/MM/YYYY'), to_date('7/5/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 84, 352, to_date('7/5/2021', 'DD/MM/YYYY'), to_date('12/6/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 128, 352, to_date('12/6/2021', 'DD/MM/YYYY'), to_date('2/7/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 133, 352, to_date('2/7/2021', 'DD/MM/YYYY'), to_date('20/8/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 88, 352, to_date('20/8/2021', 'DD/MM/YYYY'), to_date('11/9/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 7, 352, to_date('11/9/2021', 'DD/MM/YYYY'), NULL);
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 31, 353, to_date('10/4/2021', 'DD/MM/YYYY'), to_date('14/5/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 52, 353, to_date('14/5/2021', 'DD/MM/YYYY'), to_date('2/7/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 126, 353, to_date('2/7/2021', 'DD/MM/YYYY'), to_date('20/8/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 27, 353, to_date('20/8/2021', 'DD/MM/YYYY'), to_date('25/9/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 3, 353, to_date('25/9/2021', 'DD/MM/YYYY'), NULL);
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 31, 354, to_date('28/5/2021', 'DD/MM/YYYY'), to_date('16/7/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 52, 354, to_date('16/7/2021', 'DD/MM/YYYY'), to_date('20/8/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 126, 354, to_date('20/8/2021', 'DD/MM/YYYY'), to_date('18/9/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 27, 354, to_date('18/9/2021', 'DD/MM/YYYY'), NULL);
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 31, 355, to_date('9/7/2021', 'DD/MM/YYYY'), to_date('20/8/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 52, 355, to_date('20/8/2021', 'DD/MM/YYYY'), to_date('11/9/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 126, 355, to_date('11/9/2021', 'DD/MM/YYYY'), NULL);
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 31, 356, to_date('2/7/2021', 'DD/MM/YYYY'), to_date('23/7/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 52, 356, to_date('23/7/2021', 'DD/MM/YYYY'), to_date('4/9/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 126, 356, to_date('4/9/2021', 'DD/MM/YYYY'), NULL);
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 31, 357, to_date('24/4/2021', 'DD/MM/YYYY'), to_date('5/6/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 52, 357, to_date('5/6/2021', 'DD/MM/YYYY'), to_date('16/7/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 126, 357, to_date('16/7/2021', 'DD/MM/YYYY'), to_date('20/8/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 27, 357, to_date('20/8/2021', 'DD/MM/YYYY'), to_date('11/9/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 3, 357, to_date('11/9/2021', 'DD/MM/YYYY'), NULL);
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 31, 358, to_date('8/1/2021', 'DD/MM/YYYY'), to_date('22/2/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 52, 358, to_date('22/2/2021', 'DD/MM/YYYY'), to_date('26/3/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 126, 358, to_date('26/3/2021', 'DD/MM/YYYY'), to_date('7/5/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 27, 358, to_date('7/5/2021', 'DD/MM/YYYY'), to_date('26/6/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 3, 358, to_date('26/6/2021', 'DD/MM/YYYY'), to_date('6/8/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 78, 358, to_date('6/8/2021', 'DD/MM/YYYY'), to_date('25/9/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 55, 358, to_date('25/9/2021', 'DD/MM/YYYY'), NULL);
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 31, 359, to_date('26/6/2021', 'DD/MM/YYYY'), to_date('6/8/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 52, 359, to_date('6/8/2021', 'DD/MM/YYYY'), to_date('4/9/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 126, 359, to_date('4/9/2021', 'DD/MM/YYYY'), to_date('25/9/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 27, 359, to_date('25/9/2021', 'DD/MM/YYYY'), NULL);
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 31, 360, to_date('24/4/2021', 'DD/MM/YYYY'), to_date('12/6/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 52, 360, to_date('12/6/2021', 'DD/MM/YYYY'), to_date('9/7/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 126, 360, to_date('9/7/2021', 'DD/MM/YYYY'), to_date('30/7/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 27, 360, to_date('30/7/2021', 'DD/MM/YYYY'), to_date('18/9/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 3, 360, to_date('18/9/2021', 'DD/MM/YYYY'), NULL);
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 60, 361, to_date('12/3/2021', 'DD/MM/YYYY'), to_date('27/4/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 49, 361, to_date('27/4/2021', 'DD/MM/YYYY'), to_date('12/6/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 109, 361, to_date('12/6/2021', 'DD/MM/YYYY'), to_date('16/7/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 86, 361, to_date('16/7/2021', 'DD/MM/YYYY'), to_date('27/8/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 115, 361, to_date('27/8/2021', 'DD/MM/YYYY'), NULL);
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 60, 362, to_date('26/6/2021', 'DD/MM/YYYY'), to_date('6/8/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 49, 362, to_date('6/8/2021', 'DD/MM/YYYY'), to_date('25/9/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 109, 362, to_date('25/9/2021', 'DD/MM/YYYY'), NULL);
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 60, 363, to_date('2/7/2021', 'DD/MM/YYYY'), to_date('13/8/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 49, 363, to_date('13/8/2021', 'DD/MM/YYYY'), to_date('4/9/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 109, 363, to_date('4/9/2021', 'DD/MM/YYYY'), NULL);
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 60, 364, to_date('15/2/2021', 'DD/MM/YYYY'), to_date('3/4/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 49, 364, to_date('3/4/2021', 'DD/MM/YYYY'), to_date('21/5/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 109, 364, to_date('21/5/2021', 'DD/MM/YYYY'), to_date('19/6/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 86, 364, to_date('19/6/2021', 'DD/MM/YYYY'), to_date('9/7/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 115, 364, to_date('9/7/2021', 'DD/MM/YYYY'), to_date('13/8/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 123, 364, to_date('13/8/2021', 'DD/MM/YYYY'), to_date('11/9/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 84, 364, to_date('11/9/2021', 'DD/MM/YYYY'), NULL);
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 60, 365, to_date('2/7/2021', 'DD/MM/YYYY'), to_date('23/7/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 49, 365, to_date('23/7/2021', 'DD/MM/YYYY'), to_date('27/8/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 109, 365, to_date('27/8/2021', 'DD/MM/YYYY'), to_date('18/9/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 86, 365, to_date('18/9/2021', 'DD/MM/YYYY'), NULL);
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 60, 366, to_date('19/3/2021', 'DD/MM/YYYY'), to_date('10/4/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 49, 366, to_date('10/4/2021', 'DD/MM/YYYY'), to_date('21/5/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 109, 366, to_date('21/5/2021', 'DD/MM/YYYY'), to_date('19/6/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 86, 366, to_date('19/6/2021', 'DD/MM/YYYY'), to_date('30/7/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 115, 366, to_date('30/7/2021', 'DD/MM/YYYY'), to_date('20/8/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 123, 366, to_date('20/8/2021', 'DD/MM/YYYY'), to_date('11/9/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 84, 366, to_date('11/9/2021', 'DD/MM/YYYY'), NULL);
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 60, 367, to_date('5/3/2021', 'DD/MM/YYYY'), to_date('26/3/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 49, 367, to_date('26/3/2021', 'DD/MM/YYYY'), to_date('27/4/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 109, 367, to_date('27/4/2021', 'DD/MM/YYYY'), to_date('28/5/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 86, 367, to_date('28/5/2021', 'DD/MM/YYYY'), to_date('9/7/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 115, 367, to_date('9/7/2021', 'DD/MM/YYYY'), to_date('27/8/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 123, 367, to_date('27/8/2021', 'DD/MM/YYYY'), NULL);
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 60, 368, to_date('9/7/2021', 'DD/MM/YYYY'), to_date('30/7/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 49, 368, to_date('30/7/2021', 'DD/MM/YYYY'), to_date('20/8/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 109, 368, to_date('20/8/2021', 'DD/MM/YYYY'), to_date('11/9/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 86, 368, to_date('11/9/2021', 'DD/MM/YYYY'), NULL);
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 16, 369, to_date('9/7/2021', 'DD/MM/YYYY'), to_date('6/8/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 78, 369, to_date('6/8/2021', 'DD/MM/YYYY'), to_date('25/9/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 102, 369, to_date('25/9/2021', 'DD/MM/YYYY'), NULL);
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 16, 370, to_date('3/4/2021', 'DD/MM/YYYY'), to_date('27/4/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 78, 370, to_date('27/4/2021', 'DD/MM/YYYY'), to_date('21/5/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 102, 370, to_date('21/5/2021', 'DD/MM/YYYY'), to_date('12/6/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 127, 370, to_date('12/6/2021', 'DD/MM/YYYY'), to_date('16/7/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 126, 370, to_date('16/7/2021', 'DD/MM/YYYY'), to_date('27/8/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 53, 370, to_date('27/8/2021', 'DD/MM/YYYY'), NULL);
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 16, 371, to_date('24/4/2021', 'DD/MM/YYYY'), to_date('28/5/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 78, 371, to_date('28/5/2021', 'DD/MM/YYYY'), to_date('9/7/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 102, 371, to_date('9/7/2021', 'DD/MM/YYYY'), to_date('30/7/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 127, 371, to_date('30/7/2021', 'DD/MM/YYYY'), to_date('11/9/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 126, 371, to_date('11/9/2021', 'DD/MM/YYYY'), NULL);
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 16, 372, to_date('2/7/2021', 'DD/MM/YYYY'), to_date('20/8/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 78, 372, to_date('20/8/2021', 'DD/MM/YYYY'), to_date('11/9/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 102, 372, to_date('11/9/2021', 'DD/MM/YYYY'), NULL);
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 16, 373, to_date('2/7/2021', 'DD/MM/YYYY'), to_date('23/7/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 78, 373, to_date('23/7/2021', 'DD/MM/YYYY'), to_date('13/8/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 102, 373, to_date('13/8/2021', 'DD/MM/YYYY'), to_date('18/9/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 127, 373, to_date('18/9/2021', 'DD/MM/YYYY'), NULL);
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 16, 374, to_date('25/02/2021', 'DD/MM/YYYY'), to_date('10/4/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 78, 374, to_date('10/4/2021', 'DD/MM/YYYY'), to_date('7/5/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 102, 374, to_date('7/5/2021', 'DD/MM/YYYY'), to_date('12/6/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 127, 374, to_date('12/6/2021', 'DD/MM/YYYY'), to_date('30/7/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 126, 374, to_date('30/7/2021', 'DD/MM/YYYY'), to_date('4/9/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 53, 374, to_date('4/9/2021', 'DD/MM/YYYY'), NULL);
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 16, 375, to_date('8/2/2021', 'DD/MM/YYYY'), to_date('5/3/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 78, 375, to_date('5/3/2021', 'DD/MM/YYYY'), to_date('3/4/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 102, 375, to_date('3/4/2021', 'DD/MM/YYYY'), to_date('7/5/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 127, 375, to_date('7/5/2021', 'DD/MM/YYYY'), to_date('19/6/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 126, 375, to_date('19/6/2021', 'DD/MM/YYYY'), to_date('16/7/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 53, 375, to_date('16/7/2021', 'DD/MM/YYYY'), to_date('27/8/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 53, 375, to_date('27/8/2021', 'DD/MM/YYYY'), NULL);
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 82, 376, to_date('5/3/2021', 'DD/MM/YYYY'), to_date('24/4/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 124, 376, to_date('24/4/2021', 'DD/MM/YYYY'), to_date('12/6/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 136, 376, to_date('12/6/2021', 'DD/MM/YYYY'), to_date('16/7/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 42, 376, to_date('16/7/2021', 'DD/MM/YYYY'), to_date('27/8/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 81, 376, to_date('27/8/2021', 'DD/MM/YYYY'), to_date('18/9/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 44, 376, to_date('18/9/2021', 'DD/MM/YYYY'), NULL);
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 82, 377, to_date('3/4/2021', 'DD/MM/YYYY'), to_date('27/4/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 124, 377, to_date('27/4/2021', 'DD/MM/YYYY'), to_date('5/6/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 136, 377, to_date('5/6/2021', 'DD/MM/YYYY'), to_date('26/6/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 42, 377, to_date('26/6/2021', 'DD/MM/YYYY'), to_date('13/8/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 81, 377, to_date('13/8/2021', 'DD/MM/YYYY'), to_date('11/9/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 44, 377, to_date('11/9/2021', 'DD/MM/YYYY'), NULL);
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 82, 378, to_date('17/4/2021', 'DD/MM/YYYY'), to_date('28/5/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 124, 378, to_date('28/5/2021', 'DD/MM/YYYY'), to_date('19/6/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 136, 378, to_date('19/6/2021', 'DD/MM/YYYY'), to_date('16/7/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 42, 378, to_date('16/7/2021', 'DD/MM/YYYY'), to_date('27/8/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 81, 378, to_date('27/8/2021', 'DD/MM/YYYY'), NULL);
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 82, 379, to_date('19/6/2021', 'DD/MM/YYYY'), to_date('30/7/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 124, 379, to_date('30/7/2021', 'DD/MM/YYYY'), to_date('4/9/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 136, 379, to_date('4/9/2021', 'DD/MM/YYYY'), to_date('25/9/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 42, 379, to_date('25/9/2021', 'DD/MM/YYYY'), NULL);
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 82, 380, to_date('26/3/2021', 'DD/MM/YYYY'), to_date('7/5/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 124, 380, to_date('7/5/2021', 'DD/MM/YYYY'), to_date('12/6/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 136, 380, to_date('12/6/2021', 'DD/MM/YYYY'), to_date('9/7/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 42, 380, to_date('9/7/2021', 'DD/MM/YYYY'), to_date('27/8/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 81, 380, to_date('27/8/2021', 'DD/MM/YYYY'), to_date('25/9/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 44, 380, to_date('25/9/2021', 'DD/MM/YYYY'), NULL);
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 82, 381, to_date('19/6/2021', 'DD/MM/YYYY'), to_date('6/8/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 124, 381, to_date('6/8/2021', 'DD/MM/YYYY'), to_date('27/8/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 136, 381, to_date('27/8/2021', 'DD/MM/YYYY'), NULL);
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 82, 382, to_date('25/0/2021', 'DD/MM/YYYY'), to_date('22/1/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 124, 382, to_date('22/1/2021', 'DD/MM/YYYY'), to_date('12/3/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 136, 382, to_date('12/3/2021', 'DD/MM/YYYY'), to_date('27/4/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 42, 382, to_date('27/4/2021', 'DD/MM/YYYY'), to_date('5/6/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 81, 382, to_date('5/6/2021', 'DD/MM/YYYY'), to_date('16/7/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 44, 382, to_date('16/7/2021', 'DD/MM/YYYY'), to_date('27/8/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 98, 382, to_date('27/8/2021', 'DD/MM/YYYY'), NULL);
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 21, 383, to_date('5/3/2021', 'DD/MM/YYYY'), to_date('3/4/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 92, 383, to_date('3/4/2021', 'DD/MM/YYYY'), to_date('24/4/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 74, 383, to_date('24/4/2021', 'DD/MM/YYYY'), to_date('12/6/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 32, 383, to_date('12/6/2021', 'DD/MM/YYYY'), to_date('16/7/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 80, 383, to_date('16/7/2021', 'DD/MM/YYYY'), to_date('4/9/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 71, 383, to_date('4/9/2021', 'DD/MM/YYYY'), NULL);
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 21, 384, to_date('14/5/2021', 'DD/MM/YYYY'), to_date('5/6/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 92, 384, to_date('5/6/2021', 'DD/MM/YYYY'), to_date('26/6/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 74, 384, to_date('26/6/2021', 'DD/MM/YYYY'), to_date('13/8/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 32, 384, to_date('13/8/2021', 'DD/MM/YYYY'), to_date('11/9/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 80, 384, to_date('11/9/2021', 'DD/MM/YYYY'), NULL);
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 21, 385, to_date('26/3/2021', 'DD/MM/YYYY'), to_date('7/5/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 92, 385, to_date('7/5/2021', 'DD/MM/YYYY'), to_date('19/6/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 74, 385, to_date('19/6/2021', 'DD/MM/YYYY'), to_date('9/7/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 32, 385, to_date('9/7/2021', 'DD/MM/YYYY'), to_date('13/8/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 80, 385, to_date('13/8/2021', 'DD/MM/YYYY'), to_date('18/9/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 71, 385, to_date('18/9/2021', 'DD/MM/YYYY'), NULL);
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 21, 386, to_date('28/5/2021', 'DD/MM/YYYY'), to_date('16/7/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 92, 386, to_date('16/7/2021', 'DD/MM/YYYY'), to_date('20/8/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 74, 386, to_date('20/8/2021', 'DD/MM/YYYY'), to_date('11/9/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 32, 386, to_date('11/9/2021', 'DD/MM/YYYY'), NULL);
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 21, 387, to_date('14/5/2021', 'DD/MM/YYYY'), to_date('2/7/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 92, 387, to_date('2/7/2021', 'DD/MM/YYYY'), to_date('6/8/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 74, 387, to_date('6/8/2021', 'DD/MM/YYYY'), to_date('4/9/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 32, 387, to_date('4/9/2021', 'DD/MM/YYYY'), NULL);
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 100, 388, to_date('25/02/2021', 'DD/MM/YYYY'), to_date('3/4/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 19, 388, to_date('3/4/2021', 'DD/MM/YYYY'), to_date('14/5/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 20, 388, to_date('14/5/2021', 'DD/MM/YYYY'), to_date('12/6/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 76, 388, to_date('12/6/2021', 'DD/MM/YYYY'), to_date('9/7/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 35, 388, to_date('9/7/2021', 'DD/MM/YYYY'), to_date('30/7/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 8, 388, to_date('30/7/2021', 'DD/MM/YYYY'), to_date('4/9/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 34, 388, to_date('4/9/2021', 'DD/MM/YYYY'), NULL);
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 100, 389, to_date('27/4/2021', 'DD/MM/YYYY'), to_date('21/5/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 19, 389, to_date('21/5/2021', 'DD/MM/YYYY'), to_date('2/7/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 20, 389, to_date('2/7/2021', 'DD/MM/YYYY'), to_date('20/8/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 76, 389, to_date('20/8/2021', 'DD/MM/YYYY'), to_date('25/9/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 35, 389, to_date('25/9/2021', 'DD/MM/YYYY'), NULL);
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 100, 390, to_date('5/3/2021', 'DD/MM/YYYY'), to_date('26/3/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 19, 390, to_date('26/3/2021', 'DD/MM/YYYY'), to_date('7/5/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 20, 390, to_date('7/5/2021', 'DD/MM/YYYY'), to_date('5/6/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 76, 390, to_date('5/6/2021', 'DD/MM/YYYY'), to_date('26/6/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 35, 390, to_date('26/6/2021', 'DD/MM/YYYY'), to_date('13/8/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 8, 390, to_date('13/8/2021', 'DD/MM/YYYY'), to_date('11/9/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 34, 390, to_date('11/9/2021', 'DD/MM/YYYY'), NULL);
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 100, 391, to_date('7/5/2021', 'DD/MM/YYYY'), to_date('26/6/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 19, 391, to_date('26/6/2021', 'DD/MM/YYYY'), to_date('13/8/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 20, 391, to_date('13/8/2021', 'DD/MM/YYYY'), to_date('18/9/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 76, 391, to_date('18/9/2021', 'DD/MM/YYYY'), NULL);
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 100, 392, to_date('17/4/2021', 'DD/MM/YYYY'), to_date('21/5/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 19, 392, to_date('21/5/2021', 'DD/MM/YYYY'), to_date('19/6/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 20, 392, to_date('19/6/2021', 'DD/MM/YYYY'), to_date('9/7/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 76, 392, to_date('9/7/2021', 'DD/MM/YYYY'), to_date('27/8/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 35, 392, to_date('27/8/2021', 'DD/MM/YYYY'), to_date('25/9/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 8, 392, to_date('25/9/2021', 'DD/MM/YYYY'), NULL);
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 100, 393, to_date('26/3/2021', 'DD/MM/YYYY'), to_date('7/5/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 19, 393, to_date('7/5/2021', 'DD/MM/YYYY'), to_date('12/6/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 20, 393, to_date('12/6/2021', 'DD/MM/YYYY'), to_date('2/7/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 76, 393, to_date('2/7/2021', 'DD/MM/YYYY'), to_date('23/7/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 35, 393, to_date('23/7/2021', 'DD/MM/YYYY'), to_date('27/8/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 8, 393, to_date('27/8/2021', 'DD/MM/YYYY'), NULL);
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 100, 394, to_date('10/4/2021', 'DD/MM/YYYY'), to_date('14/5/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 19, 394, to_date('14/5/2021', 'DD/MM/YYYY'), to_date('12/6/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 20, 394, to_date('12/6/2021', 'DD/MM/YYYY'), to_date('23/7/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 76, 394, to_date('23/7/2021', 'DD/MM/YYYY'), to_date('27/8/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 35, 394, to_date('27/8/2021', 'DD/MM/YYYY'), NULL);
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 85, 395, to_date('7/5/2021', 'DD/MM/YYYY'), to_date('5/6/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 100, 395, to_date('5/6/2021', 'DD/MM/YYYY'), to_date('26/6/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 29, 395, to_date('26/6/2021', 'DD/MM/YYYY'), to_date('6/8/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 27, 395, to_date('6/8/2021', 'DD/MM/YYYY'), to_date('18/9/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 15, 395, to_date('18/9/2021', 'DD/MM/YYYY'), NULL);
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 85, 396, to_date('26/3/2021', 'DD/MM/YYYY'), to_date('17/4/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 100, 396, to_date('17/4/2021', 'DD/MM/YYYY'), to_date('7/5/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 29, 396, to_date('7/5/2021', 'DD/MM/YYYY'), to_date('12/6/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 27, 396, to_date('12/6/2021', 'DD/MM/YYYY'), to_date('9/7/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 15, 396, to_date('9/7/2021', 'DD/MM/YYYY'), to_date('13/8/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 85, 396, to_date('13/8/2021', 'DD/MM/YYYY'), to_date('4/9/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 84, 396, to_date('4/9/2021', 'DD/MM/YYYY'), NULL);
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 85, 397, to_date('3/4/2021', 'DD/MM/YYYY'), to_date('7/5/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 100, 397, to_date('7/5/2021', 'DD/MM/YYYY'), to_date('19/6/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 29, 397, to_date('19/6/2021', 'DD/MM/YYYY'), to_date('30/7/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 27, 397, to_date('30/7/2021', 'DD/MM/YYYY'), to_date('4/9/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 15, 397, to_date('4/9/2021', 'DD/MM/YYYY'), to_date('25/9/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 85, 397, to_date('25/9/2021', 'DD/MM/YYYY'), NULL);
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 85, 398, to_date('5/6/2021', 'DD/MM/YYYY'), to_date('2/7/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 100, 398, to_date('2/7/2021', 'DD/MM/YYYY'), to_date('30/7/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 29, 398, to_date('30/7/2021', 'DD/MM/YYYY'), to_date('4/9/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 27, 398, to_date('4/9/2021', 'DD/MM/YYYY'), NULL);
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 85, 399, to_date('24/4/2021', 'DD/MM/YYYY'), to_date('5/6/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 100, 399, to_date('5/6/2021', 'DD/MM/YYYY'), to_date('23/7/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 29, 399, to_date('23/7/2021', 'DD/MM/YYYY'), to_date('11/9/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 27, 399, to_date('11/9/2021', 'DD/MM/YYYY'), NULL);
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 85, 400, to_date('28/5/2021', 'DD/MM/YYYY'), to_date('9/7/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 100, 400, to_date('9/7/2021', 'DD/MM/YYYY'), to_date('30/7/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 29, 400, to_date('30/7/2021', 'DD/MM/YYYY'), to_date('4/9/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 27, 400, to_date('4/9/2021', 'DD/MM/YYYY'), NULL);
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 85, 401, to_date('17/4/2021', 'DD/MM/YYYY'), to_date('5/6/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 100, 401, to_date('5/6/2021', 'DD/MM/YYYY'), to_date('16/7/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 29, 401, to_date('16/7/2021', 'DD/MM/YYYY'), to_date('20/8/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 27, 401, to_date('20/8/2021', 'DD/MM/YYYY'), to_date('11/9/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 15, 401, to_date('11/9/2021', 'DD/MM/YYYY'), NULL);
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 14, 402, to_date('12/6/2021', 'DD/MM/YYYY'), to_date('30/7/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 108, 402, to_date('30/7/2021', 'DD/MM/YYYY'), to_date('11/9/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 109, 402, to_date('11/9/2021', 'DD/MM/YYYY'), NULL);
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 14, 403, to_date('26/6/2021', 'DD/MM/YYYY'), to_date('30/7/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 108, 403, to_date('30/7/2021', 'DD/MM/YYYY'), to_date('27/8/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 109, 403, to_date('27/8/2021', 'DD/MM/YYYY'), NULL);
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 14, 404, to_date('13/8/2021', 'DD/MM/YYYY'), to_date('4/9/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 108, 404, to_date('4/9/2021', 'DD/MM/YYYY'), to_date('25/9/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 109, 404, to_date('25/9/2021', 'DD/MM/YYYY'), NULL);
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 14, 405, to_date('24/4/2021', 'DD/MM/YYYY'), to_date('12/6/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 108, 405, to_date('12/6/2021', 'DD/MM/YYYY'), to_date('30/7/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 109, 405, to_date('30/7/2021', 'DD/MM/YYYY'), to_date('11/9/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 66, 405, to_date('11/9/2021', 'DD/MM/YYYY'), NULL);
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 14, 406, to_date('27/4/2021', 'DD/MM/YYYY'), to_date('5/6/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 108, 406, to_date('5/6/2021', 'DD/MM/YYYY'), to_date('23/7/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 109, 406, to_date('23/7/2021', 'DD/MM/YYYY'), to_date('13/8/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 66, 406, to_date('13/8/2021', 'DD/MM/YYYY'), to_date('4/9/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 32, 406, to_date('4/9/2021', 'DD/MM/YYYY'), NULL);
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 14, 407, to_date('19/3/2021', 'DD/MM/YYYY'), to_date('7/5/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 108, 407, to_date('7/5/2021', 'DD/MM/YYYY'), to_date('12/6/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 109, 407, to_date('12/6/2021', 'DD/MM/YYYY'), to_date('30/7/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 66, 407, to_date('30/7/2021', 'DD/MM/YYYY'), to_date('4/9/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 32, 407, to_date('4/9/2021', 'DD/MM/YYYY'), NULL);
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 14, 408, to_date('28/5/2021', 'DD/MM/YYYY'), to_date('2/7/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 108, 408, to_date('2/7/2021', 'DD/MM/YYYY'), to_date('13/8/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 109, 408, to_date('13/8/2021', 'DD/MM/YYYY'), to_date('18/9/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 66, 408, to_date('18/9/2021', 'DD/MM/YYYY'), NULL);
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 14, 409, to_date('19/3/2021', 'DD/MM/YYYY'), to_date('7/5/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 108, 409, to_date('7/5/2021', 'DD/MM/YYYY'), to_date('19/6/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 109, 409, to_date('19/6/2021', 'DD/MM/YYYY'), to_date('16/7/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 66, 409, to_date('16/7/2021', 'DD/MM/YYYY'), to_date('4/9/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 32, 409, to_date('4/9/2021', 'DD/MM/YYYY'), NULL);
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 90, 410, to_date('26/6/2021', 'DD/MM/YYYY'), to_date('13/8/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 76, 410, to_date('13/8/2021', 'DD/MM/YYYY'), to_date('18/9/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 7, 410, to_date('18/9/2021', 'DD/MM/YYYY'), NULL);
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 90, 411, to_date('26/3/2021', 'DD/MM/YYYY'), to_date('7/5/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 76, 411, to_date('7/5/2021', 'DD/MM/YYYY'), to_date('28/5/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 7, 411, to_date('28/5/2021', 'DD/MM/YYYY'), to_date('9/7/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 57, 411, to_date('9/7/2021', 'DD/MM/YYYY'), to_date('6/8/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 39, 411, to_date('6/8/2021', 'DD/MM/YYYY'), to_date('11/9/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 102, 411, to_date('11/9/2021', 'DD/MM/YYYY'), NULL);
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 90, 412, to_date('26/6/2021', 'DD/MM/YYYY'), to_date('6/8/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 76, 412, to_date('6/8/2021', 'DD/MM/YYYY'), to_date('27/8/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 7, 412, to_date('27/8/2021', 'DD/MM/YYYY'), NULL);
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 90, 413, to_date('21/5/2021', 'DD/MM/YYYY'), to_date('9/7/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 76, 413, to_date('9/7/2021', 'DD/MM/YYYY'), to_date('6/8/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 7, 413, to_date('6/8/2021', 'DD/MM/YYYY'), to_date('11/9/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 57, 413, to_date('11/9/2021', 'DD/MM/YYYY'), NULL);
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 90, 414, to_date('25/02/2021', 'DD/MM/YYYY'), to_date('19/3/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 76, 414, to_date('19/3/2021', 'DD/MM/YYYY'), to_date('27/4/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 7, 414, to_date('27/4/2021', 'DD/MM/YYYY'), to_date('5/6/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 57, 414, to_date('5/6/2021', 'DD/MM/YYYY'), to_date('26/6/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 39, 414, to_date('26/6/2021', 'DD/MM/YYYY'), to_date('16/7/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 102, 414, to_date('16/7/2021', 'DD/MM/YYYY'), to_date('4/9/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 33, 414, to_date('4/9/2021', 'DD/MM/YYYY'), NULL);
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 90, 415, to_date('21/5/2021', 'DD/MM/YYYY'), to_date('19/6/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 76, 415, to_date('19/6/2021', 'DD/MM/YYYY'), to_date('30/7/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 7, 415, to_date('30/7/2021', 'DD/MM/YYYY'), to_date('11/9/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 57, 415, to_date('11/9/2021', 'DD/MM/YYYY'), NULL);
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 90, 416, to_date('22/1/2021', 'DD/MM/YYYY'), to_date('12/3/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 76, 416, to_date('12/3/2021', 'DD/MM/YYYY'), to_date('27/4/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 7, 416, to_date('27/4/2021', 'DD/MM/YYYY'), to_date('12/6/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 57, 416, to_date('12/6/2021', 'DD/MM/YYYY'), to_date('30/7/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 39, 416, to_date('30/7/2021', 'DD/MM/YYYY'), to_date('27/8/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 102, 416, to_date('27/8/2021', 'DD/MM/YYYY'), NULL);
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 90, 417, to_date('26/6/2021', 'DD/MM/YYYY'), to_date('13/8/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 76, 417, to_date('13/8/2021', 'DD/MM/YYYY'), to_date('4/9/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 7, 417, to_date('4/9/2021', 'DD/MM/YYYY'), NULL);
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 90, 418, to_date('26/6/2021', 'DD/MM/YYYY'), to_date('23/7/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 76, 418, to_date('23/7/2021', 'DD/MM/YYYY'), to_date('27/8/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 7, 418, to_date('27/8/2021', 'DD/MM/YYYY'), to_date('25/9/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 57, 418, to_date('25/9/2021', 'DD/MM/YYYY'), NULL);
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 19, 419, to_date('12/3/2021', 'DD/MM/YYYY'), to_date('3/4/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 92, 419, to_date('3/4/2021', 'DD/MM/YYYY'), to_date('24/4/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 89, 419, to_date('24/4/2021', 'DD/MM/YYYY'), to_date('14/5/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 108, 419, to_date('14/5/2021', 'DD/MM/YYYY'), to_date('12/6/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 130, 419, to_date('12/6/2021', 'DD/MM/YYYY'), to_date('16/7/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 93, 419, to_date('16/7/2021', 'DD/MM/YYYY'), to_date('4/9/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 71, 419, to_date('4/9/2021', 'DD/MM/YYYY'), NULL);
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 19, 420, to_date('7/5/2021', 'DD/MM/YYYY'), to_date('19/6/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 92, 420, to_date('19/6/2021', 'DD/MM/YYYY'), to_date('6/8/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 89, 420, to_date('6/8/2021', 'DD/MM/YYYY'), to_date('4/9/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 108, 420, to_date('4/9/2021', 'DD/MM/YYYY'), NULL);
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 19, 421, to_date('27/4/2021', 'DD/MM/YYYY'), to_date('12/6/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 92, 421, to_date('12/6/2021', 'DD/MM/YYYY'), to_date('23/7/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 89, 421, to_date('23/7/2021', 'DD/MM/YYYY'), to_date('27/8/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 108, 421, to_date('27/8/2021', 'DD/MM/YYYY'), to_date('18/9/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 130, 421, to_date('18/9/2021', 'DD/MM/YYYY'), NULL);
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 19, 422, to_date('30/7/2021', 'DD/MM/YYYY'), to_date('4/9/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 92, 422, to_date('4/9/2021', 'DD/MM/YYYY'), to_date('25/9/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 89, 422, to_date('25/9/2021', 'DD/MM/YYYY'), NULL);
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 19, 423, to_date('8/2/2021', 'DD/MM/YYYY'), to_date('12/3/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 92, 423, to_date('12/3/2021', 'DD/MM/YYYY'), to_date('24/4/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 89, 423, to_date('24/4/2021', 'DD/MM/YYYY'), to_date('12/6/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 108, 423, to_date('12/6/2021', 'DD/MM/YYYY'), to_date('30/7/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 130, 423, to_date('30/7/2021', 'DD/MM/YYYY'), to_date('18/9/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 93, 423, to_date('18/9/2021', 'DD/MM/YYYY'), NULL);
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 19, 424, to_date('27/4/2021', 'DD/MM/YYYY'), to_date('21/5/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 92, 424, to_date('21/5/2021', 'DD/MM/YYYY'), to_date('26/6/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 89, 424, to_date('26/6/2021', 'DD/MM/YYYY'), to_date('30/7/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 108, 424, to_date('30/7/2021', 'DD/MM/YYYY'), to_date('11/9/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 130, 424, to_date('11/9/2021', 'DD/MM/YYYY'), NULL);
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 19, 425, to_date('28/5/2021', 'DD/MM/YYYY'), to_date('9/7/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 92, 425, to_date('9/7/2021', 'DD/MM/YYYY'), to_date('13/8/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 89, 425, to_date('13/8/2021', 'DD/MM/YYYY'), to_date('4/9/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 108, 425, to_date('4/9/2021', 'DD/MM/YYYY'), NULL);
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 75, 426, to_date('17/4/2021', 'DD/MM/YYYY'), to_date('5/6/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 135, 426, to_date('5/6/2021', 'DD/MM/YYYY'), to_date('26/6/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 82, 426, to_date('26/6/2021', 'DD/MM/YYYY'), to_date('23/7/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 68, 426, to_date('23/7/2021', 'DD/MM/YYYY'), to_date('20/8/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 26, 426, to_date('20/8/2021', 'DD/MM/YYYY'), to_date('11/9/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 40, 426, to_date('11/9/2021', 'DD/MM/YYYY'), NULL);
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 75, 427, to_date('22/2/2021', 'DD/MM/YYYY'), to_date('19/3/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 135, 427, to_date('19/3/2021', 'DD/MM/YYYY'), to_date('27/4/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 82, 427, to_date('27/4/2021', 'DD/MM/YYYY'), to_date('28/5/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 68, 427, to_date('28/5/2021', 'DD/MM/YYYY'), to_date('9/7/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 26, 427, to_date('9/7/2021', 'DD/MM/YYYY'), to_date('30/7/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 40, 427, to_date('30/7/2021', 'DD/MM/YYYY'), to_date('4/9/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 9, 427, to_date('4/9/2021', 'DD/MM/YYYY'), NULL);
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 75, 428, to_date('5/6/2021', 'DD/MM/YYYY'), to_date('23/7/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 135, 428, to_date('23/7/2021', 'DD/MM/YYYY'), to_date('11/9/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 82, 428, to_date('11/9/2021', 'DD/MM/YYYY'), NULL);
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 75, 429, to_date('28/5/2021', 'DD/MM/YYYY'), to_date('19/6/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 135, 429, to_date('19/6/2021', 'DD/MM/YYYY'), to_date('16/7/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 82, 429, to_date('16/7/2021', 'DD/MM/YYYY'), to_date('6/8/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 68, 429, to_date('6/8/2021', 'DD/MM/YYYY'), to_date('27/8/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 26, 429, to_date('27/8/2021', 'DD/MM/YYYY'), NULL);
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 75, 430, to_date('9/7/2021', 'DD/MM/YYYY'), to_date('30/7/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 135, 430, to_date('30/7/2021', 'DD/MM/YYYY'), to_date('27/8/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 82, 430, to_date('27/8/2021', 'DD/MM/YYYY'), NULL);
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 75, 431, to_date('30/7/2021', 'DD/MM/YYYY'), to_date('27/8/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 135, 431, to_date('27/8/2021', 'DD/MM/YYYY'), to_date('25/9/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 82, 431, to_date('25/9/2021', 'DD/MM/YYYY'), NULL);
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 75, 432, to_date('15/1/2021', 'DD/MM/YYYY'), to_date('25/02/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 135, 432, to_date('25/02/2021', 'DD/MM/YYYY'), to_date('17/4/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 82, 432, to_date('17/4/2021', 'DD/MM/YYYY'), to_date('5/6/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 68, 432, to_date('5/6/2021', 'DD/MM/YYYY'), to_date('26/6/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 26, 432, to_date('26/6/2021', 'DD/MM/YYYY'), to_date('30/7/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 40, 432, to_date('30/7/2021', 'DD/MM/YYYY'), to_date('18/9/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 9, 432, to_date('18/9/2021', 'DD/MM/YYYY'), NULL);
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 75, 433, to_date('19/3/2021', 'DD/MM/YYYY'), to_date('17/4/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 135, 433, to_date('17/4/2021', 'DD/MM/YYYY'), to_date('28/5/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 82, 433, to_date('28/5/2021', 'DD/MM/YYYY'), to_date('16/7/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 68, 433, to_date('16/7/2021', 'DD/MM/YYYY'), to_date('4/9/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 26, 433, to_date('4/9/2021', 'DD/MM/YYYY'), NULL);
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 12, 434, to_date('14/5/2021', 'DD/MM/YYYY'), to_date('2/7/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 58, 434, to_date('2/7/2021', 'DD/MM/YYYY'), to_date('30/7/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 20, 434, to_date('30/7/2021', 'DD/MM/YYYY'), to_date('11/9/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 119, 434, to_date('11/9/2021', 'DD/MM/YYYY'), NULL);
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 12, 435, to_date('28/5/2021', 'DD/MM/YYYY'), to_date('9/7/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 58, 435, to_date('9/7/2021', 'DD/MM/YYYY'), to_date('30/7/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 20, 435, to_date('30/7/2021', 'DD/MM/YYYY'), to_date('18/9/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 119, 435, to_date('18/9/2021', 'DD/MM/YYYY'), NULL);
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 12, 436, to_date('5/6/2021', 'DD/MM/YYYY'), to_date('2/7/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 58, 436, to_date('2/7/2021', 'DD/MM/YYYY'), to_date('23/7/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 20, 436, to_date('23/7/2021', 'DD/MM/YYYY'), to_date('27/8/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 119, 436, to_date('27/8/2021', 'DD/MM/YYYY'), NULL);
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 12, 437, to_date('26/6/2021', 'DD/MM/YYYY'), to_date('6/8/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 58, 437, to_date('6/8/2021', 'DD/MM/YYYY'), to_date('4/9/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 20, 437, to_date('4/9/2021', 'DD/MM/YYYY'), NULL);
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 12, 438, to_date('17/4/2021', 'DD/MM/YYYY'), to_date('5/6/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 58, 438, to_date('5/6/2021', 'DD/MM/YYYY'), to_date('9/7/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 20, 438, to_date('9/7/2021', 'DD/MM/YYYY'), to_date('6/8/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 119, 438, to_date('6/8/2021', 'DD/MM/YYYY'), to_date('4/9/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 31, 438, to_date('4/9/2021', 'DD/MM/YYYY'), NULL);
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 12, 439, to_date('15/2/2021', 'DD/MM/YYYY'), to_date('3/4/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 58, 439, to_date('3/4/2021', 'DD/MM/YYYY'), to_date('27/4/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 20, 439, to_date('27/4/2021', 'DD/MM/YYYY'), to_date('28/5/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 119, 439, to_date('28/5/2021', 'DD/MM/YYYY'), to_date('9/7/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 31, 439, to_date('9/7/2021', 'DD/MM/YYYY'), to_date('27/8/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 71, 439, to_date('27/8/2021', 'DD/MM/YYYY'), NULL);
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 12, 440, to_date('26/6/2021', 'DD/MM/YYYY'), to_date('16/7/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 58, 440, to_date('16/7/2021', 'DD/MM/YYYY'), to_date('4/9/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 20, 440, to_date('4/9/2021', 'DD/MM/YYYY'), NULL);
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 12, 441, to_date('28/5/2021', 'DD/MM/YYYY'), to_date('19/6/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 58, 441, to_date('19/6/2021', 'DD/MM/YYYY'), to_date('9/7/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 20, 441, to_date('9/7/2021', 'DD/MM/YYYY'), to_date('30/7/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 119, 441, to_date('30/7/2021', 'DD/MM/YYYY'), to_date('27/8/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 31, 441, to_date('27/8/2021', 'DD/MM/YYYY'), NULL);
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 12, 442, to_date('28/5/2021', 'DD/MM/YYYY'), to_date('2/7/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 58, 442, to_date('2/7/2021', 'DD/MM/YYYY'), to_date('6/8/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 20, 442, to_date('6/8/2021', 'DD/MM/YYYY'), to_date('11/9/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 119, 442, to_date('11/9/2021', 'DD/MM/YYYY'), NULL);
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 12, 443, to_date('22/2/2021', 'DD/MM/YYYY'), to_date('12/3/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 58, 443, to_date('12/3/2021', 'DD/MM/YYYY'), to_date('10/4/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 20, 443, to_date('10/4/2021', 'DD/MM/YYYY'), to_date('14/5/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 119, 443, to_date('14/5/2021', 'DD/MM/YYYY'), to_date('26/6/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 31, 443, to_date('26/6/2021', 'DD/MM/YYYY'), to_date('13/8/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 71, 443, to_date('13/8/2021', 'DD/MM/YYYY'), to_date('11/9/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 110, 443, to_date('11/9/2021', 'DD/MM/YYYY'), NULL);
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 80, 444, to_date('2/7/2021', 'DD/MM/YYYY'), to_date('6/8/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 124, 444, to_date('6/8/2021', 'DD/MM/YYYY'), to_date('18/9/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 18, 444, to_date('18/9/2021', 'DD/MM/YYYY'), NULL);
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 80, 445, to_date('3/4/2021', 'DD/MM/YYYY'), to_date('21/5/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 124, 445, to_date('21/5/2021', 'DD/MM/YYYY'), to_date('12/6/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 18, 445, to_date('12/6/2021', 'DD/MM/YYYY'), to_date('30/7/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 55, 445, to_date('30/7/2021', 'DD/MM/YYYY'), to_date('18/9/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 109, 445, to_date('18/9/2021', 'DD/MM/YYYY'), NULL);
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 80, 446, to_date('24/4/2021', 'DD/MM/YYYY'), to_date('21/5/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 124, 446, to_date('21/5/2021', 'DD/MM/YYYY'), to_date('19/6/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 18, 446, to_date('19/6/2021', 'DD/MM/YYYY'), to_date('30/7/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 55, 446, to_date('30/7/2021', 'DD/MM/YYYY'), to_date('20/8/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 109, 446, to_date('20/8/2021', 'DD/MM/YYYY'), to_date('18/9/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 124, 446, to_date('18/9/2021', 'DD/MM/YYYY'), NULL);
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 80, 447, to_date('26/6/2021', 'DD/MM/YYYY'), to_date('13/8/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 124, 447, to_date('13/8/2021', 'DD/MM/YYYY'), to_date('4/9/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 18, 447, to_date('4/9/2021', 'DD/MM/YYYY'), NULL);
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 80, 448, to_date('19/3/2021', 'DD/MM/YYYY'), to_date('27/4/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 124, 448, to_date('27/4/2021', 'DD/MM/YYYY'), to_date('28/5/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 18, 448, to_date('28/5/2021', 'DD/MM/YYYY'), to_date('16/7/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 55, 448, to_date('16/7/2021', 'DD/MM/YYYY'), to_date('27/8/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 109, 448, to_date('27/8/2021', 'DD/MM/YYYY'), NULL);
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 80, 449, to_date('26/6/2021', 'DD/MM/YYYY'), to_date('30/7/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 124, 449, to_date('30/7/2021', 'DD/MM/YYYY'), to_date('4/9/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 18, 449, to_date('4/9/2021', 'DD/MM/YYYY'), NULL);
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 80, 450, to_date('26/6/2021', 'DD/MM/YYYY'), to_date('13/8/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 124, 450, to_date('13/8/2021', 'DD/MM/YYYY'), to_date('25/9/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 18, 450, to_date('25/9/2021', 'DD/MM/YYYY'), NULL);
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 80, 451, to_date('10/4/2021', 'DD/MM/YYYY'), to_date('21/5/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 124, 451, to_date('21/5/2021', 'DD/MM/YYYY'), to_date('2/7/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 18, 451, to_date('2/7/2021', 'DD/MM/YYYY'), to_date('23/7/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 55, 451, to_date('23/7/2021', 'DD/MM/YYYY'), to_date('13/8/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 109, 451, to_date('13/8/2021', 'DD/MM/YYYY'), to_date('18/9/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 124, 451, to_date('18/9/2021', 'DD/MM/YYYY'), NULL);
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 80, 452, to_date('19/3/2021', 'DD/MM/YYYY'), to_date('10/4/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 124, 452, to_date('10/4/2021', 'DD/MM/YYYY'), to_date('7/5/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 18, 452, to_date('7/5/2021', 'DD/MM/YYYY'), to_date('5/6/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 55, 452, to_date('5/6/2021', 'DD/MM/YYYY'), to_date('9/7/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 109, 452, to_date('9/7/2021', 'DD/MM/YYYY'), to_date('13/8/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 124, 452, to_date('13/8/2021', 'DD/MM/YYYY'), to_date('25/9/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 66, 452, to_date('25/9/2021', 'DD/MM/YYYY'), NULL);
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 9, 453, to_date('26/3/2021', 'DD/MM/YYYY'), to_date('27/4/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 132, 453, to_date('27/4/2021', 'DD/MM/YYYY'), to_date('21/5/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 76, 453, to_date('21/5/2021', 'DD/MM/YYYY'), to_date('9/7/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 25, 453, to_date('9/7/2021', 'DD/MM/YYYY'), to_date('27/8/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 49, 453, to_date('27/8/2021', 'DD/MM/YYYY'), NULL);
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 9, 454, to_date('16/7/2021', 'DD/MM/YYYY'), to_date('27/8/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 132, 454, to_date('27/8/2021', 'DD/MM/YYYY'), to_date('18/9/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 76, 454, to_date('18/9/2021', 'DD/MM/YYYY'), NULL);
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 9, 455, to_date('16/7/2021', 'DD/MM/YYYY'), to_date('6/8/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 132, 455, to_date('6/8/2021', 'DD/MM/YYYY'), to_date('4/9/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 76, 455, to_date('4/9/2021', 'DD/MM/YYYY'), NULL);
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 9, 456, to_date('27/4/2021', 'DD/MM/YYYY'), to_date('21/5/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 132, 456, to_date('21/5/2021', 'DD/MM/YYYY'), to_date('9/7/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 76, 456, to_date('9/7/2021', 'DD/MM/YYYY'), to_date('13/8/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 25, 456, to_date('13/8/2021', 'DD/MM/YYYY'), to_date('18/9/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 49, 456, to_date('18/9/2021', 'DD/MM/YYYY'), NULL);
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 9, 457, to_date('28/5/2021', 'DD/MM/YYYY'), to_date('26/6/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 132, 457, to_date('26/6/2021', 'DD/MM/YYYY'), to_date('13/8/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 76, 457, to_date('13/8/2021', 'DD/MM/YYYY'), to_date('4/9/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 25, 457, to_date('4/9/2021', 'DD/MM/YYYY'), NULL);
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 9, 458, to_date('22/2/2021', 'DD/MM/YYYY'), to_date('12/3/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 132, 458, to_date('12/3/2021', 'DD/MM/YYYY'), to_date('24/4/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 76, 458, to_date('24/4/2021', 'DD/MM/YYYY'), to_date('14/5/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 25, 458, to_date('14/5/2021', 'DD/MM/YYYY'), to_date('19/6/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 49, 458, to_date('19/6/2021', 'DD/MM/YYYY'), to_date('30/7/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 99, 458, to_date('30/7/2021', 'DD/MM/YYYY'), to_date('27/8/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 52, 458, to_date('27/8/2021', 'DD/MM/YYYY'), NULL);
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 9, 459, to_date('5/3/2021', 'DD/MM/YYYY'), to_date('17/4/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 132, 459, to_date('17/4/2021', 'DD/MM/YYYY'), to_date('14/5/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 76, 459, to_date('14/5/2021', 'DD/MM/YYYY'), to_date('12/6/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 25, 459, to_date('12/6/2021', 'DD/MM/YYYY'), to_date('2/7/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 49, 459, to_date('2/7/2021', 'DD/MM/YYYY'), to_date('13/8/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 99, 459, to_date('13/8/2021', 'DD/MM/YYYY'), to_date('11/9/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 52, 459, to_date('11/9/2021', 'DD/MM/YYYY'), NULL);
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 9, 460, to_date('26/6/2021', 'DD/MM/YYYY'), to_date('13/8/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 132, 460, to_date('13/8/2021', 'DD/MM/YYYY'), to_date('18/9/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 76, 460, to_date('18/9/2021', 'DD/MM/YYYY'), NULL);
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 9, 461, to_date('21/5/2021', 'DD/MM/YYYY'), to_date('26/6/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 132, 461, to_date('26/6/2021', 'DD/MM/YYYY'), to_date('13/8/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 76, 461, to_date('13/8/2021', 'DD/MM/YYYY'), to_date('11/9/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 25, 461, to_date('11/9/2021', 'DD/MM/YYYY'), NULL);
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 9, 462, to_date('28/5/2021', 'DD/MM/YYYY'), to_date('16/7/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 132, 462, to_date('16/7/2021', 'DD/MM/YYYY'), to_date('27/8/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 76, 462, to_date('27/8/2021', 'DD/MM/YYYY'), NULL);
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 9, 463, to_date('7/5/2021', 'DD/MM/YYYY'), to_date('5/6/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 132, 463, to_date('5/6/2021', 'DD/MM/YYYY'), to_date('2/7/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 76, 463, to_date('2/7/2021', 'DD/MM/YYYY'), to_date('23/7/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 25, 463, to_date('23/7/2021', 'DD/MM/YYYY'), to_date('20/8/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 49, 463, to_date('20/8/2021', 'DD/MM/YYYY'), to_date('25/9/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 99, 463, to_date('25/9/2021', 'DD/MM/YYYY'), NULL);
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 9, 464, to_date('7/5/2021', 'DD/MM/YYYY'), to_date('12/6/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 132, 464, to_date('12/6/2021', 'DD/MM/YYYY'), to_date('23/7/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 76, 464, to_date('23/7/2021', 'DD/MM/YYYY'), to_date('13/8/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 25, 464, to_date('13/8/2021', 'DD/MM/YYYY'), to_date('4/9/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 49, 464, to_date('4/9/2021', 'DD/MM/YYYY'), to_date('25/9/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 99, 464, to_date('25/9/2021', 'DD/MM/YYYY'), NULL);
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 9, 465, to_date('23/7/2021', 'DD/MM/YYYY'), to_date('13/8/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 132, 465, to_date('13/8/2021', 'DD/MM/YYYY'), to_date('18/9/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 76, 465, to_date('18/9/2021', 'DD/MM/YYYY'), NULL);
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 65, 466, to_date('2/7/2021', 'DD/MM/YYYY'), to_date('30/7/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 44, 466, to_date('30/7/2021', 'DD/MM/YYYY'), to_date('20/8/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 105, 466, to_date('20/8/2021', 'DD/MM/YYYY'), to_date('11/9/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 130, 466, to_date('11/9/2021', 'DD/MM/YYYY'), NULL);
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 65, 467, to_date('15/2/2021', 'DD/MM/YYYY'), to_date('26/3/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 44, 467, to_date('26/3/2021', 'DD/MM/YYYY'), to_date('27/4/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 105, 467, to_date('27/4/2021', 'DD/MM/YYYY'), to_date('19/6/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 130, 467, to_date('19/6/2021', 'DD/MM/YYYY'), to_date('16/7/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 128, 467, to_date('16/7/2021', 'DD/MM/YYYY'), to_date('27/8/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 111, 467, to_date('27/8/2021', 'DD/MM/YYYY'), NULL);
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 65, 468, to_date('24/4/2021', 'DD/MM/YYYY'), to_date('28/5/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 44, 468, to_date('28/5/2021', 'DD/MM/YYYY'), to_date('16/7/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 105, 468, to_date('16/7/2021', 'DD/MM/YYYY'), to_date('27/8/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 130, 468, to_date('27/8/2021', 'DD/MM/YYYY'), NULL);
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 65, 469, to_date('1/2/2021', 'DD/MM/YYYY'), to_date('12/3/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 44, 469, to_date('12/3/2021', 'DD/MM/YYYY'), to_date('27/4/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 105, 469, to_date('27/4/2021', 'DD/MM/YYYY'), to_date('19/6/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 130, 469, to_date('19/6/2021', 'DD/MM/YYYY'), to_date('9/7/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 128, 469, to_date('9/7/2021', 'DD/MM/YYYY'), to_date('27/8/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 111, 469, to_date('27/8/2021', 'DD/MM/YYYY'), to_date('25/9/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 131, 469, to_date('25/9/2021', 'DD/MM/YYYY'), NULL);
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 65, 470, to_date('8/2/2021', 'DD/MM/YYYY'), to_date('12/3/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 44, 470, to_date('12/3/2021', 'DD/MM/YYYY'), to_date('27/4/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 105, 470, to_date('27/4/2021', 'DD/MM/YYYY'), to_date('21/5/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 130, 470, to_date('21/5/2021', 'DD/MM/YYYY'), to_date('26/6/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 128, 470, to_date('26/6/2021', 'DD/MM/YYYY'), to_date('23/7/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 111, 470, to_date('23/7/2021', 'DD/MM/YYYY'), to_date('4/9/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 131, 470, to_date('4/9/2021', 'DD/MM/YYYY'), NULL);
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 65, 471, to_date('14/5/2021', 'DD/MM/YYYY'), to_date('2/7/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 44, 471, to_date('2/7/2021', 'DD/MM/YYYY'), to_date('13/8/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 105, 471, to_date('13/8/2021', 'DD/MM/YYYY'), to_date('18/9/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 130, 471, to_date('18/9/2021', 'DD/MM/YYYY'), NULL);
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 65, 472, to_date('12/3/2021', 'DD/MM/YYYY'), to_date('24/4/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 44, 472, to_date('24/4/2021', 'DD/MM/YYYY'), to_date('12/6/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 105, 472, to_date('12/6/2021', 'DD/MM/YYYY'), to_date('23/7/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 130, 472, to_date('23/7/2021', 'DD/MM/YYYY'), to_date('27/8/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 128, 472, to_date('27/8/2021', 'DD/MM/YYYY'), NULL);
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 65, 473, to_date('22/2/2021', 'DD/MM/YYYY'), to_date('3/4/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 44, 473, to_date('3/4/2021', 'DD/MM/YYYY'), to_date('24/4/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 105, 473, to_date('24/4/2021', 'DD/MM/YYYY'), to_date('21/5/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 130, 473, to_date('21/5/2021', 'DD/MM/YYYY'), to_date('12/6/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 128, 473, to_date('12/6/2021', 'DD/MM/YYYY'), to_date('30/7/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 111, 473, to_date('30/7/2021', 'DD/MM/YYYY'), to_date('4/9/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 131, 473, to_date('4/9/2021', 'DD/MM/YYYY'), NULL);
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 65, 474, to_date('21/5/2021', 'DD/MM/YYYY'), to_date('19/6/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 44, 474, to_date('19/6/2021', 'DD/MM/YYYY'), to_date('23/7/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 105, 474, to_date('23/7/2021', 'DD/MM/YYYY'), to_date('27/8/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 130, 474, to_date('27/8/2021', 'DD/MM/YYYY'), NULL);
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 65, 475, to_date('15/2/2021', 'DD/MM/YYYY'), to_date('26/3/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 44, 475, to_date('26/3/2021', 'DD/MM/YYYY'), to_date('7/5/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 105, 475, to_date('7/5/2021', 'DD/MM/YYYY'), to_date('5/6/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 130, 475, to_date('5/6/2021', 'DD/MM/YYYY'), to_date('23/7/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 128, 475, to_date('23/7/2021', 'DD/MM/YYYY'), to_date('11/9/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 111, 475, to_date('11/9/2021', 'DD/MM/YYYY'), NULL);
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 65, 476, to_date('26/3/2021', 'DD/MM/YYYY'), to_date('14/5/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 44, 476, to_date('14/5/2021', 'DD/MM/YYYY'), to_date('2/7/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 105, 476, to_date('2/7/2021', 'DD/MM/YYYY'), to_date('6/8/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 130, 476, to_date('6/8/2021', 'DD/MM/YYYY'), to_date('11/9/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 128, 476, to_date('11/9/2021', 'DD/MM/YYYY'), NULL);
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 65, 477, to_date('25/02/2021', 'DD/MM/YYYY'), to_date('17/4/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 44, 477, to_date('17/4/2021', 'DD/MM/YYYY'), to_date('28/5/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 105, 477, to_date('28/5/2021', 'DD/MM/YYYY'), to_date('9/7/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 130, 477, to_date('9/7/2021', 'DD/MM/YYYY'), to_date('30/7/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 128, 477, to_date('30/7/2021', 'DD/MM/YYYY'), to_date('11/9/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 111, 477, to_date('11/9/2021', 'DD/MM/YYYY'), NULL);
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 131, 478, to_date('27/4/2021', 'DD/MM/YYYY'), to_date('28/5/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 52, 478, to_date('28/5/2021', 'DD/MM/YYYY'), to_date('16/7/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 28, 478, to_date('16/7/2021', 'DD/MM/YYYY'), to_date('13/8/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 75, 478, to_date('13/8/2021', 'DD/MM/YYYY'), to_date('11/9/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 35, 478, to_date('11/9/2021', 'DD/MM/YYYY'), NULL);
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 131, 479, to_date('16/7/2021', 'DD/MM/YYYY'), to_date('27/8/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 52, 479, to_date('27/8/2021', 'DD/MM/YYYY'), to_date('18/9/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 28, 479, to_date('18/9/2021', 'DD/MM/YYYY'), NULL);
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 131, 480, to_date('12/6/2021', 'DD/MM/YYYY'), to_date('9/7/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 52, 480, to_date('9/7/2021', 'DD/MM/YYYY'), to_date('27/8/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 28, 480, to_date('27/8/2021', 'DD/MM/YYYY'), NULL);
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 131, 481, to_date('2/7/2021', 'DD/MM/YYYY'), to_date('23/7/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 52, 481, to_date('23/7/2021', 'DD/MM/YYYY'), to_date('27/8/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 28, 481, to_date('27/8/2021', 'DD/MM/YYYY'), NULL);
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 131, 482, to_date('8/2/2021', 'DD/MM/YYYY'), to_date('25/02/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 52, 482, to_date('25/02/2021', 'DD/MM/YYYY'), to_date('3/4/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 28, 482, to_date('3/4/2021', 'DD/MM/YYYY'), to_date('27/4/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 75, 482, to_date('27/4/2021', 'DD/MM/YYYY'), to_date('5/6/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 35, 482, to_date('5/6/2021', 'DD/MM/YYYY'), to_date('23/7/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 66, 482, to_date('23/7/2021', 'DD/MM/YYYY'), to_date('27/8/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 122, 482, to_date('27/8/2021', 'DD/MM/YYYY'), NULL);
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 131, 483, to_date('21/5/2021', 'DD/MM/YYYY'), to_date('26/6/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 52, 483, to_date('26/6/2021', 'DD/MM/YYYY'), to_date('16/7/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 28, 483, to_date('16/7/2021', 'DD/MM/YYYY'), to_date('20/8/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 75, 483, to_date('20/8/2021', 'DD/MM/YYYY'), to_date('18/9/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 35, 483, to_date('18/9/2021', 'DD/MM/YYYY'), NULL);
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 131, 484, to_date('10/4/2021', 'DD/MM/YYYY'), to_date('14/5/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 52, 484, to_date('14/5/2021', 'DD/MM/YYYY'), to_date('19/6/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 28, 484, to_date('19/6/2021', 'DD/MM/YYYY'), to_date('23/7/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 75, 484, to_date('23/7/2021', 'DD/MM/YYYY'), to_date('11/9/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 35, 484, to_date('11/9/2021', 'DD/MM/YYYY'), NULL);
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 131, 485, to_date('27/4/2021', 'DD/MM/YYYY'), to_date('5/6/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 52, 485, to_date('5/6/2021', 'DD/MM/YYYY'), to_date('16/7/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 28, 485, to_date('16/7/2021', 'DD/MM/YYYY'), to_date('27/8/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 75, 485, to_date('27/8/2021', 'DD/MM/YYYY'), NULL);
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 131, 486, to_date('3/4/2021', 'DD/MM/YYYY'), to_date('27/4/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 52, 486, to_date('27/4/2021', 'DD/MM/YYYY'), to_date('12/6/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 28, 486, to_date('12/6/2021', 'DD/MM/YYYY'), to_date('9/7/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 75, 486, to_date('9/7/2021', 'DD/MM/YYYY'), to_date('20/8/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 35, 486, to_date('20/8/2021', 'DD/MM/YYYY'), to_date('25/9/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 66, 486, to_date('25/9/2021', 'DD/MM/YYYY'), NULL);
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 131, 487, to_date('2/7/2021', 'DD/MM/YYYY'), to_date('13/8/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 52, 487, to_date('13/8/2021', 'DD/MM/YYYY'), to_date('25/9/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 28, 487, to_date('25/9/2021', 'DD/MM/YYYY'), NULL);
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 131, 488, to_date('2/7/2021', 'DD/MM/YYYY'), to_date('20/8/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 52, 488, to_date('20/8/2021', 'DD/MM/YYYY'), to_date('11/9/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 28, 488, to_date('11/9/2021', 'DD/MM/YYYY'), NULL);
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 131, 489, to_date('22/1/2021', 'DD/MM/YYYY'), to_date('5/3/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 52, 489, to_date('5/3/2021', 'DD/MM/YYYY'), to_date('24/4/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 28, 489, to_date('24/4/2021', 'DD/MM/YYYY'), to_date('12/6/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 75, 489, to_date('12/6/2021', 'DD/MM/YYYY'), to_date('16/7/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 35, 489, to_date('16/7/2021', 'DD/MM/YYYY'), to_date('13/8/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 66, 489, to_date('13/8/2021', 'DD/MM/YYYY'), to_date('4/9/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 122, 489, to_date('4/9/2021', 'DD/MM/YYYY'), NULL);
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 131, 490, to_date('2/7/2021', 'DD/MM/YYYY'), to_date('23/7/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 52, 490, to_date('23/7/2021', 'DD/MM/YYYY'), to_date('27/8/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 28, 490, to_date('27/8/2021', 'DD/MM/YYYY'), NULL);
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 131, 491, to_date('1/2/2021', 'DD/MM/YYYY'), to_date('12/3/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 52, 491, to_date('12/3/2021', 'DD/MM/YYYY'), to_date('17/4/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 28, 491, to_date('17/4/2021', 'DD/MM/YYYY'), to_date('28/5/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 75, 491, to_date('28/5/2021', 'DD/MM/YYYY'), to_date('26/6/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 35, 491, to_date('26/6/2021', 'DD/MM/YYYY'), to_date('30/7/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 66, 491, to_date('30/7/2021', 'DD/MM/YYYY'), to_date('4/9/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 122, 491, to_date('4/9/2021', 'DD/MM/YYYY'), NULL);
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 70, 492, to_date('26/6/2021', 'DD/MM/YYYY'), to_date('6/8/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 28, 492, to_date('6/8/2021', 'DD/MM/YYYY'), to_date('18/9/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 102, 492, to_date('18/9/2021', 'DD/MM/YYYY'), NULL);
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 70, 493, to_date('3/4/2021', 'DD/MM/YYYY'), to_date('14/5/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 28, 493, to_date('14/5/2021', 'DD/MM/YYYY'), to_date('5/6/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 102, 493, to_date('5/6/2021', 'DD/MM/YYYY'), to_date('9/7/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 34, 493, to_date('9/7/2021', 'DD/MM/YYYY'), to_date('30/7/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 21, 493, to_date('30/7/2021', 'DD/MM/YYYY'), to_date('27/8/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 91, 493, to_date('27/8/2021', 'DD/MM/YYYY'), NULL);
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 70, 494, to_date('12/3/2021', 'DD/MM/YYYY'), to_date('17/4/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 28, 494, to_date('17/4/2021', 'DD/MM/YYYY'), to_date('28/5/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 102, 494, to_date('28/5/2021', 'DD/MM/YYYY'), to_date('2/7/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 34, 494, to_date('2/7/2021', 'DD/MM/YYYY'), to_date('23/7/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 21, 494, to_date('23/7/2021', 'DD/MM/YYYY'), to_date('11/9/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 91, 494, to_date('11/9/2021', 'DD/MM/YYYY'), NULL);
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 70, 495, to_date('5/3/2021', 'DD/MM/YYYY'), to_date('10/4/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 28, 495, to_date('10/4/2021', 'DD/MM/YYYY'), to_date('14/5/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 102, 495, to_date('14/5/2021', 'DD/MM/YYYY'), to_date('5/6/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 34, 495, to_date('5/6/2021', 'DD/MM/YYYY'), to_date('9/7/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 21, 495, to_date('9/7/2021', 'DD/MM/YYYY'), to_date('6/8/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 91, 495, to_date('6/8/2021', 'DD/MM/YYYY'), to_date('27/8/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 10, 495, to_date('27/8/2021', 'DD/MM/YYYY'), NULL);
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 70, 496, to_date('14/5/2021', 'DD/MM/YYYY'), to_date('12/6/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 28, 496, to_date('12/6/2021', 'DD/MM/YYYY'), to_date('23/7/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 102, 496, to_date('23/7/2021', 'DD/MM/YYYY'), to_date('11/9/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 34, 496, to_date('11/9/2021', 'DD/MM/YYYY'), NULL);
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 70, 497, to_date('10/4/2021', 'DD/MM/YYYY'), to_date('14/5/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 28, 497, to_date('14/5/2021', 'DD/MM/YYYY'), to_date('5/6/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 102, 497, to_date('5/6/2021', 'DD/MM/YYYY'), to_date('2/7/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 34, 497, to_date('2/7/2021', 'DD/MM/YYYY'), to_date('13/8/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 21, 497, to_date('13/8/2021', 'DD/MM/YYYY'), to_date('25/9/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 91, 497, to_date('25/9/2021', 'DD/MM/YYYY'), NULL);
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 70, 498, to_date('27/4/2021', 'DD/MM/YYYY'), to_date('5/6/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 28, 498, to_date('5/6/2021', 'DD/MM/YYYY'), to_date('16/7/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 102, 498, to_date('16/7/2021', 'DD/MM/YYYY'), to_date('27/8/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 34, 498, to_date('27/8/2021', 'DD/MM/YYYY'), NULL);
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 70, 499, to_date('17/4/2021', 'DD/MM/YYYY'), to_date('28/5/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 28, 499, to_date('28/5/2021', 'DD/MM/YYYY'), to_date('16/7/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 102, 499, to_date('16/7/2021', 'DD/MM/YYYY'), to_date('13/8/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 34, 499, to_date('13/8/2021', 'DD/MM/YYYY'), to_date('25/9/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 21, 499, to_date('25/9/2021', 'DD/MM/YYYY'), NULL);
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 70, 500, to_date('9/7/2021', 'DD/MM/YYYY'), to_date('27/8/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 28, 500, to_date('27/8/2021', 'DD/MM/YYYY'), to_date('18/9/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 102, 500, to_date('18/9/2021', 'DD/MM/YYYY'), NULL);
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 70, 501, to_date('9/7/2021', 'DD/MM/YYYY'), to_date('13/8/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 28, 501, to_date('13/8/2021', 'DD/MM/YYYY'), to_date('4/9/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 102, 501, to_date('4/9/2021', 'DD/MM/YYYY'), NULL);
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 70, 502, to_date('22/2/2021', 'DD/MM/YYYY'), to_date('26/3/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 28, 502, to_date('26/3/2021', 'DD/MM/YYYY'), to_date('14/5/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 102, 502, to_date('14/5/2021', 'DD/MM/YYYY'), to_date('12/6/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 34, 502, to_date('12/6/2021', 'DD/MM/YYYY'), to_date('16/7/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 21, 502, to_date('16/7/2021', 'DD/MM/YYYY'), to_date('20/8/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 91, 502, to_date('20/8/2021', 'DD/MM/YYYY'), to_date('11/9/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 10, 502, to_date('11/9/2021', 'DD/MM/YYYY'), NULL);
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 70, 503, to_date('19/6/2021', 'DD/MM/YYYY'), to_date('16/7/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 28, 503, to_date('16/7/2021', 'DD/MM/YYYY'), to_date('6/8/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 102, 503, to_date('6/8/2021', 'DD/MM/YYYY'), to_date('27/8/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 34, 503, to_date('27/8/2021', 'DD/MM/YYYY'), NULL);
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 70, 504, to_date('19/6/2021', 'DD/MM/YYYY'), to_date('23/7/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 28, 504, to_date('23/7/2021', 'DD/MM/YYYY'), to_date('20/8/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 102, 504, to_date('20/8/2021', 'DD/MM/YYYY'), to_date('25/9/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 34, 504, to_date('25/9/2021', 'DD/MM/YYYY'), NULL);
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 136, 505, to_date('19/3/2021', 'DD/MM/YYYY'), to_date('10/4/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 36, 505, to_date('10/4/2021', 'DD/MM/YYYY'), to_date('7/5/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 77, 505, to_date('7/5/2021', 'DD/MM/YYYY'), to_date('26/6/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 27, 505, to_date('26/6/2021', 'DD/MM/YYYY'), to_date('13/8/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 136, 505, to_date('13/8/2021', 'DD/MM/YYYY'), to_date('25/9/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 86, 505, to_date('25/9/2021', 'DD/MM/YYYY'), NULL);
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 136, 506, to_date('26/3/2021', 'DD/MM/YYYY'), to_date('14/5/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 36, 506, to_date('14/5/2021', 'DD/MM/YYYY'), to_date('19/6/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 77, 506, to_date('19/6/2021', 'DD/MM/YYYY'), to_date('30/7/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 27, 506, to_date('30/7/2021', 'DD/MM/YYYY'), to_date('27/8/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 136, 506, to_date('27/8/2021', 'DD/MM/YYYY'), NULL);
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 136, 507, to_date('17/4/2021', 'DD/MM/YYYY'), to_date('28/5/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 36, 507, to_date('28/5/2021', 'DD/MM/YYYY'), to_date('19/6/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 77, 507, to_date('19/6/2021', 'DD/MM/YYYY'), to_date('6/8/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 27, 507, to_date('6/8/2021', 'DD/MM/YYYY'), to_date('4/9/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 136, 507, to_date('4/9/2021', 'DD/MM/YYYY'), NULL);
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 136, 508, to_date('12/6/2021', 'DD/MM/YYYY'), to_date('30/7/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 36, 508, to_date('30/7/2021', 'DD/MM/YYYY'), to_date('20/8/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 77, 508, to_date('20/8/2021', 'DD/MM/YYYY'), to_date('11/9/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 27, 508, to_date('11/9/2021', 'DD/MM/YYYY'), NULL);
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 136, 509, to_date('25/02/2021', 'DD/MM/YYYY'), to_date('17/4/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 36, 509, to_date('17/4/2021', 'DD/MM/YYYY'), to_date('5/6/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 77, 509, to_date('5/6/2021', 'DD/MM/YYYY'), to_date('16/7/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 27, 509, to_date('16/7/2021', 'DD/MM/YYYY'), to_date('6/8/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 136, 509, to_date('6/8/2021', 'DD/MM/YYYY'), to_date('18/9/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 86, 509, to_date('18/9/2021', 'DD/MM/YYYY'), NULL);
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 136, 510, to_date('16/7/2021', 'DD/MM/YYYY'), to_date('20/8/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 36, 510, to_date('20/8/2021', 'DD/MM/YYYY'), to_date('25/9/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 77, 510, to_date('25/9/2021', 'DD/MM/YYYY'), NULL);
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 136, 511, to_date('27/4/2021', 'DD/MM/YYYY'), to_date('21/5/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 36, 511, to_date('21/5/2021', 'DD/MM/YYYY'), to_date('2/7/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 77, 511, to_date('2/7/2021', 'DD/MM/YYYY'), to_date('30/7/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 27, 511, to_date('30/7/2021', 'DD/MM/YYYY'), to_date('27/8/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 136, 511, to_date('27/8/2021', 'DD/MM/YYYY'), NULL);
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 136, 512, to_date('22/2/2021', 'DD/MM/YYYY'), to_date('3/4/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 36, 512, to_date('3/4/2021', 'DD/MM/YYYY'), to_date('7/5/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 77, 512, to_date('7/5/2021', 'DD/MM/YYYY'), to_date('5/6/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 27, 512, to_date('5/6/2021', 'DD/MM/YYYY'), to_date('9/7/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 136, 512, to_date('9/7/2021', 'DD/MM/YYYY'), to_date('13/8/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 86, 512, to_date('13/8/2021', 'DD/MM/YYYY'), to_date('18/9/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 33, 512, to_date('18/9/2021', 'DD/MM/YYYY'), NULL);
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 136, 513, to_date('14/5/2021', 'DD/MM/YYYY'), to_date('2/7/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 36, 513, to_date('2/7/2021', 'DD/MM/YYYY'), to_date('23/7/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 77, 513, to_date('23/7/2021', 'DD/MM/YYYY'), to_date('4/9/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 27, 513, to_date('4/9/2021', 'DD/MM/YYYY'), to_date('25/9/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 136, 513, to_date('25/9/2021', 'DD/MM/YYYY'), NULL);
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 136, 514, to_date('27/4/2021', 'DD/MM/YYYY'), to_date('28/5/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 36, 514, to_date('28/5/2021', 'DD/MM/YYYY'), to_date('2/7/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 77, 514, to_date('2/7/2021', 'DD/MM/YYYY'), to_date('23/7/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 27, 514, to_date('23/7/2021', 'DD/MM/YYYY'), to_date('4/9/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 136, 514, to_date('4/9/2021', 'DD/MM/YYYY'), NULL);
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 136, 515, to_date('26/3/2021', 'DD/MM/YYYY'), to_date('17/4/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 36, 515, to_date('17/4/2021', 'DD/MM/YYYY'), to_date('14/5/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 77, 515, to_date('14/5/2021', 'DD/MM/YYYY'), to_date('12/6/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 27, 515, to_date('12/6/2021', 'DD/MM/YYYY'), to_date('23/7/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 136, 515, to_date('23/7/2021', 'DD/MM/YYYY'), to_date('27/8/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 86, 515, to_date('27/8/2021', 'DD/MM/YYYY'), to_date('18/9/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 33, 515, to_date('18/9/2021', 'DD/MM/YYYY'), NULL);
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 136, 516, to_date('5/3/2021', 'DD/MM/YYYY'), to_date('3/4/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 36, 516, to_date('3/4/2021', 'DD/MM/YYYY'), to_date('27/4/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 77, 516, to_date('27/4/2021', 'DD/MM/YYYY'), to_date('5/6/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 27, 516, to_date('5/6/2021', 'DD/MM/YYYY'), to_date('16/7/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 136, 516, to_date('16/7/2021', 'DD/MM/YYYY'), to_date('4/9/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 86, 516, to_date('4/9/2021', 'DD/MM/YYYY'), NULL);
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 136, 517, to_date('28/5/2021', 'DD/MM/YYYY'), to_date('2/7/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 36, 517, to_date('2/7/2021', 'DD/MM/YYYY'), to_date('30/7/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 77, 517, to_date('30/7/2021', 'DD/MM/YYYY'), to_date('11/9/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 27, 517, to_date('11/9/2021', 'DD/MM/YYYY'), NULL);
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 55, 518, to_date('17/4/2021', 'DD/MM/YYYY'), to_date('28/5/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 84, 518, to_date('28/5/2021', 'DD/MM/YYYY'), to_date('19/6/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 68, 518, to_date('19/6/2021', 'DD/MM/YYYY'), to_date('16/7/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 41, 518, to_date('16/7/2021', 'DD/MM/YYYY'), to_date('20/8/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 45, 518, to_date('20/8/2021', 'DD/MM/YYYY'), to_date('11/9/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 59, 518, to_date('11/9/2021', 'DD/MM/YYYY'), NULL);
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 55, 519, to_date('25/02/2021', 'DD/MM/YYYY'), to_date('26/3/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 84, 519, to_date('26/3/2021', 'DD/MM/YYYY'), to_date('17/4/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 68, 519, to_date('17/4/2021', 'DD/MM/YYYY'), to_date('7/5/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 41, 519, to_date('7/5/2021', 'DD/MM/YYYY'), to_date('12/6/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 45, 519, to_date('12/6/2021', 'DD/MM/YYYY'), to_date('9/7/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 59, 519, to_date('9/7/2021', 'DD/MM/YYYY'), to_date('27/8/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 66, 519, to_date('27/8/2021', 'DD/MM/YYYY'), NULL);
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 55, 520, to_date('5/3/2021', 'DD/MM/YYYY'), to_date('26/3/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 84, 520, to_date('26/3/2021', 'DD/MM/YYYY'), to_date('7/5/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 68, 520, to_date('7/5/2021', 'DD/MM/YYYY'), to_date('19/6/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 41, 520, to_date('19/6/2021', 'DD/MM/YYYY'), to_date('30/7/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 45, 520, to_date('30/7/2021', 'DD/MM/YYYY'), to_date('20/8/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 59, 520, to_date('20/8/2021', 'DD/MM/YYYY'), to_date('11/9/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 66, 520, to_date('11/9/2021', 'DD/MM/YYYY'), NULL);
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 55, 521, to_date('19/6/2021', 'DD/MM/YYYY'), to_date('9/7/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 84, 521, to_date('9/7/2021', 'DD/MM/YYYY'), to_date('30/7/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 68, 521, to_date('30/7/2021', 'DD/MM/YYYY'), to_date('18/9/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 41, 521, to_date('18/9/2021', 'DD/MM/YYYY'), NULL);
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 55, 522, to_date('26/3/2021', 'DD/MM/YYYY'), to_date('14/5/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 84, 522, to_date('14/5/2021', 'DD/MM/YYYY'), to_date('19/6/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 68, 522, to_date('19/6/2021', 'DD/MM/YYYY'), to_date('9/7/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 41, 522, to_date('9/7/2021', 'DD/MM/YYYY'), to_date('30/7/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 45, 522, to_date('30/7/2021', 'DD/MM/YYYY'), to_date('4/9/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 59, 522, to_date('4/9/2021', 'DD/MM/YYYY'), NULL);
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 55, 523, to_date('22/1/2021', 'DD/MM/YYYY'), to_date('25/02/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 84, 523, to_date('25/02/2021', 'DD/MM/YYYY'), to_date('3/4/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 68, 523, to_date('3/4/2021', 'DD/MM/YYYY'), to_date('27/4/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 41, 523, to_date('27/4/2021', 'DD/MM/YYYY'), to_date('5/6/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 45, 523, to_date('5/6/2021', 'DD/MM/YYYY'), to_date('16/7/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 59, 523, to_date('16/7/2021', 'DD/MM/YYYY'), to_date('27/8/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 66, 523, to_date('27/8/2021', 'DD/MM/YYYY'), NULL);
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 55, 524, to_date('28/5/2021', 'DD/MM/YYYY'), to_date('9/7/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 84, 524, to_date('9/7/2021', 'DD/MM/YYYY'), to_date('27/8/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 68, 524, to_date('27/8/2021', 'DD/MM/YYYY'), NULL);
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 55, 525, to_date('21/5/2021', 'DD/MM/YYYY'), to_date('9/7/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 84, 525, to_date('9/7/2021', 'DD/MM/YYYY'), to_date('20/8/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 68, 525, to_date('20/8/2021', 'DD/MM/YYYY'), to_date('25/9/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 41, 525, to_date('25/9/2021', 'DD/MM/YYYY'), NULL);
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 55, 526, to_date('22/2/2021', 'DD/MM/YYYY'), to_date('12/3/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 84, 526, to_date('12/3/2021', 'DD/MM/YYYY'), to_date('10/4/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 68, 526, to_date('10/4/2021', 'DD/MM/YYYY'), to_date('7/5/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 41, 526, to_date('7/5/2021', 'DD/MM/YYYY'), to_date('12/6/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 45, 526, to_date('12/6/2021', 'DD/MM/YYYY'), to_date('16/7/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 59, 526, to_date('16/7/2021', 'DD/MM/YYYY'), to_date('4/9/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 66, 526, to_date('4/9/2021', 'DD/MM/YYYY'), NULL);
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 55, 527, to_date('27/4/2021', 'DD/MM/YYYY'), to_date('12/6/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 84, 527, to_date('12/6/2021', 'DD/MM/YYYY'), to_date('23/7/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 68, 527, to_date('23/7/2021', 'DD/MM/YYYY'), to_date('27/8/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 41, 527, to_date('27/8/2021', 'DD/MM/YYYY'), to_date('18/9/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 45, 527, to_date('18/9/2021', 'DD/MM/YYYY'), NULL);
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 55, 528, to_date('12/3/2021', 'DD/MM/YYYY'), to_date('27/4/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 84, 528, to_date('27/4/2021', 'DD/MM/YYYY'), to_date('5/6/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 68, 528, to_date('5/6/2021', 'DD/MM/YYYY'), to_date('26/6/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 41, 528, to_date('26/6/2021', 'DD/MM/YYYY'), to_date('16/7/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 45, 528, to_date('16/7/2021', 'DD/MM/YYYY'), to_date('20/8/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 59, 528, to_date('20/8/2021', 'DD/MM/YYYY'), to_date('11/9/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 66, 528, to_date('11/9/2021', 'DD/MM/YYYY'), NULL);
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 55, 529, to_date('6/8/2021', 'DD/MM/YYYY'), to_date('4/9/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 84, 529, to_date('4/9/2021', 'DD/MM/YYYY'), to_date('25/9/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 68, 529, to_date('25/9/2021', 'DD/MM/YYYY'), NULL);
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 55, 530, to_date('22/2/2021', 'DD/MM/YYYY'), to_date('10/4/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 84, 530, to_date('10/4/2021', 'DD/MM/YYYY'), to_date('14/5/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 68, 530, to_date('14/5/2021', 'DD/MM/YYYY'), to_date('19/6/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 41, 530, to_date('19/6/2021', 'DD/MM/YYYY'), to_date('30/7/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 45, 530, to_date('30/7/2021', 'DD/MM/YYYY'), to_date('27/8/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 59, 530, to_date('27/8/2021', 'DD/MM/YYYY'), NULL);
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 55, 531, to_date('17/4/2021', 'DD/MM/YYYY'), to_date('14/5/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 84, 531, to_date('14/5/2021', 'DD/MM/YYYY'), to_date('5/6/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 68, 531, to_date('5/6/2021', 'DD/MM/YYYY'), to_date('2/7/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 41, 531, to_date('2/7/2021', 'DD/MM/YYYY'), to_date('23/7/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 45, 531, to_date('23/7/2021', 'DD/MM/YYYY'), to_date('13/8/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 59, 531, to_date('13/8/2021', 'DD/MM/YYYY'), to_date('25/9/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 66, 531, to_date('25/9/2021', 'DD/MM/YYYY'), NULL);
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 121, 532, to_date('12/3/2021', 'DD/MM/YYYY'), to_date('27/4/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 92, 532, to_date('27/4/2021', 'DD/MM/YYYY'), to_date('5/6/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 135, 532, to_date('5/6/2021', 'DD/MM/YYYY'), to_date('2/7/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 123, 532, to_date('2/7/2021', 'DD/MM/YYYY'), to_date('23/7/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 15, 532, to_date('23/7/2021', 'DD/MM/YYYY'), to_date('11/9/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 78, 532, to_date('11/9/2021', 'DD/MM/YYYY'), NULL);
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 121, 533, to_date('19/6/2021', 'DD/MM/YYYY'), to_date('9/7/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 92, 533, to_date('9/7/2021', 'DD/MM/YYYY'), to_date('20/8/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 135, 533, to_date('20/8/2021', 'DD/MM/YYYY'), to_date('18/9/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 123, 533, to_date('18/9/2021', 'DD/MM/YYYY'), NULL);
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 121, 534, to_date('21/5/2021', 'DD/MM/YYYY'), to_date('9/7/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 92, 534, to_date('9/7/2021', 'DD/MM/YYYY'), to_date('27/8/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 135, 534, to_date('27/8/2021', 'DD/MM/YYYY'), NULL);
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 121, 535, to_date('19/6/2021', 'DD/MM/YYYY'), to_date('30/7/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 92, 535, to_date('30/7/2021', 'DD/MM/YYYY'), to_date('4/9/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 135, 535, to_date('4/9/2021', 'DD/MM/YYYY'), NULL);
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 121, 536, to_date('5/6/2021', 'DD/MM/YYYY'), to_date('2/7/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 92, 536, to_date('2/7/2021', 'DD/MM/YYYY'), to_date('13/8/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 135, 536, to_date('13/8/2021', 'DD/MM/YYYY'), to_date('25/9/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 123, 536, to_date('25/9/2021', 'DD/MM/YYYY'), NULL);
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 121, 537, to_date('22/2/2021', 'DD/MM/YYYY'), to_date('3/4/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 92, 537, to_date('3/4/2021', 'DD/MM/YYYY'), to_date('27/4/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 135, 537, to_date('27/4/2021', 'DD/MM/YYYY'), to_date('21/5/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 123, 537, to_date('21/5/2021', 'DD/MM/YYYY'), to_date('26/6/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 15, 537, to_date('26/6/2021', 'DD/MM/YYYY'), to_date('6/8/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 78, 537, to_date('6/8/2021', 'DD/MM/YYYY'), to_date('11/9/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 111, 537, to_date('11/9/2021', 'DD/MM/YYYY'), NULL);
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 121, 538, to_date('5/3/2021', 'DD/MM/YYYY'), to_date('24/4/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 92, 538, to_date('24/4/2021', 'DD/MM/YYYY'), to_date('28/5/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 135, 538, to_date('28/5/2021', 'DD/MM/YYYY'), to_date('2/7/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 123, 538, to_date('2/7/2021', 'DD/MM/YYYY'), to_date('30/7/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 15, 538, to_date('30/7/2021', 'DD/MM/YYYY'), to_date('11/9/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 78, 538, to_date('11/9/2021', 'DD/MM/YYYY'), NULL);
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 121, 539, to_date('5/3/2021', 'DD/MM/YYYY'), to_date('3/4/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 92, 539, to_date('3/4/2021', 'DD/MM/YYYY'), to_date('21/5/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 135, 539, to_date('21/5/2021', 'DD/MM/YYYY'), to_date('2/7/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 123, 539, to_date('2/7/2021', 'DD/MM/YYYY'), to_date('13/8/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 15, 539, to_date('13/8/2021', 'DD/MM/YYYY'), to_date('4/9/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 78, 539, to_date('4/9/2021', 'DD/MM/YYYY'), NULL);
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 121, 540, to_date('19/6/2021', 'DD/MM/YYYY'), to_date('30/7/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 92, 540, to_date('30/7/2021', 'DD/MM/YYYY'), to_date('18/9/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 135, 540, to_date('18/9/2021', 'DD/MM/YYYY'), NULL);
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 121, 541, to_date('28/5/2021', 'DD/MM/YYYY'), to_date('19/6/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 92, 541, to_date('19/6/2021', 'DD/MM/YYYY'), to_date('6/8/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 135, 541, to_date('6/8/2021', 'DD/MM/YYYY'), to_date('11/9/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 123, 541, to_date('11/9/2021', 'DD/MM/YYYY'), NULL);
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 121, 542, to_date('2/7/2021', 'DD/MM/YYYY'), to_date('6/8/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 92, 542, to_date('6/8/2021', 'DD/MM/YYYY'), to_date('4/9/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 135, 542, to_date('4/9/2021', 'DD/MM/YYYY'), to_date('25/9/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 123, 542, to_date('25/9/2021', 'DD/MM/YYYY'), NULL);
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 121, 543, to_date('19/6/2021', 'DD/MM/YYYY'), to_date('16/7/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 92, 543, to_date('16/7/2021', 'DD/MM/YYYY'), to_date('27/8/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 135, 543, to_date('27/8/2021', 'DD/MM/YYYY'), NULL);
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 121, 544, to_date('30/7/2021', 'DD/MM/YYYY'), to_date('4/9/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 92, 544, to_date('4/9/2021', 'DD/MM/YYYY'), to_date('25/9/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 135, 544, to_date('25/9/2021', 'DD/MM/YYYY'), NULL);
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 121, 545, to_date('5/3/2021', 'DD/MM/YYYY'), to_date('3/4/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 92, 545, to_date('3/4/2021', 'DD/MM/YYYY'), to_date('24/4/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 135, 545, to_date('24/4/2021', 'DD/MM/YYYY'), to_date('5/6/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 123, 545, to_date('5/6/2021', 'DD/MM/YYYY'), to_date('2/7/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 15, 545, to_date('2/7/2021', 'DD/MM/YYYY'), to_date('6/8/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 78, 545, to_date('6/8/2021', 'DD/MM/YYYY'), to_date('11/9/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 111, 545, to_date('11/9/2021', 'DD/MM/YYYY'), NULL);
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 60, 546, to_date('14/5/2021', 'DD/MM/YYYY'), to_date('12/6/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 68, 546, to_date('12/6/2021', 'DD/MM/YYYY'), to_date('30/7/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 13, 546, to_date('30/7/2021', 'DD/MM/YYYY'), to_date('4/9/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 86, 546, to_date('4/9/2021', 'DD/MM/YYYY'), NULL);
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 60, 547, to_date('23/7/2021', 'DD/MM/YYYY'), to_date('20/8/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 68, 547, to_date('20/8/2021', 'DD/MM/YYYY'), to_date('18/9/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 13, 547, to_date('18/9/2021', 'DD/MM/YYYY'), NULL);
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 60, 548, to_date('17/4/2021', 'DD/MM/YYYY'), to_date('5/6/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 68, 548, to_date('5/6/2021', 'DD/MM/YYYY'), to_date('9/7/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 13, 548, to_date('9/7/2021', 'DD/MM/YYYY'), to_date('13/8/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 86, 548, to_date('13/8/2021', 'DD/MM/YYYY'), to_date('4/9/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 21, 548, to_date('4/9/2021', 'DD/MM/YYYY'), NULL);
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 60, 549, to_date('3/4/2021', 'DD/MM/YYYY'), to_date('7/5/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 68, 549, to_date('7/5/2021', 'DD/MM/YYYY'), to_date('12/6/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 13, 549, to_date('12/6/2021', 'DD/MM/YYYY'), to_date('9/7/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 86, 549, to_date('9/7/2021', 'DD/MM/YYYY'), to_date('6/8/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 21, 549, to_date('6/8/2021', 'DD/MM/YYYY'), to_date('25/9/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 113, 549, to_date('25/9/2021', 'DD/MM/YYYY'), NULL);
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 60, 550, to_date('26/6/2021', 'DD/MM/YYYY'), to_date('6/8/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 68, 550, to_date('6/8/2021', 'DD/MM/YYYY'), to_date('25/9/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 13, 550, to_date('25/9/2021', 'DD/MM/YYYY'), NULL);
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 60, 551, to_date('27/4/2021', 'DD/MM/YYYY'), to_date('12/6/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 68, 551, to_date('12/6/2021', 'DD/MM/YYYY'), to_date('16/7/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 13, 551, to_date('16/7/2021', 'DD/MM/YYYY'), to_date('27/8/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 86, 551, to_date('27/8/2021', 'DD/MM/YYYY'), NULL);
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 60, 552, to_date('8/1/2021', 'DD/MM/YYYY'), to_date('22/2/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 68, 552, to_date('22/2/2021', 'DD/MM/YYYY'), to_date('10/4/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 13, 552, to_date('10/4/2021', 'DD/MM/YYYY'), to_date('14/5/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 86, 552, to_date('14/5/2021', 'DD/MM/YYYY'), to_date('2/7/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 21, 552, to_date('2/7/2021', 'DD/MM/YYYY'), to_date('13/8/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 113, 552, to_date('13/8/2021', 'DD/MM/YYYY'), to_date('4/9/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 120, 552, to_date('4/9/2021', 'DD/MM/YYYY'), NULL);
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 60, 553, to_date('7/5/2021', 'DD/MM/YYYY'), to_date('19/6/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 68, 553, to_date('19/6/2021', 'DD/MM/YYYY'), to_date('23/7/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 13, 553, to_date('23/7/2021', 'DD/MM/YYYY'), to_date('11/9/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 86, 553, to_date('11/9/2021', 'DD/MM/YYYY'), NULL);
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 60, 554, to_date('8/1/2021', 'DD/MM/YYYY'), to_date('25/02/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 68, 554, to_date('25/02/2021', 'DD/MM/YYYY'), to_date('17/4/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 13, 554, to_date('17/4/2021', 'DD/MM/YYYY'), to_date('5/6/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 86, 554, to_date('5/6/2021', 'DD/MM/YYYY'), to_date('2/7/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 21, 554, to_date('2/7/2021', 'DD/MM/YYYY'), to_date('13/8/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 113, 554, to_date('13/8/2021', 'DD/MM/YYYY'), to_date('18/9/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 120, 554, to_date('18/9/2021', 'DD/MM/YYYY'), NULL);
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 60, 555, to_date('27/4/2021', 'DD/MM/YYYY'), to_date('28/5/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 68, 555, to_date('28/5/2021', 'DD/MM/YYYY'), to_date('9/7/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 13, 555, to_date('9/7/2021', 'DD/MM/YYYY'), to_date('27/8/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 86, 555, to_date('27/8/2021', 'DD/MM/YYYY'), to_date('18/9/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 21, 555, to_date('18/9/2021', 'DD/MM/YYYY'), NULL);
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 60, 556, to_date('26/6/2021', 'DD/MM/YYYY'), to_date('23/7/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 68, 556, to_date('23/7/2021', 'DD/MM/YYYY'), to_date('20/8/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 13, 556, to_date('20/8/2021', 'DD/MM/YYYY'), to_date('11/9/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 86, 556, to_date('11/9/2021', 'DD/MM/YYYY'), NULL);
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 60, 557, to_date('9/7/2021', 'DD/MM/YYYY'), to_date('20/8/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 68, 557, to_date('20/8/2021', 'DD/MM/YYYY'), to_date('25/9/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 13, 557, to_date('25/9/2021', 'DD/MM/YYYY'), NULL);
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 60, 558, to_date('26/3/2021', 'DD/MM/YYYY'), to_date('24/4/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 68, 558, to_date('24/4/2021', 'DD/MM/YYYY'), to_date('12/6/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 13, 558, to_date('12/6/2021', 'DD/MM/YYYY'), to_date('23/7/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 86, 558, to_date('23/7/2021', 'DD/MM/YYYY'), to_date('13/8/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 21, 558, to_date('13/8/2021', 'DD/MM/YYYY'), to_date('18/9/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 113, 558, to_date('18/9/2021', 'DD/MM/YYYY'), NULL);
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 60, 559, to_date('30/7/2021', 'DD/MM/YYYY'), to_date('20/8/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 68, 559, to_date('20/8/2021', 'DD/MM/YYYY'), to_date('25/9/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 13, 559, to_date('25/9/2021', 'DD/MM/YYYY'), NULL);
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 60, 560, to_date('3/4/2021', 'DD/MM/YYYY'), to_date('27/4/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 68, 560, to_date('27/4/2021', 'DD/MM/YYYY'), to_date('21/5/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 13, 560, to_date('21/5/2021', 'DD/MM/YYYY'), to_date('26/6/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 86, 560, to_date('26/6/2021', 'DD/MM/YYYY'), to_date('13/8/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 21, 560, to_date('13/8/2021', 'DD/MM/YYYY'), to_date('11/9/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 113, 560, to_date('11/9/2021', 'DD/MM/YYYY'), NULL);
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 126, 561, to_date('5/6/2021', 'DD/MM/YYYY'), to_date('16/7/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 76, 561, to_date('16/7/2021', 'DD/MM/YYYY'), to_date('4/9/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 9, 561, to_date('4/9/2021', 'DD/MM/YYYY'), to_date('25/9/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 130, 561, to_date('25/9/2021', 'DD/MM/YYYY'), NULL);
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 126, 562, to_date('15/1/2021', 'DD/MM/YYYY'), to_date('25/02/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 76, 562, to_date('25/02/2021', 'DD/MM/YYYY'), to_date('3/4/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 9, 562, to_date('3/4/2021', 'DD/MM/YYYY'), to_date('7/5/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 130, 562, to_date('7/5/2021', 'DD/MM/YYYY'), to_date('19/6/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 112, 562, to_date('19/6/2021', 'DD/MM/YYYY'), to_date('6/8/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 104, 562, to_date('6/8/2021', 'DD/MM/YYYY'), to_date('11/9/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 29, 562, to_date('11/9/2021', 'DD/MM/YYYY'), NULL);
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 126, 563, to_date('1/1/2021', 'DD/MM/YYYY'), to_date('22/2/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 76, 563, to_date('22/2/2021', 'DD/MM/YYYY'), to_date('19/3/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 9, 563, to_date('19/3/2021', 'DD/MM/YYYY'), to_date('7/5/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 130, 563, to_date('7/5/2021', 'DD/MM/YYYY'), to_date('26/6/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 112, 563, to_date('26/6/2021', 'DD/MM/YYYY'), to_date('23/7/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 104, 563, to_date('23/7/2021', 'DD/MM/YYYY'), to_date('4/9/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 29, 563, to_date('4/9/2021', 'DD/MM/YYYY'), NULL);
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 126, 564, to_date('17/4/2021', 'DD/MM/YYYY'), to_date('5/6/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 76, 564, to_date('5/6/2021', 'DD/MM/YYYY'), to_date('26/6/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 9, 564, to_date('26/6/2021', 'DD/MM/YYYY'), to_date('6/8/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 130, 564, to_date('6/8/2021', 'DD/MM/YYYY'), to_date('18/9/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 112, 564, to_date('18/9/2021', 'DD/MM/YYYY'), NULL);
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 126, 565, to_date('15/2/2021', 'DD/MM/YYYY'), to_date('12/3/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 76, 565, to_date('12/3/2021', 'DD/MM/YYYY'), to_date('24/4/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 9, 565, to_date('24/4/2021', 'DD/MM/YYYY'), to_date('5/6/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 130, 565, to_date('5/6/2021', 'DD/MM/YYYY'), to_date('9/7/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 112, 565, to_date('9/7/2021', 'DD/MM/YYYY'), to_date('27/8/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 104, 565, to_date('27/8/2021', 'DD/MM/YYYY'), NULL);
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 126, 566, to_date('30/7/2021', 'DD/MM/YYYY'), to_date('27/8/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 76, 566, to_date('27/8/2021', 'DD/MM/YYYY'), to_date('25/9/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 9, 566, to_date('25/9/2021', 'DD/MM/YYYY'), NULL);
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 126, 567, to_date('17/4/2021', 'DD/MM/YYYY'), to_date('5/6/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 76, 567, to_date('5/6/2021', 'DD/MM/YYYY'), to_date('16/7/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 9, 567, to_date('16/7/2021', 'DD/MM/YYYY'), to_date('4/9/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 130, 567, to_date('4/9/2021', 'DD/MM/YYYY'), NULL);
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 126, 568, to_date('12/3/2021', 'DD/MM/YYYY'), to_date('17/4/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 76, 568, to_date('17/4/2021', 'DD/MM/YYYY'), to_date('7/5/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 9, 568, to_date('7/5/2021', 'DD/MM/YYYY'), to_date('19/6/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 130, 568, to_date('19/6/2021', 'DD/MM/YYYY'), to_date('30/7/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 112, 568, to_date('30/7/2021', 'DD/MM/YYYY'), to_date('27/8/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 104, 568, to_date('27/8/2021', 'DD/MM/YYYY'), NULL);
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 126, 569, to_date('3/4/2021', 'DD/MM/YYYY'), to_date('14/5/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 76, 569, to_date('14/5/2021', 'DD/MM/YYYY'), to_date('26/6/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 9, 569, to_date('26/6/2021', 'DD/MM/YYYY'), to_date('23/7/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 130, 569, to_date('23/7/2021', 'DD/MM/YYYY'), to_date('27/8/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 112, 569, to_date('27/8/2021', 'DD/MM/YYYY'), NULL);
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 126, 570, to_date('24/4/2021', 'DD/MM/YYYY'), to_date('28/5/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 76, 570, to_date('28/5/2021', 'DD/MM/YYYY'), to_date('26/6/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 9, 570, to_date('26/6/2021', 'DD/MM/YYYY'), to_date('16/7/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 130, 570, to_date('16/7/2021', 'DD/MM/YYYY'), to_date('13/8/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 112, 570, to_date('13/8/2021', 'DD/MM/YYYY'), to_date('18/9/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 104, 570, to_date('18/9/2021', 'DD/MM/YYYY'), NULL);
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 126, 571, to_date('5/6/2021', 'DD/MM/YYYY'), to_date('16/7/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 76, 571, to_date('16/7/2021', 'DD/MM/YYYY'), to_date('27/8/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 9, 571, to_date('27/8/2021', 'DD/MM/YYYY'), to_date('25/9/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 130, 571, to_date('25/9/2021', 'DD/MM/YYYY'), NULL);
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 126, 572, to_date('30/7/2021', 'DD/MM/YYYY'), to_date('27/8/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 76, 572, to_date('27/8/2021', 'DD/MM/YYYY'), to_date('18/9/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 9, 572, to_date('18/9/2021', 'DD/MM/YYYY'), NULL);
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 126, 573, to_date('3/4/2021', 'DD/MM/YYYY'), to_date('27/4/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 76, 573, to_date('27/4/2021', 'DD/MM/YYYY'), to_date('21/5/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 9, 573, to_date('21/5/2021', 'DD/MM/YYYY'), to_date('2/7/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 130, 573, to_date('2/7/2021', 'DD/MM/YYYY'), to_date('30/7/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 112, 573, to_date('30/7/2021', 'DD/MM/YYYY'), to_date('11/9/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 104, 573, to_date('11/9/2021', 'DD/MM/YYYY'), NULL);
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 58, 574, to_date('8/1/2021', 'DD/MM/YYYY'), to_date('25/02/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 33, 574, to_date('25/02/2021', 'DD/MM/YYYY'), to_date('3/4/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 68, 574, to_date('3/4/2021', 'DD/MM/YYYY'), to_date('14/5/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 74, 574, to_date('14/5/2021', 'DD/MM/YYYY'), to_date('12/6/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 21, 574, to_date('12/6/2021', 'DD/MM/YYYY'), to_date('30/7/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 66, 574, to_date('30/7/2021', 'DD/MM/YYYY'), to_date('27/8/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 28, 574, to_date('27/8/2021', 'DD/MM/YYYY'), NULL);
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 58, 575, to_date('21/5/2021', 'DD/MM/YYYY'), to_date('12/6/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 33, 575, to_date('12/6/2021', 'DD/MM/YYYY'), to_date('2/7/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 68, 575, to_date('2/7/2021', 'DD/MM/YYYY'), to_date('23/7/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 74, 575, to_date('23/7/2021', 'DD/MM/YYYY'), to_date('27/8/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 21, 575, to_date('27/8/2021', 'DD/MM/YYYY'), NULL);
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 58, 576, to_date('22/1/2021', 'DD/MM/YYYY'), to_date('5/3/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 33, 576, to_date('5/3/2021', 'DD/MM/YYYY'), to_date('24/4/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 68, 576, to_date('24/4/2021', 'DD/MM/YYYY'), to_date('12/6/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 74, 576, to_date('12/6/2021', 'DD/MM/YYYY'), to_date('9/7/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 21, 576, to_date('9/7/2021', 'DD/MM/YYYY'), to_date('27/8/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 66, 576, to_date('27/8/2021', 'DD/MM/YYYY'), NULL);
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 58, 577, to_date('19/6/2021', 'DD/MM/YYYY'), to_date('16/7/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 33, 577, to_date('16/7/2021', 'DD/MM/YYYY'), to_date('4/9/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 68, 577, to_date('4/9/2021', 'DD/MM/YYYY'), NULL);
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 58, 578, to_date('1/2/2021', 'DD/MM/YYYY'), to_date('12/3/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 33, 578, to_date('12/3/2021', 'DD/MM/YYYY'), to_date('27/4/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 68, 578, to_date('27/4/2021', 'DD/MM/YYYY'), to_date('19/6/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 74, 578, to_date('19/6/2021', 'DD/MM/YYYY'), to_date('23/7/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 21, 578, to_date('23/7/2021', 'DD/MM/YYYY'), to_date('4/9/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 66, 578, to_date('4/9/2021', 'DD/MM/YYYY'), NULL);
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 58, 579, to_date('28/5/2021', 'DD/MM/YYYY'), to_date('19/6/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 33, 579, to_date('19/6/2021', 'DD/MM/YYYY'), to_date('30/7/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 68, 579, to_date('30/7/2021', 'DD/MM/YYYY'), to_date('20/8/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 74, 579, to_date('20/8/2021', 'DD/MM/YYYY'), to_date('25/9/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 21, 579, to_date('25/9/2021', 'DD/MM/YYYY'), NULL);
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 58, 580, to_date('3/4/2021', 'DD/MM/YYYY'), to_date('24/4/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 33, 580, to_date('24/4/2021', 'DD/MM/YYYY'), to_date('12/6/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 68, 580, to_date('12/6/2021', 'DD/MM/YYYY'), to_date('16/7/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 74, 580, to_date('16/7/2021', 'DD/MM/YYYY'), to_date('4/9/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 21, 580, to_date('4/9/2021', 'DD/MM/YYYY'), NULL);
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 58, 581, to_date('9/7/2021', 'DD/MM/YYYY'), to_date('30/7/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 33, 581, to_date('30/7/2021', 'DD/MM/YYYY'), to_date('27/8/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 68, 581, to_date('27/8/2021', 'DD/MM/YYYY'), NULL);
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 58, 582, to_date('22/2/2021', 'DD/MM/YYYY'), to_date('10/4/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 33, 582, to_date('10/4/2021', 'DD/MM/YYYY'), to_date('7/5/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 68, 582, to_date('7/5/2021', 'DD/MM/YYYY'), to_date('26/6/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 74, 582, to_date('26/6/2021', 'DD/MM/YYYY'), to_date('23/7/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 21, 582, to_date('23/7/2021', 'DD/MM/YYYY'), to_date('27/8/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 66, 582, to_date('27/8/2021', 'DD/MM/YYYY'), NULL);
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 58, 583, to_date('19/3/2021', 'DD/MM/YYYY'), to_date('24/4/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 33, 583, to_date('24/4/2021', 'DD/MM/YYYY'), to_date('28/5/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 68, 583, to_date('28/5/2021', 'DD/MM/YYYY'), to_date('19/6/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 74, 583, to_date('19/6/2021', 'DD/MM/YYYY'), to_date('16/7/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 21, 583, to_date('16/7/2021', 'DD/MM/YYYY'), to_date('27/8/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 66, 583, to_date('27/8/2021', 'DD/MM/YYYY'), to_date('25/9/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 28, 583, to_date('25/9/2021', 'DD/MM/YYYY'), NULL);
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 58, 584, to_date('12/3/2021', 'DD/MM/YYYY'), to_date('10/4/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 33, 584, to_date('10/4/2021', 'DD/MM/YYYY'), to_date('14/5/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 68, 584, to_date('14/5/2021', 'DD/MM/YYYY'), to_date('2/7/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 74, 584, to_date('2/7/2021', 'DD/MM/YYYY'), to_date('30/7/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 21, 584, to_date('30/7/2021', 'DD/MM/YYYY'), to_date('4/9/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 66, 584, to_date('4/9/2021', 'DD/MM/YYYY'), to_date('25/9/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 28, 584, to_date('25/9/2021', 'DD/MM/YYYY'), NULL);
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 58, 585, to_date('1/2/2021', 'DD/MM/YYYY'), to_date('5/3/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 33, 585, to_date('5/3/2021', 'DD/MM/YYYY'), to_date('17/4/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 68, 585, to_date('17/4/2021', 'DD/MM/YYYY'), to_date('5/6/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 74, 585, to_date('5/6/2021', 'DD/MM/YYYY'), to_date('23/7/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 21, 585, to_date('23/7/2021', 'DD/MM/YYYY'), to_date('4/9/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 66, 585, to_date('4/9/2021', 'DD/MM/YYYY'), NULL);
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 58, 586, to_date('5/3/2021', 'DD/MM/YYYY'), to_date('10/4/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 33, 586, to_date('10/4/2021', 'DD/MM/YYYY'), to_date('27/4/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 68, 586, to_date('27/4/2021', 'DD/MM/YYYY'), to_date('28/5/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 74, 586, to_date('28/5/2021', 'DD/MM/YYYY'), to_date('19/6/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 21, 586, to_date('19/6/2021', 'DD/MM/YYYY'), to_date('23/7/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 66, 586, to_date('23/7/2021', 'DD/MM/YYYY'), to_date('4/9/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 28, 586, to_date('4/9/2021', 'DD/MM/YYYY'), NULL);
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 124, 587, to_date('8/2/2021', 'DD/MM/YYYY'), to_date('26/3/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 40, 587, to_date('26/3/2021', 'DD/MM/YYYY'), to_date('24/4/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 127, 587, to_date('24/4/2021', 'DD/MM/YYYY'), to_date('5/6/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 20, 587, to_date('5/6/2021', 'DD/MM/YYYY'), to_date('16/7/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 21, 587, to_date('16/7/2021', 'DD/MM/YYYY'), to_date('4/9/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 19, 587, to_date('4/9/2021', 'DD/MM/YYYY'), NULL);
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 124, 588, to_date('12/6/2021', 'DD/MM/YYYY'), to_date('30/7/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 40, 588, to_date('30/7/2021', 'DD/MM/YYYY'), to_date('18/9/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 127, 588, to_date('18/9/2021', 'DD/MM/YYYY'), NULL);
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 124, 589, to_date('10/4/2021', 'DD/MM/YYYY'), to_date('27/4/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 40, 589, to_date('27/4/2021', 'DD/MM/YYYY'), to_date('21/5/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 127, 589, to_date('21/5/2021', 'DD/MM/YYYY'), to_date('12/6/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 20, 589, to_date('12/6/2021', 'DD/MM/YYYY'), to_date('30/7/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 21, 589, to_date('30/7/2021', 'DD/MM/YYYY'), to_date('4/9/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 19, 589, to_date('4/9/2021', 'DD/MM/YYYY'), NULL);
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 124, 590, to_date('22/1/2021', 'DD/MM/YYYY'), to_date('5/3/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 40, 590, to_date('5/3/2021', 'DD/MM/YYYY'), to_date('24/4/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 127, 590, to_date('24/4/2021', 'DD/MM/YYYY'), to_date('12/6/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 20, 590, to_date('12/6/2021', 'DD/MM/YYYY'), to_date('30/7/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 21, 590, to_date('30/7/2021', 'DD/MM/YYYY'), to_date('20/8/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 19, 590, to_date('20/8/2021', 'DD/MM/YYYY'), to_date('18/9/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 90, 590, to_date('18/9/2021', 'DD/MM/YYYY'), NULL);
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 124, 591, to_date('27/4/2021', 'DD/MM/YYYY'), to_date('19/6/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 40, 591, to_date('19/6/2021', 'DD/MM/YYYY'), to_date('30/7/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 127, 591, to_date('30/7/2021', 'DD/MM/YYYY'), to_date('4/9/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 20, 591, to_date('4/9/2021', 'DD/MM/YYYY'), NULL);
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 124, 592, to_date('5/3/2021', 'DD/MM/YYYY'), to_date('3/4/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 40, 592, to_date('3/4/2021', 'DD/MM/YYYY'), to_date('7/5/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 127, 592, to_date('7/5/2021', 'DD/MM/YYYY'), to_date('5/6/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 20, 592, to_date('5/6/2021', 'DD/MM/YYYY'), to_date('23/7/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 21, 592, to_date('23/7/2021', 'DD/MM/YYYY'), to_date('4/9/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 19, 592, to_date('4/9/2021', 'DD/MM/YYYY'), NULL);
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 124, 593, to_date('10/4/2021', 'DD/MM/YYYY'), to_date('27/4/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 40, 593, to_date('27/4/2021', 'DD/MM/YYYY'), to_date('28/5/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 127, 593, to_date('28/5/2021', 'DD/MM/YYYY'), to_date('26/6/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 20, 593, to_date('26/6/2021', 'DD/MM/YYYY'), to_date('30/7/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 21, 593, to_date('30/7/2021', 'DD/MM/YYYY'), to_date('27/8/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 19, 593, to_date('27/8/2021', 'DD/MM/YYYY'), NULL);
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 124, 594, to_date('16/7/2021', 'DD/MM/YYYY'), to_date('20/8/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 40, 594, to_date('20/8/2021', 'DD/MM/YYYY'), to_date('25/9/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 127, 594, to_date('25/9/2021', 'DD/MM/YYYY'), NULL);
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 124, 595, to_date('14/5/2021', 'DD/MM/YYYY'), to_date('26/6/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 40, 595, to_date('26/6/2021', 'DD/MM/YYYY'), to_date('6/8/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 127, 595, to_date('6/8/2021', 'DD/MM/YYYY'), to_date('11/9/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 20, 595, to_date('11/9/2021', 'DD/MM/YYYY'), NULL);
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 63, 596, to_date('26/3/2021', 'DD/MM/YYYY'), to_date('17/4/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 9, 596, to_date('17/4/2021', 'DD/MM/YYYY'), to_date('21/5/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 63, 596, to_date('21/5/2021', 'DD/MM/YYYY'), to_date('2/7/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 27, 596, to_date('2/7/2021', 'DD/MM/YYYY'), to_date('20/8/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 98, 596, to_date('20/8/2021', 'DD/MM/YYYY'), to_date('25/9/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 134, 596, to_date('25/9/2021', 'DD/MM/YYYY'), NULL);
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 63, 597, to_date('5/6/2021', 'DD/MM/YYYY'), to_date('2/7/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 9, 597, to_date('2/7/2021', 'DD/MM/YYYY'), to_date('13/8/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 63, 597, to_date('13/8/2021', 'DD/MM/YYYY'), to_date('18/9/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 27, 597, to_date('18/9/2021', 'DD/MM/YYYY'), NULL);
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 63, 598, to_date('21/5/2021', 'DD/MM/YYYY'), to_date('9/7/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 9, 598, to_date('9/7/2021', 'DD/MM/YYYY'), to_date('6/8/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 63, 598, to_date('6/8/2021', 'DD/MM/YYYY'), to_date('18/9/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 27, 598, to_date('18/9/2021', 'DD/MM/YYYY'), NULL);
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 63, 599, to_date('23/7/2021', 'DD/MM/YYYY'), to_date('20/8/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 9, 599, to_date('20/8/2021', 'DD/MM/YYYY'), to_date('18/9/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 63, 599, to_date('18/9/2021', 'DD/MM/YYYY'), NULL);
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 63, 600, to_date('22/2/2021', 'DD/MM/YYYY'), to_date('26/3/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 9, 600, to_date('26/3/2021', 'DD/MM/YYYY'), to_date('17/4/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 63, 600, to_date('17/4/2021', 'DD/MM/YYYY'), to_date('28/5/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 27, 600, to_date('28/5/2021', 'DD/MM/YYYY'), to_date('9/7/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 98, 600, to_date('9/7/2021', 'DD/MM/YYYY'), to_date('27/8/2021', 'DD/MM/YYYY'));
+INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
+VALUES(idMovimentoSeq.nextVal, 134, 600, to_date('27/8/2021', 'DD/MM/YYYY'), NULL);
+
 /**********AUTORI***********/
 INSERT INTO AUTORI (idAutore, Nome, Cognome, Datanascita, Datamorte, Nazionalita)
 VALUES(idAutoreSeq.nextVal, 'Belen', 'MELTZER', to_date('16/1/735', 'DD/MM/YYYY'), to_date('11/1/820', 'DD/MM/YYYY'), 'Mauritanian');
@@ -16581,7 +20128,7 @@ VALUES (IdUtenteseq.nextval,'Graças','Harmsen',to_date('13/07/1991','DD/MM/YYYY
 INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico)
 VALUES (IdUtenteseq.nextval,'An','Hasenkrug',to_date('02/07/1982','DD/MM/YYYY'),'11 Rosewood Lane, Essex','an@hasenkrug.it','4715571662');
 INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico)
-VALUES (IdUtenteseq.nextval,'Kristi','Etxeberria',to_date('31/12/2012','DD/MM/YYYY'),'25 Church Street, Pittsfield','kristi@etxeberria.it','1506666733');
+VALUES (IdUtenteseq.nextval,'Kristi','Etxeberria',to_date('27/12/2012','DD/MM/YYYY'),'25 Church Street, Pittsfield','kristi@etxeberria.it','1506666733');
 INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico)
 VALUES (IdUtenteseq.nextval,'Ivalin','Iturburu',to_date('06/01/1981','DD/MM/YYYY'),'584 Rural Hill Road, Nashville','ivalin@iturburu.it','6826815005');
 INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico)
@@ -16657,7 +20204,7 @@ VALUES (IdUtenteseq.nextval,'Gwyn','Aboimoff',to_date('18/03/1988','DD/MM/YYYY')
 INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico)
 VALUES (IdUtenteseq.nextval,'Gertrudes','Andaloussi',to_date('12/09/2002','DD/MM/YYYY'),'11140 West 60th Avenue, Arvada','gertrudes@andaloussi.it','7805498818');
 INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico)
-VALUES (IdUtenteseq.nextval,'Shizuko','Eijkman',to_date('31/03/1997','DD/MM/YYYY'),'1818 Bay Street, Alameda','shizuko@eijkman.it','6017522186');
+VALUES (IdUtenteseq.nextval,'Shizuko','Eijkman',to_date('27/03/1997','DD/MM/YYYY'),'1818 Bay Street, Alameda','shizuko@eijkman.it','6017522186');
 INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico)
 VALUES (IdUtenteseq.nextval,'Sayah','Ezeiza',to_date('30/01/1998','DD/MM/YYYY'),'481 East Redbud Lane, Fayetteville','sayah@ezeiza.it','4614591044');
 INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico)
@@ -16767,7 +20314,7 @@ VALUES (IdUtenteseq.nextval,'Waly','Hackenschmied',to_date('21/12/1988','DD/MM/Y
 INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico)
 VALUES (IdUtenteseq.nextval,'Aia','Eirinha',to_date('07/10/1975','DD/MM/YYYY'),'355 Gillette Road, Nashville','aia@eirinha.it','9186900366');
 INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico)
-VALUES (IdUtenteseq.nextval,'Rocky','Ryjanov',to_date('31/03/1987','DD/MM/YYYY'),'24 Norman Street, Salem','rocky@ryjanov.it','7507920979');
+VALUES (IdUtenteseq.nextval,'Rocky','Ryjanov',to_date('27/03/1987','DD/MM/YYYY'),'24 Norman Street, Salem','rocky@ryjanov.it','7507920979');
 INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico)
 VALUES (IdUtenteseq.nextval,'Marylou','Ruhmland',to_date('02/04/2000','DD/MM/YYYY'),'25 Cliffside Drive, Manchester','marylou@ruhmland.it','3936848175');
 INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico)
@@ -16921,7 +20468,7 @@ VALUES (IdUtenteseq.nextval,'Fatoumata','Speishandler',to_date('27/04/1980','DD/
 INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico)
 VALUES (IdUtenteseq.nextval,'Laquita','Purroy',to_date('07/01/2012','DD/MM/YYYY'),'829 Dunbarton Road, Montgomery','laquita@purroy.it','7619287832');
 INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico)
-VALUES (IdUtenteseq.nextval,'Rilma','Fleming',to_date('31/05/1976','DD/MM/YYYY'),'615 Long Hunter Court, Nashville','rilma@fleming.it','9825309752');
+VALUES (IdUtenteseq.nextval,'Rilma','Fleming',to_date('27/05/1976','DD/MM/YYYY'),'615 Long Hunter Court, Nashville','rilma@fleming.it','9825309752');
 INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico)
 VALUES (IdUtenteseq.nextval,'Saleck','Frau',to_date('01/03/2002','DD/MM/YYYY'),'17 Hillcrest Road, Rutland','saleck@frau.it','1718011240');
 INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico)
@@ -17237,7 +20784,7 @@ VALUES (IdUtenteseq.nextval,'Siqi','Brecht',to_date('01/01/2014','DD/MM/YYYY'),'
 INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico)
 VALUES (IdUtenteseq.nextval,'Guillerme','Ruesta',to_date('01/01/1970','DD/MM/YYYY'),'8569 Vermont 9, Woodford','guillerme@ruesta.it','7789960661');
 INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico)
-VALUES (IdUtenteseq.nextval,'Rhimou','Zahonero',to_date('31/01/2000','DD/MM/YYYY'),'4712 Rock Creek Road, Ardmore','rhimou@zahonero.it','1616110294');
+VALUES (IdUtenteseq.nextval,'Rhimou','Zahonero',to_date('27/01/2000','DD/MM/YYYY'),'4712 Rock Creek Road, Ardmore','rhimou@zahonero.it','1616110294');
 INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico)
 VALUES (IdUtenteseq.nextval,'Wanessa','Ablassmeier',to_date('28/01/2001','DD/MM/YYYY'),'201 East 9th Avenue, Anchorage','wanessa@ablassmeier.it','9485293131');
 INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico)
@@ -17321,7 +20868,7 @@ VALUES (IdUtenteseq.nextval,'Bertram','Muenala',to_date('01/09/1987','DD/MM/YYYY
 INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico)
 VALUES (IdUtenteseq.nextval,'Pavlo','Heidenbluth',to_date('01/01/1970','DD/MM/YYYY'),'510 Leeanne Drive, Nashville','pavlo@heidenbluth.it','2212650713');
 INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico)
-VALUES (IdUtenteseq.nextval,'Jobita','Michaeli',to_date('31/03/1990','DD/MM/YYYY'),'8398 West Denton Lane, Glendale','jobita@michaeli.it','2832070257');
+VALUES (IdUtenteseq.nextval,'Jobita','Michaeli',to_date('27/03/1990','DD/MM/YYYY'),'8398 West Denton Lane, Glendale','jobita@michaeli.it','2832070257');
 INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico)
 VALUES (IdUtenteseq.nextval,'Tamela','Deaño',to_date('17/08/1997','DD/MM/YYYY'),'2868 Peak Road, Wheelock','tamela@deaño.it','3584400720');
 INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico)
@@ -17501,7 +21048,7 @@ VALUES (IdUtenteseq.nextval,'Fatimetu','Valdeon',to_date('03/08/2001','DD/MM/YYY
 INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico)
 VALUES (IdUtenteseq.nextval,'Md','Romance',to_date('16/02/1979','DD/MM/YYYY'),'2543 The Meadows, Montgomery','md@romance.it','4612138154');
 INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico)
-VALUES (IdUtenteseq.nextval,'Madani','Zillig',to_date('31/01/1977','DD/MM/YYYY'),'25 Morton Street, Quincy','madani@zillig.it','1751061057');
+VALUES (IdUtenteseq.nextval,'Madani','Zillig',to_date('27/01/1977','DD/MM/YYYY'),'25 Morton Street, Quincy','madani@zillig.it','1751061057');
 INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico)
 VALUES (IdUtenteseq.nextval,'Dieter','Coso',to_date('11/09/1991','DD/MM/YYYY'),'2313 South 4th Street, Louisville','dieter@coso.it','2164356342');
 INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico)
@@ -17567,7 +21114,7 @@ VALUES (IdUtenteseq.nextval,'Bessie','Neveselov',to_date('01/01/2014','DD/MM/YYY
 INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico)
 VALUES (IdUtenteseq.nextval,'Josu','Heilbrunner',to_date('19/08/1996','DD/MM/YYYY'),'12039 West 85th Drive, Arvada','josu@heilbrunner.it','3922653499');
 INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico)
-VALUES (IdUtenteseq.nextval,'Hafiz','Cuadro',to_date('31/07/1998','DD/MM/YYYY'),'3871 Galactica Drive, Anchorage','hafiz@cuadro.it','2873624476');
+VALUES (IdUtenteseq.nextval,'Hafiz','Cuadro',to_date('27/07/1998','DD/MM/YYYY'),'3871 Galactica Drive, Anchorage','hafiz@cuadro.it','2873624476');
 INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico)
 VALUES (IdUtenteseq.nextval,'Tyisha','Ysmal',to_date('30/04/1978','DD/MM/YYYY'),'23 Columbia Drive, Manchester','tyisha@ysmal.it','7838362974');
 INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico)
@@ -17577,7 +21124,7 @@ VALUES (IdUtenteseq.nextval,'Rajinder','Waimert',to_date('17/07/1993','DD/MM/YYY
 INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico)
 VALUES (IdUtenteseq.nextval,'Vina','Buermann',to_date('02/08/2002','DD/MM/YYYY'),'308 Woodleaf Court, Glen Burnie','vina@buermann.it','6000840263');
 INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico)
-VALUES (IdUtenteseq.nextval,'Bali','Abenza',to_date('31/10/1994','DD/MM/YYYY'),'169 Avenida Drive, Berkeley','bali@abenza.it','5915651515');
+VALUES (IdUtenteseq.nextval,'Bali','Abenza',to_date('27/10/1994','DD/MM/YYYY'),'169 Avenida Drive, Berkeley','bali@abenza.it','5915651515');
 INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico)
 VALUES (IdUtenteseq.nextval,'Jincheng','Steckler',to_date('27/12/1985','DD/MM/YYYY'),'378 Bonny Street, Grand Junction','jincheng@steckler.it','1870517723');
 INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico)
@@ -17617,9 +21164,9 @@ VALUES (IdUtenteseq.nextval,'Yuma','Gravier',to_date('06/01/1981','DD/MM/YYYY'),
 INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico)
 VALUES (IdUtenteseq.nextval,'Sirio','Havana',to_date('09/01/1974','DD/MM/YYYY'),'131 Westerly Street, Manchester','sirio@havana.it','1391563677');
 INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico)
-VALUES (IdUtenteseq.nextval,'Khnata','Guadalupe',to_date('31/03/2007','DD/MM/YYYY'),'5606 Olde Wadsworth Boulevard, Arvada','khnata@guadalupe.it','5882269303');
+VALUES (IdUtenteseq.nextval,'Khnata','Guadalupe',to_date('27/03/2007','DD/MM/YYYY'),'5606 Olde Wadsworth Boulevard, Arvada','khnata@guadalupe.it','5882269303');
 INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico)
-VALUES (IdUtenteseq.nextval,'Somia','Perojo',to_date('31/07/1983','DD/MM/YYYY'),'2817 3rd Street, Thunderbolt','somia@perojo.it','9237922562');
+VALUES (IdUtenteseq.nextval,'Somia','Perojo',to_date('27/07/1983','DD/MM/YYYY'),'2817 3rd Street, Thunderbolt','somia@perojo.it','9237922562');
 INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico)
 VALUES (IdUtenteseq.nextval,'Moumen','Weisz',to_date('30/06/2011','DD/MM/YYYY'),'7703 Laird Street, Panama City','moumen@weisz.it','4585286641');
 INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico)
@@ -17815,7 +21362,7 @@ VALUES (IdUtenteseq.nextval,'Maye','Neglia',to_date('28/02/1999','DD/MM/YYYY'),'
 INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico)
 VALUES (IdUtenteseq.nextval,'Marietta','Aubin',to_date('26/12/1989','DD/MM/YYYY'),'119 Captain Chase Road, Dennis','marietta@aubin.it','5339913984');
 INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico)
-VALUES (IdUtenteseq.nextval,'Mycola','Jamschikov',to_date('31/10/1993','DD/MM/YYYY'),'949 South Lawrence Street, Montgomery','mycola@jamschikov.it','8564447731');
+VALUES (IdUtenteseq.nextval,'Mycola','Jamschikov',to_date('27/10/1993','DD/MM/YYYY'),'949 South Lawrence Street, Montgomery','mycola@jamschikov.it','8564447731');
 INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico)
 VALUES (IdUtenteseq.nextval,'Haruna','Saqueta',to_date('27/05/2005','DD/MM/YYYY'),'206 Blue Marlin Drive, Savannah','haruna@saqueta.it','7177193173');
 INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico)
@@ -17885,7 +21432,7 @@ VALUES (IdUtenteseq.nextval,'Adriene','Chalef',to_date('06/12/2010','DD/MM/YYYY'
 INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico)
 VALUES (IdUtenteseq.nextval,'Lhassan','Pinelo',to_date('01/01/1970','DD/MM/YYYY'),'445 Industrial Lane, Barre','lhassan@pinelo.it','3774133072');
 INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico)
-VALUES (IdUtenteseq.nextval,'Alyosha','Mendonça',to_date('31/12/1990','DD/MM/YYYY'),'634 Chautauqua Avenue, Norman','alyosha@mendonça.it','6822849567');
+VALUES (IdUtenteseq.nextval,'Alyosha','Mendonça',to_date('27/12/1990','DD/MM/YYYY'),'634 Chautauqua Avenue, Norman','alyosha@mendonça.it','6822849567');
 INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico)
 VALUES (IdUtenteseq.nextval,'Tahar','Anthofer',to_date('06/08/1990','DD/MM/YYYY'),'1825 Woodland Farms Court, Nashville','tahar@anthofer.it','3778699460');
 INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico)
@@ -18211,7 +21758,7 @@ VALUES (IdUtenteseq.nextval,'Georgiev','Recarey',to_date('28/06/1994','DD/MM/YYY
 INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico)
 VALUES (IdUtenteseq.nextval,'Vladyslava','Bauer',to_date('27/12/2000','DD/MM/YYYY'),'2076 North Crossover Road, Fayetteville','vladyslava@bauer.it','2773149648');
 INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico)
-VALUES (IdUtenteseq.nextval,'Bennaceur','Hofflin',to_date('31/10/1985','DD/MM/YYYY'),'2835 Southwest 78th Street, Oklahoma City','bennaceur@hofflin.it','7461700541');
+VALUES (IdUtenteseq.nextval,'Bennaceur','Hofflin',to_date('27/10/1985','DD/MM/YYYY'),'2835 Southwest 78th Street, Oklahoma City','bennaceur@hofflin.it','7461700541');
 INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico)
 VALUES (IdUtenteseq.nextval,'Eradio','Rudhart',to_date('30/08/1980','DD/MM/YYYY'),'194 North Main Street, Webster','eradio@rudhart.it','5574291405');
 INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico)
@@ -18333,7 +21880,7 @@ VALUES (IdUtenteseq.nextval,'Algis','Nagl',to_date('10/08/2009','DD/MM/YYYY'),'1
 INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico)
 VALUES (IdUtenteseq.nextval,'Sarahi','Iliyanov',to_date('12/04/1984','DD/MM/YYYY'),'7701 Taylor Oaks Circle, Montgomery','sarahi@iliyanov.it','5337280384');
 INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico)
-VALUES (IdUtenteseq.nextval,'Dongsheng','Silanes',to_date('31/03/1981','DD/MM/YYYY'),'7822 West Peppertree Lane, Glendale','dongsheng@silanes.it','6444076498');
+VALUES (IdUtenteseq.nextval,'Dongsheng','Silanes',to_date('27/03/1981','DD/MM/YYYY'),'7822 West Peppertree Lane, Glendale','dongsheng@silanes.it','6444076498');
 INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico)
 VALUES (IdUtenteseq.nextval,'Abbie','Kuster',to_date('08/07/2001','DD/MM/YYYY'),'172 Chestnut Street, Lynn','abbie@kuster.it','5553346284');
 INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico)
@@ -18395,7 +21942,7 @@ VALUES (IdUtenteseq.nextval,'Anica','Zaharie',to_date('19/07/1988','DD/MM/YYYY')
 INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico)
 VALUES (IdUtenteseq.nextval,'Niculina','Utugunov',to_date('05/05/2004','DD/MM/YYYY'),'17361 Baronoff Avenue, Anchorage','niculina@utugunov.it','6785437029');
 INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico)
-VALUES (IdUtenteseq.nextval,'Helena','Fessler',to_date('31/01/2011','DD/MM/YYYY'),'1744 Shoreham Drive, Montgomery','helena@fessler.it','7680563211');
+VALUES (IdUtenteseq.nextval,'Helena','Fessler',to_date('27/01/2011','DD/MM/YYYY'),'1744 Shoreham Drive, Montgomery','helena@fessler.it','7680563211');
 INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico)
 VALUES (IdUtenteseq.nextval,'Brandon','Sepulveda',to_date('23/05/1998','DD/MM/YYYY'),'580 Hollow Wood Road, Montgomery','brandon@sepulveda.it','9812207863');
 INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico)
@@ -18471,7 +22018,7 @@ VALUES (IdUtenteseq.nextval,'Alzira','Rissol',to_date('01/01/2014','DD/MM/YYYY')
 INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico)
 VALUES (IdUtenteseq.nextval,'Irineo','Nisen',to_date('01/01/2014','DD/MM/YYYY'),'3601 South Portland Avenue, Oklahoma City','irineo@nisen.it','7788449669');
 INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico)
-VALUES (IdUtenteseq.nextval,'Balarama','Lazare',to_date('29/02/1984','DD/MM/YYYY'),'1076 Foster Street, Alameda','balarama@lazare.it','4743066913');
+VALUES (IdUtenteseq.nextval,'Balarama','Lazare',to_date('27/02/1984','DD/MM/YYYY'),'1076 Foster Street, Alameda','balarama@lazare.it','4743066913');
 INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico)
 VALUES (IdUtenteseq.nextval,'Fousseyni','Yvanez',to_date('10/08/1994','DD/MM/YYYY'),'2414 Parker Street, Berkeley','fousseyni@yvanez.it','2395653827');
 INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico)
@@ -18507,7 +22054,7 @@ VALUES (IdUtenteseq.nextval,'Faustino','Llorden',to_date('08/11/2012','DD/MM/YYY
 INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico)
 VALUES (IdUtenteseq.nextval,'Sisi','Rumkorf',to_date('06/10/1974','DD/MM/YYYY'),'1364 Capri Drive, Panama City','sisi@rumkorf.it','1203673795');
 INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico)
-VALUES (IdUtenteseq.nextval,'Erol','Findeis',to_date('31/01/2004','DD/MM/YYYY'),'3116 Northwest 61st Terrace, Oklahoma City','erol@findeis.it','7352990922');
+VALUES (IdUtenteseq.nextval,'Erol','Findeis',to_date('27/01/2004','DD/MM/YYYY'),'3116 Northwest 61st Terrace, Oklahoma City','erol@findeis.it','7352990922');
 INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico)
 VALUES (IdUtenteseq.nextval,'Alaitz','Winkelgrund',to_date('20/03/2003','DD/MM/YYYY'),'4821 Milner Drive, Nashville','alaitz@winkelgrund.it','7993122146');
 INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico)
@@ -20390,7 +23937,7 @@ VALUES (IdPagamentoSeq.nextval, to_date('24/10/2019','DD/MM/YYYY'), 8, 312);
 INSERT INTO PAGAMENTICAMPIESTIVI (IdPagamento, DataPagamento, Tariffa, Acquirente)
 VALUES (IdPagamentoSeq.nextval, to_date('01/02/2018','DD/MM/YYYY'), 17, 935);
 INSERT INTO PAGAMENTICAMPIESTIVI (IdPagamento, DataPagamento, Tariffa, Acquirente)
-VALUES (IdPagamentoSeq.nextval, to_date('31/01/2019','DD/MM/YYYY'), 7, 951);
+VALUES (IdPagamentoSeq.nextval, to_date('27/01/2019','DD/MM/YYYY'), 7, 951);
 INSERT INTO PAGAMENTICAMPIESTIVI (IdPagamento, DataPagamento, Tariffa, Acquirente)
 VALUES (IdPagamentoSeq.nextval, to_date('20/04/2017','DD/MM/YYYY'), 13, 998);
 INSERT INTO PAGAMENTICAMPIESTIVI (IdPagamento, DataPagamento, Tariffa, Acquirente)
@@ -20600,7 +24147,7 @@ VALUES (IdPagamentoSeq.nextval, to_date('15/04/2018','DD/MM/YYYY'), 13, 921);
 INSERT INTO PAGAMENTICAMPIESTIVI (IdPagamento, DataPagamento, Tariffa, Acquirente)
 VALUES (IdPagamentoSeq.nextval, to_date('01/01/2016','DD/MM/YYYY'), 19, 754);
 INSERT INTO PAGAMENTICAMPIESTIVI (IdPagamento, DataPagamento, Tariffa, Acquirente)
-VALUES (IdPagamentoSeq.nextval, to_date('31/05/2018','DD/MM/YYYY'), 4, 222);
+VALUES (IdPagamentoSeq.nextval, to_date('27/05/2018','DD/MM/YYYY'), 4, 222);
 INSERT INTO PAGAMENTICAMPIESTIVI (IdPagamento, DataPagamento, Tariffa, Acquirente)
 VALUES (IdPagamentoSeq.nextval, to_date('05/08/2017','DD/MM/YYYY'), 1, 718);
 INSERT INTO PAGAMENTICAMPIESTIVI (IdPagamento, DataPagamento, Tariffa, Acquirente)
@@ -20684,7 +24231,7 @@ VALUES (IdPagamentoSeq.nextval, to_date('05/04/2018','DD/MM/YYYY'), 13, 70);
 INSERT INTO PAGAMENTICAMPIESTIVI (IdPagamento, DataPagamento, Tariffa, Acquirente)
 VALUES (IdPagamentoSeq.nextval, to_date('28/10/2018','DD/MM/YYYY'), 14, 256);
 INSERT INTO PAGAMENTICAMPIESTIVI (IdPagamento, DataPagamento, Tariffa, Acquirente)
-VALUES (IdPagamentoSeq.nextval, to_date('31/12/2018','DD/MM/YYYY'), 15, 697);
+VALUES (IdPagamentoSeq.nextval, to_date('27/12/2018','DD/MM/YYYY'), 15, 697);
 INSERT INTO PAGAMENTICAMPIESTIVI (IdPagamento, DataPagamento, Tariffa, Acquirente)
 VALUES (IdPagamentoSeq.nextval, to_date('04/12/2018','DD/MM/YYYY'), 6, 807);
 INSERT INTO PAGAMENTICAMPIESTIVI (IdPagamento, DataPagamento, Tariffa, Acquirente)
@@ -20742,7 +24289,7 @@ VALUES (IdPagamentoSeq.nextval, to_date('28/06/2017','DD/MM/YYYY'), 19, 995);
 INSERT INTO PAGAMENTICAMPIESTIVI (IdPagamento, DataPagamento, Tariffa, Acquirente)
 VALUES (IdPagamentoSeq.nextval, to_date('10/03/2020','DD/MM/YYYY'), 12, 665);
 INSERT INTO PAGAMENTICAMPIESTIVI (IdPagamento, DataPagamento, Tariffa, Acquirente)
-VALUES (IdPagamentoSeq.nextval, to_date('31/10/2018','DD/MM/YYYY'), 2, 935);
+VALUES (IdPagamentoSeq.nextval, to_date('27/10/2018','DD/MM/YYYY'), 2, 935);
 INSERT INTO PAGAMENTICAMPIESTIVI (IdPagamento, DataPagamento, Tariffa, Acquirente)
 VALUES (IdPagamentoSeq.nextval, to_date('02/05/2018','DD/MM/YYYY'), 2, 370);
 INSERT INTO PAGAMENTICAMPIESTIVI (IdPagamento, DataPagamento, Tariffa, Acquirente)
@@ -20816,7 +24363,7 @@ VALUES (IdPagamentoSeq.nextval, to_date('15/01/2018','DD/MM/YYYY'), 12, 344);
 INSERT INTO PAGAMENTICAMPIESTIVI (IdPagamento, DataPagamento, Tariffa, Acquirente)
 VALUES (IdPagamentoSeq.nextval, to_date('09/02/2019','DD/MM/YYYY'), 21, 792);
 INSERT INTO PAGAMENTICAMPIESTIVI (IdPagamento, DataPagamento, Tariffa, Acquirente)
-VALUES (IdPagamentoSeq.nextval, to_date('31/07/2018','DD/MM/YYYY'), 12, 186);
+VALUES (IdPagamentoSeq.nextval, to_date('27/07/2018','DD/MM/YYYY'), 12, 186);
 INSERT INTO PAGAMENTICAMPIESTIVI (IdPagamento, DataPagamento, Tariffa, Acquirente)
 VALUES (IdPagamentoSeq.nextval, to_date('26/11/2019','DD/MM/YYYY'), 13, 552);
 INSERT INTO PAGAMENTICAMPIESTIVI (IdPagamento, DataPagamento, Tariffa, Acquirente)
@@ -23759,9 +27306,9 @@ VALUES (IdTipologiaingSeq.nextVal, 10, 18, null, '1', 'Biglietto 18 sale, 10€'
 INSERT INTO TIPOLOGIEINGRESSO (IdTipologiaIng, Costototale, LimiteSala, LimiteTempo, Durata, Nome)
 VALUES (IdTipologiaingSeq.nextVal, 5, 9, null, '1', 'Biglietto 9 sale, 5€'); --idM=6
 INSERT INTO TIPOLOGIEINGRESSO (IdTipologiaIng, Costototale, LimiteSala, LimiteTempo, Durata, Nome)
-VALUES (IdTipologiaingSeq.nextVal, 30, 100, null, '365', 'Abbonamento annuale 100 ore, 30€'); --abbonamento
+VALUES (IdTipologiaingSeq.nextVal, 30, 100, null, '365', 'Abb annuale 100 ore, 30€'); --abbonamento
 INSERT INTO TIPOLOGIEINGRESSO (IdTipologiaIng, Costototale, LimiteSala, LimiteTempo, Durata, Nome)
-VALUES (IdTipologiaingSeq.nextVal, 35, null, 999, '365', 'Abbonamento annuale senza limiti, 35€'); --abbonamento
+VALUES (IdTipologiaingSeq.nextVal, 35, null, 999, '365', 'Abb annuale no lim, 35€'); --abbonamento
 /************TIPOLOGIEINGRESSOMUSEI************/
 INSERT INTO TIPOLOGIEINGRESSOMUSEI(IdTipologiaIng, IdMuseo)
 VALUES(1, 1);

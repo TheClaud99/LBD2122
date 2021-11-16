@@ -1,4 +1,4 @@
-CREATE OR REPLACE PACKAGE "JRAFFI".gruppo2 AS
+CREATE OR REPLACE PACKAGE gruppo2 AS
 
 /* OPERAZIONI SULLE OPERE */
 procedure EsitoPositivoOpere(sessionID NUMBER DEFAULT NULL);
@@ -76,7 +76,20 @@ procedure lingua(
     operaID NUMBER default 0
 );
 /* OPERAZIONI SUGLI AUTORI */
-PROCEDURE menuAutori(sessionID NUMBER DEFAULT NULL);
+PROCEDURE menuAutori(sessionID NUMBER DEFAULT NULL); 
+
+procedure selezioneOpStatAut(sessionID NUMBER DEFAULT 0);
+
+procedure selezioneAutoreStatistica(
+    sessionID NUMBER DEFAULT 0,
+    operazione NUMBER DEFAULT 0
+);
+
+Procedure StatisticheAutori(
+    sessionID NUMBER DEFAULT 0,
+    operazione NUMBER DEFAULT 0,
+    authID NUMBER DEFAULT 0
+);
 
 PROCEDURE InserisciAutore(
     sessionID NUMBER DEFAULT NULL,

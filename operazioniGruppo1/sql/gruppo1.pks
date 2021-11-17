@@ -73,8 +73,11 @@ PROCEDURE ModificaDatiUtente (
 PROCEDURE EliminaUtente(
 	sessionID NUMBER DEFAULT 0,
 	utenteID NUMBER
-)
+);
 
+PROCEDURE ListaUtenti(
+	sessionID NUMBER default 0,
+);
 
 PROCEDURE acquistabiglietto(
 	dataEmissionechar IN VARCHAR2,

@@ -473,7 +473,6 @@ BEGIN
   modgui1.INPUTSUBMIT('sale presenti');
   
   MODGUI1.ChiudiForm;
-  htp.prn(NameMuseo);
   MODGUI1.ChiudiDiv();
   htp.htmlClose;
 END form1monitoraggio;

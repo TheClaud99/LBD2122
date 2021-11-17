@@ -443,4 +443,120 @@ BEGIN
 
 
 END controllamusei;
+
+
+procedure form1monitoraggio
+(
+  MuseoId IN MUSEI.IdMuseo%TYPE,
+  NameMuseo IN MUSEI.NOME%TYPE
+)
+is
+CURSOR cur IS Select MUSEI.IDMUSEO, MUSEI.NOME
+                        FROM MUSEI;
+MusId_cur cur%Rowtype; 
+BEGIN
+  htp.htmlOpen;
+  MODGUI1.ApriPagina('Statistiche sale museo');
+  MODGUI1.HEADER();
+  htp.BODYOPEN();
+  htp.br;htp.br;htp.br;htp.br;htp.br;htp.br;
+
+  htp.prn('<h1 align="center">Inserisci museo</h1>');
+  MODGUI1.apridiv('class="w3-modal-content w3-card-4" style="max-width:600px; margin-top:110px"');
+  modGUI1.ApriForm('operazioniGruppo4.salepresenti','invia','w3-container'); 
+  MODGUI1.LABEL('Nome del museo');
+  MODGUI1.SelectOpen('MuseoId',NameMuseo);
+  FOR MusId_cur IN cur LOOP
+    MODGUI1.SelectOption(MusId_cur.IdMuseo,MusId_cur.NOME);
+  END LOOP;
+  MODGUI1.SelectClose;
+  modgui1.INPUTSUBMIT('sale presenti');
+  
+  MODGUI1.ChiudiForm;
+  htp.prn(NameMuseo);
+  MODGUI1.ChiudiDiv();
+  htp.htmlClose;
+END form1monitoraggio;
+
+
+procedure salepresenti
+(
+  sessionID IN number default 0,
+   MuseoId IN  Musei.IdMuseo%TYPE
+)
+is 
+CURSOR sal_cursor IS
+Select STANZE.Nome,STANZE.Dimensione,SALE.NUMOPERE
+FROM STANZE,SALE
+WHERE STANZE.MUSEO=MuseoId AND STANZE.IdStanza=SALE.IdStanza;
+val_sal sal_cursor%Rowtype;
+
+BEGIN
+/*controllo sull'ID*/
+MODGUI1.ApriPagina('Visualizzazione sale museo');
+MODGUI1.HEADER();
+  htp.br;htp.br;htp.br;htp.br;
+htp.prn('<h1 align="center">Sale Museo</h1>');
+modgui1.apridiv('class="w3-modal-content w3-card-4 w3-animate-zoom" style="max-width:600px; margin-top:110px"');
+HTP.TABLEOPEN(CALIGN  => 'center' );
+      HTP.TableRowOpen;
+      HTP.TableData('Nome Stanza',CATTRIBUTES  =>'style="font-weight:bold"');
+      HTP.TableData('Dimensione Stanza',CATTRIBUTES  =>'style="font-weight:bold"');
+      HTP.TableData('Numero Opere Stanza',CATTRIBUTES  =>'style="font-weight:bold"');
+      /* inserire il tipo stanza*/
+      HTP.TableRowClose;
+FOR val_sal in sal_cursor
+loop
+    HTP.TableRowOpen;
+    HTP.TableData(val_sal.Nome);
+    HTP.TableData(val_sal.Dimensione ,'center');
+    HTP.TableData(val_sal.NUMOPERE,'center');
+    HTP.TableRowClose;
+    
+end loop;
+HTP.TableClose;
+modGUI1.ChiudiDiv();
+htp.bodyClose;
+END salepresenti;
+/*OPERE PRESENTI NEL MUSEO*/
+procedure operepresentimuseo
+(
+   sessionID IN number default 0,
+   MuseoId IN  Musei.IdMuseo%TYPE
+)
+IS
+  CURSOR oper_cursor IS
+  Select Opere.Titolo,Opere.Anno,Opere.FinePeriodo
+  FROM OPERE,STANZE,SALEOPERE
+  WHERE STANZE.MUSEO=MuseoId AND STANZE.IdStanza=SALEOPERE.Sala AND  OPERE.IdOpera=SALEOPERE.Opera;
+  val_ope oper_cursor%Rowtype;
+
+BEGIN
+MODGUI1.ApriPagina('Visualizzazione opere museo');
+MODGUI1.HEADER();
+  htp.br;htp.br;htp.br;htp.br;
+htp.prn('<h1 align="center">Opere Museo</h1>');
+modgui1.apridiv('class="w3-modal-content w3-card-4 w3-animate-zoom" style="max-width:600px; margin-top:110px"');
+HTP.TABLEOPEN(CALIGN  => 'center' );
+      HTP.TableRowOpen;
+      HTP.TableData('Titolo opera',CATTRIBUTES  =>'style="font-weight:bold"');
+      HTP.TableData('Anno opera',CATTRIBUTES  =>'style="font-weight:bold"');
+      HTP.TableData('Periodo opera',CATTRIBUTES  =>'style="font-weight:bold"');
+      /* inserire il tipo stanza*/
+      HTP.TableRowClose;
+FOR val_ope in oper_cursor
+loop
+    HTP.TableRowOpen;
+    HTP.TableData(val_ope.Titolo);
+    HTP.TableData(val_ope.Anno ,'center');
+    HTP.TableData(val_ope.FinePeriodo,'center');
+    HTP.TableRowClose;
+    
+end loop;
+HTP.TableClose;
+modGUI1.ChiudiDiv();
+htp.bodyClose;
+
+END operepresentimuseo;
+
 end operazioniGruppo4;

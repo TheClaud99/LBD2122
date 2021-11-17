@@ -869,6 +869,41 @@ BEGIN
 
 END;
 
+PROCEDURE ListaUtenti(
+	sessionID NUMBER default 0,
+)
+begin
+        modGUI1.ApriPagina('Lista utenti',sessionID);
+        modGUI1.Header(sessionID);
+		modGUI1.ApriDiv('class="w3-center"');
+        htp.prn('<h1>Lista utenti</h1>');
+        modGUI1.ApriDiv('class="w3-row w3-container"');
+
+   		for utente in (select * from utenti)  loop
+                modGUI1.ApriDiv('class="w3-col l4 w3-padding-large w3-center"');
+                    modGUI1.ApriDiv('class="w3-card-4" style="height:600px;"');
+						modGUI1.ApriDiv('class="w3-container w3-center"');
+							htp.prn('<p>'|| utente.nome ||'</p>');
+							htp.br;
+							htp.prn('<p>'|| utente.cognome ||'</p>');
+						modGUI1.ChiudiDiv;
+						modGUI1.Collegamento('Visualizza',
+                            'VisualizzaUtente?sessionID='||sessionID||'&utenteID='||utente.Idutente||,
+                            'w3-margin w3-green w3-button');
+                        if sessionID = 1 then
+						modGUI1.Collegamento('Modifica',
+                            'ModificaUtente?sessionID='||sessionID||'&utenteID='||utente.Idutente||,
+                            'w3-margin w3-blue w3-button');        
+                        modGUI1.Collegamento('Elimina',
+                            'EliminaUtente?sessionID='||sessionID||'&utenteID='||utente.Idutente||,
+                            'w3-red w3-margin w3-button');
+                    	end if;
+                	modGUI1.ChiudiDiv;
+                modGUI1.ChiudiDiv;
+        END LOOP;
+        modGUI1.chiudiDiv;
+end;
+
 
 PROCEDURE acquistabiglietto(
 	dataEmissionechar IN VARCHAR2,

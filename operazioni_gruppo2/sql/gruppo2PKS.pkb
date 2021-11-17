@@ -6,7 +6,7 @@ procedure EsitoNegativoOpere(sessionID NUMBER DEFAULT NULL);
 procedure StatisticheOpere(sessionID NUMBER DEFAULT NULL);
 procedure SpostamentiOpera (operaID NUMBER DEFAULT 0);
 procedure menuOpere (sessionID NUMBER DEFAULT NULL);
-procedure selezioneMuseo(sessionID NUMBER DEFAULT 0); 
+procedure selezioneMuseo(sessionID NUMBER DEFAULT 0);
 Procedure StatisticheOpere(
     sessionID NUMBER DEFAULT 0,
     museoID NUMBER DEFAULT 0
@@ -76,7 +76,7 @@ procedure lingua(
     operaID NUMBER default 0
 );
 /* OPERAZIONI SUGLI AUTORI */
-PROCEDURE menuAutori(sessionID NUMBER DEFAULT NULL); 
+PROCEDURE menuAutori(sessionID NUMBER DEFAULT NULL);
 
 procedure selezioneOpStatAut(sessionID NUMBER DEFAULT 0);
 
@@ -163,11 +163,6 @@ procedure EsitoNegativoUpdateAutori(
 
 /* OPERAZIONI SULLE DESCRIZIONI  */
 
-PROCEDURE visualizzaDescrizione(
-         sessionID NUMBER DEFAULT 0,
-         descrID NUMBER DEFAULT NULL
-);
-
 PROCEDURE InserisciDescrizione(
     sessionID NUMBER DEFAULT NULL,
     language VARCHAR2 DEFAULT NULL,
@@ -192,4 +187,29 @@ PROCEDURE InserisciDatiDescrizione(
     operaID NUMBER DEFAULT NULL
 );
 
+PROCEDURE modificaDescrizione(
+    sessionID NUMBER DEFAULT 0,
+    idDescrizione NUMBER DEFAULT NULL
+);
+
+PROCEDURE UpdateDescrizione(
+	sessionID NUMBER DEFAULT 0,
+	descrID NUMBER DEFAULT 0,
+    newopera number DEFAULT 0,
+    newlingua varchar2 DEFAULT null,
+    newlivello varchar2 DEFAULT null,
+    newtesto CLOB DEFAULT null
+);
+
+procedure EsitoPositivoUpdateDescrizioni(
+    sessionID NUMBER DEFAULT NULL, 
+    opera number DEFAULT 0,
+    lingua varchar2 DEFAULT null
+);
+
+procedure EsitoNegativoUpdateDescrizioni(
+    sessionID NUMBER DEFAULT NULL, 
+    opera number DEFAULT 0,
+    lingua varchar2 DEFAULT null
+);
 END gruppo2;

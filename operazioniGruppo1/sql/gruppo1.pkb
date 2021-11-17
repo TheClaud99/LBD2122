@@ -88,14 +88,14 @@ BEGIN
 	if utenteMuseo = 'on' then
 		MODGUI1.InputCheckboxOnClick('Utente museo', 'utenteMuseo','check()','utentemuseo', 1);
 		MODGUI1.ApriDiv('style="margin-left: 2%; margin-right: 2%; display: block" id="first"');
-	else 
+	else
 		MODGUI1.InputCheckboxOnClick('Utente museo', 'utenteMuseo','check()','utentemuseo');
 		MODGUI1.ApriDiv('style="margin-left: 2%; margin-right: 2%; display: none" id="first"');
 	end if;
 	HTP.BR;
 	if utenteDonatore = 'on' then
 		MODGUI1.InputCheckbox('Donatore', 'utenteDonatore', 1);
-	else 
+	else
 		MODGUI1.InputCheckbox('Donatore', 'utenteDonatore');
 	end if;
 	HTP.BR;
@@ -111,7 +111,7 @@ BEGIN
 	HTP.BR;
 	if utenteAssistenza = 'on' then
 		MODGUI1.InputCheckbox('Richiede assistenza', 'utenteAssistenza', 1);
-	else 
+	else
 		MODGUI1.InputCheckbox('Richiede assistenza', 'utenteAssistenza');
 	end if;
 	HTP.BR;
@@ -241,7 +241,7 @@ BEGIN
 			HTP.TableData('Utente campi estivo: ');
 			HTP.TableData('&#10004');
 			HTP.TableRowClose;
-			if utenteAssistenza = 'on' then 
+			if utenteAssistenza = 'on' then
 				HTP.TableRowOpen;
 				HTP.TableData('Richiesta assistenza: ');
 				HTP.TableData('&#10004');
@@ -391,7 +391,7 @@ BEGIN
 			HTP.TableData('Utente campi estivo: ');
 			HTP.TableData('&#10004');
 			HTP.TableRowClose;
-			if utenteAssistenza = 'on' then 
+			if utenteAssistenza = 'on' then
 				HTP.TableRowOpen;
 				HTP.TableData('Richiesta assistenza: ');
 				HTP.TableData('&#10004');
@@ -531,7 +531,7 @@ BEGIN
 			HTP.TableData('Utente campi estivo: ');
 			HTP.TableData('&#10004');
 			HTP.TableRowClose;
-			if UtenteAssistenza > 0 then 
+			if UtenteAssistenza > 0 then
 				HTP.TableRowOpen;
 				HTP.TableData('Richiesta assistenza: ');
 				HTP.TableData('&#10004');
@@ -625,14 +625,14 @@ BEGIN
 		if temp > 0 then
 		MODGUI1.InputCheckboxOnClick('Utente museo', 'utenteMuseoNew','check()','utentemuseo', 1);
 		MODGUI1.ApriDiv('style="margin-left: 2%; margin-right: 2%; display: block" id="first"');
-		else 
+		else
 			MODGUI1.InputCheckboxOnClick('Utente museo', 'utenteMuseoNew','check()','utentemuseo');
 			MODGUI1.ApriDiv('style="margin-left: 2%; margin-right: 2%; display: none" id="first"');
 		end if;
 		HTP.BR;
 		if utenteDonatore = 1 then
 			MODGUI1.InputCheckbox('Donatore', 'utenteDonatoreNew', 1);
-		else 
+		else
 			MODGUI1.InputCheckbox('Donatore', 'utenteDonatoreNew');
 		end if;
 		HTP.BR;
@@ -648,7 +648,7 @@ BEGIN
 		HTP.BR;
 		if utenteAssistenza = 1 then
 			MODGUI1.InputCheckbox('Richiede assistenza', 'utenteAssistenzaNew', 1);
-		else 
+		else
 			MODGUI1.InputCheckbox('Richiede assistenza', 'utenteAssistenzaNew');
 		end if;
 		HTP.BR;
@@ -734,8 +734,8 @@ PROCEDURE ModificaDatiUtente (
 BEGIN
 
 	select email into EmailUtente from UTENTI where utenteID = UTENTI.IDutente;
-	
-	if EmailUtente != utenteEmailNew then 
+
+	if EmailUtente != utenteEmailNew then
 		SELECT count(*) INTO temp FROM UTENTI WHERE UTENTI.Email = utenteEmailNew;
 		IF temp > 0 THEN
 			RAISE EmailPresente;
@@ -760,17 +760,17 @@ BEGIN
 		recapitotelefonico=telefonoNew
 	WHERE IDutente=utenteID;
 
-	
+
 	select count(*) into temp3 from UTENTIMUSEO where UTENTIMUSEO.IdUtente = utenteID;
 
 	if temp3 > 0 then
 		if utenteMuseoNew = 'on' then
 			if utenteDonatoreNew = 'on' then
-				update UTENTIMUSEO set 
+				update UTENTIMUSEO set
 					donatore=1
 				where idutente=utenteID;
 			else
-				update UTENTIMUSEO set 
+				update UTENTIMUSEO set
 					donatore=0
 				where idutente=utenteID;
 			end if;
@@ -792,11 +792,11 @@ BEGIN
 	if temp4 > 0 then
 		if utenteCampiEstiviNew = 'on' then
 			if utenteCampiEstiviNew = 'on' then
-				update UTENTICAMPIESTIVI set 
+				update UTENTICAMPIESTIVI set
 					Richiestaassistenza=1
 				where idutente=utenteID;
 			else
-				update UTENTICAMPIESTIVI set 
+				update UTENTICAMPIESTIVI set
 					Richiestaassistenza=0
 				where idutente=utenteID;
 			end if;
@@ -812,7 +812,7 @@ BEGIN
 			values (utenteID, 0);
 		end if;
 	end if;
-	
+
 
 	IF SQL%FOUND THEN
 		MODGUI1.ApriPagina('Utente aggiornato', sessionID);
@@ -1084,34 +1084,141 @@ END;
 -------------------------------------------------------------FINE TODO */
 
 
-PROCEDURE numeroVisitatoriNewsletter (
-    sessionID NUMBER DEFAULT 0,
+PROCEDURE statisticheNewsLetter (
+	sessionID NUMBER DEFAULT 0,
 	newsletterID NUMBER DEFAULT -1
 ) IS
-
-	temp NUMBER(10) := 10;
+	temp NUMBER(10) := 0;
 	nomeNew VARCHAR2(100) := '';
+	numeroVisitatori NUMBER(10) := 0;
+	etaMediaIscritti NUMBER(10) := 0;
 
-begin
+
+	--utente
+	U_NOME UTENTI.NOME%TYPE :='';
+	U_COGNOME UTENTI.COGNOME%TYPE :='';
+	U_NASCITA UTENTI.DATANASCITA%TYPE :='';
+	U_EMAIL UTENTI.EMAIL%TYPE :='';
+	U_INDIRIZZO UTENTI.INDIRIZZO%TYPE :='';
+	U_RECAPITO UTENTI.RECAPITOTELEFONICO%TYPE :='';
+
+    newsletterInesistente EXCEPTION;
+BEGIN
+
+	if newsletterID = -1
+	THEN
+		RAISE newsletterInesistente;
+	end if;
+
+	SELECT count(*) into temp FROM NEWSLETTER where NEWSLETTER.IDNEWS = newsletterID;
+
+	if temp = 0
+	THEN
+		RAISE newsletterInesistente;
+	end if;
+
 	SELECT NOME into nomeNew FROM NEWSLETTER WHERE NEWSLETTER.IDNEWS = newsletterID;
-	SELECT count(*) into temp from UTENTI where IdUtente IN (select VISITATORE from VISITE) AND IDUTENTE IN (SELECT IDUTENTE FROM NEWSLETTERUTENTI WHERE IDNEWS = newsletterID);
-	modgui1.apripagina('statistica');
-	modgui1.header();
-	modgui1.apridiv('style="margin-top: 110px"');
-	htp.prn('<h1> Numero visitatori per newsletter </h1>');
-	htp.br();
-	modgui1.Label(CONCAT('newsletter name:', nomeNew));
-	modgui1.Label(TO_CHAR(temp));
-	modgui1.chiudidiv;
-	htp.BodyClose;
-	htp.HtmlClose;
+	SELECT count(*) into numeroVisitatori from UTENTI where IdUtente IN (select VISITATORE from VISITE) AND IDUTENTE IN (SELECT IDUTENTE FROM NEWSLETTERUTENTI WHERE IDNEWS = newsletterID);
 
-	modgui1.chiudiDiv();
+	SELECT avg(age) into etaMediaIscritti FROM (SELECT MONTHS_BETWEEN(sysdate, UTENTI.DATANASCITA) / 12 age FROM UTENTI WHERE UTENTI.IDUTENTE IN (SELECT NEWSLETTERUTENTI.IDUTENTE FROM NEWSLETTERUTENTI WHERE NEWSLETTERUTENTI.IDNEWS = newsletterID));
+
+
+	MODGUI1.ApriPagina('Statistiche');
+	modgui1.header();
+	modgui1.apridiv('style="margin-top: 110px;text-align:center;"');
+	htp.prn(CONCAT('<h1> statistiche per newsletter </h1>', nomeNew));
+	htp.br();
+	modgui1.Label('Numero visitatori: ');
+	modgui1.Label(TO_CHAR(numeroVisitatori));
+	htp.br();
+	modgui1.Label('Età media iscritti: ');
+	modgui1.Label(TO_CHAR(etaMediaIscritti));
+	htp.br();
+
+	--hdaidhiaodh
+	modgui1.Label('Titoli di ingresso degli iscritti alla newsletter:');
+	--per ogni utente che è iscitto alla newsletter
+	--mostrare TUTTI i titoli di ingresso che ha acquistato
+
+	SELECT MAX(numb) INTO temp FROM (SELECT count(*) numb FROM TITOLIINGRESSO GROUP BY TITOLIINGRESSO.ACQUIRENTE);
+
+	htp.prn('<table style="width:100%" border="2">');
+	htp.prn('<tr>');
+		htp.prn('<th> utente </th>');
+		for k in 0..temp
+		LOOP
+			htp.prn(CONCAT(CONCAT('<th> acquisto ', k + 1), '</th>'));
+		END LOOP;
+	htp.prn('</tr>');
+	for id_utente in (	SELECT NEWSLETTERUTENTI.IDUTENTE
+						FROM NEWSLETTERUTENTI
+						WHERE NEWSLETTERUTENTI.IDNEWS = newsletterID
+								AND NEWSLETTERUTENTI.IDUTENTE IN (	SELECT TITOLIINGRESSO.ACQUIRENTE
+																	FROM TITOLIINGRESSO))
+	LOOP
+		--id_utente.IDUTENTE tiene id dell'utente
+		htp.prn('<tr>');
+		htp.prn('<td>');
+		--primo printare i dati dell'utente.
+		SELECT UTENTI.NOME, UTENTI.COGNOME, UTENTI.DATANASCITA, UTENTI.INDIRIZZO, UTENTI.EMAIL, UTENTI.RECAPITOTELEFONICO
+			INTO U_NOME, U_COGNOME, U_NASCITA, U_INDIRIZZO, U_EMAIL, U_RECAPITO
+			FROM UTENTI
+			WHERE UTENTI.IDUTENTE = id_utente.IDUTENTE;
+
+		htp.prn(TO_CHAR(U_NOME));
+		htp.prn(TO_CHAR(U_COGNOME));
+		htp.br;
+		htp.prn(TO_CHAR(U_NASCITA, 'YYYY-MM-DD'));
+		htp.br;
+		htp.prn(TO_CHAR(U_INDIRIZZO));
+		htp.br;
+		htp.prn(TO_CHAR(U_EMAIL));
+		htp.br;
+		htp.prn(TO_CHAR(U_RECAPITO));
+		htp.prn('</td>');
+
+		FOR titolo IN (
+			SELECT *
+			FROM TITOLIINGRESSO
+			WHERE TITOLIINGRESSO.ACQUIRENTE = id_utente.IDUTENTE
+		)
+		LOOP
+		htp.prn('<td>');
+		htp.prn(CONCAT('ID: ', TO_CHAR(titolo.IDTITOLOING)));
+		htp.br;
+		htp.prn(CONCAT('EMISSIONE: ', TO_CHAR(titolo.EMISSIONE, 'YYYY-MM-DD HH24:MI')));
+		htp.br;
+		htp.prn(CONCAT('SCADENZA: ', TO_CHAR(titolo.SCADENZA, 'YYYY-MM-DD')));
+		htp.br;
+		htp.prn(CONCAT('TIPOLOGIA: ', TO_CHAR(titolo.TIPOLOGIA)));
+		htp.br;
+
+		htp.prn('</td>');
+		END LOOP;
+
+		htp.prn('</tr>');
+
+	END LOOP;
+	htp.prn('</table>');
+	----dshaheoh
+	MODGUI1.chiudiDiv;
 	htp.bodyclose;
 	htp.htmlclose;
 
-end;
+	EXCEPTION
+	when newsletterInesistente THEN
+		MODGUI1.ApriPagina('Errore', sessionID);
+		MODGUI1.Header();
+		HTP.BodyOpen;
 
+		MODGUI1.ApriDiv;
+		MODGUI1.LABEL('newsletter inesistente');
+		MODGUI1.collegamento('visualizza newsletter', 'visualizzaNewsletter');
+		MODGUI1.ChiudiDiv;
+
+		HTP.BodyClose;
+		HTP.HtmlClose;
+END;
 END GRUPPO1;
 
 /*
@@ -1136,8 +1243,7 @@ END GRUPPO1;
  * - Iscrizione(rimozione)❌
  * - Cancellazione Iscrizione❌
  * OPERAZIONI STATISTICHE E MONITORAGGIO
- * - Numero visitatori iscritti alla Newsletter scelta FATTO!
- * - Età media dei visitatori iscritti alla Newsletter scelta ❌
- * - Titoli d’ingresso appartenenti ai visitatori iscritti alla Newsletter scelta❌
- * - Lista Opere ordinate per numero di Autori in ordine decrescente ❌
+ * - Numero visitatori iscritti alla Newsletter scelta ✅
+ * - Età media dei visitatori iscritti alla Newsletter scelta ✅
+ * - Titoli d’ingresso appartenenti ai visitatori iscritti alla Newsletter scelta ✅
 */

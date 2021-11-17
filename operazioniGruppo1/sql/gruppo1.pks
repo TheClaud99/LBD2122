@@ -112,8 +112,8 @@ PROCEDURE inserisci_newsletter (
 );
 */
 
-PROCEDURE numeroVisitatoriNewsletter (
-    sessionID NUMBER DEFAULT 0,
+PROCEDURE statisticheNewsLetter (
+	sessionID NUMBER DEFAULT 0,
 	newsletterID NUMBER DEFAULT -1
 );
 

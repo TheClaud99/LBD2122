@@ -870,7 +870,7 @@ END;
  * - Opere realizzate dall’Autore ✅
  * - Musei con Opere dell’Autore esposte ✅
  * - Collaborazioni effettuate ❌
- * - Opere dell’Autore presenti in un Museo scelto ❌
+ * - Opere dell’Autore presenti in un Museo scelto ✅
  * - Autori in vita le cui Opere sono esposte in un Museo scelto ❌
  */
 
@@ -977,18 +977,33 @@ nomecompleto VARCHAR2(50);
                 'w3-btn w3-large w3-red w3-display-topright');
             -- Form per mandare dati alla procedura di conferma
             modGUI1.ApriDiv('class="w3-center"');
-            modGUI1.ApriForm('StatisticheAutori');
-            htp.FORMHIDDEN('sessionID',sessionID);
-            htp.FORMHIDDEN('operazione',operazione);
-            MODGUI1.SELECTOPEN('authID', 'authID');
-            FOR an_auth IN (SELECT IdAutore,Nome,COGNOME FROM AUTORI ORDER BY NOME ASC)
-            LOOP
-                nomecompleto := an_auth.Nome||' '||an_auth.cognome;
-                modGUI1.SELECTOPTION(an_auth.IdAutore, nomecompleto, 0);
-            END LOOP;
-            MODGUI1.SelectClose;
-            htp.prn('<button class="w3-button w3-block w3-black w3-section w3-padding" type="submit">Seleziona</button>');
-            modGUI1.ChiudiForm;
+            if operazione < 3 THEN
+                modGUI1.ApriForm('StatisticheAutori');
+                htp.FORMHIDDEN('sessionID',sessionID);
+                htp.FORMHIDDEN('operazione',operazione);
+                MODGUI1.SELECTOPEN('authID', 'authID');
+                FOR an_auth IN (SELECT IdAutore,Nome,COGNOME FROM AUTORI ORDER BY NOME ASC)
+                LOOP
+                    nomecompleto := an_auth.Nome||' '||an_auth.cognome;
+                    modGUI1.SELECTOPTION(an_auth.IdAutore, nomecompleto, 0);
+                END LOOP;
+                MODGUI1.SelectClose;
+                htp.prn('<button class="w3-button w3-block w3-black w3-section w3-padding" type="submit">Seleziona</button>');
+                modGUI1.ChiudiForm;
+            ELSE
+                modGUI1.ApriForm('selezioneMuseoAutoreStatistica');
+                htp.FORMHIDDEN('sessionID',sessionID);
+                htp.FORMHIDDEN('operazione',operazione);
+                MODGUI1.SELECTOPEN('authID', 'authID');
+                FOR an_auth IN (SELECT IdAutore,Nome,COGNOME FROM AUTORI ORDER BY NOME ASC)
+                LOOP
+                    nomecompleto := an_auth.Nome||' '||an_auth.cognome;
+                    modGUI1.SELECTOPTION(an_auth.IdAutore, nomecompleto, 0);
+                END LOOP;
+                MODGUI1.SelectClose;
+                htp.prn('<button class="w3-button w3-block w3-black w3-section w3-padding" type="submit">Seleziona</button>');
+                modGUI1.ChiudiForm;
+            END IF;
             MODGUI1.chiudiDiv;
         modGUI1.ChiudiDiv;
     modGUI1.ChiudiDiv;
@@ -1007,7 +1022,7 @@ SELECT * INTO auth FROM autori WHERE authID=IDAUTORE;
         htp.br;htp.br;htp.br;htp.br;htp.br;htp.br;
         modGUI1.ApriDiv('class="w3-center"');
             htp.prn('<h1><b>STATISTICHE AUTORE</b></h1>'); --TITOLO  
-            htp.prn('<h4><b>'||auth.nome||' '||auth.cognome||'''</b></h4>');
+            htp.prn('<h4><b>'||auth.nome||' '||auth.cognome||'</b></h4>');
             modGUI1.Collegamento('Torna al menu','menuAutori?sessionID='||sessionID,'w3-black w3-margin w3-button');
         modGUI1.ChiudiDiv;
         htp.br;
@@ -1064,6 +1079,89 @@ SELECT * INTO auth FROM autori WHERE authID=IDAUTORE;
             FOR op IN (select * FROM OPERE op1 where 
                     op1.IDOPERA=(select DISTINCT a1.idopera from AUTORIOPERE a1,AUTORIOPERE a2 WHERE
                         (a1.idopera=a2.idopera) AND (a1.idautore<>a2.idautore)))
+            LOOP
+                modGUI1.ApriDiv('class="w3-col l4 w3-padding-large w3-center"');
+                    modGUI1.ApriDiv('class="w3-card-4" style="height:600px;"');
+                    htp.prn('<img src="https://cdn.pixabay.com/photo/2016/10/22/15/32/water-1761027__480.jpg" alt="Alps" style="width:100%;">');
+                            modGUI1.ApriDiv('class="w3-container w3-center"');
+                                htp.prn('<p>'|| op.titolo ||'</p>');
+                                htp.br;
+                                htp.prn('<p>'|| op.anno ||'</p>');
+                            modGUI1.ChiudiDiv;
+                    modGUI1.ChiudiDiv;
+                modGUI1.ChiudiDiv;
+            END LOOP;
+        end IF;
+
+END;
+
+procedure selezioneMuseoAutoreStatistica(
+    sessionID NUMBER DEFAULT 0,
+    operazione NUMBER DEFAULT 0,
+    authID NUMBER DEFAULT 0
+)IS
+BEGIN
+modGUI1.ApriPagina('Selezione statistica', sessionID);
+    modGUI1.Header(sessionID);
+    htp.br;htp.br;htp.br;htp.br;
+
+    htp.prn('<h1 align="center">Seleziona il museo</h1>');
+    modGUI1.ApriDiv('class="w3-modal-content w3-card-4 w3-animate-zoom" style="max-width:600px"');
+        modGUI1.ApriDiv('class="w3-section"');
+            -- Link di ritorno al menuAutori
+            modGUI1.Collegamento('X',
+                'menuAutori?sessionID='||sessionID,
+                'w3-btn w3-large w3-red w3-display-topright');
+            -- Form per mandare dati alla procedura di conferma
+            modGUI1.ApriDiv('class="w3-center"');
+            modGUI1.ApriForm('StatisticheMuseoAutori');
+            htp.FORMHIDDEN('sessionID',sessionID);
+            htp.FORMHIDDEN('operazione',operazione);
+            htp.FORMHIDDEN('authID',authID);
+            MODGUI1.SELECTOPEN('museoID', 'museoID');
+            FOR an_mus IN (SELECT IDMUSEO,NOME FROM MUSEI ORDER BY NOME ASC)
+            LOOP
+                modGUI1.SELECTOPTION(an_mus.idmuseo, an_mus.Nome, 0);
+            END LOOP;
+            MODGUI1.SelectClose;
+            htp.prn('<button class="w3-button w3-block w3-black w3-section w3-padding" type="submit">Seleziona</button>');
+            modGUI1.ChiudiForm;
+            MODGUI1.chiudiDiv;
+        modGUI1.ChiudiDiv;
+    modGUI1.ChiudiDiv;
+END selezioneMuseoAutoreStatistica;
+
+Procedure StatisticheMuseoAutori(
+    sessionID NUMBER DEFAULT 0,
+    operazione NUMBER DEFAULT 0,
+    authID NUMBER DEFAULT 0,
+    museoID NUMBER DEFAULT 0
+)IS
+auth Autori%ROWTYPE;
+mus MUSEI%ROWTYPE;
+BEGIN
+SELECT * INTO auth FROM autori WHERE authID=IDAUTORE;
+SELECT * INTO mus FROM MUSEI WHERE museoID=IDMUSEO; 
+    MODGUI1.ApriPagina('StatisticheAutori',SessionID);
+        modGUI1.Header(sessionID);
+        htp.br;htp.br;htp.br;htp.br;htp.br;htp.br;
+        modGUI1.ApriDiv('class="w3-center"');
+            htp.prn('<h1><b>STATISTICHE AUTORE</b></h1>'); --TITOLO  
+            htp.prn('<h4><b>'||auth.nome||' '||auth.cognome||'</b></h4>');
+            modGUI1.Collegamento('Torna al menu','menuAutori?sessionID='||sessionID,'w3-black w3-margin w3-button');
+        modGUI1.ChiudiDiv;
+        htp.br;
+
+        --OPERE ESPOSTE NEL MUSEO SCELTO
+        if operazione=3 THEN
+        modGUI1.ApriDiv('class="w3-container" style="width:100%"');
+        htp.print('<h2><b>Opere realizzate esposte in '||mus.nome||'</b></h2>');
+            FOR op IN (Select DISTINCT *
+            from OPERE JOIN AUTORIOPERE on (OPERE.idopera = AUTORIOPERE.idopera) 
+                JOIN SALEOPERE ON (OPERE.IDOPERA=SALEOPERE.OPERA) 
+            WHERE IDAUTORE=AUTH.idautore AND SALEOPERE.SALA IN (
+                    select STANZE.IDSTANZA from stanze WHERE STANZE.MUSEO=museoID
+            ))
             LOOP
                 modGUI1.ApriDiv('class="w3-col l4 w3-padding-large w3-center"');
                     modGUI1.ApriDiv('class="w3-card-4" style="height:600px;"');

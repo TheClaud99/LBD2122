@@ -3,16 +3,17 @@ CREATE OR REPLACE PACKAGE BODY packageAcquistaTitoli AS
 /*
  *  OPERAZIONI SUI TITOLI DI INGRESSO
  * - Modifica ❌
- * - Cancellazione❌
- * - Visualizzazione ❌
- * - Acquisto abbonamento museale ❌
- * - Acquisto biglietto ❌
+ * - Cancellazione 
+ * - Visualizzazione 
+ * - Acquisto abbonamento museale 
+ * - Acquisto biglietto 
  * OPERAZIONI STATISTICHE E MONITORAGGIO
  * - Numero Titoli d’Ingresso emessi in un arco temporale scelto ❌
  * - Numero Titoli d’Ingresso emessi da un Museo in un arco temporale scelto ❌
  * - Abbonamenti in scadenza nel mese corrente ❌
  */
 
+ --VISUALIZZAZIONE
 PROCEDURE visualizzatitoliing(
 	varidtitoloing in number
 )is
@@ -103,6 +104,7 @@ BEGIN
 	visualizzatitoliing(varidtitoloing);
 END;
 
+--ACQUISTO ABBONAMENTO
 PROCEDURE formacquistaabbonamento(
 	dataEmissionechar IN VARCHAR2,
 	dataScadenzachar IN VARCHAR2,
@@ -314,6 +316,7 @@ begin
 			</script>');
 END;
 
+--ACQUISTO BIGLIETTO
 procedure formacquistabiglietto(
 	dataEmissionechar IN VARCHAR2,
 	idmuseoselezionato IN VARCHAR2 default null,
@@ -399,8 +402,6 @@ begin
 					}
 	</script>');
 END;
-
-
 
 PROCEDURE confermaacquistobiglietto(
 	dataEmissionechar VARCHAR2 DEFAULT NULL,
@@ -512,6 +513,59 @@ begin
 	HTP.HtmlClose;
 end;
 
+-- Numero Titoli d’Ingresso emessi in un arco temporale scelto
+procedure statTitoliPerArcoTemp(
+	datainizio VARCHAR2 default null,
+	datafine VARCHAR2 default null
+)IS
+	iniziop:= to_date(datainizio, 'YYYY-MM-DD');
+	finep:= to_date(datafine, 'YYYY-MM-DD');
+	statistica NUMBER(10) default 0;
+BEGIN
+	if datainizio is null or datafine is NULL or iniziop > finep
+	then 
+		modgui1.apripagina('Pagina errore');
+		modgui1.header();
+		modgui1.apridiv('style="margin-top: 110px"');
+		htp.prn('<h1> Errore </h1>');
+		htp.br();
+		htp.print('Arco temporale non valido.');
+    	modgui1.chiudidiv;
+    	htp.BodyClose;
+    	htp.HtmlClose;
+	ELSE
+		modgui1.apripagina('Visualizzazione Statistica');
+		modgui1.header();
+		modgui1.apridiv('style="margin-top: 110px"');
+		modgui1.apridivcard();
+		htp.prn('<h1> Statistica titoli ingresso </h1>');
+
+		SELECT count(*)
+		into statistica
+		from TITOLIINGRESSO
+		where iniziop <= titoliingresso.Emissione and titoliingresso.Emissione <= finep;
+
+		HTP.TableOpen;
+		HTP.TableRowOpen;
+		HTP.TableData('Data inizio periodo: ');
+		HTP.TableData(datainizio);
+		HTP.TableRowClose;
+		HTP.TableRowOpen;
+		htp.tabledata('Data fine periodo: ');
+		htp.tabledata(finep);
+		HTP.TableRowClose;
+		HTP.TableRowOpen;
+		HTP.TableData("Numero di titoli venduti durante l'arco temporale scelto: ");
+		HTP.TableData(statistica);
+		HTP.TableRowClose;
+		htp.TableClose;
+
+		htp.BodyClose;
+		htp.HtmlClose;
+	end if;
+
+END;
+--CANCELLAZIONE
 procedure cancellazionetitoloing(
 	idtitoloingselezionato varchar2
 )

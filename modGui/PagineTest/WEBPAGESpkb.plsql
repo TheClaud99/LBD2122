@@ -1,7 +1,7 @@
 CREATE OR REPLACE PACKAGE BODY WebPages as
 
 --SCHERMATA PRINCIPALE
-procedure BodyHome (idSessione varchar2 default 0) is
+procedure Home (idSessione varchar2 default 0) is
     begin
     htp.htmlOpen;
     htp.headOpen;
@@ -35,7 +35,7 @@ procedure BodyHome (idSessione varchar2 default 0) is
             modGUI1.ChiudiDiv;
         modGUI1.chiudiDiv;
     end if;
-    end BodyHome;
+    end Home;
 
 
 

@@ -46,5 +46,20 @@ procedure controllamusei
    newNome in Musei.Nome%TYPE default null,
    newIndirizzo in MUSEI.INDIRIZZO%TYPE default null
 );
-
+/*STATISTICHE MUSEO*/
+procedure form1monitoraggio
+(
+   MuseoId IN MUSEI.IdMuseo%TYPE,
+   NameMuseo IN MUSEI.NOME%TYPE
+);
+procedure salepresenti
+(
+   sessionID IN number default 0,
+   MuseoId IN  Musei.IdMuseo%TYPE
+);
+procedure operepresentimuseo
+(
+   sessionID IN number default 0,
+   MuseoId IN  Musei.IdMuseo%TYPE
+);
 end operazioniGruppo4;

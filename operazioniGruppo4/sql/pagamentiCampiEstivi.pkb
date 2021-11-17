@@ -1,6 +1,6 @@
 procedure InserisciPagamentoCampiEstivi(
     sessionID  default 0,
-    dataPagamento in PAGAMENTICAMPIESTIVI.DataPagamento%type default NULL,
+    dataPagamento in varchar2 default NULL,
     tariffa in PAGAMENTICAMPIESTIVI.Tariffa%type default 0, 
     acquirente in PAGAMENTICAMPIESTIVI.Aquirente%type default 0 
 ) is
@@ -14,22 +14,22 @@ begin
     htp.header(1, 'Inserisci un nuovo pagamento', 'centered'); /* opzionale */
     modgui1.apridiv('class="w3-modal-content w3-card-4 w3-animate-zoom" style="max-width:600px; margin-top:110px"');
     
-    modgui1.ApriForm('ConfermaPagamentoCampiEstivi');
+    modgui1.ApriForm('ConfermaPagamentoCampiEstivi', 'invia', 'w3-container');
     htp.FORMHIDDEN('sessionID', 0);
 
-    modgui1.label('Data Pagamento*');
-    modgui1.InputDate('data', 'data', 1, dataPagamento);
-    htp.BR;
+    modgui1.label('Data Pagamento');
+    modgui1.InputDate('dataPagamento', 'dataPagamento', 1, dataPagamento);
+    htp.br;
 
-    modgui1.label('Tariffa*');
+    modgui1.label('Tariffa');
     modgui1.InputText('tariffa', 'tariffa', 0, tariffa);
-    htp.BR;
+    htp.br;
 
-    modgui1.label('Acquirente*');
+    modgui1.label('Acquirente');
     modgui1.InputText('acquirente', 'acquirente', 0, acquirente);
-    htp.BR;
+    htp.br;
 
-    modgui1.INPUTSUBMIT('Invia');
+    modgui1.inputsubmit('Invia');
 
     modgui1.ChiudiForm;
     modgui1.ChiudiDiv;
@@ -40,7 +40,7 @@ end;
 
 procedure ConfermaPagamentoCampiEstivi(
     sessionID number default 0,
-    dataPagamento in PAGAMENTICAMPIESTIVI.DataPagamento%type default NULL,
+    dataPagamento in varchar2 default NULL,
     tariffa in PAGAMENTICAMPIESTIVI.Tariffa%type default 0, 
     acquirente in PAGAMENTICAMPIESTIVI.Aquirente%type default 0
 ) is 
@@ -51,7 +51,7 @@ begin
     modgui1.APRIPAGINA('Conferma Pagamento Campi Estivi');
     modgui1.HEADER();
     htp.bodyopen();
-    
+    modGUI1.ApriDiv('class="w3-modal-content w3-card-4" style="max-width:600px"');
   
 end;
 
@@ -101,7 +101,7 @@ begin
         htp.print('</H1>');
     else
         insert into PAGAMENTICAMPIESTIVI(IdPagamento, DataPagamento, Tariffa, Acquirente)
-        values (IdPagamentoSeq.nextval, dataPagamento, tariffa, acquirente);
+            values (IdPagamentoSeq.nextval, dataPagamento, tariffa, acquirente);
         htp.print('<H1 ALIGN=CENTER>');
         modgui1.LABEL('PagamentoCampoEstivo inserito correttamente');
         htp.print('</H1>');

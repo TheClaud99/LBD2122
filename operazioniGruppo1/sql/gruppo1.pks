@@ -45,15 +45,36 @@ PROCEDURE InserisciDatiUtente (
 	utenteAssistenza VARCHAR2 DEFAULT NULL
 );
 
-PROCEDURE VisualizzaDatiUtente (
+PROCEDURE VisualizzaUtente (
     sessionID NUMBER DEFAULT 0,
 	utenteID NUMBER
 );
 
-PROCEDURE ModificaDatiUtente (
+PROCEDURE ModificaUtente (
     sessionID NUMBER DEFAULT 0,
 	utenteID NUMBER DEFAULT NULL
 );
+
+PROCEDURE ModificaDatiUtente (
+	sessionID NUMBER DEFAULT 0,
+	utenteID NUMBER,
+	nomeNew VARCHAR2 DEFAULT NULL,
+	cognomeNew VARCHAR2 DEFAULT NULL,
+	dataNascitaNew VARCHAR2 DEFAULT NULL,
+	indirizzoNew VARCHAR2 DEFAULT NULL,
+	utenteEmailNew VARCHAR2 DEFAULT NULL,
+    telefonoNew VARCHAR2 DEFAULT NULL,
+	utenteMuseoNew VARCHAR2 DEFAULT NULL,
+	utenteDonatoreNew VARCHAR2 DEFAULT NULL,
+	utenteCampiEstiviNew VARCHAR2 DEFAULT NULL,
+	utenteAssistenzaNew VARCHAR2 DEFAULT NULL
+);
+
+PROCEDURE EliminaUtente(
+	sessionID NUMBER DEFAULT 0,
+	utenteID NUMBER
+)
+
 
 PROCEDURE acquistabiglietto(
 	dataEmissionechar IN VARCHAR2,

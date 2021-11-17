@@ -36,9 +36,18 @@ CREATE OR REPLACE PACKAGE packagevisite AS
         convalida            IN  NUMBER DEFAULT NULL
     );
 
+    PROCEDURE pagina_rimuovi_visita (
+        idvisitaselezionata  IN  visite.idvisita%TYPE
+    );
+
+    PROCEDURE rimuovi_visita (
+        idvisitaselezionata  IN  visite.idvisita%TYPE
+    );
+
     PROCEDURE visualizzavisita (
         idvisitaselezionata  IN  visite.idvisita%TYPE,
-        titolo               IN  VARCHAR2 DEFAULT NULL
+        titolo               IN  VARCHAR2 DEFAULT NULL,
+        action               IN  VARCHAR2 DEFAULT NULL
     );
 
     PROCEDURE visualizza_visite (

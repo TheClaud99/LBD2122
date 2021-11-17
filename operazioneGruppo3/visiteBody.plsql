@@ -5,9 +5,9 @@ CREATE OR REPLACE PACKAGE BODY packagevisite AS
     /*
     * OPERAZIONI SULLE VISITE
     * - Inserimento ✅
-    * - Modifica �?�
-    * - Visualizzazione �?�
-    * - Cancellazione (rimozione) �?�
+    * - Modifica ✅
+    * - Visualizzazione ✅
+    * - Cancellazione (rimozione) ✅
     * - Monitoraggio e statistiche
     * OPERAZIONI STATISTICHE E MONITORAGGIO
     * - Numero visitatori unici in un arco temporale scelto �?�
@@ -86,7 +86,8 @@ CREATE OR REPLACE PACKAGE BODY packagevisite AS
 
     PROCEDURE visualizzavisita (
         idvisitaselezionata  IN  visite.idvisita%TYPE,
-        titolo               IN  VARCHAR2 DEFAULT NULL
+        titolo               IN  VARCHAR2 DEFAULT NULL,
+        action               IN  VARCHAR2 DEFAULT NULL
     ) IS
         visita visite%rowtype;
     BEGIN
@@ -125,6 +126,16 @@ CREATE OR REPLACE PACKAGE BODY packagevisite AS
                                visita.titoloingresso
             );
 
+            IF action IS NOT NULL THEN
+                modgui1.apriform(action);
+                htp.formhidden(
+                              'idvisitaselezionata',
+                              idvisitaselezionata
+                );
+                modgui1.inputsubmit('Conferma');
+                modgui1.chiudiform;
+            END IF;
+
             modgui1.chiudidiv();
         EXCEPTION
             WHEN no_data_found THEN
@@ -152,7 +163,7 @@ CREATE OR REPLACE PACKAGE BODY packagevisite AS
         IF ( idsessione = 1 ) THEN
             modgui1.collegamento(
                                 'Aggiungi',
-                                'inserimento',
+                                'PackageVisite.pagina_inserisci_visita',
                                 'w3-btn w3-round-xxlarge w3-black'
             ); /*bottone che rimanda alla procedura inserimento solo se la sessione è 1*/
         END IF;
@@ -186,25 +197,21 @@ CREATE OR REPLACE PACKAGE BODY packagevisite AS
             );
 
             modgui1.chiudidiv;
+            modgui1.collegamento(
+                                'Visualizza',
+                                'packagevisite.visualizzavisita?idvisitaselezionata=' || visita.idvisita,
+                                'w3-button w3-black'
+            );
             IF ( idsessione = 1 ) THEN
-                modgui1.collegamento(
-                                    'Visualizza',
-                                    'packagevisite.visualizzavisita?idvisitaselezionata=' || visita.idvisita,
-                                    'w3-button w3-black'
-                );
                 modgui1.collegamento(
                                     'Modifica',
                                     'packagevisite.pagina_modifica_visita?carica_default=1&idvisitaselezionata=' || visita.idvisita,
                                     'w3-button w3-green'
                 );
-                modgui1.bottone(
-                               'w3-red',
-                               'Rimuovi'
-                );
-            ELSE
-                modgui1.bottone(
-                               'w3-black',
-                               'Visualizza'
+                modgui1.collegamento(
+                                    'Rimuovi',
+                                    'packagevisite.pagina_rimuovi_visita?idvisitaselezionata=' || visita.idvisita,
+                                    'w3-button w3-red'
                 );
             END IF;
 
@@ -256,7 +263,7 @@ CREATE OR REPLACE PACKAGE BODY packagevisite AS
         idvisitaselezionata  IN  visite.idvisita%TYPE,
         datavisitachar       IN  VARCHAR2,
         oravisita            IN  VARCHAR2,
-        var_duratavisita         IN  NUMBER,
+        var_duratavisita     IN  NUMBER,
         idutenteselezionato  IN  utenti.idutente%TYPE,
         idtitoloselezionato  IN  titoliingresso.idtitoloing%TYPE
     ) IS
@@ -278,6 +285,32 @@ CREATE OR REPLACE PACKAGE BODY packagevisite AS
                         idvisitaselezionata,
                         'Visita aggiornata'
         );
+    END;
+
+    PROCEDURE rimuovi_visita (
+        idvisitaselezionata IN visite.idvisita%TYPE
+    ) IS
+    BEGIN
+        DELETE FROM visite
+        WHERE
+            idvisita = idvisitaselezionata;
+
+        modgui1.apripagina();
+        modgui1.header();
+        modgui1.apridiv('style="margin-top: 110px"');
+        htp.header(
+                  2,
+                  'Visita eliminata',
+                  'center'
+        );
+        htp.prn('<a href="'
+                || costanti.server
+                || costanti.radice
+                || 'PackageVisite.visualizza_visite" style="display: block; margin: 0 auto; max-width: 200px;" class="w3-btn w3-round-xxlarge w3-black">Torna alla home</a>');
+
+        modgui1.chiudidiv;
+        htp.bodyclose;
+        htp.htmlclose;
     END;
 
     PROCEDURE formvisita (
@@ -555,6 +588,17 @@ CREATE OR REPLACE PACKAGE BODY packagevisite AS
         </script>');
         htp.prn('</body>
         </html>');
+    END;
+
+    PROCEDURE pagina_rimuovi_visita (
+        idvisitaselezionata IN visite.idvisita%TYPE
+    ) IS
+    BEGIN
+        visualizzavisita(
+                        idvisitaselezionata,
+                        'Elimina visita',
+                        'PackageVisite.rimuovi_visita'
+        );
     END;
 
     PROCEDURE pagina_inserisci_visita (

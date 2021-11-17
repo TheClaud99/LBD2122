@@ -868,7 +868,7 @@ END;
  * - Cancellazione (rimozione) ❌
  * OPERAZIONI STATISTICHE E MONITORAGGIO
  * - Opere realizzate dall’Autore ✅
- * - Musei con Opere dell’Autore esposte ❌
+ * - Musei con Opere dell’Autore esposte ✅
  * - Collaborazioni effettuate ❌
  * - Opere dell’Autore presenti in un Museo scelto ❌
  * - Autori in vita le cui Opere sono esposte in un Museo scelto ❌
@@ -1016,10 +1016,54 @@ SELECT * INTO auth FROM autori WHERE authID=IDAUTORE;
         if operazione=0 THEN
         modGUI1.ApriDiv('class="w3-container" style="width:100%"');
         htp.print('<h2><b>Opere realizzate</b></h2>');
-        --INIZIO LOOP DELLA VISUALIZZAZIONE
             FOR op IN (Select Titolo,Anno 
                 from OPERE JOIN AUTORIOPERE on (OPERE.idopera = AUTORIOPERE.idopera) 
                 WHERE IDAUTORE=AUTH.idautore)
+            LOOP
+                modGUI1.ApriDiv('class="w3-col l4 w3-padding-large w3-center"');
+                    modGUI1.ApriDiv('class="w3-card-4" style="height:600px;"');
+                    htp.prn('<img src="https://cdn.pixabay.com/photo/2016/10/22/15/32/water-1761027__480.jpg" alt="Alps" style="width:100%;">');
+                            modGUI1.ApriDiv('class="w3-container w3-center"');
+                                htp.prn('<p>'|| op.titolo ||'</p>');
+                                htp.br;
+                                htp.prn('<p>'|| op.anno ||'</p>');
+                            modGUI1.ChiudiDiv;
+                    modGUI1.ChiudiDiv;
+                modGUI1.ChiudiDiv;
+            END LOOP;
+        end IF;
+
+        --MUSEI CON OPERE ESPOSTE
+        if operazione=1 THEN
+        modGUI1.ApriDiv('class="w3-container" style="width:100%"');
+        htp.print('<h2><b>Musei con opere esposte</b></h2>');
+            FOR mus IN (Select DISTINCT *
+                    from MUSEI where
+                    IDMUSEO IN (select STANZE.MUSEO from stanze JOIN SALEOPERE on (stanze.IDSTANZA=SALEOPERE.SALA) where 
+                    saleopere.DATAUSCITA is null and SALEOPERE.OPERA in 
+                    (Select DISTINCT opere.IDOPERA
+                        from OPERE JOIN AUTORIOPERE on (OPERE.idopera = AUTORIOPERE.idopera) 
+                        WHERE IDAUTORE=AUTH.idautore)))
+            LOOP
+                modGUI1.ApriDiv('class="w3-col l4 w3-padding-large w3-center"');
+                    modGUI1.ApriDiv('class="w3-card-4" style="height:600px;"');
+                    htp.prn('<img src="https://cdn.pixabay.com/photo/2016/10/22/15/32/water-1761027__480.jpg" alt="Alps" style="width:100%;">');
+                            modGUI1.ApriDiv('class="w3-container w3-center"');
+                                htp.prn('<p>Museo '|| mus.Nome ||'</p>');
+                                htp.prn('<p>testo di prova</p>');
+                            modGUI1.ChiudiDiv;
+                    modGUI1.ChiudiDiv;
+                modGUI1.ChiudiDiv;
+            END LOOP;
+        end IF;
+
+        --COLLABORAZIONI EFFETTUATE -------da testare
+        if operazione=2 THEN
+        modGUI1.ApriDiv('class="w3-container" style="width:100%"');
+        htp.print('<h2><b>Opere create in collaborazione</b></h2>');
+            FOR op IN (select * FROM OPERE op1 where 
+                    op1.IDOPERA=(select DISTINCT a1.idopera from AUTORIOPERE a1,AUTORIOPERE a2 WHERE
+                        (a1.idopera=a2.idopera) AND (a1.idautore<>a2.idautore)))
             LOOP
                 modGUI1.ApriDiv('class="w3-col l4 w3-padding-large w3-center"');
                     modGUI1.ApriDiv('class="w3-card-4" style="height:600px;"');

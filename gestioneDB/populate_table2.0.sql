@@ -29841,90 +29841,6 @@ INSERT INTO TITOLIINGRESSO(IdTitoloing, Emissione, Scadenza, Acquirente, Tipolog
 VALUES(IdTitoloingSeq.nextVal, to_date('13/01/2021 17:33:44', 'DD/MM/YYYY HH24:MI:SS'), to_date('13/01/2022', 'DD/MM/YYYY HH24:MI:SS'), 708, 14, 2); --1239
 INSERT INTO TITOLIINGRESSO(IdTitoloing, Emissione, Scadenza, Acquirente, Tipologia, Museo)
 VALUES(IdTitoloingSeq.nextVal, to_date('27/03/2019 11:36:10', 'DD/MM/YYYY HH24:MI:SS'), to_date('27/03/2020', 'DD/MM/YYYY HH24:MI:SS'), 250, 14, 2); --1240
-INSERT INTO TITOLIINGRESSO(IdTitoloing, Emissione, Scadenza, Acquirente, Tipologia, Museo)
-VALUES(IdTitoloingSeq.nextVal, to_date('19/09/2017 10:24:26', 'DD/MM/YYYY HH24:MI:SS'), to_date('19/09/2018', 'DD/MM/YYYY HH24:MI:SS'), 224, 15, 1); --1240
-INSERT INTO TITOLIINGRESSO(IdTitoloing, Emissione, Scadenza, Acquirente, Tipologia, Museo)
-VALUES(IdTitoloingSeq.nextVal, to_date('20/05/2015 17:32:34', 'DD/MM/YYYY HH24:MI:SS'), to_date('20/05/2016', 'DD/MM/YYYY HH24:MI:SS'), 79, 15, 1); --1241
-INSERT INTO TITOLIINGRESSO(IdTitoloing, Emissione, Scadenza, Acquirente, Tipologia, Museo)
-VALUES(IdTitoloingSeq.nextVal, to_date('1/08/2017 13:47:5', 'DD/MM/YYYY HH24:MI:SS'), to_date('1/08/2018', 'DD/MM/YYYY HH24:MI:SS'), 194, 15, 1); --1242
-INSERT INTO TITOLIINGRESSO(IdTitoloing, Emissione, Scadenza, Acquirente, Tipologia, Museo)
-VALUES(IdTitoloingSeq.nextVal, to_date('5/07/2016 11:57:6', 'DD/MM/YYYY HH24:MI:SS'), to_date('5/07/2017', 'DD/MM/YYYY HH24:MI:SS'), 120, 15, 1); --1243
-INSERT INTO TITOLIINGRESSO(IdTitoloing, Emissione, Scadenza, Acquirente, Tipologia, Museo)
-VALUES(IdTitoloingSeq.nextVal, to_date('15/02/2020 11:37:33', 'DD/MM/YYYY HH24:MI:SS'), to_date('15/02/2021', 'DD/MM/YYYY HH24:MI:SS'), 88, 15, 1); --1244
-INSERT INTO TITOLIINGRESSO(IdTitoloing, Emissione, Scadenza, Acquirente, Tipologia, Museo)
-VALUES(IdTitoloingSeq.nextVal, to_date('1/06/2020 16:38:57', 'DD/MM/YYYY HH24:MI:SS'), to_date('1/06/2021', 'DD/MM/YYYY HH24:MI:SS'), 205, 15, 1); --1245
-INSERT INTO TITOLIINGRESSO(IdTitoloing, Emissione, Scadenza, Acquirente, Tipologia, Museo)
-VALUES(IdTitoloingSeq.nextVal, to_date('19/04/2018 16:12:9', 'DD/MM/YYYY HH24:MI:SS'), to_date('19/04/2019', 'DD/MM/YYYY HH24:MI:SS'), 237, 15, 1); --1246
-INSERT INTO TITOLIINGRESSO(IdTitoloing, Emissione, Scadenza, Acquirente, Tipologia, Museo)
-VALUES(IdTitoloingSeq.nextVal, to_date('18/07/2017 16:5:26', 'DD/MM/YYYY HH24:MI:SS'), to_date('18/07/2018', 'DD/MM/YYYY HH24:MI:SS'), 250, 15, 1); --1247
-INSERT INTO TITOLIINGRESSO(IdTitoloing, Emissione, Scadenza, Acquirente, Tipologia, Museo)
-VALUES(IdTitoloingSeq.nextVal, to_date('10/06/2018 11:50:39', 'DD/MM/YYYY HH24:MI:SS'), to_date('10/06/2019', 'DD/MM/YYYY HH24:MI:SS'), 171, 15, 1); --1248
-INSERT INTO TITOLIINGRESSO(IdTitoloing, Emissione, Scadenza, Acquirente, Tipologia, Museo)
-VALUES(IdTitoloingSeq.nextVal, to_date('26/08/2021 11:54:52', 'DD/MM/YYYY HH24:MI:SS'), to_date('26/08/2022', 'DD/MM/YYYY HH24:MI:SS'), 332, 15, 1); --1249
-INSERT INTO TITOLIINGRESSO(IdTitoloing, Emissione, Scadenza, Acquirente, Tipologia, Museo)
-VALUES(IdTitoloingSeq.nextVal, to_date('15/02/2015 17:49:55', 'DD/MM/YYYY HH24:MI:SS'), to_date('15/02/2016', 'DD/MM/YYYY HH24:MI:SS'), 246, 15, 1); --1250
-INSERT INTO TITOLIINGRESSO(IdTitoloing, Emissione, Scadenza, Acquirente, Tipologia, Museo)
-VALUES(IdTitoloingSeq.nextVal, to_date('17/06/2020 16:54:5', 'DD/MM/YYYY HH24:MI:SS'), to_date('17/06/2021', 'DD/MM/YYYY HH24:MI:SS'), 112, 15, 1); --1251
-INSERT INTO TITOLIINGRESSO(IdTitoloing, Emissione, Scadenza, Acquirente, Tipologia, Museo)
-VALUES(IdTitoloingSeq.nextVal, to_date('16/09/2015 12:35:2', 'DD/MM/YYYY HH24:MI:SS'), to_date('16/09/2016', 'DD/MM/YYYY HH24:MI:SS'), 201, 15, 1); --1252
-INSERT INTO TITOLIINGRESSO(IdTitoloing, Emissione, Scadenza, Acquirente, Tipologia, Museo)
-VALUES(IdTitoloingSeq.nextVal, to_date('15/06/2016 10:56:49', 'DD/MM/YYYY HH24:MI:SS'), to_date('15/06/2017', 'DD/MM/YYYY HH24:MI:SS'), 546, 15, 1); --1253
-INSERT INTO TITOLIINGRESSO(IdTitoloing, Emissione, Scadenza, Acquirente, Tipologia, Museo)
-VALUES(IdTitoloingSeq.nextVal, to_date('11/03/2019 14:23:41', 'DD/MM/YYYY HH24:MI:SS'), to_date('11/03/2020', 'DD/MM/YYYY HH24:MI:SS'), 474, 15, 1); --1254
-INSERT INTO TITOLIINGRESSO(IdTitoloing, Emissione, Scadenza, Acquirente, Tipologia, Museo)
-VALUES(IdTitoloingSeq.nextVal, to_date('19/03/2020 13:22:28', 'DD/MM/YYYY HH24:MI:SS'), to_date('19/03/2021', 'DD/MM/YYYY HH24:MI:SS'), 265, 15, 1); --1255
-INSERT INTO TITOLIINGRESSO(IdTitoloing, Emissione, Scadenza, Acquirente, Tipologia, Museo)
-VALUES(IdTitoloingSeq.nextVal, to_date('11/07/2020 15:29:48', 'DD/MM/YYYY HH24:MI:SS'), to_date('11/07/2021', 'DD/MM/YYYY HH24:MI:SS'), 321, 15, 1); --1256
-INSERT INTO TITOLIINGRESSO(IdTitoloing, Emissione, Scadenza, Acquirente, Tipologia, Museo)
-VALUES(IdTitoloingSeq.nextVal, to_date('11/03/2017 10:29:43', 'DD/MM/YYYY HH24:MI:SS'), to_date('11/03/2018', 'DD/MM/YYYY HH24:MI:SS'), 200, 15, 1); --1257
-INSERT INTO TITOLIINGRESSO(IdTitoloing, Emissione, Scadenza, Acquirente, Tipologia, Museo)
-VALUES(IdTitoloingSeq.nextVal, to_date('11/10/2016 16:5:19', 'DD/MM/YYYY HH24:MI:SS'), to_date('11/10/2017', 'DD/MM/YYYY HH24:MI:SS'), 500, 15, 1); --1258
-INSERT INTO TITOLIINGRESSO(IdTitoloing, Emissione, Scadenza, Acquirente, Tipologia, Museo)
-VALUES(IdTitoloingSeq.nextVal, to_date('2/01/2019 17:26:14', 'DD/MM/YYYY HH24:MI:SS'), to_date('2/01/2020', 'DD/MM/YYYY HH24:MI:SS'), 419, 15, 1); --1259
-INSERT INTO TITOLIINGRESSO(IdTitoloing, Emissione, Scadenza, Acquirente, Tipologia, Museo)
-VALUES(IdTitoloingSeq.nextVal, to_date('2/07/2017 11:36:44', 'DD/MM/YYYY HH24:MI:SS'), to_date('2/07/2018', 'DD/MM/YYYY HH24:MI:SS'), 771, 15, 1); --1260
-INSERT INTO TITOLIINGRESSO(IdTitoloing, Emissione, Scadenza, Acquirente, Tipologia, Museo)
-VALUES(IdTitoloingSeq.nextVal, to_date('13/06/2016 12:55:4', 'DD/MM/YYYY HH24:MI:SS'), to_date('13/06/2017', 'DD/MM/YYYY HH24:MI:SS'), 629, 16, 2); --1260
-INSERT INTO TITOLIINGRESSO(IdTitoloing, Emissione, Scadenza, Acquirente, Tipologia, Museo)
-VALUES(IdTitoloingSeq.nextVal, to_date('6/05/2017 16:34:52', 'DD/MM/YYYY HH24:MI:SS'), to_date('6/05/2018', 'DD/MM/YYYY HH24:MI:SS'), 709, 16, 2); --1261
-INSERT INTO TITOLIINGRESSO(IdTitoloing, Emissione, Scadenza, Acquirente, Tipologia, Museo)
-VALUES(IdTitoloingSeq.nextVal, to_date('12/04/2019 17:40:13', 'DD/MM/YYYY HH24:MI:SS'), to_date('12/04/2020', 'DD/MM/YYYY HH24:MI:SS'), 571, 16, 2); --1262
-INSERT INTO TITOLIINGRESSO(IdTitoloing, Emissione, Scadenza, Acquirente, Tipologia, Museo)
-VALUES(IdTitoloingSeq.nextVal, to_date('6/09/2020 10:1:57', 'DD/MM/YYYY HH24:MI:SS'), to_date('6/09/2021', 'DD/MM/YYYY HH24:MI:SS'), 355, 16, 2); --1263
-INSERT INTO TITOLIINGRESSO(IdTitoloing, Emissione, Scadenza, Acquirente, Tipologia, Museo)
-VALUES(IdTitoloingSeq.nextVal, to_date('12/01/2020 10:32:37', 'DD/MM/YYYY HH24:MI:SS'), to_date('12/01/2021', 'DD/MM/YYYY HH24:MI:SS'), 790, 16, 2); --1264
-INSERT INTO TITOLIINGRESSO(IdTitoloing, Emissione, Scadenza, Acquirente, Tipologia, Museo)
-VALUES(IdTitoloingSeq.nextVal, to_date('19/02/2017 14:26:22', 'DD/MM/YYYY HH24:MI:SS'), to_date('19/02/2018', 'DD/MM/YYYY HH24:MI:SS'), 1, 16, 2); --1265
-INSERT INTO TITOLIINGRESSO(IdTitoloing, Emissione, Scadenza, Acquirente, Tipologia, Museo)
-VALUES(IdTitoloingSeq.nextVal, to_date('5/04/2016 15:17:5', 'DD/MM/YYYY HH24:MI:SS'), to_date('5/04/2017', 'DD/MM/YYYY HH24:MI:SS'), 775, 16, 2); --1266
-INSERT INTO TITOLIINGRESSO(IdTitoloing, Emissione, Scadenza, Acquirente, Tipologia, Museo)
-VALUES(IdTitoloingSeq.nextVal, to_date('15/11/2016 13:29:6', 'DD/MM/YYYY HH24:MI:SS'), to_date('15/11/2017', 'DD/MM/YYYY HH24:MI:SS'), 293, 16, 2); --1267
-INSERT INTO TITOLIINGRESSO(IdTitoloing, Emissione, Scadenza, Acquirente, Tipologia, Museo)
-VALUES(IdTitoloingSeq.nextVal, to_date('9/06/2019 13:27:24', 'DD/MM/YYYY HH24:MI:SS'), to_date('9/06/2020', 'DD/MM/YYYY HH24:MI:SS'), 460, 16, 2); --1268
-INSERT INTO TITOLIINGRESSO(IdTitoloing, Emissione, Scadenza, Acquirente, Tipologia, Museo)
-VALUES(IdTitoloingSeq.nextVal, to_date('7/01/2017 15:54:56', 'DD/MM/YYYY HH24:MI:SS'), to_date('7/01/2018', 'DD/MM/YYYY HH24:MI:SS'), 698, 16, 2); --1269
-INSERT INTO TITOLIINGRESSO(IdTitoloing, Emissione, Scadenza, Acquirente, Tipologia, Museo)
-VALUES(IdTitoloingSeq.nextVal, to_date('22/03/2017 15:14:49', 'DD/MM/YYYY HH24:MI:SS'), to_date('22/03/2018', 'DD/MM/YYYY HH24:MI:SS'), 308, 16, 2); --1270
-INSERT INTO TITOLIINGRESSO(IdTitoloing, Emissione, Scadenza, Acquirente, Tipologia, Museo)
-VALUES(IdTitoloingSeq.nextVal, to_date('1/05/2021 10:7:44', 'DD/MM/YYYY HH24:MI:SS'), to_date('1/05/2022', 'DD/MM/YYYY HH24:MI:SS'), 630, 16, 2); --1271
-INSERT INTO TITOLIINGRESSO(IdTitoloing, Emissione, Scadenza, Acquirente, Tipologia, Museo)
-VALUES(IdTitoloingSeq.nextVal, to_date('6/01/2015 10:47:29', 'DD/MM/YYYY HH24:MI:SS'), to_date('6/01/2016', 'DD/MM/YYYY HH24:MI:SS'), 699, 16, 2); --1272
-INSERT INTO TITOLIINGRESSO(IdTitoloing, Emissione, Scadenza, Acquirente, Tipologia, Museo)
-VALUES(IdTitoloingSeq.nextVal, to_date('5/07/2019 14:19:47', 'DD/MM/YYYY HH24:MI:SS'), to_date('5/07/2020', 'DD/MM/YYYY HH24:MI:SS'), 400, 16, 2); --1273
-INSERT INTO TITOLIINGRESSO(IdTitoloing, Emissione, Scadenza, Acquirente, Tipologia, Museo)
-VALUES(IdTitoloingSeq.nextVal, to_date('10/08/2020 10:39:17', 'DD/MM/YYYY HH24:MI:SS'), to_date('10/08/2021', 'DD/MM/YYYY HH24:MI:SS'), 661, 16, 2); --1274
-INSERT INTO TITOLIINGRESSO(IdTitoloing, Emissione, Scadenza, Acquirente, Tipologia, Museo)
-VALUES(IdTitoloingSeq.nextVal, to_date('22/09/2020 11:55:21', 'DD/MM/YYYY HH24:MI:SS'), to_date('22/09/2021', 'DD/MM/YYYY HH24:MI:SS'), 759, 16, 2); --1275
-INSERT INTO TITOLIINGRESSO(IdTitoloing, Emissione, Scadenza, Acquirente, Tipologia, Museo)
-VALUES(IdTitoloingSeq.nextVal, to_date('15/02/2019 13:30:56', 'DD/MM/YYYY HH24:MI:SS'), to_date('15/02/2020', 'DD/MM/YYYY HH24:MI:SS'), 770, 16, 2); --1276
-INSERT INTO TITOLIINGRESSO(IdTitoloing, Emissione, Scadenza, Acquirente, Tipologia, Museo)
-VALUES(IdTitoloingSeq.nextVal, to_date('25/03/2017 15:58:46', 'DD/MM/YYYY HH24:MI:SS'), to_date('25/03/2018', 'DD/MM/YYYY HH24:MI:SS'), 588, 16, 2); --1277
-INSERT INTO TITOLIINGRESSO(IdTitoloing, Emissione, Scadenza, Acquirente, Tipologia, Museo)
-VALUES(IdTitoloingSeq.nextVal, to_date('15/02/2019 12:34:16', 'DD/MM/YYYY HH24:MI:SS'), to_date('15/02/2020', 'DD/MM/YYYY HH24:MI:SS'), 197, 16, 2); --1278
-INSERT INTO TITOLIINGRESSO(IdTitoloing, Emissione, Scadenza, Acquirente, Tipologia, Museo)
-VALUES(IdTitoloingSeq.nextVal, to_date('8/08/2018 17:29:39', 'DD/MM/YYYY HH24:MI:SS'), to_date('8/08/2019', 'DD/MM/YYYY HH24:MI:SS'), 483, 16, 2); --1279
-INSERT INTO TITOLIINGRESSO(IdTitoloing, Emissione, Scadenza, Acquirente, Tipologia, Museo)
-VALUES(IdTitoloingSeq.nextVal, to_date('13/10/2020 12:1:1', 'DD/MM/YYYY HH24:MI:SS'), to_date('13/10/2021', 'DD/MM/YYYY HH24:MI:SS'), 474, 16, 2); --1280
 
 /***********BIGLIETTI***********/
 INSERT INTO BIGLIETTI(IdTipologiaIng)
@@ -29956,10 +29872,7 @@ INSERT INTO ABBONAMENTI(IdTipologiaIng, Multiplo)
 VALUES(13, 0); --abbonamento a sale
 INSERT INTO ABBONAMENTI(IdTipologiaIng, Multiplo)
 VALUES(14, 0); --abbonamento a tempo
-INSERT INTO ABBONAMENTI(IdTipologiaIng, Multiplo)
-VALUES(15, 1); --abbonamento a sale
-INSERT INTO ABBONAMENTI(IdTipologiaIng, Multiplo)
-VALUES(16, 1); --abbonamento a tempo
+
 /**********VARCHI*********/
 /*Varchi museo 1 galleria di arte moderna*/
 INSERT INTO VARCHI (IdVarchi, Nome, Sensore, Stanza1, Stanza2)

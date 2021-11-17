@@ -1,5 +1,5 @@
 procedure InserisciPagamentoCampiEstivi(
-    sessionID  default 0,
+    sessionID number default 0,
     dataPagamento in varchar2 default NULL,
     tariffa in PAGAMENTICAMPIESTIVI.Tariffa%type default 0, 
     acquirente in PAGAMENTICAMPIESTIVI.Aquirente%type default 0 

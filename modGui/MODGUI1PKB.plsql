@@ -15,12 +15,14 @@ CREATE OR REPLACE PACKAGE BODY modGUI1 as
         modGUI1.ApriDiv('class="w3-dropdown w3-bar w3-top w3-black w3-large" style="height:90px;"');
             htp.prn('<button onclick="myFunction()" class="w3-button w3-hover-white w3-black w3-xxxlarge"><h1>☰</h1></button>');
             modGUI1.ApriDiv('id="Demo" class="w3-dropdown-content w3-bar-block w3-black w3-sidebar" style="width:20%;position:fixed;z-index:-1;"');
-                modGUI1.Collegamento('HOME','Home?idSessione='|| idSessione,'w3-bar-item w3-button');
                 if (idSessione!=0)
                 then
+                    modGUI1.Collegamento('HOME','Home?idSessione='|| idSessione,'w3-bar-item w3-button');
                     modGUI1.Collegamento('Musei','MuseiHome?idSessione='|| idSessione,'w3-bar-item w3-button');
                     modGUI1.Collegamento('Campi Estivi','CampiEstiviHome?idSessione='|| idSessione,'w3-bar-item w3-button');
-                    modGUI1.Collegamento('LOG OUT','Home?idSessione=0','w3-bar-item w3-button w3-red');
+                    modGUI1.Collegamento('LOG OUT','Home','w3-bar-item w3-button w3-red');
+                ELSE
+                    modGUI1.Collegamento('HOME','Home','w3-bar-item w3-button');
                 end if;
             modGUI1.ChiudiDiv;
             modGUI1.BannerUtente(idSessione);
@@ -38,7 +40,7 @@ CREATE OR REPLACE PACKAGE BODY modGUI1 as
             </script>
         ');
     end Header;
-
+ 
 
     procedure BannerUtente (idSessione int default 0)is /*Banner Log-In o utente */
     nome varchar2(50) default 'Sconosciuto';
@@ -53,7 +55,7 @@ CREATE OR REPLACE PACKAGE BODY modGUI1 as
             modGUI1.Login;
         else
             modGUI1.ApriDiv('class="w3-right w3-padding"  style="max-height:80px; width:400px; margin-top:5px;"');
-                SELECT Username,Ruolo INTO nome,impiego FROM UtentiLogin WHERE idSessione=idUtenteLogin;
+                SELECT Username,Ruolo INTO nome,impiego FROM UtentiLogin WHERE idUtenteLogin=idSessione;
                 modGUI1.ApriDiv('class="w3-threequarter" style="text-align:right;"');
                     htp.prn(nome);
                     htp.br;
@@ -62,7 +64,7 @@ CREATE OR REPLACE PACKAGE BODY modGUI1 as
                 modGUI1.ApriDiv('class="w3-quarter w3-right w3-dropdown-hover"');
                     htp.prn('<img src="https://www.sologossip.it/wp-content/uploads/2020/12/clementino-sologossip.jpg" style="margin-left:6px; width:60px; height:60px;">');
                     modGUI1.ApriDiv('class="w3-dropdown-content" style="background-color:transparent;position:fixed;z-index:1;"');
-                        modGUI1.Collegamento('LOG OUT','Home?idSessione=0','w3-button w3-red w3-small"');
+                        modGUI1.Collegamento('LOG OUT','Home','w3-button w3-red w3-small"');
                     modGUI1.ChiudiDiv;
                 modGUI1.ChiudiDiv;
             modGUI1.ChiudiDiv;
@@ -71,6 +73,7 @@ CREATE OR REPLACE PACKAGE BODY modGUI1 as
 
 
     procedure Login is /*Form popup per accesso utente */
+    URL VARCHAR2(300) default 'sconosciuto';
     begin
         modGUI1.ApriDiv('id="id01" class="w3-modal"');
             modGUI1.ApriDiv('class="w3-modal-content w3-card-4 w3-animate-zoom" style="max-width:500px"');
@@ -84,29 +87,51 @@ CREATE OR REPLACE PACKAGE BODY modGUI1 as
                             modGUI1.Label('Username:');
                             modGUI1.InputText('usernames','Enter Username',1);
                             htp.br;
+                            
                             modGUI1.Label ('Password:');
                             modGUI1.InputText('passwords','Enter Password',1);
+                            --redirect sulla pagina corrente
+                            htp.FORMHIDDEN('url','','id=url');
+                            htp.prn('<script>document.getElementById("url").value = window.location.href;</script>');
+                            
                             htp.prn('<button class="w3-button w3-block w3-black w3-section w3-padding" type="submit">Login</button>');
                         modGUI1.ChiudiDiv;
                     modGUI1.ChiudiForm;
             modGUI1.ChiudiDiv;
         modGUI1.ChiudiDiv;
     end Login;
-
-    procedure CreazioneSessione (usernames VARCHAR2 DEFAULT 'Sconosciuto', passwords VARCHAR2 DEFAULT 'Sconosciuto')is
-    var1 NUMBER DEFAULT 0;
+ 
+    procedure CreazioneSessione (usernames VARCHAR2 DEFAULT 'Sconosciuto', passwords VARCHAR2 DEFAULT 'Sconosciuto', url VARCHAR2 DEFAULT 'Sconosciuto')is
+    sessione NUMBER DEFAULT 0;
     begin
-        SELECT idUtenteLogin INTO var1 FROM UTENTILOGIN
-        WHERE username=usernames AND password=passwords;
-        modGUI1.Redirect('Home?idSessione='||var1);
-        --TODO 
-        --ECCEZIONI PER LOGIN FALLIO (reindirizzamento alla home con un flag di errore che mostrerà in home un popup con il login fallito)
+       SELECT idUtenteLogin into sessione FROM UTENTILOGIN
+       WHERE username=usernames AND password=passwords;
+        IF SQL%FOUND THEN
+            htp.prn('<script> window.location.href = "'||url||'?idSessione='||sessione||'"</script>');
+        END IF;
+        EXCEPTION WHEN OTHERS THEN
+            htp.prn('<script> window.location.href = "'||costanti.radice2||'erroreLogin"</script>');
     end;
-
+ 
+    procedure erroreLogin IS
+    BEGIN 
+        modGUI1.ApriPagina('erroreLogin');
+        --modGUI1.Header;
+        htp.br;htp.br;htp.br;htp.br;htp.br;htp.br;
+        --DA MODIFICARE
+        modGUI1.ApriDiv('class="w3-modal-content w3-card-4 w3-animate-zoom w3-display-center" style="max-width:600px" ');
+        collegamento('X','Home','w3-button w3-xlarge w3-red w3-display-topright');
+            htp.prn('<h1 align="center">ERRORE LOGIN</h1>');
+            MODGUI1.APRIDIV('class="w3-center"');
+            htp.print('password o EMAIL non valida');
+            htp.br;
+            MODGUI1.ChiudiDiv;
+        modGUI1.ChiudiDiv; 
+    END;
 
     procedure Bottone (colore varchar2, text varchar2 default 'myButton', id varchar2 default '', fun varchar2 default '') is /*Bottone(colore,testo) - specificare colore in inglese preceduto da "w3-" - testo contenuto nel bottone*/
     begin
-        htp.prn ('<button id="'|| id ||'" class="w3-button '|| colore ||' w3-margin" onclick='||fun||'>'||text||'</button>');
+         htp.prn ('<button id="'|| id ||'" class="w3-button '|| colore ||' w3-margin" onclick='||fun||'>'||text||'</button>');
     end Bottone;
 
     procedure ApriDiv (attributi varchar2 default '') is /*attributi -> parametri stile*/
@@ -149,14 +174,14 @@ CREATE OR REPLACE PACKAGE BODY modGUI1 as
         end if;
     end InputText;
 
-    procedure InputTextArea (nome varchar2, placeholder varchar2 default '', required int default 0) is /*Casella di input testuale più grande, nome -> nome casella, placeholder -> testo visualizzato quando vuota, required -> vincolo di NOT NULL*/
+    procedure InputTextArea (nome varchar2, placeholder varchar2 default '', required int default 0, valore varchar2 default '') is /*Casella di input testuale più grande, nome -> nome casella, placeholder -> testo visualizzato quando vuota, required -> vincolo di NOT NULL*/
     begin
         htp.prn('<textarea class="w3-input w3-round-xlarge w3-border" style="resize:none; height:40%" name="'|| nome ||'" placeholder="'|| placeholder ||'"');
         if (required = 0)
         then
             htp.prn('></textarea>');
         else
-            htp.prn('required></textarea>');
+            htp.prn('required>'||valore||'</textarea>');
         end if;
     end InputTextArea;
 
@@ -292,10 +317,10 @@ CREATE OR REPLACE PACKAGE BODY modGUI1 as
 
     procedure Redirect (destinazione VARCHAR2) is
     begin
-        htp.print('<script> window.location = "'||costanti.server|| costanti.radice || destinazione||'"</script>');
+        htp.print('<script> window.location = "'||costanti.server|| costanti.radice|| destinazione||'"</script>');
     end Redirect;
 
-     procedure apriTabella(classe varchar2 default 'defTable') is
+    procedure apriTabella(classe varchar2 default 'defTable') is
       begin
         htp.print('<table class="' || classe || '">');
       end apriTabella;

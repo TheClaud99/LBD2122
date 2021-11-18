@@ -255,7 +255,8 @@ CREATE OR REPLACE PACKAGE BODY packagevisite AS
 
         visualizzavisita(
                         idvisitacreata,
-                        'Visita creata'
+                        'Visita creata',
+                        'PackageVisite.visualizza_visite'
         );
     END;
 

@@ -24,6 +24,8 @@ increment by 1
 maxvalue 99999
 cycle;
 
+ALTER SEQUENCE IdUtenteLoginSeq RESTART START WITH 1;
+
 commit;
 
 /* Definizione ruoli e relativo IdSessione */
@@ -44,14 +46,14 @@ INSERT INTO RuoliSessioni (Ruolo, IdSessione) VALUES ('GCE', 5);
 
 /* Inserimento di utenti con non sono clienti (non hanno FK in IdCliente) */
 INSERT INTO UTENTILOGIN (IdUtenteLogin, IdCliente, Username, Password, Ruolo)
-VALUES (IdUtenteSeq.nextval, NULL, 'MarioROSSI', 'dba', 'DBA');
+VALUES (IdUtenteLoginSeq.nextval, NULL, 'MarioROSSI', 'dba', 'DBA');
 INSERT INTO UTENTILOGIN (IdUtenteLogin, IdCliente, Username, Password, Ruolo)
-VALUES (IdUtenteSeq.nextval, NULL, 'LuigiBIANCHI', 'ab', 'AB');
+VALUES (IdUtenteLoginSeq.nextval, NULL, 'LuigiBIANCHI', 'ab', 'AB');
 INSERT INTO UTENTILOGIN (IdUtenteLogin, IdCliente, Username, Password, Ruolo)
-VALUES (IdUtenteSeq.nextval, NULL, 'StefanoVERDI', 'gm', 'GM');
+VALUES (IdUtenteLoginSeq.nextval, NULL, 'StefanoVERDI', 'gm', 'GM');
 INSERT INTO UTENTILOGIN (IdUtenteLogin, IdCliente, Username, Password, Ruolo)
-VALUES (IdUtenteSeq.nextval, NULL, 'PaoloNERI', 'go', 'GO');
+VALUES (IdUtenteLoginSeq.nextval, NULL, 'PaoloNERI', 'go', 'GO');
 INSERT INTO UTENTILOGIN (IdUtenteLogin, IdCliente, Username, Password, Ruolo)
-VALUES (IdUtenteSeq.nextval, NULL, 'MarcoGIALLI', 'gce', 'GCE');
+VALUES (IdUtenteLoginSeq.nextval, NULL, 'MarcoGIALLI', 'gce', 'GCE');
 
 commit;

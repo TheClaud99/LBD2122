@@ -104,9 +104,9 @@ CREATE OR REPLACE PACKAGE BODY modGUI1 as
     end;
 
 
-    procedure Bottone (colore varchar2, text varchar2 default 'myButton', id varchar2 default '') is /*Bottone(colore,testo) - specificare colore in inglese preceduto da "w3-" - testo contenuto nel bottone*/
+    procedure Bottone (colore varchar2, text varchar2 default 'myButton', id varchar2 default '', fun varchar2 default '') is /*Bottone(colore,testo) - specificare colore in inglese preceduto da "w3-" - testo contenuto nel bottone*/
     begin
-        htp.prn ('<button id="'|| id ||'" class="w3-button '|| colore ||' w3-margin">'||text||'</button>');
+        htp.prn ('<button id="'|| id ||'" class="w3-button '|| colore ||' w3-margin" onclick='||fun||'>'||text||'</button>');
     end Bottone;
 
     procedure ApriDiv (attributi varchar2 default '') is /*attributi -> parametri stile*/
@@ -294,5 +294,45 @@ CREATE OR REPLACE PACKAGE BODY modGUI1 as
     begin
         htp.print('<script> window.location = "'||costanti.server|| costanti.radice || destinazione||'"</script>');
     end Redirect;
+
+     procedure apriTabella(classe varchar2 default 'defTable') is
+      begin
+        htp.print('<table class="' || classe || '">');
+      end apriTabella;
+
+    procedure chiudiTabella is
+      begin
+        htp.print('</table>');
+      end chiudiTabella;
+
+    procedure apriRigaTabella(classe varchar2 default 'defRowTable') is
+      begin
+        htp.print('<tr class="' || classe || '">');
+      end apriRigaTabella;
+
+    procedure chiudiRigaTabella is
+      begin
+        htp.print('</tr>');
+      end chiudiRigaTabella;
+
+    procedure apriElementoTabella(classe varchar2 default 'defElementoTabella', id varchar2 default '') is
+      begin
+        htp.print('<td class="' || classe || '" id="'||id||'">');
+      end apriElementoTabella;
+
+    procedure chiudiElementoTabella is
+      begin
+        htp.print('</td>');
+      end chiudiElementoTabella;
+
+    procedure ElementoTabella(testo varchar2) is
+      begin
+        htp.prn(testo);
+      end elementoTabella;
+
+    procedure intestazioneTabella(testo varchar2, classe varchar2 default 'defHeaderTable') is
+      begin
+        htp.print('<th class="' || classe || '">' || testo || '</th>');
+      end intestazioneTabella;
 
 end modGUI1;

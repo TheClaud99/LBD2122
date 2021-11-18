@@ -76,7 +76,13 @@ PROCEDURE EliminaUtente(
 );
 
 PROCEDURE ListaUtenti(
-	sessionID NUMBER default 0,
+	sessionID NUMBER default 0
+);
+
+function etaMediaUtenti return NUMBER;
+
+procedure StatisticheUtenti(
+	sessionID NUMBER default 0
 );
 
 PROCEDURE acquistabiglietto(
@@ -115,8 +121,8 @@ PROCEDURE inserisci_newsletter (
 );
 */
 
-PROCEDURE numeroVisitatoriNewsletter (
-    sessionID NUMBER DEFAULT 0,
+PROCEDURE statisticheNewsLetter (
+	sessionID NUMBER DEFAULT 0,
 	newsletterID NUMBER DEFAULT -1
 );
 

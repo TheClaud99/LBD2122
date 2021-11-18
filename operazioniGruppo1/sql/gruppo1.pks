@@ -76,7 +76,13 @@ PROCEDURE EliminaUtente(
 );
 
 PROCEDURE ListaUtenti(
-	sessionID NUMBER default 0,
+	sessionID NUMBER default 0
+);
+
+function etaMediaUtenti return NUMBER;
+
+procedure StatisticheUtenti(
+	sessionID NUMBER default 0
 );
 
 PROCEDURE acquistabiglietto(

@@ -870,8 +870,9 @@ BEGIN
 END;
 
 PROCEDURE ListaUtenti(
-	sessionID NUMBER default 0,
+	sessionID NUMBER default 0
 )
+is
 begin
         modGUI1.ApriPagina('Lista utenti',sessionID);
         modGUI1.Header(sessionID);
@@ -888,20 +889,73 @@ begin
 							htp.prn('<p>'|| utente.cognome ||'</p>');
 						modGUI1.ChiudiDiv;
 						modGUI1.Collegamento('Visualizza',
-                            'VisualizzaUtente?sessionID='||sessionID||'&utenteID='||utente.Idutente||,
+                            'VisualizzaUtente?sessionID='||sessionID||'&utenteID='||utente.Idutente,
                             'w3-margin w3-green w3-button');
                         if sessionID = 1 then
 						modGUI1.Collegamento('Modifica',
-                            'ModificaUtente?sessionID='||sessionID||'&utenteID='||utente.Idutente||,
+                            'ModificaUtente?sessionID='||sessionID||'&utenteID='||utente.Idutente,
                             'w3-margin w3-blue w3-button');        
                         modGUI1.Collegamento('Elimina',
-                            'EliminaUtente?sessionID='||sessionID||'&utenteID='||utente.Idutente||,
+                            'EliminaUtente?sessionID='||sessionID||'&utenteID='||utente.Idutente,
                             'w3-red w3-margin w3-button');
                     	end if;
                 	modGUI1.ChiudiDiv;
                 modGUI1.ChiudiDiv;
         END LOOP;
         modGUI1.chiudiDiv;
+end;
+
+function etaMediaUtenti
+	return NUMBER
+	is
+	tempMedia NUMBER := 0;
+	res NUMBER := 0;
+	BEGIN
+		select AVG(to_number((EXTRACT(YEAR FROM dataNascita)))) into tempMedia from utenti;
+		res := to_number((EXTRACT(YEAR FROM SYSDATE()))) - tempMedia;
+		return res;
+END;
+
+procedure StatisticheUtenti(
+	sessionID NUMBER default 0
+)
+is
+begin
+		MODGUI1.ApriPagina('Statistiche utente', sessionID);
+			HTP.BodyOpen;
+			MODGUI1.Header(sessionID);
+			modgui1.apridiv('class="w3-modal-content w3-card-4 w3-animate-zoom" style="max-width:600px; margin-top:110px"');
+			modgui1.apriTabella;
+				modgui1.apriRigaTabella;
+				modgui1.intestazioneTabella('Dati');
+				modgui1.intestazioneTabella('Operazione');
+				modgui1.intestazioneTabella('--->');
+				modgui1.intestazioneTabella('Risultato');
+				modgui1.chiudiRigaTabella;
+
+				modgui1.apriRigaTabella;
+					modgui1.apriElementoTabella;
+						modgui1.elementoTabella('Utenti');
+					modgui1.chiudiElementoTabella;
+					modgui1.apriElementoTabella;
+						modgui1.elementoTabella('Media delle date di nascita');
+					modgui1.chiudiElementoTabella;
+					modgui1.apriElementoTabella;
+					modgui1.Bottone('w3-blue','Calcola','mediaAnni','calcolaStats(1)');
+					modgui1.chiudiElementoTabella;
+					modgui1.apriElementoTabella('result1', 'result1');
+					modgui1.chiudiElementoTabella;
+				modgui1.chiudiRigaTabella;
+			modgui1.chiudiTabella;
+			modgui1.chiudiDiv;
+			htp.print('<script type="text/javascript">
+			function calcolaStats(value) {
+				const td1 = document.getElementById("result1")
+				td1.innerHTML = parseInt('||etaMediaUtenti||')
+			}
+        </script>');
+		HTP.BodyClose;
+		HTP.HtmlClose;
 end;
 
 

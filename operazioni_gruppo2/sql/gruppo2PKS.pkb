@@ -1,5 +1,23 @@
 CREATE OR REPLACE PACKAGE gruppo2 AS
 
+PROCEDURE genericErrorPage(
+    idSessione NUMBER DEFAULT 0,
+    pageTitle VARCHAR2 DEFAULT 'Errore',
+    msg VARCHAR2 DEFAULT 'Errore sconosciuto',
+    redirectText VARCHAR2 DEFAULT 'OK',
+    redirect VARCHAR2 DEFAULT NULL
+);
+
+procedure EsitoOperazione(
+    idSessione NUMBER DEFAULT NULL,
+    pageTitle VARCHAR2 DEFAULT NULL,
+    msg VARCHAR2 DEFAULT NULL,
+    nuovaOp VARCHAR2 DEFAULT NULL,
+    nuovaOpURL VARCHAR DEFAULT NULL,
+    backToMenu VARCHAR2 DEFAULT NULL,
+    backToMenuURL VARCHAR2 DEFAULT NULL
+    );
+
 /* OPERAZIONI SULLE OPERE */
 procedure EsitoPositivoOpere(idSessione NUMBER DEFAULT NULL);
 procedure EsitoNegativoOpere(idSessione NUMBER DEFAULT NULL);
@@ -159,6 +177,15 @@ procedure EsitoPositivoUpdateAutori(idSessione NUMBER DEFAULT NULL);
 procedure EsitoNegativoUpdateAutori(
     idSessione NUMBER DEFAULT 0,
     authorID VARCHAR2 DEFAULT 'Sconosciuto'
+);
+
+procedure EliminazioneAutore(
+    idSessione NUMBER default 0,
+    authorID NUMBER default 0
+);
+procedure RimozioneAutore(
+    idSessione NUMBER default 0,
+    authorID NUMBER default 0
 );
 
 /* OPERAZIONI SULLE DESCRIZIONI  */

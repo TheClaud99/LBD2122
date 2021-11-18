@@ -13,7 +13,7 @@ Create Table UTENTILOGIN
 (
    IdUtenteLogin number(5) primary key,
    IdCliente NUMBER(5) DEFAULT NULL REFERENCES Utenti(IdUtente),
-   Username VARCHAR2(25) not null,
+   Username VARCHAR2(50) not null,
    Password VARCHAR2(25) not null,
    Ruolo VARCHAR2(5) not null REFERENCES RuoliSessioni(Ruolo)
 );

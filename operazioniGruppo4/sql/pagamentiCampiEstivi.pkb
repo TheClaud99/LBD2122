@@ -52,6 +52,46 @@ begin
     modgui1.HEADER();
     htp.bodyopen();
     modGUI1.ApriDiv('class="w3-modal-content w3-card-4" style="max-width:600px"');
+
+    if (dataPagamento is null) or (tariffa = 0) or (acquirente = 0) then
+        modgui1.label('Parametri inseriti in maniera errata');
+        modgui1.apriform('InserisciPagamentoCampiEstivi');
+        htp.formhidden('idSessione', idSessione);
+        htp.formhidden('dataPagamento', dataPagamento);
+        htp.formhidden('tariffa', tariffa);
+        htp.formhidden('acquirente', acquirente);
+        modgui1.inputsubmit('indietro');
+        modgui1.chiudiform;
+    else
+        htp.tableopen;
+        
+        htp.tablerowopen;
+        htp.tabledata('DataPagamento: ');
+        htp.tabledata(dataPagamento);
+        htp.tablerowclose;
+        htp.tablerowopen;
+        htp.tabledata('Tariffa: ');
+        htp.tabledata(tariffa);
+        htp.tablerowclose;
+        htp.tablerowopen;
+        htp.tabledata('Acquirente: ');
+        htp.tabledata(acquirente);
+        htp.tablerowclose;
+
+        htp.tableclose;
+        
+        modgui1.apriform('ControllaPagamentoCampiEstivi');
+        htp.formhidden('idSessione', idSessione);
+        htp.formhidden('dataPagamento', dataPagamento);
+        htp.formhidden('tariffa', tariffa);
+        htp.formhidden('acquirente', acquirente);
+        modgui1.inputsubmit('indietro');
+        modgui1.chiudiform;
+    end if;
+
+    modgui1.chiudidiv;
+    htp.bodyclose();
+    htp.htmpclose();
   
 end;
 

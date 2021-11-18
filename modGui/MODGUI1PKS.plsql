@@ -40,4 +40,4 @@ procedure ElementoTabella(testo varchar2);
 procedure intestazioneTabella(testo varchar2, classe varchar2 default 'defHeaderTable');
 
 end modGUI1;
-end modGUI1;
+

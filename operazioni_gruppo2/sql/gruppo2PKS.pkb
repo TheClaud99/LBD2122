@@ -91,7 +91,8 @@ PROCEDURE InserisciDatiOpera(
 procedure VisualizzaOpera (
     idSessione NUMBER default 0,
     operaID NUMBER default 0,
-    lingue VARCHAR2 default 'sconosciuto'
+    lingue VARCHAR2 default 'sconosciuto',
+    livelli VARCHAR2 DEFAULT 'Sconosciuto'
 );
 procedure lingua(
     idSessione NUMBER default 0,

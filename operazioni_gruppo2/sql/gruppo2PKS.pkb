@@ -14,9 +14,10 @@ procedure EsitoOperazione(
     msg VARCHAR2 DEFAULT NULL,
     nuovaOp VARCHAR2 DEFAULT NULL,
     nuovaOpURL VARCHAR DEFAULT NULL,
+    parametrinuovaOp VARCHAR2 DEFAULT '',
     backToMenu VARCHAR2 DEFAULT NULL,
     backToMenuURL VARCHAR2 DEFAULT NULL,
-    parametri VARCHAR2 DEFAULT ''
+    parametribackToMenu VARCHAR2 DEFAULT ''
     );
 
 /* OPERAZIONI SULLE OPERE */
@@ -160,7 +161,6 @@ PROCEDURE ModificaAutore(
     operazione NUMBER DEFAULT 0
 );
 
-
 PROCEDURE UpdateAutore(
 	idSessione NUMBER DEFAULT 0,
 	authID NUMBER DEFAULT 0,
@@ -169,15 +169,6 @@ PROCEDURE UpdateAutore(
 	newBirth VARCHAR2 DEFAULT NULL,
 	newDeath VARCHAR2 DEFAULT NULL,
 	newNation VARCHAR2 DEFAULT 'Sconosciuta'
-);
-
-procedure EsitoPositivoAutori(idSessione NUMBER DEFAULT NULL);
-
-procedure EsitoPositivoUpdateAutori(idSessione NUMBER DEFAULT NULL);
-
-procedure EsitoNegativoUpdateAutori(
-    idSessione NUMBER DEFAULT 0,
-    authorID VARCHAR2 DEFAULT 'Sconosciuto'
 );
 
 procedure EliminazioneAutore(
@@ -237,18 +228,6 @@ PROCEDURE UpdateDescrizione(
     newlingua varchar2 DEFAULT null,
     newlivello varchar2 DEFAULT null,
     newtesto CLOB DEFAULT null
-);
-
-procedure EsitoPositivoUpdateDescrizioni(
-    idSessione NUMBER DEFAULT NULL, 
-    opera number DEFAULT 0,
-    lingua varchar2 DEFAULT null
-);
-
-procedure EsitoNegativoUpdateDescrizioni(
-    idSessione NUMBER DEFAULT NULL, 
-    opera number DEFAULT 0,
-    lingua varchar2 DEFAULT null
 );
 
 Procedure StatisticheDescrizioni(

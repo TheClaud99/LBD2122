@@ -144,9 +144,9 @@ CREATE OR REPLACE PACKAGE BODY modGUI1 as
         htp.prn('</div>');
     end ChiudiDiv;
 
-    procedure Collegamento(testo varchar2, indirizzo varchar2, classe varchar2 default '') is /*LINK, testo -> testo cliccabile, Indirizzo -> pagina di destinazione, classe -> parametri di stile*/
+    procedure Collegamento(testo varchar2, indirizzo varchar2, classe varchar2 default '', fun VARCHAR2 default '') is /*LINK, testo -> testo cliccabile, Indirizzo -> pagina di destinazione, classe -> parametri di stile*/
     begin
-        htp.prn('<a href="' || Costanti.server || Costanti.radice || indirizzo ||'" class="'|| classe ||'">' || testo || '</a>');
+        htp.prn('<a href="' || Costanti.server || Costanti.radice || indirizzo ||'" class="'|| classe ||'" onClick="'||fun||'">' || testo || '</a>');
     end Collegamento;
 
     procedure ApriForm(azione varchar2, nome varchar2 default 'myForm', classe varchar2 default '', root varchar2 default 0) is /*azione -> pagina di destinazione, nome -> nome form, classe -> parametri di stile*/

@@ -10,7 +10,7 @@ procedure CreazioneSessione (usernames VARCHAR2 DEFAULT 'Sconosciuto', passwords
 procedure Bottone (colore varchar2,text varchar2 default 'myButton', id varchar2 default '', fun VARCHAR2 DEFAULT '');
 procedure ApriDiv (attributi varchar2 default '');
 procedure ChiudiDiv;
-procedure Collegamento(testo varchar2, indirizzo varchar2, classe varchar2 default '');
+procedure Collegamento(testo varchar2, indirizzo varchar2, classe varchar2 default '', fun VARCHAR2 default '');
 procedure ApriForm(azione varchar2, nome varchar2 default 'myForm', classe varchar2 default '', root varchar2 default 0);
 procedure ChiudiForm;
 procedure InputText (nome varchar2, placeholder varchar2 default '', required int default 0, valore varchar2 default '', lunghezza int default 1000);

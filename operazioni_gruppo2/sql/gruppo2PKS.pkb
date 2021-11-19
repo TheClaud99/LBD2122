@@ -1,5 +1,6 @@
 CREATE OR REPLACE PACKAGE gruppo2 AS
 
+
 PROCEDURE genericErrorPage(
     idSessione NUMBER DEFAULT 0,
     pageTitle VARCHAR2 DEFAULT 'Errore',
@@ -21,6 +22,7 @@ procedure EsitoOperazione(
     );
 
 /* OPERAZIONI SULLE OPERE */
+procedure coloreClassifica(posizione NUMBER DEFAULT 0);
 procedure EsitoPositivoOpere(idSessione NUMBER DEFAULT NULL);
 procedure EsitoNegativoOpere(idSessione NUMBER DEFAULT NULL);
 procedure StatisticheOpere(idSessione NUMBER DEFAULT NULL);
@@ -92,6 +94,10 @@ procedure VisualizzaOpera (
     lingue VARCHAR2 default 'sconosciuto'
 );
 procedure lingua(
+    idSessione NUMBER default 0,
+    operaID NUMBER default 0
+);
+procedure linguaELivello(
     idSessione NUMBER default 0,
     operaID NUMBER default 0
 );

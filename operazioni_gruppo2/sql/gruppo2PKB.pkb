@@ -27,6 +27,7 @@ END;
 -- nuovaOpURL: il nome della procedura da ripetere (opzionale)
 -- backToMenu: il nome del pulsante per tornare al menu (obbligatorio)
 -- backToMenuURL: URL del menu a cui andare (obbligatorio)
+
 procedure EsitoOperazione(
     idSessione NUMBER DEFAULT NULL,
     pageTitle VARCHAR2 DEFAULT NULL,
@@ -34,7 +35,8 @@ procedure EsitoOperazione(
     nuovaOp VARCHAR2 DEFAULT NULL,
     nuovaOpURL VARCHAR DEFAULT NULL,
     backToMenu VARCHAR2 DEFAULT NULL,
-    backToMenuURL VARCHAR2 DEFAULT NULL
+    backToMenuURL VARCHAR2 DEFAULT NULL,
+    parametri VARCHAR2 DEFAULT ''
     ) is
     begin
         modGUI1.ApriPagina(pageTitle, idSessione);
@@ -47,13 +49,13 @@ procedure EsitoOperazione(
             modGUI1.ApriDiv('class="w3-modal-content w3-card-4 w3-animate-zoom" style="max-width:450px"');
                 modGUI1.ApriDiv('class="w3-center"');
                 htp.print('<h1>'||pageTitle||'</h1>');
-                if msg IS NOT NULL then 
+                if msg IS NOT NULL then
                     htp.prn('<p>'||msg||'</p>');
                 end if;
                 if nuovaOp IS NOT NULL OR nuovaOpURL IS NOT NULL then
                     MODGUI1.collegamento(nuovaOp, nuovaOpURL||'?idSessione='||idSessione||'','w3-button w3-block w3-black w3-section w3-padding');
                 end if;
-                MODGUI1.collegamento(backToMenu, backToMenuURL||'?idSessione='||idSessione||'','w3-button w3-block w3-black w3-section w3-padding');
+                MODGUI1.collegamento(backToMenu, backToMenuURL||'?idSessione='||idSessione||parametri,'w3-button w3-block w3-black w3-section w3-padding');
                 modGUI1.ChiudiDiv;
             modGUI1.ChiudiDiv;
 end EsitoOperazione;
@@ -761,6 +763,8 @@ procedure VisualizzaOpera (
                                 'ModificaDescrizione?idSessione='||idSessione||'&idDescrizione='||des.idDesc,
                                 'w3-margin w3-button w3-green');
                             htp.br;
+                            htp.prn('<button onclick="document.getElementById(''ElimDescrizione'||des.idDesc||''').style.display=''block''" class="w3-margin w3-button w3-red w3-hover-white">Elimina</button>');
+                            gruppo2.EliminazioneDescrizione(idSessione,des.idDesc);
                         end if;
                     modGUI1.ChiudiDiv;
             modGUI1.chiudiDiv;
@@ -1036,7 +1040,7 @@ begin
     modGUI1.ChiudiDiv;
 end EliminazioneAutore;
 
---Procedura rimozione opera
+--Procedura rimozione autore
 procedure RimozioneAutore(
     idSessione NUMBER default 0,
     authorID NUMBER default 0
@@ -1167,6 +1171,7 @@ Procedure StatisticheAutori(
     authID NUMBER DEFAULT 0
 )IS
 auth Autori%ROWTYPE;
+IDOPER number(5);
 BEGIN
 SELECT * INTO auth FROM autori WHERE authID=IDAUTORE;
     MODGUI1.ApriPagina('StatisticheAutori',idSessione);
@@ -1191,6 +1196,8 @@ SELECT * INTO auth FROM autori WHERE authID=IDAUTORE;
                 from OPERE JOIN AUTORIOPERE on (OPERE.idopera = AUTORIOPERE.idopera)
                 WHERE IDAUTORE=AUTH.idautore)
             LOOP
+                --SELECT idopera into IDOPER
+                --from opere where OPERE.titolo=op.titolo;
                 modGUI1.ApriDiv('class="w3-col l4 w3-padding-large w3-center"');
                     modGUI1.ApriDiv('class="w3-card-4" style="height:600px;"');
                     htp.prn('<img src="https://cdn.pixabay.com/photo/2016/10/22/15/32/water-1761027__480.jpg" alt="Alps" style="width:100%;">');
@@ -1198,6 +1205,8 @@ SELECT * INTO auth FROM autori WHERE authID=IDAUTORE;
                                 htp.prn('<p>'|| op.titolo ||'</p>');
                                 htp.br;
                                 htp.prn('<p>'|| op.anno ||'</p>');
+                                --htp.prn('<button onclick="document.getElementById(''LinguaOpera'||IDOPER||''').style.display=''block''" class="w3-margin w3-button w3-black w3-hover-white">Visualizza</button>');
+                                --gruppo2.lingua(idSessione,idoper);
                             modGUI1.ChiudiDiv;
                     modGUI1.ChiudiDiv;
                 modGUI1.ChiudiDiv;
@@ -1778,7 +1787,7 @@ end EsitoNegativoUpdateAutori;
  * - Inserimento ❌
  * - Modifica ✅
  * - Visualizzazione ❌
- * - Cancellazione (rimozione) ❌
+ * - Cancellazione (rimozione) ✅
  * OPERAZIONI STATISTICHE E MONITORAGGIO
  * - Livello descrizione più presente ✅
  * - Lingua più presente ✅
@@ -2113,6 +2122,49 @@ procedure EsitoNegativoUpdateDescrizioni(
                 modGUI1.ChiudiDiv;
             modGUI1.ChiudiDiv;
 end EsitoNegativoUpdateDescrizioni;
+
+procedure EliminazioneDescrizione(
+    idSessione NUMBER default 0,
+    idDescrizione NUMBER default 0
+) IS
+dLingua DESCRIZIONI.Lingua%TYPE;
+dLivello DESCRIZIONI.Livello%TYPE;
+begin
+    modGUI1.ApriDiv('id="ElimDescrizione'||idDescrizione||'" class="w3-modal"');
+        modGUI1.ApriDiv('class="w3-modal-content w3-card-4 w3-animate-zoom" style="max-width:600px"');
+            modGUI1.ApriDiv('class="w3-center"');
+                htp.br;
+                htp.prn('<span onclick="document.getElementById(''ElimDescrizione'||idDescrizione||''').style.display=''none''" class="w3-button w3-xlarge w3-red w3-display-topright" title="Close Modal">X</span>');
+            htp.print('<h1><b>Confermi?</b></h1>');
+            modGUI1.ChiudiDiv;
+                    modGUI1.ApriDiv('class="w3-section"');
+                        htp.br;
+                        select Lingua,Livello INTO dLingua,dLivello FROM DESCRIZIONI WHERE IDDESC=idDescrizione;
+                        htp.prn('stai per rimuovere: '||dLingua||' '||dLivello);
+                        modGUI1.Collegamento('Conferma',
+                        'RimozioneDescrizione?idSessione='||idSessione||'&idDescrizione='||idDescrizione,
+                        'w3-button w3-block w3-green w3-section w3-padding');
+                        htp.prn('<span onclick="document.getElementById(''ElimDescrizione'||idDescrizione||''').style.display=''none''" class="w3-button w3-block w3-red w3-section w3-padding" title="Close Modal">Annulla</span>');
+                    modGUI1.ChiudiDiv;
+                modGUI1.ChiudiForm;
+        modGUI1.ChiudiDiv;
+    modGUI1.ChiudiDiv;
+end EliminazioneDescrizione;
+
+--Procedura rimozione descrizione
+procedure RimozioneDescrizione(
+    idSessione NUMBER default 0,
+    idDescrizione NUMBER default 0
+) IS
+opid number(5);
+oplingua VARCHAR2(25);
+BEGIN
+    select Opera, LINGUA into opid, oplingua
+    from DESCRIZIONI where IDDESC=idDescrizione;
+    gruppo2.EsitoOperazione(idSessione,'Rimozione riuscita', null,null, null,'Torna all''opera','VisualizzaOpera','&operaID='||opid||'&lingue='||oplingua);
+        DELETE FROM DESCRIZIONI WHERE IDDESC = idDescrizione;
+        commit;
+end RimozioneDescrizione;
 
 Procedure StatisticheDescrizioni(
     idSessione NUMBER DEFAULT 0,

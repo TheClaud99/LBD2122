@@ -15,7 +15,8 @@ procedure EsitoOperazione(
     nuovaOp VARCHAR2 DEFAULT NULL,
     nuovaOpURL VARCHAR DEFAULT NULL,
     backToMenu VARCHAR2 DEFAULT NULL,
-    backToMenuURL VARCHAR2 DEFAULT NULL
+    backToMenuURL VARCHAR2 DEFAULT NULL,
+    parametri VARCHAR2 DEFAULT ''
     );
 
 /* OPERAZIONI SULLE OPERE */
@@ -217,6 +218,16 @@ PROCEDURE InserisciDatiDescrizione(
 PROCEDURE modificaDescrizione(
     idSessione NUMBER DEFAULT 0,
     idDescrizione NUMBER DEFAULT NULL
+);
+
+procedure EliminazioneDescrizione(
+    idSessione NUMBER default 0,
+    idDescrizione NUMBER default 0
+);
+
+procedure RimozioneDescrizione(
+    idSessione NUMBER default 0,
+    idDescrizione NUMBER default 0
 );
 
 PROCEDURE UpdateDescrizione(

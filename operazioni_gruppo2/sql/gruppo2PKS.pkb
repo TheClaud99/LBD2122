@@ -54,12 +54,14 @@ PROCEDURE InserisciOpera(
 );
 procedure AggiungiAutore(
     idSessione NUMBER DEFAULT 0,
-    operaID NUMBER DEFAULT 0
-);
+    operaID NUMBER DEFAULT 0,
+    lingue VARCHAR2 DEFAULT null -- aggiunto rispetto a pks commit roberto
+); 
 procedure AggiuntaAutore(
     idSessione NUMBER DEFAULT 0,
     operaID NUMBER DEFAULT 0,
-    autoreID NUMBER DEFAULT 0
+    autoreID NUMBER DEFAULT 0,
+    lingue VARCHAR2 default NULL -- aggiunto rispetto a pks commit roberto
 );
 procedure EliminazioneOpera(
     idSessione NUMBER default 0,

@@ -67,7 +67,7 @@ Create Table OPERE
    Esponibile number(1)  default 1 check (Esponibile in (0,1)),
    
    check ((Anno < FinePeriodo) or (FinePeriodo is null))
-   -- todo Anno < SYSTIMESTAMP
+   -- TODO Anno < SYSTIMESTAMP
 );
 
 Create Table STANZE
@@ -89,7 +89,7 @@ Create Table SALE
    Eliminato number(1) check (Eliminato in (0,1)) not null,
 
    check(numopere > 0)
-   --todo idstanza not in ambientidiservizio.idstanza (non sono permesse query qui)
+   --TODO idstanza not in ambientidiservizio.idstanza (non sono permesse query qui)
 );
 
 Create Table AMBIENTIDISERVIZIO
@@ -98,7 +98,7 @@ Create Table AMBIENTIDISERVIZIO
    TipoAmbiente varchar2(25) not null,
    Eliminato number(1) check (Eliminato in (0,1)) not null
 
-   --todo idstanza not in sale.idstanza (non sono permesse query qui)
+   --TODO idstanza not in sale.idstanza (non sono permesse query qui)
 );
 
 Create Table SALEOPERE
@@ -110,7 +110,7 @@ Create Table SALEOPERE
    DataUscita date,
 
    check((dataarrivo<datauscita) or (datauscita is null))
-   --todo IF(DataEntrata1 < DataEntrata2) => Opera1 != Opera2 OR DataUscita2 < DataEntrata1
+   --TODO IF(DataEntrata1 < DataEntrata2) => Opera1 != Opera2 OR DataUscita2 < DataEntrata1
 );
 
 Create Table AUTORI
@@ -124,8 +124,8 @@ Create Table AUTORI
    Eliminato number(1) check (Eliminato in (0,1)) not null,
 
    check(datanascita < datamorte)
-   --todo Datanascita < SYSTIMESTAMP 
-   --todo Datamorte < SYSTIMESTAMP
+   --TODO Datanascita < SYSTIMESTAMP 
+   --TODO Datamorte < SYSTIMESTAMP
 );
 
 Create Table AUTORIOPERE
@@ -134,7 +134,7 @@ Create Table AUTORIOPERE
    IdOpera  number(5) not null REFERENCES OPERE(IdOpera),
    Primary key(IdAutore,IdOpera)
 
-   --todo IdAutore.Datanascita < IdOpera.Anno
+   --TODO IdAutore.Datanascita < IdOpera.Anno
 );
 
 Create Table DESCRIZIONI
@@ -157,10 +157,12 @@ Create Table CAMPIESTIVI
    Eliminato number(1) check (Eliminato in (0,1)) not null,
 
    check (datainizio < dataconclusione)
-   --todo IF (DataInizio IS NULL OR DataConclusione IS NULL) => Stato IN (“increazione”, “sospeso”) 
-   --todo IF (DataInizio < SYSTIMESTAMP AND DataConclusione > SYSTIMESTAMP) => Stato IN (“incorso”, “sospeso”)
-   --todo IF (DataConclusione < SYSTIMESTAMP) => Stato IN (“terminato”, “sospeso”)
-   --check(if((datainizio is null) or (dataconclusione is null)) then (Stato IN (“increazione”, “sospeso”)))
+   /* TODO
+    * IF (DataInizio IS NULL OR DataConclusione IS NULL) => Stato IN (“increazione”, “sospeso”) 
+    * TODO IF (DataInizio < SYSTIMESTAMP AND DataConclusione > SYSTIMESTAMP) => Stato IN (“incorso”, “sospeso”)
+    * TODO IF (DataConclusione < SYSTIMESTAMP) => Stato IN (“terminato”, “sospeso”)
+    * check(if((datainizio is null) or (dataconclusione is null)) then (Stato IN (“increazione”, “sospeso”)))
+    */
 );
 
 Create Table TARIFFECAMPIESTIVI
@@ -186,7 +188,7 @@ Create Table UTENTI
    RecapitoTelefonico varchar2(18),
    Eliminato number(1) check (Eliminato in (0,1)) not null
    
-   --todo datanascita<timestamp
+   --TODO datanascita<timestamp
 );
 
 Create Table UTENTIMUSEO
@@ -208,7 +210,7 @@ Create Table PAGAMENTICAMPIESTIVI
    Tariffa  number(5) not null REFERENCES TARIFFECAMPIESTIVI(IdTariffa),
    Acquirente  number(5) not null REFERENCES UTENTICAMPIESTIVI(IdUtente)
    
-   --todo Acquirente.DataNascita > SYSTIMESTAMP - 18
+   --TODO Acquirente.DataNascita > SYSTIMESTAMP - 18
 );
 
 Create Table UTENTIPAGAMENTI
@@ -253,7 +255,7 @@ Create Table TIPOLOGIEINGRESSO
 
    check((limitesala is not null) or (limitetempo is not null)),
    check(costototale >= 0),
-   --todo cambiare durata in interval (?????)
+   --TODO cambiare durata in interval (?????)
    check(durata in (1, 365))
 );
 
@@ -265,7 +267,8 @@ Create Table TITOLIINGRESSO
    Acquirente number(5) not null REFERENCES UTENTI(IdUtente),
    Tipologia number(5) not null REFERENCES TIPOLOGIEINGRESSO(IdTipologiaIng),
    Museo number(5) not null REFERENCES Musei(IdMuseo)
-   /*todo
+
+   /*TODO
    • Emissione < SYSTIMESTAMP
    • Scadenza - Emissione == Tipologia.Durata (solo al momento dell’inserzione) 
    • Museo IS IN (SELECT IdMuseo FROM TIPOLOGIEINGRESSOMUSEI WHERE IdTipologiaIng == Tipologia)
@@ -303,7 +306,8 @@ Create Table VARCHI
    Stanza1 number(5) not null REFERENCES STANZE(IdStanza),
    Stanza2 number(5) not null REFERENCES STANZE(IdStanza),
    Eliminato number(1) check (Eliminato in (0,1)) not null
-   --todo
+
+   --TODO
    -- Stanza1.Museo == Stanza2.Museo
    -- IF (Stanza11.Museo == Stanza12.Museo) => Sensore1 != Sensore2
 );
@@ -315,7 +319,8 @@ Create Table VISITE
    DurataVisita number(6) not null,
    Visitatore number(5) not null REFERENCES UTENTIMUSEO(IdUtente),
    TitoloIngresso number(5) not null REFERENCES TITOLIINGRESSO(IdTitoloIng)
-   /*todo
+
+   /*TODO
    • DataVisita < SYSTIMESTAMP - DurataVisita 
    • DataVisita < (SELECT MIN(AttraversamentoVarco) FROM VISITEVARCHI WHERE IdVisita == IdVisita)
    • DataVisita + DurataVisita < (SELECT MAX(AttraversamentoVarco) FROM VISITEVARCHI WHERE IdVisita == IdVisita)
@@ -331,7 +336,7 @@ Create Table VISITEVARCHI
    IdVarco number(5) not null REFERENCES VARCHI(IdVarchi),
    AttraversamentoVarco  timestamp not null,
    Primary key(IdVisita,IdVarco,AttraversamentoVarco)
-   /* todo
+   /* TODO
    • AttraversamentoVarco < SYSTIMESTAMP 
    • IF(IdVisita1 == IdVisita2) => IdVarco1.Stanza1.Museo == IdVarco2.Stanza1.Museo
    */

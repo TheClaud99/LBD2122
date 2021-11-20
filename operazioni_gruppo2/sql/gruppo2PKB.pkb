@@ -28,6 +28,30 @@ END;
 -- backToMenu: il nome del pulsante per tornare al menu (obbligatorio)
 -- backToMenuURL: URL del menu a cui andare (obbligatorio)
 
+procedure RedirectEsito (
+    idSessione NUMBER DEFAULT NULL,
+    pageTitle VARCHAR2 DEFAULT NULL,
+    msg VARCHAR2 DEFAULT NULL,
+    nuovaOp VARCHAR2 DEFAULT NULL, 
+    nuovaOpURL VARCHAR DEFAULT NULL,
+    parametrinuovaOp VARCHAR2 DEFAULT '',
+    backToMenu VARCHAR2 DEFAULT NULL,
+    backToMenuURL VARCHAR2 DEFAULT NULL,
+    parametribackToMenu VARCHAR2 DEFAULT ''
+    ) is
+    begin
+        htp.print('<script> window.location = "'||costanti.server||costanti.radice||
+        'EsitoOperazione?idSessione='||IDSESSIONE||
+        '&pageTitle='||pageTitle||
+        '&msg='||msg||
+        '&nuovaOp='||nuovaOp||
+        '&nuovaOpURL='||nuovaOpURL||
+        '&parametrinuovaOp='||parametrinuovaOp||
+        '&backToMenu='||backToMenu||
+        '&backToMenuURL='||backToMenuURL||
+        '&parametribackToMenu='||parametribackToMenu||'"</script>');
+    end RedirectEsito;
+
 procedure EsitoOperazione(
     idSessione NUMBER DEFAULT NULL,
     pageTitle VARCHAR2 DEFAULT NULL,
@@ -221,39 +245,6 @@ procedure linguaELivello(
             modGUI1.ChiudiDiv;
         modGUI1.ChiudiDiv;
 end linguaELivello;
-
-
-
---procedura popup
-procedure lingua(
-    idSessione NUMBER default 0,
-    operaID NUMBER default 0
-)is /*Form popup lingua e livello */
-    begin
-        modGUI1.ApriDiv('id="LinguaOpera'||operaID||'" class="w3-modal"');
-            modGUI1.ApriDiv('class="w3-modal-content w3-card-4 w3-animate-zoom" style="max-width:600px"');
-                modGUI1.ApriDiv('class="w3-center"');
-                    htp.br;
-                    htp.prn('<span onclick="document.getElementById(''LinguaOpera'||operaID||''').style.display=''none''" class="w3-button w3-xlarge w3-red w3-display-topright" title="Close Modal">X</span>');
-                htp.print('<h1>Seleziona la lingua</h1>');
-                modGUI1.ChiudiDiv;
-                    modGUI1.ApriForm('VisualizzaOpera','selezione lingue','w3-container');
-                        HTP.FORMHIDDEN('idSessione',idSessione);
-                        HTP.FORMHIDDEN('operaID',operaID);
-                        modGUI1.ApriDiv('class="w3-section"');
-                            htp.br;
-                            htp.print('<h5>');
-                            modGUI1.InputRadioButton('Italiano ', 'lingue', 'Italian', 0, 0);
-                            modGUI1.InputRadioButton('English ', 'lingue', 'English', 0, 0);
-                            modGUI1.InputRadioButton('中国人 ', 'lingue', 'Chinese', 0, 0);
-                            htp.print('</h5>');
-                            htp.br;
-                            htp.prn('<button class="w3-button w3-block w3-black w3-section w3-padding" type="submit">Seleziona</button>');
-                        modGUI1.ChiudiDiv;
-                    modGUI1.ChiudiForm;
-            modGUI1.ChiudiDiv;
-        modGUI1.ChiudiDiv;
-end lingua;
 
 --Procedura per feedback
 procedure EsitoPositivoOpere(
@@ -659,23 +650,23 @@ procedure VisualizzaOpera (
 
         htp.br;
         modGUI1.ApriDiv('class="w3-container" style="width:100%"');
+        if(lingue='Italian')
+            then
+            htp.prn('<h2><b>Livello: </b>'||lingue||'</h2>');
+            end if;
+            if(lingue='English')
+            then
+            htp.prn('<h2><b>Level: </b>'||lingue||'</h2>');
+            end if;
+            if(lingue='Chinese')
+            then
+            htp.prn('<h2><b>等级: </b>'||lingue||'</h2>');
+            end if;
         FOR des IN (
                 SELECT * FROM Descrizioni 
                 WHERE operaID=Opera AND lingue=lingua AND livello=livelli
         )
         LOOP
-            if(lingue='Italian')
-            then
-            htp.prn('<h2><b>Livello: </b>'||des.livello||'</h2>');
-            end if;
-            if(lingue='English')
-            then
-            htp.prn('<h2><b>Level: </b>'||des.livello||'</h2>');
-            end if;
-            if(lingue='Chinese')
-            then
-            htp.prn('<h2><b>等级: </b>'||des.livello||'</h2>');
-            end if;
             modGUI1.ApriDiv('class="w3-row w3-container w3-border w3-round-small w3-padding-large w3-hover-light-grey" style="width:100%"');
                     modGUI1.ApriDiv('class="w3-container w3-cell"');
                     htp.prn('<img src="https://cdn.pixabay.com/photo/2016/10/22/15/32/water-1761027__480.jpg" alt="Alps" style="width:500px; height:300px;">');
@@ -1170,7 +1161,7 @@ BEGIN
     IF numOpereRealizzate > 0
     THEN
         -- esito negativo: solo opzione per tornare al menu
-        gruppo2.EsitoOperazione(
+        gruppo2.RedirectEsito(
             idSessione,
             'Rimozione fallita',
             'L''autore ha delle opere nella base di dati',
@@ -1179,7 +1170,7 @@ BEGIN
             'menuAutori');
     ELSE
         -- esito positivo: solo opzione per tornare al menu
-         gruppo2.EsitoOperazione(
+         gruppo2.RedirectEsito(
             idSessione,
             'Rimozione riuscita',
             null, null, null, null,
@@ -1305,7 +1296,7 @@ SELECT * INTO auth FROM autori WHERE authID=IDAUTORE;
         htp.br;
 
         --OPERE REALIZZATE
-        if operazione=0 THEN
+        if operazione=0 THEN 
         modGUI1.ApriDiv('class="w3-container" style="width:100%"');
         htp.print('<h2><b>Opere realizzate</b></h2>');
             FOR op IN (Select *
@@ -1321,8 +1312,8 @@ SELECT * INTO auth FROM autori WHERE authID=IDAUTORE;
                                 htp.prn('<p>'|| op.titolo ||'</p>');
                                 htp.br;
                                 htp.prn('<p>'|| op.anno ||'</p>');
-                                --htp.prn('<button onclick="document.getElementById(''LinguaOpera'||IDOPER||''').style.display=''block''" class="w3-margin w3-button w3-black w3-hover-white">Visualizza</button>');
-                                --gruppo2.lingua(idSessione,idoper);
+                                --htp.prn('<button onclick="document.getElementById(''LinguaeLivelloOpera'||IDOPER||''').style.display=''block''" class="w3-margin w3-button w3-black w3-hover-white">Visualizza</button>');
+                                --gruppo2.linguaELivello(idSessione,IDOPER);
                             modGUI1.ChiudiDiv;
                     modGUI1.ChiudiDiv;
                 modGUI1.ChiudiDiv;
@@ -1361,6 +1352,8 @@ SELECT * INTO auth FROM autori WHERE authID=IDAUTORE;
                     op1.IDOPERA=(select DISTINCT a1.idopera from AUTORIOPERE a1,AUTORIOPERE a2 WHERE
                         (a1.idopera=a2.idopera) AND (a1.idautore<>a2.idautore)))
             LOOP
+                SELECT idopera into IDOPER
+                    from opere where OPERE.titolo=op.titolo;
                 modGUI1.ApriDiv('class="w3-col l4 w3-padding-large w3-center"');
                     modGUI1.ApriDiv('class="w3-card-4" style="height:600px;"');
                     htp.prn('<img src="https://cdn.pixabay.com/photo/2016/10/22/15/32/water-1761027__480.jpg" alt="Alps" style="width:100%;">');
@@ -1368,8 +1361,8 @@ SELECT * INTO auth FROM autori WHERE authID=IDAUTORE;
                                 htp.prn('<p>'|| op.titolo ||'</p>');
                                 htp.br;
                                 htp.prn('<p>'|| op.anno ||'</p>');
-                                htp.prn('<button onclick="document.getElementById(''LinguaOpera'||op.idopera||''').style.display=''block''" class="w3-margin w3-button w3-black w3-hover-white">Visualizza</button>');
-                                gruppo2.lingua(idSessione,op.idopera);
+                                htp.prn('<button onclick="document.getElementById(''LinguaeLivelloOpera'||IDOPER||''').style.display=''block''" class="w3-margin w3-button w3-black w3-hover-white">Visualizza</button>');
+                                gruppo2.linguaELivello(idSessione,IDOPER);
                             modGUI1.ChiudiDiv;
                     modGUI1.ChiudiDiv;
                 modGUI1.ChiudiDiv;
@@ -1464,8 +1457,8 @@ SELECT * INTO mus FROM MUSEI WHERE museoID=IDMUSEO;
                                 htp.prn('<p>'|| op.titolo ||'</p>');
                                 htp.br;
                                 htp.prn('<p>'|| op.anno ||'</p>');
-                                htp.prn('<button onclick="document.getElementById(''LinguaOpera'||IDOPER||''').style.display=''block''" class="w3-margin w3-button w3-black w3-hover-white">Visualizza</button>');
-                                gruppo2.lingua(idSessione,IDOPER);
+                                htp.prn('<button onclick="document.getElementById(''LinguaeLivelloOpera'||IDOPER||''').style.display=''block''" class="w3-margin w3-button w3-black w3-hover-white">Visualizza</button>');
+                                gruppo2.linguaELivello(idSessione,IDOPER);
                             modGUI1.ChiudiDiv;
                     modGUI1.ChiudiDiv;
                 modGUI1.ChiudiDiv;
@@ -1571,13 +1564,13 @@ BEGIN
     OR nation IS NULL
     THEN
         IF idSessione <> 1 THEN
-            EsitoOperazione(idSessione, 'Inserimento fallito',
+            RedirectEsito(idSessione, 'Inserimento fallito',
                 'Errore: Operazione non autorizzata (controlla di essere loggato)',
                 'Torna all''inserimento','InserisciAutore', 
                 '&authName='||authName||'&authSurname='||authSurname||'&dataNascita='||dataNascita||'&dataMorte='||dataMorte||'&nation='||nation,
                 'Torna al menù','menuAutori');
             ELSIF numAutori > 0 THEN
-                EsitoOperazione(idSessione, 'Inserimento fallito',
+                RedirectEsito(idSessione, 'Inserimento fallito',
                     'Errore: Autore già presente',
                     'Torna all''inserimento','InserisciAutore', 
                     '&authName='||authName||'&authSurname='||authSurname||'&dataNascita='||dataNascita||'&dataMorte='||dataMorte||'&nation='||nation,
@@ -1587,25 +1580,25 @@ BEGIN
 				-- I tre rami che seguono non possono essere raggiunti chiamando
 				-- InserisciAutore, ma sono possibili chiamando direttamente ConfermaDatiAutore
                 IF authName IS NULL THEN
-                    EsitoOperazione(idSessione, 'Inserimento fallito',
+                    RedirectEsito(idSessione, 'Inserimento fallito',
                         'Errore: Inserire Nome',
                         'Torna all''inserimento','InserisciAutore', 
                         '&authName='||authName||'&authSurname='||authSurname||'&dataNascita='||dataNascita||'&dataMorte='||dataMorte||'&nation='||nation,
                         'Torna al menù','menuAutori');
                 ELSIF authSurname IS NULL THEN
-                    EsitoOperazione(idSessione, 'Inserimento fallito',
+                    RedirectEsito(idSessione, 'Inserimento fallito',
                         'Errore: Inserire Cognome',
                         'Torna all''inserimento','InserisciAutore', 
                         '&authName='||authName||'&authSurname='||authSurname||'&dataNascita='||dataNascita||'&dataMorte='||dataMorte||'&nation='||nation,
                         'Torna al menù','menuAutori');
                 ELSIF nation IS NULL THEN
-                    EsitoOperazione(idSessione, 'Inserimento fallito',
+                    RedirectEsito(idSessione, 'Inserimento fallito',
                         'Errore: Inserire nazionalità',
                         'Torna all''inserimento','InserisciAutore', 
                         '&authName='||authName||'&authSurname='||authSurname||'&dataNascita='||dataNascita||'&dataMorte='||dataMorte||'&nation='||nation,
                         'Torna al menù','menuAutori');
                 ELSIF to_date(dataNascita, 'YYYY-MM-DD') > to_date(dataMorte, 'YYYY-MM-DD') THEN
-                    EsitoOperazione(idSessione, 'Inserimento fallito',
+                    RedirectEsito(idSessione, 'Inserimento fallito',
                         'Errore: data di nascita postuma alla data di morte',
                         'Torna all''inserimento','InserisciAutore', 
                         '&authName='||authName||'&authSurname='||authSurname||'&dataNascita='||dataNascita||'&dataMorte='||dataMorte||'&nation='||nation,
@@ -1699,9 +1692,9 @@ BEGIN
     THEN
         -- faccio il commit dello statement precedente
         commit;
-        EsitoOperazione(idSessione, 'Inserimento riuscito', null,'Inserisci nuovo autore','InserisciAutore', null,'Torna al menù','menuAutori');
+        RedirectEsito(idSessione, 'Inserimento riuscito', null,'Inserisci nuovo autore','InserisciAutore', null,'Torna al menù','menuAutori');
     ELSE
-        EsitoOperazione(idSessione, 'Inserimento fallito',
+        RedirectEsito(idSessione, 'Inserimento fallito',
              'Errore',
              'Torna all''inserimento','InserisciAutore', 
              '&authName='||authName||'&authSurname='||authSurname||'&dataNascita='||dataNascita||'&dataMorte='||dataMorte||'&nation='||nation,
@@ -1710,7 +1703,7 @@ BEGIN
     END IF;
     EXCEPTION
     WHEN AutorePresente THEN
-        EsitoOperazione(idSessione, 'Inserimento fallito',
+        RedirectEsito(idSessione, 'Inserimento fallito',
              'Errore: Autore già presente',
              'Torna all''inserimento','InserisciAutore', 
              '&authName='||authName||'&authSurname='||authSurname||'&dataNascita='||dataNascita||'&dataMorte='||dataMorte||'&nation='||nation,
@@ -1835,11 +1828,11 @@ BEGIN
 	WHERE IdAutore=authID;
 
     commit;
-    EsitoOperazione(idSessione, 'Aggiornamento riuscito', null,null,null, null,'Torna al menù','menuAutori');
+    RedirectEsito(idSessione, 'Aggiornamento riuscito', null,null,null, null,'Torna al menù','menuAutori');
 
     EXCEPTION
 		WHEN Errore_data THEN
-            EsitoOperazione(idSessione, 'Aggiornamento fallito',
+            RedirectEsito(idSessione, 'Aggiornamento fallito',
              'Errore: data di nascita postuma alla data di morte',
              'Torna alla modifica','ModificaAutore', 
              '&authorID='||authID||'&operazione=1','Torna al menù','menuAutori');
@@ -2019,7 +2012,7 @@ BEGIN
     INSERT INTO DESCRIZIONI VALUES
     (IdDescSeq.NEXTVAL, language, LOWER(d_level), d_text, operaID);
         commit;
-        EsitoOperazione(idSessione, 'Inserimento riuscito', null,null,null,null, 'Torna all''opera','VisualizzaOpera','&operaID='||operaID||'&lingue='||language);
+        RedirectEsito(idSessione, 'Inserimento riuscito', null,null,null,null, 'Torna all''opera','VisualizzaOpera','&operaID='||operaID||'&lingue='||language);
      ELSE
     -- opera non presente: eccezione
         RAISE OperaInesistente;
@@ -2027,7 +2020,7 @@ BEGIN
 
     EXCEPTION
         WHEN OperaInesistente THEN
-            EsitoOperazione(idSessione, 'Inserimento fallito',
+            RedirectEsito(idSessione, 'Inserimento fallito',
              'Errore: Opera inesistente',
              'Torna all''opera','VisualizzaOpera', 
              '&operaID='||operaID||'&lingue='||language,'Torna al menù','menuOpere');
@@ -2130,11 +2123,11 @@ IF descrid is null or newopera is null THEN
 	WHERE IDDESC=descrID;
 
     commit;
-    EsitoOperazione(idSessione, 'Aggiornamento riuscito', null,null, null, null,'Torna all''opera','VisualizzaOpera','&operaID='||newopera||'&lingue='||newlingua);
-
+    RedirectEsito(idSessione, 'Aggiornamento riuscito', null,null, null, null,'Torna all''opera','VisualizzaOpera','&operaID='||newopera||'&lingue='||newlingua);
+    --RedirectEsito(idSessione, 'Aggiornamento riuscito', null,null, null, null,'Torna all''opera','VisualizzaOpera','&operaID='||newopera||'&lingue='||newlingua)
     EXCEPTION
 		WHEN Errore_data THEN
-            EsitoOperazione(idSessione, 'Aggiornamento fallito', null,null, null, null,'Torna all''opera','VisualizzaOpera','&operaID='||newopera||'&lingue='||newlingua);
+            RedirectEsito(idSessione, 'Aggiornamento fallito', null,null, null, null,'Torna all''opera','VisualizzaOpera','&operaID='||newopera||'&lingue='||newlingua);
             ROLLBACK;
 END;
 
@@ -2176,7 +2169,7 @@ oplingua VARCHAR2(25);
 BEGIN
     select Opera, LINGUA into opid, oplingua
     from DESCRIZIONI where IDDESC=idDescrizione;
-    gruppo2.EsitoOperazione(idSessione,'Rimozione riuscita', null,null,null, null,'Torna all''opera','VisualizzaOpera','&operaID='||opid||'&lingue='||oplingua);
+    gruppo2.RedirectEsito(idSessione,'Rimozione riuscita', null,null,null, null,'Torna all''opera','VisualizzaOpera','&operaID='||opid||'&lingue='||oplingua);
         DELETE FROM DESCRIZIONI WHERE IDDESC = idDescrizione;
         commit;
 end RimozioneDescrizione;

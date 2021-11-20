@@ -9,6 +9,18 @@ PROCEDURE genericErrorPage(
     redirect VARCHAR2 DEFAULT NULL
 );
 
+procedure RedirectEsito (
+    idSessione NUMBER DEFAULT NULL,
+    pageTitle VARCHAR2 DEFAULT NULL,
+    msg VARCHAR2 DEFAULT NULL,
+    nuovaOp VARCHAR2 DEFAULT NULL,
+    nuovaOpURL VARCHAR DEFAULT NULL,
+    parametrinuovaOp VARCHAR2 DEFAULT '',
+    backToMenu VARCHAR2 DEFAULT NULL,
+    backToMenuURL VARCHAR2 DEFAULT NULL,
+    parametribackToMenu VARCHAR2 DEFAULT ''
+    );
+
 procedure EsitoOperazione(
     idSessione NUMBER DEFAULT NULL,
     pageTitle VARCHAR2 DEFAULT NULL,
@@ -93,10 +105,6 @@ procedure VisualizzaOpera (
     operaID NUMBER default 0,
     lingue VARCHAR2 default 'sconosciuto',
     livelli VARCHAR2 DEFAULT 'Sconosciuto'
-);
-procedure lingua(
-    idSessione NUMBER default 0,
-    operaID NUMBER default 0
 );
 procedure linguaELivello(
     idSessione NUMBER default 0,

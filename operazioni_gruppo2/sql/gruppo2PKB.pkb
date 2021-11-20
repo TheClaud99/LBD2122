@@ -1364,6 +1364,11 @@ nomecompleto VARCHAR2(50);
     end if;
     htp.br;htp.br;htp.br;htp.br;
 
+    -- Salto selezione autore per statistica 4
+    IF operazione = 4 THEN
+        selezioneMuseoAutoreStatistica(idSessione, operazione, 0);
+    ELSE
+
     htp.prn('<h1 align="center">Seleziona l''autore</h1>');
     modGUI1.ApriDiv('class="w3-modal-content w3-card-4 w3-animate-zoom" style="max-width:600px"');
         modGUI1.ApriDiv('class="w3-section"');
@@ -1386,7 +1391,7 @@ nomecompleto VARCHAR2(50);
                 MODGUI1.SelectClose;
                 htp.prn('<button class="w3-button w3-block w3-black w3-section w3-padding" type="submit">Seleziona</button>');
                 modGUI1.ChiudiForm;
-            ELSE
+            ELSIF operazione = 3 THEN
                 modGUI1.ApriForm('selezioneMuseoAutoreStatistica');
                 htp.FORMHIDDEN('idSessione',idSessione);
                 htp.FORMHIDDEN('operazione',operazione);
@@ -1403,6 +1408,7 @@ nomecompleto VARCHAR2(50);
             MODGUI1.chiudiDiv;
         modGUI1.ChiudiDiv;
     modGUI1.ChiudiDiv;
+    END IF;
 END selezioneAutoreStatistica;
 
 Procedure StatisticheAutori(
@@ -1526,7 +1532,11 @@ modGUI1.ApriPagina('Selezione statistica', idSessione);
             modGUI1.ApriForm('StatisticheMuseoAutori');
             htp.FORMHIDDEN('idSessione',idSessione);
             htp.FORMHIDDEN('operazione',operazione);
-            htp.FORMHIDDEN('authID',authID);
+            IF authID = 0 THEN
+                htp.formhidden('authID', 0);
+            ELSE
+                htp.FORMHIDDEN('authID',authID);
+            END IF;
             MODGUI1.SELECTOPEN('museoID', 'museoID');
             FOR an_mus IN (SELECT IDMUSEO,NOME FROM MUSEI ORDER BY NOME ASC)
             LOOP

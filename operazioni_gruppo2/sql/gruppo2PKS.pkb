@@ -14,7 +14,7 @@ procedure RedirectEsito (
     pageTitle VARCHAR2 DEFAULT NULL,
     msg VARCHAR2 DEFAULT NULL,
     nuovaOp VARCHAR2 DEFAULT NULL,
-    nuovaOpURL VARCHAR DEFAULT NULL,
+    nuovaOpURL VARCHAR2 DEFAULT NULL,
     parametrinuovaOp VARCHAR2 DEFAULT '',
     backToMenu VARCHAR2 DEFAULT NULL,
     backToMenuURL VARCHAR2 DEFAULT NULL,
@@ -26,7 +26,7 @@ procedure EsitoOperazione(
     pageTitle VARCHAR2 DEFAULT NULL,
     msg VARCHAR2 DEFAULT NULL,
     nuovaOp VARCHAR2 DEFAULT NULL,
-    nuovaOpURL VARCHAR DEFAULT NULL,
+    nuovaOpURL VARCHAR2 DEFAULT NULL,
     parametrinuovaOp VARCHAR2 DEFAULT '',
     backToMenu VARCHAR2 DEFAULT NULL,
     backToMenuURL VARCHAR2 DEFAULT NULL,
@@ -37,7 +37,7 @@ procedure EsitoOperazione(
 procedure coloreClassifica(posizione NUMBER DEFAULT 0);
 procedure EsitoPositivoOpere(idSessione NUMBER DEFAULT NULL);
 procedure EsitoNegativoOpere(idSessione NUMBER DEFAULT NULL);
-procedure StatisticheOpere(idSessione NUMBER DEFAULT NULL);
+
 procedure SpostamentiOpera (operaID NUMBER DEFAULT 0);
 procedure menuOpere (idSessione NUMBER DEFAULT NULL);
 procedure selezioneMuseo(idSessione NUMBER DEFAULT 0);
@@ -52,7 +52,15 @@ PROCEDURE InserisciOpera(
     fineperiodo VARCHAR2 DEFAULT NULL,
     idmusei NUMBER DEFAULT NULL
 );
-
+procedure AggiungiAutore(
+    idSessione NUMBER DEFAULT 0,
+    operaID NUMBER DEFAULT 0
+);
+procedure AggiuntaAutore(
+    idSessione NUMBER DEFAULT 0,
+    operaID NUMBER DEFAULT 0,
+    autoreID NUMBER DEFAULT 0
+);
 procedure EliminazioneOpera(
     idSessione NUMBER default 0,
     operaID NUMBER default 0

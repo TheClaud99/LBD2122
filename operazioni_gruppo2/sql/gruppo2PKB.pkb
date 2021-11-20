@@ -1549,8 +1549,11 @@ Procedure StatisticheMuseoAutori(
 auth Autori%ROWTYPE;
 mus MUSEI%ROWTYPE;
 IDOPER number(5);
+eta NUMBER;
 BEGIN
-SELECT * INTO auth FROM autori WHERE authID=IDAUTORE;
+IF operazione = 3 THEN
+    SELECT * INTO auth FROM autori WHERE authID=IDAUTORE;
+END IF;
 SELECT * INTO mus FROM MUSEI WHERE museoID=IDMUSEO;
     MODGUI1.ApriPagina('StatisticheAutori',idSessione);
        if idSessione IS NULL then
@@ -1560,14 +1563,19 @@ SELECT * INTO mus FROM MUSEI WHERE museoID=IDMUSEO;
         end if;
         htp.br;htp.br;htp.br;htp.br;htp.br;htp.br;
         modGUI1.ApriDiv('class="w3-center"');
-            htp.prn('<h1><b>STATISTICHE AUTORE</b></h1>'); --TITOLO
-            htp.prn('<h4><b>'||auth.nome||' '||auth.cognome||'</b></h4>');
+            IF operazione = 3 THEN
+                htp.prn('<h1><b>STATISTICHE AUTORE</b></h1>'); --TITOLO
+                htp.prn('<h4><b>'||auth.nome||' '||auth.cognome||'</b></h4>');
+            ELSE
+                htp.prn('<h1><b>STATISTICHE AUTORI</b></h1>'); --TITOLO
+                htp.prn('<h4><b>'||mus.nome||'</b></h4>');
+            END IF;
             modGUI1.Collegamento('Torna al menu','menuAutori?idSessione='||idSessione,'w3-black w3-margin w3-button');
         modGUI1.ChiudiDiv;
         htp.br;
+        if operazione=3 THEN
 
         --OPERE ESPOSTE NEL MUSEO SCELTO
-        if operazione=3 THEN
         modGUI1.ApriDiv('class="w3-container" style="width:100%"');
         htp.print('<h2><b>Opere realizzate esposte in '||mus.nome||'</b></h2>');
             FOR op IN (Select *
@@ -1588,6 +1596,40 @@ SELECT * INTO mus FROM MUSEI WHERE museoID=IDMUSEO;
                                 htp.prn('<p>'|| op.anno ||'</p>');
                                 htp.prn('<button onclick="document.getElementById(''LinguaeLivelloOpera'||IDOPER||''').style.display=''block''" class="w3-margin w3-button w3-black w3-hover-white">Visualizza</button>');
                                 gruppo2.linguaELivello(idSessione,IDOPER);
+                            modGUI1.ChiudiDiv;
+                    modGUI1.ChiudiDiv;
+                modGUI1.ChiudiDiv;
+            END LOOP;
+        -- statistica 4
+        ELSE
+            modGUI1.ApriDiv('class="w3-container" style="width:100%"');
+            htp.print('<h2><b>Autori in vita con opere esposte in '||mus.nome||'</b></h2>');
+            FOR an_author IN (
+                SELECT DISTINCT A.IdAutore, A.Nome,A.Cognome,A.DataNascita,A.Nazionalita FROM Autori A JOIN AutoriOpere AO ON A.IdAutore=AO.IdAutore
+                WHERE A.DataMorte IS NULL 
+                AND EXISTS
+                    (SELECT * FROM Opere O WHERE O.IdOpera = AO.IdOpera AND Museo = mus.IdMuseo)
+                )
+            LOOP
+                -- calcolo età autore
+                eta := sysdate - an_author.DataNascita;
+                modGUI1.ApriDiv('class="w3-col l4 w3-padding-large w3-center"');
+                    modGUI1.ApriDiv('class="w3-card-4" style="height:600px;"');
+                    htp.prn('<img src="https://cdn.pixabay.com/photo/2016/10/22/15/32/water-1761027__480.jpg" alt="Alps" style="width:100%;">');
+                            modGUI1.ApriDiv('class="w3-container w3-center"');
+                                htp.prn('<p>'|| an_author.Nome ||' '||an_author.Cognome||'</p>');
+                                htp.br;
+                                htp.prn('Data nascita: ');
+                                IF an_author.DataNascita IS NULL THEN
+                                    htp.prn('Sconosciuta');
+                                ELSE
+                                htp.prn(
+                                    TO_CHAR(an_author.DataNascita, 'DD/MM/YYYY')
+                                    ||' (et&agrave;: '
+                                    ||ROUND(eta/365, 0)||' anni)');
+                                END IF;
+                                htp.br;
+                                htp.prn('Nazionalit&agrave;: '||an_author.Nazionalita);
                             modGUI1.ChiudiDiv;
                     modGUI1.ChiudiDiv;
                 modGUI1.ChiudiDiv;

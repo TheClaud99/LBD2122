@@ -258,7 +258,7 @@ CREATE OR REPLACE PACKAGE BODY modGUI1 as
         htp.prn('</select>');
     end SelectClose;
 
-    procedure InputRadioButton (testo varchar2, nome varchar2, valore varchar2, checked int default 0, disabled int default 0) is
+    procedure InputRadioButton (testo varchar2, nome varchar2, valore varchar2, checked int default 0, disabled int default 0,required int default 0) is
     begin
         htp.print('<input class="w3-radio" type="radio" name="'|| nome ||'" value="'|| valore ||'"');
         if (checked=1)
@@ -268,6 +268,10 @@ CREATE OR REPLACE PACKAGE BODY modGUI1 as
         if (disabled=1)
         then
             htp.prn(' disabled');
+        end if;
+        if (required=1)
+        then
+            htp.prn(' required');
         end if;
         htp.prn('> ');
         htp.prn(testo);

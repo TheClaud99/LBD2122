@@ -54,7 +54,7 @@ Create Table MUSEI
    IdMuseo number(5) primary key,
    Nome varchar2(40) not null,
    Indirizzo varchar2(40) not null,
-   Eliminato number(1) check (Eliminato in (0,1)) not null
+   Eliminato number(1) default 0 check (Eliminato in (0,1)) not null
 );
 
 Create Table OPERE
@@ -76,7 +76,7 @@ Create Table STANZE
    Nome varchar2(20) not null,
    Dimensione number(6,0) not null,
    Museo number(5) not null REFERENCES MUSEI(IdMuseo),
-   Eliminato number(1) check (Eliminato in (0,1)) not null,
+   Eliminato number(1) default 0 check (Eliminato in (0,1)) not null,
 
    check(dimensione > 0)
 );
@@ -86,7 +86,7 @@ Create Table SALE
    IdStanza number(5) primary key REFERENCES STANZE(IdStanza),
    TipoSala number(1) not null check(TipoSala IN(0,1)),
    NumOpere number(6,0) not null,
-   Eliminato number(1) check (Eliminato in (0,1)) not null,
+   Eliminato number(1) default 0 check (Eliminato in (0,1)) not null,
 
    check(numopere > 0)
    --TODO idstanza not in ambientidiservizio.idstanza (non sono permesse query qui)
@@ -96,7 +96,7 @@ Create Table AMBIENTIDISERVIZIO
 (
    IdStanza number(5) primary key REFERENCES STANZE(IdStanza),
    TipoAmbiente varchar2(25) not null,
-   Eliminato number(1) check (Eliminato in (0,1)) not null
+   Eliminato number(1) default 0 check (Eliminato in (0,1)) not null
 
    --TODO idstanza not in sale.idstanza (non sono permesse query qui)
 );
@@ -121,7 +121,7 @@ Create Table AUTORI
    Datanascita DATE,
    Datamorte DATE,
    Nazionalita varchar2(25) not null,
-   Eliminato number(1) check (Eliminato in (0,1)) not null,
+   Eliminato number(1) default 0 check (Eliminato in (0,1)) not null,
 
    check(datanascita < datamorte)
    --TODO Datanascita < SYSTIMESTAMP 
@@ -154,7 +154,7 @@ Create Table CAMPIESTIVI
    DataInizio DATE,
    DataConclusione DATE,
    Museo number(5)  not null REFERENCES MUSEI(IdMuseo),
-   Eliminato number(1) check (Eliminato in (0,1)) not null,
+   Eliminato number(1) default 0 check (Eliminato in (0,1)) not null,
 
    check (datainizio < dataconclusione)
    /* TODO
@@ -172,7 +172,7 @@ Create Table TARIFFECAMPIESTIVI
    Etaminima number(3) not null,
    Etamassima number(3) not null,
    CampoEstivo number(5) not null REFERENCES CAMPIESTIVI(IdCampiEstivi),
-   Eliminato number(1) check (Eliminato in (0,1)) not null,
+   Eliminato number(1) default 0 check (Eliminato in (0,1)) not null,
 
    check(etaminima < etamassima)
 );
@@ -186,7 +186,7 @@ Create Table UTENTI
    Indirizzo varchar2(50) not null,
    Email varchar2(50) not null,
    RecapitoTelefonico varchar2(18),
-   Eliminato number(1) check (Eliminato in (0,1)) not null
+   Eliminato number(1) default 0 check (Eliminato in (0,1)) not null
    
    --TODO datanascita<timestamp
 );
@@ -233,7 +233,7 @@ Create Table NEWSLETTER
 (
    IdNews  number(5) primary key,
    Nome varchar2(25) not null,
-   Eliminato number(1) check (Eliminato in (0,1)) not null
+   Eliminato number(1) default 0 check (Eliminato in (0,1)) not null
 );
 
 Create Table NEWSLETTERUTENTI
@@ -251,7 +251,7 @@ Create Table TIPOLOGIEINGRESSO
    LimiteSala number(3),
    LimiteTempo number(3),
    Durata VARCHAR2(25) not null,
-   Eliminato number(1) check (Eliminato in (0,1)) not null,
+   Eliminato number(1) default 0 check (Eliminato in (0,1)) not null,
 
    check((limitesala is not null) or (limitetempo is not null)),
    check(costototale >= 0),
@@ -286,14 +286,14 @@ Create Table TIPOLOGIEINGRESSOMUSEI
 Create Table BIGLIETTI
 (
   IdTipologiaIng number(5) primary key REFERENCES TIPOLOGIEINGRESSO(IdTipologiaIng),
-  Eliminato number(1) check (Eliminato in (0,1)) not null
+  Eliminato number(1) default 0 check (Eliminato in (0,1)) not null
 );
 
 Create Table ABBONAMENTI
 (
    IdTipologiaIng number(5) primary key REFERENCES TIPOLOGIEINGRESSO(IdTipologiaIng),
    NumPersone number(3) not null,
-   Eliminato number(1) check (Eliminato in (0,1)) not null,
+   Eliminato number(1) default 0 check (Eliminato in (0,1)) not null,
 
    check (numpersone > 0)
 );
@@ -305,7 +305,7 @@ Create Table VARCHI
    Sensore number(7) not null,
    Stanza1 number(5) not null REFERENCES STANZE(IdStanza),
    Stanza2 number(5) not null REFERENCES STANZE(IdStanza),
-   Eliminato number(1) check (Eliminato in (0,1)) not null
+   Eliminato number(1) default 0 check (Eliminato in (0,1)) not null
 
    --TODO
    -- Stanza1.Museo == Stanza2.Museo

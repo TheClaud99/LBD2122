@@ -1,4 +1,6 @@
-
+/*ELIMINAZIONE TABELLE*/
+DROP TABLE UTENTILOGIN;
+DROP TABLE RUOLISESSIONI;
 DROP TABLE VISITEVARCHI;
 DROP TABLE VISITE;
 DROP TABLE VARCHI;
@@ -28,8 +30,8 @@ DROP TABLE OPERE;
 DROP TABLE MUSEI;
 
 
-
-/*DROP SEQUENCE*/
+/*ELIMINAZIONE SEQUENZE*/
+DROP SEQUENCE IdUtenteLoginSeq;
 DROP SEQUENCE IdMuseoSeq;
 DROP SEQUENCE IdOperaSeq;
 DROP SEQUENCE IdStanzaSeq;
@@ -46,11 +48,13 @@ DROP SEQUENCE IdTitoloingSeq;
 DROP SEQUENCE IdVarchiSeq;
 DROP SEQUENCE IdVisiteSeq;
 
+/*CREAZIONE TABELLE*/
 Create Table MUSEI
 (
    IdMuseo number(5) primary key,
    Nome varchar2(40) not null,
-   Indirizzo varchar2(40) not null
+   Indirizzo varchar2(40) not null,
+   Eliminato number(1) check (Eliminato in (0,1)) not null
 );
 
 Create Table OPERE
@@ -59,7 +63,8 @@ Create Table OPERE
    Titolo varchar2(100) not null,
    Anno number(4) not null,
    FinePeriodo number(4),
-   Museo number(5) not null REFERENCES MUSEI(IdMuseo)
+   Museo number(5) not null REFERENCES MUSEI(IdMuseo),
+   Esponibile number(1)  default 1 check (Esponibile in (0,1))
 );
 
 Create Table STANZE
@@ -67,21 +72,23 @@ Create Table STANZE
    IdStanza number(5) primary key,
    Nome varchar2(20) not null,
    Dimensione number(6,0) not null,
-   Museo number(5) not null REFERENCES MUSEI(IdMuseo)
+   Museo number(5) not null REFERENCES MUSEI(IdMuseo),
+   Eliminato number(1) check (Eliminato in (0,1)) not null
 );
 
 Create Table SALE
 (
    IdStanza number(5) primary key REFERENCES STANZE(IdStanza),
    TipoSala number(1) not null check(TipoSala IN(0,1)),
-   NumOpere number(6,0) not null
-
+   NumOpere number(6,0) not null,
+   Eliminato number(1) check (Eliminato in (0,1)) not null
 );
 
 Create Table AMBIENTIDISERVIZIO
 (
    IdStanza number(5) primary key REFERENCES STANZE(IdStanza),
-   TipoAmbiente varchar2(25) not null
+   TipoAmbiente varchar2(25) not null,
+   Eliminato number(1) check (Eliminato in (0,1)) not null
 
 );
 
@@ -101,7 +108,8 @@ Create Table AUTORI
    Cognome varchar2(25) not null,
    Datanascita DATE,
    Datamorte DATE,
-   Nazionalita varchar2(25) not null
+   Nazionalita varchar2(25) not null,
+   Eliminato number(1) check (Eliminato in (0,1)) not null
 );
 
 Create Table AUTORIOPERE
@@ -127,7 +135,8 @@ Create Table CAMPIESTIVI
    Nome varchar2(25) not null,
    DataInizio DATE,
    DataConclusione DATE,
-   Museo number(5)  not null REFERENCES MUSEI(IdMuseo)
+   Museo number(5)  not null REFERENCES MUSEI(IdMuseo),
+   Eliminato number(1) check (Eliminato in (0,1)) not null
 );
 
 Create Table TARIFFECAMPIESTIVI
@@ -136,7 +145,8 @@ Create Table TARIFFECAMPIESTIVI
    Prezzo number(5,2) not null,
    Etaminima number(3) not null,
    Etamassima number(3) not null,
-   CampoEstivo number(5) not null REFERENCES CAMPIESTIVI(IdCampiEstivi)
+   CampoEstivo number(5) not null REFERENCES CAMPIESTIVI(IdCampiEstivi),
+   Eliminato number(1) check (Eliminato in (0,1)) not null
 );
 
 Create Table UTENTI
@@ -147,7 +157,8 @@ Create Table UTENTI
    DataNascita DATE not null,
    Indirizzo varchar2(50) not null,
    Email varchar2(50) not null,
-   RecapitoTelefonico varchar2(18)
+   RecapitoTelefonico varchar2(18),
+   Eliminato number(1) check (Eliminato in (0,1)) not null
 );
 
 Create Table UTENTIMUSEO
@@ -168,7 +179,6 @@ Create Table PAGAMENTICAMPIESTIVI
    DataPagamento DATE not null,
    Tariffa  number(5) not null REFERENCES TARIFFECAMPIESTIVI(IdTariffa),
    Acquirente  number(5) not null REFERENCES UTENTICAMPIESTIVI(IdUtente)
-
 );
 
 Create Table UTENTIPAGAMENTI
@@ -188,7 +198,8 @@ Create Table TUTORI
 Create Table NEWSLETTER
 (
    IdNews  number(5) primary key,
-   Nome varchar2(25) not null
+   Nome varchar2(25) not null,
+   Eliminato number(1) check (Eliminato in (0,1)) not null
 );
 
 Create Table NEWSLETTERUTENTI
@@ -205,7 +216,8 @@ Create Table TIPOLOGIEINGRESSO
    Nome varchar(100) not null,
    LimiteSala number(3),
    LimiteTempo number(3),	/*LimiteTempo e LimiteSale non entrambe null nello stesso record*/
-   Durata VARCHAR2(25) not null
+   Durata VARCHAR2(25) not null,
+   Eliminato number(1) check (Eliminato in (0,1)) not null
 );
 
 Create Table TITOLIINGRESSO
@@ -227,13 +239,15 @@ Create Table TIPOLOGIEINGRESSOMUSEI
 
 Create Table BIGLIETTI
 (
-  IdTipologiaIng number(5) primary key REFERENCES TIPOLOGIEINGRESSO(IdTipologiaIng)
+  IdTipologiaIng number(5) primary key REFERENCES TIPOLOGIEINGRESSO(IdTipologiaIng),
+  Eliminato number(1) check (Eliminato in (0,1)) not null
 );
 
 Create Table ABBONAMENTI
 (
    IdTipologiaIng number(5) primary key REFERENCES TIPOLOGIEINGRESSO(IdTipologiaIng),
-   NumPersone number(3) not null
+   NumPersone number(3) not null,
+   Eliminato number(1) check (Eliminato in (0,1)) not null
 );
 
 Create Table VARCHI
@@ -242,7 +256,8 @@ Create Table VARCHI
    Nome varchar2(25) not null,
    Sensore number(7) not null,
    Stanza1 number(5) not null REFERENCES STANZE(IdStanza),
-   Stanza2 number(5) not null REFERENCES STANZE(IdStanza)
+   Stanza2 number(5) not null REFERENCES STANZE(IdStanza),
+   Eliminato number(1) check (Eliminato in (0,1)) not null
 
 );
 
@@ -257,16 +272,32 @@ Create Table VISITE
 
 Create Table VISITEVARCHI
 (
-   IdVisita number(5) not null REFERENCES VISITE(IdVisita),
+   IdVisita number(5) not null REFERENCES VISITE(IdVisita) ON DELETE CASCADE,
    IdVarco number(5) not null REFERENCES VARCHI(IdVarchi),
    AttraversamentoVarco  timestamp not null,
    Primary key(IdVisita,IdVarco,AttraversamentoVarco)
 );
 
+/* Tabella di corrispondenze tra ruolo e idsessione */
+CREATE TABLE RUOLISESSIONI (
+   Ruolo VARCHAR2(5) PRIMARY KEY,
+   IdSessione NUMBER(5) DEFAULT 0
+);
+
+/* Tabella che contiene username, password e ruolo di ogni utente */
+Create Table UTENTILOGIN
+(
+   IdUtenteLogin number(5) primary key,
+   IdCliente NUMBER(5) DEFAULT NULL REFERENCES Utenti(IdUtente),
+   Username VARCHAR2(50) not null,
+   Password VARCHAR2(25) not null,
+   Ruolo VARCHAR2(5) not null REFERENCES RuoliSessioni(Ruolo)
+);
+
+
 /*--------*/
 /*SEQUENCE*/
 /*--------*/
-
 
 /*MUSEI*/
 create sequence IdMuseoSeq
@@ -371,6 +402,13 @@ cycle;
 
 /*VISITE*/
 create sequence IdVisiteSeq
+start with 1
+increment by 1
+maxvalue 99999
+cycle;
+
+/*UTENTILOGIN*/
+CREATE SEQUENCE IdUtenteLoginSeq
 start with 1
 increment by 1
 maxvalue 99999

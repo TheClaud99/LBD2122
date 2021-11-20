@@ -30900,5 +30900,26 @@ INSERT INTO VISITEVARCHI (IdVisita, IdVarco, AttraversamentoVarco)
 VALUES (13, 25, to_date('15:54:15', 'HH24:MI:SS'));
 INSERT INTO VISITEVARCHI (IdVisita, IdVarco, AttraversamentoVarco)
 VALUES (13, 25, to_date('15:55:13', 'HH24:MI:SS'));
+
+/********RUOLISESSIONI*********/
+NSERT INTO RUOLISESSIONI (Ruolo, IdSessione) VALUES ('U', 0);
+INSERT INTO RUOLISESSIONI (Ruolo, IdSessione) VALUES ('DBA', 1);
+INSERT INTO RUOLISESSIONI (Ruolo, IdSessione) VALUES ('AB', 2);
+INSERT INTO RUOLISESSIONI (Ruolo, IdSessione) VALUES ('GM', 3);
+INSERT INTO RUOLISESSIONI (Ruolo, IdSessione) VALUES ('GO', 4);
+INSERT INTO RUOLISESSIONI (Ruolo, IdSessione) VALUES ('GCE', 5);
+
+/********UTENTILOGIN*********/
+INSERT INTO UTENTILOGIN (IdUtenteLogin, IdCliente, Username, Password, Ruolo)
+VALUES (IdUtenteLoginSeq.nextval, NULL, 'MarioROSSI', 'dba', 'DBA');
+INSERT INTO UTENTILOGIN (IdUtenteLogin, IdCliente, Username, Password, Ruolo)
+VALUES (IdUtenteLoginSeq.nextval, NULL, 'LuigiBIANCHI', 'ab', 'AB');
+INSERT INTO UTENTILOGIN (IdUtenteLogin, IdCliente, Username, Password, Ruolo)
+VALUES (IdUtenteLoginSeq.nextval, NULL, 'StefanoVERDI', 'gm', 'GM');
+INSERT INTO UTENTILOGIN (IdUtenteLogin, IdCliente, Username, Password, Ruolo)
+VALUES (IdUtenteLoginSeq.nextval, NULL, 'PaoloNERI', 'go', 'GO');
+INSERT INTO UTENTILOGIN (IdUtenteLogin, IdCliente, Username, Password, Ruolo)
+VALUES (IdUtenteLoginSeq.nextval, NULL, 'MarcoGIALLI', 'gce', 'GCE');
+
 SET DEFINE ON;
 commit;

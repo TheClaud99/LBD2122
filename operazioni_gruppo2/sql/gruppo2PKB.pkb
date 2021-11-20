@@ -63,7 +63,11 @@ procedure EsitoOperazione(
     backToMenuURL VARCHAR2 DEFAULT NULL,
     parametribackToMenu VARCHAR2 DEFAULT ''
     ) is
+    paramOp VARCHAR2(250);
+    paramBTM VARCHAR2(250);
     begin
+    paramOP := REPLACE(parametrinuovaOp,'//','&');
+    paramBTM := REPLACE(parametribackToMenu,'//','&');
         modGUI1.ApriPagina(pageTitle, idSessione);
         if idSessione IS NULL then
             modGUI1.Header;
@@ -78,9 +82,9 @@ procedure EsitoOperazione(
                     htp.prn('<p>'||msg||'</p>');
                 end if;
                 if nuovaOp IS NOT NULL OR nuovaOpURL IS NOT NULL then
-                    MODGUI1.collegamento(nuovaOp, nuovaOpURL||'?idSessione='||idSessione||parametrinuovaOp,'w3-button w3-block w3-black w3-section w3-padding');
+                    MODGUI1.collegamento(nuovaOp, nuovaOpURL||'?idSessione='||idSessione||paramOP,'w3-button w3-block w3-black w3-section w3-padding');
                 end if;
-                    MODGUI1.collegamento(backToMenu, backToMenuURL||'?idSessione='||idSessione||parametribackToMenu,'w3-button w3-block w3-black w3-section w3-padding');
+                    MODGUI1.collegamento(backToMenu, backToMenuURL||'?idSessione='||idSessione||paramBTM,'w3-button w3-block w3-black w3-section w3-padding');
                 modGUI1.ChiudiDiv;
             modGUI1.ChiudiDiv;
 end EsitoOperazione;
@@ -92,7 +96,7 @@ end EsitoOperazione;
  * - Visualizzazione ✅
  * - Cancellazione (rimozione) ✅
  * - Spostamento ❌
- * - Aggiunta Autore ❌
+ * - Aggiunta Autore ✅
  * OPERAZIONI STATISTICHE E MONITORAGGIO
  * - Storico prestiti dell’Opera ✅
  * - Storico spostamenti relativi ad un Museo ❌ //procedura relativa al gruppo museo
@@ -575,6 +579,7 @@ PROCEDURE UpdateOpera(
 ) IS
 
 BEGIN
+    IF newFineperiodo>newAnno THEN
 	UPDATE Opere SET
 		titolo=newTitolo,
 		anno=newAnno,
@@ -582,14 +587,15 @@ BEGIN
 		Museo=newIDmusei
 	WHERE IdOpera=operaID;
     gruppo2.RedirectEsito(idSessione,'Update eseguito correttamente', null,null,null,null,'Torna alle opere','menuOpere',null);
-    
-    EXCEPTION WHEN OTHERS THEN
-    /*gruppo2.RedirectEsito(idSessione, 'Update fallito',
+    ELSE
+    --EXCEPTION WHEN OTHERS THEN
+    gruppo2.RedirectEsito(idSessione, 'Update fallito',
                 'Errore: parametri non ammessi',
-                'Torna all''update','ModificaOpera', 
-                '&operaID='||operaID||'&titoloOpera='||newTitolo,'Torna al menù','menuOpere');
-    */
-    NULL;
+                'Torna all''update',
+                'ModificaOpera', 
+                '//operaID='||operaID||'//titoloOpera='||newTitolo,
+                'Torna al menù','menuOpere');
+    end if;
 END;
 
 
@@ -768,7 +774,7 @@ procedure VisualizzaOpera (
                             then
                             htp.prn('<h5><b>Esposta: </b>✅</h5>');
                             htp.br;
-                            htp.prn('<b>Museo: </b>'||varNomeMuseo||'.');
+                            htp.prn('<b>Museo: </b>'||varNomeMuseo);
                             htp.br;
                             htp.prn('<b>Sala: </b>'||varNomeStanza||'<b> tipo di sala: </b>'||varTipoSala);
                             htp.br;
@@ -794,7 +800,7 @@ procedure VisualizzaOpera (
                             then
                             htp.prn('<h5><b>Exposed: </b>✅</h5>');
                             htp.br;
-                            htp.prn('<b>Museum: </b>'||varNomeMuseo||'.');
+                            htp.prn('<b>Museum: </b>'||varNomeMuseo);
                             htp.br;
                             htp.prn('<b>Room: </b>'||varNomeStanza||'<b> type of room: </b>'||varTipoSala);
                             htp.br;
@@ -820,7 +826,7 @@ procedure VisualizzaOpera (
                             then
                             htp.prn('<h5><b>裸露: </b>✅</h5>');
                             htp.br;
-                            htp.prn('<b>博物馆: </b>'||varNomeMuseo||'.');
+                            htp.prn('<b>博物馆: </b>'||varNomeMuseo);
                             htp.br;
                             htp.prn('<b>房间: </b>'||varNomeStanza||'<b> 大厅类型: </b>'||varTipoSala);
                             htp.br;
@@ -866,7 +872,8 @@ end VisualizzaOpera;
  
 procedure AggiungiAutore(
     idSessione NUMBER DEFAULT 0,
-    operaID NUMBER DEFAULT 0
+    operaID NUMBER DEFAULT 0,
+    lingue VARCHAR2 DEFAULT null
 )IS
 nomecompleto VARCHAR2(50);
     BEGIN
@@ -902,23 +909,52 @@ nomecompleto VARCHAR2(50);
             MODGUI1.chiudiDiv;
         MODGUI1.chiudiDiv;
     modGUI1.ChiudiDiv;
-END ;
+END AggiungiAutore;
 
 procedure AggiuntaAutore(
     idSessione NUMBER DEFAULT 0,
     operaID NUMBER DEFAULT 0,
-    autoreID NUMBER DEFAULT 0
+    autoreID NUMBER DEFAULT 0,
+    lingue VARCHAR2 default NULL
 )IS
+controllo NUMBER(3);
     BEGIN
-        INSERT INTO AUTORIOPERE VALUES
-            (autoreID,operaID);
-        IF SQL%FOUND THEN
-        RedirectEsito(idSessione, 'Inserimento riuscito',
-             'autore aggiunto all''opera',
-             null,null,null,
-             'Torna al menù','menuOpere');
+        SELECT count(*) into controllo 
+            FROM AUTORIOPERE WHERE AUTORIOPERE.IdOpera=operaID 
+                and AUTORIOPERE.IdAutore=autoreID;
+        IF controllo>0 THEN
+            INSERT INTO AUTORIOPERE VALUES
+                (autoreID,operaID);
+            IF SQL%FOUND THEN
+            RedirectEsito(idSessione, 'Inserimento riuscito',
+                'autore aggiunto all''opera',
+                null,null,null,
+                'Torna al menù','menuOpere');
+            ELSE
+                if lingue is not null THEN
+                    RedirectEsito(idSessione, 'Inserimento fallito',
+                    'Errore: Autore già presente',
+                    'Torna all''opera','VisualizzaOpera', 
+                    '//operaID='||operaID||'//lingue='||lingue,'Torna al menù','menuOpere');
+                    ELSE
+                    RedirectEsito(idSessione, 'Inserimento fallito',
+                    'Errore: Autore già presente',
+                    null,null, null,'Torna al menù','menuOpere');
+                END IF;
+            END IF;
+        ELSE
+            if lingue is not null THEN
+                RedirectEsito(idSessione, 'Inserimento fallito',
+                'Errore: Autore già presente',
+                'Torna all''opera','VisualizzaOpera', 
+                '//operaID='||operaID||'//lingue='||lingue,'Torna al menù','menuOpere');
+                ELSE
+                RedirectEsito(idSessione, 'Inserimento fallito',
+                'Errore: Autore già presente',
+                null,null, null,'Torna al menù','menuOpere');
+            END IF;
         END IF;
-END;
+END AggiuntaAutore;
  
 procedure SpostamentiOpera (
     operaID NUMBER DEFAULT 0
@@ -1660,13 +1696,13 @@ BEGIN
             RedirectEsito(idSessione, 'Inserimento fallito',
                 'Errore: Operazione non autorizzata (controlla di essere loggato)',
                 'Torna all''inserimento','InserisciAutore', 
-                '&authName='||authName||'&authSurname='||authSurname||'&dataNascita='||dataNascita||'&dataMorte='||dataMorte||'&nation='||nation,
+                '//authName='||authName||'//authSurname='||authSurname||'//dataNascita='||dataNascita||'//dataMorte='||dataMorte||'//nation='||nation,
                 'Torna al menù','menuAutori');
             ELSIF numAutori > 0 THEN
                 RedirectEsito(idSessione, 'Inserimento fallito',
                     'Errore: Autore già presente',
                     'Torna all''inserimento','InserisciAutore', 
-                    '&authName='||authName||'&authSurname='||authSurname||'&dataNascita='||dataNascita||'&dataMorte='||dataMorte||'&nation='||nation,
+                    '//authName='||authName||'//authSurname='||authSurname||'//dataNascita='||dataNascita||'//dataMorte='||dataMorte||'//nation='||nation,
                     'Torna al menù','menuAutori');
 
             ELSE
@@ -1676,25 +1712,25 @@ BEGIN
                     RedirectEsito(idSessione, 'Inserimento fallito',
                         'Errore: Inserire Nome',
                         'Torna all''inserimento','InserisciAutore', 
-                        '&authName='||authName||'&authSurname='||authSurname||'&dataNascita='||dataNascita||'&dataMorte='||dataMorte||'&nation='||nation,
+                        '//authName='||authName||'//authSurname='||authSurname||'//dataNascita='||dataNascita||'//dataMorte='||dataMorte||'//nation='||nation,
                         'Torna al menù','menuAutori');
                 ELSIF authSurname IS NULL THEN
                     RedirectEsito(idSessione, 'Inserimento fallito',
                         'Errore: Inserire Cognome',
                         'Torna all''inserimento','InserisciAutore', 
-                        '&authName='||authName||'&authSurname='||authSurname||'&dataNascita='||dataNascita||'&dataMorte='||dataMorte||'&nation='||nation,
+                        '//authName='||authName||'//authSurname='||authSurname||'//dataNascita='||dataNascita||'//dataMorte='||dataMorte||'//nation='||nation,
                         'Torna al menù','menuAutori');
                 ELSIF nation IS NULL THEN
                     RedirectEsito(idSessione, 'Inserimento fallito',
                         'Errore: Inserire nazionalità',
                         'Torna all''inserimento','InserisciAutore', 
-                        '&authName='||authName||'&authSurname='||authSurname||'&dataNascita='||dataNascita||'&dataMorte='||dataMorte||'&nation='||nation,
+                        '//authName='||authName||'//authSurname='||authSurname||'//dataNascita='||dataNascita||'//dataMorte='||dataMorte||'//nation='||nation,
                         'Torna al menù','menuAutori');
                 ELSIF to_date(dataNascita, 'YYYY-MM-DD') > to_date(dataMorte, 'YYYY-MM-DD') THEN
                     RedirectEsito(idSessione, 'Inserimento fallito',
                         'Errore: data di nascita postuma alla data di morte',
                         'Torna all''inserimento','InserisciAutore', 
-                        '&authName='||authName||'&authSurname='||authSurname||'&dataNascita='||dataNascita||'&dataMorte='||dataMorte||'&nation='||nation,
+                        '//authName='||authName||'//authSurname='||authSurname||'//dataNascita='||dataNascita||'//dataMorte='||dataMorte||'//nation='||nation,
                         'Torna al menù','menuAutori');
                 END IF;
             END IF;
@@ -1790,7 +1826,7 @@ BEGIN
         RedirectEsito(idSessione, 'Inserimento fallito',
              'Errore',
              'Torna all''inserimento','InserisciAutore', 
-             '&authName='||authName||'&authSurname='||authSurname||'&dataNascita='||dataNascita||'&dataMorte='||dataMorte||'&nation='||nation,
+             '//authName='||authName||'//authSurname='||authSurname||'//dataNascita='||dataNascita||'//dataMorte='||dataMorte||'//nation='||nation,
              'Torna al menù','menuAutori');
             ROLLBACK;
     END IF;
@@ -1928,7 +1964,7 @@ BEGIN
             RedirectEsito(idSessione, 'Aggiornamento fallito',
              'Errore: data di nascita postuma alla data di morte',
              'Torna alla modifica','ModificaAutore', 
-             '&authorID='||authID||'&operazione=1','Torna al menù','menuAutori');
+             '//authorID='||authID||'//operazione=1','Torna al menù','menuAutori');
             ROLLBACK;
 END;
 
@@ -2125,7 +2161,7 @@ BEGIN
             RedirectEsito(idSessione, 'Inserimento fallito',
              'Errore: Opera inesistente',
              'Torna all''opera','VisualizzaOpera', 
-             '&operaID='||operaID||'&lingue='||language,'Torna al menù','menuOpere');
+             '//operaID='||operaID||'//lingue='||language,'Torna al menù','menuOpere');
             ROLLBACK;
    END;
 
@@ -2225,11 +2261,10 @@ IF descrid is null or newopera is null THEN
 	WHERE IDDESC=descrID;
 
     commit;
-    RedirectEsito(idSessione, 'Aggiornamento riuscito', null,null, null, null,'Torna all''opera','VisualizzaOpera','&operaID='||newopera||'&lingue='||newlingua);
-    --RedirectEsito(idSessione, 'Aggiornamento riuscito', null,null, null, null,'Torna all''opera','VisualizzaOpera','&operaID='||newopera||'&lingue='||newlingua)
+    RedirectEsito(idSessione, 'Aggiornamento riuscito', null,null, null, null,'Torna all''opera','VisualizzaOpera','//operaID='||newopera||'//lingue='||newlingua);
     EXCEPTION
 		WHEN Errore_data THEN
-            RedirectEsito(idSessione, 'Aggiornamento fallito', null,null, null, null,'Torna all''opera','VisualizzaOpera','&operaID='||newopera||'&lingue='||newlingua);
+            RedirectEsito(idSessione, 'Aggiornamento fallito', null,null, null, null,'Torna all''opera','VisualizzaOpera','//operaID='||newopera||'//lingue='||newlingua);
             ROLLBACK;
 END;
 
@@ -2271,7 +2306,7 @@ oplingua VARCHAR2(25);
 BEGIN
     select Opera, LINGUA into opid, oplingua
     from DESCRIZIONI where IDDESC=idDescrizione;
-    gruppo2.RedirectEsito(idSessione,'Rimozione riuscita', null,null,null, null,'Torna all''opera','VisualizzaOpera','&operaID='||opid||'&lingue='||oplingua);
+    gruppo2.RedirectEsito(idSessione,'Rimozione riuscita', null,null,null, null,'Torna all''opera','VisualizzaOpera','//operaID='||opid||'//lingue='||oplingua);
         DELETE FROM DESCRIZIONI WHERE IDDESC = idDescrizione;
         commit;
 end RimozioneDescrizione;

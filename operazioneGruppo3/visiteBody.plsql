@@ -323,10 +323,10 @@ CREATE OR REPLACE PACKAGE BODY packagevisite AS
         action               IN  VARCHAR2 DEFAULT ''
     ) IS
 
-        nomeutente      utenti.nome%TYPE;
-        cognomeutente   utenti.cognome%TYPE;
-        varidutente     utenti.idutente%TYPE;
-        nome_tipologia  tipologieingresso.durata%TYPE;
+        nomeutente     utenti.nome%TYPE;
+        cognomeutente  utenti.cognome%TYPE;
+        varidutente    utenti.idutente%TYPE;
+        tipologia      tipologieingresso%rowtype;
     BEGIN
         modgui1.apridivcard();
         modgui1.apriform(
@@ -386,28 +386,30 @@ CREATE OR REPLACE PACKAGE BODY packagevisite AS
             IF utente.idutente = idutenteselezionato THEN
                 modgui1.selectoption(
                                     varidutente,
-                                    ''
-                                    || nomeutente
+                                    nomeutente
                                     || ' '
-                                    || cognomeutente
-                                    || '',
+                                    || cognomeutente,
                                     1
                 );
-
             ELSE
                 modgui1.selectoption(
                                     varidutente,
-                                    ''
-                                    || nomeutente
+                                    nomeutente
                                     || ' '
-                                    || cognomeutente
-                                    || '',
+                                    || cognomeutente,
                                     0
                 );
             END IF;
 
         END LOOP;
 
+        modgui1.emptyselectoption(
+                                 CASE
+                                     WHEN idutenteselezionato IS NULL THEN
+                                         1
+                                     ELSE 0
+                                 END
+        );
         modgui1.selectclose();
         htp.br;
         modgui1.label('Titolo di ingresso');
@@ -425,8 +427,8 @@ CREATE OR REPLACE PACKAGE BODY packagevisite AS
                 acquirente = idutenteselezionato
         ) LOOP
             SELECT
-                nome
-            INTO nome_tipologia
+                *
+            INTO tipologia
             FROM
                 tipologieingresso
             WHERE
@@ -435,20 +437,20 @@ CREATE OR REPLACE PACKAGE BODY packagevisite AS
             IF titolo.idtitoloing = idtitoloselezionato THEN
                 modgui1.selectoption(
                                     titolo.idtitoloing,
-                                    nome_tipologia,
+                                    tipologia.nome,
                                     1
                 );
             ELSE
                 modgui1.selectoption(
                                     titolo.idtitoloing,
-                                    nome_tipologia,
+                                    tipologia.nome,
                                     0
                 );
             END IF;
 
         END LOOP;
 
-        htp.prn('</select>');
+        modgui1.selectclose();
         htp.br;
         htp.prn('<button class="w3-button w3-block w3-black w3-section w3-padding" type="submit" name="convalida" value="1">Invia</button>');
         modgui1.chiudidiv;

@@ -253,6 +253,18 @@ CREATE OR REPLACE PACKAGE BODY modGUI1 as
         htp.prn(''|| testo ||'</option>');
     end SelectOption;
 
+    procedure EmptySelectOption(selected int default 0) is
+    begin
+        htp.prn('<option hidden disabled value ');
+        if (selected=1)
+        then
+            htp.prn('selected>');
+        else
+            htp.prn('>');
+        end if;
+        htp.prn('-- select an option -- </option>');
+    end EmptySelectOption;
+
     procedure SelectClose is
     begin
         htp.prn('</select>');

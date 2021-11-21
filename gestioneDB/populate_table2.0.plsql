@@ -30,1788 +30,1788 @@ VISITEVARCHI:30329
 */
 /**********MUSEI*********/
 SET DEFINE OFF;
-INSERT INTO MUSEI (IdMuseo, Nome, Indirizzo, Eliminato)
+INSERT INTO MUSEI (IdMuseo, Nome, Indirizzo)
 VALUES (1, 'Galleria di Arte Moderna', 'Via Boccaccio 12, Pisa (PI)');
-INSERT INTO MUSEI (IdMuseo, Nome, Indirizzo, Eliminato)
+INSERT INTO MUSEI (IdMuseo, Nome, Indirizzo)
 VALUES (2, 'Museo del Rinascimento', 'Via XXIV Maggio 164, Pisa (PI)');
-INSERT INTO MUSEI (IdMuseo, Nome, Indirizzo, Eliminato)
+INSERT INTO MUSEI (IdMuseo, Nome, Indirizzo)
 VALUES (3, 'Museo di Storia Romana', 'Via Vittorio Veneto 1, Pisa (PI)');
-INSERT INTO MUSEI (IdMuseo, Nome, Indirizzo, Eliminato)
+INSERT INTO MUSEI (IdMuseo, Nome, Indirizzo)
 VALUES (4, 'Museo Egizio', 'Piazza Cavour 55, Pisa (PI)');
-INSERT INTO MUSEI (IdMuseo, Nome, Indirizzo, Eliminato)
+INSERT INTO MUSEI (IdMuseo, Nome, Indirizzo)
 VALUES (5, 'Museo di Scienze Naturali', 'Via Galileo Galilei 20, Pisa (PI)');
-INSERT INTO MUSEI (IdMuseo, Nome, Indirizzo, Eliminato)
+INSERT INTO MUSEI (IdMuseo, Nome, Indirizzo)
 VALUES (6, 'Pinacoteca Nazionale', 'Via Francesco Petrarca 44, Pisa (PI)');
 /***********OPERE************/
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo)
 VALUES(idOperaSeq.nextVal, 'PietÃ  at the Foot of the Cross', 996, NULL, 6);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo)
 VALUES(idOperaSeq.nextVal, 'Hercules and Lichas', 1874, NULL, 3);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo)
 VALUES(idOperaSeq.nextVal, 'Landscape with Philemon and Baucis', 1878, NULL, 6);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo)
 VALUES(idOperaSeq.nextVal, 'St Peter s', 406, NULL, 3);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo)
 VALUES(idOperaSeq.nextVal, 'The Conversion of Saul detail', 415, NULL, 6);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo)
 VALUES(idOperaSeq.nextVal, 'Cypresses at Cagnes', 458, NULL, 1);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo)
 VALUES(idOperaSeq.nextVal, 'Four Musical Angels', 442, NULL, 3);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo)
 VALUES(idOperaSeq.nextVal, 'Christ Wearing the Crown of Thorns', 1361, NULL, 3);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo)
 VALUES(idOperaSeq.nextVal, 'Landscape with Ruins', 1755, NULL, 6);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo)
 VALUES(idOperaSeq.nextVal, 'Woman Bitten by a Snake Femme piquÃ©e par un serpent', 1749, NULL, 6);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo)
 VALUES(idOperaSeq.nextVal, 'Holy Family with an Angel', 50, 100, 1);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo)
 VALUES(idOperaSeq.nextVal, 'The Alchemist', 44, NULL, 1);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo)
 VALUES(idOperaSeq.nextVal, 'Witchcraft Allegory of Hercules', 1901, NULL, 2);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo)
 VALUES(idOperaSeq.nextVal, 'The Battle of Mongiovino', 1873, NULL, 2);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo)
 VALUES(idOperaSeq.nextVal, 'The Creek', 653, NULL, 6);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo)
 VALUES(idOperaSeq.nextVal, 'Apollo and Diana', 598, NULL, 2);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo)
 VALUES(idOperaSeq.nextVal, 'View of Dresden from the Right Bank of the Elbe with the Augustus Bridge', 772, NULL, 6);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo)
 VALUES(idOperaSeq.nextVal, 'Pearl Fishers', 744, NULL, 2);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo)
 VALUES(idOperaSeq.nextVal, 'Christ on the Lake of Gennezaret', 724, NULL, 6);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo)
 VALUES(idOperaSeq.nextVal, 'Battle between Christians and Moslems', 445, NULL, 4);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo)
 VALUES(idOperaSeq.nextVal, 'The Arrival of a Stage-coach in the Courtyard of the Messageries', 400, 450, 5);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo)
 VALUES(idOperaSeq.nextVal, 'Still-Life with Flowers and Fruit', 50, 100, 5);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo)
 VALUES(idOperaSeq.nextVal, 'View of the Three-Fountain Grove', 334, NULL, 3);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo)
 VALUES(idOperaSeq.nextVal, 'Spartan Girl', 319, NULL, 1);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo)
 VALUES(idOperaSeq.nextVal, 'Still-Life with Flowers in a Wan-Li Vase', 364, NULL, 2);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo)
 VALUES(idOperaSeq.nextVal, 'The Discovery of Achilles among the Daughters of Lycomedes', 848, NULL, 5);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo)
 VALUES(idOperaSeq.nextVal, 'St Veneranda Enthroned', 694, NULL, 1);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo)
 VALUES(idOperaSeq.nextVal, 'Costume drawing of a woman bearing a torch', 652, NULL, 6);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo)
 VALUES(idOperaSeq.nextVal, 'Madonna and Child with Two Angels', 486, NULL, 5);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo)
 VALUES(idOperaSeq.nextVal, 'May Queen Festival', 513, NULL, 4);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo)
 VALUES(idOperaSeq.nextVal, 'The Miraculous Draught of Fishes', 1255, NULL, 1);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo)
 VALUES(idOperaSeq.nextVal, 'Still-Life with Lobster and Fruit', 1250, 1300, 3);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo)
 VALUES(idOperaSeq.nextVal, 'Cestello Annunciation in frame', 995, NULL, 5);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo)
 VALUES(idOperaSeq.nextVal, 'Triptych of Haywain left wing', 1006, NULL, 5);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo)
 VALUES(idOperaSeq.nextVal, 'Reconstruction of a triptych', 201, NULL, 3);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo)
 VALUES(idOperaSeq.nextVal, 'Lamentation over St Francis', 245, NULL, 4);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo)
 VALUES(idOperaSeq.nextVal, 'Portrait of Sir Thomas Exmewe', 1124, NULL, 5);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo)
 VALUES(idOperaSeq.nextVal, 'Tanaquil', 1154, NULL, 1);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo)
 VALUES(idOperaSeq.nextVal, 'The Conversion of St Paul', 1685, NULL, 5);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo)
 VALUES(idOperaSeq.nextVal, 'Bacchus and Ceres with Nymphs and Satyrs', 1692, NULL, 2);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo)
 VALUES(idOperaSeq.nextVal, 'Martin Luther as an Augustinian Monk', 1686, NULL, 3);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo)
 VALUES(idOperaSeq.nextVal, 'Hercules in the Palace of Omphale', 1772, NULL, 3);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo)
 VALUES(idOperaSeq.nextVal, 'Jael', 1805, NULL, 6);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo)
 VALUES(idOperaSeq.nextVal, 'Cardinal Melchior de Polignac', 1821, NULL, 5);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo)
 VALUES(idOperaSeq.nextVal, 'Red Apples at the Foot of a Tree', 864, NULL, 3);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo)
 VALUES(idOperaSeq.nextVal, 'Water Glass and Jug', 894, NULL, 6);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo)
 VALUES(idOperaSeq.nextVal, 'Madonna degli Alberetti', 909, NULL, 2);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo)
 VALUES(idOperaSeq.nextVal, 'Hagar and the Angel', 944, NULL, 2);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo)
 VALUES(idOperaSeq.nextVal, 'St Peter Consacrates Stephen as Deacon', 934, NULL, 2);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo)
 VALUES(idOperaSeq.nextVal, 'The Spinner', 1765, NULL, 2);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo)
 VALUES(idOperaSeq.nextVal, 'New Market Square in Dresden from the JÃ¼denhof', 1729, NULL, 4);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo)
 VALUES(idOperaSeq.nextVal, 'The Kimono', 1331, NULL, 1);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo)
 VALUES(idOperaSeq.nextVal, 'Chancellor Leonhard van Eck', 1334, NULL, 4);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo)
 VALUES(idOperaSeq.nextVal, 'Interior decoration', 749, NULL, 5);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo)
 VALUES(idOperaSeq.nextVal, 'Panels of Grotesque Ornament with Commedia dell  Arte Figures', 713, NULL, 4);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo)
 VALUES(idOperaSeq.nextVal, 'The Apostle St James the Great Freeing the Magician Hermogenes', 700, 750, 5);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo)
 VALUES(idOperaSeq.nextVal, 'The English Government', 774, NULL, 2);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo)
 VALUES(idOperaSeq.nextVal, 'A Squall Approaching the Northern French Coast', 800, 850, 6);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo)
 VALUES(idOperaSeq.nextVal, 'St Peter Consacrates Stephen as Deacon', 838, NULL, 1);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo)
 VALUES(idOperaSeq.nextVal, 'Tomb of Carlo Emanuele III', 915, NULL, 1);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo)
 VALUES(idOperaSeq.nextVal, 'Fontana del Tritone', 873, NULL, 2);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo)
 VALUES(idOperaSeq.nextVal, 'Woman with Prayerbook', 850, 900, 2);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo)
 VALUES(idOperaSeq.nextVal, 'Lamentation', 415, NULL, 4);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo)
 VALUES(idOperaSeq.nextVal, 'Reading from Homer', 499, NULL, 4);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo)
 VALUES(idOperaSeq.nextVal, 'Virgin in Glory with Saints', 452, NULL, 2);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo)
 VALUES(idOperaSeq.nextVal, 'A Prince of Saxony', 227, NULL, 4);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo)
 VALUES(idOperaSeq.nextVal, 'Flight of Aeneas', 200, 250, 2);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo)
 VALUES(idOperaSeq.nextVal, 'Bouquet of Flowers in a Niche', 255, NULL, 5);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo)
 VALUES(idOperaSeq.nextVal, 'Les Quatre Ã‰tats de la SociÃ©tÃ©: Artisan State', 187, NULL, 6);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo)
 VALUES(idOperaSeq.nextVal, 'St Anne with the Virgin and Child and St Joachim', 206, NULL, 2);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo)
 VALUES(idOperaSeq.nextVal, 'Still-life with Musical Instruments', 224, NULL, 1);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo)
 VALUES(idOperaSeq.nextVal, 'Portrait of Felicita Sartori', 450, 500, 6);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo)
 VALUES(idOperaSeq.nextVal, 'Charity with two children', 483, NULL, 6);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo)
 VALUES(idOperaSeq.nextVal, 'Martyrdom of St Andrew', 800, 850, 6);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo)
 VALUES(idOperaSeq.nextVal, 'The Painter and the Buyer', 839, NULL, 1);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo)
 VALUES(idOperaSeq.nextVal, 'Alexande Dumas Fils', 672, NULL, 3);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo)
 VALUES(idOperaSeq.nextVal, 'The Oath of Brutus', 934, NULL, 6);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo)
 VALUES(idOperaSeq.nextVal, 'Landscape with the Fall of Icarus detail', 932, NULL, 1);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo)
 VALUES(idOperaSeq.nextVal, 'Tomb of Clement VIII', 1675, NULL, 5);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo)
 VALUES(idOperaSeq.nextVal, 'The Story of Esther', 1703, NULL, 4);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo)
 VALUES(idOperaSeq.nextVal, 'Self-portrait', 874, NULL, 1);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo)
 VALUES(idOperaSeq.nextVal, 'Rebecca at the Well', 886, NULL, 3);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo)
 VALUES(idOperaSeq.nextVal, 'Portrait of the Marquise d Orvilliers', 856, NULL, 3);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo)
 VALUES(idOperaSeq.nextVal, 'Portrait of a Woman Holding a Book', 866, NULL, 4);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo)
 VALUES(idOperaSeq.nextVal, 'Danube Well detail', 900, 950, 1);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo)
 VALUES(idOperaSeq.nextVal, 'Saint Matthew and the Angel', 1269, NULL, 6);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo)
 VALUES(idOperaSeq.nextVal, 'Bouquet in a Niche', 1304, NULL, 4);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo)
 VALUES(idOperaSeq.nextVal, 'Portraits of Johann I and Frederick III the Wise', 1262, NULL, 6);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo)
 VALUES(idOperaSeq.nextVal, 'Flowers in a Vase', 1257, NULL, 2);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo)
 VALUES(idOperaSeq.nextVal, 'Portrait of Rebecca Boylston', 1263, NULL, 5);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo)
 VALUES(idOperaSeq.nextVal, 'The Stag Hunt of Elector Frederic the Wise', 1355, NULL, 1);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo)
 VALUES(idOperaSeq.nextVal, 'Floor Scrapers', 1381, NULL, 4);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo)
 VALUES(idOperaSeq.nextVal, 'Wool Factory', 1367, NULL, 3);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo)
 VALUES(idOperaSeq.nextVal, 'Last Judgment Triptych right outer wing', 1428, NULL, 5);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo)
 VALUES(idOperaSeq.nextVal, 'The Ã‰chevins of the City of Paris', 476, NULL, 6);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo)
 VALUES(idOperaSeq.nextVal, 'Baldacchino', 482, NULL, 3);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo)
 VALUES(idOperaSeq.nextVal, 'Still-life with Wine Glass and Silver Bowl', 523, NULL, 5);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo)
 VALUES(idOperaSeq.nextVal, 'Cup and Cover', 528, NULL, 6);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo)
 VALUES(idOperaSeq.nextVal, 'Writing Table bureau plat', 534, NULL, 4);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo)
 VALUES(idOperaSeq.nextVal, 'The Intervention of the Sabine Women', 796, NULL, 5);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo)
 VALUES(idOperaSeq.nextVal, 'Bust of Cardinal Giovanni Garzia Mellini', 828, NULL, 2);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo)
 VALUES(idOperaSeq.nextVal, 'Resting on the Banks of the Tiber', 811, NULL, 5);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo)
 VALUES(idOperaSeq.nextVal, 'Baptism', 800, 850, 5);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo)
 VALUES(idOperaSeq.nextVal, 'Erecting a Calvary', 731, NULL, 1);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo)
 VALUES(idOperaSeq.nextVal, 'Costume drawing of a female figure with torch', 817, NULL, 2);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo)
 VALUES(idOperaSeq.nextVal, 'Flowers in a Vase with Shells and Insects', 700, 750, 6);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo)
 VALUES(idOperaSeq.nextVal, 'The Rape of Proserpine', 817, NULL, 4);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo)
 VALUES(idOperaSeq.nextVal, 'Countess NÃ¡kÃ³', 800, 850, 5);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo)
 VALUES(idOperaSeq.nextVal, 'Virgin and Child with Sts Dominic and Thomas Aquinas', 800, 850, 6);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo)
 VALUES(idOperaSeq.nextVal, 'Joseph Receiving His Father and Brothers in Egypt', 798, NULL, 6);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo)
 VALUES(idOperaSeq.nextVal, 'Brook Watson and the Shark', 796, NULL, 5);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo)
 VALUES(idOperaSeq.nextVal, 'Portrait of the Artist and His Family', 864, NULL, 6);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo)
 VALUES(idOperaSeq.nextVal, 'Odalisque Reclining on a Divan', 423, NULL, 6);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo)
 VALUES(idOperaSeq.nextVal, 'Landscape near Riva on Lake Garda', 441, NULL, 6);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo)
 VALUES(idOperaSeq.nextVal, 'The Temptation of St Thomas Aquinas', 465, NULL, 5);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo)
 VALUES(idOperaSeq.nextVal, 'Erdmann August', 400, 450, 6);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo)
 VALUES(idOperaSeq.nextVal, 'The Penitent Magdalen in a Landscape', 462, NULL, 6);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo)
 VALUES(idOperaSeq.nextVal, 'The Aeneid: The Death of Dido', 1013, NULL, 6);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo)
 VALUES(idOperaSeq.nextVal, 'On the Boulevard', 1002, NULL, 4);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo)
 VALUES(idOperaSeq.nextVal, 'Card Players', 1050, 1100, 5);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo)
 VALUES(idOperaSeq.nextVal, 'Original Sin', 1034, NULL, 2);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo)
 VALUES(idOperaSeq.nextVal, 'Hell', 1068, NULL, 6);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo)
 VALUES(idOperaSeq.nextVal, 'Map of Delfland', 1925, NULL, 2);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo)
 VALUES(idOperaSeq.nextVal, 'Tivoli Gardens at the Villa d Este', 1850, 1900, 6);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo)
 VALUES(idOperaSeq.nextVal, 'Jules GrÃ©vy', 1894, NULL, 3);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo)
 VALUES(idOperaSeq.nextVal, 'Ceres Allegory of Summer', 1903, NULL, 6);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo)
 VALUES(idOperaSeq.nextVal, 'Portrait of the Cosmographer Sebastien MÃ¼nster', 1436, NULL, 4);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo)
 VALUES(idOperaSeq.nextVal, 'Horse Frightened by a Storm', 1461, NULL, 3);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo)
 VALUES(idOperaSeq.nextVal, 'The Miracles of the Penitent St Mary', 1454, NULL, 2);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo)
 VALUES(idOperaSeq.nextVal, 'Beata Ludovica Albertoni', 1417, NULL, 4);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo)
 VALUES(idOperaSeq.nextVal, 'Tobias Saying Farewell to his Father', 787, NULL, 6);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo)
 VALUES(idOperaSeq.nextVal, 'Boy with Grapes', 835, NULL, 4);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo)
 VALUES(idOperaSeq.nextVal, 'Madame Charles Max', 826, NULL, 6);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo)
 VALUES(idOperaSeq.nextVal, 'Turkish Boys Let out of School', 795, NULL, 6);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo)
 VALUES(idOperaSeq.nextVal, 'The Card Players', 1797, NULL, 1);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo)
 VALUES(idOperaSeq.nextVal, 'Triptych of Jan Des Trompes rear of the wings', 1836, NULL, 6);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo)
 VALUES(idOperaSeq.nextVal, 'Peasant Feast', 1800, 1850, 4);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo)
 VALUES(idOperaSeq.nextVal, 'Jacques Joseph James Tissot', 1800, 1850, 3);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo)
 VALUES(idOperaSeq.nextVal, 'Cheval Turk', 1800, 1850, 1);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo)
 VALUES(idOperaSeq.nextVal, 'Still-Life with Oysters', 1798, NULL, 4);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo)
 VALUES(idOperaSeq.nextVal, 'The Betrothal of the Virgin', 565, NULL, 6);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo)
 VALUES(idOperaSeq.nextVal, 'The Masked Ball Given by the King', 629, NULL, 3);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo)
 VALUES(idOperaSeq.nextVal, 'Forest scenes', 597, NULL, 1);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo)
 VALUES(idOperaSeq.nextVal, 'Mountainous River Landscape', 612, NULL, 2);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo)
 VALUES(idOperaSeq.nextVal, 'Hecuba Blinding Polymnestor', 584, NULL, 4);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo)
 VALUES(idOperaSeq.nextVal, 'The Recapture of Buda Castle in 1686', 227, NULL, 1);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo)
 VALUES(idOperaSeq.nextVal, 'Penitent St Jerome', 214, NULL, 4);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo)
 VALUES(idOperaSeq.nextVal, 'Portrait of a Clean-Shaven Young Man', 200, 250, 4);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo)
 VALUES(idOperaSeq.nextVal, 'Sant Ivo della Sapienza', 227, NULL, 2);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo)
 VALUES(idOperaSeq.nextVal, 'Hell', 1046, NULL, 3);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo)
 VALUES(idOperaSeq.nextVal, 'Portrait of Bartholomeus van der Wiere', 1046, NULL, 3);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo)
 VALUES(idOperaSeq.nextVal, 'Elisa and her Daughter NapolÃ©onne', 1039, NULL, 5);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo)
 VALUES(idOperaSeq.nextVal, 'Portrait of a Man and Woman', 1054, NULL, 3);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo)
 VALUES(idOperaSeq.nextVal, 'St Peter Walking on the Water', 1053, NULL, 4);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo)
 VALUES(idOperaSeq.nextVal, 'The Bridge at Maincy', 1327, NULL, 6);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo)
 VALUES(idOperaSeq.nextVal, 'The Death of Holofernes', 1313, NULL, 5);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo)
 VALUES(idOperaSeq.nextVal, 'Costume drawing for a female figure with torch', 1366, NULL, 4);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo)
 VALUES(idOperaSeq.nextVal, 'Sketch for a sleigh', 1342, NULL, 1);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo)
 VALUES(idOperaSeq.nextVal, 'Servant Returning from the Market La Pourvoyeuse', 1333, NULL, 6);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo)
 VALUES(idOperaSeq.nextVal, 'The Last of England', 1356, NULL, 2);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo)
 VALUES(idOperaSeq.nextVal, 'Dresden', 1382, NULL, 2);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo)
 VALUES(idOperaSeq.nextVal, 'The Erection of the Cross', 1379, NULL, 1);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo)
 VALUES(idOperaSeq.nextVal, 'The Capture of Samson', 1352, NULL, 3);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo)
 VALUES(idOperaSeq.nextVal, 'Danubian Landscape', 1369, NULL, 2);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo)
 VALUES(idOperaSeq.nextVal, 'Still-Life with Fish', 1377, NULL, 3);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo)
 VALUES(idOperaSeq.nextVal, 'Paradise: Ascent of the Blessed', 1353, NULL, 5);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo)
 VALUES(idOperaSeq.nextVal, 'Concert of Angels recto', 1374, NULL, 1);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo)
 VALUES(idOperaSeq.nextVal, 'The Farmer s Family', 1393, NULL, 5);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo)
 VALUES(idOperaSeq.nextVal, 'Raising of the Daughter of Jairus detail', 1326, NULL, 1);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo)
 VALUES(idOperaSeq.nextVal, 'Four Allegories: Lust or Perseverance', 1338, NULL, 5);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo)
 VALUES(idOperaSeq.nextVal, 'Memorial Statue of Pope Urban VIII', 1355, NULL, 4);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo)
 VALUES(idOperaSeq.nextVal, 'Pierson La Hues', 1850, 1900, 2);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo)
 VALUES(idOperaSeq.nextVal, 'The Feast of Herod', 1847, NULL, 3);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo)
 VALUES(idOperaSeq.nextVal, 'Griffoni Polyptych: St Peter and St John the Baptist', 1886, NULL, 4);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo)
 VALUES(idOperaSeq.nextVal, 'Pastoral Scene', 1895, NULL, 1);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo)
 VALUES(idOperaSeq.nextVal, 'Portrait of a Young Man in Senator s Garb', 1854, NULL, 2);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo)
 VALUES(idOperaSeq.nextVal, 'The Miracle of the Spring', 1850, 1900, 2);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo)
 VALUES(idOperaSeq.nextVal, 'Margrave Casimir of Brandenburg-Kulmbach', 1903, NULL, 6);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo)
 VALUES(idOperaSeq.nextVal, 'Perspective view of the longitudinal wall', 806, NULL, 1);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo)
 VALUES(idOperaSeq.nextVal, 'Emperor Franz I of Austria in his Coronation Robes', 791, NULL, 5);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo)
 VALUES(idOperaSeq.nextVal, 'San Domenico Altarpiece detail', 825, NULL, 6);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo)
 VALUES(idOperaSeq.nextVal, 'Self-Portrait in a Peaked Cap', 750, 800, 3);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo)
 VALUES(idOperaSeq.nextVal, 'Buildings at Tivoli', 817, NULL, 1);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo)
 VALUES(idOperaSeq.nextVal, 'Burgomaster Arnold von Brauweiler', 800, 850, 5);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo)
 VALUES(idOperaSeq.nextVal, 'Basket of Peaches', 773, NULL, 4);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo)
 VALUES(idOperaSeq.nextVal, 'The Grief of Andromache', 458, NULL, 5);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo)
 VALUES(idOperaSeq.nextVal, 'Still-life with Birds', 467, NULL, 3);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo)
 VALUES(idOperaSeq.nextVal, 'Achilles Handing over to Chiron', 461, NULL, 6);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo)
 VALUES(idOperaSeq.nextVal, 'Blue-Headed Quail-Dove', 439, NULL, 5);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo)
 VALUES(idOperaSeq.nextVal, 'The Adoration of the Skulls', 485, NULL, 2);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo)
 VALUES(idOperaSeq.nextVal, 'Burgomaster Arnold von Brauweiler', 464, NULL, 4);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo)
 VALUES(idOperaSeq.nextVal, 'PietÃ  with Donors', 464, NULL, 1);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo)
 VALUES(idOperaSeq.nextVal, 'The Massacre at Chios', 584, NULL, 6);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo)
 VALUES(idOperaSeq.nextVal, 'The Virgin Appearing to Sts John the Baptist and John the Evangelist', 651, NULL, 5);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo)
 VALUES(idOperaSeq.nextVal, 'Penitent St Jerome', 635, NULL, 1);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo)
 VALUES(idOperaSeq.nextVal, 'Elymas Struck Blind by St Paul before the Proconsul Sergius Paulus', 597, NULL, 5);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo)
 VALUES(idOperaSeq.nextVal, 'Miracle of the Relic of the Holy Cross', 654, NULL, 2);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo)
 VALUES(idOperaSeq.nextVal, 'A Family Group', 656, NULL, 4);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo)
 VALUES(idOperaSeq.nextVal, 'Renaissance Interior with Banqueters', 654, NULL, 6);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo)
 VALUES(idOperaSeq.nextVal, 'Triptych with the Lamentation', 1741, NULL, 6);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo)
 VALUES(idOperaSeq.nextVal, 'Mont Sainte-Victoire Seen from Les Lauves', 1739, NULL, 5);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo)
 VALUES(idOperaSeq.nextVal, 'Horse Tamer from Marly-le-Roi', 1754, NULL, 2);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo)
 VALUES(idOperaSeq.nextVal, 'Alexander the Great in the Temple of Jerusalem', 1736, NULL, 5);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo)
 VALUES(idOperaSeq.nextVal, 'Commemorative Medal for Admiral Maarten Harpertszoon Tromp', 1734, NULL, 5);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo)
 VALUES(idOperaSeq.nextVal, 'Still-Life with Cat and Rayfish', 1743, NULL, 6);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo)
 VALUES(idOperaSeq.nextVal, 'The Soap Bubble', 1746, NULL, 4);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo)
 VALUES(idOperaSeq.nextVal, 'Amsterdam', 424, NULL, 5);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo)
 VALUES(idOperaSeq.nextVal, 'Portrait of Pope Clement VII', 409, NULL, 6);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo)
 VALUES(idOperaSeq.nextVal, 'The State Barge of Cardinal Richelieu on the Rhone', 416, NULL, 4);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo)
 VALUES(idOperaSeq.nextVal, 'Paolo Veronese', 400, 450, 6);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo)
 VALUES(idOperaSeq.nextVal, 'Feast of Belshazzar', 397, NULL, 3);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo)
 VALUES(idOperaSeq.nextVal, 'Winter Scene on a Canal', 392, NULL, 3);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo)
 VALUES(idOperaSeq.nextVal, 'Flower Still-Life', 414, NULL, 3);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo)
 VALUES(idOperaSeq.nextVal, 'Still-Life with Pipe an Jug', 721, NULL, 5);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo)
 VALUES(idOperaSeq.nextVal, 'Bacchanal', 706, NULL, 4);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo)
 VALUES(idOperaSeq.nextVal, 'Garden of Eden', 735, NULL, 6);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo)
 VALUES(idOperaSeq.nextVal, 'Apollo and Diana Punishing Niobe by Killing her Children', 774, NULL, 2);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo)
 VALUES(idOperaSeq.nextVal, 'The Disillusioned Medea The Enchantress', 703, NULL, 6);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo)
 VALUES(idOperaSeq.nextVal, 'Bust of Camilla Barbadori', 779, NULL, 4);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo)
 VALUES(idOperaSeq.nextVal, 'Panels from an altarpiece', 18, NULL, 4);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo)
 VALUES(idOperaSeq.nextVal, 'St Helena', 91, NULL, 1);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo)
 VALUES(idOperaSeq.nextVal, 'Angel', 21, NULL, 4);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo)
 VALUES(idOperaSeq.nextVal, 'The Negro Page', 42, NULL, 2);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo)
 VALUES(idOperaSeq.nextVal, 'The Cliff at Ã‰tretat after the Storm', 135, NULL, 3);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo)
 VALUES(idOperaSeq.nextVal, 'Peacock', 75, NULL, 5);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo)
 VALUES(idOperaSeq.nextVal, 'Holy Family', 105, NULL, 5);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo)
 VALUES(idOperaSeq.nextVal, 'Mass of St Gregory', 93, NULL, 3);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo)
 VALUES(idOperaSeq.nextVal, 'A Sunny Day in Iona', 109, NULL, 2);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo)
 VALUES(idOperaSeq.nextVal, 'At the Races in the Countryside', 78, NULL, 4);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo)
 VALUES(idOperaSeq.nextVal, 'The Ironers', 95, NULL, 5);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo)
 VALUES(idOperaSeq.nextVal, 'The Nativity with Donors and Sts Jerome and Leonard', 125, NULL, 3);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo)
 VALUES(idOperaSeq.nextVal, 'The Story of St Nicholas: St Nicholas saves the ship', 1244, NULL, 4);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo)
 VALUES(idOperaSeq.nextVal, 'Lunette of the west wall', 1237, NULL, 6);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo)
 VALUES(idOperaSeq.nextVal, 'Portrait of Doge Leonardo Loredan', 1238, NULL, 2);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo)
 VALUES(idOperaSeq.nextVal, 'Portrait of General Bonaparte', 1255, NULL, 4);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo)
 VALUES(idOperaSeq.nextVal, 'The Holy Women and St John at Golgotha', 1262, NULL, 3);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo)
 VALUES(idOperaSeq.nextVal, 'The Blessed Virgin', 1261, NULL, 1);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo)
 VALUES(idOperaSeq.nextVal, 'Portrait of Tommaso Raimondi', 1241, NULL, 6);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo)
 VALUES(idOperaSeq.nextVal, 'Los', 1262, NULL, 3);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo)
 VALUES(idOperaSeq.nextVal, 'Young Indian Woman Wrapping a Shell-Fringed Band round her Leg', 1259, NULL, 1);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo)
 VALUES(idOperaSeq.nextVal, 'The Burning Bush', 850, 900, 4);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo)
 VALUES(idOperaSeq.nextVal, 'Paintings for the Armadio degli Argenti', 851, NULL, 1);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo)
 VALUES(idOperaSeq.nextVal, 'Madonna with Angels and Shepherds', 813, NULL, 1);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo)
 VALUES(idOperaSeq.nextVal, 'Two Witches', 808, NULL, 6);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo)
 VALUES(idOperaSeq.nextVal, 'Standing Gooseherder', 853, NULL, 5);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo)
 VALUES(idOperaSeq.nextVal, 'Portrait of Caspar Hedio', 826, NULL, 1);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo)
 VALUES(idOperaSeq.nextVal, 'The Agony of Christ in the Garden', 806, NULL, 1);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo)
 VALUES(idOperaSeq.nextVal, 'Apse of the Tempietto', 809, NULL, 3);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo)
 VALUES(idOperaSeq.nextVal, 'A Sea God Abducts a Woman', 1757, NULL, 5);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo)
 VALUES(idOperaSeq.nextVal, 'The Dairy Maid', 1761, NULL, 5);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo)
 VALUES(idOperaSeq.nextVal, 'Physician Gabriele Fonseca', 1731, NULL, 1);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo)
 VALUES(idOperaSeq.nextVal, 'Presentation of Jesus at the Temple', 1750, 1800, 5);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo)
 VALUES(idOperaSeq.nextVal, 'Landscape with Tobias and the Angel', 1736, NULL, 2);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo)
 VALUES(idOperaSeq.nextVal, 'Mankind Beset by Devils reverse of Rebel Angels panel', 1782, NULL, 3);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo)
 VALUES(idOperaSeq.nextVal, 'Holy Family with St Anne and the Infant St John', 1741, NULL, 2);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo)
 VALUES(idOperaSeq.nextVal, 'Madonna with the Infant Christ and St John the Baptist', 1700, 1750, 3);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo)
 VALUES(idOperaSeq.nextVal, 'Breakfast-piece', 1722, NULL, 1);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo)
 VALUES(idOperaSeq.nextVal, 'Jupiter and Juno', 500, 550, 1);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo)
 VALUES(idOperaSeq.nextVal, 'Portrait Bust of Johanna DorÃ©', 504, NULL, 5);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo)
 VALUES(idOperaSeq.nextVal, 'The Sermon of St Stephen', 469, NULL, 6);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo)
 VALUES(idOperaSeq.nextVal, 'Sketch for a sleigh', 517, NULL, 2);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo)
 VALUES(idOperaSeq.nextVal, 'Christ on the Lake of Gennezaret', 476, NULL, 6);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo)
 VALUES(idOperaSeq.nextVal, 'BarthÃ©lÃ©my Charles', 517, NULL, 3);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo)
 VALUES(idOperaSeq.nextVal, 'St Rose of Lima before the Madonna', 468, NULL, 1);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo)
 VALUES(idOperaSeq.nextVal, 'St Catherine of Alexandria', 467, NULL, 5);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo)
 VALUES(idOperaSeq.nextVal, 'Hairy Harry', 1126, NULL, 6);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo)
 VALUES(idOperaSeq.nextVal, 'Fish and Dead Game', 1153, NULL, 3);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo)
 VALUES(idOperaSeq.nextVal, 'An Iron Foundry', 1114, NULL, 3);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo)
 VALUES(idOperaSeq.nextVal, 'Suicide of Lucretia', 1154, NULL, 5);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo)
 VALUES(idOperaSeq.nextVal, 'Nude Woman', 1122, NULL, 1);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo)
 VALUES(idOperaSeq.nextVal, 'The Conversion of Saul detail', 1150, 1200, 4);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo)
 VALUES(idOperaSeq.nextVal, 'David and Bathsheba', 1132, NULL, 6);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo)
 VALUES(idOperaSeq.nextVal, 'Mars Disarmed by Venus and the Three Graces', 205, NULL, 2);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo)
 VALUES(idOperaSeq.nextVal, 'Blond Odalisque L Odalisque Blonde', 205, NULL, 3);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo)
 VALUES(idOperaSeq.nextVal, 'Portrait of a Scholar', 255, NULL, 5);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo)
 VALUES(idOperaSeq.nextVal, 'Diana and Actaeon', 200, 250, 5);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo)
 VALUES(idOperaSeq.nextVal, 'The Pearl of Brabant', 217, NULL, 4);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo)
 VALUES(idOperaSeq.nextVal, 'Turkish Boys Let out of School', 273, NULL, 6);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo)
 VALUES(idOperaSeq.nextVal, 'Old Woman Praying', 254, NULL, 1);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo)
 VALUES(idOperaSeq.nextVal, 'Venus in Vulcan s Workshop', 200, 250, 4);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo)
 VALUES(idOperaSeq.nextVal, 'The Marriage of St Catherine of Siena', 885, NULL, 4);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo)
 VALUES(idOperaSeq.nextVal, 'Meleager s Hunt', 899, NULL, 2);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo)
 VALUES(idOperaSeq.nextVal, 'Archduchess Johanna', 894, NULL, 3);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo)
 VALUES(idOperaSeq.nextVal, 'Oration The prayer', 865, NULL, 4);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo)
 VALUES(idOperaSeq.nextVal, 'Oration The prayer', 875, NULL, 2);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo)
 VALUES(idOperaSeq.nextVal, 'Virgin of the Annunciation', 901, NULL, 2);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo)
 VALUES(idOperaSeq.nextVal, 'The Wharf', 905, NULL, 3);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo)
 VALUES(idOperaSeq.nextVal, 'Stag Hunting in the Dunes', 907, NULL, 5);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo)
 VALUES(idOperaSeq.nextVal, 'Music', 861, NULL, 1);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo)
 VALUES(idOperaSeq.nextVal, 'Travel sketchbook folio 38v', 794, NULL, 4);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo)
 VALUES(idOperaSeq.nextVal, 'Still-Life with Apple Blossoms', 852, NULL, 4);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo)
 VALUES(idOperaSeq.nextVal, 'Moses Striking the Rock', 859, NULL, 4);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo)
 VALUES(idOperaSeq.nextVal, 'Red Hartebeest', 847, NULL, 4);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo)
 VALUES(idOperaSeq.nextVal, 'The Holy Family with St John the Baptist', 792, NULL, 3);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo)
 VALUES(idOperaSeq.nextVal, 'Desdemona Retiring to her Bed', 800, 850, 6);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo)
 VALUES(idOperaSeq.nextVal, 'Head of the Dead Marat', 788, NULL, 3);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo)
 VALUES(idOperaSeq.nextVal, 'Portrait of Ludwig X', 1752, NULL, 2);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo)
 VALUES(idOperaSeq.nextVal, 'Portrait of Lucrezia Panciatichi', 1763, NULL, 6);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo)
 VALUES(idOperaSeq.nextVal, 'St Bartholomew', 1749, NULL, 6);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo)
 VALUES(idOperaSeq.nextVal, 'Four Musical Angels', 1725, NULL, 6);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo)
 VALUES(idOperaSeq.nextVal, 'Medal of Pietro Bembo', 1700, 1750, 6);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo)
 VALUES(idOperaSeq.nextVal, 'The Barges', 1729, NULL, 3);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo)
 VALUES(idOperaSeq.nextVal, 'Portrait of Princess Anna Julianna EszterhÃ¡zy', 1774, NULL, 3);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo)
 VALUES(idOperaSeq.nextVal, 'ChÃ¢teau de Bury', 1700, 1750, 4);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo)
 VALUES(idOperaSeq.nextVal, 'Rehearsal of the Ballet Onstage', 1768, NULL, 2);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo)
 VALUES(idOperaSeq.nextVal, 'The Burial of the Virgin and the Reception of Her Soul in Heaven', 1562, NULL, 5);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo)
 VALUES(idOperaSeq.nextVal, 'St John the Evangelist in Patmos', 1588, NULL, 5);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo)
 VALUES(idOperaSeq.nextVal, 'Supper at Emmaus', 1541, NULL, 4);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo)
 VALUES(idOperaSeq.nextVal, 'Children and a Cow', 1548, NULL, 4);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo)
 VALUES(idOperaSeq.nextVal, 'The Miracle of the Roses', 1605, NULL, 3);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo)
 VALUES(idOperaSeq.nextVal, 'Odalisque Reclining on a Divan', 1567, NULL, 4);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo)
 VALUES(idOperaSeq.nextVal, 'Morning Fog', 1565, NULL, 1);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo)
 VALUES(idOperaSeq.nextVal, 'Admiral Thomas Mathews', 1553, NULL, 4);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo)
 VALUES(idOperaSeq.nextVal, 'Caritas Romana Roman Charity', 1607, NULL, 2);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo)
 VALUES(idOperaSeq.nextVal, 'Three Male Heads', 1556, NULL, 1);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo)
 VALUES(idOperaSeq.nextVal, 'The Pier at Deauville', 1552, NULL, 6);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo)
 VALUES(idOperaSeq.nextVal, 'Dead Christ Mourned by Angels', 711, NULL, 4);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo)
 VALUES(idOperaSeq.nextVal, 'Self-Portrait The Cellist', 768, NULL, 6);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo)
 VALUES(idOperaSeq.nextVal, 'The Virgin of the Assumption with St Thomas Receiving the Girdle', 752, NULL, 1);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo)
 VALUES(idOperaSeq.nextVal, 'Presentation of Jesus in the Temple', 703, NULL, 3);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo)
 VALUES(idOperaSeq.nextVal, 'St Dorothea', 706, NULL, 6);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo)
 VALUES(idOperaSeq.nextVal, 'Portrait of FranÃ§ois I as St John the Baptist', 713, NULL, 4);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo)
 VALUES(idOperaSeq.nextVal, 'George IV when Prince of Wales', 732, NULL, 5);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo)
 VALUES(idOperaSeq.nextVal, 'Battle Scene', 757, NULL, 1);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo)
 VALUES(idOperaSeq.nextVal, 'The Women of Algiers', 700, 750, 3);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo)
 VALUES(idOperaSeq.nextVal, 'King David Playin a Psaltery', 713, NULL, 6);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo)
 VALUES(idOperaSeq.nextVal, 'Melancholy', 727, NULL, 3);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo)
 VALUES(idOperaSeq.nextVal, 'Venus at Bath', 245, NULL, 5);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo)
 VALUES(idOperaSeq.nextVal, 'West wall of the chapel', 191, NULL, 2);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo)
 VALUES(idOperaSeq.nextVal, 'Perugia Altarpiece left panel', 219, NULL, 3);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo)
 VALUES(idOperaSeq.nextVal, 'Court of Isabella d Este', 243, NULL, 5);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo)
 VALUES(idOperaSeq.nextVal, 'The Suicide of Saul detail', 228, NULL, 5);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo)
 VALUES(idOperaSeq.nextVal, 'Death is Violent and Fast', 234, NULL, 4);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo)
 VALUES(idOperaSeq.nextVal, 'Virgin and Child with Young St John the Baptist', 229, NULL, 3);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo)
 VALUES(idOperaSeq.nextVal, 'Children s Games', 225, NULL, 3);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo)
 VALUES(idOperaSeq.nextVal, 'Commemorative Medal for Admiral Michiel Adriaensz. de Ruyter', 217, NULL, 4);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo)
 VALUES(idOperaSeq.nextVal, 'Study of the Sky at Sunset', 876, NULL, 1);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo)
 VALUES(idOperaSeq.nextVal, 'The Assumption of the Virgin', 916, NULL, 2);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo)
 VALUES(idOperaSeq.nextVal, 'Hans Melber', 853, NULL, 6);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo)
 VALUES(idOperaSeq.nextVal, 'The Cloister of Santa Croce', 896, NULL, 4);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo)
 VALUES(idOperaSeq.nextVal, 'The Dauphin FranÃ§ois', 902, NULL, 6);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo)
 VALUES(idOperaSeq.nextVal, 'The Golden Isles Les Iles d Or', 914, NULL, 4);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo)
 VALUES(idOperaSeq.nextVal, 'At the Entrance', 919, NULL, 2);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo)
 VALUES(idOperaSeq.nextVal, 'Cast of the Dead Mask of Lorenzo de  Medici', 856, NULL, 4);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo)
 VALUES(idOperaSeq.nextVal, 'The Actress', 886, NULL, 4);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo)
 VALUES(idOperaSeq.nextVal, 'The Harvest Breton Landscape', 918, NULL, 4);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo)
 VALUES(idOperaSeq.nextVal, 'Stormy Weather over the Roman Campagna', 799, NULL, 3);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo)
 VALUES(idOperaSeq.nextVal, 'The Baptism of the Selenites', 800, 850, 1);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo)
 VALUES(idOperaSeq.nextVal, 'Portrait of Jacob Fugger', 799, NULL, 4);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo)
 VALUES(idOperaSeq.nextVal, 'Portraits of Lorenzo Pagans and Auguste Degas', 791, NULL, 2);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo)
 VALUES(idOperaSeq.nextVal, 'Self-Portrait as a Young Man', 797, NULL, 5);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo)
 VALUES(idOperaSeq.nextVal, 'Ceres', 831, NULL, 6);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo)
 VALUES(idOperaSeq.nextVal, 'St Sebastian Altarpiece', 787, NULL, 6);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo)
 VALUES(idOperaSeq.nextVal, 'The Four Elements: Earth', 813, NULL, 3);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo)
 VALUES(idOperaSeq.nextVal, 'Christ at the Tomb Supported by Two Angels', 785, NULL, 5);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo)
 VALUES(idOperaSeq.nextVal, 'Two Laughing Men Self-Portrait', 777, NULL, 6);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo)
 VALUES(idOperaSeq.nextVal, 'Christ in the House of Martha and Mary', 836, NULL, 2);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo)
 VALUES(idOperaSeq.nextVal, 'The Afternoon Meal', 811, NULL, 4);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo)
 VALUES(idOperaSeq.nextVal, 'The Masked Ball Given by the King', 263, NULL, 1);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo)
 VALUES(idOperaSeq.nextVal, 'Relief with the Blessing Christ', 227, NULL, 5);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo)
 VALUES(idOperaSeq.nextVal, 'Return from the Falcon Hunt', 233, NULL, 3);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo)
 VALUES(idOperaSeq.nextVal, 'Architectural and anatomical sketches', 258, NULL, 6);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo)
 VALUES(idOperaSeq.nextVal, 'Cestello Annunciation in frame', 200, 250, 4);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo)
 VALUES(idOperaSeq.nextVal, 'After Dinner at Ornans', 235, NULL, 1);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo)
 VALUES(idOperaSeq.nextVal, 'Count Potocki', 223, NULL, 4);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo)
 VALUES(idOperaSeq.nextVal, 'Head of the Baptist', 227, NULL, 5);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo)
 VALUES(idOperaSeq.nextVal, 'Jacob s Fight with the Angel', 222, NULL, 6);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo)
 VALUES(idOperaSeq.nextVal, 'Polyptych of San Vincenzo Ferreri central panel', 236, NULL, 5);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo)
 VALUES(idOperaSeq.nextVal, 'Virgin and Child with Four Angels', 225, NULL, 1);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo)
 VALUES(idOperaSeq.nextVal, 'Death of the Cavalryman', 1753, NULL, 5);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo)
 VALUES(idOperaSeq.nextVal, 'The de Bie Family', 1723, NULL, 6);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo)
 VALUES(idOperaSeq.nextVal, 'Elisa and her Daughter NapolÃ©onne', 1750, 1800, 1);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo)
 VALUES(idOperaSeq.nextVal, 'Still-Life with Lobster', 1739, NULL, 5);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo)
 VALUES(idOperaSeq.nextVal, 'Weymouth Bay', 1789, NULL, 2);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo)
 VALUES(idOperaSeq.nextVal, 'A Lady and a Child by a Balustrade', 1766, NULL, 4);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo)
 VALUES(idOperaSeq.nextVal, 'Old Fisherman', 1768, NULL, 3);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo)
 VALUES(idOperaSeq.nextVal, 'Blackbuck', 1752, NULL, 2);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo)
 VALUES(idOperaSeq.nextVal, 'St Lawrence Receives the Treasures of the Church detail', 1704, NULL, 5);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo)
 VALUES(idOperaSeq.nextVal, 'Truth', 1761, NULL, 3);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo)
 VALUES(idOperaSeq.nextVal, 'Souvenir of Mortefontaine', 1756, NULL, 2);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo)
 VALUES(idOperaSeq.nextVal, 'The Hunt of Diana', 505, NULL, 4);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo)
 VALUES(idOperaSeq.nextVal, 'The Descent of Christ', 450, 500, 3);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo)
 VALUES(idOperaSeq.nextVal, 'Portrait of a Female Mule', 100, 150, 5);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo)
 VALUES(idOperaSeq.nextVal, 'Madonna of the Pomegranate Madonna della Melagrana', 104, NULL, 3);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo)
 VALUES(idOperaSeq.nextVal, 'Portraits of Fathers Lesueur and Jacquier', 73, NULL, 5);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo)
 VALUES(idOperaSeq.nextVal, 'Portrait of Philipp Melanchthon', 87, NULL, 6);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo)
 VALUES(idOperaSeq.nextVal, 'Jupiter', 64, NULL, 1);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo)
 VALUES(idOperaSeq.nextVal, 'Madame RÃ©camier', 50, 100, 5);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo)
 VALUES(idOperaSeq.nextVal, 'Scenes from the Life of David', 93, NULL, 4);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo)
 VALUES(idOperaSeq.nextVal, 'Sketch for a sleigh with figures', 74, NULL, 4);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo)
 VALUES(idOperaSeq.nextVal, 'Petronella Elias with a Basket of Fruit', 109, NULL, 6);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo)
 VALUES(idOperaSeq.nextVal, 'Linaioli Tabernacle shutters closed', 88, NULL, 3);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo)
 VALUES(idOperaSeq.nextVal, 'Canon Bernardinus de Salviatis with Three Saints', 671, NULL, 5);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo)
 VALUES(idOperaSeq.nextVal, 'Francesco I d Este', 676, NULL, 2);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo)
 VALUES(idOperaSeq.nextVal, 'Battle of Moscow on 7 September 1812', 686, NULL, 3);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo)
 VALUES(idOperaSeq.nextVal, 'Odysseus Slays the Suitors in His Palace', 704, NULL, 1);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo)
 VALUES(idOperaSeq.nextVal, 'Orpheus', 695, NULL, 6);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo)
 VALUES(idOperaSeq.nextVal, 'Statues of Saints', 650, 700, 5);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo)
 VALUES(idOperaSeq.nextVal, 'Marriage of Alexander and Roxane', 701, NULL, 5);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo)
 VALUES(idOperaSeq.nextVal, 'View of the Villa Cagnola at Gazzada near Varese', 692, NULL, 6);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo)
 VALUES(idOperaSeq.nextVal, 'The Molo', 657, NULL, 5);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo)
 VALUES(idOperaSeq.nextVal, 'Tombs in the Gaddi Chapel', 1231, NULL, 4);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo)
 VALUES(idOperaSeq.nextVal, 'Cotton mill', 836, NULL, 2);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo)
 VALUES(idOperaSeq.nextVal, 'The Death of Cleopatra', 856, NULL, 1);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo)
 VALUES(idOperaSeq.nextVal, 'A Ballplayer and His Page', 815, NULL, 5);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo)
 VALUES(idOperaSeq.nextVal, 'Winter Landscape near Vordingborg', 800, 850, 5);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo)
 VALUES(idOperaSeq.nextVal, 'The Miracle of The Fervent', 804, NULL, 2);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo)
 VALUES(idOperaSeq.nextVal, 'Girl with Racket and Shuttlecock', 828, NULL, 2);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo)
 VALUES(idOperaSeq.nextVal, 'Sacred Conversation', 808, NULL, 3);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo)
 VALUES(idOperaSeq.nextVal, 'Peter Ulner', 850, 900, 4);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo)
 VALUES(idOperaSeq.nextVal, 'Sleeping Venus', 839, NULL, 1);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo)
 VALUES(idOperaSeq.nextVal, 'Venus Presenting Aeneas with Armour Forged by Vulcan', 838, NULL, 4);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo)
 VALUES(idOperaSeq.nextVal, 'Breakfast-piece', 849, NULL, 5);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo)
 VALUES(idOperaSeq.nextVal, 'Concert of Angels recto', 807, NULL, 4);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo)
 VALUES(idOperaSeq.nextVal, 'Landscape with Bridge', 827, NULL, 6);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo)
 VALUES(idOperaSeq.nextVal, 'Juno and Hercules', 828, NULL, 4);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo)
 VALUES(idOperaSeq.nextVal, 'Old Woman Peeling Apple', 214, NULL, 5);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo)
 VALUES(idOperaSeq.nextVal, 'Communion', 224, NULL, 1);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo)
 VALUES(idOperaSeq.nextVal, 'Amenaide', 274, NULL, 2);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo)
 VALUES(idOperaSeq.nextVal, 'Portrait of Giulia Bellelli', 247, NULL, 1);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo)
 VALUES(idOperaSeq.nextVal, 'Scenes from the Story of Tobias 1', 208, NULL, 5);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo)
 VALUES(idOperaSeq.nextVal, 'Portrait of a Lady as St Lucy', 213, NULL, 6);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo)
 VALUES(idOperaSeq.nextVal, 'The Ten Thousand Martyrs on the Mount Ararat', 258, NULL, 4);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo)
 VALUES(idOperaSeq.nextVal, 'The Rescue at Fowey Harbour', 231, NULL, 6);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo)
 VALUES(idOperaSeq.nextVal, 'Young Man Playing the Lute', 200, 250, 5);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo)
 VALUES(idOperaSeq.nextVal, 'Perseus Fighting with Phineus detail', 212, NULL, 6);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo)
 VALUES(idOperaSeq.nextVal, 'Cabinet', 200, 250, 4);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo)
 VALUES(idOperaSeq.nextVal, 'Venus and Mars', 271, NULL, 6);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo)
 VALUES(idOperaSeq.nextVal, 'Lunch on the Field', 275, NULL, 2);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo)
 VALUES(idOperaSeq.nextVal, 'Rodin', 1301, NULL, 6);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo)
 VALUES(idOperaSeq.nextVal, 'The Naked Warrior The Archer', 1255, NULL, 3);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo)
 VALUES(idOperaSeq.nextVal, 'Little Fourteen-Year-Old Dancer', 1251, NULL, 6);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo)
 VALUES(idOperaSeq.nextVal, 'Ops', 1278, NULL, 3);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo)
 VALUES(idOperaSeq.nextVal, 'The Cure of Folly Extraction of the Stone of Madness', 1246, NULL, 5);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo)
 VALUES(idOperaSeq.nextVal, 'Laundress', 1241, NULL, 3);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo)
 VALUES(idOperaSeq.nextVal, 'Presentation of Jesus in the Temple Cell 10', 1281, NULL, 4);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo)
 VALUES(idOperaSeq.nextVal, 'Jeanne BÃ©cu', 1247, NULL, 2);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo)
 VALUES(idOperaSeq.nextVal, 'Village Scene with Figures and Cows', 1265, NULL, 3);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo)
 VALUES(idOperaSeq.nextVal, 'Banquet Still-Life', 1655, NULL, 6);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo)
 VALUES(idOperaSeq.nextVal, 'Christ in Glory', 1669, NULL, 6);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo)
 VALUES(idOperaSeq.nextVal, 'Dignified Couples Courting', 1636, NULL, 3);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo)
 VALUES(idOperaSeq.nextVal, 'The Milliner The Morning', 1641, NULL, 3);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo)
 VALUES(idOperaSeq.nextVal, 'Ugolino Martelli', 1669, NULL, 2);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo)
 VALUES(idOperaSeq.nextVal, 'Dune Landscape by Moonlight', 1641, NULL, 6);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo)
 VALUES(idOperaSeq.nextVal, 'Raising of the Daughter of Jairus detail', 1617, NULL, 2);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo)
 VALUES(idOperaSeq.nextVal, 'The Bride of Abydos', 1682, NULL, 3);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo)
 VALUES(idOperaSeq.nextVal, 'Ceres Allegory of Summer', 1650, 1700, 5);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo)
 VALUES(idOperaSeq.nextVal, 'Malvern Hall in Warwickshire', 1673, NULL, 3);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo)
 VALUES(idOperaSeq.nextVal, 'Portrait of Dr. Johannes Cuspinian', 1663, NULL, 3);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo)
 VALUES(idOperaSeq.nextVal, 'Still-Life with Garland of Flowers and Golden Tazza', 1652, NULL, 1);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo)
 VALUES(idOperaSeq.nextVal, 'Study for the Equestrian Statue of Louis XV', 1695, NULL, 6);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo)
 VALUES(idOperaSeq.nextVal, 'Allegorical composition celebrating the Humanities', 1674, NULL, 2);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo)
 VALUES(idOperaSeq.nextVal, 'Illustration for Goethe s Faust', 1691, NULL, 1);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo)
 VALUES(idOperaSeq.nextVal, 'Landscape with the Toilet of Venus', 1478, NULL, 1);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo)
 VALUES(idOperaSeq.nextVal, 'Portrait of the Cosmographer Sebastien MÃ¼nster', 1468, NULL, 1);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo)
 VALUES(idOperaSeq.nextVal, 'Calumny of Apelles', 1496, NULL, 3);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo)
 VALUES(idOperaSeq.nextVal, 'Epiphany', 1450, 1500, 4);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo)
 VALUES(idOperaSeq.nextVal, 'The Tomb of William the Silent in an Imaginary Church', 1400, 1450, 6);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo)
 VALUES(idOperaSeq.nextVal, 'Nebuchadnezzar', 1487, NULL, 6);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo)
 VALUES(idOperaSeq.nextVal, 'Children and a Cow', 1491, NULL, 3);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo)
 VALUES(idOperaSeq.nextVal, 'Habakkuk and the Angel detail', 1436, NULL, 6);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo)
 VALUES(idOperaSeq.nextVal, 'Ceiling fresco', 1450, 1500, 3);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo)
 VALUES(idOperaSeq.nextVal, 'St Augustine in His Cell', 1438, NULL, 6);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo)
 VALUES(idOperaSeq.nextVal, 'Family Portrait', 1449, NULL, 4);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo)
 VALUES(idOperaSeq.nextVal, 'Beheading of John the Baptist', 1433, NULL, 2);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo)
 VALUES(idOperaSeq.nextVal, 'Nebuchadnezzar', 1473, NULL, 1);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo)
 VALUES(idOperaSeq.nextVal, 'Les Quatre Ã‰tats de la SociÃ©tÃ©: Poor State', 1435, NULL, 4);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo)
 VALUES(idOperaSeq.nextVal, 'Goldsmith JÃ¶rg ZÃ¼rer of Augsburg', 1464, NULL, 5);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo)
 VALUES(idOperaSeq.nextVal, 'Rebecca at the Well', 1255, NULL, 3);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo)
 VALUES(idOperaSeq.nextVal, 'Still-Life', 1284, NULL, 4);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo)
 VALUES(idOperaSeq.nextVal, 'Portrait of Louis XVI', 1275, NULL, 2);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo)
 VALUES(idOperaSeq.nextVal, 'The Oath of the Saxons', 1282, NULL, 6);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo)
 VALUES(idOperaSeq.nextVal, 'Three Male Heads', 1251, NULL, 4);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo)
 VALUES(idOperaSeq.nextVal, 'The Triumph of Caesar Section 3', 1250, 1300, 4);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo)
 VALUES(idOperaSeq.nextVal, 'Boat Warpers', 1254, NULL, 2);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo)
 VALUES(idOperaSeq.nextVal, 'Christ Carrying the Cross', 817, NULL, 4);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo)
 VALUES(idOperaSeq.nextVal, 'St James the Greater at Hermogenes', 829, NULL, 4);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo)
 VALUES(idOperaSeq.nextVal, 'Portrait of Duke Ludwig X of Bavaria', 812, NULL, 1);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo)
 VALUES(idOperaSeq.nextVal, 'FranÃ§ois I', 806, NULL, 2);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo)
 VALUES(idOperaSeq.nextVal, 'Santa Cristina Altarpiece', 800, 850, 6);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo)
 VALUES(idOperaSeq.nextVal, 'Painter in his Studio', 814, NULL, 2);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo)
 VALUES(idOperaSeq.nextVal, 'Potrait of a Carthusian', 797, NULL, 1);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo)
 VALUES(idOperaSeq.nextVal, 'Still-Life with Landscape View', 802, NULL, 3);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo)
 VALUES(idOperaSeq.nextVal, 'Vertumnus and Pomona', 815, NULL, 6);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo)
 VALUES(idOperaSeq.nextVal, 'Oval with Panorama of Piazza della Signoria', 835, NULL, 2);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo)
 VALUES(idOperaSeq.nextVal, 'Christ on the Lake of Gennezaret', 825, NULL, 5);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo)
 VALUES(idOperaSeq.nextVal, 'Vase', 838, NULL, 6);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo)
 VALUES(idOperaSeq.nextVal, 'The Piazza della Signoria in Florence', 800, 850, 6);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo)
 VALUES(idOperaSeq.nextVal, 'Abraham and Isaac', 1941, NULL, 6);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo)
 VALUES(idOperaSeq.nextVal, 'Lear Grasping a Sword', 1929, NULL, 5);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo)
 VALUES(idOperaSeq.nextVal, 'Paradise: Terrestrial Paradise', 1925, NULL, 2);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo)
 VALUES(idOperaSeq.nextVal, 'Triptych of Garden of Earthly Delights left wing', 1894, NULL, 3);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo)
 VALUES(idOperaSeq.nextVal, 'Haarlem Printer Abraham Casteleyn and His Wife Margarieta van Bancken', 1934, NULL, 4);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo)
 VALUES(idOperaSeq.nextVal, 'Two-Headed Lamb', 1868, NULL, 6);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo)
 VALUES(idOperaSeq.nextVal, 'Allegory of Peace', 1900, 1950, 6);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo)
 VALUES(idOperaSeq.nextVal, 'The Lion of St Mark', 1874, NULL, 3);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo)
 VALUES(idOperaSeq.nextVal, 'Schatacook Mountain', 1862, NULL, 5);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo)
 VALUES(idOperaSeq.nextVal, 'The Adoration of the Magi', 1921, NULL, 6);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo)
 VALUES(idOperaSeq.nextVal, 'Sketch for the Marshal Moncey Monument', 1881, NULL, 1);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo)
 VALUES(idOperaSeq.nextVal, 'Portrait of Johannes Geiler von Kaysersberg', 1938, NULL, 3);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo)
 VALUES(idOperaSeq.nextVal, 'Pilate s Dispute with the High Priest; The Holy Women and St John at Golgotha', 1914, NULL, 5);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo)
 VALUES(idOperaSeq.nextVal, 'Winter Scene at Yselmuiden', 1942, NULL, 3);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo)
 VALUES(idOperaSeq.nextVal, 'The Sermon of St John the Baptist', 1917, NULL, 3);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo)
 VALUES(idOperaSeq.nextVal, 'Burning of the Heretics Auto-da-fÃ©', 1924, NULL, 5);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo)
 VALUES(idOperaSeq.nextVal, 'Epiphany', 796, NULL, 5);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo)
 VALUES(idOperaSeq.nextVal, 'Diana Turns Actaeon into a Stag', 836, NULL, 5);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo)
 VALUES(idOperaSeq.nextVal, 'Sketch for The Leaping Horse', 817, NULL, 2);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo)
 VALUES(idOperaSeq.nextVal, 'Portrait of a Young Girl', 861, NULL, 6);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo)
 VALUES(idOperaSeq.nextVal, 'Dead Christ Supported by Nicodemus', 794, NULL, 2);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo)
 VALUES(idOperaSeq.nextVal, 'Bernardino Campi Painting Sofonisba Anguissola', 844, NULL, 6);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo)
 VALUES(idOperaSeq.nextVal, 'Herm of St Stephen', 850, 900, 6);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo)
 VALUES(idOperaSeq.nextVal, 'Self-Portrait with an Eyeshade', 802, NULL, 2);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo)
 VALUES(idOperaSeq.nextVal, 'Venus and Amor', 878, NULL, 3);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo)
 VALUES(idOperaSeq.nextVal, 'The Holy Family and The Education of the Virgin', 828, NULL, 5);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo)
 VALUES(idOperaSeq.nextVal, 'ManiÃ¨re universelle pour pratiquer la perspective detail', 789, NULL, 4);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo)
 VALUES(idOperaSeq.nextVal, 'Eros and Anteros', 847, NULL, 4);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo)
 VALUES(idOperaSeq.nextVal, 'Shipping on the Thames off Deptford', 838, NULL, 3);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo)
 VALUES(idOperaSeq.nextVal, 'FrÃ©dÃ©ric Chopin', 800, 850, 6);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo)
 VALUES(idOperaSeq.nextVal, 'The Dream of Saint Catherine of Alexandria', 824, NULL, 3);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo)
 VALUES(idOperaSeq.nextVal, 'The Shaded Stream or The Puits Noir Stream', 812, NULL, 1);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo)
 VALUES(idOperaSeq.nextVal, 'The Last Judgment', 524, NULL, 1);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo)
 VALUES(idOperaSeq.nextVal, 'Circumcision', 534, NULL, 3);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo)
 VALUES(idOperaSeq.nextVal, 'Equestrian Portrait of Cardinal-Infante Fernando of Austria', 473, NULL, 4);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo)
 VALUES(idOperaSeq.nextVal, 'The Triumph of Caesar Section 8', 452, NULL, 1);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo)
 VALUES(idOperaSeq.nextVal, 'Portrait of Martin Luther', 450, 500, 2);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo)
 VALUES(idOperaSeq.nextVal, 'Still-Life with Lobster', 497, NULL, 4);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo)
 VALUES(idOperaSeq.nextVal, 'The Stoning of St Stephen detail', 459, NULL, 3);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo)
 VALUES(idOperaSeq.nextVal, 'The Coronation of the Nymph Amaryllis', 515, NULL, 3);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo)
 VALUES(idOperaSeq.nextVal, 'Seduction', 477, NULL, 2);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo)
 VALUES(idOperaSeq.nextVal, 'Concert', 528, NULL, 3);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo)
 VALUES(idOperaSeq.nextVal, 'Treatise on Silk Culture and Manufacture Series of Thirteen Drawings', 534, NULL, 1);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo)
 VALUES(idOperaSeq.nextVal, 'The Defence of Zaragoza', 466, NULL, 2);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo)
 VALUES(idOperaSeq.nextVal, 'Mars and Venus', 492, NULL, 4);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo)
 VALUES(idOperaSeq.nextVal, 'Diana Turns Actaeon into a Stag', 474, NULL, 3);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo)
 VALUES(idOperaSeq.nextVal, 'Storm at Sea', 532, NULL, 2);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo)
 VALUES(idOperaSeq.nextVal, 'Landscape with the Parable of the Tares among the Wheat', 535, NULL, 1);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo)
 VALUES(idOperaSeq.nextVal, 'Princess Yuliya Pavlovna Samoilova Leaving a Ball with Adopted Daughter Amacilia Pacini', 508, NULL, 6);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo)
 VALUES(idOperaSeq.nextVal, 'The Titan s Goblet', 474, NULL, 2);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo)
 VALUES(idOperaSeq.nextVal, 'Bust of Luisa Dati', 1014, NULL, 6);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo)
 VALUES(idOperaSeq.nextVal, 'Attila and his Hordes Overrun Italy and the Arts detail', 1013, NULL, 3);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo)
 VALUES(idOperaSeq.nextVal, 'Book and Picture Shop', 1006, NULL, 5);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo)
 VALUES(idOperaSeq.nextVal, 'View from the Giudecca', 635, NULL, 5);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo)
 VALUES(idOperaSeq.nextVal, 'St Philip', 589, NULL, 6);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo)
 VALUES(idOperaSeq.nextVal, 'Bust of Giovanni Andrea Muti', 600, 650, 6);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo)
 VALUES(idOperaSeq.nextVal, 'View of the Arsenale', 637, NULL, 1);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo)
 VALUES(idOperaSeq.nextVal, 'Still-Life with Peaches and Plums', 636, NULL, 1);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo)
 VALUES(idOperaSeq.nextVal, 'Skull in a Niche', 593, NULL, 2);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo)
 VALUES(idOperaSeq.nextVal, 'The Three Magi', 618, NULL, 3);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo)
 VALUES(idOperaSeq.nextVal, 'Wooded Landscape with Figures Crossing a Bridge', 636, NULL, 3);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo)
 VALUES(idOperaSeq.nextVal, 'Hercules the Archer', 639, NULL, 3);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo)
 VALUES(idOperaSeq.nextVal, 'Costume of the allegorical figure Arithmetic', 635, NULL, 4);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo)
 VALUES(idOperaSeq.nextVal, 'Portrait of Sir Charles Frederick', 577, NULL, 2);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo)
 VALUES(idOperaSeq.nextVal, 'The Education of Cupid', 574, NULL, 6);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo)
 VALUES(idOperaSeq.nextVal, 'Peasants with Cattle by a Ruined Aqueduct', 1426, NULL, 5);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo)
 VALUES(idOperaSeq.nextVal, 'Christ Washing the Apostles Feet', 1442, NULL, 4);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo)
 VALUES(idOperaSeq.nextVal, 'Arrival of the English Ambassadors', 1431, NULL, 2);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo)
 VALUES(idOperaSeq.nextVal, 'Three Angels', 1444, NULL, 4);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo)
 VALUES(idOperaSeq.nextVal, 'Diana Turns Actaeon into a Stag', 1447, NULL, 5);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo)
 VALUES(idOperaSeq.nextVal, 'Haymaking July', 1423, NULL, 1);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo)
 VALUES(idOperaSeq.nextVal, 'Vase', 1431, NULL, 2);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo)
 VALUES(idOperaSeq.nextVal, 'Winter', 1462, NULL, 6);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo)
 VALUES(idOperaSeq.nextVal, 'Liber Iesus', 1445, NULL, 3);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo)
 VALUES(idOperaSeq.nextVal, 'The Grief of Andromache', 1426, NULL, 5);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo)
 VALUES(idOperaSeq.nextVal, 'The Woman with the Pearl', 1437, NULL, 6);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo)
 VALUES(idOperaSeq.nextVal, 'View of the Three-Fountain Grove', 1427, NULL, 5);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo)
 VALUES(idOperaSeq.nextVal, 'The Picnic', 1435, NULL, 2);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo)
 VALUES(idOperaSeq.nextVal, 'Juno Receiving the Head of Argos', 1432, NULL, 5);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo)
 VALUES(idOperaSeq.nextVal, 'Seascape', 1462, NULL, 2);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo)
 VALUES(idOperaSeq.nextVal, 'Portrait of Madame Roger Jourdain', 1458, NULL, 4);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo)
 VALUES(idOperaSeq.nextVal, 'David with the Head of Goliath', 1449, NULL, 3);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo)
 VALUES(idOperaSeq.nextVal, 'Still-Life', 1457, NULL, 5);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo)
 VALUES(idOperaSeq.nextVal, 'Portrait of a Man Holding a Rose', 462, NULL, 1);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo)
 VALUES(idOperaSeq.nextVal, 'The Senses of Hearing', 482, NULL, 6);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo)
 VALUES(idOperaSeq.nextVal, 'The Judgment of Cambyses right panel', 426, NULL, 4);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo)
 VALUES(idOperaSeq.nextVal, 'The Duchess of Chaulnes as a Gardener in an AllÃ©e', 401, NULL, 3);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo)
 VALUES(idOperaSeq.nextVal, 'Boy with Grapes', 488, NULL, 1);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo)
 VALUES(idOperaSeq.nextVal, 'View on the River Severn at Worcester', 454, NULL, 1);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo)
 VALUES(idOperaSeq.nextVal, 'Cardinal Albrecht of Brandenburg as St Jerome in His Study', 458, NULL, 1);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo)
 VALUES(idOperaSeq.nextVal, 'Naked Young Woman in Front of the Mirror', 474, NULL, 3);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo)
 VALUES(idOperaSeq.nextVal, 'Eleonora di Toledo', 450, 500, 2);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo)
 VALUES(idOperaSeq.nextVal, 'Sts Peter and Paul', 456, NULL, 6);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo)
 VALUES(idOperaSeq.nextVal, 'Triumph of Venus', 468, NULL, 6);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo)
 VALUES(idOperaSeq.nextVal, 'Abundance with the Four Elements', 450, 500, 1);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo)
 VALUES(idOperaSeq.nextVal, 'Magpie on the Gallow', 488, NULL, 4);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo)
 VALUES(idOperaSeq.nextVal, 'The Ironers', 417, NULL, 6);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo)
 VALUES(idOperaSeq.nextVal, 'Jupiter seated', 417, NULL, 3);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo)
 VALUES(idOperaSeq.nextVal, 'Virgin and Child with St Francis of Assisi', 405, NULL, 3);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo)
 VALUES(idOperaSeq.nextVal, 'The Oath of Brutus', 398, NULL, 4);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo)
 VALUES(idOperaSeq.nextVal, 'Music Hall Singer La Chanson du Chien', 1804, NULL, 3);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo)
 VALUES(idOperaSeq.nextVal, 'Old Woman Reading a Bible', 1785, NULL, 1);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo)
 VALUES(idOperaSeq.nextVal, 'Set of Two Louis XIV Style Boulle Marquetry Pedestals', 1782, NULL, 3);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo)
 VALUES(idOperaSeq.nextVal, 'Louis XIV on Horseback', 1774, NULL, 2);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo)
 VALUES(idOperaSeq.nextVal, 'Bouquet in a Clay Vase', 1821, NULL, 6);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo)
 VALUES(idOperaSeq.nextVal, 'Herm of St Stephen', 1801, NULL, 6);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo)
 VALUES(idOperaSeq.nextVal, 'Andromeda and the Nereids', 1819, NULL, 1);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo)
 VALUES(idOperaSeq.nextVal, 'Volterra', 1831, NULL, 4);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo)
 VALUES(idOperaSeq.nextVal, 'Portrait of a Young Man', 1842, NULL, 5);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo)
 VALUES(idOperaSeq.nextVal, 'The Ancient of Days', 1804, NULL, 3);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo)
 VALUES(idOperaSeq.nextVal, 'Draughtsman', 1783, NULL, 5);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo)
 VALUES(idOperaSeq.nextVal, 'Race Horses', 1845, NULL, 6);
 
 /**********STANZE*********/
 SET DEFINE OFF;
 /*Stanze museo 1 galleria di arte moderna*/
-INSERT INTO STANZE (IdStanza, Nome, Dimensione, Museo, Eliminato)
+INSERT INTO STANZE (IdStanza, Nome, Dimensione, Museo)
 VALUES (1, 'Ambiente 1', 70, 1);
-INSERT INTO STANZE (IdStanza, Nome, Dimensione, Museo, Eliminato)
+INSERT INTO STANZE (IdStanza, Nome, Dimensione, Museo)
 VALUES (2, 'Koons', 30, 1);
-INSERT INTO STANZE (IdStanza, Nome, Dimensione, Museo, Eliminato)
+INSERT INTO STANZE (IdStanza, Nome, Dimensione, Museo)
 VALUES (3, 'Basquiat', 30, 1);
-INSERT INTO STANZE (IdStanza, Nome, Dimensione, Museo, Eliminato)
+INSERT INTO STANZE (IdStanza, Nome, Dimensione, Museo)
 VALUES (4, 'Ambiente 2', 16, 1);
-INSERT INTO STANZE (IdStanza, Nome, Dimensione, Museo, Eliminato)
+INSERT INTO STANZE (IdStanza, Nome, Dimensione, Museo)
 VALUES (5, 'Haring', 30, 1);
-INSERT INTO STANZE (IdStanza, Nome, Dimensione, Museo, Eliminato)
+INSERT INTO STANZE (IdStanza, Nome, Dimensione, Museo)
 VALUES (6, 'Lichtenstein', 23, 1);
-INSERT INTO STANZE (IdStanza, Nome, Dimensione, Museo, Eliminato)
+INSERT INTO STANZE (IdStanza, Nome, Dimensione, Museo)
 VALUES (7, 'Kahlo', 42, 1);
-INSERT INTO STANZE (IdStanza, Nome, Dimensione, Museo, Eliminato)
+INSERT INTO STANZE (IdStanza, Nome, Dimensione, Museo)
 VALUES (8, 'Kusama', 42, 1);
-INSERT INTO STANZE (IdStanza, Nome, Dimensione, Museo, Eliminato)
+INSERT INTO STANZE (IdStanza, Nome, Dimensione, Museo)
 VALUES (9, 'Richter', 37, 1);
-INSERT INTO STANZE (IdStanza, Nome, Dimensione, Museo, Eliminato)
+INSERT INTO STANZE (IdStanza, Nome, Dimensione, Museo)
 VALUES (10, 'Woodman', 30, 1);
-INSERT INTO STANZE (IdStanza, Nome, Dimensione, Museo, Eliminato)
+INSERT INTO STANZE (IdStanza, Nome, Dimensione, Museo)
 VALUES (11, 'Ambiente 3', 26, 1);
-INSERT INTO STANZE (IdStanza, Nome, Dimensione, Museo, Eliminato)
+INSERT INTO STANZE (IdStanza, Nome, Dimensione, Museo)
 VALUES (12, 'Warhol', 55, 1);
-INSERT INTO STANZE (IdStanza, Nome, Dimensione, Museo, Eliminato)
+INSERT INTO STANZE (IdStanza, Nome, Dimensione, Museo)
 VALUES (13, 'Call', 26, 1);
-INSERT INTO STANZE (IdStanza, Nome, Dimensione, Museo, Eliminato)
+INSERT INTO STANZE (IdStanza, Nome, Dimensione, Museo)
 VALUES (14, 'Abramovich', 26, 1);
-INSERT INTO STANZE (IdStanza, Nome, Dimensione, Museo, Eliminato)
+INSERT INTO STANZE (IdStanza, Nome, Dimensione, Museo)
 VALUES (15, 'Pollok', 23, 1);
-INSERT INTO STANZE (IdStanza, Nome, Dimensione, Museo, Eliminato)
+INSERT INTO STANZE (IdStanza, Nome, Dimensione, Museo)
 VALUES (16, 'De Saint Phalle', 37, 1);
-INSERT INTO STANZE (IdStanza, Nome, Dimensione, Museo, Eliminato)
+INSERT INTO STANZE (IdStanza, Nome, Dimensione, Museo)
 VALUES (17, 'Spoerri', 37, 1);
-INSERT INTO STANZE (IdStanza, Nome, Dimensione, Museo, Eliminato)
+INSERT INTO STANZE (IdStanza, Nome, Dimensione, Museo)
 VALUES (18, 'Banksy', 55, 1);
-INSERT INTO STANZE (IdStanza, Nome, Dimensione, Museo, Eliminato)
+INSERT INTO STANZE (IdStanza, Nome, Dimensione, Museo)
 VALUES (19, 'Sherman', 23, 1);
-INSERT INTO STANZE (IdStanza, Nome, Dimensione, Museo, Eliminato)
+INSERT INTO STANZE (IdStanza, Nome, Dimensione, Museo)
 VALUES (20, 'Rothko', 26, 1);
-INSERT INTO STANZE (IdStanza, Nome, Dimensione, Museo, Eliminato)
+INSERT INTO STANZE (IdStanza, Nome, Dimensione, Museo)
 VALUES (21, 'Hirst', 30, 1);
-INSERT INTO STANZE (IdStanza, Nome, Dimensione, Museo, Eliminato)
+INSERT INTO STANZE (IdStanza, Nome, Dimensione, Museo)
 VALUES (22, 'Ambiente 4', 26, 1);
 /*Stanze museo, Eliminato 2 museo, Eliminato del rinascimento*/
-INSERT INTO STANZE (IdStanza, Nome, Dimensione, Museo, Eliminato)
+INSERT INTO STANZE (IdStanza, Nome, Dimensione, Museo)
 VALUES (23, 'Ambiente 1', 90, 2);
-INSERT INTO STANZE (IdStanza, Nome, Dimensione, Museo, Eliminato)
+INSERT INTO STANZE (IdStanza, Nome, Dimensione, Museo)
 VALUES (24, 'Ambiente 2', 20, 2);
-INSERT INTO STANZE (IdStanza, Nome, Dimensione, Museo, Eliminato)
+INSERT INTO STANZE (IdStanza, Nome, Dimensione, Museo)
 VALUES (25, 'Da Vinci', 23, 2);
-INSERT INTO STANZE (IdStanza, Nome, Dimensione, Museo, Eliminato)
+INSERT INTO STANZE (IdStanza, Nome, Dimensione, Museo)
 VALUES (26, 'Brunelleschi', 55, 2);
-INSERT INTO STANZE (IdStanza, Nome, Dimensione, Museo, Eliminato)
+INSERT INTO STANZE (IdStanza, Nome, Dimensione, Museo)
 VALUES (27, 'Botticelli', 26, 2);
-INSERT INTO STANZE (IdStanza, Nome, Dimensione, Museo, Eliminato)
+INSERT INTO STANZE (IdStanza, Nome, Dimensione, Museo)
 VALUES (28, 'Michelangelo', 26, 2);
-INSERT INTO STANZE (IdStanza, Nome, Dimensione, Museo, Eliminato)
+INSERT INTO STANZE (IdStanza, Nome, Dimensione, Museo)
 VALUES (29, 'Raffaello', 42, 2);
-INSERT INTO STANZE (IdStanza, Nome, Dimensione, Museo, Eliminato)
+INSERT INTO STANZE (IdStanza, Nome, Dimensione, Museo)
 VALUES (30, 'Ambiente 3', 40, 2);
-INSERT INTO STANZE (IdStanza, Nome, Dimensione, Museo, Eliminato)
+INSERT INTO STANZE (IdStanza, Nome, Dimensione, Museo)
 VALUES (31, 'Donatello', 30, 2);
-INSERT INTO STANZE (IdStanza, Nome, Dimensione, Museo, Eliminato)
+INSERT INTO STANZE (IdStanza, Nome, Dimensione, Museo)
 VALUES (32, 'Vasari', 42, 2);
-INSERT INTO STANZE (IdStanza, Nome, Dimensione, Museo, Eliminato)
+INSERT INTO STANZE (IdStanza, Nome, Dimensione, Museo)
 VALUES (33, 'Pinturicchio', 55, 2);
-INSERT INTO STANZE (IdStanza, Nome, Dimensione, Museo, Eliminato)
+INSERT INTO STANZE (IdStanza, Nome, Dimensione, Museo)
 VALUES (34, 'Cellini', 23, 2);
-INSERT INTO STANZE (IdStanza, Nome, Dimensione, Museo, Eliminato)
+INSERT INTO STANZE (IdStanza, Nome, Dimensione, Museo)
 VALUES (35, 'Perugino', 23, 2);
-INSERT INTO STANZE (IdStanza, Nome, Dimensione, Museo, Eliminato)
+INSERT INTO STANZE (IdStanza, Nome, Dimensione, Museo)
 VALUES (36, 'Michelozzo', 37, 2);
-INSERT INTO STANZE (IdStanza, Nome, Dimensione, Museo, Eliminato)
+INSERT INTO STANZE (IdStanza, Nome, Dimensione, Museo)
 VALUES (37, 'Ghiberti', 55, 2);
-INSERT INTO STANZE (IdStanza, Nome, Dimensione, Museo, Eliminato)
+INSERT INTO STANZE (IdStanza, Nome, Dimensione, Museo)
 VALUES (38, 'Ambiente 4', 110, 2);
-INSERT INTO STANZE (IdStanza, Nome, Dimensione, Museo, Eliminato)
+INSERT INTO STANZE (IdStanza, Nome, Dimensione, Museo)
 VALUES (39, 'Giotto', 26, 2);
-INSERT INTO STANZE (IdStanza, Nome, Dimensione, Museo, Eliminato)
+INSERT INTO STANZE (IdStanza, Nome, Dimensione, Museo)
 VALUES (40, 'Vecelio', 23, 2);
-INSERT INTO STANZE (IdStanza, Nome, Dimensione, Museo, Eliminato)
+INSERT INTO STANZE (IdStanza, Nome, Dimensione, Museo)
 VALUES (41, 'Da Messina', 26, 2);
-INSERT INTO STANZE (IdStanza, Nome, Dimensione, Museo, Eliminato)
+INSERT INTO STANZE (IdStanza, Nome, Dimensione, Museo)
 VALUES (42, 'Bramante', 37, 2);
-INSERT INTO STANZE (IdStanza, Nome, Dimensione, Museo, Eliminato)
+INSERT INTO STANZE (IdStanza, Nome, Dimensione, Museo)
 VALUES (43, 'Ghirlandaio', 37, 2);
-INSERT INTO STANZE (IdStanza, Nome, Dimensione, Museo, Eliminato)
+INSERT INTO STANZE (IdStanza, Nome, Dimensione, Museo)
 VALUES (44, 'Tintoretto', 23, 2);
-INSERT INTO STANZE (IdStanza, Nome, Dimensione, Museo, Eliminato)
+INSERT INTO STANZE (IdStanza, Nome, Dimensione, Museo)
 VALUES (45, 'Vergari', 30, 2);
-INSERT INTO STANZE (IdStanza, Nome, Dimensione, Museo, Eliminato)
+INSERT INTO STANZE (IdStanza, Nome, Dimensione, Museo)
 VALUES (46, 'Ambiente 5', 40, 2);
 /*Stanze museo, Eliminato 3 museo, Eliminato di storia romana*/
-INSERT INTO STANZE (IdStanza, Nome, Dimensione, Museo, Eliminato)
+INSERT INTO STANZE (IdStanza, Nome, Dimensione, Museo)
 VALUES (47, 'Ambiente 1', 110, 3);
-INSERT INTO STANZE (IdStanza, Nome, Dimensione, Museo, Eliminato)
+INSERT INTO STANZE (IdStanza, Nome, Dimensione, Museo)
 VALUES (48, 'Ambiente 2', 70, 3);
-INSERT INTO STANZE (IdStanza, Nome, Dimensione, Museo, Eliminato)
+INSERT INTO STANZE (IdStanza, Nome, Dimensione, Museo)
 VALUES (49, 'Giulio Cesare', 37, 3);
-INSERT INTO STANZE (IdStanza, Nome, Dimensione, Museo, Eliminato)
+INSERT INTO STANZE (IdStanza, Nome, Dimensione, Museo)
 VALUES (50, 'Romolo', 26, 3);
-INSERT INTO STANZE (IdStanza, Nome, Dimensione, Museo, Eliminato)
+INSERT INTO STANZE (IdStanza, Nome, Dimensione, Museo)
 VALUES (51, 'Augusto', 30, 3);
-INSERT INTO STANZE (IdStanza, Nome, Dimensione, Museo, Eliminato)
+INSERT INTO STANZE (IdStanza, Nome, Dimensione, Museo)
 VALUES (52, 'Traiano', 30, 3);
-INSERT INTO STANZE (IdStanza, Nome, Dimensione, Museo, Eliminato)
+INSERT INTO STANZE (IdStanza, Nome, Dimensione, Museo)
 VALUES (53, 'Marco Aurelio', 30, 3);
-INSERT INTO STANZE (IdStanza, Nome, Dimensione, Museo, Eliminato)
+INSERT INTO STANZE (IdStanza, Nome, Dimensione, Museo)
 VALUES (54, 'Ambiente 3', 130, 3);
-INSERT INTO STANZE (IdStanza, Nome, Dimensione, Museo, Eliminato)
+INSERT INTO STANZE (IdStanza, Nome, Dimensione, Museo)
 VALUES (55, 'Vespasiano', 23, 3);
-INSERT INTO STANZE (IdStanza, Nome, Dimensione, Museo, Eliminato)
+INSERT INTO STANZE (IdStanza, Nome, Dimensione, Museo)
 VALUES (56, 'Tito', 23, 3);
-INSERT INTO STANZE (IdStanza, Nome, Dimensione, Museo, Eliminato)
+INSERT INTO STANZE (IdStanza, Nome, Dimensione, Museo)
 VALUES (57, 'Costantino', 23, 3);
-INSERT INTO STANZE (IdStanza, Nome, Dimensione, Museo, Eliminato)
+INSERT INTO STANZE (IdStanza, Nome, Dimensione, Museo)
 VALUES (58, 'Claudio', 55, 3);
-INSERT INTO STANZE (IdStanza, Nome, Dimensione, Museo, Eliminato)
+INSERT INTO STANZE (IdStanza, Nome, Dimensione, Museo)
 VALUES (59, 'Adriano', 42, 3);
-INSERT INTO STANZE (IdStanza, Nome, Dimensione, Museo, Eliminato)
+INSERT INTO STANZE (IdStanza, Nome, Dimensione, Museo)
 VALUES (60, 'Domiziano', 30, 3);
-INSERT INTO STANZE (IdStanza, Nome, Dimensione, Museo, Eliminato)
+INSERT INTO STANZE (IdStanza, Nome, Dimensione, Museo)
 VALUES (61, 'Caracalla', 37, 3);
-INSERT INTO STANZE (IdStanza, Nome, Dimensione, Museo, Eliminato)
+INSERT INTO STANZE (IdStanza, Nome, Dimensione, Museo)
 VALUES (62, 'Ambiente 4', 70, 3);
-INSERT INTO STANZE (IdStanza, Nome, Dimensione, Museo, Eliminato)
+INSERT INTO STANZE (IdStanza, Nome, Dimensione, Museo)
 VALUES (63, 'Diocleziano', 26, 3);
-INSERT INTO STANZE (IdStanza, Nome, Dimensione, Museo, Eliminato)
+INSERT INTO STANZE (IdStanza, Nome, Dimensione, Museo)
 VALUES (64, 'Tiberio', 26, 3);
-INSERT INTO STANZE (IdStanza, Nome, Dimensione, Museo, Eliminato)
+INSERT INTO STANZE (IdStanza, Nome, Dimensione, Museo)
 VALUES (65, 'Nerone', 42, 3);
-INSERT INTO STANZE (IdStanza, Nome, Dimensione, Museo, Eliminato)
+INSERT INTO STANZE (IdStanza, Nome, Dimensione, Museo)
 VALUES (66, 'Antonino Pio', 42, 3);
-INSERT INTO STANZE (IdStanza, Nome, Dimensione, Museo, Eliminato)
+INSERT INTO STANZE (IdStanza, Nome, Dimensione, Museo)
 VALUES (67, 'Lucio Vero', 26, 3);
-INSERT INTO STANZE (IdStanza, Nome, Dimensione, Museo, Eliminato)
+INSERT INTO STANZE (IdStanza, Nome, Dimensione, Museo)
 VALUES (68, 'Settimio Severo', 30, 3);
-INSERT INTO STANZE (IdStanza, Nome, Dimensione, Museo, Eliminato)
+INSERT INTO STANZE (IdStanza, Nome, Dimensione, Museo)
 VALUES (69, 'Plinio il Giovane', 55, 3);
-INSERT INTO STANZE (IdStanza, Nome, Dimensione, Museo, Eliminato)
+INSERT INTO STANZE (IdStanza, Nome, Dimensione, Museo)
 VALUES (70, 'Virgilio', 23, 3);
-INSERT INTO STANZE (IdStanza, Nome, Dimensione, Museo, Eliminato)
+INSERT INTO STANZE (IdStanza, Nome, Dimensione, Museo)
 VALUES (71, 'Crasso', 26, 3);
 /*Stanze museo, Eliminato 4 museo, Eliminato egizio*/
-INSERT INTO STANZE (IdStanza, Nome, Dimensione, Museo, Eliminato)
+INSERT INTO STANZE (IdStanza, Nome, Dimensione, Museo)
 VALUES (72, 'Ambiente 1', 100, 4);
-INSERT INTO STANZE (IdStanza, Nome, Dimensione, Museo, Eliminato)
+INSERT INTO STANZE (IdStanza, Nome, Dimensione, Museo)
 VALUES (73, 'Ambiente 2', 19, 4);
-INSERT INTO STANZE (IdStanza, Nome, Dimensione, Museo, Eliminato)
+INSERT INTO STANZE (IdStanza, Nome, Dimensione, Museo)
 VALUES (74, 'Ramesse II', 23, 4);
-INSERT INTO STANZE (IdStanza, Nome, Dimensione, Museo, Eliminato)
+INSERT INTO STANZE (IdStanza, Nome, Dimensione, Museo)
 VALUES (75, 'Cleopatra', 23, 4);
-INSERT INTO STANZE (IdStanza, Nome, Dimensione, Museo, Eliminato)
+INSERT INTO STANZE (IdStanza, Nome, Dimensione, Museo)
 VALUES (76, 'Tutankhamon', 30, 4);
-INSERT INTO STANZE (IdStanza, Nome, Dimensione, Museo, Eliminato)
+INSERT INTO STANZE (IdStanza, Nome, Dimensione, Museo)
 VALUES (77, 'Thutmose III', 30, 4);
-INSERT INTO STANZE (IdStanza, Nome, Dimensione, Museo, Eliminato)
+INSERT INTO STANZE (IdStanza, Nome, Dimensione, Museo)
 VALUES (78, 'Seti I', 42, 4);
-INSERT INTO STANZE (IdStanza, Nome, Dimensione, Museo, Eliminato)
+INSERT INTO STANZE (IdStanza, Nome, Dimensione, Museo)
 VALUES (79, 'Ambiente 3', 120, 4);
-INSERT INTO STANZE (IdStanza, Nome, Dimensione, Museo, Eliminato)
+INSERT INTO STANZE (IdStanza, Nome, Dimensione, Museo)
 VALUES (80, 'Amenofi III', 30, 4);
-INSERT INTO STANZE (IdStanza, Nome, Dimensione, Museo, Eliminato)
+INSERT INTO STANZE (IdStanza, Nome, Dimensione, Museo)
 VALUES (81, 'Alessandro Magno', 42, 4);
-INSERT INTO STANZE (IdStanza, Nome, Dimensione, Museo, Eliminato)
+INSERT INTO STANZE (IdStanza, Nome, Dimensione, Museo)
 VALUES (82, 'Tolomeo X', 55, 4);
-INSERT INTO STANZE (IdStanza, Nome, Dimensione, Museo, Eliminato)
+INSERT INTO STANZE (IdStanza, Nome, Dimensione, Museo)
 VALUES (83, 'Nefertiti', 37, 4);
-INSERT INTO STANZE (IdStanza, Nome, Dimensione, Museo, Eliminato)
+INSERT INTO STANZE (IdStanza, Nome, Dimensione, Museo)
 VALUES (84, 'Hatshepsut', 26, 4);
-INSERT INTO STANZE (IdStanza, Nome, Dimensione, Museo, Eliminato)
+INSERT INTO STANZE (IdStanza, Nome, Dimensione, Museo)
 VALUES (85, 'Cheope', 42, 4);
-INSERT INTO STANZE (IdStanza, Nome, Dimensione, Museo, Eliminato)
+INSERT INTO STANZE (IdStanza, Nome, Dimensione, Museo)
 VALUES (86, 'Chefren', 23, 4);
-INSERT INTO STANZE (IdStanza, Nome, Dimensione, Museo, Eliminato)
+INSERT INTO STANZE (IdStanza, Nome, Dimensione, Museo)
 VALUES (87, 'Ambiente 4', 45, 4);
-INSERT INTO STANZE (IdStanza, Nome, Dimensione, Museo, Eliminato)
+INSERT INTO STANZE (IdStanza, Nome, Dimensione, Museo)
 VALUES (88, 'Micerino', 55, 4);
-INSERT INTO STANZE (IdStanza, Nome, Dimensione, Museo, Eliminato)
+INSERT INTO STANZE (IdStanza, Nome, Dimensione, Museo)
 VALUES (89, 'Akhenaton', 23, 4);
-INSERT INTO STANZE (IdStanza, Nome, Dimensione, Museo, Eliminato)
+INSERT INTO STANZE (IdStanza, Nome, Dimensione, Museo)
 VALUES (90, 'Ramesse I', 26, 4);
-INSERT INTO STANZE (IdStanza, Nome, Dimensione, Museo, Eliminato)
+INSERT INTO STANZE (IdStanza, Nome, Dimensione, Museo)
 VALUES (91, 'Amon Ra', 30, 4);
-INSERT INTO STANZE (IdStanza, Nome, Dimensione, Museo, Eliminato)
+INSERT INTO STANZE (IdStanza, Nome, Dimensione, Museo)
 VALUES (92, 'Anubi', 30, 4);
-INSERT INTO STANZE (IdStanza, Nome, Dimensione, Museo, Eliminato)
+INSERT INTO STANZE (IdStanza, Nome, Dimensione, Museo)
 VALUES (93, 'Horus', 23, 4);
-INSERT INTO STANZE (IdStanza, Nome, Dimensione, Museo, Eliminato)
+INSERT INTO STANZE (IdStanza, Nome, Dimensione, Museo)
 VALUES (94, 'Osiride', 26, 4);
-INSERT INTO STANZE (IdStanza, Nome, Dimensione, Museo, Eliminato)
+INSERT INTO STANZE (IdStanza, Nome, Dimensione, Museo)
 VALUES (95, 'Ambiente 5', 45, 4);
 /*Stanze museo, Eliminato 5 museo, Eliminato di scienze naturali*/
-INSERT INTO STANZE (IdStanza, Nome, Dimensione, Museo, Eliminato)
+INSERT INTO STANZE (IdStanza, Nome, Dimensione, Museo)
 VALUES (96, 'Ambiente 1', 60, 5);
-INSERT INTO STANZE (IdStanza, Nome, Dimensione, Museo, Eliminato)
+INSERT INTO STANZE (IdStanza, Nome, Dimensione, Museo)
 VALUES (97, 'Ambiente 2', 14, 5);
-INSERT INTO STANZE (IdStanza, Nome, Dimensione, Museo, Eliminato)
+INSERT INTO STANZE (IdStanza, Nome, Dimensione, Museo)
 VALUES (98, 'Venuti', 42, 5);
-INSERT INTO STANZE (IdStanza, Nome, Dimensione, Museo, Eliminato)
+INSERT INTO STANZE (IdStanza, Nome, Dimensione, Museo)
 VALUES (99, 'Aldovrandi', 30, 5);
-INSERT INTO STANZE (IdStanza, Nome, Dimensione, Museo, Eliminato)
+INSERT INTO STANZE (IdStanza, Nome, Dimensione, Museo)
 VALUES (100, 'Cesalpino', 26, 5);
-INSERT INTO STANZE (IdStanza, Nome, Dimensione, Museo, Eliminato)
+INSERT INTO STANZE (IdStanza, Nome, Dimensione, Museo)
 VALUES (101, 'Darwin', 26, 5);
-INSERT INTO STANZE (IdStanza, Nome, Dimensione, Museo, Eliminato)
+INSERT INTO STANZE (IdStanza, Nome, Dimensione, Museo)
 VALUES (102, 'Lamark', 37, 5);
-INSERT INTO STANZE (IdStanza, Nome, Dimensione, Museo, Eliminato)
+INSERT INTO STANZE (IdStanza, Nome, Dimensione, Museo)
 VALUES (103, 'Cuvier', 42, 5);
-INSERT INTO STANZE (IdStanza, Nome, Dimensione, Museo, Eliminato)
+INSERT INTO STANZE (IdStanza, Nome, Dimensione, Museo)
 VALUES (104, 'Fabre', 23, 5);
-INSERT INTO STANZE (IdStanza, Nome, Dimensione, Museo, Eliminato)
+INSERT INTO STANZE (IdStanza, Nome, Dimensione, Museo)
 VALUES (105, 'Linneo', 30, 5);
-INSERT INTO STANZE (IdStanza, Nome, Dimensione, Museo, Eliminato)
+INSERT INTO STANZE (IdStanza, Nome, Dimensione, Museo)
 VALUES (106, 'Ambiente 3', 30, 5);
-INSERT INTO STANZE (IdStanza, Nome, Dimensione, Museo, Eliminato)
+INSERT INTO STANZE (IdStanza, Nome, Dimensione, Museo)
 VALUES (107, 'Vallisneri', 55, 5);
-INSERT INTO STANZE (IdStanza, Nome, Dimensione, Museo, Eliminato)
+INSERT INTO STANZE (IdStanza, Nome, Dimensione, Museo)
 VALUES (108, 'Desio', 55, 5);
-INSERT INTO STANZE (IdStanza, Nome, Dimensione, Museo, Eliminato)
+INSERT INTO STANZE (IdStanza, Nome, Dimensione, Museo)
 VALUES (109, 'Plinio il Vecchio', 42, 5);
-INSERT INTO STANZE (IdStanza, Nome, Dimensione, Museo, Eliminato)
+INSERT INTO STANZE (IdStanza, Nome, Dimensione, Museo)
 VALUES (110, 'Zola', 23, 5);
-INSERT INTO STANZE (IdStanza, Nome, Dimensione, Museo, Eliminato)
+INSERT INTO STANZE (IdStanza, Nome, Dimensione, Museo)
 VALUES (111, 'Wallace', 26, 5);
-INSERT INTO STANZE (IdStanza, Nome, Dimensione, Museo, Eliminato)
+INSERT INTO STANZE (IdStanza, Nome, Dimensione, Museo)
 VALUES (112, 'Redi', 42, 5);
-INSERT INTO STANZE (IdStanza, Nome, Dimensione, Museo, Eliminato)
+INSERT INTO STANZE (IdStanza, Nome, Dimensione, Museo)
 VALUES (113, 'Vannini', 37, 5);
-INSERT INTO STANZE (IdStanza, Nome, Dimensione, Museo, Eliminato)
+INSERT INTO STANZE (IdStanza, Nome, Dimensione, Museo)
 VALUES (114, 'Von Humboldt', 23, 5);
-INSERT INTO STANZE (IdStanza, Nome, Dimensione, Museo, Eliminato)
+INSERT INTO STANZE (IdStanza, Nome, Dimensione, Museo)
 VALUES (115, 'Telesio', 30, 5);
-INSERT INTO STANZE (IdStanza, Nome, Dimensione, Museo, Eliminato)
+INSERT INTO STANZE (IdStanza, Nome, Dimensione, Museo)
 VALUES (116, 'Ambiente 4', 30, 5);
 /*Stanze museo, Eliminato 6 pinacoteca nazionale*/
-INSERT INTO STANZE (IdStanza, Nome, Dimensione, Museo, Eliminato)
+INSERT INTO STANZE (IdStanza, Nome, Dimensione, Museo)
 VALUES (117, 'Ambiente 1', 50, 6);
-INSERT INTO STANZE (IdStanza, Nome, Dimensione, Museo, Eliminato)
+INSERT INTO STANZE (IdStanza, Nome, Dimensione, Museo)
 VALUES (118, 'Ambiente 2', 35, 6);
-INSERT INTO STANZE (IdStanza, Nome, Dimensione, Museo, Eliminato)
+INSERT INTO STANZE (IdStanza, Nome, Dimensione, Museo)
 VALUES (119, 'Van Gogh', 23, 6);
-INSERT INTO STANZE (IdStanza, Nome, Dimensione, Museo, Eliminato)
+INSERT INTO STANZE (IdStanza, Nome, Dimensione, Museo)
 VALUES (120, 'Picasso', 55, 6);
-INSERT INTO STANZE (IdStanza, Nome, Dimensione, Museo, Eliminato)
+INSERT INTO STANZE (IdStanza, Nome, Dimensione, Museo)
 VALUES (121, 'Monet', 42, 6);
-INSERT INTO STANZE (IdStanza, Nome, Dimensione, Museo, Eliminato)
+INSERT INTO STANZE (IdStanza, Nome, Dimensione, Museo)
 VALUES (122, 'Caravaggio', 42, 6);
-INSERT INTO STANZE (IdStanza, Nome, Dimensione, Museo, Eliminato)
+INSERT INTO STANZE (IdStanza, Nome, Dimensione, Museo)
 VALUES (123, 'Velazquez', 30, 6);
-INSERT INTO STANZE (IdStanza, Nome, Dimensione, Museo, Eliminato)
+INSERT INTO STANZE (IdStanza, Nome, Dimensione, Museo)
 VALUES (124, 'Klimt', 30, 6);
-INSERT INTO STANZE (IdStanza, Nome, Dimensione, Museo, Eliminato)
+INSERT INTO STANZE (IdStanza, Nome, Dimensione, Museo)
 VALUES (125, 'Renoir', 42, 6);
-INSERT INTO STANZE (IdStanza, Nome, Dimensione, Museo, Eliminato)
+INSERT INTO STANZE (IdStanza, Nome, Dimensione, Museo)
 VALUES (126, 'DalÃ¬', 55, 6);
-INSERT INTO STANZE (IdStanza, Nome, Dimensione, Museo, Eliminato)
+INSERT INTO STANZE (IdStanza, Nome, Dimensione, Museo)
 VALUES (127, 'De Goya', 23, 6);
-INSERT INTO STANZE (IdStanza, Nome, Dimensione, Museo, Eliminato)
+INSERT INTO STANZE (IdStanza, Nome, Dimensione, Museo)
 VALUES (128, 'Kandinsky', 26, 6);
-INSERT INTO STANZE (IdStanza, Nome, Dimensione, Museo, Eliminato)
+INSERT INTO STANZE (IdStanza, Nome, Dimensione, Museo)
 VALUES (129, 'Manet', 26, 6);
-INSERT INTO STANZE (IdStanza, Nome, Dimensione, Museo, Eliminato)
+INSERT INTO STANZE (IdStanza, Nome, Dimensione, Museo)
 VALUES (130, 'Cezanne', 26, 6);
-INSERT INTO STANZE (IdStanza, Nome, Dimensione, Museo, Eliminato)
+INSERT INTO STANZE (IdStanza, Nome, Dimensione, Museo)
 VALUES (131, 'Hopper', 55, 6);
-INSERT INTO STANZE (IdStanza, Nome, Dimensione, Museo, Eliminato)
+INSERT INTO STANZE (IdStanza, Nome, Dimensione, Museo)
 VALUES (132, 'Gauguin', 37, 6);
-INSERT INTO STANZE (IdStanza, Nome, Dimensione, Museo, Eliminato)
+INSERT INTO STANZE (IdStanza, Nome, Dimensione, Museo)
 VALUES (133, 'Matisse', 30, 6);
-INSERT INTO STANZE (IdStanza, Nome, Dimensione, Museo, Eliminato)
+INSERT INTO STANZE (IdStanza, Nome, Dimensione, Museo)
 VALUES (134, 'Munch', 42, 6);
-INSERT INTO STANZE (IdStanza, Nome, Dimensione, Museo, Eliminato)
+INSERT INTO STANZE (IdStanza, Nome, Dimensione, Museo)
 VALUES (135, 'Degas', 55, 6);
-INSERT INTO STANZE (IdStanza, Nome, Dimensione, Museo, Eliminato)
+INSERT INTO STANZE (IdStanza, Nome, Dimensione, Museo)
 VALUES (136, 'Rembrandt', 30, 6);
 /**********SALE*********/
 SET DEFINE OFF;
 /*TipoSala: 0 = normale; 1 = speciale */
 /*Sale museo 1 galleria di arte moderna*/
-INSERT INTO SALE (IdStanza, TipoSala, NumOpere, Eliminato)
+INSERT INTO SALE (IdStanza, TipoSala, NumOpere)
 VALUES (2, 0, 5);
-INSERT INTO SALE (IdStanza, TipoSala, NumOpere, Eliminato)
+INSERT INTO SALE (IdStanza, TipoSala, NumOpere)
 VALUES (3, 1, 5);
-INSERT INTO SALE (IdStanza, TipoSala, NumOpere, Eliminato)
+INSERT INTO SALE (IdStanza, TipoSala, NumOpere)
 VALUES (5, 0, 5);
-INSERT INTO SALE (IdStanza, TipoSala, NumOpere, Eliminato)
+INSERT INTO SALE (IdStanza, TipoSala, NumOpere)
 VALUES (6, 0, 3);
-INSERT INTO SALE (IdStanza, TipoSala, NumOpere, Eliminato)
+INSERT INTO SALE (IdStanza, TipoSala, NumOpere)
 VALUES (7, 1, 7);
-INSERT INTO SALE (IdStanza, TipoSala, NumOpere, Eliminato)
+INSERT INTO SALE (IdStanza, TipoSala, NumOpere)
 VALUES (8, 0, 7);
-INSERT INTO SALE (IdStanza, TipoSala, NumOpere, Eliminato)
+INSERT INTO SALE (IdStanza, TipoSala, NumOpere)
 VALUES (9, 0, 6);
-INSERT INTO SALE (IdStanza, TipoSala, NumOpere, Eliminato)
+INSERT INTO SALE (IdStanza, TipoSala, NumOpere)
 VALUES (10, 0, 5);
-INSERT INTO SALE (IdStanza, TipoSala, NumOpere, Eliminato)
+INSERT INTO SALE (IdStanza, TipoSala, NumOpere)
 VALUES (12, 1, 8);
-INSERT INTO SALE (IdStanza, TipoSala, NumOpere, Eliminato)
+INSERT INTO SALE (IdStanza, TipoSala, NumOpere)
 VALUES (13, 0, 4);
-INSERT INTO SALE (IdStanza, TipoSala, NumOpere, Eliminato)
+INSERT INTO SALE (IdStanza, TipoSala, NumOpere)
 VALUES (14, 0, 4);
-INSERT INTO SALE (IdStanza, TipoSala, NumOpere, Eliminato)
+INSERT INTO SALE (IdStanza, TipoSala, NumOpere)
 VALUES (15, 1, 3);
-INSERT INTO SALE (IdStanza, TipoSala, NumOpere, Eliminato)
+INSERT INTO SALE (IdStanza, TipoSala, NumOpere)
 VALUES (16, 0, 6);
-INSERT INTO SALE (IdStanza, TipoSala, NumOpere, Eliminato)
+INSERT INTO SALE (IdStanza, TipoSala, NumOpere)
 VALUES (17, 0, 6);
-INSERT INTO SALE (IdStanza, TipoSala, NumOpere, Eliminato)
+INSERT INTO SALE (IdStanza, TipoSala, NumOpere)
 VALUES (18, 1, 8);
-INSERT INTO SALE (IdStanza, TipoSala, NumOpere, Eliminato)
+INSERT INTO SALE (IdStanza, TipoSala, NumOpere)
 VALUES (19, 0, 3);
-INSERT INTO SALE (IdStanza, TipoSala, NumOpere, Eliminato)
+INSERT INTO SALE (IdStanza, TipoSala, NumOpere)
 VALUES (20, 0, 4);
-INSERT INTO SALE (IdStanza, TipoSala, NumOpere, Eliminato)
+INSERT INTO SALE (IdStanza, TipoSala, NumOpere)
 VALUES (21, 0, 5);
 /*Sale museo 2 museo del rinascimento*/
-INSERT INTO SALE (IdStanza, TipoSala, NumOpere, Eliminato)
+INSERT INTO SALE (IdStanza, TipoSala, NumOpere)
 VALUES (25, 0, 3);
-INSERT INTO SALE (IdStanza, TipoSala, NumOpere, Eliminato)
+INSERT INTO SALE (IdStanza, TipoSala, NumOpere)
 VALUES (26, 1, 8);
-INSERT INTO SALE (IdStanza, TipoSala, NumOpere, Eliminato)
+INSERT INTO SALE (IdStanza, TipoSala, NumOpere)
 VALUES (27, 0, 4);
-INSERT INTO SALE (IdStanza, TipoSala, NumOpere, Eliminato)
+INSERT INTO SALE (IdStanza, TipoSala, NumOpere)
 VALUES (28, 0, 4);
-INSERT INTO SALE (IdStanza, TipoSala, NumOpere, Eliminato)
+INSERT INTO SALE (IdStanza, TipoSala, NumOpere)
 VALUES (29, 0, 7);
-INSERT INTO SALE (IdStanza, TipoSala, NumOpere, Eliminato)
+INSERT INTO SALE (IdStanza, TipoSala, NumOpere)
 VALUES (31, 1, 5);
-INSERT INTO SALE (IdStanza, TipoSala, NumOpere, Eliminato)
+INSERT INTO SALE (IdStanza, TipoSala, NumOpere)
 VALUES (32, 1, 7);
-INSERT INTO SALE (IdStanza, TipoSala, NumOpere, Eliminato)
+INSERT INTO SALE (IdStanza, TipoSala, NumOpere)
 VALUES (33, 0, 8);
-INSERT INTO SALE (IdStanza, TipoSala, NumOpere, Eliminato)
+INSERT INTO SALE (IdStanza, TipoSala, NumOpere)
 VALUES (34, 0, 3);
-INSERT INTO SALE (IdStanza, TipoSala, NumOpere, Eliminato)
+INSERT INTO SALE (IdStanza, TipoSala, NumOpere)
 VALUES (35, 1, 3);
-INSERT INTO SALE (IdStanza, TipoSala, NumOpere, Eliminato)
+INSERT INTO SALE (IdStanza, TipoSala, NumOpere)
 VALUES (36, 0, 6);
-INSERT INTO SALE (IdStanza, TipoSala, NumOpere, Eliminato)
+INSERT INTO SALE (IdStanza, TipoSala, NumOpere)
 VALUES (37, 0, 8);
-INSERT INTO SALE (IdStanza, TipoSala, NumOpere, Eliminato)
+INSERT INTO SALE (IdStanza, TipoSala, NumOpere)
 VALUES (39, 1, 4);
-INSERT INTO SALE (IdStanza, TipoSala, NumOpere, Eliminato)
+INSERT INTO SALE (IdStanza, TipoSala, NumOpere)
 VALUES (40, 0, 3);
-INSERT INTO SALE (IdStanza, TipoSala, NumOpere, Eliminato)
+INSERT INTO SALE (IdStanza, TipoSala, NumOpere)
 VALUES (41, 0, 4);
-INSERT INTO SALE (IdStanza, TipoSala, NumOpere, Eliminato)
+INSERT INTO SALE (IdStanza, TipoSala, NumOpere)
 VALUES (42, 0, 6);
-INSERT INTO SALE (IdStanza, TipoSala, NumOpere, Eliminato)
+INSERT INTO SALE (IdStanza, TipoSala, NumOpere)
 VALUES (43, 1, 6);
-INSERT INTO SALE (IdStanza, TipoSala, NumOpere, Eliminato)
+INSERT INTO SALE (IdStanza, TipoSala, NumOpere)
 VALUES (44, 0, 3);
-INSERT INTO SALE (IdStanza, TipoSala, NumOpere, Eliminato)
+INSERT INTO SALE (IdStanza, TipoSala, NumOpere)
 VALUES (45, 0, 5);
 /*Sale museo 3 museo di storia romana*/
-INSERT INTO SALE (IdStanza, TipoSala, NumOpere, Eliminato)
+INSERT INTO SALE (IdStanza, TipoSala, NumOpere)
 VALUES (49, 1, 6);
-INSERT INTO SALE (IdStanza, TipoSala, NumOpere, Eliminato)
+INSERT INTO SALE (IdStanza, TipoSala, NumOpere)
 VALUES (50, 0, 4);
-INSERT INTO SALE (IdStanza, TipoSala, NumOpere, Eliminato)
+INSERT INTO SALE (IdStanza, TipoSala, NumOpere)
 VALUES (51, 0, 5);
-INSERT INTO SALE (IdStanza, TipoSala, NumOpere, Eliminato)
+INSERT INTO SALE (IdStanza, TipoSala, NumOpere)
 VALUES (52, 1, 5);
-INSERT INTO SALE (IdStanza, TipoSala, NumOpere, Eliminato)
+INSERT INTO SALE (IdStanza, TipoSala, NumOpere)
 VALUES (53, 0, 5);
-INSERT INTO SALE (IdStanza, TipoSala, NumOpere, Eliminato)
+INSERT INTO SALE (IdStanza, TipoSala, NumOpere)
 VALUES (55, 1, 3);
-INSERT INTO SALE (IdStanza, TipoSala, NumOpere, Eliminato)
+INSERT INTO SALE (IdStanza, TipoSala, NumOpere)
 VALUES (56, 1, 3);
-INSERT INTO SALE (IdStanza, TipoSala, NumOpere, Eliminato)
+INSERT INTO SALE (IdStanza, TipoSala, NumOpere)
 VALUES (57, 0, 3);
-INSERT INTO SALE (IdStanza, TipoSala, NumOpere, Eliminato)
+INSERT INTO SALE (IdStanza, TipoSala, NumOpere)
 VALUES (58, 0, 8);
-INSERT INTO SALE (IdStanza, TipoSala, NumOpere, Eliminato)
+INSERT INTO SALE (IdStanza, TipoSala, NumOpere)
 VALUES (59, 0, 7);
-INSERT INTO SALE (IdStanza, TipoSala, NumOpere, Eliminato)
+INSERT INTO SALE (IdStanza, TipoSala, NumOpere)
 VALUES (60, 1, 5);
-INSERT INTO SALE (IdStanza, TipoSala, NumOpere, Eliminato)
+INSERT INTO SALE (IdStanza, TipoSala, NumOpere)
 VALUES (61, 0, 6);
-INSERT INTO SALE (IdStanza, TipoSala, NumOpere, Eliminato)
+INSERT INTO SALE (IdStanza, TipoSala, NumOpere)
 VALUES (63, 0, 4);
-INSERT INTO SALE (IdStanza, TipoSala, NumOpere, Eliminato)
+INSERT INTO SALE (IdStanza, TipoSala, NumOpere)
 VALUES (64, 0, 4);
-INSERT INTO SALE (IdStanza, TipoSala, NumOpere, Eliminato)
+INSERT INTO SALE (IdStanza, TipoSala, NumOpere)
 VALUES (65, 1, 7);
-INSERT INTO SALE (IdStanza, TipoSala, NumOpere, Eliminato)
+INSERT INTO SALE (IdStanza, TipoSala, NumOpere)
 VALUES (66, 0, 7);
-INSERT INTO SALE (IdStanza, TipoSala, NumOpere, Eliminato)
+INSERT INTO SALE (IdStanza, TipoSala, NumOpere)
 VALUES (67, 0, 4);
-INSERT INTO SALE (IdStanza, TipoSala, NumOpere, Eliminato)
+INSERT INTO SALE (IdStanza, TipoSala, NumOpere)
 VALUES (68, 0, 5);
-INSERT INTO SALE (IdStanza, TipoSala, NumOpere, Eliminato)
+INSERT INTO SALE (IdStanza, TipoSala, NumOpere)
 VALUES (69, 1, 8);
-INSERT INTO SALE (IdStanza, TipoSala, NumOpere, Eliminato)
+INSERT INTO SALE (IdStanza, TipoSala, NumOpere)
 VALUES (70, 0, 3);
-INSERT INTO SALE (IdStanza, TipoSala, NumOpere, Eliminato)
+INSERT INTO SALE (IdStanza, TipoSala, NumOpere)
 VALUES (71, 0, 4);
 /*Sale museo 4 museo egizio*/
-INSERT INTO SALE (IdStanza, TipoSala, NumOpere, Eliminato)
+INSERT INTO SALE (IdStanza, TipoSala, NumOpere)
 VALUES (74, 0, 3);
-INSERT INTO SALE (IdStanza, TipoSala, NumOpere, Eliminato)
+INSERT INTO SALE (IdStanza, TipoSala, NumOpere)
 VALUES (75, 1, 3);
-INSERT INTO SALE (IdStanza, TipoSala, NumOpere, Eliminato)
+INSERT INTO SALE (IdStanza, TipoSala, NumOpere)
 VALUES (76, 1, 5);
-INSERT INTO SALE (IdStanza, TipoSala, NumOpere, Eliminato)
+INSERT INTO SALE (IdStanza, TipoSala, NumOpere)
 VALUES (77, 0, 5);
-INSERT INTO SALE (IdStanza, TipoSala, NumOpere, Eliminato)
+INSERT INTO SALE (IdStanza, TipoSala, NumOpere)
 VALUES (78, 0, 7);
-INSERT INTO SALE (IdStanza, TipoSala, NumOpere, Eliminato)
+INSERT INTO SALE (IdStanza, TipoSala, NumOpere)
 VALUES (80, 0, 5);
-INSERT INTO SALE (IdStanza, TipoSala, NumOpere, Eliminato)
+INSERT INTO SALE (IdStanza, TipoSala, NumOpere)
 VALUES (81, 1, 7);
-INSERT INTO SALE (IdStanza, TipoSala, NumOpere, Eliminato)
+INSERT INTO SALE (IdStanza, TipoSala, NumOpere)
 VALUES (82, 0, 8);
-INSERT INTO SALE (IdStanza, TipoSala, NumOpere, Eliminato)
+INSERT INTO SALE (IdStanza, TipoSala, NumOpere)
 VALUES (83, 0, 6);
-INSERT INTO SALE (IdStanza, TipoSala, NumOpere, Eliminato)
+INSERT INTO SALE (IdStanza, TipoSala, NumOpere)
 VALUES (84, 1, 4);
-INSERT INTO SALE (IdStanza, TipoSala, NumOpere, Eliminato)
+INSERT INTO SALE (IdStanza, TipoSala, NumOpere)
 VALUES (85, 0, 7);
-INSERT INTO SALE (IdStanza, TipoSala, NumOpere, Eliminato)
+INSERT INTO SALE (IdStanza, TipoSala, NumOpere)
 VALUES (86, 0, 3);
-INSERT INTO SALE (IdStanza, TipoSala, NumOpere, Eliminato)
+INSERT INTO SALE (IdStanza, TipoSala, NumOpere)
 VALUES (88, 0, 8);
-INSERT INTO SALE (IdStanza, TipoSala, NumOpere, Eliminato)
+INSERT INTO SALE (IdStanza, TipoSala, NumOpere)
 VALUES (89, 0, 3);
-INSERT INTO SALE (IdStanza, TipoSala, NumOpere, Eliminato)
+INSERT INTO SALE (IdStanza, TipoSala, NumOpere)
 VALUES (90, 1, 4);
-INSERT INTO SALE (IdStanza, TipoSala, NumOpere, Eliminato)
+INSERT INTO SALE (IdStanza, TipoSala, NumOpere)
 VALUES (91, 0, 5);
-INSERT INTO SALE (IdStanza, TipoSala, NumOpere, Eliminato)
+INSERT INTO SALE (IdStanza, TipoSala, NumOpere)
 VALUES (92, 0, 5);
-INSERT INTO SALE (IdStanza, TipoSala, NumOpere, Eliminato)
+INSERT INTO SALE (IdStanza, TipoSala, NumOpere)
 VALUES (93, 0, 3);
-INSERT INTO SALE (IdStanza, TipoSala, NumOpere, Eliminato)
+INSERT INTO SALE (IdStanza, TipoSala, NumOpere)
 VALUES (94, 1, 4);
 /*Sale museo 5 museo di scienze naturali*/
-INSERT INTO SALE (IdStanza, TipoSala, NumOpere, Eliminato)
+INSERT INTO SALE (IdStanza, TipoSala, NumOpere)
 VALUES (98, 0, 7);
-INSERT INTO SALE (IdStanza, TipoSala, NumOpere, Eliminato)
+INSERT INTO SALE (IdStanza, TipoSala, NumOpere)
 VALUES (99, 1, 5);
-INSERT INTO SALE (IdStanza, TipoSala, NumOpere, Eliminato)
+INSERT INTO SALE (IdStanza, TipoSala, NumOpere)
 VALUES (100, 0, 4);
-INSERT INTO SALE (IdStanza, TipoSala, NumOpere, Eliminato)
+INSERT INTO SALE (IdStanza, TipoSala, NumOpere)
 VALUES (101, 1, 4);
-INSERT INTO SALE (IdStanza, TipoSala, NumOpere, Eliminato)
+INSERT INTO SALE (IdStanza, TipoSala, NumOpere)
 VALUES (102, 1, 6);
-INSERT INTO SALE (IdStanza, TipoSala, NumOpere, Eliminato)
+INSERT INTO SALE (IdStanza, TipoSala, NumOpere)
 VALUES (103, 0, 7);
-INSERT INTO SALE (IdStanza, TipoSala, NumOpere, Eliminato)
+INSERT INTO SALE (IdStanza, TipoSala, NumOpere)
 VALUES (104, 0, 3);
-INSERT INTO SALE (IdStanza, TipoSala, NumOpere, Eliminato)
+INSERT INTO SALE (IdStanza, TipoSala, NumOpere)
 VALUES (105, 0, 5);
-INSERT INTO SALE (IdStanza, TipoSala, NumOpere, Eliminato)
+INSERT INTO SALE (IdStanza, TipoSala, NumOpere)
 VALUES (107, 1, 8);
-INSERT INTO SALE (IdStanza, TipoSala, NumOpere, Eliminato)
+INSERT INTO SALE (IdStanza, TipoSala, NumOpere)
 VALUES (108, 0, 8);
-INSERT INTO SALE (IdStanza, TipoSala, NumOpere, Eliminato)
+INSERT INTO SALE (IdStanza, TipoSala, NumOpere)
 VALUES (109, 1, 7);
-INSERT INTO SALE (IdStanza, TipoSala, NumOpere, Eliminato)
+INSERT INTO SALE (IdStanza, TipoSala, NumOpere)
 VALUES (110, 0, 3);
-INSERT INTO SALE (IdStanza, TipoSala, NumOpere, Eliminato)
+INSERT INTO SALE (IdStanza, TipoSala, NumOpere)
 VALUES (111, 0, 4);
-INSERT INTO SALE (IdStanza, TipoSala, NumOpere, Eliminato)
+INSERT INTO SALE (IdStanza, TipoSala, NumOpere)
 VALUES (112, 0, 7);
-INSERT INTO SALE (IdStanza, TipoSala, NumOpere, Eliminato)
+INSERT INTO SALE (IdStanza, TipoSala, NumOpere)
 VALUES (113, 0, 6);
-INSERT INTO SALE (IdStanza, TipoSala, NumOpere, Eliminato)
+INSERT INTO SALE (IdStanza, TipoSala, NumOpere)
 VALUES (114, 0, 3);
-INSERT INTO SALE (IdStanza, TipoSala, NumOpere, Eliminato)
+INSERT INTO SALE (IdStanza, TipoSala, NumOpere)
 VALUES (115, 0, 5);
 /*Sale museo 6 galleria nazionale*/
-INSERT INTO SALE (IdStanza, TipoSala, NumOpere, Eliminato)
+INSERT INTO SALE (IdStanza, TipoSala, NumOpere)
 VALUES (119, 0, 3);
-INSERT INTO SALE (IdStanza, TipoSala, NumOpere, Eliminato)
+INSERT INTO SALE (IdStanza, TipoSala, NumOpere)
 VALUES (120, 1, 8);
-INSERT INTO SALE (IdStanza, TipoSala, NumOpere, Eliminato)
+INSERT INTO SALE (IdStanza, TipoSala, NumOpere)
 VALUES (121, 0, 7);
-INSERT INTO SALE (IdStanza, TipoSala, NumOpere, Eliminato)
+INSERT INTO SALE (IdStanza, TipoSala, NumOpere)
 VALUES (122, 1, 7);
-INSERT INTO SALE (IdStanza, TipoSala, NumOpere, Eliminato)
+INSERT INTO SALE (IdStanza, TipoSala, NumOpere)
 VALUES (123, 0, 5);
-INSERT INTO SALE (IdStanza, TipoSala, NumOpere, Eliminato)
+INSERT INTO SALE (IdStanza, TipoSala, NumOpere)
 VALUES (124, 0, 5);
-INSERT INTO SALE (IdStanza, TipoSala, NumOpere, Eliminato)
+INSERT INTO SALE (IdStanza, TipoSala, NumOpere)
 VALUES (125, 0, 7);
-INSERT INTO SALE (IdStanza, TipoSala, NumOpere, Eliminato)
+INSERT INTO SALE (IdStanza, TipoSala, NumOpere)
 VALUES (126, 1, 8);
-INSERT INTO SALE (IdStanza, TipoSala, NumOpere, Eliminato)
+INSERT INTO SALE (IdStanza, TipoSala, NumOpere)
 VALUES (127, 0, 3);
-INSERT INTO SALE (IdStanza, TipoSala, NumOpere, Eliminato)
+INSERT INTO SALE (IdStanza, TipoSala, NumOpere)
 VALUES (128, 0, 4);
-INSERT INTO SALE (IdStanza, TipoSala, NumOpere, Eliminato)
+INSERT INTO SALE (IdStanza, TipoSala, NumOpere)
 VALUES (129, 1, 4);
-INSERT INTO SALE (IdStanza, TipoSala, NumOpere, Eliminato)
+INSERT INTO SALE (IdStanza, TipoSala, NumOpere)
 VALUES (130, 0, 4);
-INSERT INTO SALE (IdStanza, TipoSala, NumOpere, Eliminato)
+INSERT INTO SALE (IdStanza, TipoSala, NumOpere)
 VALUES (131, 0, 8);
-INSERT INTO SALE (IdStanza, TipoSala, NumOpere, Eliminato)
+INSERT INTO SALE (IdStanza, TipoSala, NumOpere)
 VALUES (132, 1, 6);
-INSERT INTO SALE (IdStanza, TipoSala, NumOpere, Eliminato)
+INSERT INTO SALE (IdStanza, TipoSala, NumOpere)
 VALUES (133, 0, 5);
-INSERT INTO SALE (IdStanza, TipoSala, NumOpere, Eliminato)
+INSERT INTO SALE (IdStanza, TipoSala, NumOpere)
 VALUES (134, 0, 7);
-INSERT INTO SALE (IdStanza, TipoSala, NumOpere, Eliminato)
+INSERT INTO SALE (IdStanza, TipoSala, NumOpere)
 VALUES (135, 0, 8);
-INSERT INTO SALE (IdStanza, TipoSala, NumOpere, Eliminato)
+INSERT INTO SALE (IdStanza, TipoSala, NumOpere)
 VALUES (136, 0, 5);
 /**********AMBIENTIDISERVIZIO*********/
 SET DEFINE OFF;
 /*Ambienti di servizio museo 1 galleria di arte moderna*/
-INSERT INTO AMBIENTIDISERVIZIO (IdStanza, TipoAmbiente, Eliminato)
+INSERT INTO AMBIENTIDISERVIZIO (IdStanza, TipoAmbiente)
 VALUES (1, 'Ingresso');
-INSERT INTO AMBIENTIDISERVIZIO (IdStanza, TipoAmbiente, Eliminato)
+INSERT INTO AMBIENTIDISERVIZIO (IdStanza, TipoAmbiente)
 VALUES (4, 'Guardaroba');
-INSERT INTO AMBIENTIDISERVIZIO (IdStanza, TipoAmbiente, Eliminato)
+INSERT INTO AMBIENTIDISERVIZIO (IdStanza, TipoAmbiente)
 VALUES (11, 'Bagno');
-INSERT INTO AMBIENTIDISERVIZIO (IdStanza, TipoAmbiente, Eliminato)
+INSERT INTO AMBIENTIDISERVIZIO (IdStanza, TipoAmbiente)
 VALUES (22, 'Bagno');
 /*Ambienti di servizio museo 2 museo del rinascimento*/
-INSERT INTO AMBIENTIDISERVIZIO (IdStanza, TipoAmbiente, Eliminato)
+INSERT INTO AMBIENTIDISERVIZIO (IdStanza, TipoAmbiente)
 VALUES (23, 'Ingresso');
-INSERT INTO AMBIENTIDISERVIZIO (IdStanza, TipoAmbiente, Eliminato)
+INSERT INTO AMBIENTIDISERVIZIO (IdStanza, TipoAmbiente)
 VALUES (24, 'Guardaroba');
-INSERT INTO AMBIENTIDISERVIZIO (IdStanza, TipoAmbiente, Eliminato)
+INSERT INTO AMBIENTIDISERVIZIO (IdStanza, TipoAmbiente)
 VALUES (30, 'Bagno');
-INSERT INTO AMBIENTIDISERVIZIO (IdStanza, TipoAmbiente, Eliminato)
+INSERT INTO AMBIENTIDISERVIZIO (IdStanza, TipoAmbiente)
 VALUES (38, 'Bar');
-INSERT INTO AMBIENTIDISERVIZIO (IdStanza, TipoAmbiente, Eliminato)
+INSERT INTO AMBIENTIDISERVIZIO (IdStanza, TipoAmbiente)
 VALUES (46, 'Bagno');
 /*Ambienti di servizio museo 3 museo di storia romana*/
-INSERT INTO AMBIENTIDISERVIZIO (IdStanza, TipoAmbiente, Eliminato)
+INSERT INTO AMBIENTIDISERVIZIO (IdStanza, TipoAmbiente)
 VALUES (47, 'Ingresso');
-INSERT INTO AMBIENTIDISERVIZIO (IdStanza, TipoAmbiente, Eliminato)
+INSERT INTO AMBIENTIDISERVIZIO (IdStanza, TipoAmbiente)
 VALUES (48, 'Bagno');
-INSERT INTO AMBIENTIDISERVIZIO (IdStanza, TipoAmbiente, Eliminato)
+INSERT INTO AMBIENTIDISERVIZIO (IdStanza, TipoAmbiente)
 VALUES (54, 'Bar');
-INSERT INTO AMBIENTIDISERVIZIO (IdStanza, TipoAmbiente, Eliminato)
+INSERT INTO AMBIENTIDISERVIZIO (IdStanza, TipoAmbiente)
 VALUES (62, 'Bagno');
 /*Ambienti di servizio museo 4 museo egizio*/
-INSERT INTO AMBIENTIDISERVIZIO (IdStanza, TipoAmbiente, Eliminato)
+INSERT INTO AMBIENTIDISERVIZIO (IdStanza, TipoAmbiente)
 VALUES (72, 'Ingresso');
-INSERT INTO AMBIENTIDISERVIZIO (IdStanza, TipoAmbiente, Eliminato)
+INSERT INTO AMBIENTIDISERVIZIO (IdStanza, TipoAmbiente)
 VALUES (73, 'Guardaroba');
-INSERT INTO AMBIENTIDISERVIZIO (IdStanza, TipoAmbiente, Eliminato)
+INSERT INTO AMBIENTIDISERVIZIO (IdStanza, TipoAmbiente)
 VALUES (79, 'Bagno');
-INSERT INTO AMBIENTIDISERVIZIO (IdStanza, TipoAmbiente, Eliminato)
+INSERT INTO AMBIENTIDISERVIZIO (IdStanza, TipoAmbiente)
 VALUES (87, 'Bar');
-INSERT INTO AMBIENTIDISERVIZIO (IdStanza, TipoAmbiente, Eliminato)
+INSERT INTO AMBIENTIDISERVIZIO (IdStanza, TipoAmbiente)
 VALUES (95, 'Bagno');
 /*Ambienti di servizio museo 5 museo di scienze naturali*/
-INSERT INTO AMBIENTIDISERVIZIO (IdStanza, TipoAmbiente, Eliminato)
+INSERT INTO AMBIENTIDISERVIZIO (IdStanza, TipoAmbiente)
 VALUES (96, 'Ingresso');
-INSERT INTO AMBIENTIDISERVIZIO (IdStanza, TipoAmbiente, Eliminato)
+INSERT INTO AMBIENTIDISERVIZIO (IdStanza, TipoAmbiente)
 VALUES (97, 'Guardaroba');
-INSERT INTO AMBIENTIDISERVIZIO (IdStanza, TipoAmbiente, Eliminato)
+INSERT INTO AMBIENTIDISERVIZIO (IdStanza, TipoAmbiente)
 VALUES (106, 'Bagno');
-INSERT INTO AMBIENTIDISERVIZIO (IdStanza, TipoAmbiente, Eliminato)
+INSERT INTO AMBIENTIDISERVIZIO (IdStanza, TipoAmbiente)
 VALUES (116, 'Bagno');
 /*Ambienti di servizio museo 6 galleria nazionale*/
-INSERT INTO AMBIENTIDISERVIZIO (IdStanza, TipoAmbiente, Eliminato)
+INSERT INTO AMBIENTIDISERVIZIO (IdStanza, TipoAmbiente)
 VALUES (117, 'Ingresso');
-INSERT INTO AMBIENTIDISERVIZIO (IdStanza, TipoAmbiente, Eliminato)
+INSERT INTO AMBIENTIDISERVIZIO (IdStanza, TipoAmbiente)
 VALUES (118, 'Bagno');
 /**************SALEOPERE***************/
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
@@ -2101,7 +2101,7 @@ VALUES(idMovimentoSeq.nextVal, 84, 28, to_date('13/8/2021', 'DD/MM/YYYY HH24:MI:
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
 VALUES(idMovimentoSeq.nextVal, 60, 28, to_date('11/9/2021', 'DD/MM/YYYY HH24:MI:SS'), NULL);
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 112, 29, to_date('18/3/2021', 'DD/MM/YYYY HH24:MI:SS'), to_date('8/2/2021', 'DD/MM/YYYY HH24:MI:SS'));
+VALUES(idMovimentoSeq.nextVal, 112, 29, to_date('18/3/2021', 'DD/MM/YYYY HH24:MI:SS'), to_date('8/2/2022', 'DD/MM/YYYY HH24:MI:SS'));
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
 VALUES(idMovimentoSeq.nextVal, 7, 29, to_date('8/2/2021', 'DD/MM/YYYY HH24:MI:SS'), to_date('19/3/2021', 'DD/MM/YYYY HH24:MI:SS'));
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
@@ -3057,7 +3057,7 @@ VALUES(idMovimentoSeq.nextVal, 8, 124, to_date('13/8/2021', 'DD/MM/YYYY HH24:MI:
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
 VALUES(idMovimentoSeq.nextVal, 130, 124, to_date('11/9/2021', 'DD/MM/YYYY HH24:MI:SS'), NULL);
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 49, 125, to_date('18/3/2021', 'DD/MM/YYYY HH24:MI:SS'), to_date('8/2/2021', 'DD/MM/YYYY HH24:MI:SS'));
+VALUES(idMovimentoSeq.nextVal, 49, 125, to_date('18/3/2021', 'DD/MM/YYYY HH24:MI:SS'), to_date('8/2/2022', 'DD/MM/YYYY HH24:MI:SS'));
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
 VALUES(idMovimentoSeq.nextVal, 101, 125, to_date('8/2/2021', 'DD/MM/YYYY HH24:MI:SS'), to_date('12/3/2021', 'DD/MM/YYYY HH24:MI:SS'));
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
@@ -3205,7 +3205,7 @@ VALUES(idMovimentoSeq.nextVal, 14, 138, to_date('13/8/2021', 'DD/MM/YYYY HH24:MI
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
 VALUES(idMovimentoSeq.nextVal, 89, 138, to_date('18/9/2021', 'DD/MM/YYYY HH24:MI:SS'), NULL);
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 34, 139, to_date('25/3/2021', 'DD/MM/YYYY HH24:MI:SS'), to_date('15/2/2021', 'DD/MM/YYYY HH24:MI:SS'));
+VALUES(idMovimentoSeq.nextVal, 34, 139, to_date('25/3/2021', 'DD/MM/YYYY HH24:MI:SS'), to_date('15/4/2021', 'DD/MM/YYYY HH24:MI:SS'));
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
 VALUES(idMovimentoSeq.nextVal, 28, 139, to_date('15/2/2021', 'DD/MM/YYYY HH24:MI:SS'), to_date('3/4/2021', 'DD/MM/YYYY HH24:MI:SS'));
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
@@ -3837,7 +3837,7 @@ VALUES(idMovimentoSeq.nextVal, 36, 202, to_date('16/7/2021', 'DD/MM/YYYY HH24:MI
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
 VALUES(idMovimentoSeq.nextVal, 21, 202, to_date('4/9/2021', 'DD/MM/YYYY HH24:MI:SS'), NULL);
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 32, 203, to_date('18/3/2021', 'DD/MM/YYYY HH24:MI:SS'), to_date('8/2/2021', 'DD/MM/YYYY HH24:MI:SS'));
+VALUES(idMovimentoSeq.nextVal, 32, 203, to_date('18/3/2021', 'DD/MM/YYYY HH24:MI:SS'), to_date('8/4/2021', 'DD/MM/YYYY HH24:MI:SS'));
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
 VALUES(idMovimentoSeq.nextVal, 29, 203, to_date('8/2/2021', 'DD/MM/YYYY HH24:MI:SS'), to_date('19/3/2021', 'DD/MM/YYYY HH24:MI:SS'));
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
@@ -4485,7 +4485,7 @@ VALUES(idMovimentoSeq.nextVal, 17, 267, to_date('27/8/2021', 'DD/MM/YYYY HH24:MI
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
 VALUES(idMovimentoSeq.nextVal, 70, 267, to_date('18/9/2021', 'DD/MM/YYYY HH24:MI:SS'), NULL);
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 134, 268, to_date('25/3/2021', 'DD/MM/YYYY HH24:MI:SS'), to_date('15/2/2021', 'DD/MM/YYYY HH24:MI:SS'));
+VALUES(idMovimentoSeq.nextVal, 134, 268, to_date('25/3/2021', 'DD/MM/YYYY HH24:MI:SS'), to_date('15/4/2021', 'DD/MM/YYYY HH24:MI:SS'));
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
 VALUES(idMovimentoSeq.nextVal, 37, 268, to_date('15/2/2021', 'DD/MM/YYYY HH24:MI:SS'), to_date('3/4/2021', 'DD/MM/YYYY HH24:MI:SS'));
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
@@ -5629,7 +5629,7 @@ VALUES(idMovimentoSeq.nextVal, 124, 381, to_date('6/8/2021', 'DD/MM/YYYY HH24:MI
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
 VALUES(idMovimentoSeq.nextVal, 136, 381, to_date('27/8/2021', 'DD/MM/YYYY HH24:MI:SS'), NULL);
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 82, 382, to_date('25/3/2021', 'DD/MM/YYYY HH24:MI:SS'), to_date('22/1/2021', 'DD/MM/YYYY HH24:MI:SS'));
+VALUES(idMovimentoSeq.nextVal, 82, 382, to_date('25/3/2021', 'DD/MM/YYYY HH24:MI:SS'), to_date('22/1/2022', 'DD/MM/YYYY HH24:MI:SS'));
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
 VALUES(idMovimentoSeq.nextVal, 124, 382, to_date('22/1/2021', 'DD/MM/YYYY HH24:MI:SS'), to_date('12/3/2021', 'DD/MM/YYYY HH24:MI:SS'));
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
@@ -7780,125 +7780,125 @@ INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
 VALUES(idMovimentoSeq.nextVal, 134, 600, to_date('27/8/2021', 'DD/MM/YYYY HH24:MI:SS'), NULL);
 
 /**********AUTORI***********/
-INSERT INTO AUTORI (idAutore, Nome, Cognome, Datanascita, Datamorte, Nazionalita, Eliminato)
+INSERT INTO AUTORI (idAutore, Nome, Cognome, Datanascita, Datamorte, Nazionalita)
 VALUES(idAutoreSeq.nextVal, 'Belen', 'MELTZER', to_date('16/1/735', 'DD/MM/YYYY HH24:MI:SS'), to_date('11/1/820', 'DD/MM/YYYY HH24:MI:SS'), 'Mauritanian');
-INSERT INTO AUTORI (idAutore, Nome, Cognome, Datanascita, Datamorte, Nazionalita, Eliminato)
+INSERT INTO AUTORI (idAutore, Nome, Cognome, Datanascita, Datamorte, Nazionalita)
 VALUES(idAutoreSeq.nextVal, 'Suzette', 'TEDFORD', to_date('24/9/563', 'DD/MM/YYYY HH24:MI:SS'), to_date('5/9/621', 'DD/MM/YYYY HH24:MI:SS'), 'Mauritanian');
-INSERT INTO AUTORI (idAutore, Nome, Cognome, Datanascita, Datamorte, Nazionalita, Eliminato)
+INSERT INTO AUTORI (idAutore, Nome, Cognome, Datanascita, Datamorte, Nazionalita)
 VALUES(idAutoreSeq.nextVal, 'Raquel', 'KWON', to_date('17/9/1263', 'DD/MM/YYYY HH24:MI:SS'), to_date('20/9/1297', 'DD/MM/YYYY HH24:MI:SS'), 'Romanian');
-INSERT INTO AUTORI (idAutore, Nome, Cognome, Datanascita, Datamorte, Nazionalita, Eliminato)
+INSERT INTO AUTORI (idAutore, Nome, Cognome, Datanascita, Datamorte, Nazionalita)
 VALUES(idAutoreSeq.nextVal, 'Gladis', 'UTTER', to_date('20/9/911', 'DD/MM/YYYY HH24:MI:SS'), to_date('21/9/951', 'DD/MM/YYYY HH24:MI:SS'), 'Swedish');
-INSERT INTO AUTORI (idAutore, Nome, Cognome, Datanascita, Datamorte, Nazionalita, Eliminato)
+INSERT INTO AUTORI (idAutore, Nome, Cognome, Datanascita, Datamorte, Nazionalita)
 VALUES(idAutoreSeq.nextVal, 'Jeriesha', 'HINES', to_date('23/9/1664', 'DD/MM/YYYY HH24:MI:SS'), to_date('11/9/1717', 'DD/MM/YYYY HH24:MI:SS'), 'Senegalese');
-INSERT INTO AUTORI (idAutore, Nome, Cognome, Datanascita, Datamorte, Nazionalita, Eliminato)
+INSERT INTO AUTORI (idAutore, Nome, Cognome, Datanascita, Datamorte, Nazionalita)
 VALUES(idAutoreSeq.nextVal, 'Tevis', 'GREAVES', to_date('26/6/188', 'DD/MM/YYYY HH24:MI:SS'), to_date('5/6/260', 'DD/MM/YYYY HH24:MI:SS'), 'Thai');
-INSERT INTO AUTORI (idAutore, Nome, Cognome, Datanascita, Datamorte, Nazionalita, Eliminato)
+INSERT INTO AUTORI (idAutore, Nome, Cognome, Datanascita, Datamorte, Nazionalita)
 VALUES(idAutoreSeq.nextVal, 'Sherif', 'BUELL', to_date('16/6/1744', 'DD/MM/YYYY HH24:MI:SS'), to_date('16/6/1826', 'DD/MM/YYYY HH24:MI:SS'), 'Ghanaian');
-INSERT INTO AUTORI (idAutore, Nome, Cognome, Datanascita, Datamorte, Nazionalita, Eliminato)
+INSERT INTO AUTORI (idAutore, Nome, Cognome, Datanascita, Datamorte, Nazionalita)
 VALUES(idAutoreSeq.nextVal, 'Efrem', 'COWLES', to_date('15/6/1728', 'DD/MM/YYYY HH24:MI:SS'), to_date('14/6/1784', 'DD/MM/YYYY HH24:MI:SS'), 'Omani');
-INSERT INTO AUTORI (idAutore, Nome, Cognome, Datanascita, Datamorte, Nazionalita, Eliminato)
+INSERT INTO AUTORI (idAutore, Nome, Cognome, Datanascita, Datamorte, Nazionalita)
 VALUES(idAutoreSeq.nextVal, 'Joshua', 'HAUGEN', to_date('13/6/836', 'DD/MM/YYYY HH24:MI:SS'), to_date('1/6/904', 'DD/MM/YYYY HH24:MI:SS'), 'Cameroonian');
-INSERT INTO AUTORI (idAutore, Nome, Cognome, Datanascita, Datamorte, Nazionalita, Eliminato)
+INSERT INTO AUTORI (idAutore, Nome, Cognome, Datanascita, Datamorte, Nazionalita)
 VALUES(idAutoreSeq.nextVal, 'Tamaya', 'ZACHARY', to_date('5/4/1750', 'DD/MM/YYYY HH24:MI:SS'), to_date('19/4/1809', 'DD/MM/YYYY HH24:MI:SS'), 'Welsh');
-INSERT INTO AUTORI (idAutore, Nome, Cognome, Datanascita, Datamorte, Nazionalita, Eliminato)
+INSERT INTO AUTORI (idAutore, Nome, Cognome, Datanascita, Datamorte, Nazionalita)
 VALUES(idAutoreSeq.nextVal, 'Hadiyah', 'THACKER', to_date('4/4/320', 'DD/MM/YYYY HH24:MI:SS'), to_date('23/4/412', 'DD/MM/YYYY HH24:MI:SS'), 'Chinese');
-INSERT INTO AUTORI (idAutore, Nome, Cognome, Datanascita, Datamorte, Nazionalita, Eliminato)
+INSERT INTO AUTORI (idAutore, Nome, Cognome, Datanascita, Datamorte, Nazionalita)
 VALUES(idAutoreSeq.nextVal, 'Teah', 'MCKINNEY', to_date('24/4/1058', 'DD/MM/YYYY HH24:MI:SS'), to_date('12/4/1090', 'DD/MM/YYYY HH24:MI:SS'), 'Bosnian/Herzegovinian');
-INSERT INTO AUTORI (idAutore, Nome, Cognome, Datanascita, Datamorte, Nazionalita, Eliminato)
+INSERT INTO AUTORI (idAutore, Nome, Cognome, Datanascita, Datamorte, Nazionalita)
 VALUES(idAutoreSeq.nextVal, 'Reyn', 'CROMPTON', to_date('26/4/246', 'DD/MM/YYYY HH24:MI:SS'), to_date('21/4/299', 'DD/MM/YYYY HH24:MI:SS'), 'Norwegian');
-INSERT INTO AUTORI (idAutore, Nome, Cognome, Datanascita, Datamorte, Nazionalita, Eliminato)
+INSERT INTO AUTORI (idAutore, Nome, Cognome, Datanascita, Datamorte, Nazionalita)
 VALUES(idAutoreSeq.nextVal, 'Leilani', 'FRANDSEN', to_date('21/4/764', 'DD/MM/YYYY HH24:MI:SS'), to_date('6/4/797', 'DD/MM/YYYY HH24:MI:SS'), 'Argentine');
-INSERT INTO AUTORI (idAutore, Nome, Cognome, Datanascita, Datamorte, Nazionalita, Eliminato)
+INSERT INTO AUTORI (idAutore, Nome, Cognome, Datanascita, Datamorte, Nazionalita)
 VALUES(idAutoreSeq.nextVal, 'Lakaisha', 'HARTLEY', to_date('15/11/997', 'DD/MM/YYYY HH24:MI:SS'), to_date('16/11/1096', 'DD/MM/YYYY HH24:MI:SS'), 'English');
-INSERT INTO AUTORI (idAutore, Nome, Cognome, Datanascita, Datamorte, Nazionalita, Eliminato)
+INSERT INTO AUTORI (idAutore, Nome, Cognome, Datanascita, Datamorte, Nazionalita)
 VALUES(idAutoreSeq.nextVal, 'Rosheena', 'COBBLE', to_date('3/11/1445', 'DD/MM/YYYY HH24:MI:SS'), to_date('21/11/1490', 'DD/MM/YYYY HH24:MI:SS'), 'Greek');
-INSERT INTO AUTORI (idAutore, Nome, Cognome, Datanascita, Datamorte, Nazionalita, Eliminato)
+INSERT INTO AUTORI (idAutore, Nome, Cognome, Datanascita, Datamorte, Nazionalita)
 VALUES(idAutoreSeq.nextVal, 'Conchetta', 'HIGGS', to_date('24/11/1461', 'DD/MM/YYYY HH24:MI:SS'), to_date('3/11/1548', 'DD/MM/YYYY HH24:MI:SS'), 'Finnish');
-INSERT INTO AUTORI (idAutore, Nome, Cognome, Datanascita, Datamorte, Nazionalita, Eliminato)
+INSERT INTO AUTORI (idAutore, Nome, Cognome, Datanascita, Datamorte, Nazionalita)
 VALUES(idAutoreSeq.nextVal, 'Rommel', 'ERAZO', to_date('9/11/796', 'DD/MM/YYYY HH24:MI:SS'), to_date('6/11/882', 'DD/MM/YYYY HH24:MI:SS'), 'Costa Rican');
-INSERT INTO AUTORI (idAutore, Nome, Cognome, Datanascita, Datamorte, Nazionalita, Eliminato)
+INSERT INTO AUTORI (idAutore, Nome, Cognome, Datanascita, Datamorte, Nazionalita)
 VALUES(idAutoreSeq.nextVal, 'Aleia', 'CHRONISTER', to_date('11/11/173', 'DD/MM/YYYY HH24:MI:SS'), to_date('21/11/215', 'DD/MM/YYYY HH24:MI:SS'), 'Turkish');
-INSERT INTO AUTORI (idAutore, Nome, Cognome, Datanascita, Datamorte, Nazionalita, Eliminato)
+INSERT INTO AUTORI (idAutore, Nome, Cognome, Datanascita, Datamorte, Nazionalita)
 VALUES(idAutoreSeq.nextVal, 'Christabel', 'HAZEL', to_date('12/8/1747', 'DD/MM/YYYY HH24:MI:SS'), to_date('18/8/1846', 'DD/MM/YYYY HH24:MI:SS'), 'South African');
-INSERT INTO AUTORI (idAutore, Nome, Cognome, Datanascita, Datamorte, Nazionalita, Eliminato)
+INSERT INTO AUTORI (idAutore, Nome, Cognome, Datanascita, Datamorte, Nazionalita)
 VALUES(idAutoreSeq.nextVal, 'Dodie', 'WACKER', to_date('18/8/1605', 'DD/MM/YYYY HH24:MI:SS'), to_date('7/8/1681', 'DD/MM/YYYY HH24:MI:SS'), 'Brazilian');
-INSERT INTO AUTORI (idAutore, Nome, Cognome, Datanascita, Datamorte, Nazionalita, Eliminato)
+INSERT INTO AUTORI (idAutore, Nome, Cognome, Datanascita, Datamorte, Nazionalita)
 VALUES(idAutoreSeq.nextVal, 'Teal', 'GOODLOE', to_date('25/8/1359', 'DD/MM/YYYY HH24:MI:SS'), to_date('18/8/1444', 'DD/MM/YYYY HH24:MI:SS'), 'Swedish');
-INSERT INTO AUTORI (idAutore, Nome, Cognome, Datanascita, Datamorte, Nazionalita, Eliminato)
+INSERT INTO AUTORI (idAutore, Nome, Cognome, Datanascita, Datamorte, Nazionalita)
 VALUES(idAutoreSeq.nextVal, 'Eason', 'DORE', to_date('15/8/1538', 'DD/MM/YYYY HH24:MI:SS'), to_date('13/8/1585', 'DD/MM/YYYY HH24:MI:SS'), 'Philippine');
-INSERT INTO AUTORI (idAutore, Nome, Cognome, Datanascita, Datamorte, Nazionalita, Eliminato)
+INSERT INTO AUTORI (idAutore, Nome, Cognome, Datanascita, Datamorte, Nazionalita)
 VALUES(idAutoreSeq.nextVal, 'Leonarda', 'KOWAL', to_date('5/8/1022', 'DD/MM/YYYY HH24:MI:SS'), to_date('2/8/1105', 'DD/MM/YYYY HH24:MI:SS'), 'Ukranian');
-INSERT INTO AUTORI (idAutore, Nome, Cognome, Datanascita, Datamorte, Nazionalita, Eliminato)
+INSERT INTO AUTORI (idAutore, Nome, Cognome, Datanascita, Datamorte, Nazionalita)
 VALUES(idAutoreSeq.nextVal, 'Diontae', 'FELTNER', to_date('13/8/976', 'DD/MM/YYYY HH24:MI:SS'), to_date('8/8/1072', 'DD/MM/YYYY HH24:MI:SS'), 'Israeli');
-INSERT INTO AUTORI (idAutore, Nome, Cognome, Datanascita, Datamorte, Nazionalita, Eliminato)
+INSERT INTO AUTORI (idAutore, Nome, Cognome, Datanascita, Datamorte, Nazionalita)
 VALUES(idAutoreSeq.nextVal, 'Monic', 'FANELLI', to_date('23/8/314', 'DD/MM/YYYY HH24:MI:SS'), to_date('18/8/381', 'DD/MM/YYYY HH24:MI:SS'), 'Polish');
-INSERT INTO AUTORI (idAutore, Nome, Cognome, Datanascita, Datamorte, Nazionalita, Eliminato)
+INSERT INTO AUTORI (idAutore, Nome, Cognome, Datanascita, Datamorte, Nazionalita)
 VALUES(idAutoreSeq.nextVal, 'Claudie', 'ECKLUND', to_date('4/8/1822', 'DD/MM/YYYY HH24:MI:SS'), to_date('7/8/1868', 'DD/MM/YYYY HH24:MI:SS'), 'Brazilian');
-INSERT INTO AUTORI (idAutore, Nome, Cognome, Datanascita, Datamorte, Nazionalita, Eliminato)
+INSERT INTO AUTORI (idAutore, Nome, Cognome, Datanascita, Datamorte, Nazionalita)
 VALUES(idAutoreSeq.nextVal, 'Dustin', 'REES', to_date('24/8/1166', 'DD/MM/YYYY HH24:MI:SS'), to_date('4/8/1260', 'DD/MM/YYYY HH24:MI:SS'), 'Austrian');
-INSERT INTO AUTORI (idAutore, Nome, Cognome, Datanascita, Datamorte, Nazionalita, Eliminato)
+INSERT INTO AUTORI (idAutore, Nome, Cognome, Datanascita, Datamorte, Nazionalita)
 VALUES(idAutoreSeq.nextVal, 'Tekesha', 'HABER', to_date('9/6/1376', 'DD/MM/YYYY HH24:MI:SS'), to_date('24/6/1420', 'DD/MM/YYYY HH24:MI:SS'), 'Kazakh');
-INSERT INTO AUTORI (idAutore, Nome, Cognome, Datanascita, Datamorte, Nazionalita, Eliminato)
+INSERT INTO AUTORI (idAutore, Nome, Cognome, Datanascita, Datamorte, Nazionalita)
 VALUES(idAutoreSeq.nextVal, 'Shakena', 'MANNINO', to_date('3/6/247', 'DD/MM/YYYY HH24:MI:SS'), to_date('19/6/329', 'DD/MM/YYYY HH24:MI:SS'), 'Israeli');
-INSERT INTO AUTORI (idAutore, Nome, Cognome, Datanascita, Datamorte, Nazionalita, Eliminato)
+INSERT INTO AUTORI (idAutore, Nome, Cognome, Datanascita, Datamorte, Nazionalita)
 VALUES(idAutoreSeq.nextVal, 'Youlanda', 'CASTLEMAN', to_date('26/6/1212', 'DD/MM/YYYY HH24:MI:SS'), to_date('19/6/1279', 'DD/MM/YYYY HH24:MI:SS'), 'English');
-INSERT INTO AUTORI (idAutore, Nome, Cognome, Datanascita, Datamorte, Nazionalita, Eliminato)
+INSERT INTO AUTORI (idAutore, Nome, Cognome, Datanascita, Datamorte, Nazionalita)
 VALUES(idAutoreSeq.nextVal, 'Mecaela', 'TROMBLEY', to_date('1/6/1035', 'DD/MM/YYYY HH24:MI:SS'), to_date('4/6/1115', 'DD/MM/YYYY HH24:MI:SS'), 'Ecuadorian');
-INSERT INTO AUTORI (idAutore, Nome, Cognome, Datanascita, Datamorte, Nazionalita, Eliminato)
+INSERT INTO AUTORI (idAutore, Nome, Cognome, Datanascita, Datamorte, Nazionalita)
 VALUES(idAutoreSeq.nextVal, 'Satomi', 'MORTON', to_date('14/6/1118', 'DD/MM/YYYY HH24:MI:SS'), to_date('12/6/1159', 'DD/MM/YYYY HH24:MI:SS'), 'Honduran');
-INSERT INTO AUTORI (idAutore, Nome, Cognome, Datanascita, Datamorte, Nazionalita, Eliminato)
+INSERT INTO AUTORI (idAutore, Nome, Cognome, Datanascita, Datamorte, Nazionalita)
 VALUES(idAutoreSeq.nextVal, 'Brisa', 'MONG', to_date('14/1/615', 'DD/MM/YYYY HH24:MI:SS'), to_date('25/1/666', 'DD/MM/YYYY HH24:MI:SS'), 'Peruvian');
-INSERT INTO AUTORI (idAutore, Nome, Cognome, Datanascita, Datamorte, Nazionalita, Eliminato)
+INSERT INTO AUTORI (idAutore, Nome, Cognome, Datanascita, Datamorte, Nazionalita)
 VALUES(idAutoreSeq.nextVal, 'Terrel', 'MCGHEE', to_date('13/1/1674', 'DD/MM/YYYY HH24:MI:SS'), to_date('22/1/1734', 'DD/MM/YYYY HH24:MI:SS'), 'Congolese');
-INSERT INTO AUTORI (idAutore, Nome, Cognome, Datanascita, Datamorte, Nazionalita, Eliminato)
+INSERT INTO AUTORI (idAutore, Nome, Cognome, Datanascita, Datamorte, Nazionalita)
 VALUES(idAutoreSeq.nextVal, 'Starlynn', 'SHAIN', to_date('5/1/1427', 'DD/MM/YYYY HH24:MI:SS'), to_date('9/1/1520', 'DD/MM/YYYY HH24:MI:SS'), 'Bosnian/Herzegovinian');
-INSERT INTO AUTORI (idAutore, Nome, Cognome, Datanascita, Datamorte, Nazionalita, Eliminato)
+INSERT INTO AUTORI (idAutore, Nome, Cognome, Datanascita, Datamorte, Nazionalita)
 VALUES(idAutoreSeq.nextVal, 'Kiley', 'BURGIN', to_date('24/1/624', 'DD/MM/YYYY HH24:MI:SS'), to_date('21/1/708', 'DD/MM/YYYY HH24:MI:SS'), 'Congolese');
-INSERT INTO AUTORI (idAutore, Nome, Cognome, Datanascita, Datamorte, Nazionalita, Eliminato)
+INSERT INTO AUTORI (idAutore, Nome, Cognome, Datanascita, Datamorte, Nazionalita)
 VALUES(idAutoreSeq.nextVal, 'Tambria', 'COURTRIGHT', to_date('13/1/1103', 'DD/MM/YYYY HH24:MI:SS'), to_date('16/1/1170', 'DD/MM/YYYY HH24:MI:SS'), 'Senegalese');
-INSERT INTO AUTORI (idAutore, Nome, Cognome, Datanascita, Datamorte, Nazionalita, Eliminato)
+INSERT INTO AUTORI (idAutore, Nome, Cognome, Datanascita, Datamorte, Nazionalita)
 VALUES(idAutoreSeq.nextVal, 'Lyndell', 'SAMUELSON', to_date('17/11/243', 'DD/MM/YYYY HH24:MI:SS'), to_date('24/11/281', 'DD/MM/YYYY HH24:MI:SS'), 'Norwegian');
-INSERT INTO AUTORI (idAutore, Nome, Cognome, Datanascita, Datamorte, Nazionalita, Eliminato)
+INSERT INTO AUTORI (idAutore, Nome, Cognome, Datanascita, Datamorte, Nazionalita)
 VALUES(idAutoreSeq.nextVal, 'Cheree', 'PERRI', to_date('10/11/1720', 'DD/MM/YYYY HH24:MI:SS'), to_date('4/11/1789', 'DD/MM/YYYY HH24:MI:SS'), 'Czech');
-INSERT INTO AUTORI (idAutore, Nome, Cognome, Datanascita, Datamorte, Nazionalita, Eliminato)
+INSERT INTO AUTORI (idAutore, Nome, Cognome, Datanascita, Datamorte, Nazionalita)
 VALUES(idAutoreSeq.nextVal, 'Tierre', 'NOWICKI', to_date('22/11/1309', 'DD/MM/YYYY HH24:MI:SS'), to_date('21/11/1359', 'DD/MM/YYYY HH24:MI:SS'), 'Irish');
-INSERT INTO AUTORI (idAutore, Nome, Cognome, Datanascita, Datamorte, Nazionalita, Eliminato)
+INSERT INTO AUTORI (idAutore, Nome, Cognome, Datanascita, Datamorte, Nazionalita)
 VALUES(idAutoreSeq.nextVal, 'Ernst', 'REDMON', to_date('21/11/311', 'DD/MM/YYYY HH24:MI:SS'), to_date('17/11/356', 'DD/MM/YYYY HH24:MI:SS'), 'Japanese');
-INSERT INTO AUTORI (idAutore, Nome, Cognome, Datanascita, Datamorte, Nazionalita, Eliminato)
+INSERT INTO AUTORI (idAutore, Nome, Cognome, Datanascita, Datamorte, Nazionalita)
 VALUES(idAutoreSeq.nextVal, 'Felecia', 'SCHER', to_date('23/11/257', 'DD/MM/YYYY HH24:MI:SS'), to_date('23/11/321', 'DD/MM/YYYY HH24:MI:SS'), 'Indian');
-INSERT INTO AUTORI (idAutore, Nome, Cognome, Datanascita, Datamorte, Nazionalita, Eliminato)
+INSERT INTO AUTORI (idAutore, Nome, Cognome, Datanascita, Datamorte, Nazionalita)
 VALUES(idAutoreSeq.nextVal, 'Zachry', 'CHATTERTON', to_date('4/10/1384', 'DD/MM/YYYY HH24:MI:SS'), to_date('19/10/1418', 'DD/MM/YYYY HH24:MI:SS'), 'Russian');
-INSERT INTO AUTORI (idAutore, Nome, Cognome, Datanascita, Datamorte, Nazionalita, Eliminato)
+INSERT INTO AUTORI (idAutore, Nome, Cognome, Datanascita, Datamorte, Nazionalita)
 VALUES(idAutoreSeq.nextVal, 'Brandilee', 'SIPPLE', to_date('23/10/730', 'DD/MM/YYYY HH24:MI:SS'), to_date('25/10/792', 'DD/MM/YYYY HH24:MI:SS'), 'Belgian');
-INSERT INTO AUTORI (idAutore, Nome, Cognome, Datanascita, Datamorte, Nazionalita, Eliminato)
+INSERT INTO AUTORI (idAutore, Nome, Cognome, Datanascita, Datamorte, Nazionalita)
 VALUES(idAutoreSeq.nextVal, 'Jesselyn', 'HAMILTON', to_date('4/10/399', 'DD/MM/YYYY HH24:MI:SS'), to_date('12/10/463', 'DD/MM/YYYY HH24:MI:SS'), 'Italian');
-INSERT INTO AUTORI (idAutore, Nome, Cognome, Datanascita, Datamorte, Nazionalita, Eliminato)
+INSERT INTO AUTORI (idAutore, Nome, Cognome, Datanascita, Datamorte, Nazionalita)
 VALUES(idAutoreSeq.nextVal, 'Shelena', 'VIERS', to_date('13/10/264', 'DD/MM/YYYY HH24:MI:SS'), to_date('22/10/308', 'DD/MM/YYYY HH24:MI:SS'), 'Saudi Arabian');
-INSERT INTO AUTORI (idAutore, Nome, Cognome, Datanascita, Datamorte, Nazionalita, Eliminato)
+INSERT INTO AUTORI (idAutore, Nome, Cognome, Datanascita, Datamorte, Nazionalita)
 VALUES(idAutoreSeq.nextVal, 'Christapher', 'SCHOCK', to_date('10/10/777', 'DD/MM/YYYY HH24:MI:SS'), to_date('17/10/810', 'DD/MM/YYYY HH24:MI:SS'), 'Lao');
-INSERT INTO AUTORI (idAutore, Nome, Cognome, Datanascita, Datamorte, Nazionalita, Eliminato)
+INSERT INTO AUTORI (idAutore, Nome, Cognome, Datanascita, Datamorte, Nazionalita)
 VALUES(idAutoreSeq.nextVal, 'Edric', 'RIDGWAY', to_date('24/8/751', 'DD/MM/YYYY HH24:MI:SS'), to_date('2/8/822', 'DD/MM/YYYY HH24:MI:SS'), 'Omani');
-INSERT INTO AUTORI (idAutore, Nome, Cognome, Datanascita, Datamorte, Nazionalita, Eliminato)
+INSERT INTO AUTORI (idAutore, Nome, Cognome, Datanascita, Datamorte, Nazionalita)
 VALUES(idAutoreSeq.nextVal, 'Joya', 'BARNER', to_date('5/8/171', 'DD/MM/YYYY HH24:MI:SS'), to_date('15/8/226', 'DD/MM/YYYY HH24:MI:SS'), 'English');
-INSERT INTO AUTORI (idAutore, Nome, Cognome, Datanascita, Datamorte, Nazionalita, Eliminato)
+INSERT INTO AUTORI (idAutore, Nome, Cognome, Datanascita, Datamorte, Nazionalita)
 VALUES(idAutoreSeq.nextVal, 'Lamarkus', 'ASKEW', to_date('18/8/1513', 'DD/MM/YYYY HH24:MI:SS'), to_date('25/8/1578', 'DD/MM/YYYY HH24:MI:SS'), 'Norwegian');
-INSERT INTO AUTORI (idAutore, Nome, Cognome, Datanascita, Datamorte, Nazionalita, Eliminato)
+INSERT INTO AUTORI (idAutore, Nome, Cognome, Datanascita, Datamorte, Nazionalita)
 VALUES(idAutoreSeq.nextVal, 'Elvira', 'IPPOLITO', to_date('24/8/449', 'DD/MM/YYYY HH24:MI:SS'), to_date('21/8/486', 'DD/MM/YYYY HH24:MI:SS'), 'Canadian');
-INSERT INTO AUTORI (idAutore, Nome, Cognome, Datanascita, Datamorte, Nazionalita, Eliminato)
+INSERT INTO AUTORI (idAutore, Nome, Cognome, Datanascita, Datamorte, Nazionalita)
 VALUES(idAutoreSeq.nextVal, 'Sharica', 'PINA', to_date('24/8/1299', 'DD/MM/YYYY HH24:MI:SS'), to_date('18/8/1359', 'DD/MM/YYYY HH24:MI:SS'), 'Kazakh');
-INSERT INTO AUTORI (idAutore, Nome, Cognome, Datanascita, Datamorte, Nazionalita, Eliminato)
+INSERT INTO AUTORI (idAutore, Nome, Cognome, Datanascita, Datamorte, Nazionalita)
 VALUES(idAutoreSeq.nextVal, 'Jasine', 'MEDINA', NULL, NULL, 'Somalian');
-INSERT INTO AUTORI (idAutore, Nome, Cognome, Datanascita, Datamorte, Nazionalita, Eliminato)
+INSERT INTO AUTORI (idAutore, Nome, Cognome, Datanascita, Datamorte, Nazionalita)
 VALUES(idAutoreSeq.nextVal, 'Habiba', 'SASAKI', to_date('5/3/1209', 'DD/MM/YYYY HH24:MI:SS'), to_date('22/3/1298', 'DD/MM/YYYY HH24:MI:SS'), 'Namibian');
-INSERT INTO AUTORI (idAutore, Nome, Cognome, Datanascita, Datamorte, Nazionalita, Eliminato)
+INSERT INTO AUTORI (idAutore, Nome, Cognome, Datanascita, Datamorte, Nazionalita)
 VALUES(idAutoreSeq.nextVal, 'Gasper', 'JARBOE', to_date('11/3/1797', 'DD/MM/YYYY HH24:MI:SS'), to_date('14/3/1856', 'DD/MM/YYYY HH24:MI:SS'), 'Bolivian');
-INSERT INTO AUTORI (idAutore, Nome, Cognome, Datanascita, Datamorte, Nazionalita, Eliminato)
+INSERT INTO AUTORI (idAutore, Nome, Cognome, Datanascita, Datamorte, Nazionalita)
 VALUES(idAutoreSeq.nextVal, 'Lemont', 'BLANCHETTE', to_date('12/3/208', 'DD/MM/YYYY HH24:MI:SS'), to_date('16/3/250', 'DD/MM/YYYY HH24:MI:SS'), 'Argentine');
-INSERT INTO AUTORI (idAutore, Nome, Cognome, Datanascita, Datamorte, Nazionalita, Eliminato)
+INSERT INTO AUTORI (idAutore, Nome, Cognome, Datanascita, Datamorte, Nazionalita)
 VALUES(idAutoreSeq.nextVal, 'Deniqua', 'MIDDLEBROOKS', to_date('20/3/870', 'DD/MM/YYYY HH24:MI:SS'), to_date('21/3/941', 'DD/MM/YYYY HH24:MI:SS'), 'Bolivian');
-INSERT INTO AUTORI (idAutore, Nome, Cognome, Datanascita, Datamorte, Nazionalita, Eliminato)
+INSERT INTO AUTORI (idAutore, Nome, Cognome, Datanascita, Datamorte, Nazionalita)
 VALUES(idAutoreSeq.nextVal, 'Shontay', 'CARLIN', to_date('13/1/1847', 'DD/MM/YYYY HH24:MI:SS'), to_date('6/1/1889', 'DD/MM/YYYY HH24:MI:SS'), 'Kenyan');
-INSERT INTO AUTORI (idAutore, Nome, Cognome, Datanascita, Datamorte, Nazionalita, Eliminato)
+INSERT INTO AUTORI (idAutore, Nome, Cognome, Datanascita, Datamorte, Nazionalita)
 VALUES(idAutoreSeq.nextVal, 'Shaynna', 'POSTON', to_date('18/1/645', 'DD/MM/YYYY HH24:MI:SS'), to_date('8/1/683', 'DD/MM/YYYY HH24:MI:SS'), 'Turkish');
 /************AUTORIOPERE************/
 INSERT INTO AUTORIOPERE (idAutore, idOpera)
@@ -19903,2171 +19903,2180 @@ VALUES(idDescSeq.nextVal, 'Chinese', 'adulto', 'OYpxb0B8YIjEl2YuGhoKkUn6qP6QR0LK
 INSERT INTO DESCRIZIONI (IdDesc, Lingua, Livello, Testo, Opera)
 VALUES(idDescSeq.nextVal, 'Chinese', 'esperto', 'iuwJsn1IqmSztRv2X8mrwj4KsbkXG6K42g6Nj4HfJHmfYNtoUkweHNgNri9D4IMb8dZbJlkLrkv06IeK8XyXokxpOWdk1Gg1P68W32SBG2rNyHt710evNvdbo5xshxsrMeC9yoPWTbVL', 600);
 /**************CAMPIESTIVI*************/
-INSERT INTO CAMPIESTIVI (IdCampiEstivi, Stato, Nome, DataInizio, DataConclusione, Museo, Eliminato)
+INSERT INTO CAMPIESTIVI (IdCampiEstivi, Stato, Nome, DataInizio, DataConclusione, Museo)
 VALUES (IdCampiEstiviSeq.nextval, 'increazione', 'Campo Estivo', null, null, 1);
-INSERT INTO CAMPIESTIVI (IdCampiEstivi, Stato, Nome, DataInizio, DataConclusione, Museo, Eliminato)
+INSERT INTO CAMPIESTIVI (IdCampiEstivi, Stato, Nome, DataInizio, DataConclusione, Museo)
 VALUES (IdCampiEstiviSeq.nextval, 'terminato', 'Campo Estivo', to_date('01/05/2019', 'DD/MM/YYYY HH24:MI:SS'), to_date('21/06/2019', 'DD/MM/YYYY HH24:MI:SS'), 2);
-INSERT INTO CAMPIESTIVI (IdCampiEstivi, Stato, Nome, DataInizio, DataConclusione, Museo, Eliminato)
+INSERT INTO CAMPIESTIVI (IdCampiEstivi, Stato, Nome, DataInizio, DataConclusione, Museo)
 VALUES (IdCampiEstiviSeq.nextval, 'increazione', 'Campo Estivo', null, null, 3);
-INSERT INTO CAMPIESTIVI (IdCampiEstivi, Stato, Nome, DataInizio, DataConclusione, Museo, Eliminato)
+INSERT INTO CAMPIESTIVI (IdCampiEstivi, Stato, Nome, DataInizio, DataConclusione, Museo)
 VALUES (IdCampiEstiviSeq.nextval, 'terminato', 'Campo Estivo', to_date('28/05/2019', 'DD/MM/YYYY HH24:MI:SS'), to_date('12/07/2019', 'DD/MM/YYYY HH24:MI:SS'), 4);
-INSERT INTO CAMPIESTIVI (IdCampiEstivi, Stato, Nome, DataInizio, DataConclusione, Museo, Eliminato)
+INSERT INTO CAMPIESTIVI (IdCampiEstivi, Stato, Nome, DataInizio, DataConclusione, Museo)
 VALUES (IdCampiEstiviSeq.nextval, 'terminato', 'Campo Estivo', to_date('01/05/2019', 'DD/MM/YYYY HH24:MI:SS'), to_date('02/07/2019', 'DD/MM/YYYY HH24:MI:SS'), 5);
-INSERT INTO CAMPIESTIVI (IdCampiEstivi, Stato, Nome, DataInizio, DataConclusione, Museo, Eliminato)
+INSERT INTO CAMPIESTIVI (IdCampiEstivi, Stato, Nome, DataInizio, DataConclusione, Museo)
 VALUES (IdCampiEstiviSeq.nextval, 'sospeso', 'Campo Estivo', to_date('24/06/2019', 'DD/MM/YYYY HH24:MI:SS'), to_date('04/07/2019', 'DD/MM/YYYY HH24:MI:SS'), 6);
-INSERT INTO CAMPIESTIVI (IdCampiEstivi, Stato, Nome, DataInizio, DataConclusione, Museo, Eliminato)
+INSERT INTO CAMPIESTIVI (IdCampiEstivi, Stato, Nome, DataInizio, DataConclusione, Museo)
 VALUES (IdCampiEstiviSeq.nextval, 'increazione', 'Campo Invernale', null, null, 3);
-INSERT INTO CAMPIESTIVI (IdCampiEstivi, Stato, Nome, DataInizio, DataConclusione, Museo, Eliminato)
+INSERT INTO CAMPIESTIVI (IdCampiEstivi, Stato, Nome, DataInizio, DataConclusione, Museo)
 VALUES (IdCampiEstiviSeq.nextval, 'sospeso', 'Campo Invernale', to_date('09/01/2022', 'DD/MM/YYYY HH24:MI:SS'), to_date('09/01/2022', 'DD/MM/YYYY HH24:MI:SS'), 4);
-INSERT INTO CAMPIESTIVI (IdCampiEstivi, Stato, Nome, DataInizio, DataConclusione, Museo, Eliminato)
+INSERT INTO CAMPIESTIVI (IdCampiEstivi, Stato, Nome, DataInizio, DataConclusione, Museo)
 VALUES (IdCampiEstiviSeq.nextval, 'sospeso', 'Campo Invernale', to_date('06/01/2022', 'DD/MM/YYYY HH24:MI:SS'), to_date('25/01/2022', 'DD/MM/YYYY HH24:MI:SS'), 5);
 /**************TARIFFECAMPIESTIVI**************/
-INSERT INTO TARIFFECAMPIESTIVI (IdTariffa, Prezzo, Etaminima, Etamassima, CampoEstivo, Eliminato)
+INSERT INTO TARIFFECAMPIESTIVI (IdTariffa, Prezzo, Etaminima, Etamassima, CampoEstivo)
 VALUES (IdTariffaSeq.nextval, 16.97, 5, 10, 4);
-INSERT INTO TARIFFECAMPIESTIVI (IdTariffa, Prezzo, Etaminima, Etamassima, CampoEstivo, Eliminato)
+INSERT INTO TARIFFECAMPIESTIVI (IdTariffa, Prezzo, Etaminima, Etamassima, CampoEstivo)
 VALUES (IdTariffaSeq.nextval, 733.45, 8, 16, 4);
-INSERT INTO TARIFFECAMPIESTIVI (IdTariffa, Prezzo, Etaminima, Etamassima, CampoEstivo, Eliminato)
+INSERT INTO TARIFFECAMPIESTIVI (IdTariffa, Prezzo, Etaminima, Etamassima, CampoEstivo)
 VALUES (IdTariffaSeq.nextval, 505.69, 15, 30, 3);
-INSERT INTO TARIFFECAMPIESTIVI (IdTariffa, Prezzo, Etaminima, Etamassima, CampoEstivo, Eliminato)
+INSERT INTO TARIFFECAMPIESTIVI (IdTariffa, Prezzo, Etaminima, Etamassima, CampoEstivo)
 VALUES (IdTariffaSeq.nextval, 736.57, 18, 999, 7);
-INSERT INTO TARIFFECAMPIESTIVI (IdTariffa, Prezzo, Etaminima, Etamassima, CampoEstivo, Eliminato)
+INSERT INTO TARIFFECAMPIESTIVI (IdTariffa, Prezzo, Etaminima, Etamassima, CampoEstivo)
 VALUES (IdTariffaSeq.nextval, 214.32, 5, 10, 1);
-INSERT INTO TARIFFECAMPIESTIVI (IdTariffa, Prezzo, Etaminima, Etamassima, CampoEstivo, Eliminato)
+INSERT INTO TARIFFECAMPIESTIVI (IdTariffa, Prezzo, Etaminima, Etamassima, CampoEstivo)
 VALUES (IdTariffaSeq.nextval, 651.79, 8, 16, 2);
-INSERT INTO TARIFFECAMPIESTIVI (IdTariffa, Prezzo, Etaminima, Etamassima, CampoEstivo, Eliminato)
+INSERT INTO TARIFFECAMPIESTIVI (IdTariffa, Prezzo, Etaminima, Etamassima, CampoEstivo)
 VALUES (IdTariffaSeq.nextval, 551.8, 15, 30, 7);
-INSERT INTO TARIFFECAMPIESTIVI (IdTariffa, Prezzo, Etaminima, Etamassima, CampoEstivo, Eliminato)
+INSERT INTO TARIFFECAMPIESTIVI (IdTariffa, Prezzo, Etaminima, Etamassima, CampoEstivo)
 VALUES (IdTariffaSeq.nextval, 278.0, 18, 999, 2);
-INSERT INTO TARIFFECAMPIESTIVI (IdTariffa, Prezzo, Etaminima, Etamassima, CampoEstivo, Eliminato)
+INSERT INTO TARIFFECAMPIESTIVI (IdTariffa, Prezzo, Etaminima, Etamassima, CampoEstivo)
 VALUES (IdTariffaSeq.nextval, 308.12, 5, 10, 9);
-INSERT INTO TARIFFECAMPIESTIVI (IdTariffa, Prezzo, Etaminima, Etamassima, CampoEstivo, Eliminato)
+INSERT INTO TARIFFECAMPIESTIVI (IdTariffa, Prezzo, Etaminima, Etamassima, CampoEstivo)
 VALUES (IdTariffaSeq.nextval, 717.21, 8, 16, 1);
-INSERT INTO TARIFFECAMPIESTIVI (IdTariffa, Prezzo, Etaminima, Etamassima, CampoEstivo, Eliminato)
+INSERT INTO TARIFFECAMPIESTIVI (IdTariffa, Prezzo, Etaminima, Etamassima, CampoEstivo)
 VALUES (IdTariffaSeq.nextval, 218.45, 15, 30, 5);
-INSERT INTO TARIFFECAMPIESTIVI (IdTariffa, Prezzo, Etaminima, Etamassima, CampoEstivo, Eliminato)
+INSERT INTO TARIFFECAMPIESTIVI (IdTariffa, Prezzo, Etaminima, Etamassima, CampoEstivo)
 VALUES (IdTariffaSeq.nextval, 988.88, 18, 999, 7);
-INSERT INTO TARIFFECAMPIESTIVI (IdTariffa, Prezzo, Etaminima, Etamassima, CampoEstivo, Eliminato)
+INSERT INTO TARIFFECAMPIESTIVI (IdTariffa, Prezzo, Etaminima, Etamassima, CampoEstivo)
 VALUES (IdTariffaSeq.nextval, 26.34, 5, 10, 3);
-INSERT INTO TARIFFECAMPIESTIVI (IdTariffa, Prezzo, Etaminima, Etamassima, CampoEstivo, Eliminato)
+INSERT INTO TARIFFECAMPIESTIVI (IdTariffa, Prezzo, Etaminima, Etamassima, CampoEstivo)
 VALUES (IdTariffaSeq.nextval, 841.69, 8, 16, 1);
-INSERT INTO TARIFFECAMPIESTIVI (IdTariffa, Prezzo, Etaminima, Etamassima, CampoEstivo, Eliminato)
+INSERT INTO TARIFFECAMPIESTIVI (IdTariffa, Prezzo, Etaminima, Etamassima, CampoEstivo)
 VALUES (IdTariffaSeq.nextval, 588.12, 15, 30, 6);
-INSERT INTO TARIFFECAMPIESTIVI (IdTariffa, Prezzo, Etaminima, Etamassima, CampoEstivo, Eliminato)
+INSERT INTO TARIFFECAMPIESTIVI (IdTariffa, Prezzo, Etaminima, Etamassima, CampoEstivo)
 VALUES (IdTariffaSeq.nextval, 161.41, 18, 999, 7);
-INSERT INTO TARIFFECAMPIESTIVI (IdTariffa, Prezzo, Etaminima, Etamassima, CampoEstivo, Eliminato)
+INSERT INTO TARIFFECAMPIESTIVI (IdTariffa, Prezzo, Etaminima, Etamassima, CampoEstivo)
 VALUES (IdTariffaSeq.nextval, 898.35, 5, 10, 4);
-INSERT INTO TARIFFECAMPIESTIVI (IdTariffa, Prezzo, Etaminima, Etamassima, CampoEstivo, Eliminato)
+INSERT INTO TARIFFECAMPIESTIVI (IdTariffa, Prezzo, Etaminima, Etamassima, CampoEstivo)
 VALUES (IdTariffaSeq.nextval, 770.56, 8, 16, 9);
-INSERT INTO TARIFFECAMPIESTIVI (IdTariffa, Prezzo, Etaminima, Etamassima, CampoEstivo, Eliminato)
+INSERT INTO TARIFFECAMPIESTIVI (IdTariffa, Prezzo, Etaminima, Etamassima, CampoEstivo)
 VALUES (IdTariffaSeq.nextval, 638.69, 15, 30, 6);
-INSERT INTO TARIFFECAMPIESTIVI (IdTariffa, Prezzo, Etaminima, Etamassima, CampoEstivo, Eliminato)
+INSERT INTO TARIFFECAMPIESTIVI (IdTariffa, Prezzo, Etaminima, Etamassima, CampoEstivo)
 VALUES (IdTariffaSeq.nextval, 819.34, 18, 999, 1);
-INSERT INTO TARIFFECAMPIESTIVI (IdTariffa, Prezzo, Etaminima, Etamassima, CampoEstivo, Eliminato)
+INSERT INTO TARIFFECAMPIESTIVI (IdTariffa, Prezzo, Etaminima, Etamassima, CampoEstivo)
 VALUES (IdTariffaSeq.nextval, 263.23, 5, 10, 3);
-INSERT INTO TARIFFECAMPIESTIVI (IdTariffa, Prezzo, Etaminima, Etamassima, CampoEstivo, Eliminato)
+INSERT INTO TARIFFECAMPIESTIVI (IdTariffa, Prezzo, Etaminima, Etamassima, CampoEstivo)
 VALUES (IdTariffaSeq.nextval, 956.11, 8, 16, 8);
-INSERT INTO TARIFFECAMPIESTIVI (IdTariffa, Prezzo, Etaminima, Etamassima, CampoEstivo, Eliminato)
+INSERT INTO TARIFFECAMPIESTIVI (IdTariffa, Prezzo, Etaminima, Etamassima, CampoEstivo)
 VALUES (IdTariffaSeq.nextval, 320.18, 15, 30, 8);
-INSERT INTO TARIFFECAMPIESTIVI (IdTariffa, Prezzo, Etaminima, Etamassima, CampoEstivo, Eliminato)
+INSERT INTO TARIFFECAMPIESTIVI (IdTariffa, Prezzo, Etaminima, Etamassima, CampoEstivo)
 VALUES (IdTariffaSeq.nextval, 751.17, 18, 999, 4);
+
+/********RUOLISESSIONI*********/
+INSERT INTO RUOLISESSIONI (Ruolo, IdSessione) VALUES ('U', 0);
+INSERT INTO RUOLISESSIONI (Ruolo, IdSessione) VALUES ('DBA', 1);
+INSERT INTO RUOLISESSIONI (Ruolo, IdSessione) VALUES ('AB', 2);
+INSERT INTO RUOLISESSIONI (Ruolo, IdSessione) VALUES ('GM', 3);
+INSERT INTO RUOLISESSIONI (Ruolo, IdSessione) VALUES ('GO', 4);
+INSERT INTO RUOLISESSIONI (Ruolo, IdSessione) VALUES ('GCE', 5);
+
 /************UTENTI*************/
-INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico, Eliminato)
+INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico)
 VALUES (IdUtenteseq.nextval,'Hichem','Toomey',to_date('23/07/2005','DD/MM/YYYY HH24:MI:SS'),'2 Misty Marsh Drive, Savannah','hichem@toomey.it','3494740733');
-INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico, Eliminato)
+INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico)
 VALUES (IdUtenteseq.nextval,'Zixuan','Alcala Zamora',to_date('14/11/1995','DD/MM/YYYY HH24:MI:SS'),'4821 Milner Drive, Nashville','zixuan@alcalazamora.it','2006443827');
-INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico, Eliminato)
+INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico)
 VALUES (IdUtenteseq.nextval,'Ron','Schonberg',to_date('18/05/1983','DD/MM/YYYY HH24:MI:SS'),'1566 Wingate Park Court, Montgomery','ron@schonberg.it','4698061793');
-INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico, Eliminato)
+INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico)
 VALUES (IdUtenteseq.nextval,'Hassan','Wadham',to_date('13/04/2006','DD/MM/YYYY HH24:MI:SS'),'4876 Norris Road, Fremont','hassan@wadham.it','7542013488');
-INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico, Eliminato)
+INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico)
 VALUES (IdUtenteseq.nextval,'Agnieszka','Zschutschke',to_date('12/07/1990','DD/MM/YYYY HH24:MI:SS'),'900 Dupont Road, Louisville','agnieszka@zschutschke.it','5478744786');
-INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico, Eliminato)
+INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico)
 VALUES (IdUtenteseq.nextval,'Alondra','Hirzhman',to_date('08/07/2000','DD/MM/YYYY HH24:MI:SS'),'487 Maury Street, Montgomery','alondra@hirzhman.it','7128638683');
-INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico, Eliminato)
+INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico)
 VALUES (IdUtenteseq.nextval,'Xuehua','Onica',to_date('30/04/1984','DD/MM/YYYY HH24:MI:SS'),'615 Long Hunter Court, Nashville','xuehua@onica.it','1418563100');
-INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico, Eliminato)
+INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico)
 VALUES (IdUtenteseq.nextval,'Deivis','Ramsundar',to_date('05/10/1993','DD/MM/YYYY HH24:MI:SS'),'814 South Pickard Avenue, Norman','deivis@ramsundar.it','8181362402');
-INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico, Eliminato)
+INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico)
 VALUES (IdUtenteseq.nextval,'Katalin','Nabardain',to_date('20/06/2006','DD/MM/YYYY HH24:MI:SS'),'1304 Northern Hills Road, Norman','katalin@nabardain.it','3987430663');
-INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico, Eliminato)
+INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico)
 VALUES (IdUtenteseq.nextval,'Lenka','Schorr',to_date('29/08/1992','DD/MM/YYYY HH24:MI:SS'),'110 Lenoak Drive, Louisville','lenka@schorr.it','3444298126');
-INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico, Eliminato)
+INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico)
 VALUES (IdUtenteseq.nextval,'Gianfranco','Vormbrock',to_date('10/08/1982','DD/MM/YYYY HH24:MI:SS'),'733 Georgetown Drive, Nashville','gianfranco@vormbrock.it','1534443557');
-INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico, Eliminato)
+INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico)
 VALUES (IdUtenteseq.nextval,'Salama','Wehner',to_date('07/09/2008','DD/MM/YYYY HH24:MI:SS'),'971 Zenith Loop, Fayetteville','salama@wehner.it','5675149625');
-INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico, Eliminato)
+INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico)
 VALUES (IdUtenteseq.nextval,'Aymar','Montagne',to_date('22/08/1989','DD/MM/YYYY HH24:MI:SS'),'5611 Kendall Court, Arvada','aymar@montagne.it','8596903318');
-INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico, Eliminato)
+INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico)
 VALUES (IdUtenteseq.nextval,'Concetta','Babikoff',to_date('13/10/1993','DD/MM/YYYY HH24:MI:SS'),'11117 Stonehedge Drive, South Burlington','concetta@babikoff.it','5487984185');
-INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico, Eliminato)
+INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico)
 VALUES (IdUtenteseq.nextval,'Yerobe','Krausser',to_date('01/01/2014','DD/MM/YYYY HH24:MI:SS'),'5125 North 58th Avenue, Glendale','yerobe@krausser.it','3170763983');
-INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico, Eliminato)
+INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico)
 VALUES (IdUtenteseq.nextval,'Amjid','Kafka',to_date('28/05/2002','DD/MM/YYYY HH24:MI:SS'),'81 Seaton Place Northwest, Washington','amjid@kafka.it','1330586681');
-INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico, Eliminato)
+INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico)
 VALUES (IdUtenteseq.nextval,'Zakariya','Schen',to_date('18/06/1982','DD/MM/YYYY HH24:MI:SS'),'1478 Sharps Point Road, Annapolis','zakariya@schen.it','2131179306');
-INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico, Eliminato)
+INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico)
 VALUES (IdUtenteseq.nextval,'Angustia','Lambers',to_date('04/02/1990','DD/MM/YYYY HH24:MI:SS'),'3609 Meadow Drive, Nashville','angustia@lambers.it','8995972234');
-INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico, Eliminato)
+INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico)
 VALUES (IdUtenteseq.nextval,'Medarda','Paul',to_date('02/02/1982','DD/MM/YYYY HH24:MI:SS'),'7931 West 55th Avenue, Arvada','medarda@paul.it','6460194625');
-INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico, Eliminato)
+INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico)
 VALUES (IdUtenteseq.nextval,'Hester','Jepken',to_date('28/07/2002','DD/MM/YYYY HH24:MI:SS'),'10763 West 54th Place, Arvada','hester@jepken.it','9494574807');
-INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico, Eliminato)
+INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico)
 VALUES (IdUtenteseq.nextval,'Sulayman','Jivotinsky',to_date('15/02/1994','DD/MM/YYYY HH24:MI:SS'),'49 West Street, Bolton','sulayman@jivotinsky.it','2352383821');
-INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico, Eliminato)
+INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico)
 VALUES (IdUtenteseq.nextval,'Md','Vancea',to_date('01/09/1992','DD/MM/YYYY HH24:MI:SS'),'2330 39th Street Northwest, Washington','md@vancea.it','3715194732');
-INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico, Eliminato)
+INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico)
 VALUES (IdUtenteseq.nextval,'Asmaa','Vowinkel',to_date('14/06/2003','DD/MM/YYYY HH24:MI:SS'),'701 Mussel Slough Road, Hanford','asmaa@vowinkel.it','9234906571');
-INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico, Eliminato)
+INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico)
 VALUES (IdUtenteseq.nextval,'Jessika','Quinde',to_date('17/10/2003','DD/MM/YYYY HH24:MI:SS'),'3301 Old Muldoon Road, Anchorage','jessika@quinde.it','3531354772');
-INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico, Eliminato)
+INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico)
 VALUES (IdUtenteseq.nextval,'Akiko','Lumann',to_date('12/02/1992','DD/MM/YYYY HH24:MI:SS'),'103 Edgewater Road, Severna Park','akiko@lumann.it','7878195431');
-INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico, Eliminato)
+INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico)
 VALUES (IdUtenteseq.nextval,'Esteban','Lopata',to_date('23/10/1975','DD/MM/YYYY HH24:MI:SS'),'171 Brickhill Circle, Pooler','esteban@lopata.it','7853142205');
-INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico, Eliminato)
+INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico)
 VALUES (IdUtenteseq.nextval,'Karry','Malaina',to_date('06/10/1970','DD/MM/YYYY HH24:MI:SS'),'6413 Kendall Street, Arvada','karry@malaina.it','5859415262');
-INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico, Eliminato)
+INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico)
 VALUES (IdUtenteseq.nextval,'Shaukat','Giorgi',to_date('22/07/1975','DD/MM/YYYY HH24:MI:SS'),'2147 Millhaven Drive, Edgewater','shaukat@giorgi.it','8747294971');
-INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico, Eliminato)
+INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico)
 VALUES (IdUtenteseq.nextval,'Hildelisa','Koplin',to_date('28/12/1985','DD/MM/YYYY HH24:MI:SS'),'11515 Leemont Drive, Louisville','hildelisa@koplin.it','1416708004');
-INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico, Eliminato)
+INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico)
 VALUES (IdUtenteseq.nextval,'Zarko','Kleinermann',to_date('09/07/1977','DD/MM/YYYY HH24:MI:SS'),'37122 Contra Costa Avenue, Fremont','zarko@kleinermann.it','6259017227');
-INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico, Eliminato)
+INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico)
 VALUES (IdUtenteseq.nextval,'Emeterio','Bodesohn',to_date('07/01/2003','DD/MM/YYYY HH24:MI:SS'),'463 Pecan Tree Drive, Montgomery','emeterio@bodesohn.it','7232436439');
-INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico, Eliminato)
+INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico)
 VALUES (IdUtenteseq.nextval,'Hadjira','Chilro',to_date('26/10/1973','DD/MM/YYYY HH24:MI:SS'),'14 School Street, Medway','hadjira@chilro.it','6114463405');
-INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico, Eliminato)
+INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico)
 VALUES (IdUtenteseq.nextval,'Xinhui','Eusebi',to_date('28/03/1983','DD/MM/YYYY HH24:MI:SS'),'4000 Beth Manor Drive, Montgomery','xinhui@eusebi.it','7954978147');
-INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico, Eliminato)
+INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico)
 VALUES (IdUtenteseq.nextval,'Yogesh','Contrasta',to_date('07/02/2002','DD/MM/YYYY HH24:MI:SS'),'5804 West Abraham Lane, Glendale','yogesh@contrasta.it','6459652891');
-INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico, Eliminato)
+INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico)
 VALUES (IdUtenteseq.nextval,'Luther','Vyborny',to_date('07/04/2005','DD/MM/YYYY HH24:MI:SS'),'8300 Dover Way, Arvada','luther@vyborny.it','2774962385');
-INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico, Eliminato)
+INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico)
 VALUES (IdUtenteseq.nextval,'Fredesvindo','Acilona',to_date('15/05/1984','DD/MM/YYYY HH24:MI:SS'),'10406 Sunlight Lane, Louisville','fredesvindo@acilona.it','1953872465');
-INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico, Eliminato)
+INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico)
 VALUES (IdUtenteseq.nextval,'Randall','Zehendner',to_date('21/06/1992','DD/MM/YYYY HH24:MI:SS'),'6730 North 59th Drive, Glendale','randall@zehendner.it','2232703620');
-INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico, Eliminato)
+INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico)
 VALUES (IdUtenteseq.nextval,'Hugh','Baciu',to_date('01/01/2014','DD/MM/YYYY HH24:MI:SS'),'5545 Saddlewood Lane, Brentwood','hugh@baciu.it','4967926160');
-INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico, Eliminato)
+INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico)
 VALUES (IdUtenteseq.nextval,'Orfelina','Tambo',to_date('02/01/1976','DD/MM/YYYY HH24:MI:SS'),'9515 West 74th Avenue, Arvada','orfelina@tambo.it','2288009458');
-INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico, Eliminato)
+INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico)
 VALUES (IdUtenteseq.nextval,'Aitane','Salceda',to_date('16/11/1986','DD/MM/YYYY HH24:MI:SS'),'5 Winslow Circle, Pooler','aitane@salceda.it','2777044660');
-INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico, Eliminato)
+INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico)
 VALUES (IdUtenteseq.nextval,'Cintya','Landiri',to_date('01/01/1970','DD/MM/YYYY HH24:MI:SS'),'404 Middle Turnpike West, Manchester','cintya@landiri.it','4360060778');
-INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico, Eliminato)
+INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico)
 VALUES (IdUtenteseq.nextval,'Mahalia','Gherghel',to_date('01/01/1970','DD/MM/YYYY HH24:MI:SS'),'1334 East 14th Avenue, Anchorage','mahalia@gherghel.it','1512005276');
-INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico, Eliminato)
+INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico)
 VALUES (IdUtenteseq.nextval,'Hisashi','Holzman',to_date('01/01/1970','DD/MM/YYYY HH24:MI:SS'),'1267 Martin Street, Nashville','hisashi@holzman.it','2719179043');
-INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico, Eliminato)
+INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico)
 VALUES (IdUtenteseq.nextval,'Janette','Haferung',to_date('16/07/2004','DD/MM/YYYY HH24:MI:SS'),'4511 43rd Place Northwest, Washington','janette@haferung.it','7526941660');
-INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico, Eliminato)
+INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico)
 VALUES (IdUtenteseq.nextval,'Arcadio','Pinoo',to_date('14/01/2004','DD/MM/YYYY HH24:MI:SS'),'2723 East Joyce Boulevard, Fayetteville','arcadio@pinoo.it','4329654166');
-INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico, Eliminato)
+INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico)
 VALUES (IdUtenteseq.nextval,'Antia','Cisneros',to_date('01/01/1970','DD/MM/YYYY HH24:MI:SS'),'1810 Orchard Place, Anchorage','antia@cisneros.it','5588814726');
-INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico, Eliminato)
+INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico)
 VALUES (IdUtenteseq.nextval,'Amagoya','Bostelmann',to_date('09/12/2008','DD/MM/YYYY HH24:MI:SS'),'18789 Crane Avenue, Castro Valley','amagoya@bostelmann.it','2351109956');
-INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico, Eliminato)
+INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico)
 VALUES (IdUtenteseq.nextval,'Magencia','Martinova',to_date('24/08/1993','DD/MM/YYYY HH24:MI:SS'),'5119 Marla Drive, Panama City','magencia@martinova.it','6601145088');
-INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico, Eliminato)
+INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico)
 VALUES (IdUtenteseq.nextval,'Ives','Fereira',to_date('11/07/1976','DD/MM/YYYY HH24:MI:SS'),'8801 Rosshire Drive, Louisville','ives@fereira.it','3385965767');
-INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico, Eliminato)
+INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico)
 VALUES (IdUtenteseq.nextval,'Mencia','Bodensohn',to_date('02/03/1993','DD/MM/YYYY HH24:MI:SS'),'2306 Edinburgh Drive, Montgomery','mencia@bodensohn.it','1766892805');
-INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico, Eliminato)
+INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico)
 VALUES (IdUtenteseq.nextval,'Matti','Paur',to_date('20/04/2012','DD/MM/YYYY HH24:MI:SS'),'35805 Alcazar Court, Fremont','matti@paur.it','9776505124');
-INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico, Eliminato)
+INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico)
 VALUES (IdUtenteseq.nextval,'Osmundo','Baracal',to_date('20/08/2007','DD/MM/YYYY HH24:MI:SS'),'7622 Vance Drive, Arvada','osmundo@baracal.it','7989819981');
-INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico, Eliminato)
+INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico)
 VALUES (IdUtenteseq.nextval,'Kwabena','Muthukumar',to_date('21/06/1977','DD/MM/YYYY HH24:MI:SS'),'232 Maine Avenue, Panama City','kwabena@muthukumar.it','2052624762');
-INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico, Eliminato)
+INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico)
 VALUES (IdUtenteseq.nextval,'Thurman','Hobert',to_date('10/09/1996','DD/MM/YYYY HH24:MI:SS'),'420 Cove Villa Street, Panama City Beach','thurman@hobert.it','3533609997');
-INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico, Eliminato)
+INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico)
 VALUES (IdUtenteseq.nextval,'Odin','Gliessner',to_date('01/01/2014','DD/MM/YYYY HH24:MI:SS'),'731 Mumford Street, Anchorage','odin@gliessner.it','2126053352');
-INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico, Eliminato)
+INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico)
 VALUES (IdUtenteseq.nextval,'Ribhu','Chust',to_date('11/06/1978','DD/MM/YYYY HH24:MI:SS'),'903 Mallard Creek Road, Saint Matthews','ribhu@chust.it','8698597401');
-INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico, Eliminato)
+INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico)
 VALUES (IdUtenteseq.nextval,'Chen','Kichler',to_date('20/04/1998','DD/MM/YYYY HH24:MI:SS'),'7541 Florence Circle, Anchorage','chen@kichler.it','4077696297');
-INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico, Eliminato)
+INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico)
 VALUES (IdUtenteseq.nextval,'Rosineide','De Martin',to_date('03/09/1994','DD/MM/YYYY HH24:MI:SS'),'3321 Furman Boulevard, Louisville','rosineide@demartin.it','8620577738');
-INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico, Eliminato)
+INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico)
 VALUES (IdUtenteseq.nextval,'Annabelle','Sanchez De Pablo',to_date('18/05/1986','DD/MM/YYYY HH24:MI:SS'),'2 Green Street, Underhill','annabelle@sanchezdepablo.it','5395844799');
-INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico, Eliminato)
+INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico)
 VALUES (IdUtenteseq.nextval,'Cornell','Antenbrink',to_date('05/05/1988','DD/MM/YYYY HH24:MI:SS'),'8704 Bayberry Place, Plantation','cornell@antenbrink.it','8187777102');
-INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico, Eliminato)
+INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico)
 VALUES (IdUtenteseq.nextval,'Jinyan','Taxin',to_date('06/12/1993','DD/MM/YYYY HH24:MI:SS'),'1481 Stannage Avenue, Berkeley','jinyan@taxin.it','2023513185');
-INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico, Eliminato)
+INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico)
 VALUES (IdUtenteseq.nextval,'Verdie','Caaveiro',to_date('23/12/1985','DD/MM/YYYY HH24:MI:SS'),'7085 West Northern Avenue, Glendale','verdie@caaveiro.it','9852526739');
-INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico, Eliminato)
+INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico)
 VALUES (IdUtenteseq.nextval,'Lea','Staeubert',to_date('05/07/1989','DD/MM/YYYY HH24:MI:SS'),'43 Westminster Street, Pittsfield','lea@staeubert.it','3774432407');
-INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico, Eliminato)
+INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico)
 VALUES (IdUtenteseq.nextval,'Raid','Vanderheiden',to_date('02/09/1986','DD/MM/YYYY HH24:MI:SS'),'5302 1st Street Northwest, Washington','raid@vanderheiden.it','6986024556');
-INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico, Eliminato)
+INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico)
 VALUES (IdUtenteseq.nextval,'Markita','Tschupke',to_date('06/11/2002','DD/MM/YYYY HH24:MI:SS'),'5634 Kipling Parkway, Arvada','markita@tschupke.it','5150288622');
-INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico, Eliminato)
+INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico)
 VALUES (IdUtenteseq.nextval,'Mayerlin','Reinertz',to_date('06/10/1983','DD/MM/YYYY HH24:MI:SS'),'312 North Cove Boulevard, Panama City','mayerlin@reinertz.it','5984827040');
-INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico, Eliminato)
+INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico)
 VALUES (IdUtenteseq.nextval,'Wilhelmus','Techer',to_date('24/02/2000','DD/MM/YYYY HH24:MI:SS'),'17 Elm Street, Cambridge','wilhelmus@techer.it','4812020468');
-INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico, Eliminato)
+INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico)
 VALUES (IdUtenteseq.nextval,'Elhadji','Buffa',to_date('17/09/2007','DD/MM/YYYY HH24:MI:SS'),'120 Wells Avenue, Glen Burnie','elhadji@buffa.it','8508267716');
-INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico, Eliminato)
+INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico)
 VALUES (IdUtenteseq.nextval,'Stefani','Oliveras',to_date('01/01/2014','DD/MM/YYYY HH24:MI:SS'),'7613 Yule Court, Arvada','stefani@oliveras.it','1855470885');
-INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico, Eliminato)
+INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico)
 VALUES (IdUtenteseq.nextval,'Yeni','Rotov',to_date('26/12/2006','DD/MM/YYYY HH24:MI:SS'),'1828 Ridgewick Road, Glen Burnie','yeni@rotov.it','5014888994');
-INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico, Eliminato)
+INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico)
 VALUES (IdUtenteseq.nextval,'Tingting','Jakobe',to_date('03/09/2005','DD/MM/YYYY HH24:MI:SS'),'13417 West Marlette Court, Litchfield Park','tingting@jakobe.it','6229573128');
-INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico, Eliminato)
+INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico)
 VALUES (IdUtenteseq.nextval,'Albeiro','Himmighofen',to_date('01/01/2014','DD/MM/YYYY HH24:MI:SS'),'2169 Barre Road, Hubbardston','albeiro@himmighofen.it','8748536710');
-INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico, Eliminato)
+INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico)
 VALUES (IdUtenteseq.nextval,'Fuentes','Elexaburu',to_date('22/10/2001','DD/MM/YYYY HH24:MI:SS'),'312 Northwest 90th Street, Oklahoma City','fuentes@elexaburu.it','5911768117');
-INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico, Eliminato)
+INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico)
 VALUES (IdUtenteseq.nextval,'Saeid','Tsarkov',to_date('10/08/1996','DD/MM/YYYY HH24:MI:SS'),'1623 Mines Road, Lowell','saeid@tsarkov.it','3392817565');
-INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico, Eliminato)
+INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico)
 VALUES (IdUtenteseq.nextval,'Sainza','Beser',to_date('16/10/1982','DD/MM/YYYY HH24:MI:SS'),'1497 Greenbrier Road, West Sacramento','sainza@beser.it','5491875901');
-INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico, Eliminato)
+INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico)
 VALUES (IdUtenteseq.nextval,'Haojie','Greco',to_date('17/08/2003','DD/MM/YYYY HH24:MI:SS'),'12438 West 83rd Avenue, Arvada','haojie@greco.it','3900609667');
-INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico, Eliminato)
+INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico)
 VALUES (IdUtenteseq.nextval,'GraÃ§as','Harmsen',to_date('13/07/1991','DD/MM/YYYY HH24:MI:SS'),'707 Harrisburg Drive, Davidsonville','graÃ§as@harmsen.it','1590471041');
-INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico, Eliminato)
+INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico)
 VALUES (IdUtenteseq.nextval,'An','Hasenkrug',to_date('02/07/1982','DD/MM/YYYY HH24:MI:SS'),'11 Rosewood Lane, Essex','an@hasenkrug.it','4715571662');
-INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico, Eliminato)
+INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico)
 VALUES (IdUtenteseq.nextval,'Kristi','Etxeberria',to_date('27/12/2012','DD/MM/YYYY HH24:MI:SS'),'25 Church Street, Pittsfield','kristi@etxeberria.it','1506666733');
-INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico, Eliminato)
+INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico)
 VALUES (IdUtenteseq.nextval,'Ivalin','Iturburu',to_date('06/01/1981','DD/MM/YYYY HH24:MI:SS'),'584 Rural Hill Road, Nashville','ivalin@iturburu.it','6826815005');
-INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico, Eliminato)
+INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico)
 VALUES (IdUtenteseq.nextval,'Yanara','Labaka',to_date('08/10/1978','DD/MM/YYYY HH24:MI:SS'),'7321 East Chester Heights Circle, Anchorage','yanara@labaka.it','6925661888');
-INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico, Eliminato)
+INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico)
 VALUES (IdUtenteseq.nextval,'Benigna','Gandaia',to_date('06/06/1991','DD/MM/YYYY HH24:MI:SS'),'584 Westford Street, Lowell','benigna@gandaia.it','9398109763');
-INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico, Eliminato)
+INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico)
 VALUES (IdUtenteseq.nextval,'Moaad','Claus',to_date('08/02/1999','DD/MM/YYYY HH24:MI:SS'),'5609 Colorado Avenue Northwest, Washington','moaad@claus.it','9917400013');
-INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico, Eliminato)
+INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico)
 VALUES (IdUtenteseq.nextval,'Ouafae','Castellvi',to_date('12/01/1994','DD/MM/YYYY HH24:MI:SS'),'1890 Orchard View Road, Roseville','ouafae@castellvi.it','9198070375');
-INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico, Eliminato)
+INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico)
 VALUES (IdUtenteseq.nextval,'Capitulina','Sanchon',to_date('03/10/1978','DD/MM/YYYY HH24:MI:SS'),'8447 West 51st Avenue, Arvada','capitulina@sanchon.it','7229470996');
-INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico, Eliminato)
+INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico)
 VALUES (IdUtenteseq.nextval,'Ixchel','Carabelos',to_date('13/02/1997','DD/MM/YYYY HH24:MI:SS'),'210 Beachcomber Drive, Pismo Beach','ixchel@carabelos.it','3257780527');
-INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico, Eliminato)
+INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico)
 VALUES (IdUtenteseq.nextval,'Sergejs','Rizzi',to_date('22/12/2005','DD/MM/YYYY HH24:MI:SS'),'1601 East 19th Street, Edmond','sergejs@rizzi.it','4187996817');
-INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico, Eliminato)
+INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico)
 VALUES (IdUtenteseq.nextval,'Doradia','Escamilla',to_date('22/04/1973','DD/MM/YYYY HH24:MI:SS'),'88 Pine Valley Road, Savannah','doradia@escamilla.it','8109765645');
-INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico, Eliminato)
+INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico)
 VALUES (IdUtenteseq.nextval,'Creuza','Cardoner',to_date('19/08/1984','DD/MM/YYYY HH24:MI:SS'),'7802 North Alsup Road, Litchfield Park','creuza@cardoner.it','6097709282');
-INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico, Eliminato)
+INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico)
 VALUES (IdUtenteseq.nextval,'Salek','Kappe',to_date('13/05/1995','DD/MM/YYYY HH24:MI:SS'),'11941 West 58th Avenue, Arvada','salek@kappe.it','1294618761');
-INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico, Eliminato)
+INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico)
 VALUES (IdUtenteseq.nextval,'Eusiquio','Shula',to_date('01/01/2014','DD/MM/YYYY HH24:MI:SS'),'3323 Summerhill Drive, Fayetteville','eusiquio@shula.it','5723839732');
-INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico, Eliminato)
+INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico)
 VALUES (IdUtenteseq.nextval,'Janay','Marklen',to_date('11/06/1998','DD/MM/YYYY HH24:MI:SS'),'6424 Simms Street, Arvada','janay@marklen.it','4747531561');
-INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico, Eliminato)
+INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico)
 VALUES (IdUtenteseq.nextval,'Anghelina','Pontinhas',to_date('18/01/2003','DD/MM/YYYY HH24:MI:SS'),'2815 Blueridge Place, Anchorage','anghelina@pontinhas.it','7505677965');
-INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico, Eliminato)
+INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico)
 VALUES (IdUtenteseq.nextval,'Lijuan','Minko',to_date('30/04/1992','DD/MM/YYYY HH24:MI:SS'),'890 East Skyline Drive, Fayetteville','lijuan@minko.it','4314470859');
-INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico, Eliminato)
+INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico)
 VALUES (IdUtenteseq.nextval,'Maialen','Rechtien',to_date('29/11/1987','DD/MM/YYYY HH24:MI:SS'),'207 Joe Street, Farmington','maialen@rechtien.it','3534541014');
-INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico, Eliminato)
+INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico)
 VALUES (IdUtenteseq.nextval,'Chunxiao','Stampp',to_date('13/11/1997','DD/MM/YYYY HH24:MI:SS'),'260 Park Avenue, Pooler','chunxiao@stampp.it','1481434917');
-INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico, Eliminato)
+INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico)
 VALUES (IdUtenteseq.nextval,'Fattouch','Stern',to_date('12/12/2012','DD/MM/YYYY HH24:MI:SS'),'430 Fig Street, Madera','fattouch@stern.it','3610885092');
-INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico, Eliminato)
+INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico)
 VALUES (IdUtenteseq.nextval,'Myrtie','Fiffek',to_date('27/11/1979','DD/MM/YYYY HH24:MI:SS'),'2115 Northwest 22nd Street, Oklahoma City','myrtie@fiffek.it','3266029980');
-INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico, Eliminato)
+INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico)
 VALUES (IdUtenteseq.nextval,'Wilhelmine','EscaÃ±o',to_date('12/09/1988','DD/MM/YYYY HH24:MI:SS'),'312 Westhill Avenue, Inverness','wilhelmine@escaÃ±o.it','2258499724');
-INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico, Eliminato)
+INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico)
 VALUES (IdUtenteseq.nextval,'Plinio','Moimenta',to_date('16/05/1981','DD/MM/YYYY HH24:MI:SS'),'1333 Farragut Street Northwest, Washington','plinio@moimenta.it','8331263173');
-INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico, Eliminato)
+INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico)
 VALUES (IdUtenteseq.nextval,'Salvia','Arencibia',to_date('30/12/2010','DD/MM/YYYY HH24:MI:SS'),'8821 West Myrtle Avenue, Glendale','salvia@arencibia.it','6299113443');
-INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico, Eliminato)
+INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico)
 VALUES (IdUtenteseq.nextval,'Era','Sague',to_date('19/01/2006','DD/MM/YYYY HH24:MI:SS'),'26 Wetherell Street, Manchester','era@sague.it','2977976114');
-INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico, Eliminato)
+INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico)
 VALUES (IdUtenteseq.nextval,'Fidelia','Santasusana',to_date('20/08/1985','DD/MM/YYYY HH24:MI:SS'),'2121 Stepping Stone Trail, Edmond','fidelia@santasusana.it','9361144031');
-INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico, Eliminato)
+INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico)
 VALUES (IdUtenteseq.nextval,'Christine','Steinen',to_date('01/01/1970','DD/MM/YYYY HH24:MI:SS'),'1629 South Razorback Road, Fayetteville','christine@steinen.it','4831327145');
-INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico, Eliminato)
+INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico)
 VALUES (IdUtenteseq.nextval,'Deicy','Perucha',to_date('10/08/1986','DD/MM/YYYY HH24:MI:SS'),'3613 East 18th Avenue, Anchorage','deicy@perucha.it','5404562490');
-INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico, Eliminato)
+INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico)
 VALUES (IdUtenteseq.nextval,'Hegoa','Rielo',to_date('10/10/2011','DD/MM/YYYY HH24:MI:SS'),'2927 Leatherwood Drive, Nashville','hegoa@rielo.it','6753696243');
-INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico, Eliminato)
+INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico)
 VALUES (IdUtenteseq.nextval,'Leroy','Larrachart',to_date('08/09/1994','DD/MM/YYYY HH24:MI:SS'),'3072 The Alameda, Concord','leroy@larrachart.it','9735810257');
-INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico, Eliminato)
+INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico)
 VALUES (IdUtenteseq.nextval,'Bernardine','Laroche',to_date('30/05/1999','DD/MM/YYYY HH24:MI:SS'),'3147 West Old Farmington Road, Fayetteville','bernardine@laroche.it','5001792696');
-INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico, Eliminato)
+INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico)
 VALUES (IdUtenteseq.nextval,'Frida','O Byrne',to_date('07/04/1995','DD/MM/YYYY HH24:MI:SS'),'3115 North Lake Boulevard, Tahoe City','frida@obyrne.it','5478369111');
-INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico, Eliminato)
+INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico)
 VALUES (IdUtenteseq.nextval,'Benigna','Fracassi',to_date('02/11/2001','DD/MM/YYYY HH24:MI:SS'),'908 Lodge Hill Road, Louisville','benigna@fracassi.it','5985693633');
-INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico, Eliminato)
+INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico)
 VALUES (IdUtenteseq.nextval,'Shakuntala','Piotrowsk',to_date('15/09/1997','DD/MM/YYYY HH24:MI:SS'),'7703 Laird Street, Panama City','shakuntala@piotrowsk.it','7395286995');
-INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico, Eliminato)
+INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico)
 VALUES (IdUtenteseq.nextval,'Albertha','Pemberton',to_date('18/04/2009','DD/MM/YYYY HH24:MI:SS'),'713 East 32nd Street, Savannah','albertha@pemberton.it','7019215552');
-INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico, Eliminato)
+INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico)
 VALUES (IdUtenteseq.nextval,'Eulah','Palsherm',to_date('15/02/1973','DD/MM/YYYY HH24:MI:SS'),'1622 Orchard Avenue, Louisville','eulah@palsherm.it','8940484019');
-INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico, Eliminato)
+INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico)
 VALUES (IdUtenteseq.nextval,'Procesa','Santafosta',to_date('27/10/2005','DD/MM/YYYY HH24:MI:SS'),'1233 Paradise Lane, Fayetteville','procesa@santafosta.it','7856804404');
-INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico, Eliminato)
+INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico)
 VALUES (IdUtenteseq.nextval,'Gwyn','Aboimoff',to_date('18/03/1988','DD/MM/YYYY HH24:MI:SS'),'215 9th Street Northeast, Washington','gwyn@aboimoff.it','1838805144');
-INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico, Eliminato)
+INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico)
 VALUES (IdUtenteseq.nextval,'Gertrudes','Andaloussi',to_date('12/09/2002','DD/MM/YYYY HH24:MI:SS'),'11140 West 60th Avenue, Arvada','gertrudes@andaloussi.it','7805498818');
-INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico, Eliminato)
+INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico)
 VALUES (IdUtenteseq.nextval,'Shizuko','Eijkman',to_date('27/03/1997','DD/MM/YYYY HH24:MI:SS'),'1818 Bay Street, Alameda','shizuko@eijkman.it','6017522186');
-INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico, Eliminato)
+INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico)
 VALUES (IdUtenteseq.nextval,'Sayah','Ezeiza',to_date('30/01/1998','DD/MM/YYYY HH24:MI:SS'),'481 East Redbud Lane, Fayetteville','sayah@ezeiza.it','4614591044');
-INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico, Eliminato)
+INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico)
 VALUES (IdUtenteseq.nextval,'Nandor','Ortenzi',to_date('27/07/1993','DD/MM/YYYY HH24:MI:SS'),'6101 North 60th Avenue, Glendale','nandor@ortenzi.it','1219541952');
-INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico, Eliminato)
+INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico)
 VALUES (IdUtenteseq.nextval,'Nanuli','Austerschmidt',to_date('20/07/1988','DD/MM/YYYY HH24:MI:SS'),'709 Mildred Street, Montgomery','nanuli@austerschmidt.it','3118454149');
-INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico, Eliminato)
+INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico)
 VALUES (IdUtenteseq.nextval,'Grethel','Gud',to_date('13/03/1978','DD/MM/YYYY HH24:MI:SS'),'6713 Holt Road, Nashville','grethel@gud.it','5793825463');
-INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico, Eliminato)
+INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico)
 VALUES (IdUtenteseq.nextval,'Cristea','Tostoo',to_date('17/09/1982','DD/MM/YYYY HH24:MI:SS'),'1809 Cedar Drive, Severn','cristea@tostoo.it','6543962665');
-INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico, Eliminato)
+INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico)
 VALUES (IdUtenteseq.nextval,'Rim','Jelyabovsky',to_date('10/10/2010','DD/MM/YYYY HH24:MI:SS'),'4 Glen Circle, Glen Burnie','rim@jelyabovsky.it','8793945210');
-INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico, Eliminato)
+INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico)
 VALUES (IdUtenteseq.nextval,'Ludivino','Kerstings',to_date('26/08/1990','DD/MM/YYYY HH24:MI:SS'),'5821 Taft Street, Arvada','ludivino@kerstings.it','9833548088');
-INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico, Eliminato)
+INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico)
 VALUES (IdUtenteseq.nextval,'Palwinder','Brauers',to_date('19/01/1993','DD/MM/YYYY HH24:MI:SS'),'7529 West 72nd Avenue, Arvada','palwinder@brauers.it','3924153296');
-INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico, Eliminato)
+INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico)
 VALUES (IdUtenteseq.nextval,'Airas','El Gharbi',to_date('08/09/1992','DD/MM/YYYY HH24:MI:SS'),'5242 Thornton Lane, Panama City','airas@elgharbi.it','5452188842');
-INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico, Eliminato)
+INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico)
 VALUES (IdUtenteseq.nextval,'Aritz','Fedchenkov',to_date('25/10/2009','DD/MM/YYYY HH24:MI:SS'),'295 Townes Drive, Nashville','aritz@fedchenkov.it','8548020633');
-INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico, Eliminato)
+INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico)
 VALUES (IdUtenteseq.nextval,'Lora','Pontaque',to_date('01/01/2014','DD/MM/YYYY HH24:MI:SS'),'275 Ridge Lane, Waltham','lora@pontaque.it','5441905888');
-INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico, Eliminato)
+INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico)
 VALUES (IdUtenteseq.nextval,'Kelsey','Umbelina',to_date('14/12/2001','DD/MM/YYYY HH24:MI:SS'),'13501 Vasili Drive, Anchorage','kelsey@umbelina.it','2774092679');
-INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico, Eliminato)
+INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico)
 VALUES (IdUtenteseq.nextval,'Silvio','Maustegui',to_date('20/10/2002','DD/MM/YYYY HH24:MI:SS'),'30 Windermere Drive, Agawam','silvio@maustegui.it','9282927758');
-INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico, Eliminato)
+INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico)
 VALUES (IdUtenteseq.nextval,'Ermes','Martirena',to_date('16/06/1982','DD/MM/YYYY HH24:MI:SS'),'2455 Manchester Drive, The Village','ermes@martirena.it','7076188172');
-INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico, Eliminato)
+INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico)
 VALUES (IdUtenteseq.nextval,'Hannibal','Oneca',to_date('28/12/2007','DD/MM/YYYY HH24:MI:SS'),'721 Bay Ridge Avenue, Annapolis','hannibal@oneca.it','8313208117');
-INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico, Eliminato)
+INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico)
 VALUES (IdUtenteseq.nextval,'Luigia','Hiscocks',to_date('24/06/1984','DD/MM/YYYY HH24:MI:SS'),'180 Intervale Avenue, Burlington','luigia@hiscocks.it','3092138385');
-INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico, Eliminato)
+INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico)
 VALUES (IdUtenteseq.nextval,'Duvan','Elansky',to_date('28/09/2007','DD/MM/YYYY HH24:MI:SS'),'1426 C Street Southeast, Washington','duvan@elansky.it','4228376022');
-INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico, Eliminato)
+INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico)
 VALUES (IdUtenteseq.nextval,'Roberts','Brodt',to_date('30/10/1990','DD/MM/YYYY HH24:MI:SS'),'915 Sacramento Street, Bakersfield','roberts@brodt.it','2374756484');
-INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico, Eliminato)
+INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico)
 VALUES (IdUtenteseq.nextval,'Zarina','Westermeyr',to_date('01/01/2014','DD/MM/YYYY HH24:MI:SS'),'3313 Daisy Trail, Nashville','zarina@westermeyr.it','4746319651');
-INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico, Eliminato)
+INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico)
 VALUES (IdUtenteseq.nextval,'Queen','Perlaza',to_date('30/12/1972','DD/MM/YYYY HH24:MI:SS'),'1125 West 41st Street, Savannah','queen@perlaza.it','9576802815');
-INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico, Eliminato)
+INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico)
 VALUES (IdUtenteseq.nextval,'Abdelfatah','Berton',to_date('20/05/2006','DD/MM/YYYY HH24:MI:SS'),'5805 Armada Drive, Carlsbad','abdelfatah@berton.it','5745924176');
-INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico, Eliminato)
+INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico)
 VALUES (IdUtenteseq.nextval,'Willi','Kambhatla',to_date('13/05/1987','DD/MM/YYYY HH24:MI:SS'),'5039 North 57th Avenue, Glendale','willi@kambhatla.it','1903656264');
-INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico, Eliminato)
+INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico)
 VALUES (IdUtenteseq.nextval,'Apolinario','Dittberner',to_date('27/02/1988','DD/MM/YYYY HH24:MI:SS'),'12546 West Montebello Avenue, Litchfield Park','apolinario@dittberner.it','5231907547');
-INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico, Eliminato)
+INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico)
 VALUES (IdUtenteseq.nextval,'Chun','Gorgemanns',to_date('06/05/1994','DD/MM/YYYY HH24:MI:SS'),'21 Carver Lane, Manchester','chun@gorgemanns.it','7509308946');
-INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico, Eliminato)
+INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico)
 VALUES (IdUtenteseq.nextval,'Shuyi','Ubeda',to_date('29/03/1982','DD/MM/YYYY HH24:MI:SS'),'100 Lake Forest Drive, Montgomery','shuyi@ubeda.it','6103108022');
-INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico, Eliminato)
+INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico)
 VALUES (IdUtenteseq.nextval,'Estefani','Verstege',to_date('01/01/1970','DD/MM/YYYY HH24:MI:SS'),'23 Whitcomb Street, Springfield','estefani@verstege.it','3569037021');
-INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico, Eliminato)
+INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico)
 VALUES (IdUtenteseq.nextval,'Catherin','Fornes',to_date('06/12/1978','DD/MM/YYYY HH24:MI:SS'),'1501 New Hampshire Avenue, Lynn Haven','catherin@fornes.it','1368389493');
-INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico, Eliminato)
+INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico)
 VALUES (IdUtenteseq.nextval,'Riham','MiÃ±ana',to_date('20/04/1987','DD/MM/YYYY HH24:MI:SS'),'704 Crescent Road, Nashville','riham@miÃ±ana.it','8299204254');
-INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico, Eliminato)
+INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico)
 VALUES (IdUtenteseq.nextval,'Nana','Twisselmann',to_date('01/01/1970','DD/MM/YYYY HH24:MI:SS'),'46710 Crawford Street, Fremont','nana@twisselmann.it','5771470085');
-INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico, Eliminato)
+INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico)
 VALUES (IdUtenteseq.nextval,'Yufeng','Olschlager',to_date('21/01/1988','DD/MM/YYYY HH24:MI:SS'),'1304 Southwest 67th Street, Oklahoma City','yufeng@olschlager.it','5327415564');
-INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico, Eliminato)
+INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico)
 VALUES (IdUtenteseq.nextval,'Karima','Weusten',to_date('23/02/2001','DD/MM/YYYY HH24:MI:SS'),'2531 Prestwick Avenue, Concord','karima@weusten.it','6761982767');
-INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico, Eliminato)
+INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico)
 VALUES (IdUtenteseq.nextval,'Feng','Pucci',to_date('01/04/1991','DD/MM/YYYY HH24:MI:SS'),'5205 West Thunderbird Road, Glendale','feng@pucci.it','8453133411');
-INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico, Eliminato)
+INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico)
 VALUES (IdUtenteseq.nextval,'Nugzar','Wituck',to_date('01/01/2014','DD/MM/YYYY HH24:MI:SS'),'3142 West Finger Road, Fayetteville','nugzar@wituck.it','1919840410');
-INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico, Eliminato)
+INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico)
 VALUES (IdUtenteseq.nextval,'Maelle','Beenken',to_date('11/12/1999','DD/MM/YYYY HH24:MI:SS'),'37 East Broad Street, Savannah','maelle@beenken.it','2077782347');
-INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico, Eliminato)
+INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico)
 VALUES (IdUtenteseq.nextval,'Laverna','Edenhofer',to_date('10/08/1978','DD/MM/YYYY HH24:MI:SS'),'2511 Hearst Avenue, Berkeley','laverna@edenhofer.it','4998329106');
-INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico, Eliminato)
+INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico)
 VALUES (IdUtenteseq.nextval,'Greisy','Uzes',to_date('01/01/2014','DD/MM/YYYY HH24:MI:SS'),'1938 Arcadian Street, Savannah','greisy@uzes.it','7052780365');
-INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico, Eliminato)
+INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico)
 VALUES (IdUtenteseq.nextval,'Naufal','Pfefferer',to_date('03/10/1986','DD/MM/YYYY HH24:MI:SS'),'264 River Road, Richmond','naufal@pfefferer.it','4952679333');
-INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico, Eliminato)
+INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico)
 VALUES (IdUtenteseq.nextval,'Jugatx','Altfeld',to_date('15/05/1989','DD/MM/YYYY HH24:MI:SS'),'182 Regency Circle, Pooler','jugatx@altfeld.it','5942157154');
-INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico, Eliminato)
+INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico)
 VALUES (IdUtenteseq.nextval,'Shiva','Rumel',to_date('18/12/1985','DD/MM/YYYY HH24:MI:SS'),'736 Sicard Street Southeast, Washington','shiva@rumel.it','8040530503');
-INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico, Eliminato)
+INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico)
 VALUES (IdUtenteseq.nextval,'Andrzej','Finkes',to_date('10/05/1992','DD/MM/YYYY HH24:MI:SS'),'5415 Frank Hough Road, Panama City','andrzej@finkes.it','5456564626');
-INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico, Eliminato)
+INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico)
 VALUES (IdUtenteseq.nextval,'Rogeli','Floro',to_date('13/10/2003','DD/MM/YYYY HH24:MI:SS'),'4432 Cobalt Drive, Harwood','rogeli@floro.it','8653654202');
-INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico, Eliminato)
+INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico)
 VALUES (IdUtenteseq.nextval,'Dilia','Calvo',to_date('01/01/2014','DD/MM/YYYY HH24:MI:SS'),'201 West Street, Annapolis','dilia@calvo.it','1333107494');
-INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico, Eliminato)
+INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico)
 VALUES (IdUtenteseq.nextval,'Dulcinea','Quartararo',to_date('16/12/1980','DD/MM/YYYY HH24:MI:SS'),'819 Beazer Lane, Nashville','dulcinea@quartararo.it','8019070089');
-INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico, Eliminato)
+INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico)
 VALUES (IdUtenteseq.nextval,'Eldar','Niggemeier',to_date('17/03/1998','DD/MM/YYYY HH24:MI:SS'),'10202 North 51st Drive, Glendale','eldar@niggemeier.it','6251084670');
-INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico, Eliminato)
+INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico)
 VALUES (IdUtenteseq.nextval,'Jony','Imschloss',to_date('12/11/1976','DD/MM/YYYY HH24:MI:SS'),'2209 June Drive, Nashville','jony@imschloss.it','7284215895');
-INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico, Eliminato)
+INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico)
 VALUES (IdUtenteseq.nextval,'Maqsood','Jankovsky',to_date('12/07/1992','DD/MM/YYYY HH24:MI:SS'),'12725 Landmark Street, Anchorage','maqsood@jankovsky.it','1043199109');
-INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico, Eliminato)
+INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico)
 VALUES (IdUtenteseq.nextval,'Dari','Viruez',to_date('01/01/2014','DD/MM/YYYY HH24:MI:SS'),'5644 Kipling Parkway, Arvada','dari@viruez.it','1089580672');
-INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico, Eliminato)
+INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico)
 VALUES (IdUtenteseq.nextval,'Arancha','Abello',to_date('28/10/1984','DD/MM/YYYY HH24:MI:SS'),'1607 Louisiana Avenue, Panama City','arancha@abello.it','3373569522');
-INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico, Eliminato)
+INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico)
 VALUES (IdUtenteseq.nextval,'Savita','Fabado',to_date('01/01/1970','DD/MM/YYYY HH24:MI:SS'),'3104 Southwest 46th Street, Oklahoma City','savita@fabado.it','5351609220');
-INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico, Eliminato)
+INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico)
 VALUES (IdUtenteseq.nextval,'Ottavio','Lafraya',to_date('15/10/1981','DD/MM/YYYY HH24:MI:SS'),'188 Saint Matthews Avenue, Louisville','ottavio@lafraya.it','7227783096');
-INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico, Eliminato)
+INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico)
 VALUES (IdUtenteseq.nextval,'Ismary','Hachaturyan',to_date('19/02/2009','DD/MM/YYYY HH24:MI:SS'),'32 Prospect Street, Manchester','ismary@hachaturyan.it','8740076548');
-INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico, Eliminato)
+INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico)
 VALUES (IdUtenteseq.nextval,'Nisar','Heitel',to_date('28/11/1993','DD/MM/YYYY HH24:MI:SS'),'9 Brooklyn Street','nisar@heitel.it','3900075483');
-INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico, Eliminato)
+INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico)
 VALUES (IdUtenteseq.nextval,'Waly','Hackenschmied',to_date('21/12/1988','DD/MM/YYYY HH24:MI:SS'),'189 Danforth Street, Framingham','waly@hackenschmied.it','5869304624');
-INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico, Eliminato)
+INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico)
 VALUES (IdUtenteseq.nextval,'Aia','Eirinha',to_date('07/10/1975','DD/MM/YYYY HH24:MI:SS'),'355 Gillette Road, Nashville','aia@eirinha.it','9186900366');
-INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico, Eliminato)
+INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico)
 VALUES (IdUtenteseq.nextval,'Rocky','Ryjanov',to_date('27/03/1987','DD/MM/YYYY HH24:MI:SS'),'24 Norman Street, Salem','rocky@ryjanov.it','7507920979');
-INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico, Eliminato)
+INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico)
 VALUES (IdUtenteseq.nextval,'Marylou','Ruhmland',to_date('02/04/2000','DD/MM/YYYY HH24:MI:SS'),'25 Cliffside Drive, Manchester','marylou@ruhmland.it','3936848175');
-INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico, Eliminato)
+INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico)
 VALUES (IdUtenteseq.nextval,'Ur','CaiÃ±a',to_date('11/01/2001','DD/MM/YYYY HH24:MI:SS'),'3337 Woodpark Court, Montgomery','ur@caiÃ±a.it','8620018854');
-INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico, Eliminato)
+INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico)
 VALUES (IdUtenteseq.nextval,'Pinar','Palles',to_date('02/01/1994','DD/MM/YYYY HH24:MI:SS'),'141 West Leslie Lane, Panama City Beach','pinar@palles.it','2352514057');
-INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico, Eliminato)
+INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico)
 VALUES (IdUtenteseq.nextval,'Sumon','Atterbury',to_date('29/11/1980','DD/MM/YYYY HH24:MI:SS'),'1708 Melody Drive, Midwest City','sumon@atterbury.it','2174191001');
-INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico, Eliminato)
+INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico)
 VALUES (IdUtenteseq.nextval,'Lahbib','Szardowsk',to_date('15/12/1997','DD/MM/YYYY HH24:MI:SS'),'7 Maple Hill Road, Aquinnah','lahbib@szardowsk.it','9210361901');
-INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico, Eliminato)
+INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico)
 VALUES (IdUtenteseq.nextval,'Cecila','Nowack',to_date('13/03/1996','DD/MM/YYYY HH24:MI:SS'),'1079 East Kentucky Street, Louisville','cecila@nowack.it','5620736469');
-INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico, Eliminato)
+INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico)
 VALUES (IdUtenteseq.nextval,'Amando','Rossello',to_date('01/01/2014','DD/MM/YYYY HH24:MI:SS'),'152 Teddy Drive, Union City','amando@rossello.it','2923476598');
-INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico, Eliminato)
+INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico)
 VALUES (IdUtenteseq.nextval,'Klaus','Latadi',to_date('01/01/1990','DD/MM/YYYY HH24:MI:SS'),'1217 Bay Street, Tybee Island','klaus@latadi.it','8103325502');
-INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico, Eliminato)
+INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico)
 VALUES (IdUtenteseq.nextval,'Muhamadou','Kempp',to_date('20/04/1982','DD/MM/YYYY HH24:MI:SS'),'1004 Bellflower Street, Livermore','muhamadou@kempp.it','9348573767');
-INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico, Eliminato)
+INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico)
 VALUES (IdUtenteseq.nextval,'Lajos','Usabiaga',to_date('23/11/1988','DD/MM/YYYY HH24:MI:SS'),'5024 West Christy Drive, Glendale','lajos@usabiaga.it','7679435346');
-INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico, Eliminato)
+INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico)
 VALUES (IdUtenteseq.nextval,'Amiee','Corrente',to_date('24/02/2005','DD/MM/YYYY HH24:MI:SS'),'43 Henderson Avenue, Savannah','amiee@corrente.it','3126881360');
-INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico, Eliminato)
+INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico)
 VALUES (IdUtenteseq.nextval,'Friday','Bockhofer',to_date('26/06/1984','DD/MM/YYYY HH24:MI:SS'),'11515 Leemont Drive, Louisville','friday@bockhofer.it','3260225405');
-INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico, Eliminato)
+INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico)
 VALUES (IdUtenteseq.nextval,'Crispina','Vohberger',to_date('08/01/1976','DD/MM/YYYY HH24:MI:SS'),'64 Church Street, Hardwick','crispina@vohberger.it','3972346987');
-INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico, Eliminato)
+INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico)
 VALUES (IdUtenteseq.nextval,'Oscar','Hillbig',to_date('01/01/2014','DD/MM/YYYY HH24:MI:SS'),'3904 Martagon Circle, Anchorage','oscar@hillbig.it','7278235874');
-INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico, Eliminato)
+INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico)
 VALUES (IdUtenteseq.nextval,'Joselin','Sehrin',to_date('17/06/2000','DD/MM/YYYY HH24:MI:SS'),'179 Blue Ridge Drive, Manchester','joselin@sehrin.it','5112717036');
-INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico, Eliminato)
+INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico)
 VALUES (IdUtenteseq.nextval,'Diocelina','Dibus',to_date('28/04/1995','DD/MM/YYYY HH24:MI:SS'),'1841 Logan Street, Anchorage','diocelina@dibus.it','9559081914');
-INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico, Eliminato)
+INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico)
 VALUES (IdUtenteseq.nextval,'Mustafa','Winklharrer',to_date('25/05/1977','DD/MM/YYYY HH24:MI:SS'),'535 Saddlewood Lane, Montgomery','mustafa@winklharrer.it','6051534565');
-INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico, Eliminato)
+INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico)
 VALUES (IdUtenteseq.nextval,'Fauzi','Woehrl',to_date('21/03/1991','DD/MM/YYYY HH24:MI:SS'),'463 East Rutgers Loop, Montgomery','fauzi@woehrl.it','4757317984');
-INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico, Eliminato)
+INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico)
 VALUES (IdUtenteseq.nextval,'Apolinario','Saile',to_date('29/05/1974','DD/MM/YYYY HH24:MI:SS'),'1109 East 35th Street, Savannah','apolinario@saile.it','4344840253');
-INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico, Eliminato)
+INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico)
 VALUES (IdUtenteseq.nextval,'Ouisal','Maustegui',to_date('05/06/1996','DD/MM/YYYY HH24:MI:SS'),'2106 Standard Avenue, Louisville','ouisal@maustegui.it','5241354601');
-INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico, Eliminato)
+INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico)
 VALUES (IdUtenteseq.nextval,'Jiancheng','Campesino',to_date('05/06/1986','DD/MM/YYYY HH24:MI:SS'),'467 North Mountain Ranch Road, Fayetteville','jiancheng@campesino.it','6942461372');
-INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico, Eliminato)
+INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico)
 VALUES (IdUtenteseq.nextval,'Zhirong','Bivolaru',to_date('18/12/1985','DD/MM/YYYY HH24:MI:SS'),'200 Edson Road, Windham','zhirong@bivolaru.it','3054654994');
-INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico, Eliminato)
+INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico)
 VALUES (IdUtenteseq.nextval,'Aurkene','Lezov',to_date('01/01/2014','DD/MM/YYYY HH24:MI:SS'),'5038 North Cimarron Drive, Beverly Hills','aurkene@lezov.it','6640459453');
-INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico, Eliminato)
+INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico)
 VALUES (IdUtenteseq.nextval,'Akilah','Lasfar',to_date('18/11/2000','DD/MM/YYYY HH24:MI:SS'),'5644 Kipling Parkway, Arvada','akilah@lasfar.it','8653360002');
-INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico, Eliminato)
+INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico)
 VALUES (IdUtenteseq.nextval,'Willette','Mojaikin',to_date('08/10/2009','DD/MM/YYYY HH24:MI:SS'),'1226 Blossom Circle, Livermore','willette@mojaikin.it','2648943040');
-INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico, Eliminato)
+INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico)
 VALUES (IdUtenteseq.nextval,'Yufang','Jaishree',to_date('02/12/1987','DD/MM/YYYY HH24:MI:SS'),'2511 Hearst Avenue, Berkeley','yufang@jaishree.it','6065729395');
-INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico, Eliminato)
+INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico)
 VALUES (IdUtenteseq.nextval,'Elvita','Kerrison',to_date('25/12/1992','DD/MM/YYYY HH24:MI:SS'),'14003 Crossbranch Court, Louisville','elvita@kerrison.it','5539528779');
-INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico, Eliminato)
+INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico)
 VALUES (IdUtenteseq.nextval,'Estell','Cedillo',to_date('10/03/1982','DD/MM/YYYY HH24:MI:SS'),'386 Pratt Road','estell@cedillo.it','1059799258');
-INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico, Eliminato)
+INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico)
 VALUES (IdUtenteseq.nextval,'Courtney','Minniahmetov',to_date('01/01/1970','DD/MM/YYYY HH24:MI:SS'),'578 Vermont 30, Newfane','courtney@minniahmetov.it','2181687660');
-INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico, Eliminato)
+INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico)
 VALUES (IdUtenteseq.nextval,'Reza','Schoen',to_date('08/03/1993','DD/MM/YYYY HH24:MI:SS'),'12 Winter Street, Manchester','reza@schoen.it','7189868189');
-INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico, Eliminato)
+INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico)
 VALUES (IdUtenteseq.nextval,'Dmitriy','Tocha',to_date('20/06/2002','DD/MM/YYYY HH24:MI:SS'),'5157 West Kerry Lane, Glendale','dmitriy@tocha.it','7715968328');
-INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico, Eliminato)
+INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico)
 VALUES (IdUtenteseq.nextval,'Lama','Tojal',to_date('23/08/1999','DD/MM/YYYY HH24:MI:SS'),'2309 Stearns Hill Road, Waltham','lama@tojal.it','6761041948');
-INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico, Eliminato)
+INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico)
 VALUES (IdUtenteseq.nextval,'Kamilia','Hlavsa',to_date('17/10/1983','DD/MM/YYYY HH24:MI:SS'),'720 East Muhammad Ali Boulevard, Louisville','kamilia@hlavsa.it','3771445891');
-INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico, Eliminato)
+INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico)
 VALUES (IdUtenteseq.nextval,'Jiarui','Nova',to_date('10/11/1973','DD/MM/YYYY HH24:MI:SS'),'5624 Oakes Drive, Brentwood','jiarui@nova.it','2945203661');
-INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico, Eliminato)
+INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico)
 VALUES (IdUtenteseq.nextval,'Rym','Kujaw',to_date('01/01/2014','DD/MM/YYYY HH24:MI:SS'),'649 South 41st Street, Louisville','rym@kujaw.it','3653432403');
-INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico, Eliminato)
+INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico)
 VALUES (IdUtenteseq.nextval,'Bacar','Mukin',to_date('13/11/1997','DD/MM/YYYY HH24:MI:SS'),'1363 Dean Forest Road, Savannah','bacar@mukin.it','2250729366');
-INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico, Eliminato)
+INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico)
 VALUES (IdUtenteseq.nextval,'Hermelando','Marck',to_date('01/01/2014','DD/MM/YYYY HH24:MI:SS'),'8772 West 79th Avenue, Arvada','hermelando@marck.it','3207606160');
-INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico, Eliminato)
+INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico)
 VALUES (IdUtenteseq.nextval,'Armin','Sergeira',to_date('01/01/1970','DD/MM/YYYY HH24:MI:SS'),'3808 Richland Avenue, Nashville','armin@sergeira.it','4796098926');
-INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico, Eliminato)
+INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico)
 VALUES (IdUtenteseq.nextval,'Osaro','Maudes',to_date('05/05/1995','DD/MM/YYYY HH24:MI:SS'),'109 High Street, Manchester','osaro@maudes.it','6888675995');
-INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico, Eliminato)
+INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico)
 VALUES (IdUtenteseq.nextval,'Pawel','Machimbarrena',to_date('27/06/2005','DD/MM/YYYY HH24:MI:SS'),'47634 Kato Road, Fremont','pawel@machimbarrena.it','3126459676');
-INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico, Eliminato)
+INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico)
 VALUES (IdUtenteseq.nextval,'Lavinia','Gervik',to_date('27/08/1986','DD/MM/YYYY HH24:MI:SS'),'1745 T Street Southeast, Washington','lavinia@gervik.it','1350252738');
-INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico, Eliminato)
+INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico)
 VALUES (IdUtenteseq.nextval,'Lashawnda','Novy Novy',to_date('01/01/1992','DD/MM/YYYY HH24:MI:SS'),'141 West Leslie Lane, Panama City Beach','lashawnda@novynovy.it','1845504266');
-INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico, Eliminato)
+INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico)
 VALUES (IdUtenteseq.nextval,'Alianza','Schmidmuller',to_date('04/05/1993','DD/MM/YYYY HH24:MI:SS'),'940 Ironwood Drive, Montgomery','alianza@schmidmuller.it','8462133698');
-INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico, Eliminato)
+INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico)
 VALUES (IdUtenteseq.nextval,'Gintautas','Olabarri',to_date('29/08/2004','DD/MM/YYYY HH24:MI:SS'),'747 West Pacific Avenue, Telluride','gintautas@olabarri.it','2624520623');
-INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico, Eliminato)
+INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico)
 VALUES (IdUtenteseq.nextval,'Rquia','Dale',to_date('11/09/1982','DD/MM/YYYY HH24:MI:SS'),'1124 Bluewillow Court, Nashville','rquia@dale.it','4790506655');
-INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico, Eliminato)
+INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico)
 VALUES (IdUtenteseq.nextval,'Ortansa','Arana',to_date('02/09/1999','DD/MM/YYYY HH24:MI:SS'),'200 Hialeah Drive, Glen Burnie','ortansa@arana.it','2644153931');
-INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico, Eliminato)
+INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico)
 VALUES (IdUtenteseq.nextval,'Savu','Evain',to_date('09/12/1999','DD/MM/YYYY HH24:MI:SS'),'2100 Sandy Creek Trail, Edmond','savu@evain.it','8128969781');
-INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico, Eliminato)
+INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico)
 VALUES (IdUtenteseq.nextval,'Pape','Inson',to_date('16/08/1990','DD/MM/YYYY HH24:MI:SS'),'915 Sacramento Street, Bakersfield','pape@inson.it','4769721220');
-INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico, Eliminato)
+INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico)
 VALUES (IdUtenteseq.nextval,'Ausencia','Olaondo',to_date('07/08/1974','DD/MM/YYYY HH24:MI:SS'),'510 Leeanne Drive, Nashville','ausencia@olaondo.it','5335736047');
-INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico, Eliminato)
+INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico)
 VALUES (IdUtenteseq.nextval,'Safietou','Nageshwara',to_date('08/12/2008','DD/MM/YYYY HH24:MI:SS'),'8886 West 77th Circle, Arvada','safietou@nageshwara.it','4841454415');
-INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico, Eliminato)
+INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico)
 VALUES (IdUtenteseq.nextval,'Lide','Wiemers',to_date('03/12/2008','DD/MM/YYYY HH24:MI:SS'),'2534 Willena Avenue, Montgomery','lide@wiemers.it','1379924269');
-INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico, Eliminato)
+INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico)
 VALUES (IdUtenteseq.nextval,'Stelu','Anzimirov',to_date('11/07/1982','DD/MM/YYYY HH24:MI:SS'),'3 Dayton Street, Chelmsford','stelu@anzimirov.it','3249385846');
-INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico, Eliminato)
+INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico)
 VALUES (IdUtenteseq.nextval,'Xiaowu','Borregan',to_date('01/06/1980','DD/MM/YYYY HH24:MI:SS'),'1820 22nd Street Southeast, Washington','xiaowu@borregan.it','6995914256');
-INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico, Eliminato)
+INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico)
 VALUES (IdUtenteseq.nextval,'Lucilla','Pangert',to_date('01/01/1970','DD/MM/YYYY HH24:MI:SS'),'225 Kennedy Road, Manchester','lucilla@pangert.it','1973192348');
-INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico, Eliminato)
+INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico)
 VALUES (IdUtenteseq.nextval,'Xiaojun','Jarquin',to_date('01/10/2002','DD/MM/YYYY HH24:MI:SS'),'40 Strawberry Lane, Manchester','xiaojun@jarquin.it','7578093056');
-INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico, Eliminato)
+INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico)
 VALUES (IdUtenteseq.nextval,'Steluta','Liccardo',to_date('10/09/1975','DD/MM/YYYY HH24:MI:SS'),'1828 Ridgewick Road, Glen Burnie','steluta@liccardo.it','6169337991');
-INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico, Eliminato)
+INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico)
 VALUES (IdUtenteseq.nextval,'Asjid','Noberto',to_date('20/01/1979','DD/MM/YYYY HH24:MI:SS'),'3526 Sutton Loop, Fremont','asjid@noberto.it','1928017311');
-INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico, Eliminato)
+INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico)
 VALUES (IdUtenteseq.nextval,'Celio','Paper',to_date('12/02/2008','DD/MM/YYYY HH24:MI:SS'),'3302 Woodland Park Drive, Anchorage','celio@paper.it','7447800046');
-INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico, Eliminato)
+INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico)
 VALUES (IdUtenteseq.nextval,'Gil','Keerthana',to_date('03/06/1990','DD/MM/YYYY HH24:MI:SS'),'8934 Arrowrock Trail, Smartsville','gil@keerthana.it','6355381967');
-INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico, Eliminato)
+INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico)
 VALUES (IdUtenteseq.nextval,'Arslan','Grizodubov',to_date('02/04/1988','DD/MM/YYYY HH24:MI:SS'),'114 Middle Road','arslan@grizodubov.it','6870870515');
-INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico, Eliminato)
+INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico)
 VALUES (IdUtenteseq.nextval,'Gustau','Erez',to_date('11/12/1994','DD/MM/YYYY HH24:MI:SS'),'7701 Southwest 104th Street, Oklahoma City','gustau@erez.it','1477406701');
-INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico, Eliminato)
+INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico)
 VALUES (IdUtenteseq.nextval,'Gueorgui','Johannmeier',to_date('26/10/1978','DD/MM/YYYY HH24:MI:SS'),'1226 Blossom Circle, Livermore','gueorgui@johannmeier.it','1722828770');
-INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico, Eliminato)
+INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico)
 VALUES (IdUtenteseq.nextval,'Salimata','Gallofre',to_date('15/04/1987','DD/MM/YYYY HH24:MI:SS'),'208 Kinnaird Lane, Louisville','salimata@gallofre.it','1997843636');
-INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico, Eliminato)
+INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico)
 VALUES (IdUtenteseq.nextval,'Taysir','Melia',to_date('26/08/1970','DD/MM/YYYY HH24:MI:SS'),'921 5th Street Southeast, Washington','taysir@melia.it','7612252866');
-INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico, Eliminato)
+INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico)
 VALUES (IdUtenteseq.nextval,'Yutong','Ercole',to_date('26/12/2002','DD/MM/YYYY HH24:MI:SS'),'6231 North 59th Avenue, Glendale','yutong@ercole.it','7258307133');
-INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico, Eliminato)
+INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico)
 VALUES (IdUtenteseq.nextval,'Aimad','Taveras',to_date('06/06/2003','DD/MM/YYYY HH24:MI:SS'),'1129 I Street, Anchorage','aimad@taveras.it','9154743990');
-INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico, Eliminato)
+INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico)
 VALUES (IdUtenteseq.nextval,'Set','Gilete',to_date('05/04/2005','DD/MM/YYYY HH24:MI:SS'),'16 Redbud Way, Marlborough','set@gilete.it','6780834425');
-INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico, Eliminato)
+INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico)
 VALUES (IdUtenteseq.nextval,'Saliou','Erustes',to_date('29/11/1980','DD/MM/YYYY HH24:MI:SS'),'618 Staley Avenue, Hayward','saliou@erustes.it','8373943345');
-INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico, Eliminato)
+INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico)
 VALUES (IdUtenteseq.nextval,'Lluvia','De Roca',to_date('22/01/1998','DD/MM/YYYY HH24:MI:SS'),'4400 Vaneto Drive, Louisville','lluvia@deroca.it','6574563717');
-INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico, Eliminato)
+INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico)
 VALUES (IdUtenteseq.nextval,'Todorova','Dinis',to_date('04/07/1995','DD/MM/YYYY HH24:MI:SS'),'103 Aspen Place Northeast, Calhoun','todorova@dinis.it','6904823038');
-INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico, Eliminato)
+INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico)
 VALUES (IdUtenteseq.nextval,'Angelov','Termuhlen',to_date('13/12/2003','DD/MM/YYYY HH24:MI:SS'),'4725 Royal Oak Drive, Oklahoma City','angelov@termuhlen.it','9991763371');
-INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico, Eliminato)
+INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico)
 VALUES (IdUtenteseq.nextval,'Vasilka','Torborg',to_date('16/12/1974','DD/MM/YYYY HH24:MI:SS'),'6610 North 93rd Avenue, Glendale','vasilka@torborg.it','8091776738');
-INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico, Eliminato)
+INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico)
 VALUES (IdUtenteseq.nextval,'Adelaide','Nandini',to_date('16/05/2002','DD/MM/YYYY HH24:MI:SS'),'736 Middle Turnpike East, Manchester','adelaide@nandini.it','7110738574');
-INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico, Eliminato)
+INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico)
 VALUES (IdUtenteseq.nextval,'Marvella','Steuber',to_date('17/07/2013','DD/MM/YYYY HH24:MI:SS'),'717 Joseph Avenue, Nashville','marvella@steuber.it','6367990863');
-INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico, Eliminato)
+INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico)
 VALUES (IdUtenteseq.nextval,'Fatoumata','Speishandler',to_date('27/04/1980','DD/MM/YYYY HH24:MI:SS'),'1026 Orchard Avenue, Louisville','fatoumata@speishandler.it','3379184852');
-INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico, Eliminato)
+INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico)
 VALUES (IdUtenteseq.nextval,'Laquita','Purroy',to_date('07/01/2012','DD/MM/YYYY HH24:MI:SS'),'829 Dunbarton Road, Montgomery','laquita@purroy.it','7619287832');
-INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico, Eliminato)
+INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico)
 VALUES (IdUtenteseq.nextval,'Rilma','Fleming',to_date('27/05/1976','DD/MM/YYYY HH24:MI:SS'),'615 Long Hunter Court, Nashville','rilma@fleming.it','9825309752');
-INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico, Eliminato)
+INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico)
 VALUES (IdUtenteseq.nextval,'Saleck','Frau',to_date('01/03/2002','DD/MM/YYYY HH24:MI:SS'),'17 Hillcrest Road, Rutland','saleck@frau.it','1718011240');
-INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico, Eliminato)
+INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico)
 VALUES (IdUtenteseq.nextval,'Castorina','Shamsutdinov',to_date('01/01/2014','DD/MM/YYYY HH24:MI:SS'),'57 Hidden Lake Court, Savannah','castorina@shamsutdinov.it','7509134988');
-INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico, Eliminato)
+INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico)
 VALUES (IdUtenteseq.nextval,'Musa','Honecker',to_date('05/10/1999','DD/MM/YYYY HH24:MI:SS'),'416 South University Boulevard, Norman','musa@honecker.it','7354388669');
-INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico, Eliminato)
+INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico)
 VALUES (IdUtenteseq.nextval,'Krystyna','Gorri',to_date('02/03/1985','DD/MM/YYYY HH24:MI:SS'),'6672 Urban Court, Arvada','krystyna@gorri.it','7342517641');
-INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico, Eliminato)
+INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico)
 VALUES (IdUtenteseq.nextval,'Oussama','Derenthal',to_date('19/08/1994','DD/MM/YYYY HH24:MI:SS'),'6234 West 68th Circle, Arvada','oussama@derenthal.it','3927606788');
-INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico, Eliminato)
+INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico)
 VALUES (IdUtenteseq.nextval,'Ivanov','Subas',to_date('13/04/1985','DD/MM/YYYY HH24:MI:SS'),'147 Willow Ridge Lane, Indian Springs Village','ivanov@subas.it','1957596571');
-INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico, Eliminato)
+INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico)
 VALUES (IdUtenteseq.nextval,'Iren','Lazzaroni',to_date('01/01/2014','DD/MM/YYYY HH24:MI:SS'),'1497 Greenbrier Road, West Sacramento','iren@lazzaroni.it','1459484520');
-INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico, Eliminato)
+INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico)
 VALUES (IdUtenteseq.nextval,'Deepak','Bonomo',to_date('02/07/1989','DD/MM/YYYY HH24:MI:SS'),'618 Staley Avenue, Hayward','deepak@bonomo.it','4274262496');
-INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico, Eliminato)
+INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico)
 VALUES (IdUtenteseq.nextval,'Elixabete','Azarloza',to_date('26/12/1975','DD/MM/YYYY HH24:MI:SS'),'4132 Carmichael Road, Montgomery','elixabete@azarloza.it','7403304604');
-INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico, Eliminato)
+INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico)
 VALUES (IdUtenteseq.nextval,'Sinivali','Cotte',to_date('12/08/2012','DD/MM/YYYY HH24:MI:SS'),'8188 Poinsett Terrace, Pasadena','sinivali@cotte.it','7761140881');
-INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico, Eliminato)
+INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico)
 VALUES (IdUtenteseq.nextval,'Oria','Hawley',to_date('12/09/1970','DD/MM/YYYY HH24:MI:SS'),'6687 Xenon Drive, Arvada','oria@hawley.it','7632068536');
-INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico, Eliminato)
+INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico)
 VALUES (IdUtenteseq.nextval,'Yenia','Matencio',to_date('22/11/1989','DD/MM/YYYY HH24:MI:SS'),'306 Rural Hill Court, Nashville','yenia@matencio.it','3750798676');
-INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico, Eliminato)
+INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico)
 VALUES (IdUtenteseq.nextval,'Gianni','Cornish',to_date('12/12/1988','DD/MM/YYYY HH24:MI:SS'),'5701 East Shirley Lane, Montgomery','gianni@cornish.it','8061973964');
-INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico, Eliminato)
+INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico)
 VALUES (IdUtenteseq.nextval,'Ioseba','Azzi',to_date('30/01/2005','DD/MM/YYYY HH24:MI:SS'),'401 East Northern Lights Boulevard, Anchorage','ioseba@azzi.it','1870476863');
-INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico, Eliminato)
+INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico)
 VALUES (IdUtenteseq.nextval,'Edythe','Geli',to_date('17/08/2005','DD/MM/YYYY HH24:MI:SS'),'1430 South Gay Avenue, Panama City','edythe@geli.it','5611926344');
-INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico, Eliminato)
+INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico)
 VALUES (IdUtenteseq.nextval,'Olof','Iriarte',to_date('21/02/1981','DD/MM/YYYY HH24:MI:SS'),'1079 East Kentucky Street, Louisville','olof@iriarte.it','4138594424');
-INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico, Eliminato)
+INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico)
 VALUES (IdUtenteseq.nextval,'Irkus','Curioso',to_date('03/03/1977','DD/MM/YYYY HH24:MI:SS'),'35 Keach Avenue, Worcester','irkus@curioso.it','3683623439');
-INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico, Eliminato)
+INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico)
 VALUES (IdUtenteseq.nextval,'Denes','Budn',to_date('28/11/1985','DD/MM/YYYY HH24:MI:SS'),'2269 Eastern Boulevard, Montgomery','denes@budn.it','7522166408');
-INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico, Eliminato)
+INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico)
 VALUES (IdUtenteseq.nextval,'Rameez','Shevchenko',to_date('24/09/1991','DD/MM/YYYY HH24:MI:SS'),'6710 Quay Street, Arvada','rameez@shevchenko.it','7919816972');
-INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico, Eliminato)
+INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico)
 VALUES (IdUtenteseq.nextval,'Itxaso','Enns',to_date('12/04/1992','DD/MM/YYYY HH24:MI:SS'),'10307 Rock Falls Court, Louisville','itxaso@enns.it','2783675063');
-INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico, Eliminato)
+INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico)
 VALUES (IdUtenteseq.nextval,'Abdulai','Arnoso',to_date('17/11/1992','DD/MM/YYYY HH24:MI:SS'),'211 West Oak Street, Louisville','abdulai@arnoso.it','9466242142');
-INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico, Eliminato)
+INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico)
 VALUES (IdUtenteseq.nextval,'Cathie','Babio',to_date('26/04/1987','DD/MM/YYYY HH24:MI:SS'),'2707 Wendell Avenue, Louisville','cathie@babio.it','6259554753');
-INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico, Eliminato)
+INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico)
 VALUES (IdUtenteseq.nextval,'Radostin','Grimshaw',to_date('09/10/2005','DD/MM/YYYY HH24:MI:SS'),'3466 Southview Avenue, Montgomery','radostin@grimshaw.it','2483078401');
-INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico, Eliminato)
+INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico)
 VALUES (IdUtenteseq.nextval,'Haran','Draesel',to_date('08/09/1997','DD/MM/YYYY HH24:MI:SS'),'3115 North Lake Boulevard, Tahoe City','haran@draesel.it','6341929289');
-INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico, Eliminato)
+INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico)
 VALUES (IdUtenteseq.nextval,'Candis','Anisimov',to_date('05/09/1988','DD/MM/YYYY HH24:MI:SS'),'43 Howarth Avenue, Attleboro','candis@anisimov.it','9703737718');
-INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico, Eliminato)
+INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico)
 VALUES (IdUtenteseq.nextval,'Loay','Giulietti',to_date('20/09/1985','DD/MM/YYYY HH24:MI:SS'),'6800 West Bell Road, Glendale','loay@giulietti.it','7812762774');
-INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico, Eliminato)
+INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico)
 VALUES (IdUtenteseq.nextval,'Kheir','Behokhmah',to_date('15/01/1974','DD/MM/YYYY HH24:MI:SS'),'6816 West 84th Circle, Arvada','kheir@behokhmah.it','8707013060');
-INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico, Eliminato)
+INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico)
 VALUES (IdUtenteseq.nextval,'Shaunda','Saquete',to_date('01/01/1970','DD/MM/YYYY HH24:MI:SS'),'40 Strawberry Lane, Manchester','shaunda@saquete.it','5930654891');
-INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico, Eliminato)
+INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico)
 VALUES (IdUtenteseq.nextval,'Suad','Clossen',to_date('05/05/1972','DD/MM/YYYY HH24:MI:SS'),'22207 Quinterno Court, Cupertino','suad@clossen.it','1722312695');
-INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico, Eliminato)
+INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico)
 VALUES (IdUtenteseq.nextval,'Marisel','Salvi',to_date('07/07/1984','DD/MM/YYYY HH24:MI:SS'),'517 Wesley Avenue, Nashville','marisel@salvi.it','5587742055');
-INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico, Eliminato)
+INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico)
 VALUES (IdUtenteseq.nextval,'Ibrahima','Moshkunov',to_date('12/01/1992','DD/MM/YYYY HH24:MI:SS'),'19416 Barclay Road, Castro Valley','ibrahima@moshkunov.it','1049769490');
-INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico, Eliminato)
+INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico)
 VALUES (IdUtenteseq.nextval,'Rosineide','Verhaagh',to_date('01/01/1970','DD/MM/YYYY HH24:MI:SS'),'8526 Preston Highway, Louisville','rosineide@verhaagh.it','4889847163');
-INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico, Eliminato)
+INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico)
 VALUES (IdUtenteseq.nextval,'Anuska','Larreategui',to_date('27/04/1991','DD/MM/YYYY HH24:MI:SS'),'60 Montgomery Street, Springfield','anuska@larreategui.it','6567741491');
-INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico, Eliminato)
+INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico)
 VALUES (IdUtenteseq.nextval,'Roselyn','Radeler',to_date('25/11/1995','DD/MM/YYYY HH24:MI:SS'),'904 Shepherd Street Northwest, Washington','roselyn@radeler.it','3418941491');
-INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico, Eliminato)
+INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico)
 VALUES (IdUtenteseq.nextval,'Natalio','Woloszyn',to_date('11/02/1980','DD/MM/YYYY HH24:MI:SS'),'4438 Maine Avenue, Baldwin Park','natalio@woloszyn.it','3924493225');
-INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico, Eliminato)
+INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico)
 VALUES (IdUtenteseq.nextval,'Hershel','Bontrup',to_date('21/01/1984','DD/MM/YYYY HH24:MI:SS'),'2220 Kirk Avenue, Nashville','hershel@bontrup.it','3183808696');
-INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico, Eliminato)
+INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico)
 VALUES (IdUtenteseq.nextval,'Elisabeth','Bonavia',to_date('24/09/1979','DD/MM/YYYY HH24:MI:SS'),'1631 Madison Avenue, Montgomery','elisabeth@bonavia.it','3194678813');
-INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico, Eliminato)
+INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico)
 VALUES (IdUtenteseq.nextval,'Sghir','Beovide',to_date('13/03/2003','DD/MM/YYYY HH24:MI:SS'),'25 Church Street, Pittsfield','sghir@beovide.it','8348420649');
-INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico, Eliminato)
+INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico)
 VALUES (IdUtenteseq.nextval,'Vito','Mballo',to_date('10/11/1978','DD/MM/YYYY HH24:MI:SS'),'40700 Penn Lane, Fremont','vito@mballo.it','7293914628');
-INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico, Eliminato)
+INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico)
 VALUES (IdUtenteseq.nextval,'Zeinebou','Arbea',to_date('07/06/1999','DD/MM/YYYY HH24:MI:SS'),'4418 15th Street Northwest, Washington','zeinebou@arbea.it','2102618729');
-INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico, Eliminato)
+INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico)
 VALUES (IdUtenteseq.nextval,'Mane','Burger',to_date('05/12/1976','DD/MM/YYYY HH24:MI:SS'),'3 Carvel Circle, Edgewater','mane@burger.it','7102169168');
-INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico, Eliminato)
+INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico)
 VALUES (IdUtenteseq.nextval,'Ganix','Labeguerie',to_date('05/07/2009','DD/MM/YYYY HH24:MI:SS'),'247 Summit Street, Manchester','ganix@labeguerie.it','9798642702');
-INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico, Eliminato)
+INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico)
 VALUES (IdUtenteseq.nextval,'Najiha','Guayanay',to_date('20/09/2004','DD/MM/YYYY HH24:MI:SS'),'113 Dove Lane, Savannah','najiha@guayanay.it','6074905625');
-INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico, Eliminato)
+INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico)
 VALUES (IdUtenteseq.nextval,'Carlotta','Yalovenko',to_date('01/07/1984','DD/MM/YYYY HH24:MI:SS'),'190 Church Street, Burlington','carlotta@yalovenko.it','7772981490');
-INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico, Eliminato)
+INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico)
 VALUES (IdUtenteseq.nextval,'Meggan','Nietsch',to_date('28/05/1976','DD/MM/YYYY HH24:MI:SS'),'6473 Zephyr Street, Arvada','meggan@nietsch.it','6988471823');
-INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico, Eliminato)
+INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico)
 VALUES (IdUtenteseq.nextval,'Moh','Hollensteiner',to_date('21/11/1999','DD/MM/YYYY HH24:MI:SS'),'919 Windsor Avenue, Annapolis','moh@hollensteiner.it','9723007447');
-INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico, Eliminato)
+INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico)
 VALUES (IdUtenteseq.nextval,'Neves','Cambra',to_date('19/04/1993','DD/MM/YYYY HH24:MI:SS'),'1250 Pram Place, Annapolis','neves@cambra.it','8586055346');
-INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico, Eliminato)
+INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico)
 VALUES (IdUtenteseq.nextval,'Saber','Pombal',to_date('13/07/2004','DD/MM/YYYY HH24:MI:SS'),'8 Corona Street','saber@pombal.it','3631869202');
-INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico, Eliminato)
+INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico)
 VALUES (IdUtenteseq.nextval,'Rostislav','Mendaro',to_date('03/01/1980','DD/MM/YYYY HH24:MI:SS'),'4113 Holiday Drive, Panama City','rostislav@mendaro.it','4071859441');
-INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico, Eliminato)
+INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico)
 VALUES (IdUtenteseq.nextval,'Alae','Filpo',to_date('05/05/2012','DD/MM/YYYY HH24:MI:SS'),'6435 West Hillsborough Avenue, Tampa','alae@filpo.it','4507005420');
-INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico, Eliminato)
+INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico)
 VALUES (IdUtenteseq.nextval,'Moustapha','Romito',to_date('07/01/2001','DD/MM/YYYY HH24:MI:SS'),'10 Dalry Lane, Savannah','moustapha@romito.it','1524141903');
-INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico, Eliminato)
+INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico)
 VALUES (IdUtenteseq.nextval,'Yujuan','Gaspard',to_date('16/06/1980','DD/MM/YYYY HH24:MI:SS'),'8262 Elvaton Road, Millersville','yujuan@gaspard.it','9187571895');
-INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico, Eliminato)
+INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico)
 VALUES (IdUtenteseq.nextval,'Page','Deeley',to_date('29/12/1995','DD/MM/YYYY HH24:MI:SS'),'6431 Shattuck Avenue, Oakland','page@deeley.it','7108138052');
-INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico, Eliminato)
+INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico)
 VALUES (IdUtenteseq.nextval,'Laban','Vilken',to_date('01/01/2014','DD/MM/YYYY HH24:MI:SS'),'3516 North Virginia Avenue, Oklahoma City','laban@vilken.it','3361708028');
-INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico, Eliminato)
+INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico)
 VALUES (IdUtenteseq.nextval,'Yonghua','Lapoo',to_date('08/03/1980','DD/MM/YYYY HH24:MI:SS'),'804 Dry Creek Road, Goodlettsville','yonghua@lapoo.it','7667444764');
-INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico, Eliminato)
+INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico)
 VALUES (IdUtenteseq.nextval,'Giulietta','Chirino',to_date('28/03/1993','DD/MM/YYYY HH24:MI:SS'),'57 Birdie Lane, Tewksbury','giulietta@chirino.it','9322181973');
-INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico, Eliminato)
+INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico)
 VALUES (IdUtenteseq.nextval,'Hannelore','Brod',to_date('30/11/1985','DD/MM/YYYY HH24:MI:SS'),'228 Common Street, Braintree','hannelore@brod.it','7693809559');
-INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico, Eliminato)
+INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico)
 VALUES (IdUtenteseq.nextval,'Goiatz','Schroedter',to_date('24/09/1985','DD/MM/YYYY HH24:MI:SS'),'637 Britannia Drive, Vallejo','goiatz@schroedter.it','4597725471');
-INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico, Eliminato)
+INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico)
 VALUES (IdUtenteseq.nextval,'Dirceu','Huether',to_date('01/01/1970','DD/MM/YYYY HH24:MI:SS'),'8101 Vaughn Road, Montgomery','dirceu@huether.it','6370203856');
-INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico, Eliminato)
+INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico)
 VALUES (IdUtenteseq.nextval,'Gartxot','Isherwood',to_date('17/04/1970','DD/MM/YYYY HH24:MI:SS'),'2619 North Quality Lane, Fayetteville','gartxot@isherwood.it','5795352150');
-INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico, Eliminato)
+INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico)
 VALUES (IdUtenteseq.nextval,'Olida','Hammond',to_date('01/01/1970','DD/MM/YYYY HH24:MI:SS'),'311 South Panama Street, Montgomery','olida@hammond.it','6991910715');
-INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico, Eliminato)
+INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico)
 VALUES (IdUtenteseq.nextval,'Yadiel','Iraizaleta',to_date('21/07/1983','DD/MM/YYYY HH24:MI:SS'),'3116 Northwest 61st Terrace, Oklahoma City','yadiel@iraizaleta.it','4962501987');
-INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico, Eliminato)
+INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico)
 VALUES (IdUtenteseq.nextval,'Kiyoko','Leggett',to_date('21/10/2007','DD/MM/YYYY HH24:MI:SS'),'4316 Sunnybrook Drive, Montgomery','kiyoko@leggett.it','1380756128');
-INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico, Eliminato)
+INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico)
 VALUES (IdUtenteseq.nextval,'Nouhou','Mexia',to_date('15/08/1997','DD/MM/YYYY HH24:MI:SS'),'2741 31st Place Northeast, Washington','nouhou@mexia.it','3548600010');
-INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico, Eliminato)
+INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico)
 VALUES (IdUtenteseq.nextval,'Ikrame','Ciocho',to_date('01/01/2014','DD/MM/YYYY HH24:MI:SS'),'240 Lynwood Drive, Montgomery','ikrame@ciocho.it','3471636797');
-INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico, Eliminato)
+INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico)
 VALUES (IdUtenteseq.nextval,'Alec','Elliot',to_date('11/09/1982','DD/MM/YYYY HH24:MI:SS'),'403 Turkey Creek Road, Mathews','alec@elliot.it','6255151642');
-INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico, Eliminato)
+INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico)
 VALUES (IdUtenteseq.nextval,'Antony','Cavero',to_date('23/09/2001','DD/MM/YYYY HH24:MI:SS'),'82 The Commons, Moretown','antony@cavero.it','3333101127');
-INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico, Eliminato)
+INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico)
 VALUES (IdUtenteseq.nextval,'Natzaret','Kuhl',to_date('09/10/1994','DD/MM/YYYY HH24:MI:SS'),'1226 Blossom Circle, Livermore','natzaret@kuhl.it','4298134566');
-INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico, Eliminato)
+INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico)
 VALUES (IdUtenteseq.nextval,'Salia','Abashev',to_date('06/01/1993','DD/MM/YYYY HH24:MI:SS'),'406 East Waldburg Street, Savannah','salia@abashev.it','4362170219');
-INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico, Eliminato)
+INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico)
 VALUES (IdUtenteseq.nextval,'Martires','Porkhun',to_date('28/12/1996','DD/MM/YYYY HH24:MI:SS'),'1021 North Center Avenue, Panama City','martires@porkhun.it','8929467713');
-INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico, Eliminato)
+INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico)
 VALUES (IdUtenteseq.nextval,'Mayerlin','Pion',to_date('01/01/1970','DD/MM/YYYY HH24:MI:SS'),'1117 Everett Avenue, Louisville','mayerlin@pion.it','8288570364');
-INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico, Eliminato)
+INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico)
 VALUES (IdUtenteseq.nextval,'Adelaide','SeÃ±aris',to_date('06/02/2001','DD/MM/YYYY HH24:MI:SS'),'2707 Wendell Avenue, Louisville','adelaide@seÃ±aris.it','2939577640');
-INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico, Eliminato)
+INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico)
 VALUES (IdUtenteseq.nextval,'Roselina','Bhoola',to_date('06/06/1975','DD/MM/YYYY HH24:MI:SS'),'2817 3rd Street, Thunderbolt','roselina@bhoola.it','2309630466');
-INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico, Eliminato)
+INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico)
 VALUES (IdUtenteseq.nextval,'Heikki','Sarriugarte',to_date('01/01/1970','DD/MM/YYYY HH24:MI:SS'),'2572 Drake Street, Montgomery','heikki@sarriugarte.it','9428095528');
-INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico, Eliminato)
+INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico)
 VALUES (IdUtenteseq.nextval,'Kristyna','Bloch',to_date('03/08/1972','DD/MM/YYYY HH24:MI:SS'),'404 Summit Oaks Drive, Nashville','kristyna@bloch.it','3322196346');
-INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico, Eliminato)
+INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico)
 VALUES (IdUtenteseq.nextval,'Guiomar','Krullmann',to_date('01/01/1970','DD/MM/YYYY HH24:MI:SS'),'14003 Crossbranch Court, Louisville','guiomar@krullmann.it','9519869656');
-INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico, Eliminato)
+INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico)
 VALUES (IdUtenteseq.nextval,'Elissa','Cappel',to_date('01/01/2014','DD/MM/YYYY HH24:MI:SS'),'1164 Middle Turnpike West, Manchester','elissa@cappel.it','7234150013');
-INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico, Eliminato)
+INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico)
 VALUES (IdUtenteseq.nextval,'Samatha','Aguera',to_date('01/01/1970','DD/MM/YYYY HH24:MI:SS'),'6902 West Sherri Jean Lane, Peoria','samatha@aguera.it','1346516897');
-INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico, Eliminato)
+INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico)
 VALUES (IdUtenteseq.nextval,'Brenton','Zherdev',to_date('21/02/1992','DD/MM/YYYY HH24:MI:SS'),'25 Church Street, Pittsfield','brenton@zherdev.it','5742938721');
-INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico, Eliminato)
+INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico)
 VALUES (IdUtenteseq.nextval,'Bilel','Zaugg',to_date('25/01/2005','DD/MM/YYYY HH24:MI:SS'),'5900 Upland Road, Brooklyn Park','bilel@zaugg.it','8368796422');
-INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico, Eliminato)
+INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico)
 VALUES (IdUtenteseq.nextval,'Anam','Chuvilo',to_date('01/01/1970','DD/MM/YYYY HH24:MI:SS'),'202 Pepperbush Road, Louisville','anam@chuvilo.it','4107038675');
-INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico, Eliminato)
+INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico)
 VALUES (IdUtenteseq.nextval,'Lene','Oomen',to_date('15/10/1992','DD/MM/YYYY HH24:MI:SS'),'6342 Kendall Street, Arvada','lene@oomen.it','5100690267');
-INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico, Eliminato)
+INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico)
 VALUES (IdUtenteseq.nextval,'Felton','Scheurle',to_date('21/05/2012','DD/MM/YYYY HH24:MI:SS'),'2121 Stepping Stone Trail, Edmond','felton@scheurle.it','5165517886');
-INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico, Eliminato)
+INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico)
 VALUES (IdUtenteseq.nextval,'Gorgui','Thorweihe',to_date('05/12/2012','DD/MM/YYYY HH24:MI:SS'),'5581 Nolan Street, Arvada','gorgui@thorweihe.it','7536803846');
-INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico, Eliminato)
+INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico)
 VALUES (IdUtenteseq.nextval,'Rosamond','Cunillera',to_date('13/12/1982','DD/MM/YYYY HH24:MI:SS'),'141 Parker Road, Pittsford','rosamond@cunillera.it','8730488114');
-INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico, Eliminato)
+INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico)
 VALUES (IdUtenteseq.nextval,'Jianli','Bleiweiss',to_date('19/02/1991','DD/MM/YYYY HH24:MI:SS'),'1125 West 41st Street, Savannah','jianli@bleiweiss.it','2674292478');
-INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico, Eliminato)
+INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico)
 VALUES (IdUtenteseq.nextval,'Suiying','Schempershofe',to_date('28/03/1983','DD/MM/YYYY HH24:MI:SS'),'8852 Broderick Street, Montgomery','suiying@schempershofe.it','6548164494');
-INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico, Eliminato)
+INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico)
 VALUES (IdUtenteseq.nextval,'Ludmilla','Elatontsev',to_date('20/08/1993','DD/MM/YYYY HH24:MI:SS'),'325 Alexander Drive, Lynn Haven','ludmilla@elatontsev.it','8429022276');
-INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico, Eliminato)
+INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico)
 VALUES (IdUtenteseq.nextval,'Yueqin','Pamplona',to_date('02/07/1986','DD/MM/YYYY HH24:MI:SS'),'20933 River Park Drive, Anchorage','yueqin@pamplona.it','7486398202');
-INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico, Eliminato)
+INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico)
 VALUES (IdUtenteseq.nextval,'Gopi','Cabello De Alba',to_date('09/04/1993','DD/MM/YYYY HH24:MI:SS'),'3365 Wyndham Drive, Fremont','gopi@cabellodealba.it','6860626777');
-INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico, Eliminato)
+INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico)
 VALUES (IdUtenteseq.nextval,'Arlindo','Wolthaus',to_date('15/04/1993','DD/MM/YYYY HH24:MI:SS'),'1164 Middle Turnpike West, Manchester','arlindo@wolthaus.it','7879470700');
-INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico, Eliminato)
+INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico)
 VALUES (IdUtenteseq.nextval,'Sevdalina','Schechter',to_date('15/11/2008','DD/MM/YYYY HH24:MI:SS'),'9545 West 74th Avenue, Arvada','sevdalina@schechter.it','2281234114');
-INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico, Eliminato)
+INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico)
 VALUES (IdUtenteseq.nextval,'Barek','Puig',to_date('17/06/1994','DD/MM/YYYY HH24:MI:SS'),'8070 Holland Court, Arvada','barek@puig.it','7197327307');
-INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico, Eliminato)
+INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico)
 VALUES (IdUtenteseq.nextval,'Elisabel','Frerick',to_date('03/11/1977','DD/MM/YYYY HH24:MI:SS'),'3373 Runnymede Place Northwest, Washington','elisabel@frerick.it','2124920239');
-INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico, Eliminato)
+INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico)
 VALUES (IdUtenteseq.nextval,'Estell','Forton',to_date('30/05/2010','DD/MM/YYYY HH24:MI:SS'),'26 Wetherell Street, Manchester','estell@forton.it','5111213862');
-INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico, Eliminato)
+INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico)
 VALUES (IdUtenteseq.nextval,'Rajiv','Stehle',to_date('07/09/1981','DD/MM/YYYY HH24:MI:SS'),'200 Edson Road, Windham','rajiv@stehle.it','3882800867');
-INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico, Eliminato)
+INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico)
 VALUES (IdUtenteseq.nextval,'Abdelaziz','Koehnemann',to_date('22/06/1982','DD/MM/YYYY HH24:MI:SS'),'1405 East 55th Street, Savannah','abdelaziz@koehnemann.it','6590452184');
-INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico, Eliminato)
+INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico)
 VALUES (IdUtenteseq.nextval,'Zahida','Bacaicoa',to_date('20/03/1974','DD/MM/YYYY HH24:MI:SS'),'7105 Tanager Avenue, Glen Burnie','zahida@bacaicoa.it','2259985187');
-INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico, Eliminato)
+INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico)
 VALUES (IdUtenteseq.nextval,'Redouane','Thellier',to_date('01/12/2002','DD/MM/YYYY HH24:MI:SS'),'1244 South 4th Street, Louisville','redouane@thellier.it','7427141864');
-INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico, Eliminato)
+INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico)
 VALUES (IdUtenteseq.nextval,'Stiliyan','PoÃ§a',to_date('16/12/1994','DD/MM/YYYY HH24:MI:SS'),'4300 Soquel Drive, Soquel','stiliyan@poÃ§a.it','5446342547');
-INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico, Eliminato)
+INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico)
 VALUES (IdUtenteseq.nextval,'Tidiane','Bia',to_date('17/07/1987','DD/MM/YYYY HH24:MI:SS'),'720 Southwest 2nd Street, Moore','tidiane@bia.it','4529831206');
-INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico, Eliminato)
+INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico)
 VALUES (IdUtenteseq.nextval,'Ethelyn','Attias',to_date('13/11/2004','DD/MM/YYYY HH24:MI:SS'),'11140 West 60th Avenue, Arvada','ethelyn@attias.it','8951718810');
-INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico, Eliminato)
+INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico)
 VALUES (IdUtenteseq.nextval,'Yaneth','Grossgeim',to_date('12/11/1989','DD/MM/YYYY HH24:MI:SS'),'1729 Frankford Street Southeast, Washington','yaneth@grossgeim.it','1266359910');
-INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico, Eliminato)
+INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico)
 VALUES (IdUtenteseq.nextval,'Tyron','Gonzalez Calero',to_date('22/07/1997','DD/MM/YYYY HH24:MI:SS'),'5631 West Colter Street, Glendale','tyron@gonzalezcalero.it','6364941082');
-INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico, Eliminato)
+INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico)
 VALUES (IdUtenteseq.nextval,'Madai','Tchazov',to_date('04/08/2003','DD/MM/YYYY HH24:MI:SS'),'91 Hoague Drive, Highgate','madai@tchazov.it','5934856920');
-INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico, Eliminato)
+INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico)
 VALUES (IdUtenteseq.nextval,'Onelia','Zolotar',to_date('04/07/1993','DD/MM/YYYY HH24:MI:SS'),'2740 Collie Hill Way, Anchorage','onelia@zolotar.it','4613593508');
-INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico, Eliminato)
+INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico)
 VALUES (IdUtenteseq.nextval,'Bertilda','Hieslmayr',to_date('02/11/1996','DD/MM/YYYY HH24:MI:SS'),'10151 West 64th Avenue, Arvada','bertilda@hieslmayr.it','6607293413');
-INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico, Eliminato)
+INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico)
 VALUES (IdUtenteseq.nextval,'Crina','Agrafojo',to_date('18/11/1980','DD/MM/YYYY HH24:MI:SS'),'429 Patterson Street, Nashville','crina@agrafojo.it','5483844968');
-INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico, Eliminato)
+INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico)
 VALUES (IdUtenteseq.nextval,'Nura','Halenkov',to_date('01/01/1970','DD/MM/YYYY HH24:MI:SS'),'16 Fuller Street, Brookline','nura@halenkov.it','2865158883');
-INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico, Eliminato)
+INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico)
 VALUES (IdUtenteseq.nextval,'Ivor','Lugt',to_date('18/01/1979','DD/MM/YYYY HH24:MI:SS'),'8112 Equestrian Drive, Severn','ivor@lugt.it','9071072231');
-INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico, Eliminato)
+INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico)
 VALUES (IdUtenteseq.nextval,'Aiying','Grashoff',to_date('01/01/1970','DD/MM/YYYY HH24:MI:SS'),'6500 Thurlow Place, Edmond','aiying@grashoff.it','7864776793');
-INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico, Eliminato)
+INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico)
 VALUES (IdUtenteseq.nextval,'Simo','Gradinariu',to_date('01/04/1992','DD/MM/YYYY HH24:MI:SS'),'3365 South Cato Springs Road, Fayetteville','simo@gradinariu.it','8275759037');
-INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico, Eliminato)
+INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico)
 VALUES (IdUtenteseq.nextval,'Jonatas','Valevsky',to_date('01/01/2014','DD/MM/YYYY HH24:MI:SS'),'73 Twin Hills Drive, Longmeadow','jonatas@valevsky.it','6275850724');
-INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico, Eliminato)
+INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico)
 VALUES (IdUtenteseq.nextval,'Aadil','Gurcke',to_date('19/01/2002','DD/MM/YYYY HH24:MI:SS'),'5805 Armada Drive, Carlsbad','aadil@gurcke.it','9043035207');
-INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico, Eliminato)
+INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico)
 VALUES (IdUtenteseq.nextval,'Targelia','Thonis',to_date('08/08/2005','DD/MM/YYYY HH24:MI:SS'),'9828 East Pueblo Avenue, Mesa','targelia@thonis.it','8848550760');
-INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico, Eliminato)
+INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico)
 VALUES (IdUtenteseq.nextval,'Inoa','Marchi',to_date('12/02/1991','DD/MM/YYYY HH24:MI:SS'),'309 Brooke Court, Panama City','inoa@marchi.it','1455144717');
-INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico, Eliminato)
+INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico)
 VALUES (IdUtenteseq.nextval,'Xiaozhong','Lochteken',to_date('10/08/2006','DD/MM/YYYY HH24:MI:SS'),'402 Tuten Avenue, Savannah','xiaozhong@lochteken.it','6408716920');
-INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico, Eliminato)
+INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico)
 VALUES (IdUtenteseq.nextval,'Meixiang','Willay',to_date('24/07/2006','DD/MM/YYYY HH24:MI:SS'),'10 Tel Road, Woodford','meixiang@willay.it','5619002852');
-INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico, Eliminato)
+INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico)
 VALUES (IdUtenteseq.nextval,'Laureano','Turik',to_date('01/11/1997','DD/MM/YYYY HH24:MI:SS'),'19803 North Mitkof Loop, Anchorage','laureano@turik.it','8720976193');
-INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico, Eliminato)
+INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico)
 VALUES (IdUtenteseq.nextval,'Filoftia','Fichtl',to_date('28/03/1995','DD/MM/YYYY HH24:MI:SS'),'112 Cherokee Road, Nashville','filoftia@fichtl.it','4522258555');
-INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico, Eliminato)
+INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico)
 VALUES (IdUtenteseq.nextval,'Goizeder','Sagales',to_date('01/01/2014','DD/MM/YYYY HH24:MI:SS'),'9101 Vanguard Drive, Anchorage','goizeder@sagales.it','7824494075');
-INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico, Eliminato)
+INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico)
 VALUES (IdUtenteseq.nextval,'Pusa','Haberhausen',to_date('17/07/2006','DD/MM/YYYY HH24:MI:SS'),'5116 Feys Court, Louisville','pusa@haberhausen.it','5060462041');
-INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico, Eliminato)
+INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico)
 VALUES (IdUtenteseq.nextval,'Yamani','MoriÃ±igo',to_date('11/09/2011','DD/MM/YYYY HH24:MI:SS'),'3311 Wiley Post Loop, Anchorage','yamani@moriÃ±igo.it','9324684538');
-INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico, Eliminato)
+INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico)
 VALUES (IdUtenteseq.nextval,'Kolyo','Velichko',to_date('12/01/2007','DD/MM/YYYY HH24:MI:SS'),'9321 Amy Lane, Panama City Beach','kolyo@velichko.it','5001380191');
-INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico, Eliminato)
+INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico)
 VALUES (IdUtenteseq.nextval,'Rosen','Zumbuhl',to_date('20/01/1973','DD/MM/YYYY HH24:MI:SS'),'7905 Old Heady Road, Louisville','rosen@zumbuhl.it','2031128318');
-INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico, Eliminato)
+INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico)
 VALUES (IdUtenteseq.nextval,'Yevdokiya','Poschmanns',to_date('01/01/1970','DD/MM/YYYY HH24:MI:SS'),'416 McIver Street, Nashville','yevdokiya@poschmanns.it','8182377345');
-INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico, Eliminato)
+INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico)
 VALUES (IdUtenteseq.nextval,'Ashleigh','Sneijder',to_date('11/06/1978','DD/MM/YYYY HH24:MI:SS'),'4560 Hurlston Drive, Montgomery','ashleigh@sneijder.it','6976385770');
-INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico, Eliminato)
+INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico)
 VALUES (IdUtenteseq.nextval,'Nelda','Jergen',to_date('27/03/2011','DD/MM/YYYY HH24:MI:SS'),'2732 Humboldt Avenue, Oakland','nelda@jergen.it','4675003931');
-INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico, Eliminato)
+INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico)
 VALUES (IdUtenteseq.nextval,'Ricard','Fincken',to_date('01/01/1970','DD/MM/YYYY HH24:MI:SS'),'1040 West 27th Avenue, Anchorage','ricard@fincken.it','8222720073');
-INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico, Eliminato)
+INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico)
 VALUES (IdUtenteseq.nextval,'Patrice','Cendal',to_date('09/07/1992','DD/MM/YYYY HH24:MI:SS'),'7024 Johnny Mercer Boulevard, Savannah','patrice@cendal.it','6790156982');
-INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico, Eliminato)
+INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico)
 VALUES (IdUtenteseq.nextval,'Ibraima','Tcharushin',to_date('05/07/1986','DD/MM/YYYY HH24:MI:SS'),'701 Mussel Slough Road, Hanford','ibraima@tcharushin.it','2750025666');
-INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico, Eliminato)
+INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico)
 VALUES (IdUtenteseq.nextval,'Bebe','Suttorp',to_date('22/04/1982','DD/MM/YYYY HH24:MI:SS'),'2433 Southwest 36th Street, Oklahoma City','bebe@suttorp.it','1456122239');
-INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico, Eliminato)
+INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico)
 VALUES (IdUtenteseq.nextval,'Maksim','Eitzen',to_date('24/11/1991','DD/MM/YYYY HH24:MI:SS'),'2809 Rowland Avenue, Thunderbolt','maksim@eitzen.it','4289448395');
-INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico, Eliminato)
+INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico)
 VALUES (IdUtenteseq.nextval,'Emerencia','Menagaray',to_date('30/12/1975','DD/MM/YYYY HH24:MI:SS'),'1216 West Hill Street, Louisville','emerencia@menagaray.it','8815626856');
-INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico, Eliminato)
+INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico)
 VALUES (IdUtenteseq.nextval,'Georgiev','Mare',to_date('17/04/1994','DD/MM/YYYY HH24:MI:SS'),'406 Stilz Avenue, Louisville','georgiev@mare.it','9165924552');
-INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico, Eliminato)
+INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico)
 VALUES (IdUtenteseq.nextval,'Guohong','Carnicero',to_date('02/02/1970','DD/MM/YYYY HH24:MI:SS'),'11933 West 71st Avenue, Arvada','guohong@carnicero.it','8393187593');
-INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico, Eliminato)
+INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico)
 VALUES (IdUtenteseq.nextval,'Floyd','Ette',to_date('24/06/1985','DD/MM/YYYY HH24:MI:SS'),'824 Main Street, Manchester','floyd@ette.it','1790415732');
-INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico, Eliminato)
+INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico)
 VALUES (IdUtenteseq.nextval,'Mady','Besold',to_date('26/01/1979','DD/MM/YYYY HH24:MI:SS'),'330 Michell Court, Livermore','mady@besold.it','1609248177');
-INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico, Eliminato)
+INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico)
 VALUES (IdUtenteseq.nextval,'Hai','Wienke',to_date('13/06/2003','DD/MM/YYYY HH24:MI:SS'),'9712 Stream View Trail, Louisville','hai@wienke.it','6487814592');
-INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico, Eliminato)
+INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico)
 VALUES (IdUtenteseq.nextval,'Assiya','Gosejacob',to_date('24/08/2011','DD/MM/YYYY HH24:MI:SS'),'82 Queen Court, Manchester','assiya@gosejacob.it','4779078561');
-INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico, Eliminato)
+INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico)
 VALUES (IdUtenteseq.nextval,'Eniko','Dubra',to_date('26/11/2010','DD/MM/YYYY HH24:MI:SS'),'4506 Eads Place Northeast, Washington','eniko@dubra.it','3665577437');
-INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico, Eliminato)
+INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico)
 VALUES (IdUtenteseq.nextval,'Purisima','Carrobles',to_date('28/08/1990','DD/MM/YYYY HH24:MI:SS'),'4 Village Lake Drive, Fayetteville','purisima@carrobles.it','4676997110');
-INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico, Eliminato)
+INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico)
 VALUES (IdUtenteseq.nextval,'Daymi','Sieveking',to_date('09/09/2002','DD/MM/YYYY HH24:MI:SS'),'34 Free Street, Hingham','daymi@sieveking.it','3996101927');
-INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico, Eliminato)
+INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico)
 VALUES (IdUtenteseq.nextval,'Videlina','Nebot',to_date('14/09/1980','DD/MM/YYYY HH24:MI:SS'),'8216 West Citrus Way, Glendale','videlina@nebot.it','2979573278');
-INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico, Eliminato)
+INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico)
 VALUES (IdUtenteseq.nextval,'Corinne','Mnatsakanov',to_date('30/09/1996','DD/MM/YYYY HH24:MI:SS'),'536 Walters Farm Road, East Haven','corinne@mnatsakanov.it','1688443348');
-INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico, Eliminato)
+INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico)
 VALUES (IdUtenteseq.nextval,'Tamer','Hilebrand',to_date('10/07/1978','DD/MM/YYYY HH24:MI:SS'),'16303 Mateo Street, San Leandro','tamer@hilebrand.it','9704607747');
-INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico, Eliminato)
+INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico)
 VALUES (IdUtenteseq.nextval,'Mileidys','Cayero',to_date('01/07/1982','DD/MM/YYYY HH24:MI:SS'),'1405 Mercedes Avenue, Panama City','mileidys@cayero.it','7631329136');
-INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico, Eliminato)
+INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico)
 VALUES (IdUtenteseq.nextval,'Elisenda','Brandenbusch',to_date('09/04/1977','DD/MM/YYYY HH24:MI:SS'),'2508 Grant Avenue, Panama City','elisenda@brandenbusch.it','6312677057');
-INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico, Eliminato)
+INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico)
 VALUES (IdUtenteseq.nextval,'Zoubaida','Krischer',to_date('26/04/1984','DD/MM/YYYY HH24:MI:SS'),'31770 Alvarado Boulevard, Union City','zoubaida@krischer.it','7267028789');
-INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico, Eliminato)
+INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico)
 VALUES (IdUtenteseq.nextval,'Bell','Carnapete',to_date('04/09/1987','DD/MM/YYYY HH24:MI:SS'),'1217 Greenwood Court, Nashville','bell@carnapete.it','1265900103');
-INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico, Eliminato)
+INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico)
 VALUES (IdUtenteseq.nextval,'Mansoura','Kemmerer',to_date('21/02/2005','DD/MM/YYYY HH24:MI:SS'),'26466 Mockingbird Lane, Hayward','mansoura@kemmerer.it','1292655346');
-INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico, Eliminato)
+INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico)
 VALUES (IdUtenteseq.nextval,'Irish','Cheng',to_date('03/04/1980','DD/MM/YYYY HH24:MI:SS'),'7681 Delridge Circle, Anchorage','irish@cheng.it','9145758797');
-INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico, Eliminato)
+INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico)
 VALUES (IdUtenteseq.nextval,'Arame','Hanevich',to_date('19/12/1989','DD/MM/YYYY HH24:MI:SS'),'1123 Glenwood Avenue, Nashville','arame@hanevich.it','7644178927');
-INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico, Eliminato)
+INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico)
 VALUES (IdUtenteseq.nextval,'Gavin','Wollrab',to_date('25/10/1992','DD/MM/YYYY HH24:MI:SS'),'5801 South Watterson Trail, Louisville','gavin@wollrab.it','2628265665');
-INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico, Eliminato)
+INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico)
 VALUES (IdUtenteseq.nextval,'Miroslaw','Haumer',to_date('13/11/2004','DD/MM/YYYY HH24:MI:SS'),'513 Habberton Road, Fayetteville','miroslaw@haumer.it','6210425342');
-INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico, Eliminato)
+INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico)
 VALUES (IdUtenteseq.nextval,'Siqi','Brecht',to_date('01/01/2014','DD/MM/YYYY HH24:MI:SS'),'13426 North 54th Drive, Glendale','siqi@brecht.it','2059916234');
-INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico, Eliminato)
+INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico)
 VALUES (IdUtenteseq.nextval,'Guillerme','Ruesta',to_date('01/01/1970','DD/MM/YYYY HH24:MI:SS'),'8569 Vermont 9, Woodford','guillerme@ruesta.it','7789960661');
-INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico, Eliminato)
+INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico)
 VALUES (IdUtenteseq.nextval,'Rhimou','Zahonero',to_date('27/01/2000','DD/MM/YYYY HH24:MI:SS'),'4712 Rock Creek Road, Ardmore','rhimou@zahonero.it','1616110294');
-INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico, Eliminato)
+INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico)
 VALUES (IdUtenteseq.nextval,'Wanessa','Ablassmeier',to_date('28/01/2001','DD/MM/YYYY HH24:MI:SS'),'201 East 9th Avenue, Anchorage','wanessa@ablassmeier.it','9485293131');
-INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico, Eliminato)
+INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico)
 VALUES (IdUtenteseq.nextval,'Matene','Mosquero',to_date('22/05/2004','DD/MM/YYYY HH24:MI:SS'),'10654 North 60th Avenue, Glendale','matene@mosquero.it','9415500970');
-INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico, Eliminato)
+INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico)
 VALUES (IdUtenteseq.nextval,'Benny','Uccellini',to_date('21/01/2000','DD/MM/YYYY HH24:MI:SS'),'17 Stratfield Avenue, Westfield','benny@uccellini.it','8488005140');
-INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico, Eliminato)
+INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico)
 VALUES (IdUtenteseq.nextval,'Chanell','Bodek',to_date('28/06/1979','DD/MM/YYYY HH24:MI:SS'),'5707 Higdon Road','chanell@bodek.it','7289360836');
-INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico, Eliminato)
+INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico)
 VALUES (IdUtenteseq.nextval,'Capilla','Gotschalg',to_date('30/03/1999','DD/MM/YYYY HH24:MI:SS'),'1915 Dean Forest Road, Pooler','capilla@gotschalg.it','9015718693');
-INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico, Eliminato)
+INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico)
 VALUES (IdUtenteseq.nextval,'Eleuterio','Cardinhos',to_date('02/02/2012','DD/MM/YYYY HH24:MI:SS'),'1330 West 82nd Avenue, Anchorage','eleuterio@cardinhos.it','8347928492');
-INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico, Eliminato)
+INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico)
 VALUES (IdUtenteseq.nextval,'Kanza','Amieira',to_date('21/09/2003','DD/MM/YYYY HH24:MI:SS'),'1122 McDaniel Street, Sun City Center','kanza@amieira.it','9519332493');
-INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico, Eliminato)
+INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico)
 VALUES (IdUtenteseq.nextval,'Judit','Beyerl',to_date('24/12/1971','DD/MM/YYYY HH24:MI:SS'),'5680 Eddins Road, Montgomery','judit@beyerl.it','1182976676');
-INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico, Eliminato)
+INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico)
 VALUES (IdUtenteseq.nextval,'Sabi','Montllor',to_date('01/01/1970','DD/MM/YYYY HH24:MI:SS'),'2436 Naples Avenue, Panama City','sabi@montllor.it','8746953687');
-INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico, Eliminato)
+INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico)
 VALUES (IdUtenteseq.nextval,'Ornela','Alegre',to_date('10/03/1991','DD/MM/YYYY HH24:MI:SS'),'40 Highwood Drive, Manchester','ornela@alegre.it','2933485887');
-INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico, Eliminato)
+INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico)
 VALUES (IdUtenteseq.nextval,'Hue','Erica',to_date('27/10/1990','DD/MM/YYYY HH24:MI:SS'),'5302 1st Street Northwest, Washington','hue@erica.it','3933755250');
-INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico, Eliminato)
+INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico)
 VALUES (IdUtenteseq.nextval,'Matilde','Castroman',to_date('24/01/1998','DD/MM/YYYY HH24:MI:SS'),'6950 West Nicolet Avenue, Glendale','matilde@castroman.it','5401397520');
-INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico, Eliminato)
+INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico)
 VALUES (IdUtenteseq.nextval,'Mariana','Weissflog',to_date('02/04/2004','DD/MM/YYYY HH24:MI:SS'),'9331 Edison Road, Lithia','mariana@weissflog.it','7816224193');
-INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico, Eliminato)
+INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico)
 VALUES (IdUtenteseq.nextval,'Scot','Kothari',to_date('28/11/1991','DD/MM/YYYY HH24:MI:SS'),'2654 Quiet Water Cove, Annapolis','scot@kothari.it','4860402807');
-INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico, Eliminato)
+INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico)
 VALUES (IdUtenteseq.nextval,'Ilidia','Agirre-Zezeaga',to_date('02/12/2001','DD/MM/YYYY HH24:MI:SS'),'8202 4 Winds Drive, Lyndon','ilidia@agirre-zezeaga.it','3041433970');
-INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico, Eliminato)
+INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico)
 VALUES (IdUtenteseq.nextval,'Sabin','Vitales',to_date('11/06/2003','DD/MM/YYYY HH24:MI:SS'),'270 Chrissys Court','sabin@vitales.it','6593620324');
-INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico, Eliminato)
+INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico)
 VALUES (IdUtenteseq.nextval,'Victora','Cuns',to_date('29/06/1983','DD/MM/YYYY HH24:MI:SS'),'8752 Pierce Way, Arvada','victora@cuns.it','2730758890');
-INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico, Eliminato)
+INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico)
 VALUES (IdUtenteseq.nextval,'Drina','Novo',to_date('05/09/1991','DD/MM/YYYY HH24:MI:SS'),'1189 Northwest End Avenue, Fayetteville','drina@novo.it','4721248300');
-INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico, Eliminato)
+INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico)
 VALUES (IdUtenteseq.nextval,'Iberia','Altwasser',to_date('23/07/1998','DD/MM/YYYY HH24:MI:SS'),'37600 Sycamore Street, Newark','iberia@altwasser.it','8263142435');
-INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico, Eliminato)
+INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico)
 VALUES (IdUtenteseq.nextval,'Krasimira','OrdoÃ±ez',to_date('23/11/1990','DD/MM/YYYY HH24:MI:SS'),'7804 Abercorn Street, Savannah','krasimira@ordoÃ±ez.it','5067847881');
-INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico, Eliminato)
+INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico)
 VALUES (IdUtenteseq.nextval,'Loreto','Cascalheiro',to_date('22/05/1996','DD/MM/YYYY HH24:MI:SS'),'10749 West Kaler Drive, Glendale','loreto@cascalheiro.it','4018289087');
-INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico, Eliminato)
+INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico)
 VALUES (IdUtenteseq.nextval,'Merly','Emankumar',to_date('06/09/1977','DD/MM/YYYY HH24:MI:SS'),'918 Cheryl Ann Circle, Hayward','merly@emankumar.it','8825904567');
-INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico, Eliminato)
+INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico)
 VALUES (IdUtenteseq.nextval,'Mathis','Sitzmann',to_date('01/01/2014','DD/MM/YYYY HH24:MI:SS'),'2617 Truffula Circle, Norman','mathis@sitzmann.it','4860749643');
-INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico, Eliminato)
+INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico)
 VALUES (IdUtenteseq.nextval,'Eszter','Olds',to_date('01/01/1970','DD/MM/YYYY HH24:MI:SS'),'1304 Northern Hills Road, Norman','eszter@olds.it','1970295991');
-INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico, Eliminato)
+INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico)
 VALUES (IdUtenteseq.nextval,'Danute','Pfennigwerth',to_date('28/10/1977','DD/MM/YYYY HH24:MI:SS'),'739 Center Street, Manchester','danute@pfennigwerth.it','5721081648');
-INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico, Eliminato)
+INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico)
 VALUES (IdUtenteseq.nextval,'Ayda','Fernandez Medina',to_date('15/06/1987','DD/MM/YYYY HH24:MI:SS'),'9 South Pinyon Point, Fayetteville','ayda@fernandezmedina.it','6330652062');
-INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico, Eliminato)
+INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico)
 VALUES (IdUtenteseq.nextval,'Lady','Weustermann',to_date('12/07/1988','DD/MM/YYYY HH24:MI:SS'),'22649 McManus Drive, Anchorage','lady@weustermann.it','1744094653');
-INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico, Eliminato)
+INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico)
 VALUES (IdUtenteseq.nextval,'Xianping','Salicru',to_date('01/01/1970','DD/MM/YYYY HH24:MI:SS'),'1401 Saint George Avenue, Moore','xianping@salicru.it','6139013442');
-INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico, Eliminato)
+INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico)
 VALUES (IdUtenteseq.nextval,'Laurens','Grobbrugge',to_date('01/01/1970','DD/MM/YYYY HH24:MI:SS'),'11225 West 79th Drive, Arvada','laurens@grobbrugge.it','6039784873');
-INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico, Eliminato)
+INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico)
 VALUES (IdUtenteseq.nextval,'Adel','Guzichenko',to_date('08/10/1983','DD/MM/YYYY HH24:MI:SS'),'2755 Country Drive, Fremont','adel@guzichenko.it','6894563559');
-INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico, Eliminato)
+INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico)
 VALUES (IdUtenteseq.nextval,'Maryan','Krohn',to_date('01/01/2014','DD/MM/YYYY HH24:MI:SS'),'7947 Citadel Drive, Severn','maryan@krohn.it','6596103752');
-INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico, Eliminato)
+INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico)
 VALUES (IdUtenteseq.nextval,'Xinhua','Ojembarrena',to_date('01/01/2014','DD/MM/YYYY HH24:MI:SS'),'269 Park Street, North Reading','xinhua@ojembarrena.it','8982470273');
-INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico, Eliminato)
+INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico)
 VALUES (IdUtenteseq.nextval,'Firdaws','Heiten',to_date('28/12/2004','DD/MM/YYYY HH24:MI:SS'),'74 Westerly Street, Manchester','firdaws@heiten.it','9310715579');
-INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico, Eliminato)
+INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico)
 VALUES (IdUtenteseq.nextval,'Haijuan','Stel',to_date('29/10/2013','DD/MM/YYYY HH24:MI:SS'),'505 North Washington Avenue, Fayetteville','haijuan@stel.it','5749420091');
-INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico, Eliminato)
+INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico)
 VALUES (IdUtenteseq.nextval,'Cleuza','Rogalev',to_date('28/05/1984','DD/MM/YYYY HH24:MI:SS'),'7202 Jump Street, Youngstown','cleuza@rogalev.it','3902699020');
-INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico, Eliminato)
+INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico)
 VALUES (IdUtenteseq.nextval,'Loic','Zelenenkov',to_date('06/03/1984','DD/MM/YYYY HH24:MI:SS'),'7192 West Topeka Drive, Glendale','loic@zelenenkov.it','2176377540');
-INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico, Eliminato)
+INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico)
 VALUES (IdUtenteseq.nextval,'Henning','Jong',to_date('21/05/1981','DD/MM/YYYY HH24:MI:SS'),'215 9th Street Northeast, Washington','henning@jong.it','9147444907');
-INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico, Eliminato)
+INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico)
 VALUES (IdUtenteseq.nextval,'Ethel','Turrell',to_date('24/03/1999','DD/MM/YYYY HH24:MI:SS'),'605 Main Street, Watertown','ethel@turrell.it','9530630549');
-INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico, Eliminato)
+INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico)
 VALUES (IdUtenteseq.nextval,'Yuliana','Schladerer',to_date('01/05/1989','DD/MM/YYYY HH24:MI:SS'),'1641 Kramer Street Northeast, Washington','yuliana@schladerer.it','6677272059');
-INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico, Eliminato)
+INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico)
 VALUES (IdUtenteseq.nextval,'Bertram','Muenala',to_date('01/09/1987','DD/MM/YYYY HH24:MI:SS'),'344 Island Road, Savannah','bertram@muenala.it','5367979171');
-INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico, Eliminato)
+INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico)
 VALUES (IdUtenteseq.nextval,'Pavlo','Heidenbluth',to_date('01/01/1970','DD/MM/YYYY HH24:MI:SS'),'510 Leeanne Drive, Nashville','pavlo@heidenbluth.it','2212650713');
-INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico, Eliminato)
+INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico)
 VALUES (IdUtenteseq.nextval,'Jobita','Michaeli',to_date('27/03/1990','DD/MM/YYYY HH24:MI:SS'),'8398 West Denton Lane, Glendale','jobita@michaeli.it','2832070257');
-INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico, Eliminato)
+INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico)
 VALUES (IdUtenteseq.nextval,'Tamela','DeaÃ±o',to_date('17/08/1997','DD/MM/YYYY HH24:MI:SS'),'2868 Peak Road, Wheelock','tamela@deaÃ±o.it','3584400720');
-INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico, Eliminato)
+INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico)
 VALUES (IdUtenteseq.nextval,'Siegfried','Paeper',to_date('28/03/1991','DD/MM/YYYY HH24:MI:SS'),'115 Colemont Court, Nashville','siegfried@paeper.it','5539413563');
-INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico, Eliminato)
+INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico)
 VALUES (IdUtenteseq.nextval,'Hmidou','Aja',to_date('03/12/1978','DD/MM/YYYY HH24:MI:SS'),'91 Hoague Drive, Highgate','hmidou@aja.it','7678797602');
-INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico, Eliminato)
+INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico)
 VALUES (IdUtenteseq.nextval,'Jilali','Yuguero',to_date('27/10/1983','DD/MM/YYYY HH24:MI:SS'),'174 Village Lake Drive, Pooler','jilali@yuguero.it','1076432508');
-INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico, Eliminato)
+INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico)
 VALUES (IdUtenteseq.nextval,'Benny','Ellenbogen',to_date('26/07/1994','DD/MM/YYYY HH24:MI:SS'),'236 Alden Road, Hayward','benny@ellenbogen.it','4386145650');
-INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico, Eliminato)
+INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico)
 VALUES (IdUtenteseq.nextval,'Zula','Bienhoff',to_date('27/09/2005','DD/MM/YYYY HH24:MI:SS'),'23 Columbia Drive, Manchester','zula@bienhoff.it','8583626472');
-INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico, Eliminato)
+INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico)
 VALUES (IdUtenteseq.nextval,'Holga','Brokopp',to_date('23/01/1984','DD/MM/YYYY HH24:MI:SS'),'205 North Henderson Bend Road Northwest, Calhoun','holga@brokopp.it','8036060360');
-INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico, Eliminato)
+INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico)
 VALUES (IdUtenteseq.nextval,'Souhaib','Lawn',to_date('19/10/1972','DD/MM/YYYY HH24:MI:SS'),'14006 Coffee Bluff Road, Savannah','souhaib@lawn.it','9688101031');
-INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico, Eliminato)
+INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico)
 VALUES (IdUtenteseq.nextval,'Shandra','Pedraz',to_date('04/11/1988','DD/MM/YYYY HH24:MI:SS'),'16031 West 63rd Lane, Arvada','shandra@pedraz.it','2468781380');
-INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico, Eliminato)
+INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico)
 VALUES (IdUtenteseq.nextval,'Liz','Boumaaza',to_date('05/12/1993','DD/MM/YYYY HH24:MI:SS'),'5 Hibiscus Avenue, Savannah','liz@boumaaza.it','7581593192');
-INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico, Eliminato)
+INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico)
 VALUES (IdUtenteseq.nextval,'Krasimira','Mahavira',to_date('13/05/1989','DD/MM/YYYY HH24:MI:SS'),'115 Home Avenue, Burlington','krasimira@mahavira.it','1419892622');
-INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico, Eliminato)
+INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico)
 VALUES (IdUtenteseq.nextval,'Xue','Seshan',to_date('26/09/1992','DD/MM/YYYY HH24:MI:SS'),'66 Bradford Road, Braintree','xue@seshan.it','5703099616');
-INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico, Eliminato)
+INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico)
 VALUES (IdUtenteseq.nextval,'Plamen','Jabsky',to_date('01/01/1970','DD/MM/YYYY HH24:MI:SS'),'63 Wild Thistle Lane, Savannah','plamen@jabsky.it','3098903230');
-INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico, Eliminato)
+INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico)
 VALUES (IdUtenteseq.nextval,'Soraida','Huther',to_date('14/12/1995','DD/MM/YYYY HH24:MI:SS'),'2716 Fairmont Drive, Panama City','soraida@huther.it','4903007782');
-INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico, Eliminato)
+INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico)
 VALUES (IdUtenteseq.nextval,'Luanne','Dodenhoff',to_date('12/10/1978','DD/MM/YYYY HH24:MI:SS'),'12 Red Fox Drive, Savannah','luanne@dodenhoff.it','3045638836');
-INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico, Eliminato)
+INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico)
 VALUES (IdUtenteseq.nextval,'Victory','Macia',to_date('17/08/1989','DD/MM/YYYY HH24:MI:SS'),'5118 Augusta Road, Garden City','victory@macia.it','7122943371');
-INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico, Eliminato)
+INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico)
 VALUES (IdUtenteseq.nextval,'Yapci','Merchan',to_date('05/01/1991','DD/MM/YYYY HH24:MI:SS'),'211 Oak Street, Manchester','yapci@merchan.it','7883796339');
-INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico, Eliminato)
+INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico)
 VALUES (IdUtenteseq.nextval,'Jann','Luer',to_date('22/12/2011','DD/MM/YYYY HH24:MI:SS'),'4306 Bylsma Circle, Panama City','jann@luer.it','1427081595');
-INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico, Eliminato)
+INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico)
 VALUES (IdUtenteseq.nextval,'Yen','Hahn',to_date('10/02/1986','DD/MM/YYYY HH24:MI:SS'),'8378 Cole Street, Arvada','yen@hahn.it','8834732025');
-INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico, Eliminato)
+INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico)
 VALUES (IdUtenteseq.nextval,'Madani','Beisti',to_date('04/10/1987','DD/MM/YYYY HH24:MI:SS'),'16463 North 60th Avenue, Glendale','madani@beisti.it','8582542324');
-INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico, Eliminato)
+INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico)
 VALUES (IdUtenteseq.nextval,'Irfan','Lemaire',to_date('09/10/1980','DD/MM/YYYY HH24:MI:SS'),'2534 Willena Avenue, Montgomery','irfan@lemaire.it','4023880280');
-INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico, Eliminato)
+INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico)
 VALUES (IdUtenteseq.nextval,'Abdulla','Rial',to_date('18/01/1976','DD/MM/YYYY HH24:MI:SS'),'34 Free Street, Hingham','abdulla@rial.it','9497999604');
-INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico, Eliminato)
+INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico)
 VALUES (IdUtenteseq.nextval,'Cherise','Coronho',to_date('23/02/1990','DD/MM/YYYY HH24:MI:SS'),'517 Retford Drive, Severna Park','cherise@coronho.it','3990396944');
-INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico, Eliminato)
+INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico)
 VALUES (IdUtenteseq.nextval,'Luis','Casarramona',to_date('09/07/1988','DD/MM/YYYY HH24:MI:SS'),'13426 North 54th Drive, Glendale','luis@casarramona.it','5200573226');
-INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico, Eliminato)
+INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico)
 VALUES (IdUtenteseq.nextval,'Veselina','Fauvel',to_date('10/02/1985','DD/MM/YYYY HH24:MI:SS'),'6912 Sunrise Drive, Panama City','veselina@fauvel.it','7389206601');
-INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico, Eliminato)
+INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico)
 VALUES (IdUtenteseq.nextval,'Gerard','Zimonin',to_date('09/10/2010','DD/MM/YYYY HH24:MI:SS'),'8709 Peeble Lane, Louisville','gerard@zimonin.it','4220835677');
-INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico, Eliminato)
+INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico)
 VALUES (IdUtenteseq.nextval,'Mawdo','Loetstein',to_date('26/07/1997','DD/MM/YYYY HH24:MI:SS'),'6244 Sun River Drive, Sacramento','mawdo@loetstein.it','9221930197');
-INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico, Eliminato)
+INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico)
 VALUES (IdUtenteseq.nextval,'Fedor','Muniesa',to_date('07/04/2005','DD/MM/YYYY HH24:MI:SS'),'1403 12th Street Northwest, Washington','fedor@muniesa.it','2970765766');
-INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico, Eliminato)
+INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico)
 VALUES (IdUtenteseq.nextval,'Betsaida','Alejandro',to_date('10/08/2001','DD/MM/YYYY HH24:MI:SS'),'185 Longview Road, West Tisbury','betsaida@alejandro.it','8180099194');
-INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico, Eliminato)
+INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico)
 VALUES (IdUtenteseq.nextval,'Radina','Ulferts',to_date('09/08/2005','DD/MM/YYYY HH24:MI:SS'),'1701 Atlantic Street, Union City','radina@ulferts.it','2543168709');
-INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico, Eliminato)
+INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico)
 VALUES (IdUtenteseq.nextval,'Inocenta','Drury',to_date('05/03/1994','DD/MM/YYYY HH24:MI:SS'),'406 East Waldburg Street, Savannah','inocenta@drury.it','1214454842');
-INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico, Eliminato)
+INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico)
 VALUES (IdUtenteseq.nextval,'Antton','Ilundain',to_date('23/08/2004','DD/MM/YYYY HH24:MI:SS'),'264 River Road, Richmond','antton@ilundain.it','8434946110');
-INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico, Eliminato)
+INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico)
 VALUES (IdUtenteseq.nextval,'Abdelwahed','Abalkin',to_date('28/02/1979','DD/MM/YYYY HH24:MI:SS'),'8421 Thomas Drive, Panama City','abdelwahed@abalkin.it','7980664854');
-INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico, Eliminato)
+INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico)
 VALUES (IdUtenteseq.nextval,'Kbira','Springindschmitten',to_date('14/03/2006','DD/MM/YYYY HH24:MI:SS'),'12091 Mierkey Road, Jackson','kbira@springindschmitten.it','4472002786');
-INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico, Eliminato)
+INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico)
 VALUES (IdUtenteseq.nextval,'Sevinch','Grohnert',to_date('11/01/1978','DD/MM/YYYY HH24:MI:SS'),'1537 Northwest 123rd Street, Oklahoma City','sevinch@grohnert.it','1909886045');
-INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico, Eliminato)
+INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico)
 VALUES (IdUtenteseq.nextval,'Ayob','Herbert',to_date('13/09/1993','DD/MM/YYYY HH24:MI:SS'),'2203 West 24th Street, Panama City','ayob@herbert.it','4381169448');
-INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico, Eliminato)
+INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico)
 VALUES (IdUtenteseq.nextval,'Sindia','Pinart',to_date('11/02/2008','DD/MM/YYYY HH24:MI:SS'),'2212 Greenville Street, Montgomery','sindia@pinart.it','7303376101');
-INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico, Eliminato)
+INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico)
 VALUES (IdUtenteseq.nextval,'Hermenegil','Bachrich',to_date('01/01/2014','DD/MM/YYYY HH24:MI:SS'),'9805 Meadow Vale Drive, Louisville','hermenegil@bachrich.it','5280486247');
-INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico, Eliminato)
+INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico)
 VALUES (IdUtenteseq.nextval,'Maye','Andrehsen',to_date('25/04/1989','DD/MM/YYYY HH24:MI:SS'),'2511 Hearst Avenue, Berkeley','maye@andrehsen.it','2906300258');
-INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico, Eliminato)
+INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico)
 VALUES (IdUtenteseq.nextval,'Mileidys','Zschieschak',to_date('01/01/1970','DD/MM/YYYY HH24:MI:SS'),'20 Hacker Street, Worcester','mileidys@zschieschak.it','8348343563');
-INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico, Eliminato)
+INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico)
 VALUES (IdUtenteseq.nextval,'Rosell','Vitov',to_date('01/01/2014','DD/MM/YYYY HH24:MI:SS'),'123 Villa View Court, Brentwood','rosell@vitov.it','2427054871');
-INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico, Eliminato)
+INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico)
 VALUES (IdUtenteseq.nextval,'Yuvraj','Kappelma',to_date('19/06/1977','DD/MM/YYYY HH24:MI:SS'),'52 Park Street, Manchester','yuvraj@kappelma.it','7828583915');
-INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico, Eliminato)
+INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico)
 VALUES (IdUtenteseq.nextval,'Jeanine','Hafer',to_date('18/03/1978','DD/MM/YYYY HH24:MI:SS'),'218 Saint Antons Way, Arnold','jeanine@hafer.it','9996695693');
-INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico, Eliminato)
+INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico)
 VALUES (IdUtenteseq.nextval,'Mankilef','Roure',to_date('09/05/1999','DD/MM/YYYY HH24:MI:SS'),'3179 18th Street Northwest, Washington','mankilef@roure.it','7336671504');
-INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico, Eliminato)
+INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico)
 VALUES (IdUtenteseq.nextval,'Venessa','Bitsche',to_date('01/01/2014','DD/MM/YYYY HH24:MI:SS'),'86 Pine Street, Cambridge','venessa@bitsche.it','8009090095');
-INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico, Eliminato)
+INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico)
 VALUES (IdUtenteseq.nextval,'Brahim','Abjaliloff',to_date('26/09/1996','DD/MM/YYYY HH24:MI:SS'),'713 Millard Fuller Drive, Montgomery','brahim@abjaliloff.it','6644967382');
-INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico, Eliminato)
+INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico)
 VALUES (IdUtenteseq.nextval,'Yusraa','Da Vila',to_date('20/12/1979','DD/MM/YYYY HH24:MI:SS'),'29076 Little Big Horn Drive, Evergreen','yusraa@davila.it','6866592792');
-INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico, Eliminato)
+INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico)
 VALUES (IdUtenteseq.nextval,'Iffat','Sanft',to_date('13/03/2000','DD/MM/YYYY HH24:MI:SS'),'178 Connecticut River Road','iffat@sanft.it','6356039335');
-INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico, Eliminato)
+INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico)
 VALUES (IdUtenteseq.nextval,'Younnes','Borta',to_date('03/09/1989','DD/MM/YYYY HH24:MI:SS'),'2A Cleveland Park Rd, Freetown','younnes@borta.it','8044464079');
-INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico, Eliminato)
+INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico)
 VALUES (IdUtenteseq.nextval,'George','Jockenhofer',to_date('12/03/1994','DD/MM/YYYY HH24:MI:SS'),'2209 East Manor Drive, Fayetteville','george@jockenhofer.it','3275458132');
-INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico, Eliminato)
+INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico)
 VALUES (IdUtenteseq.nextval,'Albarina','Bosque',to_date('01/01/2014','DD/MM/YYYY HH24:MI:SS'),'1650 North Sang Avenue, Fayetteville','albarina@bosque.it','7476339760');
-INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico, Eliminato)
+INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico)
 VALUES (IdUtenteseq.nextval,'Tonda','Upsdell',to_date('12/03/1977','DD/MM/YYYY HH24:MI:SS'),'505 North Washington Avenue, Fayetteville','tonda@upsdell.it','7916749639');
-INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico, Eliminato)
+INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico)
 VALUES (IdUtenteseq.nextval,'Nihad','Worchesi',to_date('02/11/1978','DD/MM/YYYY HH24:MI:SS'),'61 Thomas Street, Dedham','nihad@worchesi.it','6800871760');
-INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico, Eliminato)
+INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico)
 VALUES (IdUtenteseq.nextval,'Hiart','Sucino',to_date('03/09/2011','DD/MM/YYYY HH24:MI:SS'),'2464 Windham Hill Road, Townshend','hiart@sucino.it','2612246906');
-INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico, Eliminato)
+INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico)
 VALUES (IdUtenteseq.nextval,'Granville','Martitegui',to_date('03/11/1977','DD/MM/YYYY HH24:MI:SS'),'14 Tranquil Place, Pooler','granville@martitegui.it','5296737524');
-INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico, Eliminato)
+INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico)
 VALUES (IdUtenteseq.nextval,'Marybelle','Azcuenaga',to_date('04/07/1989','DD/MM/YYYY HH24:MI:SS'),'86 Russell Street, Manchester','marybelle@azcuenaga.it','8437700579');
-INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico, Eliminato)
+INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico)
 VALUES (IdUtenteseq.nextval,'Faye','Hinchin',to_date('07/03/2005','DD/MM/YYYY HH24:MI:SS'),'7090 West 64th Avenue, Arvada','faye@hinchin.it','6846992125');
-INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico, Eliminato)
+INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico)
 VALUES (IdUtenteseq.nextval,'Octaviana','Obelleiro',to_date('05/06/2008','DD/MM/YYYY HH24:MI:SS'),'3537 West Chevaux Drive, Fayetteville','octaviana@obelleiro.it','6093531881');
-INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico, Eliminato)
+INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico)
 VALUES (IdUtenteseq.nextval,'Iran','Seegers',to_date('01/01/2014','DD/MM/YYYY HH24:MI:SS'),'1256 Talbert Street Southeast, Washington','iran@seegers.it','2267360104');
-INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico, Eliminato)
+INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico)
 VALUES (IdUtenteseq.nextval,'Barca','Ogtrop',to_date('01/01/2014','DD/MM/YYYY HH24:MI:SS'),'1613 Maple Timber Court, Nashville','barca@ogtrop.it','8911820355');
-INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico, Eliminato)
+INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico)
 VALUES (IdUtenteseq.nextval,'Savino','Hausotter',to_date('14/10/2000','DD/MM/YYYY HH24:MI:SS'),'2411 Alteras Drive, Nashville','savino@hausotter.it','7838345773');
-INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico, Eliminato)
+INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico)
 VALUES (IdUtenteseq.nextval,'Ginny','Staiber',to_date('01/01/1970','DD/MM/YYYY HH24:MI:SS'),'1149 Darwin Street, Savannah','ginny@staiber.it','7924816567');
-INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico, Eliminato)
+INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico)
 VALUES (IdUtenteseq.nextval,'Selin','Syzde',to_date('01/01/2014','DD/MM/YYYY HH24:MI:SS'),'1903 Bashford Manor Lane, Louisville','selin@syzde.it','1809332331');
-INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico, Eliminato)
+INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico)
 VALUES (IdUtenteseq.nextval,'Ofelia','Lostaun',to_date('24/09/1973','DD/MM/YYYY HH24:MI:SS'),'225 Claude Street, Annapolis','ofelia@lostaun.it','3483156379');
-INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico, Eliminato)
+INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico)
 VALUES (IdUtenteseq.nextval,'Kundalini','Salamone',to_date('20/05/2002','DD/MM/YYYY HH24:MI:SS'),'51 Bearing Circle, Port Wentworth','kundalini@salamone.it','8346068223');
-INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico, Eliminato)
+INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico)
 VALUES (IdUtenteseq.nextval,'Fofana','Egitto',to_date('06/07/1993','DD/MM/YYYY HH24:MI:SS'),'2732 Rosedale Place, Nashville','fofana@egitto.it','4585552586');
-INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico, Eliminato)
+INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico)
 VALUES (IdUtenteseq.nextval,'Zouhair','Esselborn',to_date('03/10/1974','DD/MM/YYYY HH24:MI:SS'),'7968 Newman Street, Arvada','zouhair@esselborn.it','2396228565');
-INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico, Eliminato)
+INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico)
 VALUES (IdUtenteseq.nextval,'Mouhamadou','Atzmuller',to_date('20/04/1970','DD/MM/YYYY HH24:MI:SS'),'1522 South 36th Street, Louisville','mouhamadou@atzmuller.it','4511908282');
-INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico, Eliminato)
+INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico)
 VALUES (IdUtenteseq.nextval,'Lillian','Taddia',to_date('12/06/1986','DD/MM/YYYY HH24:MI:SS'),'775 47th Street, Oakland','lillian@taddia.it','4864839955');
-INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico, Eliminato)
+INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico)
 VALUES (IdUtenteseq.nextval,'Beatriz','Impedovo',to_date('02/01/2011','DD/MM/YYYY HH24:MI:SS'),'12403 Deerfield Road, Savannah','beatriz@impedovo.it','3943752681');
-INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico, Eliminato)
+INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico)
 VALUES (IdUtenteseq.nextval,'Romy','Hitrov',to_date('29/12/2006','DD/MM/YYYY HH24:MI:SS'),'8800 Northwest 92nd Street, Oklahoma City','romy@hitrov.it','4242725895');
-INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico, Eliminato)
+INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico)
 VALUES (IdUtenteseq.nextval,'Fredesvindo','Aveleiro',to_date('30/01/1982','DD/MM/YYYY HH24:MI:SS'),'14300 Leesa Lane, Edmond','fredesvindo@aveleiro.it','2707378846');
-INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico, Eliminato)
+INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico)
 VALUES (IdUtenteseq.nextval,'Cathi','Argelaguet',to_date('25/09/1976','DD/MM/YYYY HH24:MI:SS'),'1920 Bladensburg Road Northeast, Washington','cathi@argelaguet.it','2881414165');
-INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico, Eliminato)
+INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico)
 VALUES (IdUtenteseq.nextval,'Jasvinder','Plankensteiner',to_date('01/09/1988','DD/MM/YYYY HH24:MI:SS'),'172 Homestead Street, Manchester','jasvinder@plankensteiner.it','8898087282');
-INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico, Eliminato)
+INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico)
 VALUES (IdUtenteseq.nextval,'Leonardo','Pankharia',to_date('14/05/1971','DD/MM/YYYY HH24:MI:SS'),'840 River Crest Court, Louisville','leonardo@pankharia.it','8040825791');
-INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico, Eliminato)
+INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico)
 VALUES (IdUtenteseq.nextval,'Nathalia','Meenan',to_date('27/08/1976','DD/MM/YYYY HH24:MI:SS'),'915 Sacramento Street, Bakersfield','nathalia@meenan.it','1551542425');
-INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico, Eliminato)
+INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico)
 VALUES (IdUtenteseq.nextval,'Jaimie','Frick',to_date('13/11/1986','DD/MM/YYYY HH24:MI:SS'),'7910 West Krall Street, Glendale','jaimie@frick.it','9199599326');
-INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico, Eliminato)
+INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico)
 VALUES (IdUtenteseq.nextval,'Deshawn','Prin',to_date('20/02/1991','DD/MM/YYYY HH24:MI:SS'),'52 Park Street, Manchester','deshawn@prin.it','7939362480');
-INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico, Eliminato)
+INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico)
 VALUES (IdUtenteseq.nextval,'Cristinela','Sathyanarayana',to_date('14/04/1974','DD/MM/YYYY HH24:MI:SS'),'10927 West 59th Avenue, Arvada','cristinela@sathyanarayana.it','3695149235');
-INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico, Eliminato)
+INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico)
 VALUES (IdUtenteseq.nextval,'Jinlan','Vallesi',to_date('19/12/1983','DD/MM/YYYY HH24:MI:SS'),'3537 West Chevaux Drive, Fayetteville','jinlan@vallesi.it','6560793128');
-INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico, Eliminato)
+INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico)
 VALUES (IdUtenteseq.nextval,'Ulrike','Freddi',to_date('07/07/1976','DD/MM/YYYY HH24:MI:SS'),'7770 West Bell Road, Glendale','ulrike@freddi.it','3183428440');
-INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico, Eliminato)
+INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico)
 VALUES (IdUtenteseq.nextval,'Rosalina','Fona',to_date('06/05/1992','DD/MM/YYYY HH24:MI:SS'),'802 Virginia Avenue, Lynn Haven','rosalina@fona.it','3268897830');
-INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico, Eliminato)
+INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico)
 VALUES (IdUtenteseq.nextval,'Massiel','Cham',to_date('06/02/1986','DD/MM/YYYY HH24:MI:SS'),'1219 Carleton Street, Berkeley','massiel@cham.it','9946536890');
-INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico, Eliminato)
+INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico)
 VALUES (IdUtenteseq.nextval,'Bradford','Romoaldo',to_date('01/01/1970','DD/MM/YYYY HH24:MI:SS'),'740 East 34th Street, Savannah','bradford@romoaldo.it','7886704257');
-INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico, Eliminato)
+INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico)
 VALUES (IdUtenteseq.nextval,'Carmelita','Gateev',to_date('06/04/1977','DD/MM/YYYY HH24:MI:SS'),'11102 Little Rock Court, Louisville','carmelita@gateev.it','3954107308');
-INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico, Eliminato)
+INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico)
 VALUES (IdUtenteseq.nextval,'Wilberto','Eisenberger',to_date('14/06/1995','DD/MM/YYYY HH24:MI:SS'),'8935 Cole Drive, Arvada','wilberto@eisenberger.it','5128733867');
-INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico, Eliminato)
+INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico)
 VALUES (IdUtenteseq.nextval,'Radia','Luettecke',to_date('13/06/1983','DD/MM/YYYY HH24:MI:SS'),'2755 Country Drive, Fremont','radia@luettecke.it','5234292601');
-INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico, Eliminato)
+INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico)
 VALUES (IdUtenteseq.nextval,'Fatimetu','Valdeon',to_date('03/08/2001','DD/MM/YYYY HH24:MI:SS'),'1954 Hilltop Road, Jessup','fatimetu@valdeon.it','7959785679');
-INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico, Eliminato)
+INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico)
 VALUES (IdUtenteseq.nextval,'Md','Romance',to_date('16/02/1979','DD/MM/YYYY HH24:MI:SS'),'2543 The Meadows, Montgomery','md@romance.it','4612138154');
-INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico, Eliminato)
+INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico)
 VALUES (IdUtenteseq.nextval,'Madani','Zillig',to_date('27/01/1977','DD/MM/YYYY HH24:MI:SS'),'25 Morton Street, Quincy','madani@zillig.it','1751061057');
-INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico, Eliminato)
+INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico)
 VALUES (IdUtenteseq.nextval,'Dieter','Coso',to_date('11/09/1991','DD/MM/YYYY HH24:MI:SS'),'2313 South 4th Street, Louisville','dieter@coso.it','2164356342');
-INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico, Eliminato)
+INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico)
 VALUES (IdUtenteseq.nextval,'Cecille','Engeli',to_date('11/09/2010','DD/MM/YYYY HH24:MI:SS'),'5921 Ashwood Bluff Drive, Louisville','cecille@engeli.it','5463632820');
-INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico, Eliminato)
+INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico)
 VALUES (IdUtenteseq.nextval,'Galia','Olivenca',to_date('16/06/1986','DD/MM/YYYY HH24:MI:SS'),'222 Rockcrest Way, Louisville','galia@olivenca.it','9772630237');
-INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico, Eliminato)
+INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico)
 VALUES (IdUtenteseq.nextval,'Hugues','Hoewer',to_date('19/07/2003','DD/MM/YYYY HH24:MI:SS'),'5 Centercrest Drive, Tyngsborough','hugues@hoewer.it','4848470633');
-INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico, Eliminato)
+INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico)
 VALUES (IdUtenteseq.nextval,'Kuldip','Shakhurov',to_date('13/02/2012','DD/MM/YYYY HH24:MI:SS'),'2936 State Avenue, Panama City','kuldip@shakhurov.it','3442033001');
-INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico, Eliminato)
+INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico)
 VALUES (IdUtenteseq.nextval,'Zhihui','Miguelana',to_date('24/03/1983','DD/MM/YYYY HH24:MI:SS'),'3301 Nora Lane, Louisville','zhihui@miguelana.it','7558439085');
-INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico, Eliminato)
+INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico)
 VALUES (IdUtenteseq.nextval,'Kerry','Drosu',to_date('22/01/1972','DD/MM/YYYY HH24:MI:SS'),'23622 Greatland Drive, Anchorage','kerry@drosu.it','5228018213');
-INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico, Eliminato)
+INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico)
 VALUES (IdUtenteseq.nextval,'Haouari','Pilgrim',to_date('21/01/1983','DD/MM/YYYY HH24:MI:SS'),'1054 Overton Lea Road, Nashville','haouari@pilgrim.it','4691487123');
-INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico, Eliminato)
+INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico)
 VALUES (IdUtenteseq.nextval,'Hamou','Misa',to_date('26/02/1996','DD/MM/YYYY HH24:MI:SS'),'1990 Poplar Ridge Road, Pasadena','hamou@misa.it','6709606285');
-INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico, Eliminato)
+INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico)
 VALUES (IdUtenteseq.nextval,'Julissa','Grasa',to_date('22/05/1982','DD/MM/YYYY HH24:MI:SS'),'2142 Colonel Way, Odenton','julissa@grasa.it','9297280950');
-INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico, Eliminato)
+INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico)
 VALUES (IdUtenteseq.nextval,'Mayela','Segurado',to_date('30/05/1990','DD/MM/YYYY HH24:MI:SS'),'6366 West Aurora Drive, Glendale','mayela@segurado.it','7226493386');
-INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico, Eliminato)
+INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico)
 VALUES (IdUtenteseq.nextval,'Ferhat','Lisart',to_date('10/12/1990','DD/MM/YYYY HH24:MI:SS'),'275 Ridge Lane, Waltham','ferhat@lisart.it','9802795724');
-INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico, Eliminato)
+INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico)
 VALUES (IdUtenteseq.nextval,'Kamila','Bengoechea-Olaegui',to_date('29/05/2013','DD/MM/YYYY HH24:MI:SS'),'29 Vista Flores, Pleasanton','kamila@bengoechea-olaegui.it','9153646202');
-INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico, Eliminato)
+INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico)
 VALUES (IdUtenteseq.nextval,'Cisne','Castel',to_date('28/03/2001','DD/MM/YYYY HH24:MI:SS'),'301 Argonaut Street, Panama City Beach','cisne@castel.it','2450484642');
-INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico, Eliminato)
+INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico)
 VALUES (IdUtenteseq.nextval,'Grau','D',to_date('01/01/2014','DD/MM/YYYY HH24:MI:SS'),'39 Tania Drive, Manchester','grau@d.it','6502118981');
-INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico, Eliminato)
+INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico)
 VALUES (IdUtenteseq.nextval,'Yesid','Gambarte',to_date('27/08/1980','DD/MM/YYYY HH24:MI:SS'),'512 North Center Avenue, Panama City','yesid@gambarte.it','6610627580');
-INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico, Eliminato)
+INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico)
 VALUES (IdUtenteseq.nextval,'Loyda','Engelmann',to_date('01/01/2014','DD/MM/YYYY HH24:MI:SS'),'3949 Ethan Allen Highway, Saint Albans City','loyda@engelmann.it','3896300029');
-INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico, Eliminato)
+INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico)
 VALUES (IdUtenteseq.nextval,'Faouzia','Hedriche',to_date('01/01/1970','DD/MM/YYYY HH24:MI:SS'),'178 Connecticut River Road','faouzia@hedriche.it','8047624698');
-INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico, Eliminato)
+INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico)
 VALUES (IdUtenteseq.nextval,'Pascual','Olde',to_date('01/01/1970','DD/MM/YYYY HH24:MI:SS'),'653 Vermont 12, Hartland','pascual@olde.it','8497924096');
-INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico, Eliminato)
+INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico)
 VALUES (IdUtenteseq.nextval,'Marinette','Landegui',to_date('22/07/1988','DD/MM/YYYY HH24:MI:SS'),'883 Rodney Drive, Nashville','marinette@landegui.it','6600719876');
-INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico, Eliminato)
+INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico)
 VALUES (IdUtenteseq.nextval,'Touda','Bielatowic',to_date('17/04/1994','DD/MM/YYYY HH24:MI:SS'),'307 Meadowood Court, Lynn Haven','touda@bielatowic.it','5145233802');
-INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico, Eliminato)
+INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico)
 VALUES (IdUtenteseq.nextval,'Eneida','Jaca',to_date('11/11/1989','DD/MM/YYYY HH24:MI:SS'),'2035 Ninth Street, Berkeley','eneida@jaca.it','7997988793');
-INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico, Eliminato)
+INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico)
 VALUES (IdUtenteseq.nextval,'Malwina','Belkin',to_date('04/01/1980','DD/MM/YYYY HH24:MI:SS'),'4726 West Palmaire Avenue, Glendale','malwina@belkin.it','6012463750');
-INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico, Eliminato)
+INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico)
 VALUES (IdUtenteseq.nextval,'Laetitia','Solvas',to_date('14/06/1986','DD/MM/YYYY HH24:MI:SS'),'188 River Road, Essex','laetitia@solvas.it','7274220864');
-INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico, Eliminato)
+INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico)
 VALUES (IdUtenteseq.nextval,'Charlsie','Eriksohn',to_date('26/06/2002','DD/MM/YYYY HH24:MI:SS'),'875 Latouche Street, Anchorage','charlsie@eriksohn.it','8499585732');
-INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico, Eliminato)
+INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico)
 VALUES (IdUtenteseq.nextval,'Elhassan','Tsevlonsky',to_date('01/01/2014','DD/MM/YYYY HH24:MI:SS'),'235 Hugh Thomas Drive, Panama City','elhassan@tsevlonsky.it','2258545520');
-INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico, Eliminato)
+INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico)
 VALUES (IdUtenteseq.nextval,'Guohong','Chiqueiro',to_date('19/08/1989','DD/MM/YYYY HH24:MI:SS'),'7947 Citadel Drive, Severn','guohong@chiqueiro.it','4044507460');
-INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico, Eliminato)
+INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico)
 VALUES (IdUtenteseq.nextval,'Yunes','Lafuerza',to_date('04/03/1979','DD/MM/YYYY HH24:MI:SS'),'2868 Peak Road, Wheelock','yunes@lafuerza.it','9454770938');
-INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico, Eliminato)
+INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico)
 VALUES (IdUtenteseq.nextval,'Donna','Sand',to_date('10/01/1985','DD/MM/YYYY HH24:MI:SS'),'4800 Huffman Road, Anchorage','donna@sand.it','5760907372');
-INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico, Eliminato)
+INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico)
 VALUES (IdUtenteseq.nextval,'Ute','Hazov',to_date('25/07/1984','DD/MM/YYYY HH24:MI:SS'),'1820 22nd Street Southeast, Washington','ute@hazov.it','1940393660');
-INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico, Eliminato)
+INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico)
 VALUES (IdUtenteseq.nextval,'Bessie','Neveselov',to_date('01/01/2014','DD/MM/YYYY HH24:MI:SS'),'5 Winslow Circle, Pooler','bessie@neveselov.it','9728317583');
-INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico, Eliminato)
+INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico)
 VALUES (IdUtenteseq.nextval,'Josu','Heilbrunner',to_date('19/08/1996','DD/MM/YYYY HH24:MI:SS'),'12039 West 85th Drive, Arvada','josu@heilbrunner.it','3922653499');
-INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico, Eliminato)
+INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico)
 VALUES (IdUtenteseq.nextval,'Hafiz','Cuadro',to_date('27/07/1998','DD/MM/YYYY HH24:MI:SS'),'3871 Galactica Drive, Anchorage','hafiz@cuadro.it','2873624476');
-INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico, Eliminato)
+INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico)
 VALUES (IdUtenteseq.nextval,'Tyisha','Ysmal',to_date('30/04/1978','DD/MM/YYYY HH24:MI:SS'),'23 Columbia Drive, Manchester','tyisha@ysmal.it','7838362974');
-INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico, Eliminato)
+INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico)
 VALUES (IdUtenteseq.nextval,'Boutaina','Nicoli',to_date('14/04/1992','DD/MM/YYYY HH24:MI:SS'),'2410 Pafford Drive, Nashville','boutaina@nicoli.it','4401285053');
-INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico, Eliminato)
+INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico)
 VALUES (IdUtenteseq.nextval,'Rajinder','Waimert',to_date('17/07/1993','DD/MM/YYYY HH24:MI:SS'),'219 Shana Road, Glen Burnie','rajinder@waimert.it','3870334971');
-INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico, Eliminato)
+INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico)
 VALUES (IdUtenteseq.nextval,'Vina','Buermann',to_date('02/08/2002','DD/MM/YYYY HH24:MI:SS'),'308 Woodleaf Court, Glen Burnie','vina@buermann.it','6000840263');
-INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico, Eliminato)
+INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico)
 VALUES (IdUtenteseq.nextval,'Bali','Abenza',to_date('27/10/1994','DD/MM/YYYY HH24:MI:SS'),'169 Avenida Drive, Berkeley','bali@abenza.it','5915651515');
-INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico, Eliminato)
+INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico)
 VALUES (IdUtenteseq.nextval,'Jincheng','Steckler',to_date('27/12/1985','DD/MM/YYYY HH24:MI:SS'),'378 Bonny Street, Grand Junction','jincheng@steckler.it','1870517723');
-INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico, Eliminato)
+INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico)
 VALUES (IdUtenteseq.nextval,'Yenny','Somonte',to_date('12/05/1984','DD/MM/YYYY HH24:MI:SS'),'1160 North College Avenue, Fayetteville','yenny@somonte.it','5761976147');
-INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico, Eliminato)
+INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico)
 VALUES (IdUtenteseq.nextval,'Hongliang','Secilla',to_date('18/07/1970','DD/MM/YYYY HH24:MI:SS'),'19091 Northeast 23rd Street, Harrah','hongliang@secilla.it','3129606847');
-INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico, Eliminato)
+INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico)
 VALUES (IdUtenteseq.nextval,'Heath','Oti',to_date('17/06/1987','DD/MM/YYYY HH24:MI:SS'),'8935 Cole Drive, Arvada','heath@oti.it','2864230454');
-INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico, Eliminato)
+INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico)
 VALUES (IdUtenteseq.nextval,'Alea','Stempelmann',to_date('03/01/1987','DD/MM/YYYY HH24:MI:SS'),'6990 Pierson Street, Arvada','alea@stempelmann.it','6338491195');
-INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico, Eliminato)
+INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico)
 VALUES (IdUtenteseq.nextval,'Allal','Heidschmidt',to_date('18/05/1991','DD/MM/YYYY HH24:MI:SS'),'7513 Lois Street, Panama City','allal@heidschmidt.it','8645216890');
-INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico, Eliminato)
+INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico)
 VALUES (IdUtenteseq.nextval,'Zolikha','Travessa',to_date('23/08/1993','DD/MM/YYYY HH24:MI:SS'),'894 Windmill Park Lane, Mountain View','zolikha@travessa.it','8223882184');
-INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico, Eliminato)
+INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico)
 VALUES (IdUtenteseq.nextval,'Araceli','Escanez',to_date('17/09/1999','DD/MM/YYYY HH24:MI:SS'),'3904 October Woods Drive, Nashville','araceli@escanez.it','4718516758');
-INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico, Eliminato)
+INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico)
 VALUES (IdUtenteseq.nextval,'Fanor','Harbich',to_date('03/08/2011','DD/MM/YYYY HH24:MI:SS'),'1102 Spy Glass Drive, Arnold','fanor@harbich.it','8710163430');
-INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico, Eliminato)
+INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico)
 VALUES (IdUtenteseq.nextval,'Marquetta','Tinaquero',to_date('13/06/2001','DD/MM/YYYY HH24:MI:SS'),'103 Aspen Place Northeast, Calhoun','marquetta@tinaquero.it','5397101563');
-INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico, Eliminato)
+INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico)
 VALUES (IdUtenteseq.nextval,'Rosell','Menaker',to_date('08/12/1971','DD/MM/YYYY HH24:MI:SS'),'713 Flight Avenue, Panama City','rosell@menaker.it','7414510732');
-INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico, Eliminato)
+INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico)
 VALUES (IdUtenteseq.nextval,'Baptista','Luikh',to_date('25/08/2003','DD/MM/YYYY HH24:MI:SS'),'689 Stableway Road, Pike Road','baptista@luikh.it','9365392189');
-INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico, Eliminato)
+INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico)
 VALUES (IdUtenteseq.nextval,'Jadwiga','Stampfer',to_date('20/08/2001','DD/MM/YYYY HH24:MI:SS'),'6800 West Bell Road, Glendale','jadwiga@stampfer.it','6863330552');
-INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico, Eliminato)
+INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico)
 VALUES (IdUtenteseq.nextval,'Onelia','Agalakov',to_date('12/06/1982','DD/MM/YYYY HH24:MI:SS'),'4300 Soquel Drive, Soquel','onelia@agalakov.it','2639802652');
-INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico, Eliminato)
+INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico)
 VALUES (IdUtenteseq.nextval,'Agustin','Schimmelpennig',to_date('17/07/1990','DD/MM/YYYY HH24:MI:SS'),'441 Merritt Avenue, Oakland','agustin@schimmelpennig.it','1693950420');
-INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico, Eliminato)
+INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico)
 VALUES (IdUtenteseq.nextval,'ConstanÃ§a','Golotyuk',to_date('08/02/1985','DD/MM/YYYY HH24:MI:SS'),'243 McKee Street, Manchester','constanÃ§a@golotyuk.it','4354671622');
-INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico, Eliminato)
+INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico)
 VALUES (IdUtenteseq.nextval,'Christiam','Schulte',to_date('01/01/2014','DD/MM/YYYY HH24:MI:SS'),'14003 Crossbranch Court, Louisville','christiam@schulte.it','3165890014');
-INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico, Eliminato)
+INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico)
 VALUES (IdUtenteseq.nextval,'Yuma','Gravier',to_date('06/01/1981','DD/MM/YYYY HH24:MI:SS'),'12283 Thomas Lane, Yucaipa','yuma@gravier.it','9511846925');
-INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico, Eliminato)
+INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico)
 VALUES (IdUtenteseq.nextval,'Sirio','Havana',to_date('09/01/1974','DD/MM/YYYY HH24:MI:SS'),'131 Westerly Street, Manchester','sirio@havana.it','1391563677');
-INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico, Eliminato)
+INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico)
 VALUES (IdUtenteseq.nextval,'Khnata','Guadalupe',to_date('27/03/2007','DD/MM/YYYY HH24:MI:SS'),'5606 Olde Wadsworth Boulevard, Arvada','khnata@guadalupe.it','5882269303');
-INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico, Eliminato)
+INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico)
 VALUES (IdUtenteseq.nextval,'Somia','Perojo',to_date('27/07/1983','DD/MM/YYYY HH24:MI:SS'),'2817 3rd Street, Thunderbolt','somia@perojo.it','9237922562');
-INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico, Eliminato)
+INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico)
 VALUES (IdUtenteseq.nextval,'Moumen','Weisz',to_date('30/06/2011','DD/MM/YYYY HH24:MI:SS'),'7703 Laird Street, Panama City','moumen@weisz.it','4585286641');
-INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico, Eliminato)
+INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico)
 VALUES (IdUtenteseq.nextval,'Eryka','Bertizberea',to_date('14/07/1984','DD/MM/YYYY HH24:MI:SS'),'419 Wabasso Avenue, Louisville','eryka@bertizberea.it','3067823543');
-INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico, Eliminato)
+INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico)
 VALUES (IdUtenteseq.nextval,'Consol','Ricciardi',to_date('20/03/1978','DD/MM/YYYY HH24:MI:SS'),'1734 Corcoran Street Northwest, Washington','consol@ricciardi.it','5672846881');
-INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico, Eliminato)
+INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico)
 VALUES (IdUtenteseq.nextval,'Shahzaib','Awerichkin',to_date('11/02/2004','DD/MM/YYYY HH24:MI:SS'),'5 Hibiscus Avenue, Savannah','shahzaib@awerichkin.it','9897673557');
-INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico, Eliminato)
+INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico)
 VALUES (IdUtenteseq.nextval,'Estefana','Mross',to_date('26/12/1982','DD/MM/YYYY HH24:MI:SS'),'756 Neponset Street, Norwood','estefana@mross.it','9023580209');
-INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico, Eliminato)
+INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico)
 VALUES (IdUtenteseq.nextval,'Enna','Blomer',to_date('05/03/1990','DD/MM/YYYY HH24:MI:SS'),'17361 Baronoff Avenue, Anchorage','enna@blomer.it','5634427849');
-INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico, Eliminato)
+INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico)
 VALUES (IdUtenteseq.nextval,'Zita','Sulca',to_date('19/09/2002','DD/MM/YYYY HH24:MI:SS'),'89 Frances Drive, Manchester','zita@sulca.it','6727735943');
-INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico, Eliminato)
+INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico)
 VALUES (IdUtenteseq.nextval,'Margareth','Nestar',to_date('06/06/1977','DD/MM/YYYY HH24:MI:SS'),'1314 89th Avenue, Oakland','margareth@nestar.it','4079035340');
-INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico, Eliminato)
+INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico)
 VALUES (IdUtenteseq.nextval,'Fahima','Naundorf',to_date('09/07/1983','DD/MM/YYYY HH24:MI:SS'),'12283 Thomas Lane, Yucaipa','fahima@naundorf.it','2685282603');
-INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico, Eliminato)
+INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico)
 VALUES (IdUtenteseq.nextval,'Mamudu','Sklarski',to_date('15/07/1978','DD/MM/YYYY HH24:MI:SS'),'2515 60th Avenue, Oakland','mamudu@sklarski.it','7269060304');
-INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico, Eliminato)
+INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico)
 VALUES (IdUtenteseq.nextval,'Providenci','Jannasch',to_date('01/01/1970','DD/MM/YYYY HH24:MI:SS'),'10110 Landwood Drive, Louisville','providenci@jannasch.it','6532151981');
-INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico, Eliminato)
+INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico)
 VALUES (IdUtenteseq.nextval,'Otar','Langner',to_date('06/07/1987','DD/MM/YYYY HH24:MI:SS'),'25 Church Street, Pittsfield','otar@langner.it','6132410009');
-INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico, Eliminato)
+INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico)
 VALUES (IdUtenteseq.nextval,'Adem','Buchgeister',to_date('19/04/2001','DD/MM/YYYY HH24:MI:SS'),'11401 Totem Road, Anchorage','adem@buchgeister.it','6217076890');
-INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico, Eliminato)
+INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico)
 VALUES (IdUtenteseq.nextval,'Aleen','Khu',to_date('06/01/1987','DD/MM/YYYY HH24:MI:SS'),'1169 East Hopkins Avenue, Aspen','aleen@khu.it','7249275196');
-INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico, Eliminato)
+INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico)
 VALUES (IdUtenteseq.nextval,'Cassidy','Weisselbaum',to_date('29/06/1991','DD/MM/YYYY HH24:MI:SS'),'1800 East 63rd Street, Savannah','cassidy@weisselbaum.it','9693743773');
-INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico, Eliminato)
+INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico)
 VALUES (IdUtenteseq.nextval,'Consorcia','Leer',to_date('01/01/2014','DD/MM/YYYY HH24:MI:SS'),'3145 19th Avenue Court, Greeley','consorcia@leer.it','5965383226');
-INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico, Eliminato)
+INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico)
 VALUES (IdUtenteseq.nextval,'Alfonsina','Iliyanova',to_date('28/02/1971','DD/MM/YYYY HH24:MI:SS'),'2106 Standard Avenue, Louisville','alfonsina@iliyanova.it','5221199925');
-INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico, Eliminato)
+INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico)
 VALUES (IdUtenteseq.nextval,'Alimou','Torley',to_date('07/11/2008','DD/MM/YYYY HH24:MI:SS'),'86 Pine Street, Cambridge','alimou@torley.it','9767262488');
-INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico, Eliminato)
+INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico)
 VALUES (IdUtenteseq.nextval,'Bharata','Krauthause',to_date('20/05/2011','DD/MM/YYYY HH24:MI:SS'),'632 Belmar Drive, Edmond','bharata@krauthause.it','4625574080');
-INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico, Eliminato)
+INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico)
 VALUES (IdUtenteseq.nextval,'Laszlone','Hlopiev',to_date('04/01/2001','DD/MM/YYYY HH24:MI:SS'),'11012 Eagles Cove Drive, Louisville','laszlone@hlopiev.it','9491402985');
-INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico, Eliminato)
+INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico)
 VALUES (IdUtenteseq.nextval,'Prepedigna','Brau',to_date('25/05/1977','DD/MM/YYYY HH24:MI:SS'),'417 R Street Northwest, Washington','prepedigna@brau.it','7313968229');
-INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico, Eliminato)
+INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico)
 VALUES (IdUtenteseq.nextval,'Fairy','Jonas',to_date('21/11/2009','DD/MM/YYYY HH24:MI:SS'),'312 Northwest 90th Street, Oklahoma City','fairy@jonas.it','1877786306');
-INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico, Eliminato)
+INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico)
 VALUES (IdUtenteseq.nextval,'Mozelle','Patru',to_date('13/07/1995','DD/MM/YYYY HH24:MI:SS'),'505 North Washington Avenue, Fayetteville','mozelle@patru.it','8927810175');
-INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico, Eliminato)
+INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico)
 VALUES (IdUtenteseq.nextval,'Rosmery','Paulmayer',to_date('08/02/1997','DD/MM/YYYY HH24:MI:SS'),'4971 Janet Court, Livermore','rosmery@paulmayer.it','1443786930');
-INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico, Eliminato)
+INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico)
 VALUES (IdUtenteseq.nextval,'Virtuosa','Sinha',to_date('05/12/2003','DD/MM/YYYY HH24:MI:SS'),'1909 Seventh Street, Berkeley','virtuosa@sinha.it','7857108782');
-INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico, Eliminato)
+INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico)
 VALUES (IdUtenteseq.nextval,'Marcio','Hofmeister',to_date('04/07/1984','DD/MM/YYYY HH24:MI:SS'),'7453 West Melinda Lane, Glendale','marcio@hofmeister.it','5073530331');
-INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico, Eliminato)
+INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico)
 VALUES (IdUtenteseq.nextval,'Marisha','Freedman',to_date('18/01/1987','DD/MM/YYYY HH24:MI:SS'),'3729 East Mission Boulevard, Fayetteville','marisha@freedman.it','8305324429');
-INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico, Eliminato)
+INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico)
 VALUES (IdUtenteseq.nextval,'Vitorio','Rivetti',to_date('25/01/1971','DD/MM/YYYY HH24:MI:SS'),'589 East Main Street, Newport','vitorio@rivetti.it','1223919769');
-INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico, Eliminato)
+INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico)
 VALUES (IdUtenteseq.nextval,'Ambar','Alarcos',to_date('14/07/1980','DD/MM/YYYY HH24:MI:SS'),'2269 Eastern Boulevard, Montgomery','ambar@alarcos.it','6333527023');
-INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico, Eliminato)
+INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico)
 VALUES (IdUtenteseq.nextval,'Joane','Nosikov',to_date('17/08/1984','DD/MM/YYYY HH24:MI:SS'),'45 Parsons Avenue, Saint Albans City','joane@nosikov.it','4193240218');
-INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico, Eliminato)
+INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico)
 VALUES (IdUtenteseq.nextval,'Emelda','Roper',to_date('04/05/1987','DD/MM/YYYY HH24:MI:SS'),'8752 Pierce Way, Arvada','emelda@roper.it','3767465586');
-INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico, Eliminato)
+INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico)
 VALUES (IdUtenteseq.nextval,'Orsolya','Vertegel',to_date('23/02/2011','DD/MM/YYYY HH24:MI:SS'),'205 Homestead Street, Manchester','orsolya@vertegel.it','9718915432');
-INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico, Eliminato)
+INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico)
 VALUES (IdUtenteseq.nextval,'Rolly','Pelegrin',to_date('23/12/1993','DD/MM/YYYY HH24:MI:SS'),'1313 Southwest 14th Street, Oklahoma City','rolly@pelegrin.it','3586711132');
-INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico, Eliminato)
+INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico)
 VALUES (IdUtenteseq.nextval,'Arica','Paolucci',to_date('21/01/1987','DD/MM/YYYY HH24:MI:SS'),'169 Avenida Drive, Berkeley','arica@paolucci.it','7396274003');
-INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico, Eliminato)
+INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico)
 VALUES (IdUtenteseq.nextval,'Arturs','Feldpausch',to_date('13/11/1986','DD/MM/YYYY HH24:MI:SS'),'112 Aquinnah Drive, Pooler','arturs@feldpausch.it','4549778164');
-INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico, Eliminato)
+INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico)
 VALUES (IdUtenteseq.nextval,'Akhtar','Spicer',to_date('24/12/2003','DD/MM/YYYY HH24:MI:SS'),'115 Home Avenue, Burlington','akhtar@spicer.it','2081046792');
-INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico, Eliminato)
+INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico)
 VALUES (IdUtenteseq.nextval,'Tamisha','GrossHeitfeld',to_date('29/01/1993','DD/MM/YYYY HH24:MI:SS'),'81 Seaton Place Northwest, Washington','tamisha@grossheitfeld.it','2031709901');
-INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico, Eliminato)
+INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico)
 VALUES (IdUtenteseq.nextval,'Myrna','Gulamov',to_date('26/02/1978','DD/MM/YYYY HH24:MI:SS'),'3386 Sudlersville South, Laurel','myrna@gulamov.it','9765358727');
-INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico, Eliminato)
+INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico)
 VALUES (IdUtenteseq.nextval,'Giovany','Vaiani',to_date('26/10/1983','DD/MM/YYYY HH24:MI:SS'),'4927 Alvin Sperry Road, Mount Juliet','giovany@vaiani.it','1332753919');
-INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico, Eliminato)
+INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico)
 VALUES (IdUtenteseq.nextval,'Claudete','Goerk',to_date('27/02/1995','DD/MM/YYYY HH24:MI:SS'),'3901 West End Avenue, Nashville','claudete@goerk.it','2193053381');
-INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico, Eliminato)
+INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico)
 VALUES (IdUtenteseq.nextval,'Aurelian','Stegmeyer',to_date('17/03/1997','DD/MM/YYYY HH24:MI:SS'),'7529 Perryman Court','aurelian@stegmeyer.it','4322165486');
-INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico, Eliminato)
+INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico)
 VALUES (IdUtenteseq.nextval,'Heidi','Lindemuth',to_date('20/01/1992','DD/MM/YYYY HH24:MI:SS'),'4560 Hurlston Drive, Montgomery','heidi@lindemuth.it','2034902679');
-INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico, Eliminato)
+INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico)
 VALUES (IdUtenteseq.nextval,'Bayan','Reichelt',to_date('08/10/1999','DD/MM/YYYY HH24:MI:SS'),'1937 Carleton Street, Berkeley','bayan@reichelt.it','5823049139');
-INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico, Eliminato)
+INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico)
 VALUES (IdUtenteseq.nextval,'Seydi','Argudin',to_date('05/02/1995','DD/MM/YYYY HH24:MI:SS'),'6208 Ingalls Street, Arvada','seydi@argudin.it','9925706970');
-INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico, Eliminato)
+INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico)
 VALUES (IdUtenteseq.nextval,'Rosena','BruÃ±o',to_date('05/02/2007','DD/MM/YYYY HH24:MI:SS'),'4 Village Lake Drive, Fayetteville','rosena@bruÃ±o.it','5327599905');
-INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico, Eliminato)
+INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico)
 VALUES (IdUtenteseq.nextval,'Chivuta','Larrino',to_date('13/04/2004','DD/MM/YYYY HH24:MI:SS'),'30 Curtis Road, Milton','chivuta@larrino.it','8798953217');
-INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico, Eliminato)
+INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico)
 VALUES (IdUtenteseq.nextval,'Kathaleen','Galinho',to_date('15/08/1996','DD/MM/YYYY HH24:MI:SS'),'1303 Buckingham Court, Louisville','kathaleen@galinho.it','1509224306');
-INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico, Eliminato)
+INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico)
 VALUES (IdUtenteseq.nextval,'Nathaly','Boike',to_date('03/04/2004','DD/MM/YYYY HH24:MI:SS'),'1110 Okie Street Northeast, Washington','nathaly@boike.it','4959584148');
-INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico, Eliminato)
+INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico)
 VALUES (IdUtenteseq.nextval,'Martxel','Yrurita',to_date('28/03/1994','DD/MM/YYYY HH24:MI:SS'),'116 9th Street Southeast, Washington','martxel@yrurita.it','1785989820');
-INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico, Eliminato)
+INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico)
 VALUES (IdUtenteseq.nextval,'Angosto','Guedj',to_date('15/12/1994','DD/MM/YYYY HH24:MI:SS'),'208 Waterford Drive, Lynn Haven','angosto@guedj.it','8588703776');
-INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico, Eliminato)
+INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico)
 VALUES (IdUtenteseq.nextval,'Cristache','Teichgrabe',to_date('07/10/1985','DD/MM/YYYY HH24:MI:SS'),'2521 Naylor Road Southeast, Washington','cristache@teichgrabe.it','3869902695');
-INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico, Eliminato)
+INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico)
 VALUES (IdUtenteseq.nextval,'Meta','Orellano',to_date('20/06/1985','DD/MM/YYYY HH24:MI:SS'),'301 East Court, Savannah','meta@orellano.it','9201056047');
-INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico, Eliminato)
+INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico)
 VALUES (IdUtenteseq.nextval,'Jucelia','Biedenweg',to_date('01/01/2014','DD/MM/YYYY HH24:MI:SS'),'1828 East Parkshore Drive, Fayetteville','jucelia@biedenweg.it','4623019392');
-INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico, Eliminato)
+INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico)
 VALUES (IdUtenteseq.nextval,'Ovidiu','Benken',to_date('04/12/1984','DD/MM/YYYY HH24:MI:SS'),'3949 Ethan Allen Highway, Saint Albans City','ovidiu@benken.it','6398982468');
-INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico, Eliminato)
+INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico)
 VALUES (IdUtenteseq.nextval,'Liguo','Ranero',to_date('01/01/1970','DD/MM/YYYY HH24:MI:SS'),'3125 Willow Lane Drive, Montgomery','liguo@ranero.it','4590915289');
-INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico, Eliminato)
+INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico)
 VALUES (IdUtenteseq.nextval,'Ara','D',to_date('01/04/1992','DD/MM/YYYY HH24:MI:SS'),'2936 State Avenue, Panama City','ara@d.it','9721155900');
-INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico, Eliminato)
+INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico)
 VALUES (IdUtenteseq.nextval,'Justin','Dombrowski',to_date('02/07/1982','DD/MM/YYYY HH24:MI:SS'),'10508 Kovats Court, Louisville','justin@dombrowski.it','8964536618');
-INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico, Eliminato)
+INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico)
 VALUES (IdUtenteseq.nextval,'Sinziana','Monfillo',to_date('03/03/2004','DD/MM/YYYY HH24:MI:SS'),'4401 Virginia Avenue, Louisville','sinziana@monfillo.it','7189457029');
-INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico, Eliminato)
+INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico)
 VALUES (IdUtenteseq.nextval,'Touria','Kempe',to_date('01/01/2014','DD/MM/YYYY HH24:MI:SS'),'594 Putnam Avenue, Cambridge','touria@kempe.it','2298187649');
-INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico, Eliminato)
+INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico)
 VALUES (IdUtenteseq.nextval,'Aldric','Satrustegui',to_date('10/03/1999','DD/MM/YYYY HH24:MI:SS'),'8700 Seaton Boulevard, Montgomery','aldric@satrustegui.it','5699821797');
-INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico, Eliminato)
+INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico)
 VALUES (IdUtenteseq.nextval,'Nisa','Enin',to_date('10/12/1979','DD/MM/YYYY HH24:MI:SS'),'1505 Rosewood Avenue, Louisville','nisa@enin.it','6763302494');
-INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico, Eliminato)
+INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico)
 VALUES (IdUtenteseq.nextval,'Edin','Krone',to_date('01/01/1970','DD/MM/YYYY HH24:MI:SS'),'30 Windermere Drive, Agawam','edin@krone.it','7137441493');
-INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico, Eliminato)
+INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico)
 VALUES (IdUtenteseq.nextval,'Costanza','Rogalski',to_date('05/02/2000','DD/MM/YYYY HH24:MI:SS'),'1823 North Munchkin Lane, Fayetteville','costanza@rogalski.it','4864051464');
-INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico, Eliminato)
+INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico)
 VALUES (IdUtenteseq.nextval,'Maghnia','Quarante',to_date('28/05/1991','DD/MM/YYYY HH24:MI:SS'),'65 Lowry Road, Falmouth','maghnia@quarante.it','8209275997');
-INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico, Eliminato)
+INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico)
 VALUES (IdUtenteseq.nextval,'Nouha','Goyeneta',to_date('16/07/2000','DD/MM/YYYY HH24:MI:SS'),'2245 Southwest Binkley Street, Oklahoma City','nouha@goyeneta.it','7452057353');
-INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico, Eliminato)
+INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico)
 VALUES (IdUtenteseq.nextval,'Cuiping','Zapatera',to_date('02/06/1989','DD/MM/YYYY HH24:MI:SS'),'12800 Saunders Road, Anchorage','cuiping@zapatera.it','8723046677');
-INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico, Eliminato)
+INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico)
 VALUES (IdUtenteseq.nextval,'Antonia','De Jose',to_date('25/07/2005','DD/MM/YYYY HH24:MI:SS'),'3718 Bay Tree Road, Lynn Haven','antonia@dejose.it','5636675120');
-INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico, Eliminato)
+INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico)
 VALUES (IdUtenteseq.nextval,'Farhat','Barti',to_date('21/12/1982','DD/MM/YYYY HH24:MI:SS'),'57 Bremer Drive, Glen Burnie','farhat@barti.it','6791468952');
-INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico, Eliminato)
+INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico)
 VALUES (IdUtenteseq.nextval,'Orazio','Muzychka',to_date('01/01/2014','DD/MM/YYYY HH24:MI:SS'),'565 North Lakeshore Drive, Panama City Beach','orazio@muzychka.it','4730180851');
-INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico, Eliminato)
+INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico)
 VALUES (IdUtenteseq.nextval,'Najia','Wesenbeck',to_date('02/11/1999','DD/MM/YYYY HH24:MI:SS'),'8427 West Glendale Avenue, Glendale','najia@wesenbeck.it','7163567399');
-INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico, Eliminato)
+INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico)
 VALUES (IdUtenteseq.nextval,'Willetta','De Avila',to_date('30/11/1979','DD/MM/YYYY HH24:MI:SS'),'545 Tracey Drive, Panama City','willetta@deavila.it','1817715175');
-INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico, Eliminato)
+INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico)
 VALUES (IdUtenteseq.nextval,'Ehab','Havlice',to_date('10/10/1986','DD/MM/YYYY HH24:MI:SS'),'2638 East 40th Plaza, Panama City','ehab@havlice.it','2692917195');
-INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico, Eliminato)
+INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico)
 VALUES (IdUtenteseq.nextval,'Leena','Szillus',to_date('22/03/1981','DD/MM/YYYY HH24:MI:SS'),'463 Pecan Tree Drive, Montgomery','leena@szillus.it','5819030939');
-INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico, Eliminato)
+INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico)
 VALUES (IdUtenteseq.nextval,'Jerold','Espadas',to_date('01/01/2014','DD/MM/YYYY HH24:MI:SS'),'4 Glen Circle, Glen Burnie','jerold@espadas.it','7360731209');
-INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico, Eliminato)
+INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico)
 VALUES (IdUtenteseq.nextval,'Meifeng','Raloff',to_date('01/01/2014','DD/MM/YYYY HH24:MI:SS'),'7912 Depew Street, Arvada','meifeng@raloff.it','5853221355');
-INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico, Eliminato)
+INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico)
 VALUES (IdUtenteseq.nextval,'Armine','Jabar',to_date('29/06/1995','DD/MM/YYYY HH24:MI:SS'),'8505 Waters Avenue, Savannah','armine@jabar.it','8547258792');
-INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico, Eliminato)
+INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico)
 VALUES (IdUtenteseq.nextval,'Maurici','Sierra',to_date('03/10/2002','DD/MM/YYYY HH24:MI:SS'),'1907 18th Avenue South, Nashville','maurici@sierra.it','7370593928');
-INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico, Eliminato)
+INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico)
 VALUES (IdUtenteseq.nextval,'Jenara','Hahanyan',to_date('26/04/1977','DD/MM/YYYY HH24:MI:SS'),'20 Garfield Street, Needham','jenara@hahanyan.it','5114518954');
-INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico, Eliminato)
+INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico)
 VALUES (IdUtenteseq.nextval,'Kamilla','Fontana',to_date('17/07/1970','DD/MM/YYYY HH24:MI:SS'),'6201 West Olive Avenue, Glendale','kamilla@fontana.it','5546951157');
-INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico, Eliminato)
+INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico)
 VALUES (IdUtenteseq.nextval,'Adair','Pereles',to_date('01/01/1970','DD/MM/YYYY HH24:MI:SS'),'15771 West 64th Avenue, Arvada','adair@pereles.it','6726124443');
-INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico, Eliminato)
+INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico)
 VALUES (IdUtenteseq.nextval,'Jefry','Luzius',to_date('20/09/2008','DD/MM/YYYY HH24:MI:SS'),'5619 Clay Place Northeast, Washington','jefry@luzius.it','7233503611');
-INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico, Eliminato)
+INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico)
 VALUES (IdUtenteseq.nextval,'Nayla','Glukhman',to_date('26/10/1980','DD/MM/YYYY HH24:MI:SS'),'74 Heard Street, Chelsea','nayla@glukhman.it','9318107487');
-INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico, Eliminato)
+INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico)
 VALUES (IdUtenteseq.nextval,'Expiracion','Sanyogita',to_date('30/01/1989','DD/MM/YYYY HH24:MI:SS'),'4132 Northwest 57th Street, Oklahoma City','expiracion@sanyogita.it','4470225678');
-INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico, Eliminato)
+INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico)
 VALUES (IdUtenteseq.nextval,'Teodulo','Gayon',to_date('10/12/2012','DD/MM/YYYY HH24:MI:SS'),'605 Main Street, Watertown','teodulo@gayon.it','3125575612');
-INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico, Eliminato)
+INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico)
 VALUES (IdUtenteseq.nextval,'Branislav','Rafael',to_date('15/05/1986','DD/MM/YYYY HH24:MI:SS'),'2721 Lindsay Avenue, Louisville','branislav@rafael.it','7459711495');
-INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico, Eliminato)
+INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico)
 VALUES (IdUtenteseq.nextval,'Stivan','Golzsch',to_date('26/02/2005','DD/MM/YYYY HH24:MI:SS'),'3100 Don Juan Court, Montgomery','stivan@golzsch.it','3874879595');
-INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico, Eliminato)
+INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico)
 VALUES (IdUtenteseq.nextval,'Oliva','Holzgraefe',to_date('07/02/1985','DD/MM/YYYY HH24:MI:SS'),'1418 Paddocks Court, Crownsville','oliva@holzgraefe.it','6471971703');
-INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico, Eliminato)
+INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico)
 VALUES (IdUtenteseq.nextval,'Cleuza','Gorrita',to_date('10/02/1997','DD/MM/YYYY HH24:MI:SS'),'4444 Central Avenue, Fremont','cleuza@gorrita.it','8964582726');
-INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico, Eliminato)
+INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico)
 VALUES (IdUtenteseq.nextval,'Marinalva','Plograd',to_date('04/03/1991','DD/MM/YYYY HH24:MI:SS'),'3819 Vineyard Avenue, Pleasanton','marinalva@plograd.it','1477023808');
-INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico, Eliminato)
+INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico)
 VALUES (IdUtenteseq.nextval,'Yanett','Pontones',to_date('27/07/1982','DD/MM/YYYY HH24:MI:SS'),'350 Woodbine Road, Shelburne','yanett@pontones.it','4575296350');
-INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico, Eliminato)
+INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico)
 VALUES (IdUtenteseq.nextval,'Meliza','Mazo',to_date('02/06/1976','DD/MM/YYYY HH24:MI:SS'),'503 Blackwood Terrace Southeast, Calhoun','meliza@mazo.it','7640342015');
-INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico, Eliminato)
+INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico)
 VALUES (IdUtenteseq.nextval,'Guillerma','Macclelland',to_date('29/04/2006','DD/MM/YYYY HH24:MI:SS'),'21 Glenoak Lane Northwest, Glen Burnie','guillerma@macclelland.it','4695648746');
-INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico, Eliminato)
+INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico)
 VALUES (IdUtenteseq.nextval,'Anisio','Kalonymos',to_date('17/11/2000','DD/MM/YYYY HH24:MI:SS'),'4719 Bayou Bluff Trail, Lynn Haven','anisio@kalonymos.it','4814755500');
-INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico, Eliminato)
+INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico)
 VALUES (IdUtenteseq.nextval,'Abrar','Hupach',to_date('29/08/1999','DD/MM/YYYY HH24:MI:SS'),'11 Alden Court, Roseville','abrar@hupach.it','9131395230');
-INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico, Eliminato)
+INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico)
 VALUES (IdUtenteseq.nextval,'Habibur','Germain',to_date('22/10/1972','DD/MM/YYYY HH24:MI:SS'),'36 Saint Ives Drive, Savannah','habibur@germain.it','6661338428');
-INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico, Eliminato)
+INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico)
 VALUES (IdUtenteseq.nextval,'Maye','Neglia',to_date('28/02/1999','DD/MM/YYYY HH24:MI:SS'),'403 Irwin Street, Anchorage','maye@neglia.it','1553808223');
-INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico, Eliminato)
+INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico)
 VALUES (IdUtenteseq.nextval,'Marietta','Aubin',to_date('26/12/1989','DD/MM/YYYY HH24:MI:SS'),'119 Captain Chase Road, Dennis','marietta@aubin.it','5339913984');
-INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico, Eliminato)
+INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico)
 VALUES (IdUtenteseq.nextval,'Mycola','Jamschikov',to_date('27/10/1993','DD/MM/YYYY HH24:MI:SS'),'949 South Lawrence Street, Montgomery','mycola@jamschikov.it','8564447731');
-INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico, Eliminato)
+INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico)
 VALUES (IdUtenteseq.nextval,'Haruna','Saqueta',to_date('27/05/2005','DD/MM/YYYY HH24:MI:SS'),'206 Blue Marlin Drive, Savannah','haruna@saqueta.it','7177193173');
-INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico, Eliminato)
+INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico)
 VALUES (IdUtenteseq.nextval,'Minia','Borralhinho',to_date('18/08/2005','DD/MM/YYYY HH24:MI:SS'),'822 Bowden Street, Savannah','minia@borralhinho.it','2426358897');
-INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico, Eliminato)
+INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico)
 VALUES (IdUtenteseq.nextval,'Safina','Lecumberri-Lecumberri',to_date('16/12/2001','DD/MM/YYYY HH24:MI:SS'),'7701 Taylor Oaks Circle, Montgomery','safina@lecumberri-lecumberri.it','5029175193');
-INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico, Eliminato)
+INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico)
 VALUES (IdUtenteseq.nextval,'Zhihao','Intelisano',to_date('11/03/2001','DD/MM/YYYY HH24:MI:SS'),'1015 Castle Road, Edmond','zhihao@intelisano.it','2574597106');
-INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico, Eliminato)
+INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico)
 VALUES (IdUtenteseq.nextval,'Rosenilda','Ladino',to_date('09/09/1987','DD/MM/YYYY HH24:MI:SS'),'4136 East Virginia Lane, Montgomery','rosenilda@ladino.it','8592910987');
-INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico, Eliminato)
+INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico)
 VALUES (IdUtenteseq.nextval,'Hilarino','Jovnir',to_date('08/10/1978','DD/MM/YYYY HH24:MI:SS'),'2318 Camryns Crossing, Panama City','hilarino@jovnir.it','6955581488');
-INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico, Eliminato)
+INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico)
 VALUES (IdUtenteseq.nextval,'Ricardas','Palinhos',to_date('05/11/1999','DD/MM/YYYY HH24:MI:SS'),'117 East Cook Avenue, Anchorage','ricardas@palinhos.it','3177194619');
-INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico, Eliminato)
+INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico)
 VALUES (IdUtenteseq.nextval,'Hamady','Lahardizabal',to_date('26/08/2008','DD/MM/YYYY HH24:MI:SS'),'200 Edson Road, Windham','hamady@lahardizabal.it','5309160355');
-INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico, Eliminato)
+INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico)
 VALUES (IdUtenteseq.nextval,'Fuad','Santarena',to_date('12/09/1989','DD/MM/YYYY HH24:MI:SS'),'4601 Reka Drive, Anchorage','fuad@santarena.it','7499122930');
-INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico, Eliminato)
+INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico)
 VALUES (IdUtenteseq.nextval,'Gladiz','Bloomfeld',to_date('01/01/2014','DD/MM/YYYY HH24:MI:SS'),'84 Holbrook Street, North Adams','gladiz@bloomfeld.it','4407255911');
-INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico, Eliminato)
+INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico)
 VALUES (IdUtenteseq.nextval,'Addaia','Clausi',to_date('12/10/2001','DD/MM/YYYY HH24:MI:SS'),'210 Beachcomber Drive, Pismo Beach','addaia@clausi.it','2523224273');
-INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico, Eliminato)
+INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico)
 VALUES (IdUtenteseq.nextval,'Krissy','Youx',to_date('01/12/1997','DD/MM/YYYY HH24:MI:SS'),'903 Mallard Creek Road, Saint Matthews','krissy@youx.it','2293542830');
-INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico, Eliminato)
+INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico)
 VALUES (IdUtenteseq.nextval,'Fundamento','Fedrich',to_date('19/02/2007','DD/MM/YYYY HH24:MI:SS'),'881 Main Street, Manchester','fundamento@fedrich.it','2722157639');
-INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico, Eliminato)
+INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico)
 VALUES (IdUtenteseq.nextval,'Ayala','Deegan',to_date('07/05/1989','DD/MM/YYYY HH24:MI:SS'),'10400 Royal Oak Road, Oakland','ayala@deegan.it','2903400066');
-INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico, Eliminato)
+INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico)
 VALUES (IdUtenteseq.nextval,'Morad','Dierx',to_date('06/10/1999','DD/MM/YYYY HH24:MI:SS'),'415 Lullwater Drive, Panama City Beach','morad@dierx.it','7964038391');
-INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico, Eliminato)
+INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico)
 VALUES (IdUtenteseq.nextval,'Cordie','Ferrate',to_date('23/11/1990','DD/MM/YYYY HH24:MI:SS'),'100 Lake Forest Drive, Montgomery','cordie@ferrate.it','4630433863');
-INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico, Eliminato)
+INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico)
 VALUES (IdUtenteseq.nextval,'Liming','Zurdo',to_date('23/11/1990','DD/MM/YYYY HH24:MI:SS'),'347 Brewer Drive, Nashville','liming@zurdo.it','7771378496');
-INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico, Eliminato)
+INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico)
 VALUES (IdUtenteseq.nextval,'Layra','Martin De Bernardo',to_date('11/03/1990','DD/MM/YYYY HH24:MI:SS'),'3505 Richmond Avenue, Anchorage','layra@martindebernardo.it','8081666409');
-INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico, Eliminato)
+INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico)
 VALUES (IdUtenteseq.nextval,'Slimane','Nesta',to_date('16/02/1980','DD/MM/YYYY HH24:MI:SS'),'119 Oakland Street, Manchester','slimane@nesta.it','5704226998');
-INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico, Eliminato)
+INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico)
 VALUES (IdUtenteseq.nextval,'Weston','Dallot',to_date('27/11/1995','DD/MM/YYYY HH24:MI:SS'),'813 Linda Lane, Panama City Beach','weston@dallot.it','9033901462');
-INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico, Eliminato)
+INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico)
 VALUES (IdUtenteseq.nextval,'Ricardina','Hiltgart',to_date('11/04/1992','DD/MM/YYYY HH24:MI:SS'),'604 Northwest 118th Street, Oklahoma City','ricardina@hiltgart.it','2157922572');
-INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico, Eliminato)
+INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico)
 VALUES (IdUtenteseq.nextval,'Fatumata','Hohnschildt',to_date('26/03/2007','DD/MM/YYYY HH24:MI:SS'),'307 Meadowood Court, Lynn Haven','fatumata@hohnschildt.it','7362443805');
-INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico, Eliminato)
+INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico)
 VALUES (IdUtenteseq.nextval,'Kristina','Abrukov',to_date('07/02/2013','DD/MM/YYYY HH24:MI:SS'),'2248 South Sutherland Drive, Montgomery','kristina@abrukov.it','5689431555');
-INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico, Eliminato)
+INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico)
 VALUES (IdUtenteseq.nextval,'Cipriana','Dierich',to_date('08/02/1998','DD/MM/YYYY HH24:MI:SS'),'151 Main Street, Savannah','cipriana@dierich.it','2595737972');
-INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico, Eliminato)
+INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico)
 VALUES (IdUtenteseq.nextval,'Ioseb','Rossovsky',to_date('15/11/2002','DD/MM/YYYY HH24:MI:SS'),'1601 East 19th Street, Edmond','ioseb@rossovsky.it','9010191789');
-INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico, Eliminato)
+INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico)
 VALUES (IdUtenteseq.nextval,'Kaori','Sevecke',to_date('24/12/2008','DD/MM/YYYY HH24:MI:SS'),'623 Rhode Island Avenue Northwest, Washington','kaori@sevecke.it','4437670514');
-INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico, Eliminato)
+INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico)
 VALUES (IdUtenteseq.nextval,'Frida','Monteil',to_date('09/08/1970','DD/MM/YYYY HH24:MI:SS'),'4725 Royal Oak Drive, Oklahoma City','frida@monteil.it','8091680526');
-INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico, Eliminato)
+INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico)
 VALUES (IdUtenteseq.nextval,'Hiscio','Monteagudo',to_date('04/03/1987','DD/MM/YYYY HH24:MI:SS'),'154 Byrd Drive, Panama City','hiscio@monteagudo.it','7714821406');
-INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico, Eliminato)
+INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico)
 VALUES (IdUtenteseq.nextval,'Belgacem','Kambhatla',to_date('17/10/1992','DD/MM/YYYY HH24:MI:SS'),'8188 Poinsett Terrace, Pasadena','belgacem@kambhatla.it','9173909868');
-INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico, Eliminato)
+INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico)
 VALUES (IdUtenteseq.nextval,'Aiyana','Deneffe',to_date('16/08/1981','DD/MM/YYYY HH24:MI:SS'),'30 Windermere Drive, Agawam','aiyana@deneffe.it','4186542607');
-INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico, Eliminato)
+INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico)
 VALUES (IdUtenteseq.nextval,'Maamar','Bode',to_date('01/01/2014','DD/MM/YYYY HH24:MI:SS'),'12283 Thomas Lane, Yucaipa','maamar@bode.it','7372503996');
-INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico, Eliminato)
+INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico)
 VALUES (IdUtenteseq.nextval,'Tulia','Cruzeiro',to_date('02/05/1986','DD/MM/YYYY HH24:MI:SS'),'3605 Normandy Place South, Nashville','tulia@cruzeiro.it','5218128931');
-INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico, Eliminato)
+INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico)
 VALUES (IdUtenteseq.nextval,'Adriene','Chalef',to_date('06/12/2010','DD/MM/YYYY HH24:MI:SS'),'2 Cockle Shell Road, Savannah','adriene@chalef.it','4945716764');
-INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico, Eliminato)
+INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico)
 VALUES (IdUtenteseq.nextval,'Lhassan','Pinelo',to_date('01/01/1970','DD/MM/YYYY HH24:MI:SS'),'445 Industrial Lane, Barre','lhassan@pinelo.it','3774133072');
-INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico, Eliminato)
+INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico)
 VALUES (IdUtenteseq.nextval,'Alyosha','MendonÃ§a',to_date('27/12/1990','DD/MM/YYYY HH24:MI:SS'),'634 Chautauqua Avenue, Norman','alyosha@mendonÃ§a.it','6822849567');
-INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico, Eliminato)
+INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico)
 VALUES (IdUtenteseq.nextval,'Tahar','Anthofer',to_date('06/08/1990','DD/MM/YYYY HH24:MI:SS'),'1825 Woodland Farms Court, Nashville','tahar@anthofer.it','3778699460');
-INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico, Eliminato)
+INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico)
 VALUES (IdUtenteseq.nextval,'PeÃ±as','Pantion',to_date('24/01/1991','DD/MM/YYYY HH24:MI:SS'),'20375 Wisteria Street, Castro Valley','peÃ±as@pantion.it','4728851944');
-INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico, Eliminato)
+INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico)
 VALUES (IdUtenteseq.nextval,'Fior','Ecija',to_date('19/10/1970','DD/MM/YYYY HH24:MI:SS'),'7072 Quail Street, Arvada','fior@ecija.it','2337703808');
-INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico, Eliminato)
+INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico)
 VALUES (IdUtenteseq.nextval,'Jialin','Willekes',to_date('01/01/2014','DD/MM/YYYY HH24:MI:SS'),'22 South Duncan Avenue, Fayetteville','jialin@willekes.it','9111318121');
-INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico, Eliminato)
+INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico)
 VALUES (IdUtenteseq.nextval,'Erzsebet','Tacchi',to_date('26/05/2004','DD/MM/YYYY HH24:MI:SS'),'190 Exchange Street, Lawrence','erzsebet@tacchi.it','5184932341');
-INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico, Eliminato)
+INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico)
 VALUES (IdUtenteseq.nextval,'Albas','Needham',to_date('02/04/1989','DD/MM/YYYY HH24:MI:SS'),'107 West Canton Circle, Springfield','albas@needham.it','3615016515');
-INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico, Eliminato)
+INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico)
 VALUES (IdUtenteseq.nextval,'Mandie','Brinza',to_date('29/07/1991','DD/MM/YYYY HH24:MI:SS'),'37608 2nd Street, Fremont','mandie@brinza.it','1074145691');
-INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico, Eliminato)
+INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico)
 VALUES (IdUtenteseq.nextval,'Adriadna','Kesl',to_date('01/04/1983','DD/MM/YYYY HH24:MI:SS'),'6145 East Castro Valley Boulevard, Castro Valley','adriadna@kesl.it','5001963971');
-INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico, Eliminato)
+INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico)
 VALUES (IdUtenteseq.nextval,'Urdax','Viguie',to_date('06/01/1982','DD/MM/YYYY HH24:MI:SS'),'4000 Albemarle Street Northwest, Washington','urdax@viguie.it','1551436509');
-INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico, Eliminato)
+INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico)
 VALUES (IdUtenteseq.nextval,'Deivi','Tchekachev',to_date('12/12/1995','DD/MM/YYYY HH24:MI:SS'),'733 Georgetown Drive, Nashville','deivi@tchekachev.it','4056130870');
-INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico, Eliminato)
+INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico)
 VALUES (IdUtenteseq.nextval,'Fiz','Hochreuter',to_date('22/09/1971','DD/MM/YYYY HH24:MI:SS'),'43 Westminster Street, Pittsfield','fiz@hochreuter.it','9006939891');
-INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico, Eliminato)
+INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico)
 VALUES (IdUtenteseq.nextval,'Julienne','Abil',to_date('09/08/1998','DD/MM/YYYY HH24:MI:SS'),'8532 Ingalls Circle, Arvada','julienne@abil.it','5851312407');
-INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico, Eliminato)
+INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico)
 VALUES (IdUtenteseq.nextval,'Rauda','Novak',to_date('23/08/1999','DD/MM/YYYY HH24:MI:SS'),'5545 Saddlewood Lane, Brentwood','rauda@novak.it','9531111958');
-INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico, Eliminato)
+INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico)
 VALUES (IdUtenteseq.nextval,'Ghiorghi','Lippoldt',to_date('17/09/1983','DD/MM/YYYY HH24:MI:SS'),'912 Locklayer Street, Nashville','ghiorghi@lippoldt.it','6603224730');
-INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico, Eliminato)
+INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico)
 VALUES (IdUtenteseq.nextval,'Sokhna','Harrigaraykoborda',to_date('25/11/1990','DD/MM/YYYY HH24:MI:SS'),'6653 West Rose Garden Lane, Glendale','sokhna@harrigaraykoborda.it','7673820669');
-INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico, Eliminato)
+INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico)
 VALUES (IdUtenteseq.nextval,'Suceso','Uriol',to_date('01/01/2014','DD/MM/YYYY HH24:MI:SS'),'32 Country Club Boulevard, Dartmouth','suceso@uriol.it','1355794878');
-INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico, Eliminato)
+INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico)
 VALUES (IdUtenteseq.nextval,'Denna','Thillman',to_date('14/09/2005','DD/MM/YYYY HH24:MI:SS'),'19259 North 61st Drive, Glendale','denna@thillman.it','4313174049');
-INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico, Eliminato)
+INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico)
 VALUES (IdUtenteseq.nextval,'Marcial','Varillas',to_date('18/01/1982','DD/MM/YYYY HH24:MI:SS'),'17 West 26th Circle, Fayetteville','marcial@varillas.it','5704837273');
-INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico, Eliminato)
+INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico)
 VALUES (IdUtenteseq.nextval,'Harjinder','Kirchinger',to_date('17/10/1988','DD/MM/YYYY HH24:MI:SS'),'394 Hilltop Lane, Annapolis','harjinder@kirchinger.it','2420725843');
-INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico, Eliminato)
+INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico)
 VALUES (IdUtenteseq.nextval,'Foad','Sreenivasa',to_date('29/12/1996','DD/MM/YYYY HH24:MI:SS'),'12013 Blue Moon Avenue, Oklahoma City','foad@sreenivasa.it','3989477107');
-INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico, Eliminato)
+INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico)
 VALUES (IdUtenteseq.nextval,'Texenery','Vallee',to_date('01/01/2014','DD/MM/YYYY HH24:MI:SS'),'3098 Vermont 122, Sheffield','texenery@vallee.it','9384539337');
-INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico, Eliminato)
+INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico)
 VALUES (IdUtenteseq.nextval,'Tiziana','Wiedmann',to_date('15/06/1992','DD/MM/YYYY HH24:MI:SS'),'7550 Kline Drive, Arvada','tiziana@wiedmann.it','4543211586');
-INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico, Eliminato)
+INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico)
 VALUES (IdUtenteseq.nextval,'Carlixta','Santaella',to_date('27/05/2006','DD/MM/YYYY HH24:MI:SS'),'12816 West 65th Way, Arvada','carlixta@santaella.it','7449394726');
-INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico, Eliminato)
+INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico)
 VALUES (IdUtenteseq.nextval,'Stoyanov','Emanueli',to_date('01/01/1970','DD/MM/YYYY HH24:MI:SS'),'7202 Jump Street, Youngstown','stoyanov@emanueli.it','4102675225');
-INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico, Eliminato)
+INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico)
 VALUES (IdUtenteseq.nextval,'Lissa','Vela',to_date('22/05/1998','DD/MM/YYYY HH24:MI:SS'),'404 Middle Turnpike West, Manchester','lissa@vela.it','1111262475');
-INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico, Eliminato)
+INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico)
 VALUES (IdUtenteseq.nextval,'Adams','Maturano',to_date('28/12/1987','DD/MM/YYYY HH24:MI:SS'),'20933 River Park Drive, Anchorage','adams@maturano.it','1887720777');
-INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico, Eliminato)
+INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico)
 VALUES (IdUtenteseq.nextval,'Saloum','Cuasante',to_date('06/12/2011','DD/MM/YYYY HH24:MI:SS'),'9730 West 81st Avenue, Arvada','saloum@cuasante.it','8002058247');
-INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico, Eliminato)
+INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico)
 VALUES (IdUtenteseq.nextval,'Ankor','Polaino',to_date('05/05/1990','DD/MM/YYYY HH24:MI:SS'),'13005 Mills Edge Court, Louisville','ankor@polaino.it','4637028217');
-INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico, Eliminato)
+INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico)
 VALUES (IdUtenteseq.nextval,'Oro','Kempchen',to_date('20/01/1986','DD/MM/YYYY HH24:MI:SS'),'788 Williamson Road, Montgomery','oro@kempchen.it','2477589387');
-INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico, Eliminato)
+INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico)
 VALUES (IdUtenteseq.nextval,'Mirene','Arnes',to_date('02/08/2004','DD/MM/YYYY HH24:MI:SS'),'9399 Yucca Way, Arvada','mirene@arnes.it','8805245618');
-INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico, Eliminato)
+INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico)
 VALUES (IdUtenteseq.nextval,'Julee','Jabbar',to_date('15/12/1971','DD/MM/YYYY HH24:MI:SS'),'1558 Goodfellow Road, Groton','julee@jabbar.it','3684464389');
-INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico, Eliminato)
+INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico)
 VALUES (IdUtenteseq.nextval,'Bebe','Molzahn',to_date('22/10/2006','DD/MM/YYYY HH24:MI:SS'),'714 Venetian Way, Panama City','bebe@molzahn.it','7578277017');
-INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico, Eliminato)
+INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico)
 VALUES (IdUtenteseq.nextval,'Mfedal','Condrea',to_date('14/04/1989','DD/MM/YYYY HH24:MI:SS'),'241 Methuen Street, Lowell','mfedal@condrea.it','7002526593');
-INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico, Eliminato)
+INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico)
 VALUES (IdUtenteseq.nextval,'Gersom','Alfayate',to_date('01/01/2014','DD/MM/YYYY HH24:MI:SS'),'618 Staley Avenue, Hayward','gersom@alfayate.it','6680971279');
-INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico, Eliminato)
+INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico)
 VALUES (IdUtenteseq.nextval,'Farha','Bakihanov',to_date('14/05/1975','DD/MM/YYYY HH24:MI:SS'),'247 Summit Street, Manchester','farha@bakihanov.it','7028319499');
-INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico, Eliminato)
+INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico)
 VALUES (IdUtenteseq.nextval,'Kadiatou','Aranzadi',to_date('29/12/1979','DD/MM/YYYY HH24:MI:SS'),'1931 Beauvoir Lake Drive, Montgomery','kadiatou@aranzadi.it','2962728154');
-INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico, Eliminato)
+INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico)
 VALUES (IdUtenteseq.nextval,'Kam','Gonzalez Aller',to_date('30/04/1973','DD/MM/YYYY HH24:MI:SS'),'22352 North 67th Drive, Glendale','kam@gonzalezaller.it','7429239378');
-INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico, Eliminato)
+INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico)
 VALUES (IdUtenteseq.nextval,'Sheikh','Torremorell',to_date('28/11/1979','DD/MM/YYYY HH24:MI:SS'),'2305 Ranchland Drive, Savannah','sheikh@torremorell.it','5320571157');
-INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico, Eliminato)
+INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico)
 VALUES (IdUtenteseq.nextval,'Weidong','Cogolludo',to_date('20/11/2008','DD/MM/YYYY HH24:MI:SS'),'4739 South Court Street, Montgomery','weidong@cogolludo.it','2725205394');
-INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico, Eliminato)
+INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico)
 VALUES (IdUtenteseq.nextval,'Adriana','Pampliega',to_date('30/08/1996','DD/MM/YYYY HH24:MI:SS'),'4607 Artelia Drive, Nashville','adriana@pampliega.it','7519883428');
-INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico, Eliminato)
+INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico)
 VALUES (IdUtenteseq.nextval,'Caetano','Saborit',to_date('14/09/1989','DD/MM/YYYY HH24:MI:SS'),'5740 North 59th Avenue, Glendale','caetano@saborit.it','9390444063');
-INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico, Eliminato)
+INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico)
 VALUES (IdUtenteseq.nextval,'Isabella','Zinzi',to_date('21/08/1972','DD/MM/YYYY HH24:MI:SS'),'18827 Fish Hatchery Road, Anchorage','isabella@zinzi.it','1981083019');
-INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico, Eliminato)
+INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico)
 VALUES (IdUtenteseq.nextval,'Ladislaa','Stassl',to_date('09/07/1975','DD/MM/YYYY HH24:MI:SS'),'545 Tracey Drive, Panama City','ladislaa@stassl.it','6874854933');
-INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico, Eliminato)
+INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico)
 VALUES (IdUtenteseq.nextval,'Wieslawa','Vrabie',to_date('02/11/1983','DD/MM/YYYY HH24:MI:SS'),'1347 Blackwalnut Court, Annapolis','wieslawa@vrabie.it','9503056517');
-INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico, Eliminato)
+INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico)
 VALUES (IdUtenteseq.nextval,'Hodaifa','Vitram',to_date('19/08/1984','DD/MM/YYYY HH24:MI:SS'),'618 Watts Street, Montgomery','hodaifa@vitram.it','1823281124');
-INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico, Eliminato)
+INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico)
 VALUES (IdUtenteseq.nextval,'Filipa','Baethcke',to_date('17/06/1982','DD/MM/YYYY HH24:MI:SS'),'93 Hamlin Street, Manchester','filipa@baethcke.it','6839180894');
-INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico, Eliminato)
+INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico)
 VALUES (IdUtenteseq.nextval,'Vernetta','Heim',to_date('16/04/2007','DD/MM/YYYY HH24:MI:SS'),'1139 Addison Street, Berkeley','vernetta@heim.it','2511187179');
-INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico, Eliminato)
+INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico)
 VALUES (IdUtenteseq.nextval,'Mervin','Munguiz',to_date('26/04/1974','DD/MM/YYYY HH24:MI:SS'),'1427 H Street, Anchorage','mervin@munguiz.it','1052011238');
-INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico, Eliminato)
+INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico)
 VALUES (IdUtenteseq.nextval,'Anastacio','Pato',to_date('01/01/2014','DD/MM/YYYY HH24:MI:SS'),'8262 Elvaton Road, Millersville','anastacio@pato.it','2907352333');
-INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico, Eliminato)
+INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico)
 VALUES (IdUtenteseq.nextval,'Vinyet','Heinig',to_date('19/09/1991','DD/MM/YYYY HH24:MI:SS'),'8529 Old Harding Lane, Nashville','vinyet@heinig.it','1437563928');
-INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico, Eliminato)
+INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico)
 VALUES (IdUtenteseq.nextval,'Svein','Seeger',to_date('01/01/2014','DD/MM/YYYY HH24:MI:SS'),'1429 Harrison Avenue, Panama City','svein@seeger.it','7349136514');
-INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico, Eliminato)
+INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico)
 VALUES (IdUtenteseq.nextval,'Marquitta','Serrate',to_date('06/02/1978','DD/MM/YYYY HH24:MI:SS'),'2201 Marks Mill Lane, Fayetteville','marquitta@serrate.it','8271254647');
-INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico, Eliminato)
+INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico)
 VALUES (IdUtenteseq.nextval,'Sants','Doman',to_date('27/09/2009','DD/MM/YYYY HH24:MI:SS'),'2721 Lindsay Avenue, Louisville','sants@doman.it','4999285873');
-INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico, Eliminato)
+INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico)
 VALUES (IdUtenteseq.nextval,'Rani','Willebrand',to_date('19/05/1988','DD/MM/YYYY HH24:MI:SS'),'549 Elysian Fields Road, Nashville','rani@willebrand.it','4250520241');
-INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico, Eliminato)
+INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico)
 VALUES (IdUtenteseq.nextval,'Antonieta','Garma',to_date('12/03/2002','DD/MM/YYYY HH24:MI:SS'),'132 Laurel Green Court, Savannah','antonieta@garma.it','6790064729');
-INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico, Eliminato)
+INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico)
 VALUES (IdUtenteseq.nextval,'Ruy','Voda',to_date('28/09/1985','DD/MM/YYYY HH24:MI:SS'),'1333 Kenyon Street Northwest, Washington','ruy@voda.it','6819108021');
-INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico, Eliminato)
+INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico)
 VALUES (IdUtenteseq.nextval,'Mamudou','Nageli',to_date('08/04/1994','DD/MM/YYYY HH24:MI:SS'),'1613 Katrina Circle, Anchorage','mamudou@nageli.it','7500808575');
-INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico, Eliminato)
+INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico)
 VALUES (IdUtenteseq.nextval,'Rastislav','Barneo',to_date('05/05/1978','DD/MM/YYYY HH24:MI:SS'),'1330 West 82nd Avenue, Anchorage','rastislav@barneo.it','8793508144');
-INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico, Eliminato)
+INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico)
 VALUES (IdUtenteseq.nextval,'Monika','Reschel',to_date('10/01/1986','DD/MM/YYYY HH24:MI:SS'),'1532 Milvia Street, Berkeley','monika@reschel.it','3759470792');
-INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico, Eliminato)
+INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico)
 VALUES (IdUtenteseq.nextval,'Lakiesha','Ricca',to_date('22/09/2005','DD/MM/YYYY HH24:MI:SS'),'2334 Nantucket Drive, Crofton','lakiesha@ricca.it','5263313601');
-INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico, Eliminato)
+INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico)
 VALUES (IdUtenteseq.nextval,'Vitoriana','Nilsson',to_date('01/01/2014','DD/MM/YYYY HH24:MI:SS'),'6045 Camelot Court, Montgomery','vitoriana@nilsson.it','3055433423');
-INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico, Eliminato)
+INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico)
 VALUES (IdUtenteseq.nextval,'Lanying','Puigdollers',to_date('16/05/1989','DD/MM/YYYY HH24:MI:SS'),'3505 Albee Drive, Nashville','lanying@puigdollers.it','9433326928');
-INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico, Eliminato)
+INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico)
 VALUES (IdUtenteseq.nextval,'Clora','Hitchcock',to_date('20/04/1970','DD/MM/YYYY HH24:MI:SS'),'604 Northwest 118th Street, Oklahoma City','clora@hitchcock.it','9354182858');
-INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico, Eliminato)
+INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico)
 VALUES (IdUtenteseq.nextval,'Paulina','Frolov',to_date('11/05/1978','DD/MM/YYYY HH24:MI:SS'),'60 Bagley Street, Saint Johnsbury','paulina@frolov.it','1971706316');
-INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico, Eliminato)
+INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico)
 VALUES (IdUtenteseq.nextval,'Aniana','Garre',to_date('29/07/1977','DD/MM/YYYY HH24:MI:SS'),'421 Madison Street Northeast, Washington','aniana@garre.it','7904429694');
-INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico, Eliminato)
+INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico)
 VALUES (IdUtenteseq.nextval,'Lingling','Schmidtchen',to_date('29/01/2002','DD/MM/YYYY HH24:MI:SS'),'11401 Totem Road, Anchorage','lingling@schmidtchen.it','1057684462');
-INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico, Eliminato)
+INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico)
 VALUES (IdUtenteseq.nextval,'Rodney','Tcheharin',to_date('11/06/2000','DD/MM/YYYY HH24:MI:SS'),'3819 Vineyard Avenue, Pleasanton','rodney@tcheharin.it','8032147987');
-INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico, Eliminato)
+INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico)
 VALUES (IdUtenteseq.nextval,'Dionicio','Apprichs',to_date('26/07/1977','DD/MM/YYYY HH24:MI:SS'),'30451 Servilla Place, Castaic','dionicio@apprichs.it','9224139694');
-INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico, Eliminato)
+INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico)
 VALUES (IdUtenteseq.nextval,'Ottavio','Carstea',to_date('12/03/1982','DD/MM/YYYY HH24:MI:SS'),'14213 Doc Hawley Street, Louisville','ottavio@carstea.it','4362274486');
-INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico, Eliminato)
+INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico)
 VALUES (IdUtenteseq.nextval,'Hari','Brooker',to_date('18/07/1993','DD/MM/YYYY HH24:MI:SS'),'2115 Longest Avenue, Louisville','hari@brooker.it','8726552522');
-INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico, Eliminato)
+INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico)
 VALUES (IdUtenteseq.nextval,'Lanny','Cerreda',to_date('21/08/1989','DD/MM/YYYY HH24:MI:SS'),'60 Willow Lakes Drive, Savannah','lanny@cerreda.it','8504320209');
-INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico, Eliminato)
+INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico)
 VALUES (IdUtenteseq.nextval,'Sayra','Rolle',to_date('08/10/2007','DD/MM/YYYY HH24:MI:SS'),'1163 Rosedale Drive, Montgomery','sayra@rolle.it','8383453203');
-INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico, Eliminato)
+INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico)
 VALUES (IdUtenteseq.nextval,'Jinyong','Tonnies',to_date('01/01/1972','DD/MM/YYYY HH24:MI:SS'),'73455 Twentynine Palms Highway, Twentynine Palms','jinyong@tonnies.it','1962896027');
-INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico, Eliminato)
+INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico)
 VALUES (IdUtenteseq.nextval,'Gislaine','Manoukarakis',to_date('18/02/1979','DD/MM/YYYY HH24:MI:SS'),'7321 Mary Jo Avenue, Panama City','gislaine@manoukarakis.it','8113898748');
-INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico, Eliminato)
+INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico)
 VALUES (IdUtenteseq.nextval,'Han','Rzheshevsky',to_date('27/07/1983','DD/MM/YYYY HH24:MI:SS'),'6928 North 87th Lane, Glendale','han@rzheshevsky.it','7752056860');
-INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico, Eliminato)
+INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico)
 VALUES (IdUtenteseq.nextval,'Gyongyver','Durakov',to_date('01/01/2014','DD/MM/YYYY HH24:MI:SS'),'1311 Elm Hill Pike, Nashville','gyongyver@durakov.it','5668008001');
-INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico, Eliminato)
+INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico)
 VALUES (IdUtenteseq.nextval,'Hormisdas','Valiullin',to_date('17/08/1994','DD/MM/YYYY HH24:MI:SS'),'8442 Everett Way, Arvada','hormisdas@valiullin.it','1974127656');
-INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico, Eliminato)
+INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico)
 VALUES (IdUtenteseq.nextval,'Achour','Hakim',to_date('06/04/1990','DD/MM/YYYY HH24:MI:SS'),'184 Woodland Street, Manchester','achour@hakim.it','4445296970');
-INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico, Eliminato)
+INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico)
 VALUES (IdUtenteseq.nextval,'Mohsin','Hasteteufel',to_date('29/07/1994','DD/MM/YYYY HH24:MI:SS'),'607 Trails End Road, Manchester','mohsin@hasteteufel.it','7829471506');
-INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico, Eliminato)
+INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico)
 VALUES (IdUtenteseq.nextval,'Iride','Trefftz',to_date('11/06/1972','DD/MM/YYYY HH24:MI:SS'),'3337 Woodpark Court, Montgomery','iride@trefftz.it','9210243996');
-INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico, Eliminato)
+INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico)
 VALUES (IdUtenteseq.nextval,'Yevdokiya','Wolde',to_date('01/01/2014','DD/MM/YYYY HH24:MI:SS'),'82 Queen Court, Manchester','yevdokiya@wolde.it','8146362440');
-INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico, Eliminato)
+INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico)
 VALUES (IdUtenteseq.nextval,'Margart','Kerbrat',to_date('14/11/1976','DD/MM/YYYY HH24:MI:SS'),'600 Marshall Street, Louisville','margart@kerbrat.it','2361331747');
-INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico, Eliminato)
+INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico)
 VALUES (IdUtenteseq.nextval,'Guang','Centurio',to_date('01/01/2014','DD/MM/YYYY HH24:MI:SS'),'509 Franklin Street Northeast, Washington','guang@centurio.it','6015066638');
-INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico, Eliminato)
+INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico)
 VALUES (IdUtenteseq.nextval,'Bouziane','Possen',to_date('09/01/2000','DD/MM/YYYY HH24:MI:SS'),'1930 Churchview Court, Millersville','bouziane@possen.it','5980253089');
-INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico, Eliminato)
+INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico)
 VALUES (IdUtenteseq.nextval,'Xan','Sayago',to_date('18/02/1983','DD/MM/YYYY HH24:MI:SS'),'5327 Pierce Street, Arvada','xan@sayago.it','7490931991');
-INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico, Eliminato)
+INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico)
 VALUES (IdUtenteseq.nextval,'Andoitz','Tillmanns',to_date('28/11/2003','DD/MM/YYYY HH24:MI:SS'),'7095 Gladiola Street, Arvada','andoitz@tillmanns.it','2416976750');
-INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico, Eliminato)
+INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico)
 VALUES (IdUtenteseq.nextval,'Lucidio','Querini',to_date('01/01/1970','DD/MM/YYYY HH24:MI:SS'),'1701 18th Avenue South, Nashville','lucidio@querini.it','8088222598');
-INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico, Eliminato)
+INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico)
 VALUES (IdUtenteseq.nextval,'Abdenbi','Christiani',to_date('13/06/2012','DD/MM/YYYY HH24:MI:SS'),'945 South 5th Street, Louisville','abdenbi@christiani.it','1334090325');
-INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico, Eliminato)
+INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico)
 VALUES (IdUtenteseq.nextval,'Boufelja','Hauenschild',to_date('15/08/1993','DD/MM/YYYY HH24:MI:SS'),'8351 Forest Drive, Pasadena','boufelja@hauenschild.it','2795789470');
-INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico, Eliminato)
+INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico)
 VALUES (IdUtenteseq.nextval,'Sher','Alamino',to_date('01/10/1991','DD/MM/YYYY HH24:MI:SS'),'13931 West 87th Drive, Arvada','sher@alamino.it','8604344478');
-INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico, Eliminato)
+INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico)
 VALUES (IdUtenteseq.nextval,'Grisel','Furest',to_date('25/04/1981','DD/MM/YYYY HH24:MI:SS'),'1044 Stokes Road, Montgomery','grisel@furest.it','2133303776');
-INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico, Eliminato)
+INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico)
 VALUES (IdUtenteseq.nextval,'Kaoutar','Mukomel',to_date('17/04/1982','DD/MM/YYYY HH24:MI:SS'),'31250 Courthouse Drive, Union City','kaoutar@mukomel.it','4595343102');
-INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico, Eliminato)
+INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico)
 VALUES (IdUtenteseq.nextval,'Waqar','Brossard',to_date('11/12/1983','DD/MM/YYYY HH24:MI:SS'),'11655 West 81st Avenue, Arvada','waqar@brossard.it','9541081839');
-INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico, Eliminato)
+INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico)
 VALUES (IdUtenteseq.nextval,'Rolandas','Sauceda',to_date('11/01/2009','DD/MM/YYYY HH24:MI:SS'),'2400 Easy Street, San Leandro','rolandas@sauceda.it','5610993226');
-INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico, Eliminato)
+INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico)
 VALUES (IdUtenteseq.nextval,'Christoper','Brugada',to_date('05/08/1989','DD/MM/YYYY HH24:MI:SS'),'523 10th Street, Greeley','christoper@brugada.it','3825947996');
-INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico, Eliminato)
+INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico)
 VALUES (IdUtenteseq.nextval,'Rosena','Barrateiro',to_date('21/03/1979','DD/MM/YYYY HH24:MI:SS'),'23 Sable Run Lane, Methuen','rosena@barrateiro.it','2617857793');
-INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico, Eliminato)
+INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico)
 VALUES (IdUtenteseq.nextval,'Kavita','Nimmesgern',to_date('23/07/1974','DD/MM/YYYY HH24:MI:SS'),'6604 North 59th Avenue, Glendale','kavita@nimmesgern.it','6197160157');
-INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico, Eliminato)
+INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico)
 VALUES (IdUtenteseq.nextval,'Tamimunt','Motero',to_date('28/02/1980','DD/MM/YYYY HH24:MI:SS'),'1841 Logan Street, Anchorage','tamimunt@motero.it','9078337839');
-INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico, Eliminato)
+INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico)
 VALUES (IdUtenteseq.nextval,'Elizabete','Tiegelkamp',to_date('28/12/1997','DD/MM/YYYY HH24:MI:SS'),'1328 Jenks Avenue, Panama City','elizabete@tiegelkamp.it','1822692374');
-INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico, Eliminato)
+INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico)
 VALUES (IdUtenteseq.nextval,'Olinta','Fazendeiro',to_date('23/09/2000','DD/MM/YYYY HH24:MI:SS'),'2617 Truffula Circle, Norman','olinta@fazendeiro.it','3829326394');
-INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico, Eliminato)
+INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico)
 VALUES (IdUtenteseq.nextval,'Nelu','Elizalde',to_date('15/04/1998','DD/MM/YYYY HH24:MI:SS'),'13066 North 56th Avenue, Glendale','nelu@elizalde.it','5732673266');
-INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico, Eliminato)
+INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico)
 VALUES (IdUtenteseq.nextval,'Abdelbaki','Petersdorff',to_date('10/04/1989','DD/MM/YYYY HH24:MI:SS'),'11985 West 56th Drive, Arvada','abdelbaki@petersdorff.it','9775362798');
-INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico, Eliminato)
+INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico)
 VALUES (IdUtenteseq.nextval,'Gaetana','De Ros',to_date('23/10/1988','DD/MM/YYYY HH24:MI:SS'),'6262 29th Street Northwest, Washington','gaetana@deros.it','6082616019');
-INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico, Eliminato)
+INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico)
 VALUES (IdUtenteseq.nextval,'Tsvetanka','Muzhitskih',to_date('14/06/1979','DD/MM/YYYY HH24:MI:SS'),'33 Chesapeake Mobile Court, Hanover','tsvetanka@muzhitskih.it','4987006979');
-INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico, Eliminato)
+INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico)
 VALUES (IdUtenteseq.nextval,'Rameez','Colomar',to_date('23/02/1979','DD/MM/YYYY HH24:MI:SS'),'9360 Hester Beasley Road, Nashville','rameez@colomar.it','1741256723');
-INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico, Eliminato)
+INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico)
 VALUES (IdUtenteseq.nextval,'Nazia','Kehrein',to_date('30/10/2005','DD/MM/YYYY HH24:MI:SS'),'7822 West Peppertree Lane, Glendale','nazia@kehrein.it','5555498496');
-INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico, Eliminato)
+INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico)
 VALUES (IdUtenteseq.nextval,'Wangfen','Urgoitia',to_date('03/05/1979','DD/MM/YYYY HH24:MI:SS'),'7506 Harvey Street, Panama City','wangfen@urgoitia.it','1839366227');
-INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico, Eliminato)
+INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico)
 VALUES (IdUtenteseq.nextval,'Chamaida','Zaya',to_date('14/01/1996','DD/MM/YYYY HH24:MI:SS'),'4709 Blagden Terrace Northwest, Washington','chamaida@zaya.it','1583727172');
-INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico, Eliminato)
+INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico)
 VALUES (IdUtenteseq.nextval,'Sinesio','Zhelokhovtsev',to_date('01/07/2006','DD/MM/YYYY HH24:MI:SS'),'6060 West Royal Palm Road, Glendale','sinesio@zhelokhovtsev.it','5403453606');
-INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico, Eliminato)
+INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico)
 VALUES (IdUtenteseq.nextval,'Jorje','Zichaus',to_date('30/07/1981','DD/MM/YYYY HH24:MI:SS'),'19237 North 69th Avenue, Glendale','jorje@zichaus.it','1860752283');
-INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico, Eliminato)
+INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico)
 VALUES (IdUtenteseq.nextval,'Aracelis','Mancha',to_date('14/01/1996','DD/MM/YYYY HH24:MI:SS'),'81 Buck Hill Road, Guilford','aracelis@mancha.it','1401544866');
-INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico, Eliminato)
+INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico)
 VALUES (IdUtenteseq.nextval,'Rawda','Schmedt',to_date('01/01/1970','DD/MM/YYYY HH24:MI:SS'),'2 Green Street, Underhill','rawda@schmedt.it','8177547021');
-INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico, Eliminato)
+INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico)
 VALUES (IdUtenteseq.nextval,'Cheikhouna','Ubide',to_date('22/07/1986','DD/MM/YYYY HH24:MI:SS'),'313 Post Road, Rutland','cheikhouna@ubide.it','2661937175');
-INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico, Eliminato)
+INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico)
 VALUES (IdUtenteseq.nextval,'Glafira','Federhofer',to_date('01/01/2014','DD/MM/YYYY HH24:MI:SS'),'1822 Pine Grove Court, Severn','glafira@federhofer.it','9221294123');
-INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico, Eliminato)
+INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico)
 VALUES (IdUtenteseq.nextval,'Sanford','Magrans',to_date('06/11/1981','DD/MM/YYYY HH24:MI:SS'),'6021 Yarrow Street, Arvada','sanford@magrans.it','3744225675');
-INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico, Eliminato)
+INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico)
 VALUES (IdUtenteseq.nextval,'Crhistian','Tuteja',to_date('19/08/1987','DD/MM/YYYY HH24:MI:SS'),'1622 Orchard Avenue, Louisville','crhistian@tuteja.it','7626067739');
-INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico, Eliminato)
+INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico)
 VALUES (IdUtenteseq.nextval,'Andy','Renuncio',to_date('06/04/1991','DD/MM/YYYY HH24:MI:SS'),'3652 East Blue Stone Drive, Fayetteville','andy@renuncio.it','1890079390');
-INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico, Eliminato)
+INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico)
 VALUES (IdUtenteseq.nextval,'Shakira','Pelkum',to_date('25/01/1983','DD/MM/YYYY HH24:MI:SS'),'7072 Quail Street, Arvada','shakira@pelkum.it','6362538031');
-INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico, Eliminato)
+INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico)
 VALUES (IdUtenteseq.nextval,'Marisela','Lekuona',to_date('11/02/2000','DD/MM/YYYY HH24:MI:SS'),'1405 Monroe Street Northeast, Washington','marisela@lekuona.it','1282810632');
-INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico, Eliminato)
+INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico)
 VALUES (IdUtenteseq.nextval,'Madalin','Diaz Crespo',to_date('25/09/1984','DD/MM/YYYY HH24:MI:SS'),'6069 Jay Street, Arvada','madalin@diazcrespo.it','7799651361');
-INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico, Eliminato)
+INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico)
 VALUES (IdUtenteseq.nextval,'Corono','Harel',to_date('16/07/2003','DD/MM/YYYY HH24:MI:SS'),'14003 Crossbranch Court, Louisville','corono@harel.it','9182245132');
-INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico, Eliminato)
+INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico)
 VALUES (IdUtenteseq.nextval,'Jacquelyn','Blesius',to_date('02/05/1989','DD/MM/YYYY HH24:MI:SS'),'606 Spence Enclave Way, Nashville','jacquelyn@blesius.it','6649422006');
-INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico, Eliminato)
+INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico)
 VALUES (IdUtenteseq.nextval,'Kimberli','Luta',to_date('16/11/1998','DD/MM/YYYY HH24:MI:SS'),'8 Corona Street','kimberli@luta.it','8877433651');
-INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico, Eliminato)
+INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico)
 VALUES (IdUtenteseq.nextval,'Margarethe','Zoucha',to_date('22/05/1984','DD/MM/YYYY HH24:MI:SS'),'408 Pine Street, Bloomingdale','margarethe@zoucha.it','5138933373');
-INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico, Eliminato)
+INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico)
 VALUES (IdUtenteseq.nextval,'Eduarda','Gire',to_date('18/12/1981','DD/MM/YYYY HH24:MI:SS'),'1076 Foster Street, Alameda','eduarda@gire.it','9445464206');
-INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico, Eliminato)
+INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico)
 VALUES (IdUtenteseq.nextval,'Ozie','Joly',to_date('30/06/1985','DD/MM/YYYY HH24:MI:SS'),'435 East 5th Avenue, Anchorage','ozie@joly.it','1531395500');
-INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico, Eliminato)
+INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico)
 VALUES (IdUtenteseq.nextval,'Sneha','Naranjo',to_date('03/04/1988','DD/MM/YYYY HH24:MI:SS'),'8010 Queen Victoria Drive, Anchorage','sneha@naranjo.it','1179511030');
-INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico, Eliminato)
+INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico)
 VALUES (IdUtenteseq.nextval,'Sidiki','Kaess',to_date('08/09/2000','DD/MM/YYYY HH24:MI:SS'),'6610 North 93rd Avenue, Glendale','sidiki@kaess.it','7004278909');
-INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico, Eliminato)
+INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico)
 VALUES (IdUtenteseq.nextval,'Alzbeta','Koc',to_date('13/11/1987','DD/MM/YYYY HH24:MI:SS'),'2223 North Fernwood Court, Savannah','alzbeta@koc.it','6316829608');
-INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico, Eliminato)
+INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico)
 VALUES (IdUtenteseq.nextval,'Liliane','Osterlein',to_date('28/05/1999','DD/MM/YYYY HH24:MI:SS'),'127 Grand Heron Drive, Panama City','liliane@osterlein.it','9367464177');
-INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico, Eliminato)
+INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico)
 VALUES (IdUtenteseq.nextval,'Wilberto','Oddie',to_date('28/10/1978','DD/MM/YYYY HH24:MI:SS'),'5837 West Evans Drive, Glendale','wilberto@oddie.it','6335671645');
-INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico, Eliminato)
+INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico)
 VALUES (IdUtenteseq.nextval,'Leia','Colcha',to_date('19/01/1999','DD/MM/YYYY HH24:MI:SS'),'1815 Grove Hill Lane, Montgomery','leia@colcha.it','8169758734');
-INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico, Eliminato)
+INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico)
 VALUES (IdUtenteseq.nextval,'Jiaming','Grauwinkel',to_date('01/01/2014','DD/MM/YYYY HH24:MI:SS'),'6911 Steven Road, Panama City','jiaming@grauwinkel.it','5327114140');
-INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico, Eliminato)
+INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico)
 VALUES (IdUtenteseq.nextval,'Hugues','Vincenti',to_date('06/11/1987','DD/MM/YYYY HH24:MI:SS'),'17 Hillcrest Road, Rutland','hugues@vincenti.it','9452223671');
-INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico, Eliminato)
+INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico)
 VALUES (IdUtenteseq.nextval,'Anisio','Eisenblaetter',to_date('30/01/1983','DD/MM/YYYY HH24:MI:SS'),'2021 West Burnett Avenue, Louisville','anisio@eisenblaetter.it','4958179534');
-INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico, Eliminato)
+INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico)
 VALUES (IdUtenteseq.nextval,'Messoud','Fiadeiro',to_date('23/02/1992','DD/MM/YYYY HH24:MI:SS'),'816 West 19th Avenue, Anchorage','messoud@fiadeiro.it','3189953697');
-INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico, Eliminato)
+INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico)
 VALUES (IdUtenteseq.nextval,'Aracelis','Osnabrugge',to_date('09/11/2004','DD/MM/YYYY HH24:MI:SS'),'824 Main Street, Manchester','aracelis@osnabrugge.it','7376120728');
-INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico, Eliminato)
+INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico)
 VALUES (IdUtenteseq.nextval,'Makram','Wienandts',to_date('06/07/1980','DD/MM/YYYY HH24:MI:SS'),'8064 Claytie Circle, Nashville','makram@wienandts.it','3313672674');
-INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico, Eliminato)
+INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico)
 VALUES (IdUtenteseq.nextval,'Tengiz','Alanis',to_date('20/03/2004','DD/MM/YYYY HH24:MI:SS'),'425 Middle Turnpike East, Manchester','tengiz@alanis.it','9207890155');
-INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico, Eliminato)
+INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico)
 VALUES (IdUtenteseq.nextval,'Enoc','Burgi',to_date('06/12/1992','DD/MM/YYYY HH24:MI:SS'),'3505 Albee Drive, Nashville','enoc@burgi.it','9921404047');
-INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico, Eliminato)
+INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico)
 VALUES (IdUtenteseq.nextval,'Unay','Ehrenteil',to_date('01/01/1970','DD/MM/YYYY HH24:MI:SS'),'8935 Cole Drive, Arvada','unay@ehrenteil.it','8905327758');
-INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico, Eliminato)
+INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico)
 VALUES (IdUtenteseq.nextval,'Fatimazahra','Haziahmetov',to_date('07/12/1990','DD/MM/YYYY HH24:MI:SS'),'65 Arcellia Drive, Manchester','fatimazahra@haziahmetov.it','5625953343');
-INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico, Eliminato)
+INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico)
 VALUES (IdUtenteseq.nextval,'Issame','OtaÃ±u',to_date('09/07/2008','DD/MM/YYYY HH24:MI:SS'),'10 Skyline Way, Hartford','issame@otaÃ±u.it','2422444046');
-INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico, Eliminato)
+INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico)
 VALUES (IdUtenteseq.nextval,'Chengjun','Zender',to_date('11/06/2001','DD/MM/YYYY HH24:MI:SS'),'841 Whittier Hill Road','chengjun@zender.it','8529437558');
-INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico, Eliminato)
+INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico)
 VALUES (IdUtenteseq.nextval,'Ares','Emiliano',to_date('02/08/1997','DD/MM/YYYY HH24:MI:SS'),'67 Steeplechase Drive, Manchester','ares@emiliano.it','7826421794');
-INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico, Eliminato)
+INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico)
 VALUES (IdUtenteseq.nextval,'Celso','Zhmakov',to_date('20/02/1987','DD/MM/YYYY HH24:MI:SS'),'69 Washington Street, Manchester','celso@zhmakov.it','6453592523');
-INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico, Eliminato)
+INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico)
 VALUES (IdUtenteseq.nextval,'Amadina','Dykes',to_date('01/04/1985','DD/MM/YYYY HH24:MI:SS'),'8349 West Stella Way, Glendale','amadina@dykes.it','4824645439');
-INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico, Eliminato)
+INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico)
 VALUES (IdUtenteseq.nextval,'Roberta','Toumi',to_date('27/12/1992','DD/MM/YYYY HH24:MI:SS'),'1267 Martin Street, Nashville','roberta@toumi.it','6999436069');
-INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico, Eliminato)
+INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico)
 VALUES (IdUtenteseq.nextval,'Cyntia','Piro',to_date('14/05/1984','DD/MM/YYYY HH24:MI:SS'),'3 Kimball Street, Marblehead','cyntia@piro.it','8219109283');
-INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico, Eliminato)
+INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico)
 VALUES (IdUtenteseq.nextval,'Lu','Guillen',to_date('01/01/1970','DD/MM/YYYY HH24:MI:SS'),'64 Church Street, Hardwick','lu@guillen.it','2370475847');
-INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico, Eliminato)
+INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico)
 VALUES (IdUtenteseq.nextval,'Deandra','Josselin',to_date('06/12/1991','DD/MM/YYYY HH24:MI:SS'),'1427 South Carolina Avenue Southeast, Washington','deandra@josselin.it','2766013174');
-INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico, Eliminato)
+INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico)
 VALUES (IdUtenteseq.nextval,'Dong','Trocoli',to_date('03/06/1992','DD/MM/YYYY HH24:MI:SS'),'5110 East Shoshone Avenue, Orange','dong@trocoli.it','2671978556');
-INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico, Eliminato)
+INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico)
 VALUES (IdUtenteseq.nextval,'BegoÃ±e','Steinbrugge',to_date('21/12/1974','DD/MM/YYYY HH24:MI:SS'),'5708 Beverly Street, Savannah','begoÃ±e@steinbrugge.it','9847111048');
-INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico, Eliminato)
+INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico)
 VALUES (IdUtenteseq.nextval,'Plinio','Toledo',to_date('18/05/1977','DD/MM/YYYY HH24:MI:SS'),'8 Elmwood Drive, Rutland','plinio@toledo.it','1671438662');
-INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico, Eliminato)
+INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico)
 VALUES (IdUtenteseq.nextval,'Irinel','Raul',to_date('13/02/1981','DD/MM/YYYY HH24:MI:SS'),'18687 County Road 97, Woodland','irinel@raul.it','3890118206');
-INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico, Eliminato)
+INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico)
 VALUES (IdUtenteseq.nextval,'Asmat','Bruggert',to_date('18/11/2001','DD/MM/YYYY HH24:MI:SS'),'5721 Frank Hough Road, Panama City','asmat@bruggert.it','6372196579');
-INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico, Eliminato)
+INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico)
 VALUES (IdUtenteseq.nextval,'Badr','Lissen',to_date('02/12/1978','DD/MM/YYYY HH24:MI:SS'),'5222 West Laurie Lane, Glendale','badr@lissen.it','2575508485');
-INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico, Eliminato)
+INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico)
 VALUES (IdUtenteseq.nextval,'Sadiq','Regulez',to_date('01/01/1970','DD/MM/YYYY HH24:MI:SS'),'1709 West Market Street, Louisville','sadiq@regulez.it','8030200079');
-INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico, Eliminato)
+INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico)
 VALUES (IdUtenteseq.nextval,'France','Geraci',to_date('01/01/2014','DD/MM/YYYY HH24:MI:SS'),'6717 North 59th Avenue, Glendale','france@geraci.it','8282966814');
-INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico, Eliminato)
+INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico)
 VALUES (IdUtenteseq.nextval,'Jianyun','Linner',to_date('18/10/1989','DD/MM/YYYY HH24:MI:SS'),'814 Coachway, Annapolis','jianyun@linner.it','6225594323');
-INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico, Eliminato)
+INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico)
 VALUES (IdUtenteseq.nextval,'Georgiev','Recarey',to_date('28/06/1994','DD/MM/YYYY HH24:MI:SS'),'9827 Davenport Avenue, Youngstown','georgiev@recarey.it','3748324188');
-INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico, Eliminato)
+INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico)
 VALUES (IdUtenteseq.nextval,'Vladyslava','Bauer',to_date('27/12/2000','DD/MM/YYYY HH24:MI:SS'),'2076 North Crossover Road, Fayetteville','vladyslava@bauer.it','2773149648');
-INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico, Eliminato)
+INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico)
 VALUES (IdUtenteseq.nextval,'Bennaceur','Hofflin',to_date('27/10/1985','DD/MM/YYYY HH24:MI:SS'),'2835 Southwest 78th Street, Oklahoma City','bennaceur@hofflin.it','7461700541');
-INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico, Eliminato)
+INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico)
 VALUES (IdUtenteseq.nextval,'Eradio','Rudhart',to_date('30/08/1980','DD/MM/YYYY HH24:MI:SS'),'194 North Main Street, Webster','eradio@rudhart.it','5574291405');
-INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico, Eliminato)
+INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico)
 VALUES (IdUtenteseq.nextval,'Weiqiang','Ebbs',to_date('10/05/2004','DD/MM/YYYY HH24:MI:SS'),'19020 North 68th Avenue, Glendale','weiqiang@ebbs.it','1385977144');
-INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico, Eliminato)
+INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico)
 VALUES (IdUtenteseq.nextval,'Richart','Tacconi',to_date('18/01/1998','DD/MM/YYYY HH24:MI:SS'),'1897 Poplar Ridge Road, Pasadena','richart@tacconi.it','5071749007');
-INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico, Eliminato)
+INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico)
 VALUES (IdUtenteseq.nextval,'Rafiq','Godein',to_date('10/07/1970','DD/MM/YYYY HH24:MI:SS'),'539 Palermo Road, Panama City','rafiq@godein.it','3356030090');
-INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico, Eliminato)
+INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico)
 VALUES (IdUtenteseq.nextval,'Orpha','Bartelmess',to_date('13/04/2000','DD/MM/YYYY HH24:MI:SS'),'8785 Ellis Court, Arvada','orpha@bartelmess.it','5011214257');
-INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico, Eliminato)
+INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico)
 VALUES (IdUtenteseq.nextval,'Wonda','Menekse',to_date('28/03/2000','DD/MM/YYYY HH24:MI:SS'),'2314 Marian Bay Circle, Anchorage','wonda@menekse.it','8609333142');
-INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico, Eliminato)
+INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico)
 VALUES (IdUtenteseq.nextval,'Ales','Carame',to_date('10/06/1997','DD/MM/YYYY HH24:MI:SS'),'822 Bowden Street, Savannah','ales@carame.it','6521159744');
-INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico, Eliminato)
+INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico)
 VALUES (IdUtenteseq.nextval,'Claver','Bugalhoo',to_date('07/01/2000','DD/MM/YYYY HH24:MI:SS'),'8848 North New World Drive, Glendale','claver@bugalhoo.it','5368251304');
-INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico, Eliminato)
+INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico)
 VALUES (IdUtenteseq.nextval,'Edenia','Suksma',to_date('22/03/2008','DD/MM/YYYY HH24:MI:SS'),'1219 Carleton Street, Berkeley','edenia@suksma.it','1786183502');
-INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico, Eliminato)
+INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico)
 VALUES (IdUtenteseq.nextval,'Alcione','Sakib',to_date('07/05/1997','DD/MM/YYYY HH24:MI:SS'),'8506 Laviento Drive, Anchorage','alcione@sakib.it','4261614139');
-INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico, Eliminato)
+INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico)
 VALUES (IdUtenteseq.nextval,'Dayara','Rocio',to_date('06/02/1992','DD/MM/YYYY HH24:MI:SS'),'3035 South Highway A1A, Melbourne Beach','dayara@rocio.it','7610016341');
-INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico, Eliminato)
+INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico)
 VALUES (IdUtenteseq.nextval,'Zoltan','El Kadaoui',to_date('05/08/1995','DD/MM/YYYY HH24:MI:SS'),'74 Springfield Street, Agawam','zoltan@elkadaoui.it','4346755192');
-INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico, Eliminato)
+INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico)
 VALUES (IdUtenteseq.nextval,'Abdesamad','Hoeltzel',to_date('01/01/2014','DD/MM/YYYY HH24:MI:SS'),'2313 Mansfield Avenue, Del City','abdesamad@hoeltzel.it','6659959945');
-INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico, Eliminato)
+INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico)
 VALUES (IdUtenteseq.nextval,'Gifty','Madiedo',to_date('01/01/1970','DD/MM/YYYY HH24:MI:SS'),'9101 Vanguard Drive, Anchorage','gifty@madiedo.it','3345694788');
-INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico, Eliminato)
+INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico)
 VALUES (IdUtenteseq.nextval,'Iola','Zeckendorf',to_date('11/03/1974','DD/MM/YYYY HH24:MI:SS'),'80 North East Street, Holyoke','iola@zeckendorf.it','4049238261');
-INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico, Eliminato)
+INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico)
 VALUES (IdUtenteseq.nextval,'Wade','Nardi',to_date('28/04/1984','DD/MM/YYYY HH24:MI:SS'),'6160 Norm Drive, Anchorage','wade@nardi.it','9329015458');
-INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico, Eliminato)
+INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico)
 VALUES (IdUtenteseq.nextval,'Culita','Moray',to_date('14/02/2004','DD/MM/YYYY HH24:MI:SS'),'3823 Shannon Run Trail, Louisville','culita@moray.it','5325824863');
-INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico, Eliminato)
+INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico)
 VALUES (IdUtenteseq.nextval,'Willington','Frederich',to_date('29/03/1977','DD/MM/YYYY HH24:MI:SS'),'1656 Newton Street Northwest, Washington','willington@frederich.it','2699244503');
-INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico, Eliminato)
+INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico)
 VALUES (IdUtenteseq.nextval,'Lorean','Kolodziejeza',to_date('14/01/1999','DD/MM/YYYY HH24:MI:SS'),'5549 West Hearn Road, Glendale','lorean@kolodziejeza.it','4780765624');
-INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico, Eliminato)
+INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico)
 VALUES (IdUtenteseq.nextval,'Lele','Badych',to_date('08/02/1976','DD/MM/YYYY HH24:MI:SS'),'622 Thomas Street, Woodland','lele@badych.it','7053912852');
-INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico, Eliminato)
+INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico)
 VALUES (IdUtenteseq.nextval,'Kalilou','Haikin',to_date('03/03/1990','DD/MM/YYYY HH24:MI:SS'),'2200 East Victory Drive, Savannah','kalilou@haikin.it','1250978857');
-INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico, Eliminato)
+INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico)
 VALUES (IdUtenteseq.nextval,'Georgene','Grott',to_date('28/07/2012','DD/MM/YYYY HH24:MI:SS'),'60 Montgomery Street, Springfield','georgene@grott.it','8601491699');
-INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico, Eliminato)
+INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico)
 VALUES (IdUtenteseq.nextval,'Rapita','Amposta',to_date('26/08/1990','DD/MM/YYYY HH24:MI:SS'),'5205 West Thunderbird Road, Glendale','rapita@amposta.it','2303057165');
-INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico, Eliminato)
+INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico)
 VALUES (IdUtenteseq.nextval,'Ouardia','Shaer',to_date('02/10/1980','DD/MM/YYYY HH24:MI:SS'),'594 Putnam Avenue, Cambridge','ouardia@shaer.it','7635950681');
-INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico, Eliminato)
+INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico)
 VALUES (IdUtenteseq.nextval,'Eunate','Carregueiro',to_date('07/05/2000','DD/MM/YYYY HH24:MI:SS'),'112 North Hunter Street, Farmington','eunate@carregueiro.it','2559340640');
-INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico, Eliminato)
+INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico)
 VALUES (IdUtenteseq.nextval,'Ilinca','Arceniega',to_date('04/11/1995','DD/MM/YYYY HH24:MI:SS'),'4603 Grant Street Northeast, Washington','ilinca@arceniega.it','5482573599');
-INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico, Eliminato)
+INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico)
 VALUES (IdUtenteseq.nextval,'Terrell','Mosquero',to_date('14/10/2006','DD/MM/YYYY HH24:MI:SS'),'3114 West 20th Court, Panama City','terrell@mosquero.it','8983202484');
-INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico, Eliminato)
+INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico)
 VALUES (IdUtenteseq.nextval,'Leroy','Nuruchev',to_date('08/08/1976','DD/MM/YYYY HH24:MI:SS'),'1814 US Highway 98, Mexico Beach','leroy@nuruchev.it','6058513617');
-INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico, Eliminato)
+INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico)
 VALUES (IdUtenteseq.nextval,'Guofeng','Oortmann',to_date('13/12/1973','DD/MM/YYYY HH24:MI:SS'),'403 Turkey Creek Road, Mathews','guofeng@oortmann.it','3541076415');
-INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico, Eliminato)
+INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico)
 VALUES (IdUtenteseq.nextval,'Suhua','Hospital',to_date('18/11/2006','DD/MM/YYYY HH24:MI:SS'),'4132 Carmichael Road, Montgomery','suhua@hospital.it','7024043742');
-INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico, Eliminato)
+INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico)
 VALUES (IdUtenteseq.nextval,'Fineas','Avdienko',to_date('01/01/2014','DD/MM/YYYY HH24:MI:SS'),'54 Gentry Court, Annapolis','fineas@avdienko.it','2141872430');
-INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico, Eliminato)
+INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico)
 VALUES (IdUtenteseq.nextval,'Birute','Esquembre',to_date('26/03/1993','DD/MM/YYYY HH24:MI:SS'),'2803 River Drive, Thunderbolt','birute@esquembre.it','6855778067');
-INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico, Eliminato)
+INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico)
 VALUES (IdUtenteseq.nextval,'Gaylene','Duda',to_date('10/07/1993','DD/MM/YYYY HH24:MI:SS'),'2829 31st Street Northwest, Washington','gaylene@duda.it','3771229389');
-INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico, Eliminato)
+INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico)
 VALUES (IdUtenteseq.nextval,'Biljana','Novoselski',to_date('04/01/2002','DD/MM/YYYY HH24:MI:SS'),'11 Adams Street, Arlington','biljana@novoselski.it','4443373686');
-INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico, Eliminato)
+INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico)
 VALUES (IdUtenteseq.nextval,'Abubakari','Wiegreffe',to_date('01/01/1970','DD/MM/YYYY HH24:MI:SS'),'5804 West Abraham Lane, Glendale','abubakari@wiegreffe.it','6560778157');
-INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico, Eliminato)
+INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico)
 VALUES (IdUtenteseq.nextval,'Hristo','Delcourt',to_date('20/05/2009','DD/MM/YYYY HH24:MI:SS'),'491 Arabian Way, Grand Junction','hristo@delcourt.it','8869735635');
-INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico, Eliminato)
+INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico)
 VALUES (IdUtenteseq.nextval,'Aris','Tordera',to_date('05/02/2000','DD/MM/YYYY HH24:MI:SS'),'109 East 64th Street, Savannah','aris@tordera.it','3909122677');
-INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico, Eliminato)
+INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico)
 VALUES (IdUtenteseq.nextval,'Terrance','Olibarri',to_date('08/11/2010','DD/MM/YYYY HH24:MI:SS'),'11 Meeting Place Circle, Boxford','terrance@olibarri.it','8581566965');
-INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico, Eliminato)
+INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico)
 VALUES (IdUtenteseq.nextval,'Cleber','Goiricelaya',to_date('01/01/1970','DD/MM/YYYY HH24:MI:SS'),'56 Daley Lane, Castleton','cleber@goiricelaya.it','6737066655');
-INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico, Eliminato)
+INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico)
 VALUES (IdUtenteseq.nextval,'Shawana','Rademacker',to_date('24/03/1998','DD/MM/YYYY HH24:MI:SS'),'5124 E Street Southeast, Washington','shawana@rademacker.it','2184656998');
-INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico, Eliminato)
+INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico)
 VALUES (IdUtenteseq.nextval,'Xisca','Gabilondo',to_date('06/11/2006','DD/MM/YYYY HH24:MI:SS'),'5 Meadow Lane, Rutland','xisca@gabilondo.it','1555465355');
-INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico, Eliminato)
+INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico)
 VALUES (IdUtenteseq.nextval,'Aldina','Pascu',to_date('17/07/2011','DD/MM/YYYY HH24:MI:SS'),'2017 North Hartford Drive, Fayetteville','aldina@pascu.it','4158709193');
-INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico, Eliminato)
+INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico)
 VALUES (IdUtenteseq.nextval,'Lynette','Fibig',to_date('11/11/2001','DD/MM/YYYY HH24:MI:SS'),'2755 Country Drive, Fremont','lynette@fibig.it','5063760914');
-INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico, Eliminato)
+INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico)
 VALUES (IdUtenteseq.nextval,'Denis','Kirchhoff',to_date('24/06/2012','DD/MM/YYYY HH24:MI:SS'),'1528 Spruce Street, Berkeley','denis@kirchhoff.it','7155918049');
-INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico, Eliminato)
+INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico)
 VALUES (IdUtenteseq.nextval,'Evgueni','Mendibaso',to_date('15/08/1982','DD/MM/YYYY HH24:MI:SS'),'833 50th Place Northeast, Washington','evgueni@mendibaso.it','1919339997');
-INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico, Eliminato)
+INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico)
 VALUES (IdUtenteseq.nextval,'Aimara','Fortygin',to_date('16/01/2005','DD/MM/YYYY HH24:MI:SS'),'2708 Riverview Drive, Riva','aimara@fortygin.it','7971795509');
-INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico, Eliminato)
+INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico)
 VALUES (IdUtenteseq.nextval,'Ezra','Oroz-Garralda',to_date('24/12/1984','DD/MM/YYYY HH24:MI:SS'),'116 Queens Lane, Nashville','ezra@oroz-garralda.it','8723624835');
-INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico, Eliminato)
+INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico)
 VALUES (IdUtenteseq.nextval,'Quirico','Kordts',to_date('01/01/2014','DD/MM/YYYY HH24:MI:SS'),'10383 Eagle River Lane, Anchorage','quirico@kordts.it','9596016363');
-INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico, Eliminato)
+INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico)
 VALUES (IdUtenteseq.nextval,'Sarina','Rabelo',to_date('01/01/2014','DD/MM/YYYY HH24:MI:SS'),'6262 29th Street Northwest, Washington','sarina@rabelo.it','2886622693');
-INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico, Eliminato)
+INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico)
 VALUES (IdUtenteseq.nextval,'Guzel','Adzhemyan',to_date('30/11/1981','DD/MM/YYYY HH24:MI:SS'),'18827 Fish Hatchery Road, Anchorage','guzel@adzhemyan.it','2449880409');
-INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico, Eliminato)
+INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico)
 VALUES (IdUtenteseq.nextval,'Yili','Milheiras',to_date('07/09/1996','DD/MM/YYYY HH24:MI:SS'),'10202 Vista Drive, Cupertino','yili@milheiras.it','3116494974');
-INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico, Eliminato)
+INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico)
 VALUES (IdUtenteseq.nextval,'Makram','Brings',to_date('11/02/1979','DD/MM/YYYY HH24:MI:SS'),'6622 West Mescal Street, Glendale','makram@brings.it','9597642280');
-INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico, Eliminato)
+INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico)
 VALUES (IdUtenteseq.nextval,'Sheridan','Rueff',to_date('01/01/1970','DD/MM/YYYY HH24:MI:SS'),'8142 Mallard Shore Drive, Laurel','sheridan@rueff.it','9009073535');
-INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico, Eliminato)
+INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico)
 VALUES (IdUtenteseq.nextval,'Rupinder','Balaguer',to_date('12/09/1978','DD/MM/YYYY HH24:MI:SS'),'8 Watkins Road','rupinder@balaguer.it','7653975552');
-INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico, Eliminato)
+INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico)
 VALUES (IdUtenteseq.nextval,'Carmita','Tietze',to_date('15/04/1987','DD/MM/YYYY HH24:MI:SS'),'2201 Marks Mill Lane, Fayetteville','carmita@tietze.it','7413422067');
-INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico, Eliminato)
+INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico)
 VALUES (IdUtenteseq.nextval,'Barbra','Menchacatorre',to_date('06/03/1983','DD/MM/YYYY HH24:MI:SS'),'21 Glenoak Lane Northwest, Glen Burnie','barbra@menchacatorre.it','7884831297');
-INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico, Eliminato)
+INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico)
 VALUES (IdUtenteseq.nextval,'Numbers','Schlessiger',to_date('01/01/2014','DD/MM/YYYY HH24:MI:SS'),'1209 Meehan Road','numbers@schlessiger.it','6356172011');
-INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico, Eliminato)
+INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico)
 VALUES (IdUtenteseq.nextval,'Lidiane','Lamotte',to_date('13/03/1994','DD/MM/YYYY HH24:MI:SS'),'55 Armory Street, Quincy','lidiane@lamotte.it','8506344261');
-INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico, Eliminato)
+INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico)
 VALUES (IdUtenteseq.nextval,'Algis','Nagl',to_date('10/08/2009','DD/MM/YYYY HH24:MI:SS'),'18 Cambridge Street, Manchester','algis@nagl.it','9026963275');
-INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico, Eliminato)
+INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico)
 VALUES (IdUtenteseq.nextval,'Sarahi','Iliyanov',to_date('12/04/1984','DD/MM/YYYY HH24:MI:SS'),'7701 Taylor Oaks Circle, Montgomery','sarahi@iliyanov.it','5337280384');
-INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico, Eliminato)
+INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico)
 VALUES (IdUtenteseq.nextval,'Dongsheng','Silanes',to_date('27/03/1981','DD/MM/YYYY HH24:MI:SS'),'7822 West Peppertree Lane, Glendale','dongsheng@silanes.it','6444076498');
-INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico, Eliminato)
+INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico)
 VALUES (IdUtenteseq.nextval,'Abbie','Kuster',to_date('08/07/2001','DD/MM/YYYY HH24:MI:SS'),'172 Chestnut Street, Lynn','abbie@kuster.it','5553346284');
-INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico, Eliminato)
+INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico)
 VALUES (IdUtenteseq.nextval,'Christoph','Resnick',to_date('25/09/1975','DD/MM/YYYY HH24:MI:SS'),'10 Bramblebush Drive, Barnstable','christoph@resnick.it','7507971458');
-INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico, Eliminato)
+INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico)
 VALUES (IdUtenteseq.nextval,'Guoyong','Uhlendahl',to_date('27/04/1989','DD/MM/YYYY HH24:MI:SS'),'316 Sourwood Court, Millersville','guoyong@uhlendahl.it','4374379200');
-INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico, Eliminato)
+INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico)
 VALUES (IdUtenteseq.nextval,'Thibaut','Schmittmann',to_date('21/06/1975','DD/MM/YYYY HH24:MI:SS'),'25800 Industrial Boulevard, Hayward','thibaut@schmittmann.it','2300794854');
-INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico, Eliminato)
+INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico)
 VALUES (IdUtenteseq.nextval,'Suzie','Gallego Casilda',to_date('28/03/1972','DD/MM/YYYY HH24:MI:SS'),'2317 Fernwood Drive, Nashville','suzie@gallegocasilda.it','1465766225');
-INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico, Eliminato)
+INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico)
 VALUES (IdUtenteseq.nextval,'Liberata','Beunza',to_date('28/11/2005','DD/MM/YYYY HH24:MI:SS'),'42 Edison Road, Manchester','liberata@beunza.it','7345697951');
-INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico, Eliminato)
+INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico)
 VALUES (IdUtenteseq.nextval,'Balbanera','Reifs',to_date('25/03/1996','DD/MM/YYYY HH24:MI:SS'),'27 Church Street, Manchester','balbanera@reifs.it','8385292333');
-INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico, Eliminato)
+INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico)
 VALUES (IdUtenteseq.nextval,'Abdelhafid','Chutchenko',to_date('23/05/1985','DD/MM/YYYY HH24:MI:SS'),'512 Danley Court, Nashville','abdelhafid@chutchenko.it','1676884931');
-INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico, Eliminato)
+INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico)
 VALUES (IdUtenteseq.nextval,'Urcesina','Holding',to_date('01/03/1982','DD/MM/YYYY HH24:MI:SS'),'811 River Dell Drive, Louisville','urcesina@holding.it','7975793227');
-INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico, Eliminato)
+INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico)
 VALUES (IdUtenteseq.nextval,'Lucita','Tophoven',to_date('13/08/1999','DD/MM/YYYY HH24:MI:SS'),'631 West 32nd Avenue, Anchorage','lucita@tophoven.it','1182648482');
-INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico, Eliminato)
+INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico)
 VALUES (IdUtenteseq.nextval,'Azouz','Fellehner',to_date('12/08/2006','DD/MM/YYYY HH24:MI:SS'),'2410 Pafford Drive, Nashville','azouz@fellehner.it','1930062381');
-INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico, Eliminato)
+INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico)
 VALUES (IdUtenteseq.nextval,'Seham','Hosel',to_date('30/06/2005','DD/MM/YYYY HH24:MI:SS'),'111 20th Street, Mexico Beach','seham@hosel.it','7526764343');
-INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico, Eliminato)
+INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico)
 VALUES (IdUtenteseq.nextval,'Rosabel','Tauzin',to_date('29/07/1991','DD/MM/YYYY HH24:MI:SS'),'10700 South Pennsylvania Avenue, Oklahoma City','rosabel@tauzin.it','2954369556');
-INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico, Eliminato)
+INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico)
 VALUES (IdUtenteseq.nextval,'Nazam','Aichmeier',to_date('01/08/1993','DD/MM/YYYY HH24:MI:SS'),'34 Main Street, Gardner','nazam@aichmeier.it','4644967742');
-INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico, Eliminato)
+INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico)
 VALUES (IdUtenteseq.nextval,'Dilyana','Fishlock',to_date('03/10/1984','DD/MM/YYYY HH24:MI:SS'),'2222 Martin Luther King Junior Boulevard, Fayette','dilyana@fishlock.it','7024928513');
-INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico, Eliminato)
+INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico)
 VALUES (IdUtenteseq.nextval,'Salahedin','Cilveti',to_date('12/10/2003','DD/MM/YYYY HH24:MI:SS'),'9360 Hester Beasley Road, Nashville','salahedin@cilveti.it','5534707691');
-INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico, Eliminato)
+INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico)
 VALUES (IdUtenteseq.nextval,'Argelia','Saxler',to_date('09/11/1992','DD/MM/YYYY HH24:MI:SS'),'3919 Landherr Drive, Louisville','argelia@saxler.it','5255750257');
-INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico, Eliminato)
+INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico)
 VALUES (IdUtenteseq.nextval,'Huan','Menchen',to_date('02/12/1984','DD/MM/YYYY HH24:MI:SS'),'17 Hillcrest Road, Rutland','huan@menchen.it','2184275099');
-INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico, Eliminato)
+INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico)
 VALUES (IdUtenteseq.nextval,'Sants','Donadeu',to_date('11/10/1992','DD/MM/YYYY HH24:MI:SS'),'305 Brookside Court, Manchester','sants@donadeu.it','1574433393');
-INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico, Eliminato)
+INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico)
 VALUES (IdUtenteseq.nextval,'Dimitrina','Que',to_date('23/04/1972','DD/MM/YYYY HH24:MI:SS'),'58 North U.S.A Drive, Fayetteville','dimitrina@que.it','1390233437');
-INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico, Eliminato)
+INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico)
 VALUES (IdUtenteseq.nextval,'Marquetta','Irabien',to_date('03/12/2004','DD/MM/YYYY HH24:MI:SS'),'64 Church Street, Hardwick','marquetta@irabien.it','3744004977');
-INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico, Eliminato)
+INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico)
 VALUES (IdUtenteseq.nextval,'Abderrezzak','Perca',to_date('03/11/2004','DD/MM/YYYY HH24:MI:SS'),'706 Seagrove Road, Glen Burnie','abderrezzak@perca.it','6421336253');
-INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico, Eliminato)
+INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico)
 VALUES (IdUtenteseq.nextval,'Sherice','Ponga',to_date('23/03/1994','DD/MM/YYYY HH24:MI:SS'),'2142 Colonel Way, Odenton','sherice@ponga.it','8018659266');
-INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico, Eliminato)
+INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico)
 VALUES (IdUtenteseq.nextval,'Argi','Tejea',to_date('02/01/1971','DD/MM/YYYY HH24:MI:SS'),'6460 Vermont 113, Vershire','argi@tejea.it','4487194140');
-INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico, Eliminato)
+INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico)
 VALUES (IdUtenteseq.nextval,'Vesna','Duvenbeck',to_date('22/03/1989','DD/MM/YYYY HH24:MI:SS'),'2803 6th Street Northeast, Washington','vesna@duvenbeck.it','3514171563');
-INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico, Eliminato)
+INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico)
 VALUES (IdUtenteseq.nextval,'Attenery','Zens',to_date('21/11/1999','DD/MM/YYYY HH24:MI:SS'),'33300 Mission Boulevard, Union City','attenery@zens.it','5412933475');
-INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico, Eliminato)
+INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico)
 VALUES (IdUtenteseq.nextval,'Rai','Yuhman',to_date('15/12/2008','DD/MM/YYYY HH24:MI:SS'),'397 North Main Street, Manchester','rai@yuhman.it','9415068527');
-INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico, Eliminato)
+INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico)
 VALUES (IdUtenteseq.nextval,'Madhusudan','Berjano',to_date('13/10/1983','DD/MM/YYYY HH24:MI:SS'),'325 Baxter Lane, Fayetteville','madhusudan@berjano.it','2564473414');
-INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico, Eliminato)
+INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico)
 VALUES (IdUtenteseq.nextval,'Anica','Zaharie',to_date('19/07/1988','DD/MM/YYYY HH24:MI:SS'),'566 Middle Turnpike East, Manchester','anica@zaharie.it','3340801776');
-INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico, Eliminato)
+INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico)
 VALUES (IdUtenteseq.nextval,'Niculina','Utugunov',to_date('05/05/2004','DD/MM/YYYY HH24:MI:SS'),'17361 Baronoff Avenue, Anchorage','niculina@utugunov.it','6785437029');
-INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico, Eliminato)
+INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico)
 VALUES (IdUtenteseq.nextval,'Helena','Fessler',to_date('27/01/2011','DD/MM/YYYY HH24:MI:SS'),'1744 Shoreham Drive, Montgomery','helena@fessler.it','7680563211');
-INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico, Eliminato)
+INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico)
 VALUES (IdUtenteseq.nextval,'Brandon','Sepulveda',to_date('23/05/1998','DD/MM/YYYY HH24:MI:SS'),'580 Hollow Wood Road, Montgomery','brandon@sepulveda.it','9812207863');
-INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico, Eliminato)
+INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico)
 VALUES (IdUtenteseq.nextval,'Judson','Golovatov',to_date('01/01/2014','DD/MM/YYYY HH24:MI:SS'),'1430 East Audubon Road, Montgomery','judson@golovatov.it','3838273040');
-INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico, Eliminato)
+INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico)
 VALUES (IdUtenteseq.nextval,'Renetta','Jarnikov',to_date('01/01/2014','DD/MM/YYYY HH24:MI:SS'),'82 East Foster Street, Melrose','renetta@jarnikov.it','4089384991');
-INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico, Eliminato)
+INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico)
 VALUES (IdUtenteseq.nextval,'Barka','Ingenbleck',to_date('21/10/1988','DD/MM/YYYY HH24:MI:SS'),'205 Harrison Avenue, Louisville','barka@ingenbleck.it','2433401542');
-INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico, Eliminato)
+INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico)
 VALUES (IdUtenteseq.nextval,'Amina','Xerri',to_date('28/11/1990','DD/MM/YYYY HH24:MI:SS'),'9119 Whispering Willow Way, Tampa','amina@xerri.it','9260162438');
-INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico, Eliminato)
+INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico)
 VALUES (IdUtenteseq.nextval,'Jiarui','Westheimer',to_date('20/05/1991','DD/MM/YYYY HH24:MI:SS'),'188 Saint Matthews Avenue, Louisville','jiarui@westheimer.it','5362581262');
-INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico, Eliminato)
+INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico)
 VALUES (IdUtenteseq.nextval,'Rajiv','Machimbarrena',to_date('07/01/1983','DD/MM/YYYY HH24:MI:SS'),'21 Hill Street, Barre','rajiv@machimbarrena.it','7286864557');
-INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico, Eliminato)
+INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico)
 VALUES (IdUtenteseq.nextval,'Sarra','Buchert',to_date('01/03/2005','DD/MM/YYYY HH24:MI:SS'),'19 Keyes Drive, Peabody','sarra@buchert.it','7655219533');
-INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico, Eliminato)
+INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico)
 VALUES (IdUtenteseq.nextval,'Urszula','Erny',to_date('01/01/2014','DD/MM/YYYY HH24:MI:SS'),'12546 West Montebello Avenue, Litchfield Park','urszula@erny.it','3075410658');
-INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico, Eliminato)
+INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico)
 VALUES (IdUtenteseq.nextval,'Wilhelmus','Reissig',to_date('30/06/1997','DD/MM/YYYY HH24:MI:SS'),'9009 West Nicolet Avenue, Glendale','wilhelmus@reissig.it','2164512682');
-INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico, Eliminato)
+INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico)
 VALUES (IdUtenteseq.nextval,'Larosi','Lindenborn',to_date('12/08/2000','DD/MM/YYYY HH24:MI:SS'),'2502 Adrienne Way, Louisville','larosi@lindenborn.it','4147104540');
-INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico, Eliminato)
+INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico)
 VALUES (IdUtenteseq.nextval,'Haoxuan','Patronilho',to_date('01/01/2014','DD/MM/YYYY HH24:MI:SS'),'9331 Edison Road, Lithia','haoxuan@patronilho.it','2104657397');
-INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico, Eliminato)
+INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico)
 VALUES (IdUtenteseq.nextval,'Christina','Bacalhau',to_date('01/02/1998','DD/MM/YYYY HH24:MI:SS'),'3555 Alamosa Drive, Anchorage','christina@bacalhau.it','9762492415');
-INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico, Eliminato)
+INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico)
 VALUES (IdUtenteseq.nextval,'Lira','Doderlein',to_date('01/02/1980','DD/MM/YYYY HH24:MI:SS'),'826 South Hancock Street, Louisville','lira@doderlein.it','8168896881');
-INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico, Eliminato)
+INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico)
 VALUES (IdUtenteseq.nextval,'Gretchen','Remih',to_date('25/03/1988','DD/MM/YYYY HH24:MI:SS'),'124 Rod Key Street, Lyndon','gretchen@remih.it','5286205912');
-INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico, Eliminato)
+INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico)
 VALUES (IdUtenteseq.nextval,'Dioscoro','De Martino',to_date('08/07/1990','DD/MM/YYYY HH24:MI:SS'),'1612 Beech Street, Louisville','dioscoro@demartino.it','5529287712');
-INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico, Eliminato)
+INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico)
 VALUES (IdUtenteseq.nextval,'Aparicio','AÃ±ezcar',to_date('19/04/1985','DD/MM/YYYY HH24:MI:SS'),'10 Tel Road, Woodford','aparicio@aÃ±ezcar.it','5364001877');
-INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico, Eliminato)
+INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico)
 VALUES (IdUtenteseq.nextval,'Apolonio','Lambertz',to_date('01/12/1994','DD/MM/YYYY HH24:MI:SS'),'2409 Park Street, Selma','apolonio@lambertz.it','5807716486');
-INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico, Eliminato)
+INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico)
 VALUES (IdUtenteseq.nextval,'Rolf','Eustache',to_date('23/09/1983','DD/MM/YYYY HH24:MI:SS'),'5065 North 54th Avenue, Glendale','rolf@eustache.it','3120828659');
-INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico, Eliminato)
+INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico)
 VALUES (IdUtenteseq.nextval,'Nerea','Untoria',to_date('08/01/1970','DD/MM/YYYY HH24:MI:SS'),'1404 James Way, Edgewater','nerea@untoria.it','6435982862');
-INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico, Eliminato)
+INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico)
 VALUES (IdUtenteseq.nextval,'Samera','Monti',to_date('11/10/1975','DD/MM/YYYY HH24:MI:SS'),'13628 West 62nd Drive, Arvada','samera@monti.it','8697197183');
-INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico, Eliminato)
+INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico)
 VALUES (IdUtenteseq.nextval,'Normando','Elissalde',to_date('17/12/1985','DD/MM/YYYY HH24:MI:SS'),'906 West Berry Street, Fayetteville','normando@elissalde.it','9987415963');
-INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico, Eliminato)
+INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico)
 VALUES (IdUtenteseq.nextval,'Stacey','Johnsen',to_date('21/09/1989','DD/MM/YYYY HH24:MI:SS'),'1516 Buchanan Street Northwest, Washington','stacey@johnsen.it','8580932075');
-INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico, Eliminato)
+INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico)
 VALUES (IdUtenteseq.nextval,'Petrea','Zeleny',to_date('17/06/1998','DD/MM/YYYY HH24:MI:SS'),'7506 Harvey Street, Panama City','petrea@zeleny.it','2303225072');
-INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico, Eliminato)
+INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico)
 VALUES (IdUtenteseq.nextval,'Toi','Damato',to_date('13/09/1988','DD/MM/YYYY HH24:MI:SS'),'18318 Pioneer Drive, Anchorage','toi@damato.it','2415474745');
-INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico, Eliminato)
+INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico)
 VALUES (IdUtenteseq.nextval,'Christinia','Conti',to_date('20/10/1983','DD/MM/YYYY HH24:MI:SS'),'612 E Street, Marysville','christinia@conti.it','5048180877');
-INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico, Eliminato)
+INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico)
 VALUES (IdUtenteseq.nextval,'Mimona','Raff',to_date('06/08/1989','DD/MM/YYYY HH24:MI:SS'),'2115 Honeysuckle Drive, Panama City','mimona@raff.it','5945518880');
-INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico, Eliminato)
+INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico)
 VALUES (IdUtenteseq.nextval,'Augustine','LaviÃ±a',to_date('23/08/1987','DD/MM/YYYY HH24:MI:SS'),'5632 West Acoma Drive, Glendale','augustine@laviÃ±a.it','2181880619');
-INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico, Eliminato)
+INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico)
 VALUES (IdUtenteseq.nextval,'Xiaozhu','Rennoch',to_date('03/12/1978','DD/MM/YYYY HH24:MI:SS'),'4339 Benning Road Northeast, Washington','xiaozhu@rennoch.it','2027134612');
-INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico, Eliminato)
+INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico)
 VALUES (IdUtenteseq.nextval,'Rosemberg','Matschi',to_date('04/06/1977','DD/MM/YYYY HH24:MI:SS'),'2409 Park Street, Selma','rosemberg@matschi.it','8824024889');
-INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico, Eliminato)
+INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico)
 VALUES (IdUtenteseq.nextval,'Shujuan','Navarro',to_date('11/12/1985','DD/MM/YYYY HH24:MI:SS'),'4600 East Huntsville Road, Fayetteville','shujuan@navarro.it','3419988448');
-INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico, Eliminato)
+INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico)
 VALUES (IdUtenteseq.nextval,'Rael','Downs',to_date('07/07/2004','DD/MM/YYYY HH24:MI:SS'),'8157 East Beach Drive Northwest, Washington','rael@downs.it','8367651369');
-INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico, Eliminato)
+INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico)
 VALUES (IdUtenteseq.nextval,'Zeineb','Bednare',to_date('07/12/1983','DD/MM/YYYY HH24:MI:SS'),'7034 West John Garrison Road, Fayetteville','zeineb@bednare.it','6289382664');
-INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico, Eliminato)
+INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico)
 VALUES (IdUtenteseq.nextval,'Wiktoria','Barandalla',to_date('15/08/2010','DD/MM/YYYY HH24:MI:SS'),'163 Highwood Drive, Manchester','wiktoria@barandalla.it','3381964586');
-INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico, Eliminato)
+INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico)
 VALUES (IdUtenteseq.nextval,'Haroon','Amrein',to_date('01/10/1980','DD/MM/YYYY HH24:MI:SS'),'204 Blue Hills Drive, Nashville','haroon@amrein.it','8953477973');
-INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico, Eliminato)
+INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico)
 VALUES (IdUtenteseq.nextval,'Alzira','Rissol',to_date('01/01/2014','DD/MM/YYYY HH24:MI:SS'),'23124 North 71st Drive, Glendale','alzira@rissol.it','9438485659');
-INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico, Eliminato)
+INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico)
 VALUES (IdUtenteseq.nextval,'Irineo','Nisen',to_date('01/01/2014','DD/MM/YYYY HH24:MI:SS'),'3601 South Portland Avenue, Oklahoma City','irineo@nisen.it','7788449669');
-INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico, Eliminato)
+INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico)
 VALUES (IdUtenteseq.nextval,'Balarama','Lazare',to_date('27/02/1984','DD/MM/YYYY HH24:MI:SS'),'1076 Foster Street, Alameda','balarama@lazare.it','4743066913');
-INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico, Eliminato)
+INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico)
 VALUES (IdUtenteseq.nextval,'Fousseyni','Yvanez',to_date('10/08/1994','DD/MM/YYYY HH24:MI:SS'),'2414 Parker Street, Berkeley','fousseyni@yvanez.it','2395653827');
-INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico, Eliminato)
+INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico)
 VALUES (IdUtenteseq.nextval,'Shadi','Schmedeke',to_date('16/02/1993','DD/MM/YYYY HH24:MI:SS'),'8886 West 77th Circle, Arvada','shadi@schmedeke.it','5576903370');
-INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico, Eliminato)
+INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico)
 VALUES (IdUtenteseq.nextval,'Tamekia','Giralde',to_date('11/07/2008','DD/MM/YYYY HH24:MI:SS'),'7060 Eastern Avenue, Washington','tamekia@giralde.it','4590113667');
-INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico, Eliminato)
+INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico)
 VALUES (IdUtenteseq.nextval,'Melquisedec','Valsan',to_date('02/04/1995','DD/MM/YYYY HH24:MI:SS'),'236 Alden Road, Hayward','melquisedec@valsan.it','4020730739');
-INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico, Eliminato)
+INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico)
 VALUES (IdUtenteseq.nextval,'Ineva','Hendricksen',to_date('06/02/1978','DD/MM/YYYY HH24:MI:SS'),'501 West Maple Street, Fayetteville','ineva@hendricksen.it','5862068697');
-INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico, Eliminato)
+INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico)
 VALUES (IdUtenteseq.nextval,'Pamala','Iacono',to_date('08/08/2000','DD/MM/YYYY HH24:MI:SS'),'982 Stonington Drive, Arnold','pamala@iacono.it','2557841388');
-INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico, Eliminato)
+INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico)
 VALUES (IdUtenteseq.nextval,'Jacint','Heppner',to_date('01/01/1970','DD/MM/YYYY HH24:MI:SS'),'202 Pepperbush Road, Louisville','jacint@heppner.it','8257074652');
-INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico, Eliminato)
+INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico)
 VALUES (IdUtenteseq.nextval,'Campio','Ress',to_date('06/06/1992','DD/MM/YYYY HH24:MI:SS'),'412 West Ila Street, Fayetteville','campio@ress.it','1278491199');
-INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico, Eliminato)
+INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico)
 VALUES (IdUtenteseq.nextval,'Nelia','Bongarz',to_date('04/10/1983','DD/MM/YYYY HH24:MI:SS'),'1405 East 55th Street, Savannah','nelia@bongarz.it','2410537493');
-INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico, Eliminato)
+INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico)
 VALUES (IdUtenteseq.nextval,'Thamar','Lamoso',to_date('07/03/2002','DD/MM/YYYY HH24:MI:SS'),'5116 Emmanuel Avenue, Anchorage','thamar@lamoso.it','2004469279');
-INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico, Eliminato)
+INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico)
 VALUES (IdUtenteseq.nextval,'Matheus','Rohloff',to_date('06/03/1989','DD/MM/YYYY HH24:MI:SS'),'180 Center Street, Manchester','matheus@rohloff.it','9624997133');
-INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico, Eliminato)
+INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico)
 VALUES (IdUtenteseq.nextval,'Matthew','Futre',to_date('15/11/1981','DD/MM/YYYY HH24:MI:SS'),'295 Townes Drive, Nashville','matthew@futre.it','6394784591');
-INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico, Eliminato)
+INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico)
 VALUES (IdUtenteseq.nextval,'Atri','Merodio',to_date('10/09/1993','DD/MM/YYYY HH24:MI:SS'),'115 Home Avenue, Burlington','atri@merodio.it','6152022784');
-INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico, Eliminato)
+INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico)
 VALUES (IdUtenteseq.nextval,'Alfredo','Samb',to_date('05/07/1977','DD/MM/YYYY HH24:MI:SS'),'109 Summit Street, Burlington','alfredo@samb.it','4083797724');
-INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico, Eliminato)
+INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico)
 VALUES (IdUtenteseq.nextval,'Chas','Ventero',to_date('22/04/1993','DD/MM/YYYY HH24:MI:SS'),'319 West Silverwood Drive, Midwest City','chas@ventero.it','9181841511');
-INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico, Eliminato)
+INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico)
 VALUES (IdUtenteseq.nextval,'Faustino','Llorden',to_date('08/11/2012','DD/MM/YYYY HH24:MI:SS'),'7096 Park Mesa Way, San Diego','faustino@llorden.it','1540621363');
-INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico, Eliminato)
+INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico)
 VALUES (IdUtenteseq.nextval,'Sisi','Rumkorf',to_date('06/10/1974','DD/MM/YYYY HH24:MI:SS'),'1364 Capri Drive, Panama City','sisi@rumkorf.it','1203673795');
-INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico, Eliminato)
+INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico)
 VALUES (IdUtenteseq.nextval,'Erol','Findeis',to_date('27/01/2004','DD/MM/YYYY HH24:MI:SS'),'3116 Northwest 61st Terrace, Oklahoma City','erol@findeis.it','7352990922');
-INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico, Eliminato)
+INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico)
 VALUES (IdUtenteseq.nextval,'Alaitz','Winkelgrund',to_date('20/03/2003','DD/MM/YYYY HH24:MI:SS'),'4821 Milner Drive, Nashville','alaitz@winkelgrund.it','7993122146');
-INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico, Eliminato)
+INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico)
 VALUES (IdUtenteseq.nextval,'Fang','Martorell',to_date('15/04/1991','DD/MM/YYYY HH24:MI:SS'),'14300 Leesa Lane, Edmond','fang@martorell.it','2812581657');
-INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico, Eliminato)
+INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico)
 VALUES (IdUtenteseq.nextval,'Bosanski','I',to_date('01/01/2014','DD/MM/YYYY HH24:MI:SS'),'1629 South Razorback Road, Fayetteville','bosanski@i.it','2320878912');
-INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico, Eliminato)
+INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico)
 VALUES (IdUtenteseq.nextval,'Shalonda','Rigueiro',to_date('09/04/2000','DD/MM/YYYY HH24:MI:SS'),'545 Tracey Drive, Panama City','shalonda@rigueiro.it','1958535894');
-INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico, Eliminato)
+INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico)
 VALUES (IdUtenteseq.nextval,'Sidonio','Browne',to_date('24/02/2010','DD/MM/YYYY HH24:MI:SS'),'3500 South College Avenue, Fort Collins','sidonio@browne.it','2597282108');
-INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico, Eliminato)
+INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico)
 VALUES (IdUtenteseq.nextval,'Lev','Neumann',to_date('02/10/1988','DD/MM/YYYY HH24:MI:SS'),'1600 20th Street Northwest, Washington','lev@neumann.it','2062886778');
-INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico, Eliminato)
+INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico)
 VALUES (IdUtenteseq.nextval,'Airidas','Bildhauer',to_date('06/03/2000','DD/MM/YYYY HH24:MI:SS'),'3601 South Portland Avenue, Oklahoma City','airidas@bildhauer.it','2261244476');
 /*************UTENTICAMPIESTIVI*************/
 INSERT INTO UTENTICAMPIESTIVI (IdUtente, RichiestaAssistenza)
@@ -26137,10 +26146,10 @@ VALUES (377, 536);
 INSERT INTO TUTORI (IdTutore, IdTutelato)
 VALUES (377, 406);
 /************NEWSLETTER*************/
-INSERT INTO NEWSLETTER (IdNews, Nome, Eliminato)
-VALUES (IdNewsseq.nextval, 'Newsletter Primaverile', 0);
-INSERT INTO NEWSLETTER (IdNews, Nome, Eliminato)
-VALUES (IdNewsseq.nextval, 'Newsletter Autunnale', 0);
+INSERT INTO NEWSLETTER (IdNews, Nome)
+VALUES (IdNewsseq.nextval, 'Newsletter Primaverile');
+INSERT INTO NEWSLETTER (IdNews, Nome)
+VALUES (IdNewsseq.nextval, 'Newsletter Autunnale');
 /************NEWSLETTERUTENTI**************/
 INSERT INTO NEWSLETTERUTENTI (IdNews, IdUtente)
 VALUES (1, 592);
@@ -27281,33 +27290,33 @@ VALUES (1, 121);
 INSERT INTO NEWSLETTERUTENTI (IdNews, IdUtente)
 VALUES (2, 121);
 /***********TIPOLOGIEINGRESSO*************/
-INSERT INTO TIPOLOGIEINGRESSO (IdTipologiaIng, Costototale, LimiteSala, LimiteTempo, Durata, Nome, Eliminato)
+INSERT INTO TIPOLOGIEINGRESSO (IdTipologiaIng, Costototale, LimiteSala, LimiteTempo, Durata, Nome)
 VALUES (IdTipologiaingSeq.nextVal, 10, 18, null, '1', 'Biglietto 18 sale, 10â‚¬'); --idM=1
-INSERT INTO TIPOLOGIEINGRESSO (IdTipologiaIng, Costototale, LimiteSala, LimiteTempo, Durata, Nome, Eliminato)
+INSERT INTO TIPOLOGIEINGRESSO (IdTipologiaIng, Costototale, LimiteSala, LimiteTempo, Durata, Nome)
 VALUES (IdTipologiaingSeq.nextVal, 6, 9, null, '1', 'Biglietto 9 sale, 6â‚¬'); --idM=1
-INSERT INTO TIPOLOGIEINGRESSO (IdTipologiaIng, Costototale, LimiteSala, LimiteTempo, Durata, Nome, Eliminato)
+INSERT INTO TIPOLOGIEINGRESSO (IdTipologiaIng, Costototale, LimiteSala, LimiteTempo, Durata, Nome)
 VALUES (IdTipologiaingSeq.nextVal, 12, 19, null, '1', 'Biglietto 19 sale, 12â‚¬'); --idM=2
-INSERT INTO TIPOLOGIEINGRESSO (IdTipologiaIng, Costototale, LimiteSala, LimiteTempo, Durata, Nome, Eliminato)
+INSERT INTO TIPOLOGIEINGRESSO (IdTipologiaIng, Costototale, LimiteSala, LimiteTempo, Durata, Nome)
 VALUES (IdTipologiaingSeq.nextVal, 7, 9, null, '1', 'Biglietto 9 sale, 21â‚¬'); --idM=2
-INSERT INTO TIPOLOGIEINGRESSO (IdTipologiaIng, Costototale, LimiteSala, LimiteTempo, Durata, Nome, Eliminato)
+INSERT INTO TIPOLOGIEINGRESSO (IdTipologiaIng, Costototale, LimiteSala, LimiteTempo, Durata, Nome)
 VALUES (IdTipologiaingSeq.nextVal, 13, 21, null, '1', 'Biglietto 21 sale, 21â‚¬'); --idM=3
-INSERT INTO TIPOLOGIEINGRESSO (IdTipologiaIng, Costototale, LimiteSala, LimiteTempo, Durata, Nome, Eliminato)
+INSERT INTO TIPOLOGIEINGRESSO (IdTipologiaIng, Costototale, LimiteSala, LimiteTempo, Durata, Nome)
 VALUES (IdTipologiaingSeq.nextVal, 8, 10, null, '1', 'Biglietto 10 sale, 8â‚¬'); --idM=3
-INSERT INTO TIPOLOGIEINGRESSO (IdTipologiaIng, Costototale, LimiteSala, LimiteTempo, Durata, Nome, Eliminato)
+INSERT INTO TIPOLOGIEINGRESSO (IdTipologiaIng, Costototale, LimiteSala, LimiteTempo, Durata, Nome)
 VALUES (IdTipologiaingSeq.nextVal, 12, 19, null, '1', 'Biglietto 19 sale, 12â‚¬'); --idM=4
-INSERT INTO TIPOLOGIEINGRESSO (IdTipologiaIng, Costototale, LimiteSala, LimiteTempo, Durata, Nome, Eliminato)
+INSERT INTO TIPOLOGIEINGRESSO (IdTipologiaIng, Costototale, LimiteSala, LimiteTempo, Durata, Nome)
 VALUES (IdTipologiaingSeq.nextVal, 7, 10, null, '1', 'Biglietto 10 sale, 7â‚¬'); --idM=4
-INSERT INTO TIPOLOGIEINGRESSO (IdTipologiaIng, Costototale, LimiteSala, LimiteTempo, Durata, Nome, Eliminato)
+INSERT INTO TIPOLOGIEINGRESSO (IdTipologiaIng, Costototale, LimiteSala, LimiteTempo, Durata, Nome)
 VALUES (IdTipologiaingSeq.nextVal, 10, 17, null, '1', 'Biglietto 17 sale, 10â‚¬'); --idM=5
-INSERT INTO TIPOLOGIEINGRESSO (IdTipologiaIng, Costototale, LimiteSala, LimiteTempo, Durata, Nome, Eliminato)
+INSERT INTO TIPOLOGIEINGRESSO (IdTipologiaIng, Costototale, LimiteSala, LimiteTempo, Durata, Nome)
 VALUES (IdTipologiaingSeq.nextVal, 5, 8, null, '1', 'Biglietto 8 sale, 5â‚¬'); --idM=5
-INSERT INTO TIPOLOGIEINGRESSO (IdTipologiaIng, Costototale, LimiteSala, LimiteTempo, Durata, Nome, Eliminato)
+INSERT INTO TIPOLOGIEINGRESSO (IdTipologiaIng, Costototale, LimiteSala, LimiteTempo, Durata, Nome)
 VALUES (IdTipologiaingSeq.nextVal, 10, 18, null, '1', 'Biglietto 18 sale, 10â‚¬'); --idM=6
-INSERT INTO TIPOLOGIEINGRESSO (IdTipologiaIng, Costototale, LimiteSala, LimiteTempo, Durata, Nome, Eliminato)
+INSERT INTO TIPOLOGIEINGRESSO (IdTipologiaIng, Costototale, LimiteSala, LimiteTempo, Durata, Nome)
 VALUES (IdTipologiaingSeq.nextVal, 5, 9, null, '1', 'Biglietto 9 sale, 5â‚¬'); --idM=6
-INSERT INTO TIPOLOGIEINGRESSO (IdTipologiaIng, Costototale, LimiteSala, LimiteTempo, Durata, Nome, Eliminato)
+INSERT INTO TIPOLOGIEINGRESSO (IdTipologiaIng, Costototale, LimiteSala, LimiteTempo, Durata, Nome)
 VALUES (IdTipologiaingSeq.nextVal, 30, 100, null, '365', 'Abb annuale 100 ore, 30â‚¬'); --abbonamento
-INSERT INTO TIPOLOGIEINGRESSO (IdTipologiaIng, Costototale, LimiteSala, LimiteTempo, Durata, Nome, Eliminato)
+INSERT INTO TIPOLOGIEINGRESSO (IdTipologiaIng, Costototale, LimiteSala, LimiteTempo, Durata, Nome)
 VALUES (IdTipologiaingSeq.nextVal, 35, null, 999, '365', 'Abb annuale no lim, 35â‚¬'); --abbonamento
 /************TIPOLOGIEINGRESSOMUSEI************/
 INSERT INTO TIPOLOGIEINGRESSOMUSEI(IdTipologiaIng, IdMuseo)
@@ -29843,350 +29852,350 @@ INSERT INTO TITOLIINGRESSO(IdTitoloing, Emissione, Scadenza, Acquirente, Tipolog
 VALUES(IdTitoloingSeq.nextVal, to_date('27/03/2019 11:36:10', 'DD/MM/YYYY HH24:MI:SS'), to_date('27/03/2020', 'DD/MM/YYYY HH24:MI:SS'), 250, 14, 2); --1240
 
 /***********BIGLIETTI***********/
-INSERT INTO BIGLIETTI(IdTipologiaIng, Eliminato)
+INSERT INTO BIGLIETTI(IdTipologiaIng)
 VALUES(1);
-INSERT INTO BIGLIETTI(IdTipologiaIng, Eliminato)
+INSERT INTO BIGLIETTI(IdTipologiaIng)
 VALUES(2);
-INSERT INTO BIGLIETTI(IdTipologiaIng, Eliminato)
+INSERT INTO BIGLIETTI(IdTipologiaIng)
 VALUES(3);
-INSERT INTO BIGLIETTI(IdTipologiaIng, Eliminato)
+INSERT INTO BIGLIETTI(IdTipologiaIng)
 VALUES(4);
-INSERT INTO BIGLIETTI(IdTipologiaIng, Eliminato)
+INSERT INTO BIGLIETTI(IdTipologiaIng)
 VALUES(5);
-INSERT INTO BIGLIETTI(IdTipologiaIng, Eliminato)
+INSERT INTO BIGLIETTI(IdTipologiaIng)
 VALUES(6);
-INSERT INTO BIGLIETTI(IdTipologiaIng, Eliminato)
+INSERT INTO BIGLIETTI(IdTipologiaIng)
 VALUES(7);
-INSERT INTO BIGLIETTI(IdTipologiaIng, Eliminato)
+INSERT INTO BIGLIETTI(IdTipologiaIng)
 VALUES(8);
-INSERT INTO BIGLIETTI(IdTipologiaIng, Eliminato)
+INSERT INTO BIGLIETTI(IdTipologiaIng)
 VALUES(9);
-INSERT INTO BIGLIETTI(IdTipologiaIng, Eliminato)
+INSERT INTO BIGLIETTI(IdTipologiaIng)
 VALUES(10);
-INSERT INTO BIGLIETTI(IdTipologiaIng, Eliminato)
+INSERT INTO BIGLIETTI(IdTipologiaIng)
 VALUES(11);
-INSERT INTO BIGLIETTI(IdTipologiaIng, Eliminato)
+INSERT INTO BIGLIETTI(IdTipologiaIng)
 VALUES(12);
 /***********ABBONAMENTI************/
-INSERT INTO ABBONAMENTI(IdTipologiaIng, NumPersone, Eliminato)
-VALUES(13, 0, 0); --abbonamento a sale
-INSERT INTO ABBONAMENTI(IdTipologiaIng, NumPersone, Eliminato)
-VALUES(14, 0, 0); --abbonamento a tempo
+INSERT INTO ABBONAMENTI(IdTipologiaIng, NumPersone)
+VALUES(13, 1); --abbonamento a sale
+INSERT INTO ABBONAMENTI(IdTipologiaIng, NumPersone)
+VALUES(14, 1); --abbonamento a tempo
 
 /**********VARCHI*********/
 /*Varchi museo 1 galleria di arte moderna*/
-INSERT INTO VARCHI (IdVarchi, Nome, Sensore, Stanza1, Stanza2, Eliminato)
+INSERT INTO VARCHI (IdVarchi, Nome, Sensore, Stanza1, Stanza2)
 VALUES (1, 'Koons', 1, 1, 2);
-INSERT INTO VARCHI (IdVarchi, Nome, Sensore, Stanza1, Stanza2, Eliminato)
+INSERT INTO VARCHI (IdVarchi, Nome, Sensore, Stanza1, Stanza2)
 VALUES (2, 'Basquiat', 2, 2, 3);
-INSERT INTO VARCHI (IdVarchi, Nome, Sensore, Stanza1, Stanza2, Eliminato)
+INSERT INTO VARCHI (IdVarchi, Nome, Sensore, Stanza1, Stanza2)
 VALUES (3, 'Haring', 3, 3, 5);
-INSERT INTO VARCHI (IdVarchi, Nome, Sensore, Stanza1, Stanza2, Eliminato)
+INSERT INTO VARCHI (IdVarchi, Nome, Sensore, Stanza1, Stanza2)
 VALUES (4, 'Lichtenstein', 4, 5, 6);
-INSERT INTO VARCHI (IdVarchi, Nome, Sensore, Stanza1, Stanza2, Eliminato)
+INSERT INTO VARCHI (IdVarchi, Nome, Sensore, Stanza1, Stanza2)
 VALUES (5, 'Kahlo', 5, 6, 7);
-INSERT INTO VARCHI (IdVarchi, Nome, Sensore, Stanza1, Stanza2, Eliminato)
+INSERT INTO VARCHI (IdVarchi, Nome, Sensore, Stanza1, Stanza2)
 VALUES (6, 'Kusama', 6, 7, 8);
-INSERT INTO VARCHI (IdVarchi, Nome, Sensore, Stanza1, Stanza2, Eliminato)
+INSERT INTO VARCHI (IdVarchi, Nome, Sensore, Stanza1, Stanza2)
 VALUES (7, 'Richter', 7, 8, 9);
-INSERT INTO VARCHI (IdVarchi, Nome, Sensore, Stanza1, Stanza2, Eliminato)
+INSERT INTO VARCHI (IdVarchi, Nome, Sensore, Stanza1, Stanza2)
 VALUES (8, 'Woodman', 8, 9, 10);
-INSERT INTO VARCHI (IdVarchi, Nome, Sensore, Stanza1, Stanza2, Eliminato)
+INSERT INTO VARCHI (IdVarchi, Nome, Sensore, Stanza1, Stanza2)
 VALUES (9, 'Warhol', 9, 10, 12);
-INSERT INTO VARCHI (IdVarchi, Nome, Sensore, Stanza1, Stanza2, Eliminato)
+INSERT INTO VARCHI (IdVarchi, Nome, Sensore, Stanza1, Stanza2)
 VALUES (10, 'Call', 10, 12, 13);
-INSERT INTO VARCHI (IdVarchi, Nome, Sensore, Stanza1, Stanza2, Eliminato)
+INSERT INTO VARCHI (IdVarchi, Nome, Sensore, Stanza1, Stanza2)
 VALUES (11, 'Bagno 1.1', 11, 13, 11); -- Varco Bagno 1 del Museo 1: Galleria di arte moderna
-INSERT INTO VARCHI (IdVarchi, Nome, Sensore, Stanza1, Stanza2, Eliminato)
+INSERT INTO VARCHI (IdVarchi, Nome, Sensore, Stanza1, Stanza2)
 VALUES (12, 'Abramovich', 12, 13, 14);
-INSERT INTO VARCHI (IdVarchi, Nome, Sensore, Stanza1, Stanza2, Eliminato)
+INSERT INTO VARCHI (IdVarchi, Nome, Sensore, Stanza1, Stanza2)
 VALUES (13, 'Pollok', 13, 14, 15);
-INSERT INTO VARCHI (IdVarchi, Nome, Sensore, Stanza1, Stanza2, Eliminato)
+INSERT INTO VARCHI (IdVarchi, Nome, Sensore, Stanza1, Stanza2)
 VALUES (14, 'De Saint Phalle 1', 14, 15, 16);
-INSERT INTO VARCHI (IdVarchi, Nome, Sensore, Stanza1, Stanza2, Eliminato)
+INSERT INTO VARCHI (IdVarchi, Nome, Sensore, Stanza1, Stanza2)
 VALUES (15, 'Spoerri', 15, 16, 17);
-INSERT INTO VARCHI (IdVarchi, Nome, Sensore, Stanza1, Stanza2, Eliminato)
+INSERT INTO VARCHI (IdVarchi, Nome, Sensore, Stanza1, Stanza2)
 VALUES (16, 'Banksy', 16, 17, 18);
-INSERT INTO VARCHI (IdVarchi, Nome, Sensore, Stanza1, Stanza2, Eliminato)
+INSERT INTO VARCHI (IdVarchi, Nome, Sensore, Stanza1, Stanza2)
 VALUES (17, 'Sherman 1', 17, 18, 19);
-INSERT INTO VARCHI (IdVarchi, Nome, Sensore, Stanza1, Stanza2, Eliminato)
+INSERT INTO VARCHI (IdVarchi, Nome, Sensore, Stanza1, Stanza2)
 VALUES (18, 'Rothko', 18, 19, 20);
-INSERT INTO VARCHI (IdVarchi, Nome, Sensore, Stanza1, Stanza2, Eliminato)
+INSERT INTO VARCHI (IdVarchi, Nome, Sensore, Stanza1, Stanza2)
 VALUES (19, 'Hirst', 19, 20, 21);
-INSERT INTO VARCHI (IdVarchi, Nome, Sensore, Stanza1, Stanza2, Eliminato)
+INSERT INTO VARCHI (IdVarchi, Nome, Sensore, Stanza1, Stanza2)
 VALUES (20, 'Ingresso 1', 20, 21, 1); -- Varco Ingresso del Museo 1: Galleria di arte moderna
-INSERT INTO VARCHI (IdVarchi, Nome, Sensore, Stanza1, Stanza2, Eliminato)
+INSERT INTO VARCHI (IdVarchi, Nome, Sensore, Stanza1, Stanza2)
 VALUES (21, 'Bagno 1.2', 21, 1, 22); --  Varco Bagno 2 del Museo 1: Galleria di arte moderna
-INSERT INTO VARCHI (IdVarchi, Nome, Sensore, Stanza1, Stanza2, Eliminato)
+INSERT INTO VARCHI (IdVarchi, Nome, Sensore, Stanza1, Stanza2)
 VALUES (22, 'Guardaroba 1', 22, 1, 4); -- Varco Guardaroba del Museo 1: Galleria di arte moderna
-INSERT INTO VARCHI (IdVarchi, Nome, Sensore, Stanza1, Stanza2, Eliminato)
+INSERT INTO VARCHI (IdVarchi, Nome, Sensore, Stanza1, Stanza2)
 VALUES (23, 'Sherman 2', 23, 5, 19);
-INSERT INTO VARCHI (IdVarchi, Nome, Sensore, Stanza1, Stanza2, Eliminato)
+INSERT INTO VARCHI (IdVarchi, Nome, Sensore, Stanza1, Stanza2)
 VALUES (24, 'De Saint Phalle 2', 24, 8, 16);
 /*Varchi museo 2 museo del rinascimento*/
-INSERT INTO VARCHI (IdVarchi, Nome, Sensore, Stanza1, Stanza2, Eliminato)
+INSERT INTO VARCHI (IdVarchi, Nome, Sensore, Stanza1, Stanza2)
 VALUES (25, 'Guardaroba 2', 1, 24, 23); -- Varco Guardaroba del Museo 2: Museo del Rinascimento
-INSERT INTO VARCHI (IdVarchi, Nome, Sensore, Stanza1, Stanza2, Eliminato)
+INSERT INTO VARCHI (IdVarchi, Nome, Sensore, Stanza1, Stanza2)
 VALUES (26, 'Da Vinci', 2, 23, 25);
-INSERT INTO VARCHI (IdVarchi, Nome, Sensore, Stanza1, Stanza2, Eliminato)
+INSERT INTO VARCHI (IdVarchi, Nome, Sensore, Stanza1, Stanza2)
 VALUES (27, 'Brunelleschi', 3, 25, 26);
-INSERT INTO VARCHI (IdVarchi, Nome, Sensore, Stanza1, Stanza2, Eliminato)
+INSERT INTO VARCHI (IdVarchi, Nome, Sensore, Stanza1, Stanza2)
 VALUES (28, 'Ghirlandaio 1', 4, 26, 43);
-INSERT INTO VARCHI (IdVarchi, Nome, Sensore, Stanza1, Stanza2, Eliminato)
+INSERT INTO VARCHI (IdVarchi, Nome, Sensore, Stanza1, Stanza2)
 VALUES (29, 'Botticelli', 5, 26, 27);
-INSERT INTO VARCHI (IdVarchi, Nome, Sensore, Stanza1, Stanza2, Eliminato)
+INSERT INTO VARCHI (IdVarchi, Nome, Sensore, Stanza1, Stanza2)
 VALUES (30, 'Bar 2.1', 6, 27, 38); -- Varco 1 Bar del Museo 2: Museo del Rinascimento
-INSERT INTO VARCHI (IdVarchi, Nome, Sensore, Stanza1, Stanza2, Eliminato)
+INSERT INTO VARCHI (IdVarchi, Nome, Sensore, Stanza1, Stanza2)
 VALUES (31, 'Bar 2.2', 7, 38, 41); -- Varco 2 Bar del Museo 2: Museo del Rinascimento
-INSERT INTO VARCHI (IdVarchi, Nome, Sensore, Stanza1, Stanza2, Eliminato)
+INSERT INTO VARCHI (IdVarchi, Nome, Sensore, Stanza1, Stanza2)
 VALUES (32, 'Michelangelo', 8, 27, 28);
-INSERT INTO VARCHI (IdVarchi, Nome, Sensore, Stanza1, Stanza2, Eliminato)
+INSERT INTO VARCHI (IdVarchi, Nome, Sensore, Stanza1, Stanza2)
 VALUES (33, 'Raffaello', 9, 28, 29);
-INSERT INTO VARCHI (IdVarchi, Nome, Sensore, Stanza1, Stanza2, Eliminato)
+INSERT INTO VARCHI (IdVarchi, Nome, Sensore, Stanza1, Stanza2)
 VALUES (34, 'Vecelio 1', 10, 29, 40);
-INSERT INTO VARCHI (IdVarchi, Nome, Sensore, Stanza1, Stanza2, Eliminato)
+INSERT INTO VARCHI (IdVarchi, Nome, Sensore, Stanza1, Stanza2)
 VALUES (35, 'Donatello', 11, 29, 31);
-INSERT INTO VARCHI (IdVarchi, Nome, Sensore, Stanza1, Stanza2, Eliminato)
+INSERT INTO VARCHI (IdVarchi, Nome, Sensore, Stanza1, Stanza2)
 VALUES (36, 'Vasari', 12, 31, 32);
-INSERT INTO VARCHI (IdVarchi, Nome, Sensore, Stanza1, Stanza2, Eliminato)
+INSERT INTO VARCHI (IdVarchi, Nome, Sensore, Stanza1, Stanza2)
 VALUES (37, 'Pinturicchio', 13, 32, 33);
-INSERT INTO VARCHI (IdVarchi, Nome, Sensore, Stanza1, Stanza2, Eliminato)
+INSERT INTO VARCHI (IdVarchi, Nome, Sensore, Stanza1, Stanza2)
 VALUES (38, 'Bagno 2.1.1', 14, 33, 30); -- Varco 1 Bagno 1 del Museo 2: Museo del Rinascimento
-INSERT INTO VARCHI (IdVarchi, Nome, Sensore, Stanza1, Stanza2, Eliminato)
+INSERT INTO VARCHI (IdVarchi, Nome, Sensore, Stanza1, Stanza2)
 VALUES (39, 'Bagno 2.1.2', 15, 30, 37); -- Varco 2 Bagno 1 del Museo 2: Museo del Rinascimento
-INSERT INTO VARCHI (IdVarchi, Nome, Sensore, Stanza1, Stanza2, Eliminato)
+INSERT INTO VARCHI (IdVarchi, Nome, Sensore, Stanza1, Stanza2)
 VALUES (40, 'Cellini', 16, 33, 34);
-INSERT INTO VARCHI (IdVarchi, Nome, Sensore, Stanza1, Stanza2, Eliminato)
+INSERT INTO VARCHI (IdVarchi, Nome, Sensore, Stanza1, Stanza2)
 VALUES (41, 'Perugino', 17, 35, 36);
-INSERT INTO VARCHI (IdVarchi, Nome, Sensore, Stanza1, Stanza2, Eliminato)
+INSERT INTO VARCHI (IdVarchi, Nome, Sensore, Stanza1, Stanza2)
 VALUES (42, 'Ghiberti', 18, 36, 37);
-INSERT INTO VARCHI (IdVarchi, Nome, Sensore, Stanza1, Stanza2, Eliminato)
+INSERT INTO VARCHI (IdVarchi, Nome, Sensore, Stanza1, Stanza2)
 VALUES (43, 'Michelozzo', 19, 33, 36);
-INSERT INTO VARCHI (IdVarchi, Nome, Sensore, Stanza1, Stanza2, Eliminato)
+INSERT INTO VARCHI (IdVarchi, Nome, Sensore, Stanza1, Stanza2)
 VALUES (44, 'Giotto', 20, 37, 39);
-INSERT INTO VARCHI (IdVarchi, Nome, Sensore, Stanza1, Stanza2, Eliminato)
+INSERT INTO VARCHI (IdVarchi, Nome, Sensore, Stanza1, Stanza2)
 VALUES (45, 'Vecelio 2', 21, 39, 40);
-INSERT INTO VARCHI (IdVarchi, Nome, Sensore, Stanza1, Stanza2, Eliminato)
+INSERT INTO VARCHI (IdVarchi, Nome, Sensore, Stanza1, Stanza2)
 VALUES (46, 'Da Messina 1', 22, 40, 41);
-INSERT INTO VARCHI (IdVarchi, Nome, Sensore, Stanza1, Stanza2, Eliminato)
+INSERT INTO VARCHI (IdVarchi, Nome, Sensore, Stanza1, Stanza2)
 VALUES (47, 'Da Messina 2', 23, 28, 41);
-INSERT INTO VARCHI (IdVarchi, Nome, Sensore, Stanza1, Stanza2, Eliminato)
+INSERT INTO VARCHI (IdVarchi, Nome, Sensore, Stanza1, Stanza2)
 VALUES (48, 'Bramante', 24, 41, 42);
-INSERT INTO VARCHI (IdVarchi, Nome, Sensore, Stanza1, Stanza2, Eliminato)
+INSERT INTO VARCHI (IdVarchi, Nome, Sensore, Stanza1, Stanza2)
 VALUES (49, 'Ghirlandaio 2', 25, 42, 43);
-INSERT INTO VARCHI (IdVarchi, Nome, Sensore, Stanza1, Stanza2, Eliminato)
+INSERT INTO VARCHI (IdVarchi, Nome, Sensore, Stanza1, Stanza2)
 VALUES (50, 'Tintoretto', 26, 43, 44);
-INSERT INTO VARCHI (IdVarchi, Nome, Sensore, Stanza1, Stanza2, Eliminato)
+INSERT INTO VARCHI (IdVarchi, Nome, Sensore, Stanza1, Stanza2)
 VALUES (51, 'Vergari', 27, 44, 45);
-INSERT INTO VARCHI (IdVarchi, Nome, Sensore, Stanza1, Stanza2, Eliminato)
+INSERT INTO VARCHI (IdVarchi, Nome, Sensore, Stanza1, Stanza2)
 VALUES (52, 'Ingresso 2', 28, 45, 23); -- Varco Ingresso del Museo 2: Museo del Rinascimento
-INSERT INTO VARCHI (IdVarchi, Nome, Sensore, Stanza1, Stanza2, Eliminato)
+INSERT INTO VARCHI (IdVarchi, Nome, Sensore, Stanza1, Stanza2)
 VALUES (53, 'Bagno 2.2', 29, 46, 23); -- Varco Bagno 2 del Museo 2: Museo del Rinascimento
 /*Varchi museo 3 museo di storia romana*/
-INSERT INTO VARCHI (IdVarchi, Nome, Sensore, Stanza1, Stanza2, Eliminato)
+INSERT INTO VARCHI (IdVarchi, Nome, Sensore, Stanza1, Stanza2)
 VALUES (54, 'Bagno 3.1', 1, 48, 47); -- Varco Bagno 1 del Museo 3: Museo di storia Romana
-INSERT INTO VARCHI (IdVarchi, Nome, Sensore, Stanza1, Stanza2, Eliminato)
+INSERT INTO VARCHI (IdVarchi, Nome, Sensore, Stanza1, Stanza2)
 VALUES (55, 'Giulio Cesare', 2, 47, 49);
-INSERT INTO VARCHI (IdVarchi, Nome, Sensore, Stanza1, Stanza2, Eliminato)
+INSERT INTO VARCHI (IdVarchi, Nome, Sensore, Stanza1, Stanza2)
 VALUES (56, 'Romolo', 3, 49, 50);
-INSERT INTO VARCHI (IdVarchi, Nome, Sensore, Stanza1, Stanza2, Eliminato)
+INSERT INTO VARCHI (IdVarchi, Nome, Sensore, Stanza1, Stanza2)
 VALUES (57, 'Augusto', 4, 50, 51);
-INSERT INTO VARCHI (IdVarchi, Nome, Sensore, Stanza1, Stanza2, Eliminato)
+INSERT INTO VARCHI (IdVarchi, Nome, Sensore, Stanza1, Stanza2)
 VALUES (58, 'Settimio Severo 1', 5, 51, 68);
-INSERT INTO VARCHI (IdVarchi, Nome, Sensore, Stanza1, Stanza2, Eliminato)
+INSERT INTO VARCHI (IdVarchi, Nome, Sensore, Stanza1, Stanza2)
 VALUES (59, 'Traiano', 6, 51, 52);
-INSERT INTO VARCHI (IdVarchi, Nome, Sensore, Stanza1, Stanza2, Eliminato)
+INSERT INTO VARCHI (IdVarchi, Nome, Sensore, Stanza1, Stanza2)
 VALUES (60, 'Marco Aurelio', 7, 52, 53);
-INSERT INTO VARCHI (IdVarchi, Nome, Sensore, Stanza1, Stanza2, Eliminato)
+INSERT INTO VARCHI (IdVarchi, Nome, Sensore, Stanza1, Stanza2)
 VALUES (61, 'Vespasiano', 8, 53, 55);
-INSERT INTO VARCHI (IdVarchi, Nome, Sensore, Stanza1, Stanza2, Eliminato)
+INSERT INTO VARCHI (IdVarchi, Nome, Sensore, Stanza1, Stanza2)
 VALUES (62, 'Bar 3.1', 9, 55, 54); -- Varco 1 Bar del Museo 3: Museo di storia Romana
-INSERT INTO VARCHI (IdVarchi, Nome, Sensore, Stanza1, Stanza2, Eliminato)
+INSERT INTO VARCHI (IdVarchi, Nome, Sensore, Stanza1, Stanza2)
 VALUES (63, 'Bar 3.2', 10, 54, 66); -- Varco 2 Bar del Museo 3: Museo di storia Romana
-INSERT INTO VARCHI (IdVarchi, Nome, Sensore, Stanza1, Stanza2, Eliminato)
+INSERT INTO VARCHI (IdVarchi, Nome, Sensore, Stanza1, Stanza2)
 VALUES (64, 'Tito', 11, 55, 56);
-INSERT INTO VARCHI (IdVarchi, Nome, Sensore, Stanza1, Stanza2, Eliminato)
+INSERT INTO VARCHI (IdVarchi, Nome, Sensore, Stanza1, Stanza2)
 VALUES (65, 'Costantino', 12, 56, 57);
-INSERT INTO VARCHI (IdVarchi, Nome, Sensore, Stanza1, Stanza2, Eliminato)
+INSERT INTO VARCHI (IdVarchi, Nome, Sensore, Stanza1, Stanza2)
 VALUES (66, 'Diocleziano 1', 13, 57, 63);
-INSERT INTO VARCHI (IdVarchi, Nome, Sensore, Stanza1, Stanza2, Eliminato)
+INSERT INTO VARCHI (IdVarchi, Nome, Sensore, Stanza1, Stanza2)
 VALUES (67, 'Claudio', 14, 57, 58);
-INSERT INTO VARCHI (IdVarchi, Nome, Sensore, Stanza1, Stanza2, Eliminato)
+INSERT INTO VARCHI (IdVarchi, Nome, Sensore, Stanza1, Stanza2)
 VALUES (68, 'Adriano', 15, 58, 59);
-INSERT INTO VARCHI (IdVarchi, Nome, Sensore, Stanza1, Stanza2, Eliminato)
+INSERT INTO VARCHI (IdVarchi, Nome, Sensore, Stanza1, Stanza2)
 VALUES (69, 'Domiziano', 16, 59, 60);
-INSERT INTO VARCHI (IdVarchi, Nome, Sensore, Stanza1, Stanza2, Eliminato)
+INSERT INTO VARCHI (IdVarchi, Nome, Sensore, Stanza1, Stanza2)
 VALUES (70, 'Bagno 3.2', 17, 35, 36); -- Varco Bagno 2 del Museo 3: Museo di storia Romana
-INSERT INTO VARCHI (IdVarchi, Nome, Sensore, Stanza1, Stanza2, Eliminato)
+INSERT INTO VARCHI (IdVarchi, Nome, Sensore, Stanza1, Stanza2)
 VALUES (71, 'Caracalla', 18, 60, 61);
-INSERT INTO VARCHI (IdVarchi, Nome, Sensore, Stanza1, Stanza2, Eliminato)
+INSERT INTO VARCHI (IdVarchi, Nome, Sensore, Stanza1, Stanza2)
 VALUES (72, 'Diocleziano 2', 19, 61, 63);
-INSERT INTO VARCHI (IdVarchi, Nome, Sensore, Stanza1, Stanza2, Eliminato)
+INSERT INTO VARCHI (IdVarchi, Nome, Sensore, Stanza1, Stanza2)
 VALUES (73, 'Tiberio', 20, 63, 64);
-INSERT INTO VARCHI (IdVarchi, Nome, Sensore, Stanza1, Stanza2, Eliminato)
+INSERT INTO VARCHI (IdVarchi, Nome, Sensore, Stanza1, Stanza2)
 VALUES (74, 'Nerone', 21, 64, 65);
-INSERT INTO VARCHI (IdVarchi, Nome, Sensore, Stanza1, Stanza2, Eliminato)
+INSERT INTO VARCHI (IdVarchi, Nome, Sensore, Stanza1, Stanza2)
 VALUES (75, 'Antonino Pio', 22, 65, 66);
-INSERT INTO VARCHI (IdVarchi, Nome, Sensore, Stanza1, Stanza2, Eliminato)
+INSERT INTO VARCHI (IdVarchi, Nome, Sensore, Stanza1, Stanza2)
 VALUES (76, 'Lucio Vero', 23, 66, 67);
-INSERT INTO VARCHI (IdVarchi, Nome, Sensore, Stanza1, Stanza2, Eliminato)
+INSERT INTO VARCHI (IdVarchi, Nome, Sensore, Stanza1, Stanza2)
 VALUES (77, 'Settimio Severo 2', 24, 67, 68);
-INSERT INTO VARCHI (IdVarchi, Nome, Sensore, Stanza1, Stanza2, Eliminato)
+INSERT INTO VARCHI (IdVarchi, Nome, Sensore, Stanza1, Stanza2)
 VALUES (78, 'Plinio il Giovane', 25, 68, 69);
-INSERT INTO VARCHI (IdVarchi, Nome, Sensore, Stanza1, Stanza2, Eliminato)
+INSERT INTO VARCHI (IdVarchi, Nome, Sensore, Stanza1, Stanza2)
 VALUES (79, 'Virgilio', 26, 69, 70);
-INSERT INTO VARCHI (IdVarchi, Nome, Sensore, Stanza1, Stanza2, Eliminato)
+INSERT INTO VARCHI (IdVarchi, Nome, Sensore, Stanza1, Stanza2)
 VALUES (80, 'Crasso', 27, 70, 71);
-INSERT INTO VARCHI (IdVarchi, Nome, Sensore, Stanza1, Stanza2, Eliminato)
+INSERT INTO VARCHI (IdVarchi, Nome, Sensore, Stanza1, Stanza2)
 VALUES (81, 'Ingresso 3', 28, 71, 47); -- Varco Ingresso del Museo 3: Museo di storia Romana
 /*Varchi museo 4 museo egizio*/
-INSERT INTO VARCHI (IdVarchi, Nome, Sensore, Stanza1, Stanza2, Eliminato)
+INSERT INTO VARCHI (IdVarchi, Nome, Sensore, Stanza1, Stanza2)
 VALUES (82, 'Guardaroba 4', 1, 73, 72); -- Varco Guardaroba del Museo 4: Museo Egizio
-INSERT INTO VARCHI (IdVarchi, Nome, Sensore, Stanza1, Stanza2, Eliminato)
+INSERT INTO VARCHI (IdVarchi, Nome, Sensore, Stanza1, Stanza2)
 VALUES (83, 'Ramesse II', 2, 72, 74);
-INSERT INTO VARCHI (IdVarchi, Nome, Sensore, Stanza1, Stanza2, Eliminato)
+INSERT INTO VARCHI (IdVarchi, Nome, Sensore, Stanza1, Stanza2)
 VALUES (84, 'Cleopatra', 3, 74, 75);
-INSERT INTO VARCHI (IdVarchi, Nome, Sensore, Stanza1, Stanza2, Eliminato)
+INSERT INTO VARCHI (IdVarchi, Nome, Sensore, Stanza1, Stanza2)
 VALUES (85, 'Anubi 1', 4, 75, 92);
-INSERT INTO VARCHI (IdVarchi, Nome, Sensore, Stanza1, Stanza2, Eliminato)
+INSERT INTO VARCHI (IdVarchi, Nome, Sensore, Stanza1, Stanza2)
 VALUES (86, 'Tutankhamon', 5, 75, 76);
-INSERT INTO VARCHI (IdVarchi, Nome, Sensore, Stanza1, Stanza2, Eliminato)
+INSERT INTO VARCHI (IdVarchi, Nome, Sensore, Stanza1, Stanza2)
 VALUES (87, 'Bar 4.1', 6, 76, 87); -- Varco 1 Bar del Museo 4: Museo Egizio
-INSERT INTO VARCHI (IdVarchi, Nome, Sensore, Stanza1, Stanza2, Eliminato)
+INSERT INTO VARCHI (IdVarchi, Nome, Sensore, Stanza1, Stanza2)
 VALUES (88, 'Bar 4.2', 7, 87, 90); -- Varco 2 Bar del Museo 4: Museo Egizio
-INSERT INTO VARCHI (IdVarchi, Nome, Sensore, Stanza1, Stanza2, Eliminato)
+INSERT INTO VARCHI (IdVarchi, Nome, Sensore, Stanza1, Stanza2)
 VALUES (89, 'Thutmose III', 8, 76, 77);
-INSERT INTO VARCHI (IdVarchi, Nome, Sensore, Stanza1, Stanza2, Eliminato)
+INSERT INTO VARCHI (IdVarchi, Nome, Sensore, Stanza1, Stanza2)
 VALUES (90, 'Seti I', 9, 77, 78);
-INSERT INTO VARCHI (IdVarchi, Nome, Sensore, Stanza1, Stanza2, Eliminato)
+INSERT INTO VARCHI (IdVarchi, Nome, Sensore, Stanza1, Stanza2)
 VALUES (91, 'Akhenaton 1', 10, 78, 89);
-INSERT INTO VARCHI (IdVarchi, Nome, Sensore, Stanza1, Stanza2, Eliminato)
+INSERT INTO VARCHI (IdVarchi, Nome, Sensore, Stanza1, Stanza2)
 VALUES (92, 'Amenofi III', 11, 78, 80);
-INSERT INTO VARCHI (IdVarchi, Nome, Sensore, Stanza1, Stanza2, Eliminato)
+INSERT INTO VARCHI (IdVarchi, Nome, Sensore, Stanza1, Stanza2)
 VALUES (93, 'Alessandro Magno', 12, 80, 81);
-INSERT INTO VARCHI (IdVarchi, Nome, Sensore, Stanza1, Stanza2, Eliminato)
+INSERT INTO VARCHI (IdVarchi, Nome, Sensore, Stanza1, Stanza2)
 VALUES (94, 'Tolomeo X', 13, 81, 82);
-INSERT INTO VARCHI (IdVarchi, Nome, Sensore, Stanza1, Stanza2, Eliminato)
+INSERT INTO VARCHI (IdVarchi, Nome, Sensore, Stanza1, Stanza2)
 VALUES (95, 'Bagno 4.1.1', 14, 82, 79); -- Varco 1 Bagno 1 del Museo 4: Museo Egizio
-INSERT INTO VARCHI (IdVarchi, Nome, Sensore, Stanza1, Stanza2, Eliminato)
+INSERT INTO VARCHI (IdVarchi, Nome, Sensore, Stanza1, Stanza2)
 VALUES (96, 'Bagno 4.1.2', 15, 58, 59); -- Varco 2 Bagno 1 del Museo 4: Museo Egizio
-INSERT INTO VARCHI (IdVarchi, Nome, Sensore, Stanza1, Stanza2, Eliminato)
+INSERT INTO VARCHI (IdVarchi, Nome, Sensore, Stanza1, Stanza2)
 VALUES (97, 'Cheope', 16, 82, 85);
-INSERT INTO VARCHI (IdVarchi, Nome, Sensore, Stanza1, Stanza2, Eliminato)
+INSERT INTO VARCHI (IdVarchi, Nome, Sensore, Stanza1, Stanza2)
 VALUES (98, 'Nefertiti', 17, 82, 83);
-INSERT INTO VARCHI (IdVarchi, Nome, Sensore, Stanza1, Stanza2, Eliminato)
+INSERT INTO VARCHI (IdVarchi, Nome, Sensore, Stanza1, Stanza2)
 VALUES (99, 'Hatshepsut', 18, 84, 85);
-INSERT INTO VARCHI (IdVarchi, Nome, Sensore, Stanza1, Stanza2, Eliminato)
+INSERT INTO VARCHI (IdVarchi, Nome, Sensore, Stanza1, Stanza2)
 VALUES (100, 'Chefren', 19, 85, 86);
-INSERT INTO VARCHI (IdVarchi, Nome, Sensore, Stanza1, Stanza2, Eliminato)
+INSERT INTO VARCHI (IdVarchi, Nome, Sensore, Stanza1, Stanza2)
 VALUES (101, 'Micerino', 20, 86, 88);
-INSERT INTO VARCHI (IdVarchi, Nome, Sensore, Stanza1, Stanza2, Eliminato)
+INSERT INTO VARCHI (IdVarchi, Nome, Sensore, Stanza1, Stanza2)
 VALUES (102, 'Akhenaton 2', 21, 88, 89);
-INSERT INTO VARCHI (IdVarchi, Nome, Sensore, Stanza1, Stanza2, Eliminato)
+INSERT INTO VARCHI (IdVarchi, Nome, Sensore, Stanza1, Stanza2)
 VALUES (103, 'Ramesse I', 22, 89, 90);
-INSERT INTO VARCHI (IdVarchi, Nome, Sensore, Stanza1, Stanza2, Eliminato)
+INSERT INTO VARCHI (IdVarchi, Nome, Sensore, Stanza1, Stanza2)
 VALUES (104, 'Amon Ra', 23, 90, 91);
-INSERT INTO VARCHI (IdVarchi, Nome, Sensore, Stanza1, Stanza2, Eliminato)
+INSERT INTO VARCHI (IdVarchi, Nome, Sensore, Stanza1, Stanza2)
 VALUES (105, 'Anubi 2', 24, 91, 92);
-INSERT INTO VARCHI (IdVarchi, Nome, Sensore, Stanza1, Stanza2, Eliminato)
+INSERT INTO VARCHI (IdVarchi, Nome, Sensore, Stanza1, Stanza2)
 VALUES (106, 'Horus', 25, 92, 93);
-INSERT INTO VARCHI (IdVarchi, Nome, Sensore, Stanza1, Stanza2, Eliminato)
+INSERT INTO VARCHI (IdVarchi, Nome, Sensore, Stanza1, Stanza2)
 VALUES (107, 'Osiride', 26, 93, 94);
-INSERT INTO VARCHI (IdVarchi, Nome, Sensore, Stanza1, Stanza2, Eliminato)
+INSERT INTO VARCHI (IdVarchi, Nome, Sensore, Stanza1, Stanza2)
 VALUES (108, 'Ingresso 4', 27, 94, 72); -- Varco Ingresso del Museo 3: Museo Egizio
-INSERT INTO VARCHI (IdVarchi, Nome, Sensore, Stanza1, Stanza2, Eliminato)
+INSERT INTO VARCHI (IdVarchi, Nome, Sensore, Stanza1, Stanza2)
 VALUES (109, 'Bagno 4.2', 28, 95, 72); -- Varco Bagno 2 del Museo 4: Museo Egizio
 /*Varchi museo 5 museo di scienze naturali*/
-INSERT INTO VARCHI (IdVarchi, Nome, Sensore, Stanza1, Stanza2, Eliminato)
+INSERT INTO VARCHI (IdVarchi, Nome, Sensore, Stanza1, Stanza2)
 VALUES (110, 'Bagno 5.1', 1, 116, 96); -- Varco Bagno 1 del Museo 5: Museo di storia Naturale
-INSERT INTO VARCHI (IdVarchi, Nome, Sensore, Stanza1, Stanza2, Eliminato)
+INSERT INTO VARCHI (IdVarchi, Nome, Sensore, Stanza1, Stanza2)
 VALUES (111, 'Guardaroba 5', 2, 97, 96); -- Varco Guardaroba del Museo 5: Museo di storia Naturale
-INSERT INTO VARCHI (IdVarchi, Nome, Sensore, Stanza1, Stanza2, Eliminato)
+INSERT INTO VARCHI (IdVarchi, Nome, Sensore, Stanza1, Stanza2)
 VALUES (112, 'Venuti', 3, 96, 98);
-INSERT INTO VARCHI (IdVarchi, Nome, Sensore, Stanza1, Stanza2, Eliminato)
+INSERT INTO VARCHI (IdVarchi, Nome, Sensore, Stanza1, Stanza2)
 VALUES (113, 'Aldovrandi', 4, 98, 99);
-INSERT INTO VARCHI (IdVarchi, Nome, Sensore, Stanza1, Stanza2, Eliminato)
+INSERT INTO VARCHI (IdVarchi, Nome, Sensore, Stanza1, Stanza2)
 VALUES (114, 'Vannini 1', 5, 99, 113);
-INSERT INTO VARCHI (IdVarchi, Nome, Sensore, Stanza1, Stanza2, Eliminato)
+INSERT INTO VARCHI (IdVarchi, Nome, Sensore, Stanza1, Stanza2)
 VALUES (115, 'Cesalpino', 6, 99, 100);
-INSERT INTO VARCHI (IdVarchi, Nome, Sensore, Stanza1, Stanza2, Eliminato)
+INSERT INTO VARCHI (IdVarchi, Nome, Sensore, Stanza1, Stanza2)
 VALUES (116, 'Darwin', 7, 100, 101);
-INSERT INTO VARCHI (IdVarchi, Nome, Sensore, Stanza1, Stanza2, Eliminato)
+INSERT INTO VARCHI (IdVarchi, Nome, Sensore, Stanza1, Stanza2)
 VALUES (117, 'Lamark', 8, 101, 102);
-INSERT INTO VARCHI (IdVarchi, Nome, Sensore, Stanza1, Stanza2, Eliminato)
+INSERT INTO VARCHI (IdVarchi, Nome, Sensore, Stanza1, Stanza2)
 VALUES (118, 'Zola 1', 9, 102, 110);
-INSERT INTO VARCHI (IdVarchi, Nome, Sensore, Stanza1, Stanza2, Eliminato)
+INSERT INTO VARCHI (IdVarchi, Nome, Sensore, Stanza1, Stanza2)
 VALUES (119, 'Cuvier', 10, 102, 103);
-INSERT INTO VARCHI (IdVarchi, Nome, Sensore, Stanza1, Stanza2, Eliminato)
+INSERT INTO VARCHI (IdVarchi, Nome, Sensore, Stanza1, Stanza2)
 VALUES (120, 'Fabre', 11, 103, 104);
-INSERT INTO VARCHI (IdVarchi, Nome, Sensore, Stanza1, Stanza2, Eliminato)
+INSERT INTO VARCHI (IdVarchi, Nome, Sensore, Stanza1, Stanza2)
 VALUES (121, 'Linneo', 12, 104, 105);
-INSERT INTO VARCHI (IdVarchi, Nome, Sensore, Stanza1, Stanza2, Eliminato)
+INSERT INTO VARCHI (IdVarchi, Nome, Sensore, Stanza1, Stanza2)
 VALUES (122, 'Vallisneri', 13, 105, 107);
-INSERT INTO VARCHI (IdVarchi, Nome, Sensore, Stanza1, Stanza2, Eliminato)
+INSERT INTO VARCHI (IdVarchi, Nome, Sensore, Stanza1, Stanza2)
 VALUES (123, 'Bagno 5.2', 14, 106, 107); -- Varco Bagno 2 del Museo 5: Museo di storia Naturale
-INSERT INTO VARCHI (IdVarchi, Nome, Sensore, Stanza1, Stanza2, Eliminato)
+INSERT INTO VARCHI (IdVarchi, Nome, Sensore, Stanza1, Stanza2)
 VALUES (124, 'Desio', 15, 107, 108);
-INSERT INTO VARCHI (IdVarchi, Nome, Sensore, Stanza1, Stanza2, Eliminato)
+INSERT INTO VARCHI (IdVarchi, Nome, Sensore, Stanza1, Stanza2)
 VALUES (125, 'Plinio il Vecchio', 16, 108, 109);
-INSERT INTO VARCHI (IdVarchi, Nome, Sensore, Stanza1, Stanza2, Eliminato)
+INSERT INTO VARCHI (IdVarchi, Nome, Sensore, Stanza1, Stanza2)
 VALUES (126, 'Zola 2', 17, 109, 110);
-INSERT INTO VARCHI (IdVarchi, Nome, Sensore, Stanza1, Stanza2, Eliminato)
+INSERT INTO VARCHI (IdVarchi, Nome, Sensore, Stanza1, Stanza2)
 VALUES (127, 'Wallace', 18, 110, 111);
-INSERT INTO VARCHI (IdVarchi, Nome, Sensore, Stanza1, Stanza2, Eliminato)
+INSERT INTO VARCHI (IdVarchi, Nome, Sensore, Stanza1, Stanza2)
 VALUES (128, 'Redi', 19, 111, 112);
-INSERT INTO VARCHI (IdVarchi, Nome, Sensore, Stanza1, Stanza2, Eliminato)
+INSERT INTO VARCHI (IdVarchi, Nome, Sensore, Stanza1, Stanza2)
 VALUES (129, 'Vannini 2', 20, 112, 113);
-INSERT INTO VARCHI (IdVarchi, Nome, Sensore, Stanza1, Stanza2, Eliminato)
+INSERT INTO VARCHI (IdVarchi, Nome, Sensore, Stanza1, Stanza2)
 VALUES (130, 'Von Humboldt', 21, 113, 114);
-INSERT INTO VARCHI (IdVarchi, Nome, Sensore, Stanza1, Stanza2, Eliminato)
+INSERT INTO VARCHI (IdVarchi, Nome, Sensore, Stanza1, Stanza2)
 VALUES (131, 'Telesio', 22, 114, 115);
-INSERT INTO VARCHI (IdVarchi, Nome, Sensore, Stanza1, Stanza2, Eliminato)
+INSERT INTO VARCHI (IdVarchi, Nome, Sensore, Stanza1, Stanza2)
 VALUES (132, 'Ingresso 5', 23, 115, 96); -- Varco Ingresso del Museo 5: Museo di storia Naturale
 /*Varchi museo 6 pinacoteca nazionale*/
-INSERT INTO VARCHI (IdVarchi, Nome, Sensore, Stanza1, Stanza2, Eliminato)
+INSERT INTO VARCHI (IdVarchi, Nome, Sensore, Stanza1, Stanza2)
 VALUES (133, 'Van Gogh', 1, 117, 119);
-INSERT INTO VARCHI (IdVarchi, Nome, Sensore, Stanza1, Stanza2, Eliminato)
+INSERT INTO VARCHI (IdVarchi, Nome, Sensore, Stanza1, Stanza2)
 VALUES (134, 'Picasso', 2, 119, 120);
-INSERT INTO VARCHI (IdVarchi, Nome, Sensore, Stanza1, Stanza2, Eliminato)
+INSERT INTO VARCHI (IdVarchi, Nome, Sensore, Stanza1, Stanza2)
 VALUES (135, 'Monet', 3, 120, 121);
-INSERT INTO VARCHI (IdVarchi, Nome, Sensore, Stanza1, Stanza2, Eliminato)
+INSERT INTO VARCHI (IdVarchi, Nome, Sensore, Stanza1, Stanza2)
 VALUES (136, 'Munch 1', 4, 121, 134);
-INSERT INTO VARCHI (IdVarchi, Nome, Sensore, Stanza1, Stanza2, Eliminato)
+INSERT INTO VARCHI (IdVarchi, Nome, Sensore, Stanza1, Stanza2)
 VALUES (137, 'Caravaggio', 5, 121, 122);
-INSERT INTO VARCHI (IdVarchi, Nome, Sensore, Stanza1, Stanza2, Eliminato)
+INSERT INTO VARCHI (IdVarchi, Nome, Sensore, Stanza1, Stanza2)
 VALUES (138, 'Velazquez', 6, 122, 123);
-INSERT INTO VARCHI (IdVarchi, Nome, Sensore, Stanza1, Stanza2, Eliminato)
+INSERT INTO VARCHI (IdVarchi, Nome, Sensore, Stanza1, Stanza2)
 VALUES (139, 'Klimt', 7, 123, 124);
-INSERT INTO VARCHI (IdVarchi, Nome, Sensore, Stanza1, Stanza2, Eliminato)
+INSERT INTO VARCHI (IdVarchi, Nome, Sensore, Stanza1, Stanza2)
 VALUES (140, 'Hopper 1', 8, 124, 131);
-INSERT INTO VARCHI (IdVarchi, Nome, Sensore, Stanza1, Stanza2, Eliminato)
+INSERT INTO VARCHI (IdVarchi, Nome, Sensore, Stanza1, Stanza2)
 VALUES (141, 'Renoir', 9, 124, 125);
-INSERT INTO VARCHI (IdVarchi, Nome, Sensore, Stanza1, Stanza2, Eliminato)
+INSERT INTO VARCHI (IdVarchi, Nome, Sensore, Stanza1, Stanza2)
 VALUES (142, 'DalÃ¬', 10, 125, 126);
-INSERT INTO VARCHI (IdVarchi, Nome, Sensore, Stanza1, Stanza2, Eliminato)
+INSERT INTO VARCHI (IdVarchi, Nome, Sensore, Stanza1, Stanza2)
 VALUES (143, 'De Goya', 11, 126, 127);
-INSERT INTO VARCHI (IdVarchi, Nome, Sensore, Stanza1, Stanza2, Eliminato)
+INSERT INTO VARCHI (IdVarchi, Nome, Sensore, Stanza1, Stanza2)
 VALUES (144, 'Kandinsky', 12, 127, 128);
-INSERT INTO VARCHI (IdVarchi, Nome, Sensore, Stanza1, Stanza2, Eliminato)
+INSERT INTO VARCHI (IdVarchi, Nome, Sensore, Stanza1, Stanza2)
 VALUES (145, 'Manet', 13, 128, 129);
-INSERT INTO VARCHI (IdVarchi, Nome, Sensore, Stanza1, Stanza2, Eliminato)
+INSERT INTO VARCHI (IdVarchi, Nome, Sensore, Stanza1, Stanza2)
 VALUES (146, 'Cezanne', 14, 129, 130);
-INSERT INTO VARCHI (IdVarchi, Nome, Sensore, Stanza1, Stanza2, Eliminato)
+INSERT INTO VARCHI (IdVarchi, Nome, Sensore, Stanza1, Stanza2)
 VALUES (147, 'Hopper 2', 15, 130, 131);
-INSERT INTO VARCHI (IdVarchi, Nome, Sensore, Stanza1, Stanza2, Eliminato)
+INSERT INTO VARCHI (IdVarchi, Nome, Sensore, Stanza1, Stanza2)
 VALUES (148, 'Gauguin', 16, 131, 132);
-INSERT INTO VARCHI (IdVarchi, Nome, Sensore, Stanza1, Stanza2, Eliminato)
+INSERT INTO VARCHI (IdVarchi, Nome, Sensore, Stanza1, Stanza2)
 VALUES (149, 'Matisse', 17, 132, 133);
-INSERT INTO VARCHI (IdVarchi, Nome, Sensore, Stanza1, Stanza2, Eliminato)
+INSERT INTO VARCHI (IdVarchi, Nome, Sensore, Stanza1, Stanza2)
 VALUES (150, 'Munch 2', 18, 133, 134);
-INSERT INTO VARCHI (IdVarchi, Nome, Sensore, Stanza1, Stanza2, Eliminato)
+INSERT INTO VARCHI (IdVarchi, Nome, Sensore, Stanza1, Stanza2)
 VALUES (151, 'Degas', 19, 134, 135);
-INSERT INTO VARCHI (IdVarchi, Nome, Sensore, Stanza1, Stanza2, Eliminato)
+INSERT INTO VARCHI (IdVarchi, Nome, Sensore, Stanza1, Stanza2)
 VALUES (152, 'Rembrandt', 20, 135, 136);
-INSERT INTO VARCHI (IdVarchi, Nome, Sensore, Stanza1, Stanza2, Eliminato)
+INSERT INTO VARCHI (IdVarchi, Nome, Sensore, Stanza1, Stanza2)
 VALUES (153, 'Ingresso 6', 21, 136, 117); -- Varco Ingresso del Museo 6: Pinacoteca Nazionale
-INSERT INTO VARCHI (IdVarchi, Nome, Sensore, Stanza1, Stanza2, Eliminato)
+INSERT INTO VARCHI (IdVarchi, Nome, Sensore, Stanza1, Stanza2)
 VALUES (154, 'Bagno 6.1', 22, 118, 117); -- Varco Bagno 1 del Museo 6: Pinacoteca Nazionale
 /********VISITE*********/
 /*(durata visita in minuti)*/
@@ -30900,14 +30909,6 @@ INSERT INTO VISITEVARCHI (IdVisita, IdVarco, AttraversamentoVarco)
 VALUES (13, 25, to_date('15:54:15', 'HH24:MI:SS'));
 INSERT INTO VISITEVARCHI (IdVisita, IdVarco, AttraversamentoVarco)
 VALUES (13, 25, to_date('15:55:13', 'HH24:MI:SS'));
-
-/********RUOLISESSIONI*********/
-NSERT INTO RUOLISESSIONI (Ruolo, IdSessione) VALUES ('U', 0);
-INSERT INTO RUOLISESSIONI (Ruolo, IdSessione) VALUES ('DBA', 1);
-INSERT INTO RUOLISESSIONI (Ruolo, IdSessione) VALUES ('AB', 2);
-INSERT INTO RUOLISESSIONI (Ruolo, IdSessione) VALUES ('GM', 3);
-INSERT INTO RUOLISESSIONI (Ruolo, IdSessione) VALUES ('GO', 4);
-INSERT INTO RUOLISESSIONI (Ruolo, IdSessione) VALUES ('GCE', 5);
 
 /********UTENTILOGIN*********/
 INSERT INTO UTENTILOGIN (IdUtenteLogin, IdCliente, Username, Password, Ruolo)

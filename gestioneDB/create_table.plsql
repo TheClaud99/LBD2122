@@ -109,7 +109,7 @@ Create Table SALEOPERE
    DataArrivo date not null,
    DataUscita date,
 
-   check((dataarrivo<datauscita) or (datauscita is null))
+   check((dataarrivo<=datauscita) or (datauscita is null))
    --TODO IF(DataEntrata1 < DataEntrata2) => Opera1 != Opera2 OR DataUscita2 < DataEntrata1
 );
 
@@ -156,7 +156,7 @@ Create Table CAMPIESTIVI
    Museo number(5)  not null REFERENCES MUSEI(IdMuseo),
    Eliminato number(1) default 0 check (Eliminato in (0,1)) not null,
 
-   check (datainizio < dataconclusione)
+   check (datainizio <= dataconclusione)
    /* TODO
     * IF (DataInizio IS NULL OR DataConclusione IS NULL) => Stato IN (“increazione”, “sospeso”) 
     * TODO IF (DataInizio < SYSTIMESTAMP AND DataConclusione > SYSTIMESTAMP) => Stato IN (“incorso”, “sospeso”)
@@ -174,7 +174,7 @@ Create Table TARIFFECAMPIESTIVI
    CampoEstivo number(5) not null REFERENCES CAMPIESTIVI(IdCampiEstivi),
    Eliminato number(1) default 0 check (Eliminato in (0,1)) not null,
 
-   check(etaminima < etamassima)
+   check(etaminima <= etamassima)
 );
 
 Create Table UTENTI

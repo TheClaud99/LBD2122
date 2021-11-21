@@ -1190,13 +1190,13 @@ procedure coloreClassifica(posizione NUMBER DEFAULT 0)IS
  * - Inserimento ✅
  * - Modifica ✅
  * - Visualizzazione ✅
- * - Cancellazione (rimozione) ❌
+ * - Cancellazione (rimozione) ✅
  * OPERAZIONI STATISTICHE E MONITORAGGIO
  * - Opere realizzate dall’Autore ✅
  * - Musei con Opere dell’Autore esposte ✅
  * - Collaborazioni effettuate ❌
  * - Opere dell’Autore presenti in un Museo scelto ✅
- * - Autori in vita le cui Opere sono esposte in un Museo scelto ❌
+ * - Autori in vita le cui Opere sono esposte in un Museo scelto ✅
  */
 
 
@@ -1561,92 +1561,112 @@ mus MUSEI%ROWTYPE;
 IDOPER number(5);
 eta NUMBER;
 BEGIN
-IF operazione = 3 THEN
-    SELECT * INTO auth FROM autori WHERE authID=IDAUTORE;
-END IF;
-SELECT * INTO mus FROM MUSEI WHERE museoID=IDMUSEO;
-    MODGUI1.ApriPagina('StatisticheAutori',idSessione);
-       if idSessione IS NULL then
-            modGUI1.Header;
-        else
-            modGUI1.Header(idSessione);
-        end if;
-        htp.br;htp.br;htp.br;htp.br;htp.br;htp.br;
-        modGUI1.ApriDiv('class="w3-center"');
-            IF operazione = 3 THEN
-                htp.prn('<h1><b>STATISTICHE AUTORE</b></h1>'); --TITOLO
-                htp.prn('<h4><b>'||auth.nome||' '||auth.cognome||'</b></h4>');
-            ELSE
-                htp.prn('<h1><b>STATISTICHE AUTORI</b></h1>'); --TITOLO
-                htp.prn('<h4><b>'||mus.nome||'</b></h4>');
-            END IF;
-            modGUI1.Collegamento('Torna al menu','menuAutori?idSessione='||idSessione,'w3-black w3-margin w3-button');
-        modGUI1.ChiudiDiv;
-        htp.br;
-        if operazione=3 THEN
+    -- Se statistica 3 seleziona autore specificato
+    IF operazione = 3 THEN
+        SELECT * INTO auth FROM autori WHERE authID=IDAUTORE;
+    END IF;
+    -- Seleziono il museo scelto
+    SELECT * INTO mus FROM MUSEI WHERE museoID=IDMUSEO;
 
-        --OPERE ESPOSTE NEL MUSEO SCELTO
-        modGUI1.ApriDiv('class="w3-container" style="width:100%"');
-        htp.print('<h2><b>Opere realizzate esposte in '||mus.nome||'</b></h2>');
-            FOR op IN (Select *
-            from OPERE JOIN AUTORIOPERE on (OPERE.idopera = AUTORIOPERE.idopera)
-                JOIN SALEOPERE ON (OPERE.IDOPERA=SALEOPERE.OPERA)
-            WHERE IDAUTORE=AUTH.idautore AND SALEOPERE.SALA IN (
-                    select STANZE.IDSTANZA from stanze WHERE STANZE.MUSEO=museoID
-            ))
-            LOOP
-            SELECT idopera into IDOPER
-            from opere where OPERE.titolo=op.titolo;
-                modGUI1.ApriDiv('class="w3-col l4 w3-padding-large w3-center"');
-                    modGUI1.ApriDiv('class="w3-card-4" style="height:600px;"');
-                    htp.prn('<img src="https://cdn.pixabay.com/photo/2016/10/22/15/32/water-1761027__480.jpg" alt="Alps" style="width:100%;">');
-                            modGUI1.ApriDiv('class="w3-container w3-center"');
-                                htp.prn('<p>'|| op.titolo ||'</p>');
-                                htp.br;
-                                htp.prn('<p>'|| op.anno ||'</p>');
-                                htp.prn('<button onclick="document.getElementById(''LinguaeLivelloOpera'||IDOPER||''').style.display=''block''" class="w3-margin w3-button w3-black w3-hover-white">Visualizza</button>');
-                                gruppo2.linguaELivello(idSessione,IDOPER);
-                            modGUI1.ChiudiDiv;
+    -- Pagina statistiche autori
+    MODGUI1.ApriPagina('Statistiche Autori',idSessione);
+    if idSessione IS NULL then
+        modGUI1.Header;
+    else
+        modGUI1.Header(idSessione);
+    end if;
+    htp.br;htp.br;htp.br;htp.br;htp.br;htp.br;
+    modGUI1.ApriDiv('class="w3-center"');
+        htp.prn('<h1><b>STATISTICHE AUTORE</b></h1>'); -- Titolo pagina (stat 3)
+        IF operazione = 3 THEN
+            htp.prn('<h2><b>'||auth.Nome||' '||auth.Cognome||'</b></h2>');
+        ELSE -- Titolo pagina (stat 4)
+            htp.prn('<h2><b>Autori in vita con opere esposte in '||mus.Nome||'</b></h2>');
+        END IF;
+        modGUI1.Collegamento(
+            'Torna al menu',
+            'menuAutori?idSessione='||idSessione,
+            'w3-black w3-margin w3-button');
+    modGUI1.ChiudiDiv;
+    htp.br;
+
+    modGUI1.ApriDiv('class="w3-container" style="width:100%"');
+    -- Statistica 3: Opere dell'autore <auth> esposte nel museo <mus>
+    IF operazione = 3 THEN
+        htp.prn('<h4><b>Opere realizzate da');
+        modGUI1.Collegamento(auth.Nome||' '||auth.Cognome, 
+                'ModificaAutore?idSessione='||idSessione||'&authorID='||auth.IdAutore||'&operazione=0',
+                'w3-black w3-margin w3-button');
+        htp.prn('esposte in');
+        modGUI1.Collegamento(mus.Nome,
+                'gruppo4.<NOME PROCEDURA>?idSessione='
+                ||idSessione||'&<PARAM MUSEO>='||mus.IdMuseo,
+                'w3-black w3-margin w3-button');
+    htp.prn('</b></h4>');
+    --htp.print('<h2><b>Opere realizzate esposte in '||mus.nome||'</b></h2>');
+        FOR op IN (
+            SELECT Opera AS IdOpera,Titolo,Anno -- se usate altri attributi nella pagina aggiungeteli qui
+            FROM OPERE JOIN AUTORIOPERE ON OPERE.IdOpera = AUTORIOPERE.IdOpera
+                JOIN SALEOPERE ON OPERE.IdOpera = SALEOPERE.Opera
+            WHERE IDAUTORE=AUTH.idautore AND SALEOPERE.Sala IN 
+                (SELECT STANZE.IdStanza FROM Stanze WHERE STANZE.Museo = museoID))
+        LOOP
+            modGUI1.ApriDiv('class="w3-col l4 w3-padding-large w3-center"');
+                modGUI1.ApriDiv('class="w3-card-4" style="height:600px;"');
+                htp.prn('<img src="https://cdn.pixabay.com/photo/2016/10/22/15/32/water-1761027__480.jpg" alt="Alps" style="width:100%;">');
+                    modGUI1.ApriDiv('class="w3-container w3-center"');
+                        htp.prn('<p>'|| op.Titolo ||'</p>');
+                        htp.br;
+                        htp.prn('<p>'|| op.Anno ||'</p>');
+                        htp.prn('<button onclick="document.getElementById(''LinguaeLivelloOpera'
+                            ||TO_CHAR(op.IdOpera)||''').style.display=''block''" class="w3-margin w3-button w3-black w3-hover-white">Visualizza</button>');
+                        gruppo2.linguaELivello(idSessione, op.IdOpera);
                     modGUI1.ChiudiDiv;
                 modGUI1.ChiudiDiv;
-            END LOOP;
-        -- statistica 4
-        ELSE
-            modGUI1.ApriDiv('class="w3-container" style="width:100%"');
-            htp.print('<h2><b>Autori in vita con opere esposte in '||mus.nome||'</b></h2>');
-            FOR an_author IN (
-                SELECT DISTINCT A.IdAutore, A.Nome,A.Cognome,A.DataNascita,A.Nazionalita FROM Autori A JOIN AutoriOpere AO ON A.IdAutore=AO.IdAutore
-                WHERE A.DataMorte IS NULL 
-                AND EXISTS
-                    (SELECT * FROM Opere O WHERE O.IdOpera = AO.IdOpera AND Museo = mus.IdMuseo)
-                )
-            LOOP
-                -- calcolo età autore
-                eta := sysdate - an_author.DataNascita;
-                modGUI1.ApriDiv('class="w3-col l4 w3-padding-large w3-center"');
-                    modGUI1.ApriDiv('class="w3-card-4" style="height:600px;"');
-                    htp.prn('<img src="https://cdn.pixabay.com/photo/2016/10/22/15/32/water-1761027__480.jpg" alt="Alps" style="width:100%;">');
-                            modGUI1.ApriDiv('class="w3-container w3-center"');
-                                htp.prn('<p>'|| an_author.Nome ||' '||an_author.Cognome||'</p>');
-                                htp.br;
-                                htp.prn('Data nascita: ');
-                                IF an_author.DataNascita IS NULL THEN
-                                    htp.prn('Sconosciuta');
-                                ELSE
-                                htp.prn(
-                                    TO_CHAR(an_author.DataNascita, 'DD/MM/YYYY')
-                                    ||' (et&agrave;: '
-                                    ||ROUND(eta/365, 0)||' anni)');
-                                END IF;
-                                htp.br;
-                                htp.prn('Nazionalit&agrave;: '||an_author.Nazionalita);
-                            modGUI1.ChiudiDiv;
+            modGUI1.ChiudiDiv;
+        END LOOP;
+    -- statistica 4: Autori in vita le cui opere 
+    ELSE
+        htp.prn('<h4><b>Autori in vita con opere esposte in ');
+        modGUI1.Collegamento(mus.Nome,
+                    'gruppo4.<NOME PROCEDURA>?idSessione='
+                    ||idSessione||'&<PARAM MUSEO>='||mus.IdMuseo,
+                    'w3-black w3-margin w3-button');
+        htp.prn('</b></h4>');
+        FOR an_author IN (
+            SELECT DISTINCT A.IdAutore, A.Nome,A.Cognome,A.DataNascita,A.Nazionalita 
+            FROM Autori A JOIN AutoriOpere AO ON A.IdAutore=AO.IdAutore
+            WHERE A.DataMorte IS NULL 
+            AND EXISTS
+                (SELECT * FROM Opere O WHERE O.IdOpera = AO.IdOpera AND Museo = mus.IdMuseo))
+        LOOP
+            -- calcolo età autore in anni, approssimativa
+            eta := (sysdate - an_author.DataNascita) / 365;
+            modGUI1.ApriDiv('class="w3-col l4 w3-padding-large w3-center"');
+                modGUI1.ApriDiv('class="w3-card-4"');
+                htp.prn('<img src="https://cdn.pixabay.com/photo/2016/10/22/15/32/water-1761027__480.jpg" alt="Alps" style="width:100%;">');
+                    modGUI1.ApriDiv('class="w3-container w3-center"');
+                        htp.prn('<p>'||an_author.Nome||' '||an_author.Cognome||'</p>');
+                        htp.br;
+                        htp.prn('Data nascita: ');
+                        IF an_author.DataNascita IS NULL THEN
+                            htp.prn('Sconosciuta');
+                        ELSE
+                        htp.prn(
+                            TO_CHAR(an_author.DataNascita, 'DD/MM/YYYY')
+                            ||' (et&agrave;: '||ROUND(eta, 0)||' anni)');
+                        END IF;
+                        htp.br;
+                        -- Azioni di modifica e rimozione mostrate solo se autorizzatii
+                        modGUI1.Collegamento('Visualizza',
+                            'ModificaAutore?idSessione='||idSessione||'&authorID='||an_author.IdAutore||'&operazione=0',
+                            'w3-black w3-margin w3-button');
                     modGUI1.ChiudiDiv;
                 modGUI1.ChiudiDiv;
-            END LOOP;
-        end IF;
-
-END;
+            modGUI1.ChiudiDiv;
+        END LOOP;
+    END IF;
+END statisticheMuseoAutori;
 
 
 -- Procedura per l'inserimento di nuovi Autori nella base di dati

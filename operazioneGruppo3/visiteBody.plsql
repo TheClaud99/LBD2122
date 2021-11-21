@@ -200,18 +200,18 @@ CREATE OR REPLACE PACKAGE BODY packagevisite AS
             modgui1.collegamento(
                                 'Visualizza',
                                 'packagevisite.visualizzavisita?idvisitaselezionata=' || visita.idvisita,
-                                'w3-button w3-black'
+                                'w3-button w3-margin w3-black'
             );
             IF ( idsessione = 1 ) THEN
                 modgui1.collegamento(
                                     'Modifica',
                                     'packagevisite.pagina_modifica_visita?carica_default=1&idvisitaselezionata=' || visita.idvisita,
-                                    'w3-button w3-green'
+                                    'w3-button w3-margin w3-green'
                 );
                 modgui1.collegamento(
                                     'Rimuovi',
                                     'packagevisite.pagina_rimuovi_visita?idvisitaselezionata=' || visita.idvisita,
-                                    'w3-button w3-red'
+                                    'w3-button w3-margin w3-red'
                 );
             END IF;
 

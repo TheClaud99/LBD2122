@@ -1550,6 +1550,9 @@ modGUI1.ApriPagina('Selezione statistica', idSessione);
     modGUI1.ChiudiDiv;
 END selezioneMuseoAutoreStatistica;
 
+
+                --
+
 Procedure StatisticheMuseoAutori(
     idSessione NUMBER DEFAULT 0,
     operazione NUMBER DEFAULT 0,
@@ -1595,7 +1598,7 @@ BEGIN
     IF operazione = 3 THEN
         htp.prn('<h4><b>Opere realizzate da');
         modGUI1.Collegamento(auth.Nome||' '||auth.Cognome, 
-                'ModificaAutore?idSessione='||idSessione||'&authorID='||auth.IdAutore||'&operazione=0',
+                'ModificaAutore?idSessione='||idSessione||'&authorID='||auth.IdAutore||'&operazione=0&statistiche=//operazione='||operazione||'//authID='||authID||'//museoID='||museoID,
                 'w3-black w3-margin w3-button');
         htp.prn('esposte in');
         modGUI1.Collegamento(mus.Nome,
@@ -1658,8 +1661,8 @@ BEGIN
                         END IF;
                         htp.br;
                         -- Azioni di modifica e rimozione mostrate solo se autorizzatii
-                        modGUI1.Collegamento('Visualizza',
-                            'ModificaAutore?idSessione='||idSessione||'&authorID='||an_author.IdAutore||'&operazione=0',
+                        modGUI1.Collegamento(auth.Nome||' '||auth.Cognome, 
+                            'ModificaAutore?idSessione='||idSessione||'&authorID='||auth.IdAutore||'&operazione=0&statistiche=//operazione='||operazione||'//authID='||authID||'//museoID='||museoID,
                             'w3-black w3-margin w3-button');
                     modGUI1.ChiudiDiv;
                 modGUI1.ChiudiDiv;
@@ -1907,7 +1910,7 @@ BEGIN
         RedirectEsito(idSessione, 'Inserimento fallito',
              'Errore: Autore già presente',
              'Torna all''inserimento','InserisciAutore', 
-             '&authName='||authName||'&authSurname='||authSurname||'&dataNascita='||dataNascita||'&dataMorte='||dataMorte||'&nation='||nation,
+             '//authName='||authName||'//authSurname='||authSurname||'//dataNascita='||dataNascita||'//dataMorte='||dataMorte||'//nation='||nation,
              'Torna al menù','menuAutori');
             ROLLBACK;
 END;
@@ -1921,14 +1924,16 @@ END;
 PROCEDURE ModificaAutore(
 	idSessione NUMBER DEFAULT 0,
 	authorID NUMBER DEFAULT 0,
-    operazione NUMBER DEFAULT 0
+    operazione NUMBER DEFAULT 0,
+    statistiche VARCHAR2 DEFAULT ''
 ) IS
 this_autore Autori%ROWTYPE;
 op_title VARCHAR2(25);
+stat VARCHAR2(50);
 BEGIN
     SELECT * INTO this_autore FROM Autori where IdAutore = authorID;
     IF operazione = 0 THEN
-        op_title := 'Visualizza';
+        op_title := 'Visualizza'; 
     ELSIF operazione = 1 THEN
         op_title := 'Modifica';
 	ELSE
@@ -1945,7 +1950,7 @@ BEGIN
 	modGUI1.ApriDiv('class="w3-modal-content w3-card-4 w3-animate-zoom" style="max-width:600px" ');
 		modGUI1.ApriDiv('class="w3-section"');
         modGUI1.Collegamento('X','menuAutori?idSessione='||idSessione||'',' w3-btn w3-large w3-red w3-display-topright');
-		htp.br;
+        htp.br;
 		htp.header(2, 'Dettagli Autore', 'center');
 		-- caso modifica o rimozione
 		IF operazione != 0 THEN
@@ -2002,6 +2007,10 @@ BEGIN
 			htp.prn(this_autore.Nazionalita);
 			htp.br; htp.br;
 		END IF;
+        IF statistiche is not null THEN
+        stat := REPLACE(statistiche,'//','&');
+        MODGUI1.collegamento('Annulla','StatisticheMuseoAutori?idSessione='||idSessione||stat,'w3-button w3-block w3-black w3-section w3-padding');        
+        END IF; 
 		modGUI1.ChiudiDiv;
 	modGUI1.ChiudiDiv;
 END ModificaAutore;

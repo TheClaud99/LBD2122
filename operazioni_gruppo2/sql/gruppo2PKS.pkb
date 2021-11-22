@@ -1,4 +1,4 @@
-CREATE OR REPLACE PACKAGE gruppo2 AS
+CREATE OR REPLACE PACKAGE "FNICOLO".gruppo2 AS
 
 
 PROCEDURE genericErrorPage(
@@ -13,7 +13,7 @@ procedure RedirectEsito (
     idSessione NUMBER DEFAULT NULL,
     pageTitle VARCHAR2 DEFAULT NULL,
     msg VARCHAR2 DEFAULT NULL,
-    nuovaOp VARCHAR2 DEFAULT NULL, 
+    nuovaOp VARCHAR2 DEFAULT NULL,
     nuovaOpURL VARCHAR2 DEFAULT NULL,
     parametrinuovaOp VARCHAR2 DEFAULT '',
     backToMenu VARCHAR2 DEFAULT NULL,
@@ -35,10 +35,21 @@ procedure EsitoOperazione(
 
 /* OPERAZIONI SULLE OPERE */
 procedure coloreClassifica(posizione NUMBER DEFAULT 0);
-procedure EsitoPositivoOpere(idSessione NUMBER DEFAULT NULL);
-procedure EsitoNegativoOpere(idSessione NUMBER DEFAULT NULL);
-
-procedure SpostamentiOpera (operaID NUMBER DEFAULT 0);
+procedure SpostamentiOpera (
+    idSessione NUMBER DEFAULT 0,
+    operaID NUMBER DEFAULT 0
+);
+PROCEDURE SpostaOpera(
+        idSessione NUMBER DEFAULT 0,
+        operaID NUMBER DEFAULT 0,
+        salaID NUMBER DEFAULT 0
+);
+procedure SpostamentoOpera(
+    idSessione NUMBER DEFAULT 0,
+    operaID NUMBER DEFAULT 0,
+    Esposizione NUMBER DEFAULT 0,
+    NuovaSalaID NUMBER DEFAULT 0
+);
 procedure menuOpere (idSessione NUMBER DEFAULT NULL);
 procedure selezioneMuseo(idSessione NUMBER DEFAULT 0);
 Procedure StatisticheOpere(
@@ -55,14 +66,26 @@ PROCEDURE InserisciOpera(
 procedure AggiungiAutore(
     idSessione NUMBER DEFAULT 0,
     operaID NUMBER DEFAULT 0,
-    lingue VARCHAR2 DEFAULT null
-);
+    lingue VARCHAR2 DEFAULT null -- aggiunto rispetto a pks commit roberto
+); 
 procedure AggiuntaAutore(
     idSessione NUMBER DEFAULT 0,
     operaID NUMBER DEFAULT 0,
     autoreID NUMBER DEFAULT 0,
-    lingue VARCHAR2 default NULL
+    lingue VARCHAR2 default NULL -- aggiunto rispetto a pks commit roberto
 );
+procedure RimuoviAutore(
+    idSessione NUMBER DEFAULT 0,
+    operaID NUMBER DEFAULT 0,
+    lingue VARCHAR2 DEFAULT null
+);
+
+procedure RimozioneAutore(
+    idSessione NUMBER DEFAULT 0,
+    operaID NUMBER DEFAULT 0,
+    autoreID NUMBER DEFAULT 0
+);
+
 procedure EliminazioneOpera(
     idSessione NUMBER default 0,
     operaID NUMBER default 0

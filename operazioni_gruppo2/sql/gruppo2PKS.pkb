@@ -13,7 +13,7 @@ procedure RedirectEsito (
     idSessione NUMBER DEFAULT NULL,
     pageTitle VARCHAR2 DEFAULT NULL,
     msg VARCHAR2 DEFAULT NULL,
-    nuovaOp VARCHAR2 DEFAULT NULL,
+    nuovaOp VARCHAR2 DEFAULT NULL, 
     nuovaOpURL VARCHAR2 DEFAULT NULL,
     parametrinuovaOp VARCHAR2 DEFAULT '',
     backToMenu VARCHAR2 DEFAULT NULL,
@@ -55,13 +55,13 @@ PROCEDURE InserisciOpera(
 procedure AggiungiAutore(
     idSessione NUMBER DEFAULT 0,
     operaID NUMBER DEFAULT 0,
-    lingue VARCHAR2 DEFAULT null -- aggiunto rispetto a pks commit roberto
-); 
+    lingue VARCHAR2 DEFAULT null
+);
 procedure AggiuntaAutore(
     idSessione NUMBER DEFAULT 0,
     operaID NUMBER DEFAULT 0,
     autoreID NUMBER DEFAULT 0,
-    lingue VARCHAR2 default NULL -- aggiunto rispetto a pks commit roberto
+    lingue VARCHAR2 default NULL
 );
 procedure EliminazioneOpera(
     idSessione NUMBER default 0,
@@ -181,9 +181,10 @@ PROCEDURE InserisciDatiAutore(
 --  1: Modifica
 --  2: Rimozione
 PROCEDURE ModificaAutore(
-    idSessione NUMBER DEFAULT 0,
-    authorID NUMBER DEFAULT 0,
-    operazione NUMBER DEFAULT 0
+	idSessione NUMBER DEFAULT 0,
+	authorID NUMBER DEFAULT 0,
+    operazione NUMBER DEFAULT 0,
+    statistiche VARCHAR2 DEFAULT ''
 );
 
 PROCEDURE UpdateAutore(

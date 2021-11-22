@@ -15,6 +15,7 @@ CREATE OR REPLACE PACKAGE BODY packageAcquistaTitoli AS
 
  --VISUALIZZAZIONE
 PROCEDURE visualizzatitoliing(
+	sessiondId NUMBER default 0,
 	varidtitoloing in number
 )is
 	nomeutente varchar2(50);
@@ -73,6 +74,7 @@ begin
 END;
 
 PROCEDURE acquistatitolo(
+	sessiondId NUMBER default 0,
 	dataEmissionechar IN VARCHAR2,
 	dataScadenzachar IN VARCHAR2,
 	idmuseoselezionato IN VARCHAR2,
@@ -106,6 +108,7 @@ END;
 
 --ACQUISTO ABBONAMENTO
 PROCEDURE formacquistaabbonamento(
+	sessiondId NUMBER default 0,
 	dataEmissionechar IN VARCHAR2,
 	dataScadenzachar IN VARCHAR2,
 	idmuseoselezionato IN VARCHAR2 default null,
@@ -197,6 +200,7 @@ BEGIN
 END;
 
 PROCEDURE pagina_acquista_abbonamento(
+	sessiondId NUMBER default 0,
 	dataEmissionechar VARCHAR2 DEFAULT NULL,
 	dataScadenzachar VARCHAR2 DEFAULT NULL,
 	idmuseoselezionato VARCHAR2 DEFAULT NULL,
@@ -225,6 +229,7 @@ BEGIN
 END;
 
 PROCEDURE confermaacquistoabbonamento(
+	sessiondId NUMBER default 0,
 	dataEmissionechar VARCHAR2 DEFAULT NULL,
 	dataScadenzachar VARCHAR2 DEFAULT NULL,
 	idmuseoselezionato VARCHAR2 DEFAULT NULL,
@@ -318,6 +323,7 @@ END;
 
 --ACQUISTO BIGLIETTO
 procedure formacquistabiglietto(
+	sessiondId NUMBER default 0,
 	dataEmissionechar IN VARCHAR2,
 	idmuseoselezionato IN VARCHAR2 default null,
 	idtipologiaselezionata IN VARCHAR2 default null,
@@ -404,6 +410,7 @@ begin
 END;
 
 PROCEDURE confermaacquistobiglietto(
+	sessiondId NUMBER default 0,
 	dataEmissionechar VARCHAR2 DEFAULT NULL,
 	idmuseoselezionato VARCHAR2 DEFAULT NULL,
 	idtipologiaselezionata VARCHAR2 DEFAULT NULL,
@@ -486,6 +493,7 @@ BEGIN
 END;
 
 PROCEDURE pagina_acquista_biglietto(
+	sessiondId NUMBER default 0,
 	dataEmissionechar VARCHAR2 DEFAULT NULL,
 	dataScadenzachar VARCHAR2 DEFAULT NULL,
 	idmuseoselezionato VARCHAR2 DEFAULT NULL,
@@ -515,6 +523,7 @@ end;
 
 -- Numero Titoli d’Ingresso emessi in un arco temporale scelto
 procedure statTitoliPerArcoTemp(
+	sessiondId NUMBER default 0,
 	datainizio VARCHAR2 default null,
 	datafine VARCHAR2 default null
 )IS
@@ -567,6 +576,7 @@ BEGIN
 END; 
 --CANCELLAZIONE
 procedure cancellazionetitoloing(
+	sessiondId NUMBER default 0,
 	idtitoloingselezionato varchar2
 )
 IS

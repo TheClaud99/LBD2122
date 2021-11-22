@@ -1,9 +1,43 @@
 CREATE OR REPLACE PACKAGE gruppo2 AS
 
+
+PROCEDURE genericErrorPage(
+    idSessione NUMBER DEFAULT 0,
+    pageTitle VARCHAR2 DEFAULT 'Errore',
+    msg VARCHAR2 DEFAULT 'Errore sconosciuto',
+    redirectText VARCHAR2 DEFAULT 'OK',
+    redirect VARCHAR2 DEFAULT NULL
+);
+
+procedure RedirectEsito (
+    idSessione NUMBER DEFAULT NULL,
+    pageTitle VARCHAR2 DEFAULT NULL,
+    msg VARCHAR2 DEFAULT NULL,
+    nuovaOp VARCHAR2 DEFAULT NULL,
+    nuovaOpURL VARCHAR2 DEFAULT NULL,
+    parametrinuovaOp VARCHAR2 DEFAULT '',
+    backToMenu VARCHAR2 DEFAULT NULL,
+    backToMenuURL VARCHAR2 DEFAULT NULL,
+    parametribackToMenu VARCHAR2 DEFAULT ''
+    );
+
+procedure EsitoOperazione(
+    idSessione NUMBER DEFAULT NULL,
+    pageTitle VARCHAR2 DEFAULT NULL,
+    msg VARCHAR2 DEFAULT NULL,
+    nuovaOp VARCHAR2 DEFAULT NULL,
+    nuovaOpURL VARCHAR2 DEFAULT NULL,
+    parametrinuovaOp VARCHAR2 DEFAULT '',
+    backToMenu VARCHAR2 DEFAULT NULL,
+    backToMenuURL VARCHAR2 DEFAULT NULL,
+    parametribackToMenu VARCHAR2 DEFAULT ''
+    );
+
 /* OPERAZIONI SULLE OPERE */
+procedure coloreClassifica(posizione NUMBER DEFAULT 0);
 procedure EsitoPositivoOpere(idSessione NUMBER DEFAULT NULL);
 procedure EsitoNegativoOpere(idSessione NUMBER DEFAULT NULL);
-procedure StatisticheOpere(idSessione NUMBER DEFAULT NULL);
+
 procedure SpostamentiOpera (operaID NUMBER DEFAULT 0);
 procedure menuOpere (idSessione NUMBER DEFAULT NULL);
 procedure selezioneMuseo(idSessione NUMBER DEFAULT 0);
@@ -18,7 +52,17 @@ PROCEDURE InserisciOpera(
     fineperiodo VARCHAR2 DEFAULT NULL,
     idmusei NUMBER DEFAULT NULL
 );
-
+procedure AggiungiAutore(
+    idSessione NUMBER DEFAULT 0,
+    operaID NUMBER DEFAULT 0,
+    lingue VARCHAR2 DEFAULT null -- aggiunto rispetto a pks commit roberto
+); 
+procedure AggiuntaAutore(
+    idSessione NUMBER DEFAULT 0,
+    operaID NUMBER DEFAULT 0,
+    autoreID NUMBER DEFAULT 0,
+    lingue VARCHAR2 default NULL -- aggiunto rispetto a pks commit roberto
+);
 procedure EliminazioneOpera(
     idSessione NUMBER default 0,
     operaID NUMBER default 0
@@ -69,9 +113,10 @@ PROCEDURE InserisciDatiOpera(
 procedure VisualizzaOpera (
     idSessione NUMBER default 0,
     operaID NUMBER default 0,
-    lingue VARCHAR2 default 'sconosciuto'
+    lingue VARCHAR2 default 'sconosciuto',
+    livelli VARCHAR2 DEFAULT 'Sconosciuto'
 );
-procedure lingua(
+procedure linguaELivello(
     idSessione NUMBER default 0,
     operaID NUMBER default 0
 );
@@ -141,7 +186,6 @@ PROCEDURE ModificaAutore(
     operazione NUMBER DEFAULT 0
 );
 
-
 PROCEDURE UpdateAutore(
 	idSessione NUMBER DEFAULT 0,
 	authID NUMBER DEFAULT 0,
@@ -152,13 +196,13 @@ PROCEDURE UpdateAutore(
 	newNation VARCHAR2 DEFAULT 'Sconosciuta'
 );
 
-procedure EsitoPositivoAutori(idSessione NUMBER DEFAULT NULL);
-
-procedure EsitoPositivoUpdateAutori(idSessione NUMBER DEFAULT NULL);
-
-procedure EsitoNegativoUpdateAutori(
-    idSessione NUMBER DEFAULT 0,
-    authorID VARCHAR2 DEFAULT 'Sconosciuto'
+procedure EliminazioneAutore(
+    idSessione NUMBER default 0,
+    authorID NUMBER default 0
+);
+procedure RimozioneAutore(
+    idSessione NUMBER default 0,
+    authorID NUMBER default 0
 );
 
 /* OPERAZIONI SULLE DESCRIZIONI  */
@@ -192,6 +236,16 @@ PROCEDURE modificaDescrizione(
     idDescrizione NUMBER DEFAULT NULL
 );
 
+procedure EliminazioneDescrizione(
+    idSessione NUMBER default 0,
+    idDescrizione NUMBER default 0
+);
+
+procedure RimozioneDescrizione(
+    idSessione NUMBER default 0,
+    idDescrizione NUMBER default 0
+);
+
 PROCEDURE UpdateDescrizione(
 	idSessione NUMBER DEFAULT 0,
 	descrID NUMBER DEFAULT 0,
@@ -199,18 +253,6 @@ PROCEDURE UpdateDescrizione(
     newlingua varchar2 DEFAULT null,
     newlivello varchar2 DEFAULT null,
     newtesto CLOB DEFAULT null
-);
-
-procedure EsitoPositivoUpdateDescrizioni(
-    idSessione NUMBER DEFAULT NULL, 
-    opera number DEFAULT 0,
-    lingua varchar2 DEFAULT null
-);
-
-procedure EsitoNegativoUpdateDescrizioni(
-    idSessione NUMBER DEFAULT NULL, 
-    opera number DEFAULT 0,
-    lingua varchar2 DEFAULT null
 );
 
 Procedure StatisticheDescrizioni(

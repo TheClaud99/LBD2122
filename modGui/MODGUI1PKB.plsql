@@ -82,7 +82,7 @@ CREATE OR REPLACE PACKAGE BODY modGUI1 as
                     htp.prn('<span onclick="document.getElementById(''id01'').style.display=''none''" class="w3-button w3-xlarge w3-red w3-display-topright" title="Close Modal">X</span>
                             <img src="https://termoidraulicabassini.it/wp-content/uploads/2015/12/utente.png" alt="Avatar" style="width:30%" class="w3-circle w3-margin-top">');
                 modGUI1.ChiudiDiv;
-                    modGUI1.ApriForm('CreazioneSessione','formLogIn','w3-container',1);
+                    modGUI1.ApriForm('modGUI1.CreazioneSessione','formLogIn','w3-container',1);
                         modGUI1.ApriDiv('class="w3-section"');
                             modGUI1.Label('Username:');
                             modGUI1.InputText('usernames','Enter Username',1);
@@ -100,6 +100,24 @@ CREATE OR REPLACE PACKAGE BODY modGUI1 as
             modGUI1.ChiudiDiv;
         modGUI1.ChiudiDiv;
     end Login;
+
+    PROCEDURE set_cookie (idSessione IN UTENTILOGIN.idUtenteLogin%TYPE, url VARCHAR2 DEFAULT '') IS
+    begin
+        -- htp.prn('<h1>'||idSessione||'</h1>');
+        owa_util.mime_header('text/html', FALSE);
+        owa_cookie.send(
+            name=>'SESSION_ID',
+            value=>idSessione,
+            expires => sysdate + 365); 
+
+        -- Set the cookie and redirect to another page
+        owa_util.redirect_url(url ||'?idSessione=' || idSessione);
+
+        owa_util.http_header_close;
+    exception
+        when others then
+            null;
+    end;
  
     procedure CreazioneSessione (usernames VARCHAR2 DEFAULT 'Sconosciuto', passwords VARCHAR2 DEFAULT 'Sconosciuto', url VARCHAR2 DEFAULT 'Sconosciuto')is
     sessione NUMBER DEFAULT 0;
@@ -107,7 +125,8 @@ CREATE OR REPLACE PACKAGE BODY modGUI1 as
        SELECT idUtenteLogin into sessione FROM UTENTILOGIN
        WHERE username=usernames AND password=passwords;
         IF SQL%FOUND THEN
-            htp.prn('<script> window.location.href = "'||url||'?idSessione='||sessione||'"</script>');
+            set_cookie(sessione, url);
+            -- htp.prn('<script> window.location.href = "'||url||'?idSessione='||sessione||'"</script>');
         END IF;
         EXCEPTION WHEN OTHERS THEN
             htp.prn('<script> window.location.href = "'||costanti.radice2||'erroreLogin"</script>');
@@ -144,9 +163,9 @@ CREATE OR REPLACE PACKAGE BODY modGUI1 as
         htp.prn('</div>');
     end ChiudiDiv;
 
-    procedure Collegamento(testo varchar2, indirizzo varchar2, classe varchar2 default '') is /*LINK, testo -> testo cliccabile, Indirizzo -> pagina di destinazione, classe -> parametri di stile*/
+    procedure Collegamento(testo varchar2, indirizzo varchar2, classe varchar2 default '', fun VARCHAR2 default '') is /*LINK, testo -> testo cliccabile, Indirizzo -> pagina di destinazione, classe -> parametri di stile*/
     begin
-        htp.prn('<a href="' || Costanti.server || Costanti.radice || indirizzo ||'" class="'|| classe ||'">' || testo || '</a>');
+        htp.prn('<a href="' || Costanti.server || Costanti.radice || indirizzo ||'" class="'|| classe ||'" onClick="'||fun||'">' || testo || '</a>');
     end Collegamento;
 
     procedure ApriForm(azione varchar2, nome varchar2 default 'myForm', classe varchar2 default '', root varchar2 default 0) is /*azione -> pagina di destinazione, nome -> nome form, classe -> parametri di stile*/
@@ -253,12 +272,24 @@ CREATE OR REPLACE PACKAGE BODY modGUI1 as
         htp.prn(''|| testo ||'</option>');
     end SelectOption;
 
+    procedure EmptySelectOption(selected int default 0) is
+    begin
+        htp.prn('<option hidden disabled value ');
+        if (selected=1)
+        then
+            htp.prn('selected>');
+        else
+            htp.prn('>');
+        end if;
+        htp.prn('-- select an option -- </option>');
+    end EmptySelectOption;
+
     procedure SelectClose is
     begin
         htp.prn('</select>');
     end SelectClose;
 
-    procedure InputRadioButton (testo varchar2, nome varchar2, valore varchar2, checked int default 0, disabled int default 0) is
+    procedure InputRadioButton (testo varchar2, nome varchar2, valore varchar2, checked int default 0, disabled int default 0,required int default 0) is
     begin
         htp.print('<input class="w3-radio" type="radio" name="'|| nome ||'" value="'|| valore ||'"');
         if (checked=1)
@@ -268,6 +299,10 @@ CREATE OR REPLACE PACKAGE BODY modGUI1 as
         if (disabled=1)
         then
             htp.prn(' disabled');
+        end if;
+        if (required=1)
+        then
+            htp.prn(' required');
         end if;
         htp.prn('> ');
         htp.prn(testo);

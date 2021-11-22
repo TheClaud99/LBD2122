@@ -518,8 +518,8 @@ procedure statTitoliPerArcoTemp(
 	datainizio VARCHAR2 default null,
 	datafine VARCHAR2 default null
 )IS
-	iniziop:= to_date(datainizio, 'YYYY-MM-DD');
-	finep:= to_date(datafine, 'YYYY-MM-DD');
+	iniziop date:= to_date(datainizio, 'YYYY-MM-DD');
+	finep date:= to_date(datafine, 'YYYY-MM-DD');
 	statistica NUMBER(10) default 0;
 BEGIN
 	if datainizio is null or datafine is NULL or iniziop > finep
@@ -555,7 +555,7 @@ BEGIN
 		htp.tabledata(finep);
 		HTP.TableRowClose;
 		HTP.TableRowOpen;
-		HTP.TableData("Numero di titoli venduti durante l'arco temporale scelto: ");
+		HTP.TableData('Numero di titoli venduti durante l`arco temporale scelto: ');
 		HTP.TableData(statistica);
 		HTP.TableRowClose;
 		htp.TableClose;
@@ -564,7 +564,7 @@ BEGIN
 		htp.HtmlClose;
 	end if;
 
-END;
+END; 
 --CANCELLAZIONE
 procedure cancellazionetitoloing(
 	idtitoloingselezionato varchar2
@@ -582,34 +582,46 @@ BEGIN
 		select count(*) into temp2 from TITOLIINGRESSO where IDTITOLOING=idtitoloingselezionato;
 		if temp2<1
 		then
-			modgui1.apripagina('Pagina conferma cancellazione');
+			modgui1.apripagina('Pagina esito cancellazione');
+			htp.bodyopen;
 			modgui1.header();
 			modgui1.apridiv('style="margin-top: 110px"');
+			htp.header(1, 'Cancellazione titolo ingresso');
+			modgui1.apridivcard();
 			htp.prn('<h1> Successo! </h1>');
 			htp.br();
 			htp.print('Titolo di ingresso eliminato correttamente.');
     		modgui1.chiudidiv;
+			modgui1.chiudidiv;
     		htp.BodyClose;
     		htp.HtmlClose;
 		else
 			modgui1.apripagina('Pagina errore');
+			htp.bodyopen;
 			modgui1.header();
 			modgui1.apridiv('style="margin-top: 110px"');
+			htp.header(1, 'Cancellazione titolo ingresso');
+			modgui1.apridivcard();
 			htp.prn('<h1> Errore </h1>');
 			htp.br();
 			htp.print('Titolo di ingresso non eliminato correttamente.');
     		modgui1.chiudidiv;
+			modgui1.chiudidiv;
     		htp.BodyClose;
     		htp.HtmlClose;
 		end if;
 	ELSE
 		modgui1.apripagina('Pagina errore');
+		htp.bodyopen;
 		modgui1.header();
 		modgui1.apridiv('style="margin-top: 110px"');
+		htp.header(1, 'Cancellazione titolo ingresso');
+		modgui1.apridivcard();
 		htp.prn('<h1> Errore </h1>');
 		htp.br();
 		htp.print('Titolo di ingresso non presente.');
     	modgui1.chiudidiv;
+		modgui1.chiudidiv;
     	htp.BodyClose;
     	htp.HtmlClose;
 	end if;

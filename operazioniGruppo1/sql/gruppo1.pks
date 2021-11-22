@@ -45,6 +45,14 @@ PROCEDURE InserisciDatiUtente (
 	utenteAssistenza VARCHAR2 DEFAULT NULL
 );
 
+procedure EsitoPositivoUtenti(
+    sessionID NUMBER DEFAULT 0
+);
+
+procedure EsitoNegativoUtenti(
+    sessionID NUMBER DEFAULT 0
+);
+
 PROCEDURE VisualizzaUtente (
     sessionID NUMBER DEFAULT 0,
 	utenteID NUMBER
@@ -76,7 +84,19 @@ PROCEDURE EliminaUtente(
 );
 
 PROCEDURE ListaUtenti(
-	sessionID NUMBER default 0,
+	sessionID NUMBER default 0
+);
+
+function etaMediaUtenti return NUMBER;
+
+function sommaTitoli(
+	dataInizioFun VARCHAR2 DEFAULT NULL,
+	dataFineFun VARCHAR2 DEFAULT NULL,
+	utenteID NUMBER DEFAULT 0 
+) return NUMBER;
+
+procedure StatisticheUtenti(
+	sessionID NUMBER default 0
 );
 
 PROCEDURE acquistabiglietto(
@@ -115,8 +135,8 @@ PROCEDURE inserisci_newsletter (
 );
 */
 
-PROCEDURE numeroVisitatoriNewsletter (
-    sessionID NUMBER DEFAULT 0,
+PROCEDURE statisticheNewsLetter (
+	sessionID NUMBER DEFAULT 0,
 	newsletterID NUMBER DEFAULT -1
 );
 

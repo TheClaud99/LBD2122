@@ -1291,7 +1291,7 @@ INSERT INTO STANZE (IdStanza, Nome, Dimensione, Museo)
 VALUES (21, 'Hirst', 30, 1);
 INSERT INTO STANZE (IdStanza, Nome, Dimensione, Museo)
 VALUES (22, 'Ambiente 4', 26, 1);
-/*Stanze museo 2 museo del rinascimento*/
+/*Stanze museo, Eliminato 2 museo, Eliminato del rinascimento*/
 INSERT INTO STANZE (IdStanza, Nome, Dimensione, Museo)
 VALUES (23, 'Ambiente 1', 90, 2);
 INSERT INTO STANZE (IdStanza, Nome, Dimensione, Museo)
@@ -1340,7 +1340,7 @@ INSERT INTO STANZE (IdStanza, Nome, Dimensione, Museo)
 VALUES (45, 'Vergari', 30, 2);
 INSERT INTO STANZE (IdStanza, Nome, Dimensione, Museo)
 VALUES (46, 'Ambiente 5', 40, 2);
-/*Stanze museo 3 museo di storia romana*/
+/*Stanze museo, Eliminato 3 museo, Eliminato di storia romana*/
 INSERT INTO STANZE (IdStanza, Nome, Dimensione, Museo)
 VALUES (47, 'Ambiente 1', 110, 3);
 INSERT INTO STANZE (IdStanza, Nome, Dimensione, Museo)
@@ -1391,7 +1391,7 @@ INSERT INTO STANZE (IdStanza, Nome, Dimensione, Museo)
 VALUES (70, 'Virgilio', 23, 3);
 INSERT INTO STANZE (IdStanza, Nome, Dimensione, Museo)
 VALUES (71, 'Crasso', 26, 3);
-/*Stanze museo 4 museo egizio*/
+/*Stanze museo, Eliminato 4 museo, Eliminato egizio*/
 INSERT INTO STANZE (IdStanza, Nome, Dimensione, Museo)
 VALUES (72, 'Ambiente 1', 100, 4);
 INSERT INTO STANZE (IdStanza, Nome, Dimensione, Museo)
@@ -1440,7 +1440,7 @@ INSERT INTO STANZE (IdStanza, Nome, Dimensione, Museo)
 VALUES (94, 'Osiride', 26, 4);
 INSERT INTO STANZE (IdStanza, Nome, Dimensione, Museo)
 VALUES (95, 'Ambiente 5', 45, 4);
-/*Stanze museo 5 museo di scienze naturali*/
+/*Stanze museo, Eliminato 5 museo, Eliminato di scienze naturali*/
 INSERT INTO STANZE (IdStanza, Nome, Dimensione, Museo)
 VALUES (96, 'Ambiente 1', 60, 5);
 INSERT INTO STANZE (IdStanza, Nome, Dimensione, Museo)
@@ -1483,7 +1483,7 @@ INSERT INTO STANZE (IdStanza, Nome, Dimensione, Museo)
 VALUES (115, 'Telesio', 30, 5);
 INSERT INTO STANZE (IdStanza, Nome, Dimensione, Museo)
 VALUES (116, 'Ambiente 4', 30, 5);
-/*Stanze museo 6 pinacoteca nazionale*/
+/*Stanze museo, Eliminato 6 pinacoteca nazionale*/
 INSERT INTO STANZE (IdStanza, Nome, Dimensione, Museo)
 VALUES (117, 'Ambiente 1', 50, 6);
 INSERT INTO STANZE (IdStanza, Nome, Dimensione, Museo)
@@ -2101,7 +2101,7 @@ VALUES(idMovimentoSeq.nextVal, 84, 28, to_date('13/8/2021', 'DD/MM/YYYY HH24:MI:
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
 VALUES(idMovimentoSeq.nextVal, 60, 28, to_date('11/9/2021', 'DD/MM/YYYY HH24:MI:SS'), NULL);
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 112, 29, to_date('18/3/2021', 'DD/MM/YYYY HH24:MI:SS'), to_date('8/2/2021', 'DD/MM/YYYY HH24:MI:SS'));
+VALUES(idMovimentoSeq.nextVal, 112, 29, to_date('18/3/2021', 'DD/MM/YYYY HH24:MI:SS'), to_date('8/2/2022', 'DD/MM/YYYY HH24:MI:SS'));
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
 VALUES(idMovimentoSeq.nextVal, 7, 29, to_date('8/2/2021', 'DD/MM/YYYY HH24:MI:SS'), to_date('19/3/2021', 'DD/MM/YYYY HH24:MI:SS'));
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
@@ -3057,7 +3057,7 @@ VALUES(idMovimentoSeq.nextVal, 8, 124, to_date('13/8/2021', 'DD/MM/YYYY HH24:MI:
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
 VALUES(idMovimentoSeq.nextVal, 130, 124, to_date('11/9/2021', 'DD/MM/YYYY HH24:MI:SS'), NULL);
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 49, 125, to_date('18/3/2021', 'DD/MM/YYYY HH24:MI:SS'), to_date('8/2/2021', 'DD/MM/YYYY HH24:MI:SS'));
+VALUES(idMovimentoSeq.nextVal, 49, 125, to_date('18/3/2021', 'DD/MM/YYYY HH24:MI:SS'), to_date('8/2/2022', 'DD/MM/YYYY HH24:MI:SS'));
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
 VALUES(idMovimentoSeq.nextVal, 101, 125, to_date('8/2/2021', 'DD/MM/YYYY HH24:MI:SS'), to_date('12/3/2021', 'DD/MM/YYYY HH24:MI:SS'));
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
@@ -3205,7 +3205,7 @@ VALUES(idMovimentoSeq.nextVal, 14, 138, to_date('13/8/2021', 'DD/MM/YYYY HH24:MI
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
 VALUES(idMovimentoSeq.nextVal, 89, 138, to_date('18/9/2021', 'DD/MM/YYYY HH24:MI:SS'), NULL);
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 34, 139, to_date('25/3/2021', 'DD/MM/YYYY HH24:MI:SS'), to_date('15/2/2021', 'DD/MM/YYYY HH24:MI:SS'));
+VALUES(idMovimentoSeq.nextVal, 34, 139, to_date('25/3/2021', 'DD/MM/YYYY HH24:MI:SS'), to_date('15/4/2021', 'DD/MM/YYYY HH24:MI:SS'));
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
 VALUES(idMovimentoSeq.nextVal, 28, 139, to_date('15/2/2021', 'DD/MM/YYYY HH24:MI:SS'), to_date('3/4/2021', 'DD/MM/YYYY HH24:MI:SS'));
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
@@ -3837,7 +3837,7 @@ VALUES(idMovimentoSeq.nextVal, 36, 202, to_date('16/7/2021', 'DD/MM/YYYY HH24:MI
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
 VALUES(idMovimentoSeq.nextVal, 21, 202, to_date('4/9/2021', 'DD/MM/YYYY HH24:MI:SS'), NULL);
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 32, 203, to_date('18/3/2021', 'DD/MM/YYYY HH24:MI:SS'), to_date('8/2/2021', 'DD/MM/YYYY HH24:MI:SS'));
+VALUES(idMovimentoSeq.nextVal, 32, 203, to_date('18/3/2021', 'DD/MM/YYYY HH24:MI:SS'), to_date('8/4/2021', 'DD/MM/YYYY HH24:MI:SS'));
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
 VALUES(idMovimentoSeq.nextVal, 29, 203, to_date('8/2/2021', 'DD/MM/YYYY HH24:MI:SS'), to_date('19/3/2021', 'DD/MM/YYYY HH24:MI:SS'));
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
@@ -4485,7 +4485,7 @@ VALUES(idMovimentoSeq.nextVal, 17, 267, to_date('27/8/2021', 'DD/MM/YYYY HH24:MI
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
 VALUES(idMovimentoSeq.nextVal, 70, 267, to_date('18/9/2021', 'DD/MM/YYYY HH24:MI:SS'), NULL);
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 134, 268, to_date('25/3/2021', 'DD/MM/YYYY HH24:MI:SS'), to_date('15/2/2021', 'DD/MM/YYYY HH24:MI:SS'));
+VALUES(idMovimentoSeq.nextVal, 134, 268, to_date('25/3/2021', 'DD/MM/YYYY HH24:MI:SS'), to_date('15/4/2021', 'DD/MM/YYYY HH24:MI:SS'));
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
 VALUES(idMovimentoSeq.nextVal, 37, 268, to_date('15/2/2021', 'DD/MM/YYYY HH24:MI:SS'), to_date('3/4/2021', 'DD/MM/YYYY HH24:MI:SS'));
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
@@ -5629,7 +5629,7 @@ VALUES(idMovimentoSeq.nextVal, 124, 381, to_date('6/8/2021', 'DD/MM/YYYY HH24:MI
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
 VALUES(idMovimentoSeq.nextVal, 136, 381, to_date('27/8/2021', 'DD/MM/YYYY HH24:MI:SS'), NULL);
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
-VALUES(idMovimentoSeq.nextVal, 82, 382, to_date('25/3/2021', 'DD/MM/YYYY HH24:MI:SS'), to_date('22/1/2021', 'DD/MM/YYYY HH24:MI:SS'));
+VALUES(idMovimentoSeq.nextVal, 82, 382, to_date('25/3/2021', 'DD/MM/YYYY HH24:MI:SS'), to_date('22/1/2022', 'DD/MM/YYYY HH24:MI:SS'));
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
 VALUES(idMovimentoSeq.nextVal, 124, 382, to_date('22/1/2021', 'DD/MM/YYYY HH24:MI:SS'), to_date('12/3/2021', 'DD/MM/YYYY HH24:MI:SS'));
 INSERT INTO SALEOPERE (IdMovimento, Sala, Opera, DataArrivo, DataUscita)
@@ -19970,6 +19970,15 @@ INSERT INTO TARIFFECAMPIESTIVI (IdTariffa, Prezzo, Etaminima, Etamassima, CampoE
 VALUES (IdTariffaSeq.nextval, 320.18, 15, 30, 8);
 INSERT INTO TARIFFECAMPIESTIVI (IdTariffa, Prezzo, Etaminima, Etamassima, CampoEstivo)
 VALUES (IdTariffaSeq.nextval, 751.17, 18, 999, 4);
+
+/********RUOLISESSIONI*********/
+INSERT INTO RUOLISESSIONI (Ruolo, IdSessione) VALUES ('U', 0);
+INSERT INTO RUOLISESSIONI (Ruolo, IdSessione) VALUES ('DBA', 1);
+INSERT INTO RUOLISESSIONI (Ruolo, IdSessione) VALUES ('AB', 2);
+INSERT INTO RUOLISESSIONI (Ruolo, IdSessione) VALUES ('GM', 3);
+INSERT INTO RUOLISESSIONI (Ruolo, IdSessione) VALUES ('GO', 4);
+INSERT INTO RUOLISESSIONI (Ruolo, IdSessione) VALUES ('GCE', 5);
+
 /************UTENTI*************/
 INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico)
 VALUES (IdUtenteseq.nextval,'Hichem','Toomey',to_date('23/07/2005','DD/MM/YYYY HH24:MI:SS'),'2 Misty Marsh Drive, Savannah','hichem@toomey.it','3494740733');
@@ -29869,9 +29878,9 @@ INSERT INTO BIGLIETTI(IdTipologiaIng)
 VALUES(12);
 /***********ABBONAMENTI************/
 INSERT INTO ABBONAMENTI(IdTipologiaIng, NumPersone)
-VALUES(13, 0); --abbonamento a sale
+VALUES(13, 1); --abbonamento a sale
 INSERT INTO ABBONAMENTI(IdTipologiaIng, NumPersone)
-VALUES(14, 0); --abbonamento a tempo
+VALUES(14, 1); --abbonamento a tempo
 
 /**********VARCHI*********/
 /*Varchi museo 1 galleria di arte moderna*/
@@ -30900,5 +30909,18 @@ INSERT INTO VISITEVARCHI (IdVisita, IdVarco, AttraversamentoVarco)
 VALUES (13, 25, to_date('15:54:15', 'HH24:MI:SS'));
 INSERT INTO VISITEVARCHI (IdVisita, IdVarco, AttraversamentoVarco)
 VALUES (13, 25, to_date('15:55:13', 'HH24:MI:SS'));
+
+/********UTENTILOGIN*********/
+INSERT INTO UTENTILOGIN (IdUtenteLogin, IdCliente, Username, Password, Ruolo)
+VALUES (IdUtenteLoginSeq.nextval, NULL, 'MarioROSSI', 'dba', 'DBA');
+INSERT INTO UTENTILOGIN (IdUtenteLogin, IdCliente, Username, Password, Ruolo)
+VALUES (IdUtenteLoginSeq.nextval, NULL, 'LuigiBIANCHI', 'ab', 'AB');
+INSERT INTO UTENTILOGIN (IdUtenteLogin, IdCliente, Username, Password, Ruolo)
+VALUES (IdUtenteLoginSeq.nextval, NULL, 'StefanoVERDI', 'gm', 'GM');
+INSERT INTO UTENTILOGIN (IdUtenteLogin, IdCliente, Username, Password, Ruolo)
+VALUES (IdUtenteLoginSeq.nextval, NULL, 'PaoloNERI', 'go', 'GO');
+INSERT INTO UTENTILOGIN (IdUtenteLogin, IdCliente, Username, Password, Ruolo)
+VALUES (IdUtenteLoginSeq.nextval, NULL, 'MarcoGIALLI', 'gce', 'GCE');
+
 SET DEFINE ON;
 commit;

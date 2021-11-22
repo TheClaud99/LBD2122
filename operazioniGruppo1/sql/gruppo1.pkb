@@ -5,14 +5,14 @@ CREATE OR REPLACE PACKAGE BODY gruppo1 AS
  *http://131.114.73.203:8080/apex/fgiannotti.gruppo1.InserisciUtente
  * OPERAZIONI SUGLI UTENTI
  * - Inserimento ✅
- * - Modifica ❌
- * - Visualizzazione ❌
- * - Cancellazione (rimozione) ❌
+ * - Modifica ✅
+ * - Visualizzazione ✅
+ * - Cancellazione (rimozione) ✅
  * OPERAZIONI STATISTICHE E MONITORAGGIO
  * - Numero Musei visitati in un arco temporale scelto ❌
  * - Numero Titoli d’Ingresso  acquistati in un arco temporale scelto ❌
  * - Numero medio Titoli d’Ingresso acquistati in un arco temporale scelto ❌
- * - Età media utenti ❌
+ * - Età media utenti ✅
  * - Spesa media di un visitatore in un arco temporale scelto ❌
  */
 
@@ -57,15 +57,15 @@ PROCEDURE InserisciUtente(
 ) IS
 BEGIN
 
-    MODGUI1.ApriPagina('Inserimento utenti', 0);
+    MODGUI1.ApriPagina('Inserimento utenti', sessionID);
 
 	HTP.BodyOpen;
 	MODGUI1.Header(); --da capire come combinarlo con il resto
 	HTP.header(1,'Inserisci un nuovo utente', 'center');
-	modgui1.apridiv('class="w3-modal-content w3-card-4 w3-animate-zoom" style="max-width:600px; margin-top:110px"');
-
+	modgui1.apridiv('class="w3-modal-content w3-card-4 w3-animate-zoom w3-padding-large" style="max-width:600px; margin-top:110px"');
+	HTP.header(2, 'Inserisci utente');
 	MODGUI1.ApriForm('ConfermaDatiUtente');
-	HTP.FORMHIDDEN('sessionID',0);
+	HTP.FORMHIDDEN('sessionID',sessionID);
 
 	MODGUI1.Label('Nome*');
 	MODGUI1.InputText('nome', 'Nome utente', 1, nome);
@@ -88,14 +88,14 @@ BEGIN
 	if utenteMuseo = 'on' then
 		MODGUI1.InputCheckboxOnClick('Utente museo', 'utenteMuseo','check()','utentemuseo', 1);
 		MODGUI1.ApriDiv('style="margin-left: 2%; margin-right: 2%; display: block" id="first"');
-	else 
+	else
 		MODGUI1.InputCheckboxOnClick('Utente museo', 'utenteMuseo','check()','utentemuseo');
 		MODGUI1.ApriDiv('style="margin-left: 2%; margin-right: 2%; display: none" id="first"');
 	end if;
 	HTP.BR;
 	if utenteDonatore = 'on' then
 		MODGUI1.InputCheckbox('Donatore', 'utenteDonatore', 1);
-	else 
+	else
 		MODGUI1.InputCheckbox('Donatore', 'utenteDonatore');
 	end if;
 	HTP.BR;
@@ -111,7 +111,7 @@ BEGIN
 	HTP.BR;
 	if utenteAssistenza = 'on' then
 		MODGUI1.InputCheckbox('Richiede assistenza', 'utenteAssistenza', 1);
-	else 
+	else
 		MODGUI1.InputCheckbox('Richiede assistenza', 'utenteAssistenza');
 	end if;
 	HTP.BR;
@@ -119,7 +119,7 @@ BEGIN
 
 	MODGUI1.InputSubmit('Inserisci');
 	MODGUI1.ChiudiForm;
-
+	MODGUI1.collegamento('Annulla','ListaUtenti?sessionID='||sessionID||'','w3-button w3-block w3-black w3-section w3-padding');
 	MODGUI1.ChiudiDiv;
 
 	htp.print('<script type="text/javascript">
@@ -194,10 +194,8 @@ BEGIN
 		MODGUI1.APRIPAGINA('Pagina OK', 0);
 		HTP.BodyOpen;
 		MODGUI1.Header();
-		HTP.header(1, 'Conferma immissione dati');
-
-		modgui1.apridiv('class="w3-modal-content w3-card-4 w3-animate-zoom" style="max-width:600px; margin-top:110px"');
-		HTP.header(2, 'Nuovo utente');
+		modgui1.apridiv('class="w3-modal-content w3-card-4 w3-animate-zoom w3-padding-large" style="max-width:600px; margin-top:110px"');
+		HTP.header(2, 'Conferma dati utente');
 
 		HTP.TableOpen;
 		HTP.TableRowOpen;
@@ -241,7 +239,7 @@ BEGIN
 			HTP.TableData('Utente campi estivo: ');
 			HTP.TableData('&#10004');
 			HTP.TableRowClose;
-			if utenteAssistenza = 'on' then 
+			if utenteAssistenza = 'on' then
 				HTP.TableRowOpen;
 				HTP.TableData('Richiesta assistenza: ');
 				HTP.TableData('&#10004');
@@ -251,7 +249,7 @@ BEGIN
 		HTP.TableClose;
 
 		MODGUI1.ApriForm('InserisciDatiUtente');
-		HTP.FORMHIDDEN('sessionID', 0);
+		HTP.FORMHIDDEN('sessionID', sessionID);
 		HTP.FORMHIDDEN('nome', nome);
 		HTP.FORMHIDDEN('cognome', cognome);
 		HTP.FORMHIDDEN('dataNascita', dataNascita);
@@ -275,7 +273,7 @@ BEGIN
 		MODGUI1.Collegamento(
             'Annulla',
 			'InserisciUtente?nome='||nome||'&cognome='||cognome||'&dataNascita='||dataNascita||'&indirizzo='||indirizzo||'&email='||email||'&telefono='||telefono||'&utenteMuseo='||utenteMuseo||'&utenteDonatore='||utenteDonatore||'&utenteCampiEstivi='||utenteCampiEstivi||'&utenteAssistenza='||utenteAssistenza,
-			'w3-btn'
+			'w3-button w3-block w3-black w3-section w3-padding'
         );
 		MODGUI1.ChiudiDiv;
 		HTP.BodyClose;
@@ -349,95 +347,49 @@ BEGIN
 	THEN
 		-- faccio il commit dello statement precedente
 		commit;
-
-		MODGUI1.ApriPagina('Utente inserito', sessionID);
-		HTP.BodyOpen;
-		MODGUI1.Header();
-		modgui1.apridiv('class="w3-modal-content w3-card-4 w3-animate-zoom" style="max-width:600px; margin-top:110px"');
-		HTP.tableopen;
-		HTP.tablerowopen;
-		HTP.tabledata('Nome: '||nome);
-		HTP.tablerowclose;
-		HTP.tablerowopen;
-		HTP.tabledata('Cognome: '||cognome);
-		HTP.tablerowclose;
-		HTP.tablerowopen;
-		HTP.tabledata('Data nascita: '||birth);
-		HTP.tablerowclose;
-		HTP.tablerowopen;
-		HTP.tabledata('Indirizzo: '||indirizzo);
-		HTP.tablerowopen;
-		HTP.tablerowclose;
-		HTP.tablerowopen;
-		HTP.tabledata('Email: '||utenteEmail);
-		HTP.tablerowclose;
-		HTP.tablerowopen;
-		HTP.tabledata('Telefono: '||telefono);
-		HTP.tablerowclose;
-		if utenteMuseo = 'on' then
-			HTP.TableRowOpen;
-			HTP.TableData('Utente museo: ');
-			HTP.TableData('&#10004');
-			HTP.TableRowClose;
-			if utenteDonatore = 'on' then
-				HTP.TableRowOpen;
-				HTP.TableData('Donatore: ');
-				HTP.TableData('&#10004');
-				HTP.TableRowClose;
-			end if;
-		end if;
-		if utenteCampiEstivi = 'on' then
-			HTP.TableRowOpen;
-			HTP.TableData('Utente campi estivo: ');
-			HTP.TableData('&#10004');
-			HTP.TableRowClose;
-			if utenteAssistenza = 'on' then 
-				HTP.TableRowOpen;
-				HTP.TableData('Richiesta assistenza: ');
-				HTP.TableData('&#10004');
-				HTP.TableRowClose;
-			end if;
-		end if;
-		HTP.tableClose;
-		MODGUI1.ChiudiDiv;
-		HTP.BodyClose;
-		HTP.HtmlClose;
+		EsitoPositivoUtenti(sessionID);
+	
 	ELSE
-		MODGUI1.ApriPagina('Utente non inserito', sessionID);
-		HTP.BodyOpen;
-
-		HTP.PRN('Utente non inserito');
-
-		HTP.BodyClose;
-		HTP.HtmlClose;
+		EsitoNegativoUtenti(sessionID);
+		
 	END IF;
 
     EXCEPTION
       when EmailPresente then
-        MODGUI1.ApriPagina('Errore', sessionID);
-		MODGUI1.Header();
-		HTP.BodyOpen;
-
-		MODGUI1.ApriDiv;
-		HTP.PRN('Email già presente');
-		MODGUI1.collegamento('Inserisci nuovo utente', 'InserisciUtente');
-		MODGUI1.ChiudiDiv;
-
-		HTP.BodyClose;
-		HTP.HtmlClose;
+       EsitoNegativoUtenti(sessionID);
     when TelefonoPresente then
-        MODGUI1.ApriPagina('Errore', sessionID);
-		MODGUI1.Header();
-		HTP.BodyOpen;
-
-		MODGUI1.ApriDiv;
-		HTP.PRN('Telefono già presente');
-		MODGUI1.collegamento('Inserisci nuovo utente', 'InserisciUtente');
-		MODGUI1.ChiudiDiv;
-
-		HTP.BodyClose;
-		HTP.HtmlClose;
+       EsitoNegativoUtenti(sessionID);
 END;
+
+procedure EsitoPositivoUtenti(
+    sessionID NUMBER DEFAULT 0
+    ) is 
+    begin
+        modGUI1.ApriPagina('EsitoPositivoUtenti',sessionID);
+        modGUI1.Header(sessionID);
+        htp.br;htp.br;htp.br;htp.br;htp.br;htp.br;
+            modGUI1.ApriDiv('class="w3-modal-content w3-card-4 w3-animate-zoom w3-padding-large" style="max-width:450px"');
+                modGUI1.ApriDiv('class="w3-center"');
+                htp.print('<h1>Operazione eseguita correttamente </h1>');
+                MODGUI1.collegamento('Torna al menu','ListaUtenti?sessionID='||sessionID||'','w3-button w3-block w3-black w3-section w3-padding');
+                modGUI1.ChiudiDiv;
+            modGUI1.ChiudiDiv;
+end;
+
+procedure EsitoNegativoUtenti(
+    sessionID NUMBER DEFAULT 0
+    ) is 
+    begin
+        modGUI1.ApriPagina('EsitoPositivoUtenti',sessionID);
+        modGUI1.Header(sessionID);
+        htp.br;htp.br;htp.br;htp.br;htp.br;htp.br;
+            modGUI1.ApriDiv('class="w3-modal-content w3-card-4 w3-animate-zoom w3-padding-large" style="max-width:450px"');
+                modGUI1.ApriDiv('class="w3-center"');
+                htp.print('<h1>Operazione NON eseguita</h1>');
+                MODGUI1.collegamento('Torna al menu','ListaUtenti?sessionID='||sessionID||'','w3-button w3-block w3-black w3-section w3-padding');
+                modGUI1.ChiudiDiv;
+            modGUI1.ChiudiDiv;
+end;
 
 PROCEDURE VisualizzaUtente (
     sessionID NUMBER DEFAULT 0,
@@ -485,15 +437,8 @@ BEGIN
 		MODGUI1.ApriPagina('Profile utente', sessionID);
 		HTP.BodyOpen;
 		MODGUI1.Header(sessionID);
-		modgui1.apridiv('class="w3-modal-content w3-card-4 w3-animate-zoom" style="max-width:600px; margin-top:110px"');
-		/*
-		MODGUI1.ApriDiv('class="w3-center" style="margin: 0;
-							position: absolute;
-							top: 40%;
-							left: 50%;
-							margin-right: -50%;
-							transform: translate(-50%, -50%)"');
-		*/
+		modgui1.apridiv('class="w3-modal-content w3-card-4 w3-animate-zoom w3-padding-large" style="max-width:600px; margin-top:110px"');
+		HTP.header(2, 'Profilo utente');
 		HTP.tableopen;
 		HTP.tablerowopen;
 		HTP.tabledata('Nome: '||NomeUtente);
@@ -531,7 +476,7 @@ BEGIN
 			HTP.TableData('Utente campi estivo: ');
 			HTP.TableData('&#10004');
 			HTP.TableRowClose;
-			if UtenteAssistenza > 0 then 
+			if UtenteAssistenza > 0 then
 				HTP.TableRowOpen;
 				HTP.TableData('Richiesta assistenza: ');
 				HTP.TableData('&#10004');
@@ -539,8 +484,15 @@ BEGIN
 			end if;
 		end if;
 		HTP.tableClose;
+		if sessionID = 1 then
 		MODGUI1.Collegamento('Modifica', 'ModificaUtente?sessionID='||sessionID||'&utenteID='||utenteID, 'w3-button w3-blue w3-margin');
-		MODGUI1.Collegamento('Elimina', 'EliminaUtente?sessionID='||sessionID||'&utenteID='||utenteID, 'w3-button w3-red w3-margin');
+			MODGUI1.Collegamento('Elimina', 
+				'EliminaUtente?sessionID='||sessionID||'&utenteID='||utenteID,
+				'w3-button w3-red w3-margin', 
+				'return confirm(''Sei sicuro di voler eliminare il profilo di '||NomeUtente||' '||CognomeUtente||'?'')'
+			);
+		end if;
+		MODGUI1.collegamento('Torna al menu','ListaUtenti?sessionID='||sessionID||'','w3-button w3-block w3-black w3-section w3-padding');
 		MODGUI1.ChiudiDiv;
 		HTP.BodyClose;
 		HTP.HtmlClose;
@@ -600,7 +552,8 @@ BEGIN
 		MODGUI1.ApriPagina('Profile utente', sessionID);
 		HTP.BodyOpen;
 		MODGUI1.Header(sessionID);
-		modgui1.apridiv('class="w3-modal-content w3-card-4 w3-animate-zoom" style="max-width:600px; margin-top:110px"');
+		modgui1.apridiv('class="w3-modal-content w3-card-4 w3-animate-zoom w3-padding-large" style="max-width:600px; margin-top:110px"');
+		HTP.header(2, 'Modifica utente');
 		MODGUI1.ApriForm('ModificaDatiUtente');
 		HTP.FORMHIDDEN('sessionID',0);
 		HTP.FORMHIDDEN('utenteID',utenteID);
@@ -625,14 +578,14 @@ BEGIN
 		if temp > 0 then
 		MODGUI1.InputCheckboxOnClick('Utente museo', 'utenteMuseoNew','check()','utentemuseo', 1);
 		MODGUI1.ApriDiv('style="margin-left: 2%; margin-right: 2%; display: block" id="first"');
-		else 
+		else
 			MODGUI1.InputCheckboxOnClick('Utente museo', 'utenteMuseoNew','check()','utentemuseo');
 			MODGUI1.ApriDiv('style="margin-left: 2%; margin-right: 2%; display: none" id="first"');
 		end if;
 		HTP.BR;
 		if utenteDonatore = 1 then
 			MODGUI1.InputCheckbox('Donatore', 'utenteDonatoreNew', 1);
-		else 
+		else
 			MODGUI1.InputCheckbox('Donatore', 'utenteDonatoreNew');
 		end if;
 		HTP.BR;
@@ -648,7 +601,7 @@ BEGIN
 		HTP.BR;
 		if utenteAssistenza = 1 then
 			MODGUI1.InputCheckbox('Richiede assistenza', 'utenteAssistenzaNew', 1);
-		else 
+		else
 			MODGUI1.InputCheckbox('Richiede assistenza', 'utenteAssistenzaNew');
 		end if;
 		HTP.BR;
@@ -659,7 +612,7 @@ BEGIN
 		MODGUI1.Collegamento(
             'Annulla',
 			'VisualizzaUtente?sessionId='||sessionID||'&utenteID='||utenteID,
-			'w3-btn'
+			'w3-button w3-block w3-black w3-section w3-padding'
         );
 		MODGUI1.ChiudiDiv;
 			htp.print('<script type="text/javascript">
@@ -734,8 +687,8 @@ PROCEDURE ModificaDatiUtente (
 BEGIN
 
 	select email into EmailUtente from UTENTI where utenteID = UTENTI.IDutente;
-	
-	if EmailUtente != utenteEmailNew then 
+
+	if EmailUtente != utenteEmailNew then
 		SELECT count(*) INTO temp FROM UTENTI WHERE UTENTI.Email = utenteEmailNew;
 		IF temp > 0 THEN
 			RAISE EmailPresente;
@@ -760,17 +713,17 @@ BEGIN
 		recapitotelefonico=telefonoNew
 	WHERE IDutente=utenteID;
 
-	
+
 	select count(*) into temp3 from UTENTIMUSEO where UTENTIMUSEO.IdUtente = utenteID;
 
 	if temp3 > 0 then
 		if utenteMuseoNew = 'on' then
 			if utenteDonatoreNew = 'on' then
-				update UTENTIMUSEO set 
+				update UTENTIMUSEO set
 					donatore=1
 				where idutente=utenteID;
 			else
-				update UTENTIMUSEO set 
+				update UTENTIMUSEO set
 					donatore=0
 				where idutente=utenteID;
 			end if;
@@ -792,11 +745,11 @@ BEGIN
 	if temp4 > 0 then
 		if utenteCampiEstiviNew = 'on' then
 			if utenteCampiEstiviNew = 'on' then
-				update UTENTICAMPIESTIVI set 
+				update UTENTICAMPIESTIVI set
 					Richiestaassistenza=1
 				where idutente=utenteID;
 			else
-				update UTENTICAMPIESTIVI set 
+				update UTENTICAMPIESTIVI set
 					Richiestaassistenza=0
 				where idutente=utenteID;
 			end if;
@@ -812,25 +765,13 @@ BEGIN
 			values (utenteID, 0);
 		end if;
 	end if;
-	
+
 
 	IF SQL%FOUND THEN
-		MODGUI1.ApriPagina('Utente aggiornato', sessionID);
-		HTP.BodyOpen;
-		MODGUI1.Header(sessionID);
-		modgui1.apridiv('class="w3-modal-content w3-card-4 w3-animate-zoom" style="max-width:600px; margin-top:110px"');
-		htp.print('<p>Utente aggiornato</p>');
-		modgui1.chiudiDiv;
-		HTP.BodyClose;
-		HTP.HtmlClose;
+		commit;
+		EsitoPositivoUtenti(sessionID);
 	ELSE
-		MODGUI1.ApriPagina('Utente non inserito', sessionID);
-		HTP.BodyOpen;
-		MODGUI1.Header(sessionID);
-		HTP.PRN('Utente non inserito');
-
-		HTP.BodyClose;
-		HTP.HtmlClose;
+		EsitoNegativoUtenti(sessionID);
 	END IF;
 
 
@@ -848,60 +789,188 @@ BEGIN
 	delete from UTENTI where IDUTENTE=utenteID;
 
 	IF SQL%FOUND THEN
-		MODGUI1.ApriPagina('Utente eliminato', sessionID);
-		HTP.BodyOpen;
-		MODGUI1.Header(sessionID);
-		modgui1.apridiv('class="w3-modal-content w3-card-4 w3-animate-zoom" style="max-width:600px; margin-top:110px"');
-		htp.print('<p>Utente eliminato</p>');
-		modgui1.chiudiDiv;
-		HTP.BodyClose;
-		HTP.HtmlClose;
+		commit;
+		EsitoPositivoUtenti(sessionID);
 	ELSE
-		MODGUI1.ApriPagina('Errore', sessionID);
-		HTP.BodyOpen;
-		MODGUI1.Header(sessionID);
-		modgui1.apridiv('class="w3-modal-content w3-card-4 w3-animate-zoom" style="max-width:600px; margin-top:110px"');
-		HTP.PRN('Impossibile eliminare il profilo selezionato');
-		modgui1.chiudiDiv;
-		HTP.BodyClose;
-		HTP.HtmlClose;
+		EsitoNegativoUtenti(sessionID);
 	END IF;
 
 END;
 
 PROCEDURE ListaUtenti(
-	sessionID NUMBER default 0,
+	sessionID NUMBER default 0
 )
+is
 begin
         modGUI1.ApriPagina('Lista utenti',sessionID);
         modGUI1.Header(sessionID);
-		modGUI1.ApriDiv('class="w3-center"');
+		modGUI1.ApriDiv('class="w3-center" style="margin-top:110px;"');
         htp.prn('<h1>Lista utenti</h1>');
+		 if sessionID = 1 
+        then
+            modGUI1.Collegamento('Inserisci','InserisciUtente?sessionID='||sessionID||'','w3-btn w3-round-xxlarge w3-black');
+            htp.print('&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;');
+        end if;
+            modGUI1.Collegamento('Statistiche','StatisticheUtenti?sessionID='||sessionID||'','w3-btn w3-round-xxlarge w3-black');
+        modGUI1.ChiudiDiv;
+        htp.br;
         modGUI1.ApriDiv('class="w3-row w3-container"');
-
    		for utente in (select * from utenti)  loop
                 modGUI1.ApriDiv('class="w3-col l4 w3-padding-large w3-center"');
-                    modGUI1.ApriDiv('class="w3-card-4" style="height:600px;"');
+                    modGUI1.ApriDiv('class="w3-card-4" style="height:200px;"');
 						modGUI1.ApriDiv('class="w3-container w3-center"');
-							htp.prn('<p>'|| utente.nome ||'</p>');
+							htp.prn('<p>'|| utente.nome || ' ' || utente.cognome ||'</p>');
 							htp.br;
-							htp.prn('<p>'|| utente.cognome ||'</p>');
 						modGUI1.ChiudiDiv;
 						modGUI1.Collegamento('Visualizza',
-                            'VisualizzaUtente?sessionID='||sessionID||'&utenteID='||utente.Idutente||,
+                            'VisualizzaUtente?sessionID='||sessionID||'&utenteID='||utente.Idutente,
                             'w3-margin w3-green w3-button');
                         if sessionID = 1 then
 						modGUI1.Collegamento('Modifica',
-                            'ModificaUtente?sessionID='||sessionID||'&utenteID='||utente.Idutente||,
+                            'ModificaUtente?sessionID='||sessionID||'&utenteID='||utente.Idutente,
                             'w3-margin w3-blue w3-button');        
                         modGUI1.Collegamento('Elimina',
-                            'EliminaUtente?sessionID='||sessionID||'&utenteID='||utente.Idutente||,
-                            'w3-red w3-margin w3-button');
+                            'EliminaUtente?sessionID='||sessionID||'&utenteID='||utente.Idutente,
+                            'w3-red w3-margin w3-button',
+							'return confirm(''Sei sicuro di voler eliminare il profilo di '||utente.nome||' '||utente.cognome||'?'')'
+							);
                     	end if;
                 	modGUI1.ChiudiDiv;
                 modGUI1.ChiudiDiv;
         END LOOP;
         modGUI1.chiudiDiv;
+end;
+
+function etaMediaUtenti
+	return NUMBER
+	is
+	tempMedia NUMBER := 0;
+	res NUMBER := 0;
+	BEGIN
+		select AVG(to_number((EXTRACT(YEAR FROM dataNascita)))) into tempMedia from utenti;
+		res := to_number((EXTRACT(YEAR FROM SYSDATE()))) - tempMedia;
+		return res;
+END;
+
+function sommaTitoli(
+	dataInizioFun VARCHAR2 DEFAULT NULL,
+	dataFineFun VARCHAR2 DEFAULT NULL,
+	utenteID NUMBER DEFAULT 0 
+)
+return NUMBER
+is
+	dataInizio DATE := TO_DATE(dataInizioFun default NULL on conversion error, 'YYYY-MM-DD');
+	dataFine DATE := TO_DATE(dataFineFun default NULL on conversion error, 'YYYY-MM-DD');
+	tempMedia NUMBER := 0;
+	res NUMBER := 0;
+	BEGIN
+		select SUM(COSTOTOTALE) 
+		into res
+		from tipologieingresso
+		join titoliingresso on idtipologiaing = tipologia
+		where Emissione > dataInizio and Emissione < dataFine; 
+		return res;
+END;
+
+procedure StatisticheUtenti(
+	sessionID NUMBER default 0
+)
+is
+	nomeutente utenti.nome%TYPE;
+	cognomeutente utenti.cognome%TYPE;
+	varidutente utenti.Idutente%TYPE;
+begin
+		MODGUI1.ApriPagina('Statistiche utente', sessionID);
+			HTP.BodyOpen;
+			MODGUI1.Header(sessionID);
+			modgui1.apridiv('class="w3-modal-content w3-card-4 w3-animate-zoom" style="margin-top:110px"');
+			modgui1.apriTabella('w3-table w3-striped w3-centered');
+				modgui1.apriRigaTabella;
+				modgui1.intestazioneTabella('Dati');
+				modgui1.intestazioneTabella('Operazione');
+				modgui1.intestazioneTabella('--->');
+				modgui1.intestazioneTabella('Risultato');
+				modgui1.chiudiRigaTabella;
+
+				modgui1.apriRigaTabella;
+					modgui1.apriElementoTabella;
+						modgui1.apridiv('class="w3-padding-24"');
+						modgui1.elementoTabella('Utenti');
+						modgui1.chiudiDiv;
+					modgui1.chiudiElementoTabella;
+					modgui1.apriElementoTabella;
+						modgui1.apridiv('class="w3-padding-24"');
+						modgui1.elementoTabella('Media delle date di nascita');
+						modgui1.chiudiDiv;
+					modgui1.chiudiElementoTabella;
+					modgui1.apriElementoTabella;
+						modgui1.Bottone('w3-blue w3-small','Calcola','mediaAnni','calcolaStats(1)');
+					modgui1.chiudiElementoTabella;
+						modgui1.apriElementoTabella();
+							modgui1.apridiv('class="w3-padding-24" id="result1"');
+						modgui1.chiudiDiv;
+					modgui1.chiudiElementoTabella;	
+				modgui1.chiudiRigaTabella;
+
+				modgui1.apriRigaTabella;
+					modgui1.apriElementoTabella;
+						modgui1.label('Utente');
+							modgui1.selectopen('utenteSommaTitoli', 'idutenteSommaTitoli');
+							MODGUI1.SelectOption(0, 'Tutti gli utenti', 0);
+							for utente in (select idutente from utentimuseo)
+							loop
+								select idutente, nome, cognome
+								into varidutente, nomeutente, cognomeutente
+								from utenti
+								where idutente=utente.idutente;
+								MODGUI1.SelectOption(varidutente, ''|| nomeutente ||' '||cognomeutente||'', 0);
+							end loop;
+							modgui1.selectclose();
+							htp.br;
+							MODGUI1.Label('Data inizio');
+							MODGUI1.InputDate('dataInizio', 'dataInizio', 1);
+							htp.br;
+							MODGUI1.Label('Data fine');
+							MODGUI1.InputDate('dataFine', 'dataFine', 1);
+					modgui1.chiudiElementoTabella;
+					modgui1.apriElementoTabella;
+						modgui1.apridiv('class="w3-padding-24"');
+						modgui1.elementoTabella('Numero Titoli d’Ingresso acquistati');
+						modgui1.chiudiDiv;
+					modgui1.chiudiElementoTabella;
+					modgui1.apriElementoTabella;
+						modgui1.Bottone('w3-blue w3-small','Calcola','sumTitoli','calcolaStats(2)');
+					modgui1.chiudiElementoTabella;
+						modgui1.apriElementoTabella();
+							modgui1.apridiv('class="w3-padding-24" id="result2"');
+						modgui1.chiudiDiv;
+					modgui1.chiudiElementoTabella;	
+				modgui1.chiudiRigaTabella;		
+			modgui1.chiudiTabella;
+
+			MODGUI1.collegamento('Torna al menu','ListaUtenti?sessionID='||sessionID||'','w3-button w3-block w3-black w3-section w3-padding');
+			modgui1.chiudiDiv;
+			htp.print('<script type="text/javascript">
+			function calcolaStats(value) {
+				switch (value) {
+  					case 1:
+						const td1 = document.getElementById("result1")
+						td1.innerHTML = parseInt('||etaMediaUtenti||')
+						break;
+					case 2:
+						const inizio = document.getElementById("dataInizio").value
+						const fine = document.getElementById("dataFine").value
+						const id = document.getElementById("idutenteSommaTitoli").value
+						const td2 = document.getElementById("result2")
+						td2.innerHTML = ('||sommaTitoli(||'inizio'||,||'fine'||,||'id')||')
+						break;
+					default:
+					console.log("error")
+				}
+			}
+        </script>');
+		HTP.BodyClose;
+		HTP.HtmlClose;
 end;
 
 
@@ -1119,34 +1188,141 @@ END;
 -------------------------------------------------------------FINE TODO */
 
 
-PROCEDURE numeroVisitatoriNewsletter (
-    sessionID NUMBER DEFAULT 0,
+PROCEDURE statisticheNewsLetter (
+	sessionID NUMBER DEFAULT 0,
 	newsletterID NUMBER DEFAULT -1
 ) IS
-
-	temp NUMBER(10) := 10;
+	temp NUMBER(10) := 0;
 	nomeNew VARCHAR2(100) := '';
+	numeroVisitatori NUMBER(10) := 0;
+	etaMediaIscritti NUMBER(10) := 0;
 
-begin
+
+	--utente
+	U_NOME UTENTI.NOME%TYPE :='';
+	U_COGNOME UTENTI.COGNOME%TYPE :='';
+	U_NASCITA UTENTI.DATANASCITA%TYPE :='';
+	U_EMAIL UTENTI.EMAIL%TYPE :='';
+	U_INDIRIZZO UTENTI.INDIRIZZO%TYPE :='';
+	U_RECAPITO UTENTI.RECAPITOTELEFONICO%TYPE :='';
+
+    newsletterInesistente EXCEPTION;
+BEGIN
+
+	if newsletterID = -1
+	THEN
+		RAISE newsletterInesistente;
+	end if;
+
+	SELECT count(*) into temp FROM NEWSLETTER where NEWSLETTER.IDNEWS = newsletterID;
+
+	if temp = 0
+	THEN
+		RAISE newsletterInesistente;
+	end if;
+
 	SELECT NOME into nomeNew FROM NEWSLETTER WHERE NEWSLETTER.IDNEWS = newsletterID;
-	SELECT count(*) into temp from UTENTI where IdUtente IN (select VISITATORE from VISITE) AND IDUTENTE IN (SELECT IDUTENTE FROM NEWSLETTERUTENTI WHERE IDNEWS = newsletterID);
-	modgui1.apripagina('statistica');
-	modgui1.header();
-	modgui1.apridiv('style="margin-top: 110px"');
-	htp.prn('<h1> Numero visitatori per newsletter </h1>');
-	htp.br();
-	modgui1.Label(CONCAT('newsletter name:', nomeNew));
-	modgui1.Label(TO_CHAR(temp));
-	modgui1.chiudidiv;
-	htp.BodyClose;
-	htp.HtmlClose;
+	SELECT count(*) into numeroVisitatori from UTENTI where IdUtente IN (select VISITATORE from VISITE) AND IDUTENTE IN (SELECT IDUTENTE FROM NEWSLETTERUTENTI WHERE IDNEWS = newsletterID);
 
-	modgui1.chiudiDiv();
+	SELECT avg(age) into etaMediaIscritti FROM (SELECT MONTHS_BETWEEN(sysdate, UTENTI.DATANASCITA) / 12 age FROM UTENTI WHERE UTENTI.IDUTENTE IN (SELECT NEWSLETTERUTENTI.IDUTENTE FROM NEWSLETTERUTENTI WHERE NEWSLETTERUTENTI.IDNEWS = newsletterID));
+
+
+	MODGUI1.ApriPagina('Statistiche');
+	modgui1.header();
+	modgui1.apridiv('style="margin-top: 110px;text-align:center;"');
+	htp.prn(CONCAT('<h1> statistiche per newsletter </h1>', nomeNew));
+	htp.br();
+	modgui1.Label('Numero visitatori: ');
+	modgui1.Label(TO_CHAR(numeroVisitatori));
+	htp.br();
+	modgui1.Label('Età media iscritti: ');
+	modgui1.Label(TO_CHAR(etaMediaIscritti));
+	htp.br();
+
+	--hdaidhiaodh
+	modgui1.Label('Titoli di ingresso degli iscritti alla newsletter:');
+	--per ogni utente che è iscitto alla newsletter
+	--mostrare TUTTI i titoli di ingresso che ha acquistato
+
+	SELECT MAX(numb) INTO temp FROM (SELECT count(*) numb FROM TITOLIINGRESSO GROUP BY TITOLIINGRESSO.ACQUIRENTE);
+
+	htp.prn('<table style="width:100%" border="2">');
+	htp.prn('<tr>');
+		htp.prn('<th> utente </th>');
+		for k in 0..temp
+		LOOP
+			htp.prn(CONCAT(CONCAT('<th> acquisto ', k + 1), '</th>'));
+		END LOOP;
+	htp.prn('</tr>');
+	for id_utente in (	SELECT NEWSLETTERUTENTI.IDUTENTE
+						FROM NEWSLETTERUTENTI
+						WHERE NEWSLETTERUTENTI.IDNEWS = newsletterID
+								AND NEWSLETTERUTENTI.IDUTENTE IN (	SELECT TITOLIINGRESSO.ACQUIRENTE
+																	FROM TITOLIINGRESSO))
+	LOOP
+		--id_utente.IDUTENTE tiene id dell'utente
+		htp.prn('<tr>');
+		htp.prn('<td>');
+		--primo printare i dati dell'utente.
+		SELECT UTENTI.NOME, UTENTI.COGNOME, UTENTI.DATANASCITA, UTENTI.INDIRIZZO, UTENTI.EMAIL, UTENTI.RECAPITOTELEFONICO
+			INTO U_NOME, U_COGNOME, U_NASCITA, U_INDIRIZZO, U_EMAIL, U_RECAPITO
+			FROM UTENTI
+			WHERE UTENTI.IDUTENTE = id_utente.IDUTENTE;
+
+		htp.prn(TO_CHAR(U_NOME));
+		htp.prn(TO_CHAR(U_COGNOME));
+		htp.br;
+		htp.prn(TO_CHAR(U_NASCITA, 'YYYY-MM-DD'));
+		htp.br;
+		htp.prn(TO_CHAR(U_INDIRIZZO));
+		htp.br;
+		htp.prn(TO_CHAR(U_EMAIL));
+		htp.br;
+		htp.prn(TO_CHAR(U_RECAPITO));
+		htp.prn('</td>');
+
+		FOR titolo IN (
+			SELECT *
+			FROM TITOLIINGRESSO
+			WHERE TITOLIINGRESSO.ACQUIRENTE = id_utente.IDUTENTE
+		)
+		LOOP
+		htp.prn('<td>');
+		htp.prn(CONCAT('ID: ', TO_CHAR(titolo.IDTITOLOING)));
+		htp.br;
+		htp.prn(CONCAT('EMISSIONE: ', TO_CHAR(titolo.EMISSIONE, 'YYYY-MM-DD HH24:MI')));
+		htp.br;
+		htp.prn(CONCAT('SCADENZA: ', TO_CHAR(titolo.SCADENZA, 'YYYY-MM-DD')));
+		htp.br;
+		htp.prn(CONCAT('TIPOLOGIA: ', TO_CHAR(titolo.TIPOLOGIA)));
+		htp.br;
+
+		htp.prn('</td>');
+		END LOOP;
+
+		htp.prn('</tr>');
+
+	END LOOP;
+	htp.prn('</table>');
+	----dshaheoh
+	MODGUI1.chiudiDiv;
 	htp.bodyclose;
 	htp.htmlclose;
 
-end;
+	EXCEPTION
+	when newsletterInesistente THEN
+		MODGUI1.ApriPagina('Errore', sessionID);
+		MODGUI1.Header();
+		HTP.BodyOpen;
 
+		MODGUI1.ApriDiv;
+		MODGUI1.LABEL('newsletter inesistente');
+		MODGUI1.collegamento('visualizza newsletter', 'visualizzaNewsletter');
+		MODGUI1.ChiudiDiv;
+
+		HTP.BodyClose;
+		HTP.HtmlClose;
+END;
 END GRUPPO1;
 
 /*
@@ -1171,8 +1347,7 @@ END GRUPPO1;
  * - Iscrizione(rimozione)❌
  * - Cancellazione Iscrizione❌
  * OPERAZIONI STATISTICHE E MONITORAGGIO
- * - Numero visitatori iscritti alla Newsletter scelta FATTO!
- * - Età media dei visitatori iscritti alla Newsletter scelta ❌
- * - Titoli d’ingresso appartenenti ai visitatori iscritti alla Newsletter scelta❌
- * - Lista Opere ordinate per numero di Autori in ordine decrescente ❌
+ * - Numero visitatori iscritti alla Newsletter scelta ✅
+ * - Età media dei visitatori iscritti alla Newsletter scelta ✅
+ * - Titoli d’ingresso appartenenti ai visitatori iscritti alla Newsletter scelta ✅
 */

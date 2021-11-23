@@ -1,4 +1,4 @@
-CREATE OR REPLACE PACKAGE "FNICOLO".gruppo2 AS
+CREATE OR REPLACE PACKAGE gruppo2 AS
 
 
 PROCEDURE genericErrorPage(
@@ -66,13 +66,13 @@ PROCEDURE InserisciOpera(
 procedure AggiungiAutore(
     idSessione NUMBER DEFAULT 0,
     operaID NUMBER DEFAULT 0,
-    lingue VARCHAR2 DEFAULT null -- aggiunto rispetto a pks commit roberto
-); 
+    lingue VARCHAR2 DEFAULT null
+);
 procedure AggiuntaAutore(
     idSessione NUMBER DEFAULT 0,
     operaID NUMBER DEFAULT 0,
     autoreID NUMBER DEFAULT 0,
-    lingue VARCHAR2 default NULL -- aggiunto rispetto a pks commit roberto
+    lingue VARCHAR2 default NULL
 );
 procedure RimuoviAutore(
     idSessione NUMBER DEFAULT 0,
@@ -202,12 +202,12 @@ PROCEDURE InserisciDatiAutore(
 -- Il parametro operazione assume uno tra i seguenti valori:
 --  0: Visualizzazione
 --  1: Modifica
---  2: Rimozione
 PROCEDURE ModificaAutore(
 	idSessione NUMBER DEFAULT 0,
 	authorID NUMBER DEFAULT 0,
     operazione NUMBER DEFAULT 0,
-    statistiche VARCHAR2 DEFAULT ''
+    caller VARCHAR2 DEFAULT NULL,
+    callerParams VARCHAR2 DEFAULT ''
 );
 
 PROCEDURE UpdateAutore(

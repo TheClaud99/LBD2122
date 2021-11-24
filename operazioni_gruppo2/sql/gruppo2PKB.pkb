@@ -20,6 +20,7 @@ BEGIN
             modGUI1.ChiudiDiv;
 END;
 
+
 -- Procedura per feedback
 -- pageTitle: titolo della pagina HTML
 -- msg: il messaggio di errore (opzionale)
@@ -29,7 +30,6 @@ END;
 -- backToMenu: il nome del pulsante per tornare al menu (obbligatorio)
 -- backToMenuURL: URL del menu a cui andare (obbligatorio)
 -- parametribackToMenu: parametri da passare al menu di ritorno
-
 procedure RedirectEsito (
     idSessione NUMBER DEFAULT NULL,
     pageTitle VARCHAR2 DEFAULT NULL,
@@ -452,7 +452,7 @@ BEGIN
                                     'AggiungiAutore?idSessione='||idSessione||'&operaID='||operaID,
                                     'w3-yellow w3-margin w3-button w3-small w3-round-xxlarge');
                         modGUI1.Collegamento('Rimuovi Autore',
-                                    'RimuoviAutore?idSessione='||idSessione||'&operaID='||operaID,
+                                    'RimuoviAutoreOpera?idSessione='||idSessione||'&operaID='||operaID,
                                     'w3-red w3-margin w3-button w3-small w3-round-xxlarge');
                         modGUI1.InputSubmit('Modifica');
                     modGUI1.ChiudiForm;
@@ -692,7 +692,7 @@ LOOP
                         'AggiungiAutore?idSessione='||idSessione||'&operaID='||operaID,
                         'w3-yellow w3-margin w3-button w3-small w3-round-xxlarge');
                     modGUI1.Collegamento('Rimuovi Autore',
-                        'RimuoviAutore?idSessione='||idSessione||'&operaID='||operaID,
+                        'RimuoviAutoreOpera?idSessione='||idSessione||'&operaID='||operaID,
                         'w3-red w3-margin w3-button w3-small w3-round-xxlarge');
                     end if;
                 end if;
@@ -723,7 +723,7 @@ LOOP
                         'AggiungiAutore?idSessione='||idSessione||'&operaID='||operaID,
                         'w3-yellow w3-margin w3-button w3-small w3-round-xxlarge');
                     modGUI1.Collegamento('Rimuovi Autore',
-                        'RimuoviAutore?idSessione='||idSessione||'&operaID='||operaID,
+                        'RimuoviAutoreOpera?idSessione='||idSessione||'&operaID='||operaID,
                         'w3-red w3-margin w3-button w3-small w3-round-xxlarge');
                     end if;
                 end if;
@@ -753,7 +753,7 @@ LOOP
                         'AggiungiAutore?idSessione='||idSessione||'&operaID='||operaID,
                         'w3-yellow w3-margin w3-button w3-small w3-round-xxlarge');
                     modGUI1.Collegamento('Rimuovi Autore',
-                        'RimuoviAutore?idSessione='||idSessione||'&operaID='||operaID,
+                        'RimuoviAutoreOpera?idSessione='||idSessione||'&operaID='||operaID,
                         'w3-red w3-margin w3-button w3-small w3-round-xxlarge');
                     end if;
 
@@ -791,7 +791,7 @@ LOOP
                         'AggiungiAutore?idSessione='||idSessione||'&operaID='||operaID,
                         'w3-yellow w3-margin w3-button w3-small w3-round-xxlarge');
                     modGUI1.Collegamento('Rimuovi Autore',
-                        'RimuoviAutore?idSessione='||idSessione||'&operaID='||operaID,
+                        'RimuoviAutoreOpera?idSessione='||idSessione||'&operaID='||operaID,
                         'w3-red w3-margin w3-button w3-small w3-round-xxlarge');
                     end if;
 
@@ -828,7 +828,7 @@ LOOP
                         'AggiungiAutore?idSessione='||idSessione||'&operaID='||operaID,
                         'w3-yellow w3-margin w3-button w3-small w3-round-xxlarge');
                     modGUI1.Collegamento('Rimuovi Autore',
-                        'RimuoviAutore?idSessione='||idSessione||'&operaID='||operaID,
+                        'RimuoviAutoreOpera?idSessione='||idSessione||'&operaID='||operaID,
                         'w3-red w3-margin w3-button w3-small w3-round-xxlarge');
                     end if;
 
@@ -864,7 +864,7 @@ LOOP
                         'AggiungiAutore?idSessione='||idSessione||'&operaID='||operaID,
                         'w3-yellow w3-margin w3-button w3-small w3-round-xxlarge');
                     modGUI1.Collegamento('Rimuovi Autore',
-                        'RimuoviAutore?idSessione='||idSessione||'&operaID='||operaID,
+                        'RimuoviAutoreOpera?idSessione='||idSessione||'&operaID='||operaID,
                         'w3-red w3-margin w3-button w3-small w3-round-xxlarge');
                     end if;
                 end if;
@@ -1061,7 +1061,7 @@ controllo NUMBER(3);
 END AggiuntaAutore;
 
 
-procedure RimuoviAutore(
+procedure RimuoviAutoreOpera(
     idSessione NUMBER DEFAULT 0,
     operaID NUMBER DEFAULT 0,
     lingue VARCHAR2 DEFAULT null
@@ -1085,7 +1085,7 @@ nomecompleto VARCHAR2(50);
             -- Form per mandare dati alla procedura di conferma
             htp.br;
             MODGUI1.apriDIV('class=w3-center');
-                modGUI1.ApriForm('RimozioneAutore');
+                modGUI1.ApriForm('RimozioneAutoreOpera');
                 htp.FORMHIDDEN('idSessione',idSessione);
                 htp.FORMHIDDEN('operaID',operaID);
                 MODGUI1.SELECTOPEN('autoreID', 'autoreID');
@@ -1101,9 +1101,9 @@ nomecompleto VARCHAR2(50);
             MODGUI1.chiudiDiv;
         MODGUI1.chiudiDiv;
     modGUI1.ChiudiDiv;
-END RimuoviAutore;
+END RimuoviAutoreOpera;
 
-procedure RimozioneAutore(
+procedure RimozioneAutoreOpera(
     idSessione NUMBER DEFAULT 0,
     operaID NUMBER DEFAULT 0,
     autoreID NUMBER DEFAULT 0
@@ -1132,16 +1132,16 @@ controllo NUMBER(3);
             IF SQL%FOUND THEN
                 RedirectEsito(idSessione, 'Rimozione riuscita',
                     'Autore Rimosso',
-                    'Torna alla rimozione','rimuoviAutore','rimuoviAutore//operaID='||operaID,
+                    'Torna alla rimozione','RimuoviAutoreOpera','RimuoviAutoreOpera//operaID='||operaID,
                     'Torna al menù','menuOpere');
             ELSE
                 RedirectEsito(idSessione, 'Rimozione NON riuscita',
                     'Autore NON Rimosso',
-                    'Torna alla rimozione','rimuoviAutore','rimuoviAutore//operaID='||operaID,
+                    'Torna alla rimozione','RimuoviAutoreOpera','RimuoviAutoreOpera//operaID='||operaID,
                     'Torna al menù','menuOpere');
             END IF;
     END IF;
-END RimozioneAutore;
+END RimozioneAutoreOpera;
 
 
 
@@ -1568,9 +1568,11 @@ BEGIN
     htp.br;htp.br;htp.br;htp.br;
      modGUI1.ApriDiv('class="w3-center"');
         htp.prn('<h1>Autori</h1>'); --TITOLO
-        if hasRole(IdSessione, 'DBA')
+        if hasRole(IdSessione, 'DBA') or hasRole(IdSessione, 'GO')
         then
             modGUI1.Collegamento('Inserisci','InserisciAutore?idSessione='||idSessione,'w3-btn w3-round-xxlarge w3-black');
+            htp.print('&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;');
+            modGUI1.Collegamento('Menu Autori Eliminati', 'menuAutoriEliminati?idSessione='||idSessione, 'w3-button w3-black w3-round-xxlarge');
             htp.print('&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;');
         end if;
             htp.prn('<button onclick="document.getElementById(''11'').style.display=''block''" class="w3-btn w3-round-xxlarge w3-black">Statistiche</button>');
@@ -1579,8 +1581,8 @@ BEGIN
     htp.br;
     modGUI1.ApriDiv('class="w3-row w3-container"');
     --Visualizzazione TUTTI GLI AUTORI *temporanea*
-    -- TODO: filtraggio
-    FOR autore IN (SELECT IdAutore,nome,cognome FROM Autori)
+    -- Filtro: autori non eliminati
+    FOR autore IN (SELECT IdAutore,nome,cognome FROM Autori WHERE Eliminato=0)
     LOOP
         modGUI1.ApriDiv('class="w3-col l4 w3-padding-large w3-center"');
             modGUI1.ApriDiv('class="w3-card-4"');
@@ -1597,7 +1599,9 @@ BEGIN
                     modGUI1.Collegamento('Modifica',
                         'ModificaAutore?idSessione='||idSessione||'&authorID='||autore.IdAutore||'&operazione=1',
                         'w3-green w3-margin w3-button');
-                    htp.prn('<button onclick="document.getElementById(''ElimAutore'||autore.IdAutore||''').style.display=''block''" class="w3-margin w3-button w3-red w3-hover-white">Rimuovi</button>');
+                    -- Setta ad eliminato un autore
+                    htp.prn('<button onclick="document.getElementById(''ElimAutore'||autore.IdAutore
+                        ||''').style.display=''block''" class="w3-margin w3-button w3-red w3-hover-white">Elimina</button>');
                     gruppo2.EliminazioneAutore(idSessione,autore.IdAutore);
                 END IF;
             modGUI1.ChiudiDiv;
@@ -1605,6 +1609,56 @@ BEGIN
     END LOOP;
     modGUI1.chiudiDiv;
 END menuAutori;
+
+PROCEDURE menuAutoriEliminati(idSessione NUMBER DEFAULT NULL) is
+BEGIN
+    modGUI1.ApriPagina('Autori Eliminati', idSessione);
+    -- se idSessione è null allora viene passato a modGUI1.Header, 
+    -- che non prende quindi il valore di default 0
+    if idSessione IS NULL then
+        modGUI1.Header;
+    else
+        modGUI1.Header(idSessione);
+    end if;
+    htp.br;htp.br;htp.br;htp.br;
+     modGUI1.ApriDiv('class="w3-center"');
+        htp.prn('<h1>Autori eliminati</h1>');
+        if hasRole(IdSessione, 'DBA') or hasRole(IdSessione, 'GO')
+        then
+            modGUI1.Collegamento('Torna al menu autori', 'menuAutori?idSessione='||idSessione, 'w3-button w3-black w3-round-xxlarge');
+            htp.print('&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;');
+        end if;
+        modGUI1.ChiudiDiv;
+    htp.br;
+    modGUI1.ApriDiv('class="w3-row w3-container"');
+    --Visualizzazione TUTTI GLI AUTORI *temporanea*
+    -- Filtro: mostrati soltanto autori eliminati (al DBA e SU)
+    FOR autore IN (SELECT IdAutore,nome,cognome FROM Autori WHERE Eliminato=1)
+    LOOP
+        modGUI1.ApriDiv('class="w3-col l4 w3-padding-large w3-center"');
+            modGUI1.ApriDiv('class="w3-card-4"');
+                htp.prn('<img src="https://cdn.pixabay.com/photo/2016/10/22/15/32/water-1761027__480.jpg" alt="Alps" style="width:100%;">');
+                modGUI1.ApriDiv('class="w3-container w3-center"');
+                    htp.prn('<p>'|| autore.Nome ||' '||autore.Cognome||'</p>');
+                modGUI1.ChiudiDiv;
+                -- Azioni di modifica e rimozione mostrate solo se autorizzatii
+                modGUI1.Collegamento('Visualizza',
+                    'ModificaAutore?idSessione='||idSessione||'&authorID='||autore.IdAutore||'&operazione=0',
+                    'w3-black w3-margin w3-button');
+                IF hasRole(IdSessione, 'DBA') THEN
+                    -- parametro modifica messo a true: possibile fare editing dell'autore
+                    modGUI1.Collegamento('Modifica',
+                        'ModificaAutore?idSessione='||idSessione||'&authorID='||autore.IdAutore||'&operazione=1',
+                        'w3-green w3-margin w3-button');
+                    htp.prn('<button onclick="document.getElementById(''RimozioneAutore'||autore.IdAutore||''').style.display=''block''" class="w3-margin w3-button w3-red w3-hover-white">Rimuovi</button>');
+                    gruppo2.RimozioneAutore(idSessione,autore.IdAutore);
+                END IF;
+            modGUI1.ChiudiDiv;
+        modGUI1.ChiudiDiv;
+    END LOOP;
+    modGUI1.chiudiDiv;
+END menuAutoriELiminati;
+
 
 --Procedura popUp per la conferma
 procedure EliminazioneAutore(
@@ -1624,9 +1678,9 @@ begin
                     modGUI1.ApriDiv('class="w3-section"');
                         htp.br;
                         SELECT Nome,Cognome INTO aName,aSurname FROM Autori WHERE IdAutore=authorID;
-                        htp.prn('stai per rimuovere: '||aName||' '||aSurname);
+                        htp.prn('stai per eliminare: '||aName||' '||aSurname);
                         modGUI1.Collegamento('Conferma',
-                        'RimozioneAutore?idSessione='||idSessione||'&authorID='||authorID,
+                        'SetAutoreEliminato?idSessione='||idSessione||'&authorID='||authorID,
                         'w3-button w3-block w3-green w3-section w3-padding');
                         htp.prn('<span onclick="document.getElementById(''ElimAutore'||authorID||''').style.display=''none''" class="w3-button w3-block w3-red w3-section w3-padding" title="Close Modal">Annulla</span>');
                     modGUI1.ChiudiDiv;
@@ -1635,10 +1689,61 @@ begin
     modGUI1.ChiudiDiv;
 end EliminazioneAutore;
 
+-- Procedura per settare autore a eliminato
+procedure SetAutoreEliminato(
+    idSessione NUMBER default 0,
+    authorID NUMBER default 0
+) IS
+auth Autori%ROWTYPE;
+BEGIN
+    SELECT * INTO auth from Autori where IdAutore=authorID;
+    IF auth.Eliminato = 1 THEN
+        gruppo2.RedirectEsito(idSessione, 'Eliminazione fallita', 
+            'L''autore '||auth.Nome||' '||auth.Cognome||' è già stato eliminato', 
+            null, null, null,
+            'Torna al menu autori', 'menuAutori', null);
+            rollback;
+    ELSE
+        gruppo2.RedirectEsito(idSessione, 'Eliminazione riuscita', 
+            'L''autore '||auth.Nome||' '||auth.Cognome||' è stato eliminato', 
+            null, null, null,
+            'Torna al menu autori', 'menuAutori', null);
+        UPDATE Autori SET Eliminato=1 WHERE IdAutore = authorID;
+        commit;
+    END IF;
+END SetAutoreEliminato;
+
 --Procedura rimozione autore
 procedure RimozioneAutore(
     idSessione NUMBER default 0,
     authorID NUMBER default 0
+) IS
+auth Autori%ROWTYPE;
+BEGIN
+    modGUI1.ApriDiv('id="RimozioneAutore'||authorID||'" class="w3-modal"');
+        modGUI1.ApriDiv('class="w3-modal-content w3-card-4 w3-animate-zoom" style="max-width:600px"');
+            modGUI1.ApriDiv('class="w3-center"');
+                htp.br;
+                htp.prn('<span onclick="document.getElementById(''RimozioneAutore'||authorID||''').style.display=''none''" class="w3-button w3-xlarge w3-red w3-display-topright" title="Close Modal">X</span>');
+            htp.print('<h1><b>Confermi?</b></h1>');
+            modGUI1.ChiudiDiv;
+                    modGUI1.ApriDiv('class="w3-section"');
+                        htp.br;
+                        SELECT * INTO auth FROM Autori WHERE IdAutore=authorID;
+                        htp.prn('stai per rimuovere: '||auth.Nome||' '||auth.Cognome);
+                        modGUI1.Collegamento('Conferma',
+                        'DeleteAutore?idSessione='||idSessione||'&authorID='||authorID,
+                        'w3-button w3-block w3-green w3-section w3-padding');
+                        htp.prn('<span onclick="document.getElementById(''RimozioneAutore'||authorID||''').style.display=''none''" class="w3-button w3-block w3-red w3-section w3-padding" title="Close Modal">Annulla</span>');
+                    modGUI1.ChiudiDiv;
+                modGUI1.ChiudiForm;
+        modGUI1.ChiudiDiv;
+    modGUI1.ChiudiDiv;
+end RimozioneAutore;
+
+PROCEDURE DeleteAutore(
+    idSessione NUMBER DEFAULT 0,
+    authorID NUMBER DEFAULT 0
 ) IS
 numOpereRealizzate NUMBER(5); 
 BEGIN
@@ -1663,11 +1768,11 @@ BEGIN
             null, null, null, null,
             'Torna al menu Autori',
             'menuAutori');
-        DELETE FROM Autori WHERE IdAutore = authorID;
+        -- Setto autore ad eliminato
+        DELETE FROM Autori WHERE IdAutore=authorID;
         commit;
     END IF;
-
-end RimozioneAutore;
+END;
 
 procedure selezioneOpStatAut(
     idSessione NUMBER DEFAULT 0 
@@ -1792,9 +1897,8 @@ SELECT * INTO auth FROM autori WHERE authID=IDAUTORE;
         modGUI1.ApriDiv('class="w3-container" style="width:100%"');
         htp.print('<h2><b>Opere realizzate da ');
         modGUI1.Collegamento(auth.Nome||' '||auth.Cognome, 
-                            'ModificaAutore?idSessione='||idSessione||'&authorID='||auth.IdAutore
-                            ||'&operazione=0&statistiche=//operazione='||operazione||'//authID='||authID,
-                            'w3-black w3-margin w3-button');
+                            'ModificaAutore?idSessione='||idSessione||'&authorID='||auth.IdAutore||'&operazione=0'
+                            ||'&caller=statisticheAutori'||'&callerParams=//operazione='||operazione||'//authID='||authID);
         htp.print('</b></h2>');
             FOR op IN (SELECT opere.IDOPERA, titolo, anno
                 FROM OPERE JOIN AUTORIOPERE on (OPERE.idopera = AUTORIOPERE.idopera)
@@ -1818,7 +1922,11 @@ SELECT * INTO auth FROM autori WHERE authID=IDAUTORE;
         -- MUSEI CON OPERE ESPOSTE
         if operazione=1 THEN
         modGUI1.ApriDiv('class="w3-container" style="width:100%"');
-        htp.print('<h2><b>Musei con opere di '||auth.Nome||' '||auth.Cognome||' esposte</b></h2>');
+        htp.print('<h2><b>Musei con opere di ');
+        modGUI1.Collegamento(auth.Nome||' '||auth.Cognome, 
+                            'ModificaAutore?idSessione='||idSessione||'&authorID='||auth.IdAutore||'&operazione=0'
+                            ||'&caller=statisticheAutori'||'&callerParams=//operazione='||operazione||'//authID='||authID);
+        htp.print(' esposte</b></h2>');
             FOR mus IN (SELECT DISTINCT *
                     FROM MUSEI WHERE
                     IDMUSEO IN (SELECT STANZE.MUSEO FROM stanze JOIN SALEOPERE on (stanze.IDSTANZA=SALEOPERE.SALA) WHERE
@@ -1991,8 +2099,7 @@ BEGIN
         htp.prn('<h4><b>Autori in vita con opere esposte in ');
         modGUI1.Collegamento(mus.Nome,
                     'visualizzaMuseo?idSessione='
-                    ||idSessione||'&museoID='||mus.IdMuseo,
-                    'w3-black w3-margin w3-button');
+                    ||idSessione||'&museoID='||mus.IdMuseo);
         htp.prn('</b></h4>');
         FOR an_author IN (
             SELECT DISTINCT A.IdAutore, A.Nome,A.Cognome,A.DataNascita,A.Nazionalita 

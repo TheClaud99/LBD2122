@@ -1548,7 +1548,7 @@ procedure coloreClassifica(posizione NUMBER DEFAULT 0)IS
  * OPERAZIONI STATISTICHE E MONITORAGGIO
  * - Opere realizzate dall’Autore ✅
  * - Musei con Opere dell’Autore esposte ✅
- * - Collaborazioni effettuate ❌
+ * - Collaborazioni effettuate ✅
  * - Opere dell’Autore presenti in un Museo scelto ✅
  * - Autori in vita le cui Opere sono esposte in un Museo scelto ✅
  */
@@ -2056,19 +2056,19 @@ BEGIN
         modGUI1.Collegamento(
             'Torna al menu',
             'menuAutori?idSessione='||idSessione,
-            'w3-black w3-margin w3-button');
+            'w3-white w3-margin w3-button w3-border');
     modGUI1.ChiudiDiv;
     htp.br;
 
     modGUI1.ApriDiv('class="w3-container" style="width:100%"');
     -- Statistica 3: Opere dell'autore <auth> esposte nel museo <mus>
     IF operazione = 3 THEN
-        htp.prn('<h4><b>Opere realizzate da');
+        htp.prn('<h4><b>Opere realizzate da ');
         modGUI1.Collegamento(auth.Nome||' '||auth.Cognome, 
                 'ModificaAutore?idSessione='||idSessione||'&authorID='||auth.IdAutore||'&operazione=0'
                 ||'&caller=StatisticheMuseoAutori'
                 ||'&callerParams=//operazione='||operazione||'//authID='||authID||'//museoID='||museoID);
-        htp.prn('esposte in');
+        htp.prn(' esposte in ');
         modGUI1.Collegamento(mus.Nome,
                 'visualizzaMuseo?idSessione='
                 ||idSessione||'&museoID='||mus.IdMuseo);
@@ -2128,7 +2128,8 @@ BEGIN
                         modGUI1.Collegamento('Visualizza', 
                             'ModificaAutore?idSessione='||idSessione||'&authorID='||an_author.IdAutore||'&operazione=0'
                             ||'&caller=StatisticheMuseoAutori'
-                            ||'&callerParams=//operazione='||operazione||'//authID='||authID||'//museoID='||museoID);
+                            ||'&callerParams=//operazione='||operazione||'//authID='||authID||'//museoID='||museoID,
+                            'w3-white w3-margin w3-button w3-border');
                     modGUI1.ChiudiDiv;
                 modGUI1.ChiudiDiv;
             modGUI1.ChiudiDiv;

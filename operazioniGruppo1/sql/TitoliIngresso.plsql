@@ -4,6 +4,7 @@ PROCEDURE visualizzatitoliing(
 );
 
 PROCEDURE acquistatitolo(
+	sessiondId NUMBER default 0,
 	dataEmissionechar IN VARCHAR2,
 	dataScadenzachar IN VARCHAR2,
 	idmuseoselezionato IN VARCHAR2,
@@ -12,6 +13,7 @@ PROCEDURE acquistatitolo(
 );
 
 PROCEDURE formacquistaabbonamento(
+	sessiondId NUMBER default 0,
 	dataEmissionechar IN VARCHAR2,
 	dataScadenzachar IN VARCHAR2,
 	idmuseoselezionato IN VARCHAR2 default null,
@@ -20,6 +22,7 @@ PROCEDURE formacquistaabbonamento(
 );
 
 PROCEDURE confermaacquistoabbonamento(
+	sessiondId NUMBER default 0,
 	dataEmissionechar VARCHAR2 DEFAULT NULL,
 	dataScadenzachar VARCHAR2 DEFAULT NULL,
 	idmuseoselezionato VARCHAR2 DEFAULT NULL,
@@ -28,6 +31,7 @@ PROCEDURE confermaacquistoabbonamento(
 );
 
 PROCEDURE pagina_acquista_abbonamento(
+	sessiondId NUMBER default 0,
 	dataEmissionechar VARCHAR2 DEFAULT NULL,
 	dataScadenzachar VARCHAR2 DEFAULT NULL,
 	idmuseoselezionato VARCHAR2 DEFAULT NULL,
@@ -37,6 +41,7 @@ PROCEDURE pagina_acquista_abbonamento(
 );
 
 procedure formacquistabiglietto(
+	sessiondId NUMBER default 0,
 	dataEmissionechar IN VARCHAR2,
 	idmuseoselezionato IN VARCHAR2 default null,
 	idtipologiaselezionata IN VARCHAR2 default null,
@@ -44,6 +49,7 @@ procedure formacquistabiglietto(
 );
 
 PROCEDURE confermaacquistobiglietto(
+	sessiondId NUMBER default 0,
 	dataEmissionechar VARCHAR2 DEFAULT NULL,
 	idmuseoselezionato VARCHAR2 DEFAULT NULL,
 	idtipologiaselezionata VARCHAR2 DEFAULT NULL,
@@ -51,6 +57,7 @@ PROCEDURE confermaacquistobiglietto(
 );
 
 PROCEDURE pagina_acquista_biglietto(
+	sessiondId NUMBER default 0,
 	dataEmissionechar VARCHAR2 DEFAULT NULL,
 	dataScadenzachar VARCHAR2 DEFAULT NULL,
 	idmuseoselezionato VARCHAR2 DEFAULT NULL,
@@ -60,6 +67,7 @@ PROCEDURE pagina_acquista_biglietto(
 );
 
 procedure cancellazionetitoloing(
+	sessiondId NUMBER default 0,
 	idtitoloingselezionato varchar2
 );
 

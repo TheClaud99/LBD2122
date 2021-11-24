@@ -10,10 +10,10 @@ CREATE OR REPLACE PACKAGE BODY gruppo1 AS
  * - Cancellazione (rimozione) ✅
  * OPERAZIONI STATISTICHE E MONITORAGGIO
  * - Numero Musei visitati in un arco temporale scelto ❌
- * - Numero Titoli d’Ingresso  acquistati in un arco temporale scelto ❌
+ * - Numero Titoli d’Ingresso  acquistati in un arco temporale scelto ✅
  * - Numero medio Titoli d’Ingresso acquistati in un arco temporale scelto ❌
  * - Età media utenti ✅
- * - Spesa media di un visitatore in un arco temporale scelto ❌
+ * - Spesa media di un visitatore in un arco temporale scelto ✅
  */
 
 
@@ -374,6 +374,8 @@ procedure EsitoPositivoUtenti(
                 MODGUI1.collegamento('Torna al menu','ListaUtenti?sessionID='||sessionID||'','w3-button w3-block w3-black w3-section w3-padding');
                 modGUI1.ChiudiDiv;
             modGUI1.ChiudiDiv;
+			HTP.BodyClose;
+		HTP.HtmlClose;
 end;
 
 procedure EsitoNegativoUtenti(
@@ -389,6 +391,8 @@ procedure EsitoNegativoUtenti(
                 MODGUI1.collegamento('Torna al menu','ListaUtenti?sessionID='||sessionID||'','w3-button w3-block w3-black w3-section w3-padding');
                 modGUI1.ChiudiDiv;
             modGUI1.ChiudiDiv;
+			HTP.BodyClose;
+		HTP.HtmlClose;
 end;
 
 PROCEDURE VisualizzaUtente (
@@ -841,35 +845,117 @@ begin
         modGUI1.chiudiDiv;
 end;
 
-function etaMediaUtenti
-	return NUMBER
-	is
+procedure etaMediaUtenti(
+	sessionID NUMBER DEFAULT 0
+)
+is
 	tempMedia NUMBER := 0;
-	res NUMBER := 0;
+	res INTEGER := 0;
 	BEGIN
 		select AVG(to_number((EXTRACT(YEAR FROM dataNascita)))) into tempMedia from utenti;
 		res := to_number((EXTRACT(YEAR FROM SYSDATE()))) - tempMedia;
-		return res;
+
+		modGUI1.ApriPagina('EsitoPositivoUtenti',sessionID);
+        modGUI1.Header(sessionID);
+        htp.br;htp.br;htp.br;htp.br;htp.br;htp.br;
+            modGUI1.ApriDiv('class="w3-modal-content w3-card-4 w3-animate-zoom w3-padding-large" style="max-width:450px"');
+                modGUI1.ApriDiv('class="w3-center"');
+                htp.print('<h1>Operazione eseguita correttamente </h1>');
+				htp.print('<h3>Il risultato è '||res||'</h3>');
+                MODGUI1.collegamento('Torna alle statistiche','StatisticheUtenti?sessionID='||sessionID||'','w3-button w3-block w3-black w3-section w3-padding');
+                modGUI1.ChiudiDiv;
+            modGUI1.ChiudiDiv;
+			HTP.BodyClose;
+		HTP.HtmlClose;
+		
 END;
 
-function sommaTitoli(
+procedure sommaTitoli(
+	sessionID NUMBER DEFAULT 0,
 	dataInizioFun VARCHAR2 DEFAULT NULL,
 	dataFineFun VARCHAR2 DEFAULT NULL,
 	utenteID NUMBER DEFAULT 0 
 )
-return NUMBER
 is
 	dataInizio DATE := TO_DATE(dataInizioFun default NULL on conversion error, 'YYYY-MM-DD');
 	dataFine DATE := TO_DATE(dataFineFun default NULL on conversion error, 'YYYY-MM-DD');
 	tempMedia NUMBER := 0;
 	res NUMBER := 0;
 	BEGIN
-		select SUM(COSTOTOTALE) 
-		into res
-		from tipologieingresso
-		join titoliingresso on idtipologiaing = tipologia
-		where Emissione > dataInizio and Emissione < dataFine; 
-		return res;
+		if utenteID = 0 then
+			select COUNT(*) 
+			into res
+			from tipologieingresso
+			join titoliingresso on idtipologiaing = tipologia
+			where Emissione > dataInizio and Emissione < dataFine;
+		else
+			select COUNT(*)
+			into res
+			from tipologieingresso
+			join titoliingresso on idtipologiaing = tipologia
+			where Emissione > dataInizio and Emissione < dataFine and titoliingresso.ACQUIRENTE = utenteID;
+		end if;
+			
+		modGUI1.ApriPagina('Statistiche utenti',sessionID);
+        modGUI1.Header(sessionID);
+        htp.br;htp.br;htp.br;htp.br;htp.br;htp.br;
+            modGUI1.ApriDiv('class="w3-modal-content w3-card-4 w3-animate-zoom w3-padding-large" style="max-width:450px"');
+                modGUI1.ApriDiv('class="w3-center"');
+                htp.print('<h1>Operazione eseguita correttamente </h1>');
+				if res > 0 then 
+					htp.print('<h3>Il risultato è '||res||'</h3>');
+				else 
+					htp.print('<h3>Il risultato è 0</h3>');
+				end if;
+                MODGUI1.collegamento('Torna alle statistiche','StatisticheUtenti?sessionID='||sessionID||'','w3-button w3-block w3-black w3-section w3-padding');
+                modGUI1.ChiudiDiv;
+            modGUI1.ChiudiDiv;
+			HTP.BodyClose;
+		HTP.HtmlClose;
+END;
+
+procedure mediaCostoTitoli(
+	sessionID NUMBER DEFAULT 0,
+	dataInizioFun VARCHAR2 DEFAULT NULL,
+	dataFineFun VARCHAR2 DEFAULT NULL,
+	utenteID NUMBER DEFAULT 0 
+)
+is
+	dataInizio DATE := TO_DATE(dataInizioFun default NULL on conversion error, 'YYYY-MM-DD');
+	dataFine DATE := TO_DATE(dataFineFun default NULL on conversion error, 'YYYY-MM-DD');
+	tempMedia NUMBER := 0;
+	res NUMBER(6) := 0;
+	BEGIN
+		if utenteID = 0 then
+			select AVG(COSTOTOTALE) 
+			into res
+			from tipologieingresso
+			join titoliingresso on idtipologiaing = tipologia
+			where Emissione > dataInizio and Emissione < dataFine;
+		else
+			select AVG(COSTOTOTALE)
+			into res
+			from tipologieingresso
+			join titoliingresso on idtipologiaing = tipologia
+			where Emissione > dataInizio and Emissione < dataFine and titoliingresso.ACQUIRENTE = utenteID;
+		end if;
+			
+		modGUI1.ApriPagina('Statistiche utenti',sessionID);
+        modGUI1.Header(sessionID);
+        htp.br;htp.br;htp.br;htp.br;htp.br;htp.br;
+            modGUI1.ApriDiv('class="w3-modal-content w3-card-4 w3-animate-zoom w3-padding-large" style="max-width:450px"');
+                modGUI1.ApriDiv('class="w3-center"');
+                htp.print('<h1>Operazione eseguita correttamente </h1>');
+				if res > 0 then 
+					htp.print('<h3>Il risultato è '||res||'</h3>');
+				else 
+					htp.print('<h3>Il risultato è 0</h3>');
+				end if;
+                MODGUI1.collegamento('Torna alle statistiche','StatisticheUtenti?sessionID='||sessionID||'','w3-button w3-block w3-black w3-section w3-padding');
+                modGUI1.ChiudiDiv;
+            modGUI1.ChiudiDiv;
+			HTP.BodyClose;
+		HTP.HtmlClose;
 END;
 
 procedure StatisticheUtenti(
@@ -888,11 +974,12 @@ begin
 				modgui1.apriRigaTabella;
 				modgui1.intestazioneTabella('Dati');
 				modgui1.intestazioneTabella('Operazione');
-				modgui1.intestazioneTabella('--->');
 				modgui1.intestazioneTabella('Risultato');
 				modgui1.chiudiRigaTabella;
 
 				modgui1.apriRigaTabella;
+					MODGUI1.ApriForm('etaMediaUtenti');
+					HTP.FORMHIDDEN('sessionID', sessionID);
 					modgui1.apriElementoTabella;
 						modgui1.apridiv('class="w3-padding-24"');
 						modgui1.elementoTabella('Utenti');
@@ -904,18 +991,17 @@ begin
 						modgui1.chiudiDiv;
 					modgui1.chiudiElementoTabella;
 					modgui1.apriElementoTabella;
-						modgui1.Bottone('w3-blue w3-small','Calcola','mediaAnni','calcolaStats(1)');
+						MODGUI1.InputSubmit('Calcola');
 					modgui1.chiudiElementoTabella;
-						modgui1.apriElementoTabella();
-							modgui1.apridiv('class="w3-padding-24" id="result1"');
-						modgui1.chiudiDiv;
-					modgui1.chiudiElementoTabella;	
+					MODGUI1.ChiudiForm;
 				modgui1.chiudiRigaTabella;
 
 				modgui1.apriRigaTabella;
+					MODGUI1.ApriForm('sommaTitoli');
+					HTP.FORMHIDDEN('sessionID', sessionID);
 					modgui1.apriElementoTabella;
 						modgui1.label('Utente');
-							modgui1.selectopen('utenteSommaTitoli', 'idutenteSommaTitoli');
+							modgui1.selectopen('utenteID', 'idutenteSommaTitoli');
 							MODGUI1.SelectOption(0, 'Tutti gli utenti', 0);
 							for utente in (select idutente from utentimuseo)
 							loop
@@ -928,10 +1014,10 @@ begin
 							modgui1.selectclose();
 							htp.br;
 							MODGUI1.Label('Data inizio');
-							MODGUI1.InputDate('dataInizio', 'dataInizio', 1);
+							MODGUI1.InputDate('dataInizioFun', 'dataInizioFun', 1);
 							htp.br;
 							MODGUI1.Label('Data fine');
-							MODGUI1.InputDate('dataFine', 'dataFine', 1);
+							MODGUI1.InputDate('dataFineFun', 'dataFineFun', 1);
 					modgui1.chiudiElementoTabella;
 					modgui1.apriElementoTabella;
 						modgui1.apridiv('class="w3-padding-24"');
@@ -939,36 +1025,48 @@ begin
 						modgui1.chiudiDiv;
 					modgui1.chiudiElementoTabella;
 					modgui1.apriElementoTabella;
-						modgui1.Bottone('w3-blue w3-small','Calcola','sumTitoli','calcolaStats(2)');
+						MODGUI1.InputSubmit('Calcola');
 					modgui1.chiudiElementoTabella;
-						modgui1.apriElementoTabella();
-							modgui1.apridiv('class="w3-padding-24" id="result2"');
+					MODGUI1.ChiudiForm;
+				modgui1.chiudiRigaTabella;
+
+				modgui1.apriRigaTabella;
+					MODGUI1.ApriForm('mediaCostoTitoli');
+					HTP.FORMHIDDEN('sessionID', sessionID);
+					modgui1.apriElementoTabella;
+						modgui1.label('Utente');
+							modgui1.selectopen('utenteID', 'idutenteSommaTitoli');
+							MODGUI1.SelectOption(0, 'Tutti gli utenti', 0);
+							for utente in (select idutente from utentimuseo)
+							loop
+								select idutente, nome, cognome
+								into varidutente, nomeutente, cognomeutente
+								from utenti
+								where idutente=utente.idutente;
+								MODGUI1.SelectOption(varidutente, ''|| nomeutente ||' '||cognomeutente||'', 0);
+							end loop;
+							modgui1.selectclose();
+							htp.br;
+							MODGUI1.Label('Data inizio');
+							MODGUI1.InputDate('dataInizioFun', 'dataInizioFun', 1);
+							htp.br;
+							MODGUI1.Label('Data fine');
+							MODGUI1.InputDate('dataFineFun', 'dataFineFun', 1);
+					modgui1.chiudiElementoTabella;
+					modgui1.apriElementoTabella;
+						modgui1.apridiv('class="w3-padding-24"');
+						modgui1.elementoTabella('Costo medio Titoli d’Ingresso acquistati');
 						modgui1.chiudiDiv;
-					modgui1.chiudiElementoTabella;	
-				modgui1.chiudiRigaTabella;		
+					modgui1.chiudiElementoTabella;
+					modgui1.apriElementoTabella;
+						MODGUI1.InputSubmit('Calcola');
+					modgui1.chiudiElementoTabella;
+					MODGUI1.ChiudiForm;
+				modgui1.chiudiRigaTabella;
+						
 			modgui1.chiudiTabella;
 
 			MODGUI1.collegamento('Torna al menu','ListaUtenti?sessionID='||sessionID||'','w3-button w3-block w3-black w3-section w3-padding');
-			modgui1.chiudiDiv;
-			htp.print('<script type="text/javascript">
-			function calcolaStats(value) {
-				switch (value) {
-  					case 1:
-						const td1 = document.getElementById("result1")
-						td1.innerHTML = parseInt('||etaMediaUtenti||')
-						break;
-					case 2:
-						const inizio = document.getElementById("dataInizio").value
-						const fine = document.getElementById("dataFine").value
-						const id = document.getElementById("idutenteSommaTitoli").value
-						const td2 = document.getElementById("result2")
-						td2.innerHTML = ('||sommaTitoli(||'inizio'||,||'fine'||,||'id')||')
-						break;
-					default:
-					console.log("error")
-				}
-			}
-        </script>');
 		HTP.BodyClose;
 		HTP.HtmlClose;
 end;

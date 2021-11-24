@@ -25,8 +25,10 @@ END;
 -- msg: il messaggio di errore (opzionale)
 -- nuovaOp: il nome del bottone che porta alla nuova operazione (opzionale)
 -- nuovaOpURL: il nome della procedura da ripetere (opzionale)
+-- parametrinuovaOp: i parametri da passare alla procedura chiamata (opzionale)
 -- backToMenu: il nome del pulsante per tornare al menu (obbligatorio)
 -- backToMenuURL: URL del menu a cui andare (obbligatorio)
+-- parametribackToMenu: parametri da passare al menu di ritorno
 
 procedure RedirectEsito (
     idSessione NUMBER DEFAULT NULL,
@@ -62,7 +64,7 @@ procedure EsitoOperazione(
     backToMenu VARCHAR2 DEFAULT NULL,
     backToMenuURL VARCHAR2 DEFAULT NULL,
     parametribackToMenu VARCHAR2 DEFAULT ''
-    ) is
+    ) is 
     paramOp VARCHAR2(250);
     paramBTM VARCHAR2(250);
     begin
@@ -95,15 +97,16 @@ end EsitoOperazione;
  * - Modifica ✅
  * - Visualizzazione ✅
  * - Cancellazione (rimozione) ✅
- * - Spostamento ❌
+ * - Spostamento ✅
  * - Aggiunta Autore ✅
+ * - Rimozione Autore ✅
  * OPERAZIONI STATISTICHE E MONITORAGGIO
  * - Storico prestiti dell’Opera ✅
  * - Storico spostamenti relativi ad un Museo ❌ //procedura relativa al gruppo museo
  * - Autori dell’Opera ✅
  * - Tipo Sala in cui si trova l’Opera ✅
  * - Descrizioni dell’Opera ✅
- * - Lista Opere ordinate per numero di Autori in ordine decrescente ❌ //impossibile da eseguire con i dati attuali
+ * - Lista Opere ordinate per numero di Autori in ordine decrescente ✅
  * - Opere non spostata da più tempo (le tre più vecchie) ✅
  * - Opere esposte per più tempo (le tre più vecchie)✅
  * - Età media delle opere ✅ 
@@ -135,7 +138,7 @@ procedure menuOpere (idSessione NUMBER DEFAULT NULL) is
         htp.br;
         modGUI1.ApriDiv('class="w3-row w3-container"');
     --Visualizzazione TUTTE LE OPERE *temporanea*
-            FOR opera IN (Select * from Opere)
+            FOR opera IN (SELECT * FROM Opere)
             LOOP
                 modGUI1.ApriDiv('class="w3-col l4 w3-padding-large w3-center"');
                     modGUI1.ApriDiv('class="w3-card-4" style="height:600px;"');
@@ -181,7 +184,7 @@ var1 VARCHAR2(100);
                 modGUI1.ChiudiDiv;
                         modGUI1.ApriDiv('class="w3-section"');
                             htp.br;
-                            select titolo INTO var1 FROM OPERE WHERE idOpera=operaId;
+                            SELECT titolo INTO var1 FROM OPERE WHERE idOpera=operaId;
                             htp.prn('stai per rimuovere: '||var1);
                             modGUI1.Collegamento('Conferma',
                             'RimozioneOpera?idSessione='||idSessione||'&operaID='||operaID,
@@ -239,11 +242,11 @@ procedure linguaELivello(
                             htp.print('</h5>');
                             htp.br;
                             htp.print('<h1>Seleziona il livello</h1>');
-                            MODGUI1.selectopen('livelli');
-                                MODGUI1.selectOption('bambino','Bambino');
-                                MODGUI1.selectOption('adulto','Adulto');
-                                MODGUI1.selectoption('esperto','Esperto');
-                            MODGUI1.selectClose;
+                            MODGUI1.SELECTopen('livelli');
+                                MODGUI1.SELECTOption('bambino','Bambino');
+                                MODGUI1.SELECTOption('adulto','Adulto');
+                                MODGUI1.SELECToption('esperto','Esperto');
+                            MODGUI1.SELECTClose;
                             htp.prn('<button class="w3-button w3-block w3-black w3-section w3-padding" type="submit">Seleziona</button>');
                         modGUI1.ChiudiDiv;
                     modGUI1.ChiudiForm;
@@ -251,48 +254,6 @@ procedure linguaELivello(
         modGUI1.ChiudiDiv;
 end linguaELivello;
 
---Procedura per feedback
-procedure EsitoPositivoOpere(
-    idSessione NUMBER DEFAULT NULL
-    ) is /*feedbackPositivo*/
-    begin
-        modGUI1.ApriPagina('EsitoPositivoOpere',idSessione);
-        if idSessione IS NULL then
-            modGUI1.Header;
-        else
-            modGUI1.Header(idSessione);
-        end if;
-        htp.br;htp.br;htp.br;htp.br;htp.br;htp.br;
-            modGUI1.ApriDiv('class="w3-modal-content w3-card-4 w3-animate-zoom" style="max-width:450px"');
-                modGUI1.ApriDiv('class="w3-center"');
-                htp.print('<h1>Operazione eseguita correttamente </h1>');
-                MODGUI1.collegamento('Inserisci nuova opera','inserisciOpera?idSessione='||idSessione||'','w3-button w3-block w3-black w3-section w3-padding');
-                MODGUI1.collegamento('Torna al menu','menuOpere?idSessione='||idSessione||'','w3-button w3-block w3-black w3-section w3-padding');
-                modGUI1.ChiudiDiv;
-            modGUI1.ChiudiDiv;
-end EsitoPositivoOpere;
-
---Procedura per feedback
-procedure EsitoNegativoOpere(
-    idSessione NUMBER DEFAULT NULL
-    ) is /*feedbackPositivo*/
-    begin
-        modGUI1.ApriPagina('EsitoPositivoOpere',idSessione);
-        if idSessione IS NULL then
-            modGUI1.Header;
-        else
-            modGUI1.Header(idSessione);
-        end if;
-        htp.br;htp.br;htp.br;htp.br;htp.br;htp.br;
-            modGUI1.ApriDiv('class="w3-modal-content w3-card-4 w3-animate-zoom" style="max-width:450px"');
-                modGUI1.ApriDiv('class="w3-center"');
-                htp.print('<h1>Operazione NON eseguita</h1>');
-                MODGUI1.collegamento('Torna al menu','menuOpere?idSessione='||idSessione||'','w3-button w3-block w3-black w3-section w3-padding');
-                modGUI1.ChiudiDiv;
-            modGUI1.ChiudiDiv;
-end EsitoNegativoOpere;
-
- 
 -- Procedura per l'inserimento di nuove Opere nella base di dati
 PROCEDURE InserisciOpera(
     idSessione NUMBER DEFAULT NULL,
@@ -330,12 +291,12 @@ BEGIN
                         modGUI1.Inputtext('fineperiodo', placeholderPeriodo, 0, fineperiodo);
                         htp.br;
                         modGUI1.Label('Museo*:');
-                        MODGUI1.SelectOpen('idmusei');
+                        MODGUI1.SELECTOpen('idmusei');
                         for museo in (SELECT idMuseo,nome FROM Musei)
                         loop
-                        MODGUI1.SelectOption(museo.idMuseo,museo.nome);
+                        MODGUI1.SELECTOption(museo.idMuseo,museo.nome);
                         end loop;
-                        MODGUI1.SelectClose;
+                        MODGUI1.SELECTClose;
                         htp.br;
                         modGUI1.InputSubmit('Aggiungi');
                     modGUI1.ChiudiForm;
@@ -427,7 +388,7 @@ PROCEDURE InserisciDatiOpera(
 )IS
     BEGIN
         INSERT INTO Opere VALUES
-            (IdOperaSeq.NEXTVAL,titolo,anno,fineperiodo,idmusei);
+            (IdOperaSeq.NEXTVAL,titolo,anno,fineperiodo,idmusei,1,0);
         IF SQL%FOUND
         THEN
         -- faccio il commit dello statement precedente
@@ -479,17 +440,20 @@ BEGIN
                         modGUI1.Label('Museo*:');
                         SELECT MUSEO INTO var FROM OPERE WHERE idOpera = operaID;
                         SELECT NOME INTO nomeMuseo FROM MUSEI WHERE IDMUSEO = var;
-                        MODGUI1.SelectOpen('idmusei');
-                        MODGUI1.SelectOption(var, nomeMuseo, 1);
+                        MODGUI1.SELECTOpen('idmusei');
+                        MODGUI1.SELECTOption(var, nomeMuseo, 1);
                         for museo in (SELECT idMuseo,nome FROM Musei)
                         loop
-                        MODGUI1.SelectOption(museo.idMuseo, museo.nome);
+                        MODGUI1.SELECTOption(museo.idMuseo, museo.nome);
                         end loop;
-                        MODGUI1.SelectClose;
+                        MODGUI1.SELECTClose;
                         htp.br;
                         modGUI1.Collegamento('Aggiungi Autore',
                                     'AggiungiAutore?idSessione='||idSessione||'&operaID='||operaID,
                                     'w3-yellow w3-margin w3-button w3-small w3-round-xxlarge');
+                        modGUI1.Collegamento('Rimuovi Autore',
+                                    'RimuoviAutore?idSessione='||idSessione||'&operaID='||operaID,
+                                    'w3-red w3-margin w3-button w3-small w3-round-xxlarge');
                         modGUI1.InputSubmit('Modifica');
                     modGUI1.ChiudiForm;
                 --FINE SEZIONE DA MODIFICARE
@@ -605,271 +569,408 @@ procedure VisualizzaOpera (
     operaID NUMBER default 0,
     lingue VARCHAR2 default 'sconosciuto',
     livelli VARCHAR2 DEFAULT 'Sconosciuto'
-    ) is
+) is
 
-    var1 VARCHAR2 (40);
-    testo1 VARCHAR2 (100);
-    num NUMBER(10);
-    num1 NUMBER(10);
-    num2 NUMBER(10);
-    num3 NUMBER(10);
+var1 VARCHAR2 (40);
+testo1 VARCHAR2 (100);
+num NUMBER(10);
+num1 NUMBER(10);
+num2 NUMBER(10);
+num3 NUMBER(10);
  
-    nomee VARCHAR2(50) DEFAULT 'sconosciuto';
-    cognomee VARCHAR2(50) DEFAULT 'sconosciuto';
-    CURSOR Cur IS SELECT * FROM autoriopere WHERE idopera = operaID;
+nomee VARCHAR2(50) DEFAULT 'sconosciuto';
+cognomee VARCHAR2(50) DEFAULT 'sconosciuto';
+CURSOR Cur IS SELECT * FROM autoriopere WHERE idopera = operaID;
+
+varSala NUMBER(5) DEFAULT 0;
+varMuseo NUMBER(5) DEFAULT 0;
+varTipoSala VARCHAR2(100) DEFAULT 'Sconosciuto';
+varNomeStanza VARCHAR2(100) DEFAULT 'Sconosciuto';
+varNomeMuseo VARCHAR2(100) DEFAULT 'Sconosciuto';
+
+BEGIN
+    htp.prn('<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css"> ');
+    if idSessione IS NULL then
+        modGUI1.Header;
+    else
+        modGUI1.Header(idSessione);
+    end if;
+    htp.br;htp.br;htp.br;htp.br;htp.br;htp.br;
+    modGUI1.ApriDiv('class="w3-center"');
+    SELECT Titolo into var1 FROM OPERE WHERE idOpera=operaID;
+    htp.prn('<h1><b>'||var1||'</b></h1>'); --TITOLO
+
+    if hasRole(IdSessione, 'DBA') or hasRole(IdSessione, 'GO') then
+    modGUI1.Collegamento('Inserisci','InserisciDescrizione?idSessione='||idSessione||'&language='||lingue||'&d_level='||livelli||'&operaID='||OperaID,'w3-btn w3-round-xxlarge w3-black');
+    htp.print('&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;');
+    end if;
+
+    if(lingue='Italian')then
+    htp.prn('<button onclick="document.getElementById(''id104'').style.display=''block''" class="w3-btn w3-round-xxlarge w3-black">più info</button>');
+    end if;
+    if(lingue='English')then
+    htp.prn('<button onclick="document.getElementById(''id104'').style.display=''block''" class="w3-btn w3-round-xxlarge w3-black">more info</button>');
+    end if;
+    if(lingue='Chinese')then
+    htp.prn('<button onclick="document.getElementById(''id104'').style.display=''block''" class="w3-btn w3-round-xxlarge w3-black">更多信息</button>');
+    end if;
+modGUI1.ChiudiDiv;
+gruppo2.spostamentiOpera(idSessione,operaID);
+htp.br;
+modGUI1.ApriDiv('class="w3-container" style="width:100%"');
+if(lingue='Italian')
+    then
+    htp.prn('<h2><b>Livello: </b>'||livelli||'</h2>');
+    end if;
+    if(lingue='English')
+    then
+    htp.prn('<h2><b>Level: </b>'||livelli||'</h2>');
+    end if;
+    if(lingue='Chinese')
+    then
+    htp.prn('<h2><b>等级: </b>'||livelli||'</h2>');
+    end if;
+FOR des IN (
+        SELECT * FROM Descrizioni 
+        WHERE operaID=Opera AND lingue=lingua AND livello=livelli
+)
+LOOP
+    modGUI1.ApriDiv('class="w3-row w3-container w3-border w3-round-small w3-padding-large w3-hover-light-grey" style="width:100%"');
+        modGUI1.ApriDiv('class="w3-container w3-cell"');
+        htp.prn('<img src="https://cdn.pixabay.com/photo/2016/10/22/15/32/water-1761027__480.jpg" alt="Alps" style="width:500px; height:300px;">');
+        modGUI1.ChiudiDiv;
+        modGUI1.ApriDiv('class="w3-container w3-cell w3-border-right w3-cell-middle" style="width:1120px; height:300px"');
+            htp.prn('<h5><b>'||var1||'</b></h5>');
+            htp.prn('<p>'||SUBSTR(des.testo,0,100)||'</p>');
+            htp.br;
+
+            SELECT COUNT(*) INTO num FROM saleopere WHERE opera=operaID AND datauscita IS NULL;
+            IF num = 0 THEN
+            varNomeMuseo := 'NonEsposta';
+            ELSE
+            SELECT sala INTO varSala FROM saleopere WHERE opera=operaID AND datauscita IS NULL;
+
+            SELECT museo, nome INTO varMuseo, varNomeStanza FROM stanze WHERE idstanza = varSala;
+
+            SELECT TipoSala into varTipoSala FROM sale WHERE idstanza=varSala;
+
+                IF(varTipoSala=1) THEN
+                    varTipoSala := 'mostra';
+                ELSE
+                    varTipoSala :='museale';
+                END IF;
+
+            SELECT nome INTO varNomeMuseo FROM musei WHERE idmuseo=varMuseo;
+
+            END IF;
+
+            IF(varNomeMuseo='NonEsposta')
+            THEN
+                if(lingue='Italian')
+                then
+                htp.prn('<h5><b>Esposta: </b>❌</h5>');
+                if hasRole(IdSessione, 'DBA') or hasRole(IdSessione, 'GO') then
+                modGUI1.collegamento('sposta',
+                    'SpostaOpera?idSessione='||idSessione||'&operaID='||operaID||'&salaID='||varSala,
+                    'w3-green w3-margin w3-button w3-small w3-round-xxlarge');
+                end if;
+                htp.br;
+                htp.prn('<b>Autore: </b>');
+                
+                    FOR auth in Cur
+                    LOOP
+                    SELECT autori.NOME, autori.cognome INTO nomee, cognomee FROM autori WHERE idautore = auth.idautore;
+                    MODGUI1.Collegamento(nomee||' '||Cognomee,
+                        'ModificaAutore?idSessione='||idSessione||'&authorID='||auth.IdAutore||'&operazione=0'
+                        ||'&caller=visualizzaOpera&callerParams=//operaID='||operaID||'//lingue='||lingue||'//livelli='||livelli);
+                    htp.prn(', ');
+                    
+                    END LOOP;
+                    
+                    if hasRole(IdSessione, 'DBA') or hasRole(IdSessione, 'GO') then
+                    modGUI1.Collegamento('Aggiungi Autore',
+                        'AggiungiAutore?idSessione='||idSessione||'&operaID='||operaID,
+                        'w3-yellow w3-margin w3-button w3-small w3-round-xxlarge');
+                    modGUI1.Collegamento('Rimuovi Autore',
+                        'RimuoviAutore?idSessione='||idSessione||'&operaID='||operaID,
+                        'w3-red w3-margin w3-button w3-small w3-round-xxlarge');
+                    end if;
+                end if;
+
+                if(lingue='English')
+                then
+                htp.prn('<h5><b>Exposed: </b>❌</h5>');
+                if hasRole(IdSessione, 'DBA') or hasRole(IdSessione, 'GO') then
+                modGUI1.collegamento('sposta',
+                    'SpostaOpera?idSessione='||idSessione||'&operaID='||operaID||'&salaID='||varSala,
+                    'w3-green w3-margin w3-button w3-small w3-round-xxlarge');
+                end if;
+                htp.br;
+                htp.prn('<b>Author: </b>');
+                
+                    FOR auth in Cur
+                    LOOP
+                    SELECT autori.NOME, autori.cognome INTO nomee, cognomee FROM autori WHERE idautore = auth.idautore;
+                    MODGUI1.Collegamento(nomee||' '||Cognomee,
+                        'ModificaAutore?idSessione='||idSessione||'&authorID='||auth.IdAutore||'&operazione=0'
+                        ||'&caller=visualizzaOpera&callerParams=//operaID='||operaID||'//lingue='||lingue||'//livelli='||livelli);
+                    htp.prn(', ');
+                    
+                    END LOOP;
+
+                    if hasRole(IdSessione, 'DBA') or hasRole(IdSessione, 'GO') then
+                    modGUI1.Collegamento('Aggiungi Autore',
+                        'AggiungiAutore?idSessione='||idSessione||'&operaID='||operaID,
+                        'w3-yellow w3-margin w3-button w3-small w3-round-xxlarge');
+                    modGUI1.Collegamento('Rimuovi Autore',
+                        'RimuoviAutore?idSessione='||idSessione||'&operaID='||operaID,
+                        'w3-red w3-margin w3-button w3-small w3-round-xxlarge');
+                    end if;
+                end if;
+
+                if(lingue='Chinese')
+                then
+                htp.prn('<h5><b>裸露: </b>❌</h5>');
+                if hasRole(IdSessione, 'DBA') or hasRole(IdSessione, 'GO') then
+                modGUI1.collegamento('sposta',
+                    'SpostaOpera?idSessione='||idSessione||'&operaID='||operaID||'&salaID='||varSala,
+                    'w3-green w3-margin w3-button w3-small w3-round-xxlarge');
+                end if;
+                htp.br;
+                htp.prn('<b>作者: </b>');
+                
+                    FOR auth in Cur
+                    LOOP
+                    SELECT autori.NOME, autori.cognome INTO nomee, cognomee FROM autori WHERE idautore = auth.idautore;
+                    MODGUI1.Collegamento(nomee||' '||Cognomee,
+                        'ModificaAutore?idSessione='||idSessione||'&authorID='||auth.IdAutore||'&operazione=0'
+                        ||'&caller=visualizzaOpera&callerParams=//operaID='||operaID||'//lingue='||lingue||'//livelli='||livelli);
+                    htp.prn(', ');
+                    END LOOP;
+
+                    if hasRole(IdSessione, 'DBA') or hasRole(IdSessione, 'GO') then
+                    modGUI1.Collegamento('Aggiungi Autore',
+                        'AggiungiAutore?idSessione='||idSessione||'&operaID='||operaID,
+                        'w3-yellow w3-margin w3-button w3-small w3-round-xxlarge');
+                    modGUI1.Collegamento('Rimuovi Autore',
+                        'RimuoviAutore?idSessione='||idSessione||'&operaID='||operaID,
+                        'w3-red w3-margin w3-button w3-small w3-round-xxlarge');
+                    end if;
+
+                end if;
+
+            ELSE
+
+                if(lingue='Italian')
+                then
+                htp.prn('<h5><b>Esposta: </b>✅</h5>');
+                htp.br;
+                htp.prn('<b>Museo: </b>');
+                MODGUI1.Collegamento(''||varNomeMuseo||'','visualizzaMuseo?idSessione='||idSessione||'&idMuseo='||varMuseo);
+                htp.br;
+                htp.prn('<b>Sala: </b>'||varNomeStanza||'<b> tipo di sala: </b>'||varTipoSala); 
+                if hasRole(IdSessione, 'DBA') or hasRole(IdSessione, 'GO') then
+                modGUI1.collegamento('sposta',
+                    'SpostaOpera?idSessione='||idSessione||'&operaID='||operaID||'&salaID='||varSala,
+                    'w3-green w3-margin w3-button w3-small w3-round-xxlarge');
+                end if;
+                htp.br;
+                htp.prn('<b>Autore: </b>');
+                
+                    FOR auth in Cur
+                    LOOP
+                    SELECT autori.NOME, autori.cognome INTO nomee, cognomee FROM autori WHERE idautore = auth.idautore;
+                    MODGUI1.Collegamento(nomee||' '||Cognomee,
+                        'ModificaAutore?idSessione='||idSessione||'&authorID='||auth.IdAutore||'&operazione=0'
+                        ||'&caller=visualizzaOpera&callerParams=//operaID='||operaID||'//lingue='||lingue||'//livelli='||livelli);
+                    htp.prn(', ');
+                    END LOOP;
+                    
+                    if hasRole(IdSessione, 'DBA') or hasRole(IdSessione, 'GO') then
+                    modGUI1.Collegamento('Aggiungi Autore',
+                        'AggiungiAutore?idSessione='||idSessione||'&operaID='||operaID,
+                        'w3-yellow w3-margin w3-button w3-small w3-round-xxlarge');
+                    modGUI1.Collegamento('Rimuovi Autore',
+                        'RimuoviAutore?idSessione='||idSessione||'&operaID='||operaID,
+                        'w3-red w3-margin w3-button w3-small w3-round-xxlarge');
+                    end if;
+
+                end if;
+
+                if(lingue='English')
+                then
+                htp.prn('<h5><b>Exposed: </b>✅</h5>');
+                htp.br;
+                htp.prn('<b>Museum: </b>'); 
+                MODGUI1.Collegamento(''||varNomeMuseo||'','visualizzaMuseo?idSessione='||idSessione||'&idMuseo='||varMuseo);
+                htp.br;
+                htp.prn('<b>Room: </b>'||varNomeStanza||'<b> type of room: </b>'||varTipoSala);--COLLEGAMENTO NOME STANZA
+                if hasRole(IdSessione, 'DBA') or hasRole(IdSessione, 'GO') then
+                modGUI1.collegamento('sposta',
+                    'SpostaOpera?idSessione='||idSessione||'&operaID='||operaID||'&salaID='||varSala,
+                    'w3-green w3-margin w3-button w3-small w3-round-xxlarge');
+                end if;
+                htp.br;
+                htp.prn('<b>Author: </b>');
+                
+                    FOR auth in Cur
+                    LOOP
+                    SELECT autori.NOME, autori.cognome INTO nomee, cognomee FROM autori WHERE idautore = auth.idautore;
+                    MODGUI1.Collegamento(nomee||' '||Cognomee,
+                        'ModificaAutore?idSessione='||idSessione||'&authorID='||auth.IdAutore||'&operazione=0'
+                        ||'&caller=visualizzaOpera&callerParams=//operaID='||operaID||'//lingue='||lingue||'//livelli='||livelli);
+                    htp.prn(', ');
+                    
+                    END LOOP;
+                    
+                    if hasRole(IdSessione, 'DBA') or hasRole(IdSessione, 'GO') then
+                    modGUI1.Collegamento('Aggiungi Autore',
+                        'AggiungiAutore?idSessione='||idSessione||'&operaID='||operaID,
+                        'w3-yellow w3-margin w3-button w3-small w3-round-xxlarge');
+                    modGUI1.Collegamento('Rimuovi Autore',
+                        'RimuoviAutore?idSessione='||idSessione||'&operaID='||operaID,
+                        'w3-red w3-margin w3-button w3-small w3-round-xxlarge');
+                    end if;
+
+                end if;
+
+                if(lingue='Chinese')
+                then
+                htp.prn('<h5><b>裸露: </b>✅</h5>');
+                htp.br;
+                htp.prn('<b>博物馆: </b>');
+                MODGUI1.Collegamento(''||varNomeMuseo||'','visualizzaMuseo?idSessione='||idSessione||'&idMuseo='||varMuseo);
+                htp.br;
+                htp.prn('<b>房间: </b>'||varNomeStanza||'<b> 大厅类型: </b>'||varTipoSala); --COLLEGAMENTO NOME STANZA
+                if hasRole(IdSessione, 'DBA') or hasRole(IdSessione, 'GO') then
+                modGUI1.collegamento('sposta',
+                    'SpostaOpera?idSessione='||idSessione||'&operaID='||operaID||'&salaID='||varSala,
+                    'w3-green w3-margin w3-button w3-small w3-round-xxlarge');
+                end if;
+                htp.br;
+                htp.prn('<b>作者: </b>');
+                
+                    FOR auth in Cur
+                    LOOP
+                    SELECT autori.NOME, autori.cognome INTO nomee, cognomee FROM autori WHERE idautore = auth.idautore;
+                    MODGUI1.Collegamento(nomee||' '||Cognomee,
+                        'ModificaAutore?idSessione='||idSessione||'&authorID='||auth.IdAutore||'&operazione=0'
+                        ||'&caller=visualizzaOpera&callerParams=//operaID='||operaID||'//lingue='||lingue||'//livelli='||livelli);
+                    htp.prn(', ');
+                    END LOOP;
+
+                    if hasRole(IdSessione, 'DBA') or hasRole(IdSessione, 'GO') then
+                    modGUI1.Collegamento('Aggiungi Autore',
+                        'AggiungiAutore?idSessione='||idSessione||'&operaID='||operaID,
+                        'w3-yellow w3-margin w3-button w3-small w3-round-xxlarge');
+                    modGUI1.Collegamento('Rimuovi Autore',
+                        'RimuoviAutore?idSessione='||idSessione||'&operaID='||operaID,
+                        'w3-red w3-margin w3-button w3-small w3-round-xxlarge');
+                    end if;
+                end if;
 
 
-    varSala NUMBER(5) DEFAULT 0;
-    varMuseo NUMBER(5) DEFAULT 0;
-    varTipoSala VARCHAR2(100) DEFAULT 'Sconosciuto';
-    varNomeStanza VARCHAR2(100) DEFAULT 'Sconosciuto';
-    varNomeMuseo VARCHAR2(100) DEFAULT 'Sconosciuto';
+            END IF;
 
-    begin
-        htp.prn('<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css"> ');
-        if idSessione IS NULL then
-            modGUI1.Header;
-        else
-            modGUI1.Header(idSessione);
-        end if;
-        htp.br;htp.br;htp.br;htp.br;htp.br;htp.br;
-        modGUI1.ApriDiv('class="w3-center"');
-        Select Titolo into var1 FROM OPERE WHERE idOpera=operaID;
-            htp.prn('<h1><b>'||var1||'</b></h1>'); --TITOLO
-
-            if hasRole(IdSessione, 'DBA') or hasRole(IdSessione, 'GO') then
-            modGUI1.Collegamento('Inserisci','InserisciDescrizione?idSessione='||idSessione||'&language='||lingue||'&d_level='||livelli||'&operaID='||OperaID,'w3-btn w3-round-xxlarge w3-black');
-            htp.print('&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;');
-            end if;
-
-            if(lingue='Italian')then
-            htp.prn('<button onclick="document.getElementById(''id104'').style.display=''block''" class="w3-btn w3-round-xxlarge w3-black">più info</button>');
-            end if;
-            if(lingue='English')then
-            htp.prn('<button onclick="document.getElementById(''id104'').style.display=''block''" class="w3-btn w3-round-xxlarge w3-black">more info</button>');
-            end if;
-            if(lingue='Chinese')then
-            htp.prn('<button onclick="document.getElementById(''id104'').style.display=''block''" class="w3-btn w3-round-xxlarge w3-black">更多信息</button>');
+            modGUI1.ChiudiDiv;
+            modGUI1.ApriDiv('class="w3-container w3-cell w3-cell-middle"');
+            if hasRole(IdSessione, 'DBA') or hasRole(IdSessione, 'GO')
+            then
+                modGUI1.collegamento('Modifica',
+                    'ModificaDescrizione?idSessione='||idSessione||'&idDescrizione='||des.idDesc,
+                    'w3-margin w3-button w3-green');
+                htp.br;
+                htp.prn('<button onclick="document.getElementById(''ElimDescrizione'||des.idDesc||''').style.display=''block''" class="w3-margin w3-button w3-red w3-hover-white">Elimina</button>');
+                gruppo2.EliminazioneDescrizione(idSessione,des.idDesc);
             end if;
         modGUI1.ChiudiDiv;
-            gruppo2.spostamentiOpera(operaID);
-
-        htp.br;
-        modGUI1.ApriDiv('class="w3-container" style="width:100%"');
-        if(lingue='Italian')
-            then
-            htp.prn('<h2><b>Livello: </b>'||livelli||'</h2>');
-            end if;
-            if(lingue='English')
-            then
-            htp.prn('<h2><b>Level: </b>'||livelli||'</h2>');
-            end if;
-            if(lingue='Chinese')
-            then
-            htp.prn('<h2><b>等级: </b>'||livelli||'</h2>');
-            end if;
-        FOR des IN (
-                SELECT * FROM Descrizioni 
-                WHERE operaID=Opera AND lingue=lingua AND livello=livelli
-        )
-        LOOP
-            modGUI1.ApriDiv('class="w3-row w3-container w3-border w3-round-small w3-padding-large w3-hover-light-grey" style="width:100%"');
-                    modGUI1.ApriDiv('class="w3-container w3-cell"');
-                    htp.prn('<img src="https://cdn.pixabay.com/photo/2016/10/22/15/32/water-1761027__480.jpg" alt="Alps" style="width:500px; height:300px;">');
-                    modGUI1.ChiudiDiv;
-                    modGUI1.ApriDiv('class="w3-container w3-cell w3-border-right w3-cell-middle" style="width:1120px; height:300px"');
-                        htp.prn('<h5><b>'||var1||'</b></h5>');
-                        htp.prn('<p>'||SUBSTR(des.testo,0,100)||'</p>');
-                        htp.br;
-
-                        SELECT COUNT(*) INTO num FROM saleopere WHERE opera=operaID AND datauscita IS NULL;
-                        IF num = 0 THEN
-                        varNomeMuseo := 'NonEsposta';
-                        ELSE
-                        SELECT sala INTO varSala FROM saleopere WHERE opera=operaID AND datauscita IS NULL;
-
-                        SELECT museo, nome INTO varMuseo, varNomeStanza FROM stanze WHERE idstanza = varSala;
-
-                        SELECT TipoSala into varTipoSala FROM sale WHERE idstanza=varSala;
-
-                            IF(varTipoSala=1) THEN
-                                varTipoSala := 'mostra';
-                            ELSE
-                                varTipoSala :='museale';
-                            END IF;
-
-                        SELECT nome INTO varNomeMuseo FROM musei WHERE idmuseo=varMuseo;
-
-                        END IF;
-
-                        IF(varNomeMuseo='NonEsposta')
-                        THEN
-                            if(lingue='Italian')
-                            then
-                            htp.prn('<h5><b>Esposta: </b>❌</h5>');
-                            htp.br;
-                            htp.prn('<b>Autore: </b>');
-                                FOR auth in Cur
-                                LOOP
-                                SELECT autori.NOME, autori.cognome INTO nomee, cognomee FROM autori WHERE idautore = auth.idautore;
-                                htp.prn(''||nomee||' ');
-                                htp.prn(''||cognomee||'');
-                                htp.prn(',');
-                                
-                                END LOOP;
-                                
-                                if hasRole(IdSessione, 'DBA') or hasRole(IdSessione, 'GO') then
-                                modGUI1.Collegamento('Aggiungi Autore',
-                                    'AggiungiAutore?idSessione='||idSessione||'&operaID='||operaID,
-                                    'w3-yellow w3-margin w3-button w3-small w3-round-xxlarge');
-                                end if;
-                            end if;
-
-                            if(lingue='English')
-                            then
-                            htp.prn('<h5><b>Exposed: </b>❌</h5>');
-                            htp.br;
-                            htp.prn('<b>Author: </b>');
-                                FOR auth in Cur
-                                LOOP
-                                SELECT autori.NOME, autori.cognome INTO nomee, cognomee FROM autori WHERE idautore = auth.idautore;
-                                htp.prn(''||nomee||' ');
-                                htp.prn(''||cognomee||'');
-                                htp.prn(',');
-                                
-                                END LOOP;
-
-                                if hasRole(IdSessione, 'DBA') or hasRole(IdSessione, 'GO') then
-                                modGUI1.Collegamento('Aggiungi Autore',
-                                    'AggiungiAutore?idSessione='||idSessione||'&operaID='||operaID,
-                                    'w3-yellow w3-margin w3-button w3-small w3-round-xxlarge');
-                                end if;
-                            end if;
-
-                            if(lingue='Chinese')
-                            then
-                            htp.prn('<h5><b>裸露: </b>❌</h5>');
-                            htp.br;
-                            htp.prn('<b>作者: </b>');
-                                FOR auth in Cur
-                                LOOP
-                                SELECT autori.NOME, autori.cognome INTO nomee, cognomee FROM autori WHERE idautore = auth.idautore;
-                                htp.prn(''||nomee||' ');
-                                htp.prn(''||cognomee||'');
-                                htp.prn(',');
-                                
-                                END LOOP;
-
-                                if hasRole(IdSessione, 'DBA') or hasRole(IdSessione, 'GO') then
-                                modGUI1.Collegamento('Aggiungi Autore',
-                                    'AggiungiAutore?idSessione='||idSessione||'&operaID='||operaID,
-                                    'w3-yellow w3-margin w3-button w3-small w3-round-xxlarge');
-                                end if;
-
-                            end if;
-
-                        ELSE
-
-                            if(lingue='Italian')
-                            then
-                            htp.prn('<h5><b>Esposta: </b>✅</h5>');
-                            htp.br;
-                            htp.prn('<b>Museo: </b>'||varNomeMuseo);
-                            htp.br;
-                            htp.prn('<b>Sala: </b>'||varNomeStanza||'<b> tipo di sala: </b>'||varTipoSala);
-                            htp.br;
-                            htp.prn('<b>Autore: </b>');
-                                FOR auth in Cur
-                                LOOP
-                                SELECT autori.NOME, autori.cognome INTO nomee, cognomee FROM autori WHERE idautore = auth.idautore;
-                                htp.prn(''||nomee||' ');
-                                htp.prn(''||cognomee||'');
-                                htp.prn(',');
-                                
-                                END LOOP;
-                                
-                                if hasRole(IdSessione, 'DBA') or hasRole(IdSessione, 'GO') then
-                                modGUI1.Collegamento('Aggiungi Autore',
-                                    'AggiungiAutore?idSessione='||idSessione||'&operaID='||operaID,
-                                    'w3-yellow w3-margin w3-button w3-small w3-round-xxlarge');
-                                end if;
-
-                            end if;
-
-                            if(lingue='English')
-                            then
-                            htp.prn('<h5><b>Exposed: </b>✅</h5>');
-                            htp.br;
-                            htp.prn('<b>Museum: </b>'||varNomeMuseo);
-                            htp.br;
-                            htp.prn('<b>Room: </b>'||varNomeStanza||'<b> type of room: </b>'||varTipoSala);
-                            htp.br;
-                            htp.prn('<b>Author: </b>');
-                                FOR auth in Cur
-                                LOOP
-                                SELECT autori.NOME, autori.cognome INTO nomee, cognomee FROM autori WHERE idautore = auth.idautore;
-                                htp.prn(''||nomee||' ');
-                                htp.prn(''||cognomee||'');
-                                htp.prn(',');
-                                
-                                END LOOP;
-                                
-                                if hasRole(IdSessione, 'DBA') or hasRole(IdSessione, 'GO') then
-                                modGUI1.Collegamento('Aggiungi Autore',
-                                    'AggiungiAutore?idSessione='||idSessione||'&operaID='||operaID,
-                                    'w3-yellow w3-margin w3-button w3-small w3-round-xxlarge');
-                                end if;
-
-                            end if;
-
-                            if(lingue='Chinese')
-                            then
-                            htp.prn('<h5><b>裸露: </b>✅</h5>');
-                            htp.br;
-                            htp.prn('<b>博物馆: </b>'||varNomeMuseo);
-                            htp.br;
-                            htp.prn('<b>房间: </b>'||varNomeStanza||'<b> 大厅类型: </b>'||varTipoSala);
-                            htp.br;
-                            htp.prn('<b>作者: </b>');
-                                FOR auth in Cur
-                                LOOP
-                                SELECT autori.NOME, autori.cognome INTO nomee, cognomee FROM autori WHERE idautore = auth.idautore;
-                                htp.prn(''||nomee||' ');
-                                htp.prn(''||cognomee||'');
-                                htp.prn(',');
-                                
-                                END LOOP;
-
-                                if hasRole(IdSessione, 'DBA') or hasRole(IdSessione, 'GO') then
-                                modGUI1.Collegamento('Aggiungi Autore',
-                                    'AggiungiAutore?idSessione='||idSessione||'&operaID='||operaID,
-                                    'w3-yellow w3-margin w3-button w3-small w3-round-xxlarge');
-                                end if;
-                            end if;
-
-    
-                        END IF;
-
-                        modGUI1.ChiudiDiv;
-                        modGUI1.ApriDiv('class="w3-container w3-cell w3-cell-middle"');
-                        if hasRole(IdSessione, 'DBA') or hasRole(IdSessione, 'GO')
-                        then
-                            modGUI1.collegamento('Modifica',
-                                'ModificaDescrizione?idSessione='||idSessione||'&idDescrizione='||des.idDesc,
-                                'w3-margin w3-button w3-green');
-                            htp.br;
-                            htp.prn('<button onclick="document.getElementById(''ElimDescrizione'||des.idDesc||''').style.display=''block''" class="w3-margin w3-button w3-red w3-hover-white">Elimina</button>');
-                            gruppo2.EliminazioneDescrizione(idSessione,des.idDesc);
-                        end if;
-                    modGUI1.ChiudiDiv;
-            modGUI1.chiudiDiv;
-            htp.br;
-            htp.br;
-        END LOOP;
+    modGUI1.chiudiDiv;
+    htp.br;
+    htp.br;
+END LOOP;
         --FINE LOOP VISUALIZZAZIONE
 
 end VisualizzaOpera;
- 
+
+
+PROCEDURE SpostaOpera(
+        idSessione NUMBER DEFAULT 0,
+        operaID NUMBER DEFAULT 0,
+        salaID NUMBER DEFAULT 0
+    ) IS 
+    nomeStanza VARCHAR2(50) DEFAULT 'sconosciuto';
+    BEGIN
+        modGUI1.ApriPagina('SpostaOpera',idSessione);
+                if idSessione IS NULL then
+                modGUI1.Header;
+            else
+                modGUI1.Header(idSessione);
+            end if;
+                htp.br;htp.br;htp.br;htp.br;htp.br;htp.br;
+                htp.prn('<h1 align="center">Sposta Opera</h1>');
+                modGUI1.ApriDiv('class="w3-modal-content w3-card-4 w3-animate-zoom" style="max-width:600px"');
+                    modGUI1.ApriDiv('class="w3-section"');
+                    modGUI1.Collegamento('X','menuOpere?idSessione='||idSessione||'',' w3-btn w3-large w3-red w3-display-topright');
+                    --INIZIO SEZIONE DA MODIFICARE
+                        modGUI1.ApriForm('SpostamentoOpera','Spostamento opera','w3-container');
+                            htp.FORMHIDDEN('idSessione',idSessione);
+                            htp.FORMHIDDEN('operaID',operaID);
+                            htp.br;
+                            
+                            htp.prn('<b>Status opera: </b>');
+                        
+                            modGUI1.InputRadioButton('Esponibile ', 'esposizione',1, 0, 0, 1);
+                            modGUI1.InputRadioButton('Non esponibile ', 'esposizione',0, 0, 0, 1);
+                            
+                            htp.br;
+                            htp.br;
+                            htp.br;
+                            htp.prn('<b>Sala attuale: </b>');
+                            if(salaID!=0) then 
+                                SELECT Nome into nomeStanza FROM STANZE 
+                                WHERE  salaID=idStanza;
+                                htp.print(nomeStanza);
+                            ELSE
+                                htp.print('opera non esposta');
+                            END IF;
+                            htp.br;
+                            htp.br;
+                            modGUI1.Label('Nuova sala:');
+                            MODGUI1.SELECTOpen('NuovaSalaID','selezioneEsposizione');
+                            for var in (SELECT STANZE.IDSTANZA,nome FROM STANZE,sale
+                                        WHERE STANZE.idStanza=SALE.idStanza)
+                            loop
+                                MODGUI1.SELECTOption(var.idStanza,var.Nome);
+                            end loop;
+                            MODGUI1.SELECTClose;
+                            htp.br;
+                            modGUI1.InputSubmit('Aggiungi');
+                        modGUI1.ChiudiForm;
+                    --FINE SEZIONE DA MODIFICARE
+                    modGUI1.ChiudiDiv;
+                modGUI1.ChiudiDiv;
+END;
+
+
+procedure SpostamentoOpera(
+    idSessione NUMBER DEFAULT 0,
+    operaID NUMBER DEFAULT 0,
+    Esposizione NUMBER DEFAULT 0,
+    NuovaSalaID NUMBER DEFAULT 0
+)IS
+    BEGIN
+    if (Esposizione=1)then
+        UPDATE SALEOPERE SET datauscita = TO_DATE(TO_CHAR(SYSDATE, 'dd/mm/yyyy'), 'dd/mm/yyyy') WHERE datauscita IS NULL AND opera = operaID; 
+        INSERT INTO SALEOPERE(IdMovimento, Sala, Opera, DataArrivo, DataUscita) VALUES (IdMovimentoSeq.nextVal, NuovaSalaID, operaID, TO_DATE(TO_CHAR(SYSDATE, 'dd/mm/yyyy'), 'dd/mm/yyyy'), null);
+        UPDATE OPERE SET Esponibile = 1 WHERE idopera = operaID;
+        gruppo2.RedirectEsito(idSessione,'Spostamento eseguito', null,null,null,null,'Torna alle opere','menuOpere',null);  
+    else
+        UPDATE OPERE SET Esponibile = 0 WHERE idopera = operaID;
+        UPDATE SALEOPERE SET datauscita = TO_DATE(TO_CHAR(SYSDATE, 'dd/mm/yyyy'), 'dd/mm/yyyy') WHERE datauscita IS NULL AND opera = operaID; 
+        gruppo2.RedirectEsito(idSessione,'Opera non più esposta',null,null,null,null,'Torna alle opere','menuOpere',null);  
+    END IF;
+END;
+
 procedure AggiungiAutore(
     idSessione NUMBER DEFAULT 0,
     operaID NUMBER DEFAULT 0,
@@ -903,13 +1004,16 @@ nomecompleto VARCHAR2(50);
                     nomecompleto := aut.Nome||' '||aut.cognome;
                     modGUI1.SELECTOPTION(aut.IdAutore, nomecompleto, 0);
                 END LOOP;
-                MODGUI1.SelectClose;
+                MODGUI1.SELECTClose;
                 htp.prn('<button class="w3-button w3-block w3-black w3-section w3-padding" type="submit">Aggiungi</button>');
                 modGUI1.ChiudiForm;
             MODGUI1.chiudiDiv;
         MODGUI1.chiudiDiv;
     modGUI1.ChiudiDiv;
 END AggiungiAutore;
+
+
+
 
 procedure AggiuntaAutore(
     idSessione NUMBER DEFAULT 0,
@@ -921,8 +1025,8 @@ controllo NUMBER(3);
     BEGIN
         SELECT count(*) into controllo 
             FROM AUTORIOPERE WHERE AUTORIOPERE.IdOpera=operaID 
-                and AUTORIOPERE.IdAutore=autoreID;
-        IF controllo>0 THEN
+            and AUTORIOPERE.IdAutore=autoreID;
+        IF controllo<1 THEN
             INSERT INTO AUTORIOPERE VALUES
                 (autoreID,operaID);
             IF SQL%FOUND THEN
@@ -955,22 +1059,108 @@ controllo NUMBER(3);
             END IF;
         END IF;
 END AggiuntaAutore;
- 
+
+
+procedure RimuoviAutore(
+    idSessione NUMBER DEFAULT 0,
+    operaID NUMBER DEFAULT 0,
+    lingue VARCHAR2 DEFAULT null
+)IS
+nomecompleto VARCHAR2(50);
+    BEGIN
+    modGUI1.ApriPagina('Rimuovi Autore', idSessione);
+    if idSessione IS NULL then
+        modGUI1.Header;
+    else
+        modGUI1.Header(idSessione);
+    end if;
+    htp.br;htp.br;htp.br;htp.br;
+    htp.prn('<h1 align="center">Seleziona l''autore da rimuovere</h1>');
+    modGUI1.ApriDiv('class="w3-modal-content w3-card-4 w3-animate-zoom" style="max-width:600px"');
+        modGUI1.ApriDiv('class="w3-section"');
+            -- Link di ritorno al menuAutori
+            modGUI1.Collegamento('X',
+                'menuOpere?idSessione='||idSessione,
+                'w3-btn w3-large w3-red w3-display-topright');
+            -- Form per mandare dati alla procedura di conferma
+            htp.br;
+            MODGUI1.apriDIV('class=w3-center');
+                modGUI1.ApriForm('RimozioneAutore');
+                htp.FORMHIDDEN('idSessione',idSessione);
+                htp.FORMHIDDEN('operaID',operaID);
+                MODGUI1.SELECTOPEN('autoreID', 'autoreID');
+                FOR aut IN (SELECT AUTORIOPERE.IdAutore,Autori.Nome,Autori.COGNOME FROM AUTORI,AUTORIOPERE
+                            WHERE idOpera=OperaID AND AUTORIOPERE.idAutore=AUTORI.idAutore)
+                LOOP
+                    nomecompleto := aut.Nome||' '||aut.cognome;
+                    modGUI1.SELECTOPTION(aut.IdAutore, nomecompleto, 0);
+                END LOOP;
+                MODGUI1.SELECTClose;
+                htp.prn('<button class="w3-button w3-block w3-black w3-section w3-padding" type="submit">Rimuovi</button>');
+                modGUI1.ChiudiForm;
+            MODGUI1.chiudiDiv;
+        MODGUI1.chiudiDiv;
+    modGUI1.ChiudiDiv;
+END RimuoviAutore;
+
+procedure RimozioneAutore(
+    idSessione NUMBER DEFAULT 0,
+    operaID NUMBER DEFAULT 0,
+    autoreID NUMBER DEFAULT 0
+)IS
+controllo NUMBER(3);
+    BEGIN
+    SELECT count(*) into controllo FROM AUTORIOPERE
+    WHERE idOpera=OperaID;
+    if controllo=1 THEN
+                DELETE FROM AUTORIOPERE 
+                WHERE AUTORIOPERE.IdOpera=operaID AND AUTORIOPERE.IdAutore=autoreID;
+                IF SQL%FOUND THEN
+                    RedirectEsito(idSessione, 'Rimozione riuscita',
+                        'Autore Rimosso',
+                        null,null,null,
+                        'Torna al menù','menuOpere');
+                ELSE
+                    RedirectEsito(idSessione, 'Rimozione NON riuscita',
+                        'Autore NON Rimosso',
+                        null,null,null,
+                        'Torna al menù','menuOpere');
+                END IF;
+    ELSE
+            DELETE FROM AUTORIOPERE 
+            WHERE AUTORIOPERE.IdOpera=operaID AND AUTORIOPERE.IdAutore=autoreID;
+            IF SQL%FOUND THEN
+                RedirectEsito(idSessione, 'Rimozione riuscita',
+                    'Autore Rimosso',
+                    'Torna alla rimozione','rimuoviAutore','rimuoviAutore//operaID='||operaID,
+                    'Torna al menù','menuOpere');
+            ELSE
+                RedirectEsito(idSessione, 'Rimozione NON riuscita',
+                    'Autore NON Rimosso',
+                    'Torna alla rimozione','rimuoviAutore','rimuoviAutore//operaID='||operaID,
+                    'Torna al menù','menuOpere');
+            END IF;
+    END IF;
+END RimozioneAutore;
+
+
+
 procedure SpostamentiOpera (
+    idSessione NUMBER DEFAULT 0,
     operaID NUMBER DEFAULT 0
-)is
+)is 
 proprietario NUMBER(5) DEFAULT 0;
 nomeMuseo VARCHAR2(50) DEFAULT 0;
 ricevente NUMBER(5) DEFAULT 0;
 var1 VARCHAR2(100) DEFAULT 'Sconosciuto';
 k NUMBER default 1;
-
+ 
 BEGIN
     SELECT museo INTO proprietario FROM opere WHERE idopera = operaID;
     DECLARE
         CURSOR cur is SELECT * FROM saleopere WHERE opera = operaID;
     BEGIN
-        SELECT nome into var1 FROM MUSEI where proprietario=idMuseo;
+        SELECT nome into var1 FROM MUSEI WHERE proprietario=idMuseo;
         modGUI1.ApriDiv('id="id104" class="w3-modal"');
         modGUI1.ApriDiv('class="w3-modal-content w3-card-4 w3-animate-zoom"');
             modGUI1.ApriDiv;
@@ -988,12 +1178,16 @@ BEGIN
                     htp.prn('<label><b>Prestito N.'||k||'</b></label>');
                     modGUI1.ApriDiv('class="w3-cell-row w3-border" style="witdh:100%"');
                         modGUI1.ApriDiv('class="w3-container w3-cell"');
-                            htp.print('<b>DA:</b>'||var1);
+                            htp.print('<b>DA:</b>'); --COLLEGAMENTO MUSEO
+                            MODGUI1.Collegamento(''||var1||'','visualizzaMuseo?idSessione='||idSessione||'&idMuseo='||proprietario);
+                            
                             htp.br;htp.br;
                             htp.print('<b>DAL: </b>'||sal.dataarrivo);
                         modGUI1.ChiudiDiv;
                         modGUI1.ApriDiv('class="w3-container w3-cell"');
-                            htp.print('<b> A:</b>'||nomeMuseo);
+                            htp.print('<b> A:</b>'); --COLLEGAMENTO MUSEO
+                            MODGUI1.Collegamento(''||nomeMuseo||'','visualizzaMuseo?idSessione='||idSessione||'&idMuseo='||ricevente);
+                           
                             htp.br;htp.br;
                             htp.print('<b> AL:</b>'||sal.datauscita);
                         modGUI1.ChiudiDiv;
@@ -1067,107 +1261,268 @@ BEGIN
         modGUI1.ApriDiv('class="w3-center"');
             htp.prn('<h1><b>STATISTICHE DELLE OPERE</b></h1>'); --TITOLO
             IF(museoID=0)THEN
-                htp.prn('<h4><b>tutti i musei</b></h4>');
-            ELSE
-                SELECT nome INTO var1 FROM MUSEI WHERE idMuseo=museoID;
-                htp.prn('<h4><b>'||var1||'</b></h4>');
-            END IF;
-        modGUI1.ChiudiDiv;
-        htp.br;
-        modGUI1.ApriDiv('class="w3-container" style="width:100%"');
-
-        k:=1;
-        htp.print('<h2><b>Opere più viste</b></h2>');
-        --INIZIO LOOP DELLA VISUALIZZAZIONE
-            FOR var in (SELECT * FROM   (SELECT opera,dataarrivo,datauscita FROM saleopere, stanze 
-                                        WHERE idstanza = saleopere.sala AND stanze.museo = museoID AND datauscita IS NOT NULL 
-                                        ORDER BY datauscita - dataarrivo DESC
-                        ) WHERE ROWNUM <= 3)
-            LOOP
-                SELECT opere.titolo INTO varOpera FROM opere WHERE idopera = var.opera;
-                modGUI1.ApriDiv('class="w3-col l4 w3-padding-large w3-center"');
-                gruppo2.coloreClassifica(k);
-                    modGUI1.ApriDiv('class="w3-card-4"');
-                    htp.prn('<img src="https://cdn.pixabay.com/photo/2016/10/22/15/32/water-1761027__480.jpg" alt="Alps" style="width:100%">');
-                        modGUI1.ApriDiv('class="w3-container w3-center"');
-                        --INIZIO DESCRIZIONI
-                            htp.prn('<p><b>Titolo </b>'|| varOpera ||'</p>');
-                            p:=var.datauscita-var.dataarrivo;
-                            htp.prn('<p><b>Esposta per </b>'||p||' giorni</p>');
-                        --FINE DESCRIZIONI
-                        modGUI1.ChiudiDiv;
+                    htp.prn('<h4><b>tutti i musei</b></h4>');
                     modGUI1.ChiudiDiv;
-                modGUI1.ChiudiDiv;
-                k:=k+1;
-            END LOOP;
-        
-        htp.br;
-        htp.br;
-
-        k:=1;
-        --OPERE DA PIÙ TEMPO NON SPOSTATE
-        htp.print('<h2><b>Opere non spostate da più tempo: </b></h2>');
-        modGUI1.ApriDiv('class="w3-container" style="width:100%"');
-        --INIZIO LOOP DELLA VISUALIZZAZIONE
-            FOR var in (SELECT * FROM   (SELECT dataarrivo, opera, sala FROM saleopere, stanze 
-                                        WHERE stanze.museo = museoID AND saleopere.sala = stanze.idstanza AND datauscita IS NULL 
-                                        ORDER BY dataarrivo
-                                        ) 
-                        WHERE ROWNUM <= 3)         
-            LOOP
-                SELECT opere.titolo INTO varOpera FROM opere WHERE idopera = var.opera;
-                modGUI1.ApriDiv('class="w3-col l4 w3-padding-large w3-center"');
-                    gruppo2.coloreClassifica(k);
-                    modGUI1.ApriDiv('class="w3-card-4"');
-                    htp.prn('<img src="https://cdn.pixabay.com/photo/2016/10/22/15/32/water-1761027__480.jpg" alt="Alps" style="width:100%">');
-                            modGUI1.ApriDiv('class="w3-container w3-center" style="height:150px;"');
-                            --INIZIO DESCRIZIONI
-                                htp.prn('<p><b>Titolo :</b> '|| varOpera ||'</p>');
-                                htp.prn('<p><b>Esposta dal :</b>'||var.dataarrivo||'</p>');
-                            --FINE DESCRIZIONI
+                    htp.br;
+                    modGUI1.ApriDiv('class="w3-container" style="width:100%"');
+                    k:=1;
+                    htp.print('<h2><b>Opere più viste</b></h2>');
+                    --INIZIO LOOP DELLA VISUALIZZAZIONE
+                        FOR var in (SELECT * FROM   (SELECT opera,dataarrivo,datauscita FROM saleopere, stanze 
+                                                    WHERE idstanza = saleopere.sala AND datauscita IS NOT NULL 
+                                                    ORDER BY datauscita - dataarrivo DESC
+                                    ) WHERE ROWNUM <= 3)
+                        LOOP
+                            SELECT opere.titolo INTO varOpera FROM opere WHERE idopera = var.opera;
+                            modGUI1.ApriDiv('class="w3-col l4 w3-padding-large w3-center"');
+                            gruppo2.coloreClassifica(k);
+                                modGUI1.ApriDiv('class="w3-card-4"');
+                                htp.prn('<img src="https://cdn.pixabay.com/photo/2016/10/22/15/32/water-1761027__480.jpg" alt="Alps" style="width:100%">');
+                                    modGUI1.ApriDiv('class="w3-container w3-center"');
+                                    --INIZIO DESCRIZIONI
+                                        htp.prn('<b>Titolo: </b>');
+                                        htp.prn('<button onclick="document.getElementById(''LinguaeLivelloOpera'||var.Opera||''').style.display=''block''" class="w3-margin w3-btn w3-border">'|| varOpera ||'</button>');
+                                        gruppo2.linguaELivello(idSessione,var.Opera);
+                                        p:=var.datauscita-var.dataarrivo;
+                                        htp.prn('<p><b>Esposta per </b>'||p||' giorni</p>');
+                                    --FINE DESCRIZIONI
+                                    modGUI1.ChiudiDiv;
+                                modGUI1.ChiudiDiv;
                             modGUI1.ChiudiDiv;
-                    modGUI1.ChiudiDiv;
-                modGUI1.ChiudiDiv;
-                k:=k+1;
-            END LOOP;
-        htp.br;
-        htp.br;
+                            k:=k+1;
+                        END LOOP;
+                    
+                    htp.br;
+                    htp.br;
 
-        k:=1;
-        --OPERE PIÙ ANTICHE
-        SELECT AVG(anno) into avgYear FROM OPERE
-        WHERE museo=museoID;
+                    k:=1;
+                    --OPERE DA PIÙ TEMPO NON SPOSTATE
+                    htp.print('<h2><b>Opere non spostate da più tempo: </b></h2>');
+                    modGUI1.ApriDiv('class="w3-container" style="width:100%"');
+                    --INIZIO LOOP DELLA VISUALIZZAZIONE
+                        FOR var in (SELECT * FROM   (SELECT dataarrivo, opera, sala FROM saleopere, stanze 
+                                                    WHERE saleopere.sala = stanze.idstanza AND datauscita IS NULL 
+                                                    ORDER BY dataarrivo
+                                                    ) 
+                                    WHERE ROWNUM <= 3)         
+                        LOOP
+                            SELECT opere.titolo INTO varOpera FROM opere WHERE idopera = var.opera;
+                            modGUI1.ApriDiv('class="w3-col l4 w3-padding-large w3-center"');
+                                gruppo2.coloreClassifica(k);
+                                modGUI1.ApriDiv('class="w3-card-4"');
+                                htp.prn('<img src="https://cdn.pixabay.com/photo/2016/10/22/15/32/water-1761027__480.jpg" alt="Alps" style="width:100%">');
+                                        modGUI1.ApriDiv('class="w3-container w3-center" style="height:150px;"');
+                                        --INIZIO DESCRIZIONI
+                                            htp.prn('<b>Titolo: </b>');
+                                            htp.prn('<button onclick="document.getElementById(''LinguaeLivelloOpera'||var.Opera||''').style.display=''block''" class="w3-margin w3-btn w3-border">'|| varOpera ||'</button>');
+                                            gruppo2.linguaELivello(idSessione,var.Opera);
+                                            htp.prn('<p><b>Esposta dal :</b>'||var.dataarrivo||'</p>');
+                                        --FINE DESCRIZIONI
+                                        modGUI1.ChiudiDiv;
+                                modGUI1.ChiudiDiv;
+                            modGUI1.ChiudiDiv;
+                            k:=k+1;
+                        END LOOP;
+                    htp.br;
+                    htp.br;
 
-        p:=annoCorrente-avgYear;
-        htp.print('<h2><b>Opere più antiche: </b></h2>');
-        htp.print('<h5><b>Età media opere:</b>'||p||' anni</h5>');
-        modGUI1.ApriDiv('class="w3-container" style="width:100%"');    
-        FOR var in  (SELECT * FROM (SELECT idOpera FROM OPERE
-                                        WHERE museo=museoID
-                                        ORDER BY anno
+                    k:=1;
+                    --OPERE PIÙ ANTICHE
+                    SELECT AVG(anno) into avgYear FROM OPERE;
+
+                    p:=annoCorrente-avgYear;
+                    htp.print('<h2><b>Opere più antiche: </b></h2>');
+                    htp.print('<h5><b>Età media opere:</b>'||p||' anni</h5>');
+                    modGUI1.ApriDiv('class="w3-container" style="width:100%"');    
+                    FOR var in  (SELECT * FROM (SELECT idOpera FROM OPERE
+                                                    ORDER BY anno
+                                    )WHERE ROWNUM <=3)
+                    LOOP
+                        SELECT opere.titolo,opere.anno INTO varOpera,years FROM opere WHERE idopera = var.idOpera;
+                        modGUI1.ApriDiv('class="w3-col l4 w3-padding-large w3-center"');
+                        gruppo2.coloreClassifica(k);
+                            modGUI1.ApriDiv('class="w3-card-4"');
+                            htp.prn('<img src="https://cdn.pixabay.com/photo/2016/10/22/15/32/water-1761027__480.jpg" alt="Alps" style="width:100%">');
+                                modGUI1.ApriDiv('class="w3-container w3-center"');
+                                    --INIZIO DESCRIZIONI
+                                    htp.prn('<b>Titolo: </b>');
+                                    htp.prn('<button onclick="document.getElementById(''LinguaeLivelloOpera'||var.idOpera||''').style.display=''block''" class="w3-margin w3-btn w3-border">'|| varOpera ||'</button>');
+                                    gruppo2.linguaELivello(idSessione,var.idOpera);
+                                    htp.prn('<p><b>Anno realizzazione </b>'||years||' D.C</p>');
+                                    p:=annoCorrente-years;
+                                    htp.prn('<p><b>Anni </b>'||p||'</p>');
+                                    --FINE DESCRIZIONI
+                                modGUI1.ChiudiDiv;
+                            modGUI1.ChiudiDiv;
+                        modGUI1.ChiudiDiv;
+                            k:=k+1;
+                    END LOOP;
+                    htp.br;
+                    htp.br;
+
+                    k:=1;
+
+                    htp.print('<h2><b>Opere con più autori: </b></h2>');
+                    modGUI1.ApriDiv('class="w3-container" style="width:100%"');    
+                    FOR var in  (SELECT * FROM (SELECT Autoriopere.idOpera, count(*) AS numAutori FROM AUTORIOPERE, OPERE
+                                        WHERE Autoriopere.idOpera=opere.idopera
+                                        group by AUTORIOPERE.idOpera
+                                        order by numAutori DESC
                         )WHERE ROWNUM <=3)
-        LOOP
-            SELECT opere.titolo,opere.anno INTO varOpera,years FROM opere WHERE idopera = var.idOpera;
-            modGUI1.ApriDiv('class="w3-col l4 w3-padding-large w3-center"');
-            gruppo2.coloreClassifica(k);
-                modGUI1.ApriDiv('class="w3-card-4"');
-                htp.prn('<img src="https://cdn.pixabay.com/photo/2016/10/22/15/32/water-1761027__480.jpg" alt="Alps" style="width:100%">');
-                    modGUI1.ApriDiv('class="w3-container w3-center"');
-                        --INIZIO DESCRIZIONI
-                        htp.prn('<p><b>Titolo </b>'||varOpera||'</p>');
-                        htp.prn('<p><b>Anno realizzazione </b>'||years||' D.C</p>');
-                        p:=annoCorrente-years;
-                        htp.prn('<p><b>Anni </b>'||p||'</p>');
-                        --FINE DESCRIZIONI
+                    LOOP
+                        SELECT opere.titolo INTO varOpera FROM opere WHERE idopera = var.idOpera;
+                        modGUI1.ApriDiv('class="w3-col l4 w3-padding-large w3-center"');
+                        gruppo2.coloreClassifica(k);
+                            modGUI1.ApriDiv('class="w3-card-4"');
+                            htp.prn('<img src="https://cdn.pixabay.com/photo/2016/10/22/15/32/water-1761027__480.jpg" alt="Alps" style="width:100%">');
+                                modGUI1.ApriDiv('class="w3-container w3-center"');
+                                    --INIZIO DESCRIZIONI
+                                    htp.prn('<b>Titolo: </b>');
+                                    htp.prn('<button onclick="document.getElementById(''LinguaeLivelloOpera'||var.idOpera||''').style.display=''block''" class="w3-margin w3-btn w3-border">'|| varOpera ||'</button>');
+                                    gruppo2.linguaELivello(idSessione,var.idOpera);
+                                    htp.prn('<p><b>N. autori </b>'||var.numAutori||'</p>');
+                                    --FINE DESCRIZIONI
+                                modGUI1.ChiudiDiv;
+                            modGUI1.ChiudiDiv;
+                        modGUI1.ChiudiDiv;
+                            k:=k+1;
+                    END LOOP;
+
+            ELSE
+                    SELECT nome INTO var1 FROM MUSEI WHERE idMuseo=museoID;
+                    --htp.prn('<h4><b>'||var1||'</b></h4>');
+                    MODGUI1.Collegamento('<h4><b>'||var1||'</b></h4>','visualizzaMuseo?idSessione='||idSessione||'&idMuseo='||museoID);
                     modGUI1.ChiudiDiv;
-                modGUI1.ChiudiDiv;
-            modGUI1.ChiudiDiv;
-                k:=k+1;
-            END LOOP;
+                    htp.br;
+                    modGUI1.ApriDiv('class="w3-container" style="width:100%"');
 
+                    k:=1;
+                    htp.print('<h2><b>Opere più viste</b></h2>');
+                    --INIZIO LOOP DELLA VISUALIZZAZIONE
+                        FOR var in (SELECT * FROM   (SELECT opera,dataarrivo,datauscita FROM saleopere, stanze 
+                                                    WHERE idstanza = saleopere.sala AND stanze.museo = museoID AND datauscita IS NOT NULL 
+                                                    ORDER BY datauscita - dataarrivo DESC
+                                    ) WHERE ROWNUM <= 3)
+                        LOOP
+                            SELECT opere.titolo INTO varOpera FROM opere WHERE idopera = var.opera;
+                            modGUI1.ApriDiv('class="w3-col l4 w3-padding-large w3-center"');
+                            gruppo2.coloreClassifica(k);
+                                modGUI1.ApriDiv('class="w3-card-4"');
+                                htp.prn('<img src="https://cdn.pixabay.com/photo/2016/10/22/15/32/water-1761027__480.jpg" alt="Alps" style="width:100%">');
+                                    modGUI1.ApriDiv('class="w3-container w3-center"');
+                                    --INIZIO DESCRIZIONI
+                                        htp.prn('<b>Titolo: </b>');
+                                        htp.prn('<button onclick="document.getElementById(''LinguaeLivelloOpera'||var.Opera||''').style.display=''block''" class="w3-margin w3-btn w3-border">'|| varOpera ||'</button>');
+                                        gruppo2.linguaELivello(idSessione,var.Opera);
+                                        p:=var.datauscita-var.dataarrivo;
+                                        htp.prn('<p><b>Esposta per </b>'||p||' giorni</p>');
+                                    --FINE DESCRIZIONI
+                                    modGUI1.ChiudiDiv;
+                                modGUI1.ChiudiDiv;
+                            modGUI1.ChiudiDiv;
+                            k:=k+1;
+                        END LOOP;
+                    
+                    htp.br;
+                    htp.br;
 
+                    k:=1;
+                    --OPERE DA PIÙ TEMPO NON SPOSTATE
+                    htp.print('<h2><b>Opere non spostate da più tempo: </b></h2>');
+                    modGUI1.ApriDiv('class="w3-container" style="width:100%"');
+                    --INIZIO LOOP DELLA VISUALIZZAZIONE
+                        FOR var in (SELECT * FROM   (SELECT dataarrivo, opera, sala FROM saleopere, stanze 
+                                                    WHERE stanze.museo = museoID AND saleopere.sala = stanze.idstanza AND datauscita IS NULL 
+                                                    ORDER BY dataarrivo
+                                                    ) 
+                                    WHERE ROWNUM <= 3)         
+                        LOOP
+                            SELECT opere.titolo INTO varOpera FROM opere WHERE idopera = var.opera;
+                            modGUI1.ApriDiv('class="w3-col l4 w3-padding-large w3-center"');
+                                gruppo2.coloreClassifica(k);
+                                modGUI1.ApriDiv('class="w3-card-4"');
+                                htp.prn('<img src="https://cdn.pixabay.com/photo/2016/10/22/15/32/water-1761027__480.jpg" alt="Alps" style="width:100%">');
+                                        modGUI1.ApriDiv('class="w3-container w3-center" style="height:150px;"');
+                                        --INIZIO DESCRIZIONI
+                                            htp.prn('<b>Titolo: </b>');
+                                            htp.prn('<button onclick="document.getElementById(''LinguaeLivelloOpera'||var.Opera||''').style.display=''block''" class="w3-margin w3-btn w3-border">'|| varOpera ||'</button>');
+                                            gruppo2.linguaELivello(idSessione,var.Opera);
+                                            htp.prn('<p><b>Esposta dal :</b>'||var.dataarrivo||'</p>');
+                                        --FINE DESCRIZIONI
+                                        modGUI1.ChiudiDiv;
+                                modGUI1.ChiudiDiv;
+                            modGUI1.ChiudiDiv;
+                            k:=k+1;
+                        END LOOP;
+                    htp.br;
+                    htp.br;
 
-        modGUI1.chiudiDiv;
+                    k:=1;
+                    --OPERE PIÙ ANTICHE
+                    SELECT AVG(anno) into avgYear FROM OPERE
+                    WHERE museo=museoID;
+
+                    p:=annoCorrente-avgYear;
+                    htp.print('<h2><b>Opere più antiche: </b></h2>');
+                    htp.print('<h5><b>Età media opere:</b>'||p||' anni</h5>');
+                    modGUI1.ApriDiv('class="w3-container" style="width:100%"');    
+                    FOR var in  (SELECT * FROM (SELECT idOpera FROM OPERE
+                                                    WHERE museo=museoID
+                                                    ORDER BY anno
+                                    )WHERE ROWNUM <=3)
+                    LOOP
+                        SELECT opere.titolo,opere.anno INTO varOpera,years FROM opere WHERE idopera = var.idOpera;
+                        modGUI1.ApriDiv('class="w3-col l4 w3-padding-large w3-center"');
+                        gruppo2.coloreClassifica(k);
+                            modGUI1.ApriDiv('class="w3-card-4"');
+                            htp.prn('<img src="https://cdn.pixabay.com/photo/2016/10/22/15/32/water-1761027__480.jpg" alt="Alps" style="width:100%">');
+                                modGUI1.ApriDiv('class="w3-container w3-center"');
+                                    --INIZIO DESCRIZIONI
+                                    htp.prn('<b>Titolo: </b>');
+                                    htp.prn('<button onclick="document.getElementById(''LinguaeLivelloOpera'||var.idOpera||''').style.display=''block''" class="w3-margin w3-btn w3-border">'|| varOpera ||'</button>');
+                                    gruppo2.linguaELivello(idSessione,var.idOpera);
+                                    htp.prn('<p><b>Anno realizzazione </b>'||years||' D.C</p>');
+                                    p:=annoCorrente-years;
+                                    htp.prn('<p><b>Anni </b>'||p||'</p>');
+                                    --FINE DESCRIZIONI
+                                modGUI1.ChiudiDiv;
+                            modGUI1.ChiudiDiv;
+                        modGUI1.ChiudiDiv;
+                            k:=k+1;
+                    END LOOP;
+                    htp.br;
+                    htp.br;
+
+                    k:=1;
+
+                    htp.print('<h2><b>Opere con più autori: </b></h2>');
+                    modGUI1.ApriDiv('class="w3-container" style="width:100%"');    
+                    FOR var in  (SELECT * FROM (SELECT Autoriopere.idOpera, count(*) AS numAutori FROM AUTORIOPERE, OPERE
+                                        WHERE Autoriopere.idOpera=opere.idopera AND opere.museo=museoID
+                                        group by AUTORIOPERE.idOpera
+                                        order by numAutori DESC
+                        )WHERE ROWNUM <=3)
+                    LOOP
+                        SELECT opere.titolo INTO varOpera FROM opere WHERE idopera = var.idOpera;
+                        modGUI1.ApriDiv('class="w3-col l4 w3-padding-large w3-center"');
+                        gruppo2.coloreClassifica(k);
+                            modGUI1.ApriDiv('class="w3-card-4"');
+                            htp.prn('<img src="https://cdn.pixabay.com/photo/2016/10/22/15/32/water-1761027__480.jpg" alt="Alps" style="width:100%">');
+                                modGUI1.ApriDiv('class="w3-container w3-center"');
+                                    --INIZIO DESCRIZIONI
+                                    htp.prn('<b>Titolo: </b>');
+                                    htp.prn('<button onclick="document.getElementById(''LinguaeLivelloOpera'||var.idOpera||''').style.display=''block''" class="w3-margin w3-btn w3-border">'|| varOpera ||'</button>');
+                                    gruppo2.linguaELivello(idSessione,var.idOpera);
+                                    htp.prn('<p><b>N. autori </b>'||var.numAutori||'</p>');
+                                    --FINE DESCRIZIONI
+                                modGUI1.ChiudiDiv;
+                            modGUI1.ChiudiDiv;
+                        modGUI1.ChiudiDiv;
+                            k:=k+1;
+                    END LOOP;
+
+            END IF;
+    modGUI1.chiudiDiv;
 END;
 
 
@@ -1184,7 +1539,6 @@ procedure coloreClassifica(posizione NUMBER DEFAULT 0)IS
         htp.print('<h1 class="w3-text-brown" align="right"><b>'||posizione||'#</b></h1>');
         END IF;
     END;
-
 /*
  * OPERAZIONI SUGLI AUTORI
  * - Inserimento ✅
@@ -1226,7 +1580,7 @@ BEGIN
     modGUI1.ApriDiv('class="w3-row w3-container"');
     --Visualizzazione TUTTI GLI AUTORI *temporanea*
     -- TODO: filtraggio
-    FOR autore IN (Select IdAutore,nome,cognome from Autori)
+    FOR autore IN (SELECT IdAutore,nome,cognome FROM Autori)
     LOOP
         modGUI1.ApriDiv('class="w3-col l4 w3-padding-large w3-center"');
             modGUI1.ApriDiv('class="w3-card-4"');
@@ -1269,7 +1623,7 @@ begin
             modGUI1.ChiudiDiv;
                     modGUI1.ApriDiv('class="w3-section"');
                         htp.br;
-                        select Nome,Cognome INTO aName,aSurname FROM Autori WHERE IdAutore=authorID;
+                        SELECT Nome,Cognome INTO aName,aSurname FROM Autori WHERE IdAutore=authorID;
                         htp.prn('stai per rimuovere: '||aName||' '||aSurname);
                         modGUI1.Collegamento('Conferma',
                         'RimozioneAutore?idSessione='||idSessione||'&authorID='||authorID,
@@ -1388,7 +1742,7 @@ nomecompleto VARCHAR2(50);
                     nomecompleto := an_auth.Nome||' '||an_auth.cognome;
                     modGUI1.SELECTOPTION(an_auth.IdAutore, nomecompleto, 0);
                 END LOOP;
-                MODGUI1.SelectClose;
+                MODGUI1.SELECTClose;
                 htp.prn('<button class="w3-button w3-block w3-black w3-section w3-padding" type="submit">Seleziona</button>');
                 modGUI1.ChiudiForm;
             ELSIF operazione = 3 THEN
@@ -1401,7 +1755,7 @@ nomecompleto VARCHAR2(50);
                     nomecompleto := an_auth.Nome||' '||an_auth.cognome;
                     modGUI1.SELECTOPTION(an_auth.IdAutore, nomecompleto, 0);
                 END LOOP;
-                MODGUI1.SelectClose;
+                MODGUI1.SELECTClose;
                 htp.prn('<button class="w3-button w3-block w3-black w3-section w3-padding" type="submit">Seleziona</button>');
                 modGUI1.ChiudiForm;
             END IF;
@@ -1436,9 +1790,14 @@ SELECT * INTO auth FROM autori WHERE authID=IDAUTORE;
         --OPERE REALIZZATE
         if operazione=0 THEN 
         modGUI1.ApriDiv('class="w3-container" style="width:100%"');
-        htp.print('<h2><b>Opere realizzate</b></h2>');
-            FOR op IN (Select opere.IDOPERA, titolo, anno
-                from OPERE JOIN AUTORIOPERE on (OPERE.idopera = AUTORIOPERE.idopera)
+        htp.print('<h2><b>Opere realizzate da ');
+        modGUI1.Collegamento(auth.Nome||' '||auth.Cognome, 
+                            'ModificaAutore?idSessione='||idSessione||'&authorID='||auth.IdAutore
+                            ||'&operazione=0&statistiche=//operazione='||operazione||'//authID='||authID,
+                            'w3-black w3-margin w3-button');
+        htp.print('</b></h2>');
+            FOR op IN (SELECT opere.IDOPERA, titolo, anno
+                FROM OPERE JOIN AUTORIOPERE on (OPERE.idopera = AUTORIOPERE.idopera)
                 WHERE IDAUTORE=AUTH.idautore)
             LOOP
                 modGUI1.ApriDiv('class="w3-col l4 w3-padding-large w3-center"');
@@ -1456,24 +1815,26 @@ SELECT * INTO auth FROM autori WHERE authID=IDAUTORE;
             END LOOP;
         end IF;
 
-        --MUSEI CON OPERE ESPOSTE
+        -- MUSEI CON OPERE ESPOSTE
         if operazione=1 THEN
         modGUI1.ApriDiv('class="w3-container" style="width:100%"');
-        htp.print('<h2><b>Musei con opere esposte</b></h2>');
-            FOR mus IN (Select DISTINCT *
-                    from MUSEI where
-                    IDMUSEO IN (select STANZE.MUSEO from stanze JOIN SALEOPERE on (stanze.IDSTANZA=SALEOPERE.SALA) where
+        htp.print('<h2><b>Musei con opere di '||auth.Nome||' '||auth.Cognome||' esposte</b></h2>');
+            FOR mus IN (SELECT DISTINCT *
+                    FROM MUSEI WHERE
+                    IDMUSEO IN (SELECT STANZE.MUSEO FROM stanze JOIN SALEOPERE on (stanze.IDSTANZA=SALEOPERE.SALA) WHERE
                     saleopere.DATAUSCITA is null and SALEOPERE.OPERA in
-                    (Select DISTINCT opere.IDOPERA
-                        from OPERE JOIN AUTORIOPERE on (OPERE.idopera = AUTORIOPERE.idopera)
+                    (SELECT DISTINCT opere.IDOPERA
+                        FROM OPERE JOIN AUTORIOPERE on (OPERE.idopera = AUTORIOPERE.idopera)
                         WHERE IDAUTORE=AUTH.idautore)))
             LOOP
                 modGUI1.ApriDiv('class="w3-col l4 w3-padding-large w3-center"');
-                    modGUI1.ApriDiv('class="w3-card-4" style="height:600px;"');
+                    modGUI1.ApriDiv('class="w3-card-4"');
                     htp.prn('<img src="https://cdn.pixabay.com/photo/2016/10/22/15/32/water-1761027__480.jpg" alt="Alps" style="width:100%;">');
                             modGUI1.ApriDiv('class="w3-container w3-center"');
-                                htp.prn('<p>Museo '|| mus.Nome ||'</p>');
-                                htp.prn('<p>testo di prova</p>');
+                                htp.prn('<p><b>'||mus.Nome||'</b></p>');
+                                modGUI1.Collegamento('Visualizza', 
+                                    'visualizzaMuseo?idSessione='||idSessione||'&museoID='||mus.IdMuseo,
+                                    'w3-black w3-margin w3-button');
                             modGUI1.ChiudiDiv;
                     modGUI1.ChiudiDiv;
                 modGUI1.ChiudiDiv;
@@ -1484,9 +1845,9 @@ SELECT * INTO auth FROM autori WHERE authID=IDAUTORE;
         if operazione=2 THEN
         modGUI1.ApriDiv('class="w3-container" style="width:100%"');
         htp.print('<h2><b>Opere create in collaborazione</b></h2>');
-            FOR op IN (Select op1.IDOPERA, titolo, anno
-                FROM OPERE op1 where
-                    op1.IDOPERA=(select DISTINCT a1.idopera from AUTORIOPERE a1,AUTORIOPERE a2 WHERE
+            FOR op IN (SELECT op1.IDOPERA, titolo, anno
+                FROM OPERE op1 WHERE
+                    op1.IDOPERA=(SELECT DISTINCT a1.idopera FROM AUTORIOPERE a1,AUTORIOPERE a2 WHERE
                         (a1.idopera=a2.idopera) AND (a1.idautore<>a2.idautore)))
             LOOP
                 modGUI1.ApriDiv('class="w3-col l4 w3-padding-large w3-center"');
@@ -1542,13 +1903,14 @@ modGUI1.ApriPagina('Selezione statistica', idSessione);
             LOOP
                 modGUI1.SELECTOPTION(an_mus.idmuseo, an_mus.Nome, 0);
             END LOOP;
-            MODGUI1.SelectClose;
+            MODGUI1.SELECTClose;
             htp.prn('<button class="w3-button w3-block w3-black w3-section w3-padding" type="submit">Seleziona</button>');
             modGUI1.ChiudiForm;
             MODGUI1.chiudiDiv;
         modGUI1.ChiudiDiv;
     modGUI1.ChiudiDiv;
 END selezioneMuseoAutoreStatistica;
+
 
 Procedure StatisticheMuseoAutori(
     idSessione NUMBER DEFAULT 0,
@@ -1595,15 +1957,14 @@ BEGIN
     IF operazione = 3 THEN
         htp.prn('<h4><b>Opere realizzate da');
         modGUI1.Collegamento(auth.Nome||' '||auth.Cognome, 
-                'ModificaAutore?idSessione='||idSessione||'&authorID='||auth.IdAutore||'&operazione=0',
-                'w3-black w3-margin w3-button');
+                'ModificaAutore?idSessione='||idSessione||'&authorID='||auth.IdAutore||'&operazione=0'
+                ||'&caller=StatisticheMuseoAutori'
+                ||'&callerParams=//operazione='||operazione||'//authID='||authID||'//museoID='||museoID);
         htp.prn('esposte in');
         modGUI1.Collegamento(mus.Nome,
-                'gruppo4.<NOME PROCEDURA>?idSessione='
-                ||idSessione||'&<PARAM MUSEO>='||mus.IdMuseo,
-                'w3-black w3-margin w3-button');
+                'visualizzaMuseo?idSessione='
+                ||idSessione||'&museoID='||mus.IdMuseo);
     htp.prn('</b></h4>');
-    --htp.print('<h2><b>Opere realizzate esposte in '||mus.nome||'</b></h2>');
         FOR op IN (
             SELECT Opera AS IdOpera,Titolo,Anno -- se usate altri attributi nella pagina aggiungeteli qui
             FROM OPERE JOIN AUTORIOPERE ON OPERE.IdOpera = AUTORIOPERE.IdOpera
@@ -1629,8 +1990,8 @@ BEGIN
     ELSE
         htp.prn('<h4><b>Autori in vita con opere esposte in ');
         modGUI1.Collegamento(mus.Nome,
-                    'gruppo4.<NOME PROCEDURA>?idSessione='
-                    ||idSessione||'&<PARAM MUSEO>='||mus.IdMuseo,
+                    'visualizzaMuseo?idSessione='
+                    ||idSessione||'&museoID='||mus.IdMuseo,
                     'w3-black w3-margin w3-button');
         htp.prn('</b></h4>');
         FOR an_author IN (
@@ -1657,10 +2018,10 @@ BEGIN
                             ||' (et&agrave;: '||ROUND(eta, 0)||' anni)');
                         END IF;
                         htp.br;
-                        -- Azioni di modifica e rimozione mostrate solo se autorizzatii
-                        modGUI1.Collegamento('Visualizza',
-                            'ModificaAutore?idSessione='||idSessione||'&authorID='||an_author.IdAutore||'&operazione=0',
-                            'w3-black w3-margin w3-button');
+                        modGUI1.Collegamento('Visualizza', 
+                            'ModificaAutore?idSessione='||idSessione||'&authorID='||an_author.IdAutore||'&operazione=0'
+                            ||'&caller=StatisticheMuseoAutori'
+                            ||'&callerParams=//operazione='||operazione||'//authID='||authID||'//museoID='||museoID);
                     modGUI1.ChiudiDiv;
                 modGUI1.ChiudiDiv;
             modGUI1.ChiudiDiv;
@@ -1888,7 +2249,7 @@ AutorePresente EXCEPTION;
 BEGIN
     -- Cognome autore maiuscolo
     INSERT INTO Autori VALUES
-    (IdAutoreSeq.NEXTVAL, authName, UPPER(authSurname), birth, death, nation);
+    (IdAutoreSeq.NEXTVAL, authName, UPPER(authSurname), birth, death, nation, 0);
     IF SQL%FOUND
     THEN
         -- faccio il commit dello statement precedente
@@ -1907,7 +2268,7 @@ BEGIN
         RedirectEsito(idSessione, 'Inserimento fallito',
              'Errore: Autore già presente',
              'Torna all''inserimento','InserisciAutore', 
-             '&authName='||authName||'&authSurname='||authSurname||'&dataNascita='||dataNascita||'&dataMorte='||dataMorte||'&nation='||nation,
+             '//authName='||authName||'//authSurname='||authSurname||'//dataNascita='||dataNascita||'//dataMorte='||dataMorte||'//nation='||nation,
              'Torna al menù','menuAutori');
             ROLLBACK;
 END;
@@ -1917,22 +2278,23 @@ END;
 -- Il parametro operazione assume uno tra i seguenti valori:
 --  0: Visualizzazione
 --  1: Modifica
---  2: Rimozione
 PROCEDURE ModificaAutore(
 	idSessione NUMBER DEFAULT 0,
 	authorID NUMBER DEFAULT 0,
-    operazione NUMBER DEFAULT 0
+    operazione NUMBER DEFAULT 0,
+    caller VARCHAR2 DEFAULT NULL,
+    callerParams VARCHAR2 DEFAULT ''
 ) IS
 this_autore Autori%ROWTYPE;
 op_title VARCHAR2(25);
+-- Gli eventuali parametri della procedura chiamante
+params VARCHAR2(255);
 BEGIN
-    SELECT * INTO this_autore FROM Autori where IdAutore = authorID;
+    SELECT * INTO this_autore FROM Autori WHERE IdAutore = authorID;
     IF operazione = 0 THEN
-        op_title := 'Visualizza';
+        op_title := 'Visualizza'; 
     ELSIF operazione = 1 THEN
         op_title := 'Modifica';
-	ELSE
-		op_title := 'Rimuovi';
     END IF;
     modGUI1.ApriPagina(op_title||' Autore', idSessione);
 	if idSessione IS NULL then
@@ -1945,19 +2307,13 @@ BEGIN
 	modGUI1.ApriDiv('class="w3-modal-content w3-card-4 w3-animate-zoom" style="max-width:600px" ');
 		modGUI1.ApriDiv('class="w3-section"');
         modGUI1.Collegamento('X','menuAutori?idSessione='||idSessione||'',' w3-btn w3-large w3-red w3-display-topright');
-		htp.br;
+        htp.br;
 		htp.header(2, 'Dettagli Autore', 'center');
-		-- caso modifica o rimozione
-		IF operazione != 0 THEN
-            -- form con action diverse a seconda dell'operazione
-			IF operazione = 1 THEN
-                modGUI1.ApriForm('UpdateAutore');
-            ELSE
-                modGUI1.ApriForm('RemoveAutore');
-            END IF;
-            htp.formhidden('idSessione', idSessione);
-            htp.formhidden('authID', this_autore.IdAutore);
-            IF operazione = 1 THEN
+		-- caso modifica
+		IF operazione = 1 THEN
+            modGUI1.ApriForm('UpdateAutore');
+                htp.formhidden('idSessione', idSessione);
+                htp.formhidden('authID', this_autore.IdAutore);
                 modGUI1.Label('Nome:');
 				modGUI1.InputText('newName', this_autore.Nome, 1, this_autore.Nome);
                 htp.br;
@@ -1973,7 +2329,6 @@ BEGIN
                 modGUI1.Label('Nazionalità:');
 				modGUI1.InputText('newNation', this_autore.Nazionalita, 1, this_autore.Nazionalita);
                 htp.br;
-            END IF;
 				modGUI1.InputSubmit('Conferma');
 			modGUI1.ChiudiForm;
 		-- caso visualizza: label + valore
@@ -2002,6 +2357,14 @@ BEGIN
 			htp.prn(this_autore.Nazionalita);
 			htp.br; htp.br;
 		END IF;
+
+        -- Link per ritorno a procedura statistica dalla quale è stato chiamato
+        IF caller is not null THEN
+        params := REPLACE(callerParams,'//','&');
+        MODGUI1.collegamento('Annulla',
+            caller||'?idSessione='||idSessione||params,
+            'w3-button w3-block w3-black w3-section w3-padding');
+        END IF; 
 		modGUI1.ChiudiDiv;
 	modGUI1.ChiudiDiv;
 END ModificaAutore;
@@ -2062,9 +2425,9 @@ PROCEDURE InserisciDescrizione(
 ) IS
 def_lingua VARCHAR2(255) := 'Inserisci la lingua...';
 def_descr VARCHAR2(255) := 'Inserisci la descrizione...';
-bambino_selected NUMBER(1) := 0;
-adulto_selected NUMBER(1) := 0;
-esperto_selected NUMBER(1) := 0;
+bambino_SELECTed NUMBER(1) := 0;
+adulto_SELECTed NUMBER(1) := 0;
+esperto_SELECTed NUMBER(1) := 0;
 BEGIN
     modGUI1.ApriPagina('Inserimento Descrizione', idSessione);
 
@@ -2088,16 +2451,16 @@ BEGIN
         -- Codice per autoselezione livello
 
         IF d_level = 'bambino' THEN
-            bambino_selected := 1;
+            bambino_SELECTed := 1;
         ELSIF d_level = 'adulto' THEN
-            adulto_selected := 1;
+            adulto_SELECTed := 1;
         ELSIF d_level = 'esperto' THEN
-            esperto_selected := 1;
+            esperto_SELECTed := 1;
         END IF;
         MODGUI1.Label('Livello*');
-        modGUI1.InputRadioButton('Bambino', 'd_level', 'bambino', bambino_selected, 0);
-        modGUI1.InputRadioButton('Adulto', 'd_level', 'adulto', adulto_selected, 0);
-        modGUI1.InputRadioButton('Esperto', 'd_level', 'esperto', esperto_selected, 0);
+        modGUI1.InputRadioButton('Bambino', 'd_level', 'bambino', bambino_SELECTed, 0);
+        modGUI1.InputRadioButton('Adulto', 'd_level', 'adulto', adulto_SELECTed, 0);
+        modGUI1.InputRadioButton('Esperto', 'd_level', 'esperto', esperto_SELECTed, 0);
         htp.br;
         MODGUI1.Label('Testo descrizione*');
         HTP.BR;
@@ -2122,7 +2485,7 @@ BEGIN
                 modGUI1.SELECTOPTION(an_opera.IdOpera, an_opera.Titolo, 0);
                 end loop;
         end if;
-        MODGUI1.SelectClose;
+        MODGUI1.SELECTClose;
         MODGUI1.InputSubmit('Inserisci');
         if operaId is not null and language is not null and d_level is not null THEN
         MODGUI1.collegamento('Annulla','VisualizzaOpera?idSessione='||idSessione||'&operaID='||operaID||'&lingue='||language||'&livelli='||d_level,'w3-button w3-block w3-black w3-section w3-padding');
@@ -2243,15 +2606,15 @@ PROCEDURE modificaDescrizione(
 ) IS
 DESCR descrizioni%ROWTYPE;
 tit VARCHAR2(100);
-bambino_selected NUMBER(1) := 0;
-adulto_selected NUMBER(1) := 0;
-esperto_selected NUMBER(1) := 0;
-italian_selected NUMBER(1) := 0;
-English_selected NUMBER(1) := 0;
-Chinese_selected NUMBER(1) := 0;
+bambino_SELECTed NUMBER(1) := 0;
+adulto_SELECTed NUMBER(1) := 0;
+esperto_SELECTed NUMBER(1) := 0;
+italian_SELECTed NUMBER(1) := 0;
+English_SELECTed NUMBER(1) := 0;
+Chinese_SELECTed NUMBER(1) := 0;
 BEGIN
-select * INTO DESCR FROM DESCRIZIONI WHERE IdDesc=idDescrizione;
-select titolo into tit from opere where Descr.opera=IDOPERA;
+SELECT * INTO DESCR FROM DESCRIZIONI WHERE IdDesc=idDescrizione;
+SELECT titolo into tit FROM opere WHERE Descr.opera=IDOPERA;
 modGUI1.ApriPagina('ModificaDescrizione',idSessione);
         modGUI1.Header(idSessione);
         htp.br;htp.br;htp.br;htp.br;htp.br;htp.br;
@@ -2273,31 +2636,31 @@ modGUI1.ApriPagina('ModificaDescrizione',idSessione);
                         modGUI1.SELECTOPTION(op.idopera, OP.titolo, 1);
                         end if;
                     END LOOP;
-                    MODGUI1.SelectClose;
+                    MODGUI1.SELECTClose;
                     htp.br;
                     IF DESCR.lingua = 'Italian' THEN
-                    italian_selected := 1;
+                    italian_SELECTed := 1;
                     ELSIF DESCR.lingua = 'English' THEN
-                    English_selected := 1;
+                    English_SELECTed := 1;
                     ELSIF DESCR.lingua = 'Chinese' THEN
-                    Chinese_selected := 1;
+                    Chinese_SELECTed := 1;
                     END IF;
                     modGUI1.Label('Lingua*');
-                        modGUI1.InputRadioButton('Italiano ', 'newlingua', 'Italian', italian_selected, 0);
-                        modGUI1.InputRadioButton('English ', 'newlingua', 'English', English_selected, 0);
-                        modGUI1.InputRadioButton('中国人 ', 'newlingua', 'Chinese', Chinese_selected, 0);
+                        modGUI1.InputRadioButton('Italiano ', 'newlingua', 'Italian', italian_SELECTed, 0);
+                        modGUI1.InputRadioButton('English ', 'newlingua', 'English', English_SELECTed, 0);
+                        modGUI1.InputRadioButton('中国人 ', 'newlingua', 'Chinese', Chinese_SELECTed, 0);
                     htp.br;
                     IF DESCR.livello = 'bambino' THEN
-                    bambino_selected := 1;
+                    bambino_SELECTed := 1;
                     ELSIF DESCR.livello = 'adulto' THEN
-                    adulto_selected := 1;
+                    adulto_SELECTed := 1;
                     ELSIF DESCR.livello = 'esperto' THEN
-                    esperto_selected := 1;
+                    esperto_SELECTed := 1;
                     END IF;
                     modGUI1.Label('Livello*');
-                    modGUI1.InputRadioButton('Bambino', 'newlivello', 'bambino', bambino_selected, 0);
-                    modGUI1.InputRadioButton('Adulto', 'newlivello', 'adulto', adulto_selected, 0);
-                    modGUI1.InputRadioButton('Esperto', 'newlivello', 'esperto', esperto_selected, 0);
+                    modGUI1.InputRadioButton('Bambino', 'newlivello', 'bambino', bambino_SELECTed, 0);
+                    modGUI1.InputRadioButton('Adulto', 'newlivello', 'adulto', adulto_SELECTed, 0);
+                    modGUI1.InputRadioButton('Esperto', 'newlivello', 'esperto', esperto_SELECTed, 0);
                     htp.br;
                     modGUI1.Label('Testo:');
                     htp.br; 
@@ -2356,7 +2719,7 @@ begin
             modGUI1.ChiudiDiv;
                     modGUI1.ApriDiv('class="w3-section"');
                         htp.br;
-                        select Lingua,Livello INTO dLingua,dLivello FROM DESCRIZIONI WHERE IDDESC=idDescrizione;
+                        SELECT Lingua,Livello INTO dLingua,dLivello FROM DESCRIZIONI WHERE IDDESC=idDescrizione;
                         htp.prn('stai per rimuovere: '||dLingua||' '||dLivello);
                         modGUI1.Collegamento('Conferma',
                         'RimozioneDescrizione?idSessione='||idSessione||'&idDescrizione='||idDescrizione,
@@ -2376,8 +2739,8 @@ procedure RimozioneDescrizione(
 opid number(5);
 oplingua VARCHAR2(25);
 BEGIN
-    select Opera, LINGUA into opid, oplingua
-    from DESCRIZIONI where IDDESC=idDescrizione;
+    SELECT Opera, LINGUA into opid, oplingua
+    FROM DESCRIZIONI WHERE IDDESC=idDescrizione;
     gruppo2.RedirectEsito(idSessione,'Rimozione riuscita', null,null,null, null,'Torna all''opera','VisualizzaOpera','//operaID='||opid||'//lingue='||oplingua);
         DELETE FROM DESCRIZIONI WHERE IDDESC = idDescrizione;
         commit;
@@ -2387,22 +2750,22 @@ Procedure StatisticheDescrizioni(
     idSessione NUMBER DEFAULT 0,
     operazione NUMBER DEFAULT 0
 )IS
-cursor liv is (select livello, count(LIVELLO) as cliv
-                from DESCRIZIONI GROUP by LIVELLO
+cursor liv is (SELECT livello, count(LIVELLO) as cliv
+                FROM DESCRIZIONI GROUP by LIVELLO
                 HAVING COUNT(LIVELLO)=(
                     SELECT max(levcount)
-                    from (
+                    FROM (
                         SELECT livello, count(LIVELLO) levcount
-                        from DESCRIZIONI
+                        FROM DESCRIZIONI
                         GROUP by LIVELLO
                     )));
-cursor lin is (select LINGUA, count(lingua) as clin
-                from DESCRIZIONI GROUP by lingua
+cursor lin is (SELECT LINGUA, count(lingua) as clin
+                FROM DESCRIZIONI GROUP by lingua
                 HAVING COUNT(lingua)=(
                     SELECT max(lencount)
-                    from (
+                    FROM (
                         SELECT LINGUA, count(lingua) lencount
-                        from DESCRIZIONI
+                        FROM DESCRIZIONI
                         GROUP by LINGUA
                     )));
 BEGIN

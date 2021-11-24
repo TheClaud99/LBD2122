@@ -35,10 +35,21 @@ procedure EsitoOperazione(
 
 /* OPERAZIONI SULLE OPERE */
 procedure coloreClassifica(posizione NUMBER DEFAULT 0);
-procedure EsitoPositivoOpere(idSessione NUMBER DEFAULT NULL);
-procedure EsitoNegativoOpere(idSessione NUMBER DEFAULT NULL);
-
-procedure SpostamentiOpera (operaID NUMBER DEFAULT 0);
+procedure SpostamentiOpera (
+    idSessione NUMBER DEFAULT 0,
+    operaID NUMBER DEFAULT 0
+);
+PROCEDURE SpostaOpera(
+        idSessione NUMBER DEFAULT 0,
+        operaID NUMBER DEFAULT 0,
+        salaID NUMBER DEFAULT 0
+);
+procedure SpostamentoOpera(
+    idSessione NUMBER DEFAULT 0,
+    operaID NUMBER DEFAULT 0,
+    Esposizione NUMBER DEFAULT 0,
+    NuovaSalaID NUMBER DEFAULT 0
+);
 procedure menuOpere (idSessione NUMBER DEFAULT NULL);
 procedure selezioneMuseo(idSessione NUMBER DEFAULT 0);
 Procedure StatisticheOpere(
@@ -55,14 +66,26 @@ PROCEDURE InserisciOpera(
 procedure AggiungiAutore(
     idSessione NUMBER DEFAULT 0,
     operaID NUMBER DEFAULT 0,
-    lingue VARCHAR2 DEFAULT null -- aggiunto rispetto a pks commit roberto
-); 
+    lingue VARCHAR2 DEFAULT null
+);
 procedure AggiuntaAutore(
     idSessione NUMBER DEFAULT 0,
     operaID NUMBER DEFAULT 0,
     autoreID NUMBER DEFAULT 0,
-    lingue VARCHAR2 default NULL -- aggiunto rispetto a pks commit roberto
+    lingue VARCHAR2 default NULL
 );
+procedure RimuoviAutore(
+    idSessione NUMBER DEFAULT 0,
+    operaID NUMBER DEFAULT 0,
+    lingue VARCHAR2 DEFAULT null
+);
+
+procedure RimozioneAutore(
+    idSessione NUMBER DEFAULT 0,
+    operaID NUMBER DEFAULT 0,
+    autoreID NUMBER DEFAULT 0
+);
+
 procedure EliminazioneOpera(
     idSessione NUMBER default 0,
     operaID NUMBER default 0
@@ -179,11 +202,12 @@ PROCEDURE InserisciDatiAutore(
 -- Il parametro operazione assume uno tra i seguenti valori:
 --  0: Visualizzazione
 --  1: Modifica
---  2: Rimozione
 PROCEDURE ModificaAutore(
-    idSessione NUMBER DEFAULT 0,
-    authorID NUMBER DEFAULT 0,
-    operazione NUMBER DEFAULT 0
+	idSessione NUMBER DEFAULT 0,
+	authorID NUMBER DEFAULT 0,
+    operazione NUMBER DEFAULT 0,
+    caller VARCHAR2 DEFAULT NULL,
+    callerParams VARCHAR2 DEFAULT ''
 );
 
 PROCEDURE UpdateAutore(

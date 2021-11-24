@@ -87,13 +87,16 @@ PROCEDURE ListaUtenti(
 	sessionID NUMBER default 0
 );
 
-function etaMediaUtenti return NUMBER;
+procedure etaMediaUtenti(
+	 sessionID NUMBER DEFAULT 0
+ );
 
-function sommaTitoli(
+procedure sommaTitoli(
+	sessionID NUMBER DEFAULT 0,
 	dataInizioFun VARCHAR2 DEFAULT NULL,
 	dataFineFun VARCHAR2 DEFAULT NULL,
 	utenteID NUMBER DEFAULT 0 
-) return NUMBER;
+);
 
 procedure StatisticheUtenti(
 	sessionID NUMBER default 0

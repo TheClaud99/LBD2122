@@ -80,26 +80,6 @@
 \tableofcontents
 \newpage
 
-\section{Operazioni proposte}
-\subsection{Operazioni sulle Opere}
-\begin{itemize}
-	\item Tutti gli autori di un'opera, dato un ID opera
-	\item Tutte le descrizioni di un'opera, dato un ID opera
-	\item Le opere ordinate per frequenza di visualizzazione da parte dei visitatori (escludendo Dipendenti e DBA)
-\end{itemize}
-\subsection{Operazioni sugli autori}
-\begin{itemize}
-	\item Tutte le opere di un'autore (magari anche restringendo la ricerca ad una lista di musei), dato un ID autore
-	\item Tutti i musei nei quali sono esposte opere di un autore, dato ID autore
-	\item Gli autori le cui opere sono state visualizzate più frequentemente, ordinati per frequenza
-\end{itemize}
-\subsection{Operazioni sugli spostamenti (SaleOpere)}
-\begin{itemize}
-	\item Ordinamento delle opere sulla base della frequenza crescente/decrescente di spostamento (magari anche specificando un intervallo di tempo da considerare)
-	\item L'opera che al momento dell'esecuzione della query non è stata spostata per più tempo
-	\item Numero di opere in una Sala data (anche se ridondanza con attributo di Sale?)
-\end{itemize}
-
 %%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Operazioni sulle Opere  %
 %%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -114,10 +94,12 @@
 	\item \textbf{Obiettivo}: Visualizzare le informazioni relative all'Opera
 	\item \textbf{Parametri}:
 		\begin{enumerate}
-			\item \textbf{sessionID}: in (da definire)
-			\item \textbf{operaID}: in number(5)
+			\item \textbf{idSessione}: in NUMBER DEFAULT 0
+			\item \textbf{operaID}: in NUMBER DEFAULT 0
+			\item \textbf{lingue}: in VARCHAR2 DEFAULT 'sconosciuto'
+			\item \textbf{livelli}: in VARCHAR2 DEFAULT 'sconosciuto'
 		\end{enumerate}
-	\item \textbf{Risultato}: Visualizza l'Opera richiesta, oppure restituisce un errore
+	\item \textbf{Risultato}: Visualizza l'Opera richiesta
 	\item \textbf{Errori}: l'Opera con operaID specificato non è presente nel database
 	\item \textbf{Usa}: Opere
 	\item \textbf{Modifica}: nessuna
@@ -137,7 +119,7 @@
 	\item \textbf{Obiettivo}: Inserisce una nuova Opera nel database
 	\item \textbf{Parametri}:
 	\begin{enumerate}
-		\item \textbf{sessionID}: in (da definire)
+		\item \textbf{idSessione}: in (da definire)
 		\item \textbf{MuseoID}: in number(5)
 		\item \textbf{Titolo}: in varchar2(15)
 		\item \textbf{Anno}: in date
@@ -169,7 +151,7 @@
 	\item \textbf{Obiettivo}: Modifica un'Opera presente nel database
 	\item \textbf{Parametri}:
 	\begin{enumerate}
-		\item \textbf{sessionID}: in (da definire)
+		\item \textbf{idSessione}: in (da definire)
 		\item \textbf{OperaID}: in number(5)
 		\item \textbf{newtitle}: in varchar2(15) default null
 		\item \textbf{newyear}: in date default null
@@ -208,7 +190,7 @@
 	\item \textbf{Obiettivo}: Rimuove un'Opera dal database
 	\item \textbf{Parametri}:
 	\begin{enumerate}
-		\item \textbf{sessionID}: in (da definire)
+		\item \textbf{idSessione}: in (da definire)
 		\item \textbf{OperaID}: in number(5)
 	\end{enumerate}
 	\item \textbf{Risultato}: Rimuove l'Opera specificata se esiste nella base di dati, errore altrimenti (la base di dati rimane inalterata)
@@ -242,7 +224,7 @@
 	\item \textbf{Obiettivo}: Aggiunge un Autore ad un'Opera, se entrambe le entità sono presenti nella base di dati
 	\item \textbf{Parametri}:
 	\begin{enumerate}
-		\item \textbf{sessionID}: in (da definire)
+		\item \textbf{idSessione}: in (da definire)
 		\item \textbf{OperaID}: in number(5)
 		\item \textbf{AuthorID}: in number(5)
 	\end{enumerate}
@@ -271,6 +253,52 @@
 	\item \textbf{Note}: L'operazione non è idempotente \textbf{\color{red} Da decidere se renderla tale}
 \end{itemize}
 
+\subsection{Rimozione Autore}
+\begin{itemize}
+	\item \textbf{Operazione}: AggiungiAutoreOpera
+	\item \textbf{Obiettivo}: Aggiunge un Autore ad un'Opera, se entrambe le entità sono presenti nella base di dati
+	\item \textbf{Parametri}:
+	\begin{enumerate}
+		\item \textbf{idSessione}: in (da definire)
+		\item \textbf{OperaID}: in number(5)
+		\item \textbf{AuthorID}: in number(5)
+	\end{enumerate}
+	\item \textbf{Risultato}: Aggiunge l'autore con l'ID indicato all'Opera individuata dall'ID dato.\\
+	Se l'autore o l'opera non sono presenti allora viene restituito errore.	Viene restituito errore anche se è già stato aggiunto l'autore specificato a questa Opera
+	\item \textbf{Errori}: 
+	\begin{itemize}
+		\item L'Opera con OperaID non è presente nel database
+		\item L'autore con AuthorID non è presente nel database
+		\item L'autore individuato da AuthorID è già stato aggiunto come autore di quest'Opera
+	\end{itemize}
+	\item \textbf{Usa}: Opere, Autori, AutoriOpere
+	\item \textbf{Modifica}: AutoriOpere
+	\item \textbf{Precondizioni}:
+	\begin{itemize}
+		\item $\exists x \in Opere : x.IdOpera = OperaID$
+		\item $\exists y \in Autori : y.IdAutore = AuthorID$
+		\item $\not\exists z \in AutoriOpere : z.IdAutore = AuthorID \land z.IdOpera = OperaID$
+		\item $|AutoriOpere| = n$
+	\end{itemize}
+	\item \textbf{Postcondizioni}:
+	\begin{itemize}
+		\item $\exists z \in AutoriOpere : z.IdAutore = AuthorID \land z.IdOpera = OperaID$
+		\item $|AutoriOpere| = n + 1$
+	\end{itemize}
+	\item \textbf{Note}: L'operazione non è idempotente \textbf{\color{red} Da decidere se renderla tale}
+\end{itemize}
+
+\subsection{Statistiche e monitoraggio}
+
+\subsubsection{Storico prestiti dell’Opera}
+\subsubsection{Autori dell’Opera}
+\subsubsection{Tipo Sala in cui si trova l’Opera}
+\subsubsection{Descrizioni dell’Opera}
+\subsubsection{Lista Opere ordinate per numero di Autori in ordine decrescente}
+\subsubsection{Opere non spostata da più tempo (le tre più vecchie)}
+\subsubsection{Opere esposte per più tempo (le tre più vecchie)}
+\subsubsection{Età media delle opere}
+\subsubsection{Ordinamento per anno di realizzazione (le tre più vecchie)}
 
 \newpage
 
@@ -288,7 +316,7 @@
 	\item \textbf{Obiettivo}: Visualizza le informazioni relative ad un Autore presente nel database
 	\item \textbf{Parametri}:
 	\begin{enumerate}
-		\item \textbf{sessionID}: in (da definire)
+		\item \textbf{idSessione}: in (da definire)
 		\item \textbf{AuthorID}: in number(5)
 	\end{enumerate}
 	\item \textbf{Risultato}: Visualizza i dati relativi all'autore identificato da AuthorID, se presente nel database, restituisce un errore altrimenti
@@ -314,7 +342,7 @@
 	\item \textbf{Obiettivo}: Inserisce un nuovo autore nel database
 	\item \textbf{Parametri}:
 	\begin{enumerate}
-		\item \textbf{sessionID}: in (da definire)
+		\item \textbf{idSessione}: in (da definire)
 		\item \textbf{nome}: in varchar2(25)
 		\item \textbf{cognome}: in varchar2(25)
 		\item \textbf{dataNascita}: in date
@@ -352,7 +380,7 @@
 	\item \textbf{Obiettivo}: Modifica i dati di un Autore presente nel database
 	\item \textbf{Parametri}:
 	\begin{enumerate}
-		\item \textbf{sessionID}: in (da definire)
+		\item \textbf{idSessione}: in (da definire)
 		\item \textbf{AuthorID}: in number(5)
 		\item \textbf{newname}: in varchar2(25) default null
 		\item \textbf{newsurname}: in varchar2(25) default null
@@ -393,7 +421,7 @@
 	\item \textbf{Obiettivo}: Rimuove un Autore dal database, se presente
 	\item \textbf{Parametri}:
 	\begin{enumerate}
-		\item \textbf{sessionID}: in (da definire)
+		\item \textbf{idSessione}: in (da definire)
 		\item \textbf{AuthorID}: in number(5)
 	\end{enumerate}
 	\item \textbf{Risultato}: Rimuove un Autore dalla base di dati, oppure restituisce un errore (e non modifica la base di dati)
@@ -424,7 +452,7 @@
 	\item \textbf{Obiettivo}: Cerca un Autore nel database (settare un parametro a null ha la semantica di non filtrare gli autori risultanti sulla base di tale parametro)
 	\item \textbf{Parametri}:
 	\begin{enumerate}
-		\item \textbf{sessionID}: in (da definire)
+		\item \textbf{idSessione}: in (da definire)
 		\item \textbf{srcNome}: in varchar2(25) default null
 		\item \textbf{srcCognome}: in varchar2(25) default null
 		\item \textbf{srcDataNascita}: in date default null
@@ -450,6 +478,13 @@
 	\end{align*}
 \end{itemize}
 
+\subsection{Statistiche e monitoraggio}
+\subsubsection{Opere realizzate dall’Autore}
+\subsubsection{Musei con Opere dell’Autore esposte}
+\subsubsection{Collaborazioni effettuate (TODO)}
+\subsubsection{Opere dell’Autore presenti in un Museo scelto}
+\subsubsection{Autori in vita le cui Opere sono esposte in un Museo scelto}
+
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Operazioni sulle Descrizioni %
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -464,7 +499,7 @@
 	\item \textbf{Obiettivo}: Visualizza la Descrizione di un'Opera, dato il suo IdDescr
 	\item \textbf{Parametri}:
 	\begin{enumerate}
-		\item \textbf{sessionID}: in (da definire)
+		\item \textbf{idSessione}: in (da definire)
 		\item \textbf{DescrID}: in number(5)
 	\end{enumerate}
 	\item \textbf{Risultato}: Visualizza i dettagli della Descrizione richiesta, altrimenti restituisce errore
@@ -490,7 +525,7 @@
 	\item \textbf{Obiettivo}: Inserisce una nuova descrizione, associandola ad un'Opera
 	\item \textbf{Parametri}:
 	\begin{enumerate}
-		\item \textbf{sessionID}: in (da definire)
+		\item \textbf{idSessione}: in (da definire)
 		\item \textbf{lingua}: in varchar2(25)
 		\item \textbf{livello}: in varchar2(25)
 		\item \textbf{testodescr}: in CLOB
@@ -522,7 +557,7 @@
 	\item \textbf{Obiettivo}: Modifica la descrizione di un'opera (è possibile modificare anche l'opera a cui una descrizione è associata)
 	\item \textbf{Parametri}:
 	\begin{enumerate}
-		\item \textbf{sessionID}: in (da definire)
+		\item \textbf{idSessione}: in (da definire)
 		\item \textbf{descrID}: in number(5)
 		\item \textbf{newlang}: in varchar2(25) default null
 		\item \textbf{newlevel}: in varchar2(25) default null
@@ -560,7 +595,7 @@
 	\item \textbf{Obiettivo}: Rimuove una descrizione, se presente
 	\item \textbf{Parametri}:
 	\begin{enumerate}
-		\item \textbf{sessionID}: in (da definire)
+		\item \textbf{idSessione}: in (da definire)
 		\item \textbf{descrID}: in number(5)
 	\end{enumerate}
 	\item \textbf{Risultato}: Rimuove la descrizione dell'Opera, restituendo errore se la descrizione non è presente nel database
@@ -582,6 +617,8 @@
 	\end{itemize}
 \end{itemize}
 
-\section{Operazioni statistiche}
+\subsection{Statistiche e monitoraggio}
+\subsubsection{Livello descrizione più presente}
+\subsubsection{Lingua più presente}
 
 \end{document}

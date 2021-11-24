@@ -95,7 +95,27 @@ procedure sommaTitoli(
 	sessionID NUMBER DEFAULT 0,
 	dataInizioFun VARCHAR2 DEFAULT NULL,
 	dataFineFun VARCHAR2 DEFAULT NULL,
-	utenteID NUMBER DEFAULT 0 
+	utenteID NUMBER DEFAULT 0
+);
+
+procedure mediaCostoTitoli(
+	sessionID NUMBER DEFAULT 0,
+	dataInizioFun VARCHAR2 DEFAULT NULL,
+	dataFineFun VARCHAR2 DEFAULT NULL,
+	utenteID NUMBER DEFAULT 0
+);
+
+procedure NumeroVisiteMusei(
+	sessionID NUMBER DEFAULT 0,
+	dataInizioFun VARCHAR2 DEFAULT NULL,
+	dataFineFun VARCHAR2 DEFAULT NULL,
+	utenteID NUMBER DEFAULT 0
+);
+
+procedure NumeroMedioTitoli(
+	sessionID NUMBER DEFAULT 0,
+	dataInizioFun VARCHAR2 DEFAULT NULL,
+	dataFineFun VARCHAR2 DEFAULT NULL
 );
 
 procedure StatisticheUtenti(

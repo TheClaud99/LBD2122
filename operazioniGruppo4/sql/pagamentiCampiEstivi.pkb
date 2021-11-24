@@ -232,9 +232,9 @@ begin
         htp.tabledata(pagamento.Tariffa);
         htp.tabledata(pagamento.Acquirente);
         htp.tablerowclose;
-    end loop
+    end loop;
+
     htp.tableclose;
-    
     htp.bodyclose;
     htp.htmlclose;
   

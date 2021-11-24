@@ -248,7 +248,36 @@ procedure MonitoraTariffeCampiEstivi_preferenzaTariffa
     sessionID in number
 ) is 
 begin
-    
+    htp.htmlopen;
+    mogui1.apripagina();
+    modgui1.header();
+    htp.bodyopen;
+    modgui1.apridiv('class="w3-modal-content w3-card-4" style="max-width:600px"');
+
+    htp.tableopen;
+    for tariffa in (
+        select Tariffa, count(*) as conto
+        from PAGAMENTICAMPIESTIVI
+        group by Tariffa
+        having count(*) = (
+            select max(subconto) from (
+                select count(*) as subconto
+                from PAGAMENTICAMPIESTIVI
+                group by Tariffa
+            )
+        );
+    )
+    loop
+        htp.tablerowopen;
+        htp.tabledata(pagamento.Tariffa);
+        htp.tabledata(pagamento.conto);
+        htp.tablerowclose;
+    end loop;
+
+    htp.tableclose;
+    htp.bodyclose;
+    htp.htmlclose;
+
 end;
 
 /* non so a cosa si riferisca anno in <Lista Tariffe relative ad un anno scelto>
@@ -264,7 +293,31 @@ procedure MonitoraTariffeCampiEstivi_tariffeCampo
     campoEstivo in TARIFFECAMPIESTIVI.CampoEstivo%type
 ) is 
 begin
-    
+    htp.htmlopen;
+    mogui1.apripagina();
+    modgui1.header();
+    htp.bodyopen;
+    modgui1.apridiv('class="w3-modal-content w3-card-4" style="max-width:600px"');
+
+    htp.tableopen;
+    for tariffa in (
+        select distinct Tariffa, Prezzo, CampoEstivo
+        from TARIFFECAMPIESTIVI join PAGAMENTICAMPIESTIVI 
+        on TARIFFECAMPIESTIVI.IdTariffa = PAGAMENTICAMPIESTIVI.TARIFFA
+        where CampoEstivo = campoEstivo
+        order by Prezzo desc;
+    )
+    loop
+        htp.tablerowopen;
+        htp.tabledata(tariffa.Tariffa);
+        htp.tabledata(tariffa.Prezzo);
+        htp.tabledata(tariffa.CampoEstivo);
+        htp.tablerowclose;
+    end loop;
+
+    htp.tableclose;
+    htp.bodyclose;
+    htp.htmlclose;
 end;
 
 end tariffeCampiEstiviOperazioni;

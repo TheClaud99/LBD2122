@@ -280,12 +280,36 @@ begin
 
 end;
 
-/* non so a cosa si riferisca anno in <Lista Tariffe relative ad un anno scelto>
 procedure monitoraTariffeCampiEstivi_tariffeAnno
 (
-    ????
-);
-*/
+    sessionID in number,
+    anno in number
+) is
+    htp.htmlopen;
+    mogui1.apripagina();
+    modgui1.header();
+    htp.bodyopen;
+    modgui1.apridiv('class="w3-modal-content w3-card-4" style="max-width:600px"');
+
+    htp.tableopen;
+    for tariffa in (
+        select TARIFFA, DATAPAGAMENTO
+        from PAGAMENTICAMPIESTIVI
+        where extract(year from DATAPAGAMENTO)= anno;
+    )
+    loop
+        htp.tablerowopen;
+        htp.tabledata(tariffa.Tariffa);
+        htp.tabledata(tariffa.DataPagamento);
+        htp.tablerowclose;
+    end loop;
+
+    htp.tableclose;
+    htp.bodyclose;
+    htp.htmlclose;
+begin
+  
+end;
 
 procedure MonitoraTariffeCampiEstivi_tariffeCampo
 (

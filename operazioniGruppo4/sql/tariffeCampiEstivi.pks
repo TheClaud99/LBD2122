@@ -54,12 +54,11 @@ procedure MonitoraTariffeCampiEstivi_preferenzaTariffa
     sessionID in number
 );
 
-/* non so a cosa si riferisca anno in <Lista Tariffe relative ad un anno scelto>
 procedure monitoraTariffeCampiEstivi_tariffeAnno
 (
-    ????
+    sessionID in number, 
+    anno in number
 );
-*/
 
 procedure MonitoraTariffeCampiEstivi_tariffeCampo
 (

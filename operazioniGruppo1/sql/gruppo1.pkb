@@ -9,7 +9,7 @@ CREATE OR REPLACE PACKAGE BODY gruppo1 AS
  * - Visualizzazione ✅
  * - Cancellazione (rimozione) ✅
  * OPERAZIONI STATISTICHE E MONITORAGGIO
- * - Numero Musei visitati in un arco temporale scelto ❌
+ * - Numero Musei visitati in un arco temporale scelto ✅
  * - Numero Titoli d’Ingresso  acquistati in un arco temporale scelto ✅
  * - Numero medio Titoli d’Ingresso acquistati in un arco temporale scelto ❌
  * - Età media utenti ✅
@@ -885,14 +885,12 @@ is
 		if utenteID = 0 then
 			select COUNT(*) 
 			into res
-			from tipologieingresso
-			join titoliingresso on idtipologiaing = tipologia
+			from titoliingresso
 			where Emissione > dataInizio and Emissione < dataFine;
 		else
 			select COUNT(*)
 			into res
-			from tipologieingresso
-			join titoliingresso on idtipologiaing = tipologia
+			from titoliingresso
 			where Emissione > dataInizio and Emissione < dataFine and titoliingresso.ACQUIRENTE = utenteID;
 		end if;
 			
@@ -958,6 +956,90 @@ is
 		HTP.HtmlClose;
 END;
 
+procedure NumeroVisiteMusei(
+	sessionID NUMBER DEFAULT 0,
+	dataInizioFun VARCHAR2 DEFAULT NULL,
+	dataFineFun VARCHAR2 DEFAULT NULL,
+	utenteID NUMBER DEFAULT 0 
+)
+is
+	dataInizio DATE := TO_DATE(dataInizioFun default NULL on conversion error, 'YYYY-MM-DD');
+	dataFine DATE := TO_DATE(dataFineFun default NULL on conversion error, 'YYYY-MM-DD');
+	tempMedia NUMBER := 0;
+	res NUMBER(6) := 0;
+	BEGIN
+		if utenteID = 0 then
+			select COUNT(*) 
+			into res
+			from visite
+			where datavisita > dataInizio and datavisita < dataFine;
+		else
+			select COUNT(*) 
+			into res
+			from visite
+			where datavisita > dataInizio and datavisita < dataFine and visite.visitatore = utenteID;
+		end if;
+			
+		modGUI1.ApriPagina('Statistiche utenti',sessionID);
+        modGUI1.Header(sessionID);
+        htp.br;htp.br;htp.br;htp.br;htp.br;htp.br;
+            modGUI1.ApriDiv('class="w3-modal-content w3-card-4 w3-animate-zoom w3-padding-large" style="max-width:450px"');
+                modGUI1.ApriDiv('class="w3-center"');
+                htp.print('<h1>Operazione eseguita correttamente </h1>');
+				if res > 0 then 
+					htp.print('<h3>Il risultato è '||res||'</h3>');
+				else 
+					htp.print('<h3>Il risultato è 0</h3>');
+				end if;
+                MODGUI1.collegamento('Torna alle statistiche','StatisticheUtenti?sessionID='||sessionID||'','w3-button w3-block w3-black w3-section w3-padding');
+                modGUI1.ChiudiDiv;
+            modGUI1.ChiudiDiv;
+			HTP.BodyClose;
+		HTP.HtmlClose;
+END;
+
+procedure NumeroMedioTitoli(
+	sessionID NUMBER DEFAULT 0,
+	dataInizioFun VARCHAR2 DEFAULT NULL,
+	dataFineFun VARCHAR2 DEFAULT NULL
+)
+is
+	dataInizio DATE := TO_DATE(dataInizioFun default NULL on conversion error, 'YYYY-MM-DD');
+	dataFine DATE := TO_DATE(dataFineFun default NULL on conversion error, 'YYYY-MM-DD');
+	tempMedia NUMBER := 0;
+	res NUMBER(6) := 0;
+	res2 NUMBER(6) := 0;
+	BEGIN
+		
+		select COUNT(*) 
+		into res
+		from utenti;
+	
+		select COUNT(*) 
+		into res2
+		from titoliingresso
+		where emissione > dataInizio and emissione < dataFine;
+		
+			
+		modGUI1.ApriPagina('Statistiche utenti',sessionID);
+        modGUI1.Header(sessionID);
+        htp.br;htp.br;htp.br;htp.br;htp.br;htp.br;
+            modGUI1.ApriDiv('class="w3-modal-content w3-card-4 w3-animate-zoom w3-padding-large" style="max-width:450px"');
+                modGUI1.ApriDiv('class="w3-center"');
+                htp.print('<h1>Operazione eseguita correttamente </h1>');
+				if res > 0 then 
+					htp.print('<h3>Il risultato è '||to_integer(res2/res)||'</h3>');
+				else 
+					htp.print('<h3>Il risultato è 0</h3>');
+				end if;
+                MODGUI1.collegamento('Torna alle statistiche','StatisticheUtenti?sessionID='||sessionID||'','w3-button w3-block w3-black w3-section w3-padding');
+                modGUI1.ChiudiDiv;
+            modGUI1.ChiudiDiv;
+			HTP.BodyClose;
+		HTP.HtmlClose;
+END;
+
+
 procedure StatisticheUtenti(
 	sessionID NUMBER default 0
 )
@@ -982,7 +1064,7 @@ begin
 					HTP.FORMHIDDEN('sessionID', sessionID);
 					modgui1.apriElementoTabella;
 						modgui1.apridiv('class="w3-padding-24"');
-						modgui1.elementoTabella('Utenti');
+						modgui1.elementoTabella('Tutti gli utenti');
 						modgui1.chiudiDiv;
 					modgui1.chiudiElementoTabella;
 					modgui1.apriElementoTabella;
@@ -1063,6 +1145,67 @@ begin
 					modgui1.chiudiElementoTabella;
 					MODGUI1.ChiudiForm;
 				modgui1.chiudiRigaTabella;
+
+				modgui1.apriRigaTabella;
+					MODGUI1.ApriForm('NumeroVisiteMusei');
+					HTP.FORMHIDDEN('sessionID', sessionID);
+					modgui1.apriElementoTabella;
+						modgui1.label('Utente');
+							modgui1.selectopen('utenteID', 'idutenteSommaTitoli');
+							MODGUI1.SelectOption(0, 'Tutti gli utenti', 0);
+							for utente in (select idutente from utentimuseo)
+							loop
+								select idutente, nome, cognome
+								into varidutente, nomeutente, cognomeutente
+								from utenti
+								where idutente=utente.idutente;
+								MODGUI1.SelectOption(varidutente, ''|| nomeutente ||' '||cognomeutente||'', 0);
+							end loop;
+							modgui1.selectclose();
+							htp.br;
+							MODGUI1.Label('Data inizio');
+							MODGUI1.InputDate('dataInizioFun', 'dataInizioFun', 1);
+							htp.br;
+							MODGUI1.Label('Data fine');
+							MODGUI1.InputDate('dataFineFun', 'dataFineFun', 1);
+					modgui1.chiudiElementoTabella;
+					modgui1.apriElementoTabella;
+						modgui1.apridiv('class="w3-padding-24"');
+						modgui1.elementoTabella('Numero visite musei');
+						modgui1.chiudiDiv;
+					modgui1.chiudiElementoTabella;
+					modgui1.apriElementoTabella;
+						MODGUI1.InputSubmit('Calcola');
+					modgui1.chiudiElementoTabella;
+					MODGUI1.ChiudiForm;
+				modgui1.chiudiRigaTabella;
+
+				modgui1.apriRigaTabella;
+					MODGUI1.ApriForm('NumeroMedioTitoli');
+					HTP.FORMHIDDEN('sessionID', sessionID);
+					modgui1.apriElementoTabella;
+						modgui1.apridiv('class="w3-padding-24"');
+						modgui1.elementoTabella('Tutti gli utenti');
+						modgui1.chiudiDiv;
+						htp.br;
+						MODGUI1.Label('Data inizio');
+						MODGUI1.InputDate('dataInizioFun', 'dataInizioFun', 1);
+						htp.br;
+						MODGUI1.Label('Data fine');
+						MODGUI1.InputDate('dataFineFun', 'dataFineFun', 1);
+					modgui1.chiudiElementoTabella;
+					modgui1.apriElementoTabella;
+						modgui1.apridiv('class="w3-padding-24"');
+						modgui1.elementoTabella('Numero medio visite musei');
+						modgui1.chiudiDiv;
+					modgui1.chiudiElementoTabella;
+					modgui1.apriElementoTabella;
+						MODGUI1.InputSubmit('Calcola');
+					modgui1.chiudiElementoTabella;
+					MODGUI1.ChiudiForm;
+				modgui1.chiudiRigaTabella;
+
+				
 						
 			modgui1.chiudiTabella;
 

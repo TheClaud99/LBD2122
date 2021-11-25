@@ -44,1206 +44,1206 @@ INSERT INTO MUSEI (IdMuseo, Nome, Indirizzo, Eliminato)
 VALUES (6, 'Pinacoteca Nazionale', 'Via Francesco Petrarca 44, Pisa (PI)', 0);
 /***********OPERE************/
 /***********OPERE************/
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile, Eliminato)
-VALUES(idOperaSeq.nextVal, 'PietÃ  at the Foot of the Cross', 996, NULL, 6, 1, 0);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile, Eliminato)
-VALUES(idOperaSeq.nextVal, 'Hercules and Lichas', 1874, NULL, 3, 1, 0);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile, Eliminato)
-VALUES(idOperaSeq.nextVal, 'Landscape with Philemon and Baucis', 1878, NULL, 6, 1, 0);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile, Eliminato)
-VALUES(idOperaSeq.nextVal, 'St Peter s', 406, NULL, 3, 1, 0);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile, Eliminato)
-VALUES(idOperaSeq.nextVal, 'The Conversion of Saul detail', 415, NULL, 6, 1, 0);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile, Eliminato)
-VALUES(idOperaSeq.nextVal, 'Cypresses at Cagnes', 458, NULL, 1, 1, 0);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile, Eliminato)
-VALUES(idOperaSeq.nextVal, 'Four Musical Angels', 442, NULL, 3, 1, 0);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile, Eliminato)
-VALUES(idOperaSeq.nextVal, 'Christ Wearing the Crown of Thorns', 1361, NULL, 3, 1, 0);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile, Eliminato)
-VALUES(idOperaSeq.nextVal, 'Landscape with Ruins', 1755, NULL, 6, 1, 0);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile, Eliminato)
-VALUES(idOperaSeq.nextVal, 'Woman Bitten by a Snake Femme piquÃ©e par un serpent', 1749, NULL, 6, 1, 0);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile, Eliminato)
-VALUES(idOperaSeq.nextVal, 'Holy Family with an Angel', 50, 100, 1, 1, 0);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile, Eliminato)
-VALUES(idOperaSeq.nextVal, 'The Alchemist', 44, NULL, 1, 1, 0);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile, Eliminato)
-VALUES(idOperaSeq.nextVal, 'Witchcraft Allegory of Hercules', 1901, NULL, 2, 1, 0);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile, Eliminato)
-VALUES(idOperaSeq.nextVal, 'The Battle of Mongiovino', 1873, NULL, 2, 1, 0);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile, Eliminato)
-VALUES(idOperaSeq.nextVal, 'The Creek', 653, NULL, 6, 1, 0);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile, Eliminato)
-VALUES(idOperaSeq.nextVal, 'Apollo and Diana', 598, NULL, 2, 1, 0);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile, Eliminato)
-VALUES(idOperaSeq.nextVal, 'View of Dresden from the Right Bank of the Elbe with the Augustus Bridge', 772, NULL, 6, 1, 0);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile, Eliminato)
-VALUES(idOperaSeq.nextVal, 'Pearl Fishers', 744, NULL, 2, 1, 0);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile, Eliminato)
-VALUES(idOperaSeq.nextVal, 'Christ on the Lake of Gennezaret', 724, NULL, 6, 1, 0);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile, Eliminato)
-VALUES(idOperaSeq.nextVal, 'Battle between Christians and Moslems', 445, NULL, 4, 1, 0);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile, Eliminato)
-VALUES(idOperaSeq.nextVal, 'The Arrival of a Stage-coach in the Courtyard of the Messageries', 400, 450, 5, 1, 0);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile, Eliminato)
-VALUES(idOperaSeq.nextVal, 'Still-Life with Flowers and Fruit', 50, 100, 5, 1, 0);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile, Eliminato)
-VALUES(idOperaSeq.nextVal, 'View of the Three-Fountain Grove', 334, NULL, 3, 1, 0);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile, Eliminato)
-VALUES(idOperaSeq.nextVal, 'Spartan Girl', 319, NULL, 1, 1, 0);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile, Eliminato)
-VALUES(idOperaSeq.nextVal, 'Still-Life with Flowers in a Wan-Li Vase', 364, NULL, 2, 1, 0);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile, Eliminato)
-VALUES(idOperaSeq.nextVal, 'The Discovery of Achilles among the Daughters of Lycomedes', 848, NULL, 5, 1, 0);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile, Eliminato)
-VALUES(idOperaSeq.nextVal, 'St Veneranda Enthroned', 694, NULL, 1, 1, 0);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile, Eliminato)
-VALUES(idOperaSeq.nextVal, 'Costume drawing of a woman bearing a torch', 652, NULL, 6, 1, 0);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile, Eliminato)
-VALUES(idOperaSeq.nextVal, 'Madonna and Child with Two Angels', 486, NULL, 5, 1, 0);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile, Eliminato)
-VALUES(idOperaSeq.nextVal, 'May Queen Festival', 513, NULL, 4, 1, 0);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile, Eliminato)
-VALUES(idOperaSeq.nextVal, 'The Miraculous Draught of Fishes', 1255, NULL, 1, 1, 0);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile, Eliminato)
-VALUES(idOperaSeq.nextVal, 'Still-Life with Lobster and Fruit', 1250, 1300, 3, 1, 0);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile, Eliminato)
-VALUES(idOperaSeq.nextVal, 'Cestello Annunciation in frame', 995, NULL, 5, 1, 0);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile, Eliminato)
-VALUES(idOperaSeq.nextVal, 'Triptych of Haywain left wing', 1006, NULL, 5, 1, 0);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile, Eliminato)
-VALUES(idOperaSeq.nextVal, 'Reconstruction of a triptych', 201, NULL, 3, 1, 0);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile, Eliminato)
-VALUES(idOperaSeq.nextVal, 'Lamentation over St Francis', 245, NULL, 4, 1, 0);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile, Eliminato)
-VALUES(idOperaSeq.nextVal, 'Portrait of Sir Thomas Exmewe', 1124, NULL, 5, 1, 0);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile, Eliminato)
-VALUES(idOperaSeq.nextVal, 'Tanaquil', 1154, NULL, 1, 1, 0);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile, Eliminato)
-VALUES(idOperaSeq.nextVal, 'The Conversion of St Paul', 1685, NULL, 5, 1, 0);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile, Eliminato)
-VALUES(idOperaSeq.nextVal, 'Bacchus and Ceres with Nymphs and Satyrs', 1692, NULL, 2, 1, 0);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile, Eliminato)
-VALUES(idOperaSeq.nextVal, 'Martin Luther as an Augustinian Monk', 1686, NULL, 3, 1, 0);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile, Eliminato)
-VALUES(idOperaSeq.nextVal, 'Hercules in the Palace of Omphale', 1772, NULL, 3, 1, 0);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile, Eliminato)
-VALUES(idOperaSeq.nextVal, 'Jael', 1805, NULL, 6, 1, 0);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile, Eliminato)
-VALUES(idOperaSeq.nextVal, 'Cardinal Melchior de Polignac', 1821, NULL, 5, 1, 0);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile, Eliminato)
-VALUES(idOperaSeq.nextVal, 'Red Apples at the Foot of a Tree', 864, NULL, 3, 1, 0);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile, Eliminato)
-VALUES(idOperaSeq.nextVal, 'Water Glass and Jug', 894, NULL, 6, 1, 0);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile, Eliminato)
-VALUES(idOperaSeq.nextVal, 'Madonna degli Alberetti', 909, NULL, 2, 1, 0);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile, Eliminato)
-VALUES(idOperaSeq.nextVal, 'Hagar and the Angel', 944, NULL, 2, 1, 0);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile, Eliminato)
-VALUES(idOperaSeq.nextVal, 'St Peter Consacrates Stephen as Deacon', 934, NULL, 2, 1, 0);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile, Eliminato)
-VALUES(idOperaSeq.nextVal, 'The Spinner', 1765, NULL, 2, 1, 0);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile, Eliminato)
-VALUES(idOperaSeq.nextVal, 'New Market Square in Dresden from the JÃ¼denhof', 1729, NULL, 4, 1, 0);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile, Eliminato)
-VALUES(idOperaSeq.nextVal, 'The Kimono', 1331, NULL, 1, 1, 0);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile, Eliminato)
-VALUES(idOperaSeq.nextVal, 'Chancellor Leonhard van Eck', 1334, NULL, 4, 1, 0);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile, Eliminato)
-VALUES(idOperaSeq.nextVal, 'Interior decoration', 749, NULL, 5, 1, 0);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile, Eliminato)
-VALUES(idOperaSeq.nextVal, 'Panels of Grotesque Ornament with Commedia dell  Arte Figures', 713, NULL, 4, 1, 0);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile, Eliminato)
-VALUES(idOperaSeq.nextVal, 'The Apostle St James the Great Freeing the Magician Hermogenes', 700, 750, 5, 1, 0);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile, Eliminato)
-VALUES(idOperaSeq.nextVal, 'The English Government', 774, NULL, 2, 1, 0);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile, Eliminato)
-VALUES(idOperaSeq.nextVal, 'A Squall Approaching the Northern French Coast', 800, 850, 6, 1, 0);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile, Eliminato)
-VALUES(idOperaSeq.nextVal, 'St Peter Consacrates Stephen as Deacon', 838, NULL, 1, 1, 0);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile, Eliminato)
-VALUES(idOperaSeq.nextVal, 'Tomb of Carlo Emanuele III', 915, NULL, 1, 1, 0);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile, Eliminato)
-VALUES(idOperaSeq.nextVal, 'Fontana del Tritone', 873, NULL, 2, 1, 0);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile, Eliminato)
-VALUES(idOperaSeq.nextVal, 'Woman with Prayerbook', 850, 900, 2, 1, 0);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile, Eliminato)
-VALUES(idOperaSeq.nextVal, 'Lamentation', 415, NULL, 4, 1, 0);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile, Eliminato)
-VALUES(idOperaSeq.nextVal, 'Reading from Homer', 499, NULL, 4, 1, 0);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile, Eliminato)
-VALUES(idOperaSeq.nextVal, 'Virgin in Glory with Saints', 452, NULL, 2, 1, 0);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile, Eliminato)
-VALUES(idOperaSeq.nextVal, 'A Prince of Saxony', 227, NULL, 4, 1, 0);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile, Eliminato)
-VALUES(idOperaSeq.nextVal, 'Flight of Aeneas', 200, 250, 2, 1, 0);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile, Eliminato)
-VALUES(idOperaSeq.nextVal, 'Bouquet of Flowers in a Niche', 255, NULL, 5, 1, 0);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile, Eliminato)
-VALUES(idOperaSeq.nextVal, 'Les Quatre Ã‰tats de la SociÃ©tÃ©: Artisan State', 187, NULL, 6, 1, 0);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile, Eliminato)
-VALUES(idOperaSeq.nextVal, 'St Anne with the Virgin and Child and St Joachim', 206, NULL, 2, 1, 0);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile, Eliminato)
-VALUES(idOperaSeq.nextVal, 'Still-life with Musical Instruments', 224, NULL, 1, 1, 0);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile, Eliminato)
-VALUES(idOperaSeq.nextVal, 'Portrait of Felicita Sartori', 450, 500, 6, 1, 0);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile, Eliminato)
-VALUES(idOperaSeq.nextVal, 'Charity with two children', 483, NULL, 6, 1, 0);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile, Eliminato)
-VALUES(idOperaSeq.nextVal, 'Martyrdom of St Andrew', 800, 850, 6, 1, 0);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile, Eliminato)
-VALUES(idOperaSeq.nextVal, 'The Painter and the Buyer', 839, NULL, 1, 1, 0);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile, Eliminato)
-VALUES(idOperaSeq.nextVal, 'Alexande Dumas Fils', 672, NULL, 3, 1, 0);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile, Eliminato)
-VALUES(idOperaSeq.nextVal, 'The Oath of Brutus', 934, NULL, 6, 1, 0);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile, Eliminato)
-VALUES(idOperaSeq.nextVal, 'Landscape with the Fall of Icarus detail', 932, NULL, 1, 1, 0);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile, Eliminato)
-VALUES(idOperaSeq.nextVal, 'Tomb of Clement VIII', 1675, NULL, 5, 1, 0);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile, Eliminato)
-VALUES(idOperaSeq.nextVal, 'The Story of Esther', 1703, NULL, 4, 1, 0);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile, Eliminato)
-VALUES(idOperaSeq.nextVal, 'Self-portrait', 874, NULL, 1, 1, 0);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile, Eliminato)
-VALUES(idOperaSeq.nextVal, 'Rebecca at the Well', 886, NULL, 3, 1, 0);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile, Eliminato)
-VALUES(idOperaSeq.nextVal, 'Portrait of the Marquise d Orvilliers', 856, NULL, 3, 1, 0);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile, Eliminato)
-VALUES(idOperaSeq.nextVal, 'Portrait of a Woman Holding a Book', 866, NULL, 4, 1, 0);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile, Eliminato)
-VALUES(idOperaSeq.nextVal, 'Danube Well detail', 900, 950, 1, 1, 0);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile, Eliminato)
-VALUES(idOperaSeq.nextVal, 'Saint Matthew and the Angel', 1269, NULL, 6, 1, 0);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile, Eliminato)
-VALUES(idOperaSeq.nextVal, 'Bouquet in a Niche', 1304, NULL, 4, 1, 0);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile, Eliminato)
-VALUES(idOperaSeq.nextVal, 'Portraits of Johann I and Frederick III the Wise', 1262, NULL, 6, 1, 0);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile, Eliminato)
-VALUES(idOperaSeq.nextVal, 'Flowers in a Vase', 1257, NULL, 2, 1, 0);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile, Eliminato)
-VALUES(idOperaSeq.nextVal, 'Portrait of Rebecca Boylston', 1263, NULL, 5, 1, 0);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile, Eliminato)
-VALUES(idOperaSeq.nextVal, 'The Stag Hunt of Elector Frederic the Wise', 1355, NULL, 1, 1, 0);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile, Eliminato)
-VALUES(idOperaSeq.nextVal, 'Floor Scrapers', 1381, NULL, 4, 1, 0);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile, Eliminato)
-VALUES(idOperaSeq.nextVal, 'Wool Factory', 1367, NULL, 3, 1, 0);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile, Eliminato)
-VALUES(idOperaSeq.nextVal, 'Last Judgment Triptych right outer wing', 1428, NULL, 5, 1, 0);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile, Eliminato)
-VALUES(idOperaSeq.nextVal, 'The Ã‰chevins of the City of Paris', 476, NULL, 6, 1, 0);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile, Eliminato)
-VALUES(idOperaSeq.nextVal, 'Baldacchino', 482, NULL, 3, 1, 0);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile, Eliminato)
-VALUES(idOperaSeq.nextVal, 'Still-life with Wine Glass and Silver Bowl', 523, NULL, 5, 1, 0);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile, Eliminato)
-VALUES(idOperaSeq.nextVal, 'Cup and Cover', 528, NULL, 6, 1, 0);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile, Eliminato)
-VALUES(idOperaSeq.nextVal, 'Writing Table bureau plat', 534, NULL, 4, 1, 0);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile, Eliminato)
-VALUES(idOperaSeq.nextVal, 'The Intervention of the Sabine Women', 796, NULL, 5, 1, 0);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile, Eliminato)
-VALUES(idOperaSeq.nextVal, 'Bust of Cardinal Giovanni Garzia Mellini', 828, NULL, 2, 1, 0);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile, Eliminato)
-VALUES(idOperaSeq.nextVal, 'Resting on the Banks of the Tiber', 811, NULL, 5, 1, 0);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile, Eliminato)
-VALUES(idOperaSeq.nextVal, 'Baptism', 800, 850, 5, 1, 0);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile, Eliminato)
-VALUES(idOperaSeq.nextVal, 'Erecting a Calvary', 731, NULL, 1, 1, 0);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile, Eliminato)
-VALUES(idOperaSeq.nextVal, 'Costume drawing of a female figure with torch', 817, NULL, 2, 1, 0);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile, Eliminato)
-VALUES(idOperaSeq.nextVal, 'Flowers in a Vase with Shells and Insects', 700, 750, 6, 1, 0);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile, Eliminato)
-VALUES(idOperaSeq.nextVal, 'The Rape of Proserpine', 817, NULL, 4, 1, 0);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile, Eliminato)
-VALUES(idOperaSeq.nextVal, 'Countess NÃ¡kÃ³', 800, 850, 5, 1, 0);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile, Eliminato)
-VALUES(idOperaSeq.nextVal, 'Virgin and Child with Sts Dominic and Thomas Aquinas', 800, 850, 6, 1, 0);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile, Eliminato)
-VALUES(idOperaSeq.nextVal, 'Joseph Receiving His Father and Brothers in Egypt', 798, NULL, 6, 1, 0);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile, Eliminato)
-VALUES(idOperaSeq.nextVal, 'Brook Watson and the Shark', 796, NULL, 5, 1, 0);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile, Eliminato)
-VALUES(idOperaSeq.nextVal, 'Portrait of the Artist and His Family', 864, NULL, 6, 1, 0);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile, Eliminato)
-VALUES(idOperaSeq.nextVal, 'Odalisque Reclining on a Divan', 423, NULL, 6, 1, 0);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile, Eliminato)
-VALUES(idOperaSeq.nextVal, 'Landscape near Riva on Lake Garda', 441, NULL, 6, 1, 0);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile, Eliminato)
-VALUES(idOperaSeq.nextVal, 'The Temptation of St Thomas Aquinas', 465, NULL, 5, 1, 0);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile, Eliminato)
-VALUES(idOperaSeq.nextVal, 'Erdmann August', 400, 450, 6, 1, 0);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile, Eliminato)
-VALUES(idOperaSeq.nextVal, 'The Penitent Magdalen in a Landscape', 462, NULL, 6, 1, 0);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile, Eliminato)
-VALUES(idOperaSeq.nextVal, 'The Aeneid: The Death of Dido', 1013, NULL, 6, 1, 0);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile, Eliminato)
-VALUES(idOperaSeq.nextVal, 'On the Boulevard', 1002, NULL, 4, 1, 0);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile, Eliminato)
-VALUES(idOperaSeq.nextVal, 'Card Players', 1050, 1100, 5, 1, 0);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile, Eliminato)
-VALUES(idOperaSeq.nextVal, 'Original Sin', 1034, NULL, 2, 1, 0);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile, Eliminato)
-VALUES(idOperaSeq.nextVal, 'Hell', 1068, NULL, 6, 1, 0);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile, Eliminato)
-VALUES(idOperaSeq.nextVal, 'Map of Delfland', 1925, NULL, 2, 1, 0);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile, Eliminato)
-VALUES(idOperaSeq.nextVal, 'Tivoli Gardens at the Villa d Este', 1850, 1900, 6, 1, 0);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile, Eliminato)
-VALUES(idOperaSeq.nextVal, 'Jules GrÃ©vy', 1894, NULL, 3, 1, 0);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile, Eliminato)
-VALUES(idOperaSeq.nextVal, 'Ceres Allegory of Summer', 1903, NULL, 6, 1, 0);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile, Eliminato)
-VALUES(idOperaSeq.nextVal, 'Portrait of the Cosmographer Sebastien MÃ¼nster', 1436, NULL, 4, 1, 0);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile, Eliminato)
-VALUES(idOperaSeq.nextVal, 'Horse Frightened by a Storm', 1461, NULL, 3, 1, 0);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile, Eliminato)
-VALUES(idOperaSeq.nextVal, 'The Miracles of the Penitent St Mary', 1454, NULL, 2, 1, 0);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile, Eliminato)
-VALUES(idOperaSeq.nextVal, 'Beata Ludovica Albertoni', 1417, NULL, 4, 1, 0);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile, Eliminato)
-VALUES(idOperaSeq.nextVal, 'Tobias Saying Farewell to his Father', 787, NULL, 6, 1, 0);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile, Eliminato)
-VALUES(idOperaSeq.nextVal, 'Boy with Grapes', 835, NULL, 4, 1, 0);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile, Eliminato)
-VALUES(idOperaSeq.nextVal, 'Madame Charles Max', 826, NULL, 6, 1, 0);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile, Eliminato)
-VALUES(idOperaSeq.nextVal, 'Turkish Boys Let out of School', 795, NULL, 6, 1, 0);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile, Eliminato)
-VALUES(idOperaSeq.nextVal, 'The Card Players', 1797, NULL, 1, 1, 0);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile, Eliminato)
-VALUES(idOperaSeq.nextVal, 'Triptych of Jan Des Trompes rear of the wings', 1836, NULL, 6, 1, 0);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile, Eliminato)
-VALUES(idOperaSeq.nextVal, 'Peasant Feast', 1800, 1850, 4, 1, 0);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile, Eliminato)
-VALUES(idOperaSeq.nextVal, 'Jacques Joseph James Tissot', 1800, 1850, 3, 1, 0);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile, Eliminato)
-VALUES(idOperaSeq.nextVal, 'Cheval Turk', 1800, 1850, 1, 1, 0);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile, Eliminato)
-VALUES(idOperaSeq.nextVal, 'Still-Life with Oysters', 1798, NULL, 4, 1, 0);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile, Eliminato)
-VALUES(idOperaSeq.nextVal, 'The Betrothal of the Virgin', 565, NULL, 6, 1, 0);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile, Eliminato)
-VALUES(idOperaSeq.nextVal, 'The Masked Ball Given by the King', 629, NULL, 3, 1, 0);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile, Eliminato)
-VALUES(idOperaSeq.nextVal, 'Forest scenes', 597, NULL, 1, 1, 0);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile, Eliminato)
-VALUES(idOperaSeq.nextVal, 'Mountainous River Landscape', 612, NULL, 2, 1, 0);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile, Eliminato)
-VALUES(idOperaSeq.nextVal, 'Hecuba Blinding Polymnestor', 584, NULL, 4, 1, 0);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile, Eliminato)
-VALUES(idOperaSeq.nextVal, 'The Recapture of Buda Castle in 1686', 227, NULL, 1, 1, 0);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile, Eliminato)
-VALUES(idOperaSeq.nextVal, 'Penitent St Jerome', 214, NULL, 4, 1, 0);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile, Eliminato)
-VALUES(idOperaSeq.nextVal, 'Portrait of a Clean-Shaven Young Man', 200, 250, 4, 1, 0);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile, Eliminato)
-VALUES(idOperaSeq.nextVal, 'Sant Ivo della Sapienza', 227, NULL, 2, 1, 0);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile, Eliminato)
-VALUES(idOperaSeq.nextVal, 'Hell', 1046, NULL, 3, 1, 0);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile, Eliminato)
-VALUES(idOperaSeq.nextVal, 'Portrait of Bartholomeus van der Wiere', 1046, NULL, 3, 1, 0);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile, Eliminato)
-VALUES(idOperaSeq.nextVal, 'Elisa and her Daughter NapolÃ©onne', 1039, NULL, 5, 1, 0);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile, Eliminato)
-VALUES(idOperaSeq.nextVal, 'Portrait of a Man and Woman', 1054, NULL, 3, 1, 0);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile, Eliminato)
-VALUES(idOperaSeq.nextVal, 'St Peter Walking on the Water', 1053, NULL, 4, 1, 0);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile, Eliminato)
-VALUES(idOperaSeq.nextVal, 'The Bridge at Maincy', 1327, NULL, 6, 1, 0);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile, Eliminato)
-VALUES(idOperaSeq.nextVal, 'The Death of Holofernes', 1313, NULL, 5, 1, 0);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile, Eliminato)
-VALUES(idOperaSeq.nextVal, 'Costume drawing for a female figure with torch', 1366, NULL, 4, 1, 0);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile, Eliminato)
-VALUES(idOperaSeq.nextVal, 'Sketch for a sleigh', 1342, NULL, 1, 1, 0);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile, Eliminato)
-VALUES(idOperaSeq.nextVal, 'Servant Returning from the Market La Pourvoyeuse', 1333, NULL, 6, 1, 0);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile, Eliminato)
-VALUES(idOperaSeq.nextVal, 'The Last of England', 1356, NULL, 2, 1, 0);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile, Eliminato)
-VALUES(idOperaSeq.nextVal, 'Dresden', 1382, NULL, 2, 1, 0);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile, Eliminato)
-VALUES(idOperaSeq.nextVal, 'The Erection of the Cross', 1379, NULL, 1, 1, 0);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile, Eliminato)
-VALUES(idOperaSeq.nextVal, 'The Capture of Samson', 1352, NULL, 3, 1, 0);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile, Eliminato)
-VALUES(idOperaSeq.nextVal, 'Danubian Landscape', 1369, NULL, 2, 1, 0);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile, Eliminato)
-VALUES(idOperaSeq.nextVal, 'Still-Life with Fish', 1377, NULL, 3, 1, 0);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile, Eliminato)
-VALUES(idOperaSeq.nextVal, 'Paradise: Ascent of the Blessed', 1353, NULL, 5, 1, 0);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile, Eliminato)
-VALUES(idOperaSeq.nextVal, 'Concert of Angels recto', 1374, NULL, 1, 1, 0);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile, Eliminato)
-VALUES(idOperaSeq.nextVal, 'The Farmer s Family', 1393, NULL, 5, 1, 0);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile, Eliminato)
-VALUES(idOperaSeq.nextVal, 'Raising of the Daughter of Jairus detail', 1326, NULL, 1, 1, 0);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile, Eliminato)
-VALUES(idOperaSeq.nextVal, 'Four Allegories: Lust or Perseverance', 1338, NULL, 5, 1, 0);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile, Eliminato)
-VALUES(idOperaSeq.nextVal, 'Memorial Statue of Pope Urban VIII', 1355, NULL, 4, 1, 0);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile, Eliminato)
-VALUES(idOperaSeq.nextVal, 'Pierson La Hues', 1850, 1900, 2, 1, 0);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile, Eliminato)
-VALUES(idOperaSeq.nextVal, 'The Feast of Herod', 1847, NULL, 3, 1, 0);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile, Eliminato)
-VALUES(idOperaSeq.nextVal, 'Griffoni Polyptych: St Peter and St John the Baptist', 1886, NULL, 4, 1, 0);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile, Eliminato)
-VALUES(idOperaSeq.nextVal, 'Pastoral Scene', 1895, NULL, 1, 1, 0);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile, Eliminato)
-VALUES(idOperaSeq.nextVal, 'Portrait of a Young Man in Senator s Garb', 1854, NULL, 2, 1, 0);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile, Eliminato)
-VALUES(idOperaSeq.nextVal, 'The Miracle of the Spring', 1850, 1900, 2, 1, 0);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile, Eliminato)
-VALUES(idOperaSeq.nextVal, 'Margrave Casimir of Brandenburg-Kulmbach', 1903, NULL, 6, 1, 0);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile, Eliminato)
-VALUES(idOperaSeq.nextVal, 'Perspective view of the longitudinal wall', 806, NULL, 1, 1, 0);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile, Eliminato)
-VALUES(idOperaSeq.nextVal, 'Emperor Franz I of Austria in his Coronation Robes', 791, NULL, 5, 1, 0);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile, Eliminato)
-VALUES(idOperaSeq.nextVal, 'San Domenico Altarpiece detail', 825, NULL, 6, 1, 0);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile, Eliminato)
-VALUES(idOperaSeq.nextVal, 'Self-Portrait in a Peaked Cap', 750, 800, 3, 1, 0);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile, Eliminato)
-VALUES(idOperaSeq.nextVal, 'Buildings at Tivoli', 817, NULL, 1, 1, 0);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile, Eliminato)
-VALUES(idOperaSeq.nextVal, 'Burgomaster Arnold von Brauweiler', 800, 850, 5, 1, 0);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile, Eliminato)
-VALUES(idOperaSeq.nextVal, 'Basket of Peaches', 773, NULL, 4, 1, 0);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile, Eliminato)
-VALUES(idOperaSeq.nextVal, 'The Grief of Andromache', 458, NULL, 5, 1, 0);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile, Eliminato)
-VALUES(idOperaSeq.nextVal, 'Still-life with Birds', 467, NULL, 3, 1, 0);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile, Eliminato)
-VALUES(idOperaSeq.nextVal, 'Achilles Handing over to Chiron', 461, NULL, 6, 1, 0);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile, Eliminato)
-VALUES(idOperaSeq.nextVal, 'Blue-Headed Quail-Dove', 439, NULL, 5, 1, 0);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile, Eliminato)
-VALUES(idOperaSeq.nextVal, 'The Adoration of the Skulls', 485, NULL, 2, 1, 0);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile, Eliminato)
-VALUES(idOperaSeq.nextVal, 'Burgomaster Arnold von Brauweiler', 464, NULL, 4, 1, 0);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile, Eliminato)
-VALUES(idOperaSeq.nextVal, 'PietÃ  with Donors', 464, NULL, 1, 1, 0);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile, Eliminato)
-VALUES(idOperaSeq.nextVal, 'The Massacre at Chios', 584, NULL, 6, 1, 0);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile, Eliminato)
-VALUES(idOperaSeq.nextVal, 'The Virgin Appearing to Sts John the Baptist and John the Evangelist', 651, NULL, 5, 1, 0);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile, Eliminato)
-VALUES(idOperaSeq.nextVal, 'Penitent St Jerome', 635, NULL, 1, 1, 0);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile, Eliminato)
-VALUES(idOperaSeq.nextVal, 'Elymas Struck Blind by St Paul before the Proconsul Sergius Paulus', 597, NULL, 5, 1, 0);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile, Eliminato)
-VALUES(idOperaSeq.nextVal, 'Miracle of the Relic of the Holy Cross', 654, NULL, 2, 1, 0);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile, Eliminato)
-VALUES(idOperaSeq.nextVal, 'A Family Group', 656, NULL, 4, 1, 0);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile, Eliminato)
-VALUES(idOperaSeq.nextVal, 'Renaissance Interior with Banqueters', 654, NULL, 6, 1, 0);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile, Eliminato)
-VALUES(idOperaSeq.nextVal, 'Triptych with the Lamentation', 1741, NULL, 6, 1, 0);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile, Eliminato)
-VALUES(idOperaSeq.nextVal, 'Mont Sainte-Victoire Seen from Les Lauves', 1739, NULL, 5, 1, 0);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile, Eliminato)
-VALUES(idOperaSeq.nextVal, 'Horse Tamer from Marly-le-Roi', 1754, NULL, 2, 1, 0);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile, Eliminato)
-VALUES(idOperaSeq.nextVal, 'Alexander the Great in the Temple of Jerusalem', 1736, NULL, 5, 1, 0);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile, Eliminato)
-VALUES(idOperaSeq.nextVal, 'Commemorative Medal for Admiral Maarten Harpertszoon Tromp', 1734, NULL, 5, 1, 0);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile, Eliminato)
-VALUES(idOperaSeq.nextVal, 'Still-Life with Cat and Rayfish', 1743, NULL, 6, 1, 0);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile, Eliminato)
-VALUES(idOperaSeq.nextVal, 'The Soap Bubble', 1746, NULL, 4, 1, 0);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile, Eliminato)
-VALUES(idOperaSeq.nextVal, 'Amsterdam', 424, NULL, 5, 1, 0);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile, Eliminato)
-VALUES(idOperaSeq.nextVal, 'Portrait of Pope Clement VII', 409, NULL, 6, 1, 0);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile, Eliminato)
-VALUES(idOperaSeq.nextVal, 'The State Barge of Cardinal Richelieu on the Rhone', 416, NULL, 4, 1, 0);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile, Eliminato)
-VALUES(idOperaSeq.nextVal, 'Paolo Veronese', 400, 450, 6, 1, 0);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile, Eliminato)
-VALUES(idOperaSeq.nextVal, 'Feast of Belshazzar', 397, NULL, 3, 1, 0);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile, Eliminato)
-VALUES(idOperaSeq.nextVal, 'Winter Scene on a Canal', 392, NULL, 3, 1, 0);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile, Eliminato)
-VALUES(idOperaSeq.nextVal, 'Flower Still-Life', 414, NULL, 3, 1, 0);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile, Eliminato)
-VALUES(idOperaSeq.nextVal, 'Still-Life with Pipe an Jug', 721, NULL, 5, 1, 0);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile, Eliminato)
-VALUES(idOperaSeq.nextVal, 'Bacchanal', 706, NULL, 4, 1, 0);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile, Eliminato)
-VALUES(idOperaSeq.nextVal, 'Garden of Eden', 735, NULL, 6, 1, 0);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile, Eliminato)
-VALUES(idOperaSeq.nextVal, 'Apollo and Diana Punishing Niobe by Killing her Children', 774, NULL, 2, 1, 0);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile, Eliminato)
-VALUES(idOperaSeq.nextVal, 'The Disillusioned Medea The Enchantress', 703, NULL, 6, 1, 0);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile, Eliminato)
-VALUES(idOperaSeq.nextVal, 'Bust of Camilla Barbadori', 779, NULL, 4, 1, 0);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile, Eliminato)
-VALUES(idOperaSeq.nextVal, 'Panels from an altarpiece', 18, NULL, 4, 1, 0);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile, Eliminato)
-VALUES(idOperaSeq.nextVal, 'St Helena', 91, NULL, 1, 1, 0);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile, Eliminato)
-VALUES(idOperaSeq.nextVal, 'Angel', 21, NULL, 4, 1, 0);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile, Eliminato)
-VALUES(idOperaSeq.nextVal, 'The Negro Page', 42, NULL, 2, 1, 0);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile, Eliminato)
-VALUES(idOperaSeq.nextVal, 'The Cliff at Ã‰tretat after the Storm', 135, NULL, 3, 1, 0);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile, Eliminato)
-VALUES(idOperaSeq.nextVal, 'Peacock', 75, NULL, 5, 1, 0);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile, Eliminato)
-VALUES(idOperaSeq.nextVal, 'Holy Family', 105, NULL, 5, 1, 0);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile, Eliminato)
-VALUES(idOperaSeq.nextVal, 'Mass of St Gregory', 93, NULL, 3, 1, 0);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile, Eliminato)
-VALUES(idOperaSeq.nextVal, 'A Sunny Day in Iona', 109, NULL, 2, 1, 0);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile, Eliminato)
-VALUES(idOperaSeq.nextVal, 'At the Races in the Countryside', 78, NULL, 4, 1, 0);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile, Eliminato)
-VALUES(idOperaSeq.nextVal, 'The Ironers', 95, NULL, 5, 1, 0);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile, Eliminato)
-VALUES(idOperaSeq.nextVal, 'The Nativity with Donors and Sts Jerome and Leonard', 125, NULL, 3, 1, 0);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile, Eliminato)
-VALUES(idOperaSeq.nextVal, 'The Story of St Nicholas: St Nicholas saves the ship', 1244, NULL, 4, 1, 0);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile, Eliminato)
-VALUES(idOperaSeq.nextVal, 'Lunette of the west wall', 1237, NULL, 6, 1, 0);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile, Eliminato)
-VALUES(idOperaSeq.nextVal, 'Portrait of Doge Leonardo Loredan', 1238, NULL, 2, 1, 0);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile, Eliminato)
-VALUES(idOperaSeq.nextVal, 'Portrait of General Bonaparte', 1255, NULL, 4, 1, 0);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile, Eliminato)
-VALUES(idOperaSeq.nextVal, 'The Holy Women and St John at Golgotha', 1262, NULL, 3, 1, 0);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile, Eliminato)
-VALUES(idOperaSeq.nextVal, 'The Blessed Virgin', 1261, NULL, 1, 1, 0);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile, Eliminato)
-VALUES(idOperaSeq.nextVal, 'Portrait of Tommaso Raimondi', 1241, NULL, 6, 1, 0);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile, Eliminato)
-VALUES(idOperaSeq.nextVal, 'Los', 1262, NULL, 3, 1, 0);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile, Eliminato)
-VALUES(idOperaSeq.nextVal, 'Young Indian Woman Wrapping a Shell-Fringed Band round her Leg', 1259, NULL, 1, 1, 0);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile, Eliminato)
-VALUES(idOperaSeq.nextVal, 'The Burning Bush', 850, 900, 4, 1, 0);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile, Eliminato)
-VALUES(idOperaSeq.nextVal, 'Paintings for the Armadio degli Argenti', 851, NULL, 1, 1, 0);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile, Eliminato)
-VALUES(idOperaSeq.nextVal, 'Madonna with Angels and Shepherds', 813, NULL, 1, 1, 0);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile, Eliminato)
-VALUES(idOperaSeq.nextVal, 'Two Witches', 808, NULL, 6, 1, 0);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile, Eliminato)
-VALUES(idOperaSeq.nextVal, 'Standing Gooseherder', 853, NULL, 5, 1, 0);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile, Eliminato)
-VALUES(idOperaSeq.nextVal, 'Portrait of Caspar Hedio', 826, NULL, 1, 1, 0);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile, Eliminato)
-VALUES(idOperaSeq.nextVal, 'The Agony of Christ in the Garden', 806, NULL, 1, 1, 0);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile, Eliminato)
-VALUES(idOperaSeq.nextVal, 'Apse of the Tempietto', 809, NULL, 3, 1, 0);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile, Eliminato)
-VALUES(idOperaSeq.nextVal, 'A Sea God Abducts a Woman', 1757, NULL, 5, 1, 0);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile, Eliminato)
-VALUES(idOperaSeq.nextVal, 'The Dairy Maid', 1761, NULL, 5, 1, 0);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile, Eliminato)
-VALUES(idOperaSeq.nextVal, 'Physician Gabriele Fonseca', 1731, NULL, 1, 1, 0);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile, Eliminato)
-VALUES(idOperaSeq.nextVal, 'Presentation of Jesus at the Temple', 1750, 1800, 5, 1, 0);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile, Eliminato)
-VALUES(idOperaSeq.nextVal, 'Landscape with Tobias and the Angel', 1736, NULL, 2, 1, 0);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile, Eliminato)
-VALUES(idOperaSeq.nextVal, 'Mankind Beset by Devils reverse of Rebel Angels panel', 1782, NULL, 3, 1, 0);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile, Eliminato)
-VALUES(idOperaSeq.nextVal, 'Holy Family with St Anne and the Infant St John', 1741, NULL, 2, 1, 0);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile, Eliminato)
-VALUES(idOperaSeq.nextVal, 'Madonna with the Infant Christ and St John the Baptist', 1700, 1750, 3, 1, 0);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile, Eliminato)
-VALUES(idOperaSeq.nextVal, 'Breakfast-piece', 1722, NULL, 1, 1, 0);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile, Eliminato)
-VALUES(idOperaSeq.nextVal, 'Jupiter and Juno', 500, 550, 1, 1, 0);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile, Eliminato)
-VALUES(idOperaSeq.nextVal, 'Portrait Bust of Johanna DorÃ©', 504, NULL, 5, 1, 0);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile, Eliminato)
-VALUES(idOperaSeq.nextVal, 'The Sermon of St Stephen', 469, NULL, 6, 1, 0);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile, Eliminato)
-VALUES(idOperaSeq.nextVal, 'Sketch for a sleigh', 517, NULL, 2, 1, 0);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile, Eliminato)
-VALUES(idOperaSeq.nextVal, 'Christ on the Lake of Gennezaret', 476, NULL, 6, 1, 0);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile, Eliminato)
-VALUES(idOperaSeq.nextVal, 'BarthÃ©lÃ©my Charles', 517, NULL, 3, 1, 0);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile, Eliminato)
-VALUES(idOperaSeq.nextVal, 'St Rose of Lima before the Madonna', 468, NULL, 1, 1, 0);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile, Eliminato)
-VALUES(idOperaSeq.nextVal, 'St Catherine of Alexandria', 467, NULL, 5, 1, 0);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile, Eliminato)
-VALUES(idOperaSeq.nextVal, 'Hairy Harry', 1126, NULL, 6, 1, 0);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile, Eliminato)
-VALUES(idOperaSeq.nextVal, 'Fish and Dead Game', 1153, NULL, 3, 1, 0);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile, Eliminato)
-VALUES(idOperaSeq.nextVal, 'An Iron Foundry', 1114, NULL, 3, 1, 0);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile, Eliminato)
-VALUES(idOperaSeq.nextVal, 'Suicide of Lucretia', 1154, NULL, 5, 1, 0);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile, Eliminato)
-VALUES(idOperaSeq.nextVal, 'Nude Woman', 1122, NULL, 1, 1, 0);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile, Eliminato)
-VALUES(idOperaSeq.nextVal, 'The Conversion of Saul detail', 1150, 1200, 4, 1, 0);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile, Eliminato)
-VALUES(idOperaSeq.nextVal, 'David and Bathsheba', 1132, NULL, 6, 1, 0);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile, Eliminato)
-VALUES(idOperaSeq.nextVal, 'Mars Disarmed by Venus and the Three Graces', 205, NULL, 2, 1, 0);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile, Eliminato)
-VALUES(idOperaSeq.nextVal, 'Blond Odalisque L Odalisque Blonde', 205, NULL, 3, 1, 0);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile, Eliminato)
-VALUES(idOperaSeq.nextVal, 'Portrait of a Scholar', 255, NULL, 5, 1, 0);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile, Eliminato)
-VALUES(idOperaSeq.nextVal, 'Diana and Actaeon', 200, 250, 5, 1, 0);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile, Eliminato)
-VALUES(idOperaSeq.nextVal, 'The Pearl of Brabant', 217, NULL, 4, 1, 0);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile, Eliminato)
-VALUES(idOperaSeq.nextVal, 'Turkish Boys Let out of School', 273, NULL, 6, 1, 0);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile, Eliminato)
-VALUES(idOperaSeq.nextVal, 'Old Woman Praying', 254, NULL, 1, 1, 0);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile, Eliminato)
-VALUES(idOperaSeq.nextVal, 'Venus in Vulcan s Workshop', 200, 250, 4, 1, 0);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile, Eliminato)
-VALUES(idOperaSeq.nextVal, 'The Marriage of St Catherine of Siena', 885, NULL, 4, 1, 0);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile, Eliminato)
-VALUES(idOperaSeq.nextVal, 'Meleager s Hunt', 899, NULL, 2, 1, 0);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile, Eliminato)
-VALUES(idOperaSeq.nextVal, 'Archduchess Johanna', 894, NULL, 3, 1, 0);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile, Eliminato)
-VALUES(idOperaSeq.nextVal, 'Oration The prayer', 865, NULL, 4, 1, 0);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile, Eliminato)
-VALUES(idOperaSeq.nextVal, 'Oration The prayer', 875, NULL, 2, 1, 0);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile, Eliminato)
-VALUES(idOperaSeq.nextVal, 'Virgin of the Annunciation', 901, NULL, 2, 1, 0);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile, Eliminato)
-VALUES(idOperaSeq.nextVal, 'The Wharf', 905, NULL, 3, 1, 0);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile, Eliminato)
-VALUES(idOperaSeq.nextVal, 'Stag Hunting in the Dunes', 907, NULL, 5, 1, 0);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile, Eliminato)
-VALUES(idOperaSeq.nextVal, 'Music', 861, NULL, 1, 1, 0);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile, Eliminato)
-VALUES(idOperaSeq.nextVal, 'Travel sketchbook folio 38v', 794, NULL, 4, 1, 0);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile, Eliminato)
-VALUES(idOperaSeq.nextVal, 'Still-Life with Apple Blossoms', 852, NULL, 4, 1, 0);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile, Eliminato)
-VALUES(idOperaSeq.nextVal, 'Moses Striking the Rock', 859, NULL, 4, 1, 0);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile, Eliminato)
-VALUES(idOperaSeq.nextVal, 'Red Hartebeest', 847, NULL, 4, 1, 0);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile, Eliminato)
-VALUES(idOperaSeq.nextVal, 'The Holy Family with St John the Baptist', 792, NULL, 3, 1, 0);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile, Eliminato)
-VALUES(idOperaSeq.nextVal, 'Desdemona Retiring to her Bed', 800, 850, 6, 1, 0);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile, Eliminato)
-VALUES(idOperaSeq.nextVal, 'Head of the Dead Marat', 788, NULL, 3, 1, 0);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile, Eliminato)
-VALUES(idOperaSeq.nextVal, 'Portrait of Ludwig X', 1752, NULL, 2, 1, 0);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile, Eliminato)
-VALUES(idOperaSeq.nextVal, 'Portrait of Lucrezia Panciatichi', 1763, NULL, 6, 1, 0);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile, Eliminato)
-VALUES(idOperaSeq.nextVal, 'St Bartholomew', 1749, NULL, 6, 1, 0);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile, Eliminato)
-VALUES(idOperaSeq.nextVal, 'Four Musical Angels', 1725, NULL, 6, 1, 0);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile, Eliminato)
-VALUES(idOperaSeq.nextVal, 'Medal of Pietro Bembo', 1700, 1750, 6, 1, 0);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile, Eliminato)
-VALUES(idOperaSeq.nextVal, 'The Barges', 1729, NULL, 3, 1, 0);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile, Eliminato)
-VALUES(idOperaSeq.nextVal, 'Portrait of Princess Anna Julianna EszterhÃ¡zy', 1774, NULL, 3, 1, 0);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile, Eliminato)
-VALUES(idOperaSeq.nextVal, 'ChÃ¢teau de Bury', 1700, 1750, 4, 1, 0);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile, Eliminato)
-VALUES(idOperaSeq.nextVal, 'Rehearsal of the Ballet Onstage', 1768, NULL, 2, 1, 0);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile, Eliminato)
-VALUES(idOperaSeq.nextVal, 'The Burial of the Virgin and the Reception of Her Soul in Heaven', 1562, NULL, 5, 1, 0);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile, Eliminato)
-VALUES(idOperaSeq.nextVal, 'St John the Evangelist in Patmos', 1588, NULL, 5, 1, 0);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile, Eliminato)
-VALUES(idOperaSeq.nextVal, 'Supper at Emmaus', 1541, NULL, 4, 1, 0);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile, Eliminato)
-VALUES(idOperaSeq.nextVal, 'Children and a Cow', 1548, NULL, 4, 1, 0);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile, Eliminato)
-VALUES(idOperaSeq.nextVal, 'The Miracle of the Roses', 1605, NULL, 3, 1, 0);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile, Eliminato)
-VALUES(idOperaSeq.nextVal, 'Odalisque Reclining on a Divan', 1567, NULL, 4, 1, 0);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile, Eliminato)
-VALUES(idOperaSeq.nextVal, 'Morning Fog', 1565, NULL, 1, 1, 0);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile, Eliminato)
-VALUES(idOperaSeq.nextVal, 'Admiral Thomas Mathews', 1553, NULL, 4, 1, 0);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile, Eliminato)
-VALUES(idOperaSeq.nextVal, 'Caritas Romana Roman Charity', 1607, NULL, 2, 1, 0);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile, Eliminato)
-VALUES(idOperaSeq.nextVal, 'Three Male Heads', 1556, NULL, 1, 1, 0);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile, Eliminato)
-VALUES(idOperaSeq.nextVal, 'The Pier at Deauville', 1552, NULL, 6, 1, 0);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile, Eliminato)
-VALUES(idOperaSeq.nextVal, 'Dead Christ Mourned by Angels', 711, NULL, 4, 1, 0);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile, Eliminato)
-VALUES(idOperaSeq.nextVal, 'Self-Portrait The Cellist', 768, NULL, 6, 1, 0);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile, Eliminato)
-VALUES(idOperaSeq.nextVal, 'The Virgin of the Assumption with St Thomas Receiving the Girdle', 752, NULL, 1, 1, 0);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile, Eliminato)
-VALUES(idOperaSeq.nextVal, 'Presentation of Jesus in the Temple', 703, NULL, 3, 1, 0);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile, Eliminato)
-VALUES(idOperaSeq.nextVal, 'St Dorothea', 706, NULL, 6, 1, 0);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile, Eliminato)
-VALUES(idOperaSeq.nextVal, 'Portrait of FranÃ§ois I as St John the Baptist', 713, NULL, 4, 1, 0);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile, Eliminato)
-VALUES(idOperaSeq.nextVal, 'George IV when Prince of Wales', 732, NULL, 5, 1, 0);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile, Eliminato)
-VALUES(idOperaSeq.nextVal, 'Battle Scene', 757, NULL, 1, 1, 0);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile, Eliminato)
-VALUES(idOperaSeq.nextVal, 'The Women of Algiers', 700, 750, 3, 1, 0);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile, Eliminato)
-VALUES(idOperaSeq.nextVal, 'King David Playin a Psaltery', 713, NULL, 6, 1, 0);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile, Eliminato)
-VALUES(idOperaSeq.nextVal, 'Melancholy', 727, NULL, 3, 1, 0);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile, Eliminato)
-VALUES(idOperaSeq.nextVal, 'Venus at Bath', 245, NULL, 5, 1, 0);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile, Eliminato)
-VALUES(idOperaSeq.nextVal, 'West wall of the chapel', 191, NULL, 2, 1, 0);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile, Eliminato)
-VALUES(idOperaSeq.nextVal, 'Perugia Altarpiece left panel', 219, NULL, 3, 1, 0);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile, Eliminato)
-VALUES(idOperaSeq.nextVal, 'Court of Isabella d Este', 243, NULL, 5, 1, 0);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile, Eliminato)
-VALUES(idOperaSeq.nextVal, 'The Suicide of Saul detail', 228, NULL, 5, 1, 0);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile, Eliminato)
-VALUES(idOperaSeq.nextVal, 'Death is Violent and Fast', 234, NULL, 4, 1, 0);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile, Eliminato)
-VALUES(idOperaSeq.nextVal, 'Virgin and Child with Young St John the Baptist', 229, NULL, 3, 1, 0);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile, Eliminato)
-VALUES(idOperaSeq.nextVal, 'Children s Games', 225, NULL, 3, 1, 0);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile, Eliminato)
-VALUES(idOperaSeq.nextVal, 'Commemorative Medal for Admiral Michiel Adriaensz. de Ruyter', 217, NULL, 4, 1, 0);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile, Eliminato)
-VALUES(idOperaSeq.nextVal, 'Study of the Sky at Sunset', 876, NULL, 1, 1, 0);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile, Eliminato)
-VALUES(idOperaSeq.nextVal, 'The Assumption of the Virgin', 916, NULL, 2, 1, 0);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile, Eliminato)
-VALUES(idOperaSeq.nextVal, 'Hans Melber', 853, NULL, 6, 1, 0);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile, Eliminato)
-VALUES(idOperaSeq.nextVal, 'The Cloister of Santa Croce', 896, NULL, 4, 1, 0);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile, Eliminato)
-VALUES(idOperaSeq.nextVal, 'The Dauphin FranÃ§ois', 902, NULL, 6, 1, 0);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile, Eliminato)
-VALUES(idOperaSeq.nextVal, 'The Golden Isles Les Iles d Or', 914, NULL, 4, 1, 0);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile, Eliminato)
-VALUES(idOperaSeq.nextVal, 'At the Entrance', 919, NULL, 2, 1, 0);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile, Eliminato)
-VALUES(idOperaSeq.nextVal, 'Cast of the Dead Mask of Lorenzo de  Medici', 856, NULL, 4, 1, 0);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile, Eliminato)
-VALUES(idOperaSeq.nextVal, 'The Actress', 886, NULL, 4, 1, 0);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile, Eliminato)
-VALUES(idOperaSeq.nextVal, 'The Harvest Breton Landscape', 918, NULL, 4, 1, 0);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile, Eliminato)
-VALUES(idOperaSeq.nextVal, 'Stormy Weather over the Roman Campagna', 799, NULL, 3, 1, 0);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile, Eliminato)
-VALUES(idOperaSeq.nextVal, 'The Baptism of the Selenites', 800, 850, 1, 1, 0);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile, Eliminato)
-VALUES(idOperaSeq.nextVal, 'Portrait of Jacob Fugger', 799, NULL, 4, 1, 0);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile, Eliminato)
-VALUES(idOperaSeq.nextVal, 'Portraits of Lorenzo Pagans and Auguste Degas', 791, NULL, 2, 1, 0);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile, Eliminato)
-VALUES(idOperaSeq.nextVal, 'Self-Portrait as a Young Man', 797, NULL, 5, 1, 0);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile, Eliminato)
-VALUES(idOperaSeq.nextVal, 'Ceres', 831, NULL, 6, 1, 0);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile, Eliminato)
-VALUES(idOperaSeq.nextVal, 'St Sebastian Altarpiece', 787, NULL, 6, 1, 0);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile, Eliminato)
-VALUES(idOperaSeq.nextVal, 'The Four Elements: Earth', 813, NULL, 3, 1, 0);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile, Eliminato)
-VALUES(idOperaSeq.nextVal, 'Christ at the Tomb Supported by Two Angels', 785, NULL, 5, 1, 0);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile, Eliminato)
-VALUES(idOperaSeq.nextVal, 'Two Laughing Men Self-Portrait', 777, NULL, 6, 1, 0);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile, Eliminato)
-VALUES(idOperaSeq.nextVal, 'Christ in the House of Martha and Mary', 836, NULL, 2, 1, 0);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile, Eliminato)
-VALUES(idOperaSeq.nextVal, 'The Afternoon Meal', 811, NULL, 4, 1, 0);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile, Eliminato)
-VALUES(idOperaSeq.nextVal, 'The Masked Ball Given by the King', 263, NULL, 1, 1, 0);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile, Eliminato)
-VALUES(idOperaSeq.nextVal, 'Relief with the Blessing Christ', 227, NULL, 5, 1, 0);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile, Eliminato)
-VALUES(idOperaSeq.nextVal, 'Return from the Falcon Hunt', 233, NULL, 3, 1, 0);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile, Eliminato)
-VALUES(idOperaSeq.nextVal, 'Architectural and anatomical sketches', 258, NULL, 6, 1, 0);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile, Eliminato)
-VALUES(idOperaSeq.nextVal, 'Cestello Annunciation in frame', 200, 250, 4, 1, 0);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile, Eliminato)
-VALUES(idOperaSeq.nextVal, 'After Dinner at Ornans', 235, NULL, 1, 1, 0);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile, Eliminato)
-VALUES(idOperaSeq.nextVal, 'Count Potocki', 223, NULL, 4, 1, 0);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile, Eliminato)
-VALUES(idOperaSeq.nextVal, 'Head of the Baptist', 227, NULL, 5, 1, 0);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile, Eliminato)
-VALUES(idOperaSeq.nextVal, 'Jacob s Fight with the Angel', 222, NULL, 6, 1, 0);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile, Eliminato)
-VALUES(idOperaSeq.nextVal, 'Polyptych of San Vincenzo Ferreri central panel', 236, NULL, 5, 1, 0);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile, Eliminato)
-VALUES(idOperaSeq.nextVal, 'Virgin and Child with Four Angels', 225, NULL, 1, 1, 0);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile, Eliminato)
-VALUES(idOperaSeq.nextVal, 'Death of the Cavalryman', 1753, NULL, 5, 1, 0);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile, Eliminato)
-VALUES(idOperaSeq.nextVal, 'The de Bie Family', 1723, NULL, 6, 1, 0);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile, Eliminato)
-VALUES(idOperaSeq.nextVal, 'Elisa and her Daughter NapolÃ©onne', 1750, 1800, 1, 1, 0);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile, Eliminato)
-VALUES(idOperaSeq.nextVal, 'Still-Life with Lobster', 1739, NULL, 5, 1, 0);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile, Eliminato)
-VALUES(idOperaSeq.nextVal, 'Weymouth Bay', 1789, NULL, 2, 1, 0);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile, Eliminato)
-VALUES(idOperaSeq.nextVal, 'A Lady and a Child by a Balustrade', 1766, NULL, 4, 1, 0);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile, Eliminato)
-VALUES(idOperaSeq.nextVal, 'Old Fisherman', 1768, NULL, 3, 1, 0);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile, Eliminato)
-VALUES(idOperaSeq.nextVal, 'Blackbuck', 1752, NULL, 2, 1, 0);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile, Eliminato)
-VALUES(idOperaSeq.nextVal, 'St Lawrence Receives the Treasures of the Church detail', 1704, NULL, 5, 1, 0);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile, Eliminato)
-VALUES(idOperaSeq.nextVal, 'Truth', 1761, NULL, 3, 1, 0);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile, Eliminato)
-VALUES(idOperaSeq.nextVal, 'Souvenir of Mortefontaine', 1756, NULL, 2, 1, 0);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile, Eliminato)
-VALUES(idOperaSeq.nextVal, 'The Hunt of Diana', 505, NULL, 4, 1, 0);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile, Eliminato)
-VALUES(idOperaSeq.nextVal, 'The Descent of Christ', 450, 500, 3, 1, 0);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile, Eliminato)
-VALUES(idOperaSeq.nextVal, 'Portrait of a Female Mule', 100, 150, 5, 1, 0);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile, Eliminato)
-VALUES(idOperaSeq.nextVal, 'Madonna of the Pomegranate Madonna della Melagrana', 104, NULL, 3, 1, 0);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile, Eliminato)
-VALUES(idOperaSeq.nextVal, 'Portraits of Fathers Lesueur and Jacquier', 73, NULL, 5, 1, 0);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile, Eliminato)
-VALUES(idOperaSeq.nextVal, 'Portrait of Philipp Melanchthon', 87, NULL, 6, 1, 0);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile, Eliminato)
-VALUES(idOperaSeq.nextVal, 'Jupiter', 64, NULL, 1, 1, 0);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile, Eliminato)
-VALUES(idOperaSeq.nextVal, 'Madame RÃ©camier', 50, 100, 5, 1, 0);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile, Eliminato)
-VALUES(idOperaSeq.nextVal, 'Scenes from the Life of David', 93, NULL, 4, 1, 0);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile, Eliminato)
-VALUES(idOperaSeq.nextVal, 'Sketch for a sleigh with figures', 74, NULL, 4, 1, 0);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile, Eliminato)
-VALUES(idOperaSeq.nextVal, 'Petronella Elias with a Basket of Fruit', 109, NULL, 6, 1, 0);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile, Eliminato)
-VALUES(idOperaSeq.nextVal, 'Linaioli Tabernacle shutters closed', 88, NULL, 3, 1, 0);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile, Eliminato)
-VALUES(idOperaSeq.nextVal, 'Canon Bernardinus de Salviatis with Three Saints', 671, NULL, 5, 1, 0);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile, Eliminato)
-VALUES(idOperaSeq.nextVal, 'Francesco I d Este', 676, NULL, 2, 1, 0);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile, Eliminato)
-VALUES(idOperaSeq.nextVal, 'Battle of Moscow on 7 September 1812', 686, NULL, 3, 1, 0);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile, Eliminato)
-VALUES(idOperaSeq.nextVal, 'Odysseus Slays the Suitors in His Palace', 704, NULL, 1, 1, 0);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile, Eliminato)
-VALUES(idOperaSeq.nextVal, 'Orpheus', 695, NULL, 6, 1, 0);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile, Eliminato)
-VALUES(idOperaSeq.nextVal, 'Statues of Saints', 650, 700, 5, 1, 0);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile, Eliminato)
-VALUES(idOperaSeq.nextVal, 'Marriage of Alexander and Roxane', 701, NULL, 5, 1, 0);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile, Eliminato)
-VALUES(idOperaSeq.nextVal, 'View of the Villa Cagnola at Gazzada near Varese', 692, NULL, 6, 1, 0);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile, Eliminato)
-VALUES(idOperaSeq.nextVal, 'The Molo', 657, NULL, 5, 1, 0);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile, Eliminato)
-VALUES(idOperaSeq.nextVal, 'Tombs in the Gaddi Chapel', 1231, NULL, 4, 1, 0);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile, Eliminato)
-VALUES(idOperaSeq.nextVal, 'Cotton mill', 836, NULL, 2, 1, 0);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile, Eliminato)
-VALUES(idOperaSeq.nextVal, 'The Death of Cleopatra', 856, NULL, 1, 1, 0);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile, Eliminato)
-VALUES(idOperaSeq.nextVal, 'A Ballplayer and His Page', 815, NULL, 5, 1, 0);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile, Eliminato)
-VALUES(idOperaSeq.nextVal, 'Winter Landscape near Vordingborg', 800, 850, 5, 1, 0);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile, Eliminato)
-VALUES(idOperaSeq.nextVal, 'The Miracle of The Fervent', 804, NULL, 2, 1, 0);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile, Eliminato)
-VALUES(idOperaSeq.nextVal, 'Girl with Racket and Shuttlecock', 828, NULL, 2, 1, 0);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile, Eliminato)
-VALUES(idOperaSeq.nextVal, 'Sacred Conversation', 808, NULL, 3, 1, 0);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile, Eliminato)
-VALUES(idOperaSeq.nextVal, 'Peter Ulner', 850, 900, 4, 1, 0);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile, Eliminato)
-VALUES(idOperaSeq.nextVal, 'Sleeping Venus', 839, NULL, 1, 1, 0);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile, Eliminato)
-VALUES(idOperaSeq.nextVal, 'Venus Presenting Aeneas with Armour Forged by Vulcan', 838, NULL, 4, 1, 0);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile, Eliminato)
-VALUES(idOperaSeq.nextVal, 'Breakfast-piece', 849, NULL, 5, 1, 0);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile, Eliminato)
-VALUES(idOperaSeq.nextVal, 'Concert of Angels recto', 807, NULL, 4, 1, 0);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile, Eliminato)
-VALUES(idOperaSeq.nextVal, 'Landscape with Bridge', 827, NULL, 6, 1, 0);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile, Eliminato)
-VALUES(idOperaSeq.nextVal, 'Juno and Hercules', 828, NULL, 4, 1, 0);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile, Eliminato)
-VALUES(idOperaSeq.nextVal, 'Old Woman Peeling Apple', 214, NULL, 5, 1, 0);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile, Eliminato)
-VALUES(idOperaSeq.nextVal, 'Communion', 224, NULL, 1, 1, 0);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile, Eliminato)
-VALUES(idOperaSeq.nextVal, 'Amenaide', 274, NULL, 2, 1, 0);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile, Eliminato)
-VALUES(idOperaSeq.nextVal, 'Portrait of Giulia Bellelli', 247, NULL, 1, 1, 0);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile, Eliminato)
-VALUES(idOperaSeq.nextVal, 'Scenes from the Story of Tobias 1', 208, NULL, 5, 1, 0);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile, Eliminato)
-VALUES(idOperaSeq.nextVal, 'Portrait of a Lady as St Lucy', 213, NULL, 6, 1, 0);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile, Eliminato)
-VALUES(idOperaSeq.nextVal, 'The Ten Thousand Martyrs on the Mount Ararat', 258, NULL, 4, 1, 0);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile, Eliminato)
-VALUES(idOperaSeq.nextVal, 'The Rescue at Fowey Harbour', 231, NULL, 6, 1, 0);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile, Eliminato)
-VALUES(idOperaSeq.nextVal, 'Young Man Playing the Lute', 200, 250, 5, 1, 0);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile, Eliminato)
-VALUES(idOperaSeq.nextVal, 'Perseus Fighting with Phineus detail', 212, NULL, 6, 1, 0);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile, Eliminato)
-VALUES(idOperaSeq.nextVal, 'Cabinet', 200, 250, 4, 1, 0);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile, Eliminato)
-VALUES(idOperaSeq.nextVal, 'Venus and Mars', 271, NULL, 6, 1, 0);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile, Eliminato)
-VALUES(idOperaSeq.nextVal, 'Lunch on the Field', 275, NULL, 2, 1, 0);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile, Eliminato)
-VALUES(idOperaSeq.nextVal, 'Rodin', 1301, NULL, 6, 1, 0);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile, Eliminato)
-VALUES(idOperaSeq.nextVal, 'The Naked Warrior The Archer', 1255, NULL, 3, 1, 0);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile, Eliminato)
-VALUES(idOperaSeq.nextVal, 'Little Fourteen-Year-Old Dancer', 1251, NULL, 6, 1, 0);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile, Eliminato)
-VALUES(idOperaSeq.nextVal, 'Ops', 1278, NULL, 3, 1, 0);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile, Eliminato)
-VALUES(idOperaSeq.nextVal, 'The Cure of Folly Extraction of the Stone of Madness', 1246, NULL, 5, 1, 0);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile, Eliminato)
-VALUES(idOperaSeq.nextVal, 'Laundress', 1241, NULL, 3, 1, 0);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile, Eliminato)
-VALUES(idOperaSeq.nextVal, 'Presentation of Jesus in the Temple Cell 10', 1281, NULL, 4, 1, 0);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile, Eliminato)
-VALUES(idOperaSeq.nextVal, 'Jeanne BÃ©cu', 1247, NULL, 2, 1, 0);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile, Eliminato)
-VALUES(idOperaSeq.nextVal, 'Village Scene with Figures and Cows', 1265, NULL, 3, 1, 0);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile, Eliminato)
-VALUES(idOperaSeq.nextVal, 'Banquet Still-Life', 1655, NULL, 6, 1, 0);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile, Eliminato)
-VALUES(idOperaSeq.nextVal, 'Christ in Glory', 1669, NULL, 6, 1, 0);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile, Eliminato)
-VALUES(idOperaSeq.nextVal, 'Dignified Couples Courting', 1636, NULL, 3, 1, 0);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile, Eliminato)
-VALUES(idOperaSeq.nextVal, 'The Milliner The Morning', 1641, NULL, 3, 1, 0);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile, Eliminato)
-VALUES(idOperaSeq.nextVal, 'Ugolino Martelli', 1669, NULL, 2, 1, 0);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile, Eliminato)
-VALUES(idOperaSeq.nextVal, 'Dune Landscape by Moonlight', 1641, NULL, 6, 1, 0);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile, Eliminato)
-VALUES(idOperaSeq.nextVal, 'Raising of the Daughter of Jairus detail', 1617, NULL, 2, 1, 0);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile, Eliminato)
-VALUES(idOperaSeq.nextVal, 'The Bride of Abydos', 1682, NULL, 3, 1, 0);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile, Eliminato)
-VALUES(idOperaSeq.nextVal, 'Ceres Allegory of Summer', 1650, 1700, 5, 1, 0);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile, Eliminato)
-VALUES(idOperaSeq.nextVal, 'Malvern Hall in Warwickshire', 1673, NULL, 3, 1, 0);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile, Eliminato)
-VALUES(idOperaSeq.nextVal, 'Portrait of Dr. Johannes Cuspinian', 1663, NULL, 3, 1, 0);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile, Eliminato)
-VALUES(idOperaSeq.nextVal, 'Still-Life with Garland of Flowers and Golden Tazza', 1652, NULL, 1, 1, 0);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile, Eliminato)
-VALUES(idOperaSeq.nextVal, 'Study for the Equestrian Statue of Louis XV', 1695, NULL, 6, 1, 0);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile, Eliminato)
-VALUES(idOperaSeq.nextVal, 'Allegorical composition celebrating the Humanities', 1674, NULL, 2, 1, 0);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile, Eliminato)
-VALUES(idOperaSeq.nextVal, 'Illustration for Goethe s Faust', 1691, NULL, 1, 1, 0);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile, Eliminato)
-VALUES(idOperaSeq.nextVal, 'Landscape with the Toilet of Venus', 1478, NULL, 1, 1, 0);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile, Eliminato)
-VALUES(idOperaSeq.nextVal, 'Portrait of the Cosmographer Sebastien MÃ¼nster', 1468, NULL, 1, 1, 0);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile, Eliminato)
-VALUES(idOperaSeq.nextVal, 'Calumny of Apelles', 1496, NULL, 3, 1, 0);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile, Eliminato)
-VALUES(idOperaSeq.nextVal, 'Epiphany', 1450, 1500, 4, 1, 0);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile, Eliminato)
-VALUES(idOperaSeq.nextVal, 'The Tomb of William the Silent in an Imaginary Church', 1400, 1450, 6, 1, 0);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile, Eliminato)
-VALUES(idOperaSeq.nextVal, 'Nebuchadnezzar', 1487, NULL, 6, 1, 0);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile, Eliminato)
-VALUES(idOperaSeq.nextVal, 'Children and a Cow', 1491, NULL, 3, 1, 0);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile, Eliminato)
-VALUES(idOperaSeq.nextVal, 'Habakkuk and the Angel detail', 1436, NULL, 6, 1, 0);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile, Eliminato)
-VALUES(idOperaSeq.nextVal, 'Ceiling fresco', 1450, 1500, 3, 1, 0);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile, Eliminato)
-VALUES(idOperaSeq.nextVal, 'St Augustine in His Cell', 1438, NULL, 6, 1, 0);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile, Eliminato)
-VALUES(idOperaSeq.nextVal, 'Family Portrait', 1449, NULL, 4, 1, 0);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile, Eliminato)
-VALUES(idOperaSeq.nextVal, 'Beheading of John the Baptist', 1433, NULL, 2, 1, 0);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile, Eliminato)
-VALUES(idOperaSeq.nextVal, 'Nebuchadnezzar', 1473, NULL, 1, 1, 0);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile, Eliminato)
-VALUES(idOperaSeq.nextVal, 'Les Quatre Ã‰tats de la SociÃ©tÃ©: Poor State', 1435, NULL, 4, 1, 0);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile, Eliminato)
-VALUES(idOperaSeq.nextVal, 'Goldsmith JÃ¶rg ZÃ¼rer of Augsburg', 1464, NULL, 5, 1, 0);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile, Eliminato)
-VALUES(idOperaSeq.nextVal, 'Rebecca at the Well', 1255, NULL, 3, 1, 0);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile, Eliminato)
-VALUES(idOperaSeq.nextVal, 'Still-Life', 1284, NULL, 4, 1, 0);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile, Eliminato)
-VALUES(idOperaSeq.nextVal, 'Portrait of Louis XVI', 1275, NULL, 2, 1, 0);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile, Eliminato)
-VALUES(idOperaSeq.nextVal, 'The Oath of the Saxons', 1282, NULL, 6, 1, 0);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile, Eliminato)
-VALUES(idOperaSeq.nextVal, 'Three Male Heads', 1251, NULL, 4, 1, 0);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile, Eliminato)
-VALUES(idOperaSeq.nextVal, 'The Triumph of Caesar Section 3', 1250, 1300, 4, 1, 0);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile, Eliminato)
-VALUES(idOperaSeq.nextVal, 'Boat Warpers', 1254, NULL, 2, 1, 0);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile, Eliminato)
-VALUES(idOperaSeq.nextVal, 'Christ Carrying the Cross', 817, NULL, 4, 1, 0);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile, Eliminato)
-VALUES(idOperaSeq.nextVal, 'St James the Greater at Hermogenes', 829, NULL, 4, 1, 0);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile, Eliminato)
-VALUES(idOperaSeq.nextVal, 'Portrait of Duke Ludwig X of Bavaria', 812, NULL, 1, 1, 0);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile, Eliminato)
-VALUES(idOperaSeq.nextVal, 'FranÃ§ois I', 806, NULL, 2, 1, 0);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile, Eliminato)
-VALUES(idOperaSeq.nextVal, 'Santa Cristina Altarpiece', 800, 850, 6, 1, 0);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile, Eliminato)
-VALUES(idOperaSeq.nextVal, 'Painter in his Studio', 814, NULL, 2, 1, 0);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile, Eliminato)
-VALUES(idOperaSeq.nextVal, 'Potrait of a Carthusian', 797, NULL, 1, 1, 0);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile, Eliminato)
-VALUES(idOperaSeq.nextVal, 'Still-Life with Landscape View', 802, NULL, 3, 1, 0);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile, Eliminato)
-VALUES(idOperaSeq.nextVal, 'Vertumnus and Pomona', 815, NULL, 6, 1, 0);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile, Eliminato)
-VALUES(idOperaSeq.nextVal, 'Oval with Panorama of Piazza della Signoria', 835, NULL, 2, 1, 0);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile, Eliminato)
-VALUES(idOperaSeq.nextVal, 'Christ on the Lake of Gennezaret', 825, NULL, 5, 1, 0);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile, Eliminato)
-VALUES(idOperaSeq.nextVal, 'Vase', 838, NULL, 6, 1, 0);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile, Eliminato)
-VALUES(idOperaSeq.nextVal, 'The Piazza della Signoria in Florence', 800, 850, 6, 1, 0);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile, Eliminato)
-VALUES(idOperaSeq.nextVal, 'Abraham and Isaac', 1941, NULL, 6, 1, 0);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile, Eliminato)
-VALUES(idOperaSeq.nextVal, 'Lear Grasping a Sword', 1929, NULL, 5, 1, 0);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile, Eliminato)
-VALUES(idOperaSeq.nextVal, 'Paradise: Terrestrial Paradise', 1925, NULL, 2, 1, 0);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile, Eliminato)
-VALUES(idOperaSeq.nextVal, 'Triptych of Garden of Earthly Delights left wing', 1894, NULL, 3, 1, 0);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile, Eliminato)
-VALUES(idOperaSeq.nextVal, 'Haarlem Printer Abraham Casteleyn and His Wife Margarieta van Bancken', 1934, NULL, 4, 1, 0);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile, Eliminato)
-VALUES(idOperaSeq.nextVal, 'Two-Headed Lamb', 1868, NULL, 6, 1, 0);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile, Eliminato)
-VALUES(idOperaSeq.nextVal, 'Allegory of Peace', 1900, 1950, 6, 1, 0);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile, Eliminato)
-VALUES(idOperaSeq.nextVal, 'The Lion of St Mark', 1874, NULL, 3, 1, 0);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile, Eliminato)
-VALUES(idOperaSeq.nextVal, 'Schatacook Mountain', 1862, NULL, 5, 1, 0);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile, Eliminato)
-VALUES(idOperaSeq.nextVal, 'The Adoration of the Magi', 1921, NULL, 6, 1, 0);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile, Eliminato)
-VALUES(idOperaSeq.nextVal, 'Sketch for the Marshal Moncey Monument', 1881, NULL, 1, 1, 0);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile, Eliminato)
-VALUES(idOperaSeq.nextVal, 'Portrait of Johannes Geiler von Kaysersberg', 1938, NULL, 3, 1, 0);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile, Eliminato)
-VALUES(idOperaSeq.nextVal, 'Pilate s Dispute with the High Priest; The Holy Women and St John at Golgotha', 1914, NULL, 5, 1, 0);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile, Eliminato)
-VALUES(idOperaSeq.nextVal, 'Winter Scene at Yselmuiden', 1942, NULL, 3, 1, 0);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile, Eliminato)
-VALUES(idOperaSeq.nextVal, 'The Sermon of St John the Baptist', 1917, NULL, 3, 1, 0);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile, Eliminato)
-VALUES(idOperaSeq.nextVal, 'Burning of the Heretics Auto-da-fÃ©', 1924, NULL, 5, 1, 0);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile, Eliminato)
-VALUES(idOperaSeq.nextVal, 'Epiphany', 796, NULL, 5, 1, 0);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile, Eliminato)
-VALUES(idOperaSeq.nextVal, 'Diana Turns Actaeon into a Stag', 836, NULL, 5, 1, 0);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile, Eliminato)
-VALUES(idOperaSeq.nextVal, 'Sketch for The Leaping Horse', 817, NULL, 2, 1, 0);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile, Eliminato)
-VALUES(idOperaSeq.nextVal, 'Portrait of a Young Girl', 861, NULL, 6, 1, 0);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile, Eliminato)
-VALUES(idOperaSeq.nextVal, 'Dead Christ Supported by Nicodemus', 794, NULL, 2, 1, 0);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile, Eliminato)
-VALUES(idOperaSeq.nextVal, 'Bernardino Campi Painting Sofonisba Anguissola', 844, NULL, 6, 1, 0);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile, Eliminato)
-VALUES(idOperaSeq.nextVal, 'Herm of St Stephen', 850, 900, 6, 1, 0);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile, Eliminato)
-VALUES(idOperaSeq.nextVal, 'Self-Portrait with an Eyeshade', 802, NULL, 2, 1, 0);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile, Eliminato)
-VALUES(idOperaSeq.nextVal, 'Venus and Amor', 878, NULL, 3, 1, 0);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile, Eliminato)
-VALUES(idOperaSeq.nextVal, 'The Holy Family and The Education of the Virgin', 828, NULL, 5, 1, 0);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile, Eliminato)
-VALUES(idOperaSeq.nextVal, 'ManiÃ¨re universelle pour pratiquer la perspective detail', 789, NULL, 4, 1, 0);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile, Eliminato)
-VALUES(idOperaSeq.nextVal, 'Eros and Anteros', 847, NULL, 4, 1, 0);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile, Eliminato)
-VALUES(idOperaSeq.nextVal, 'Shipping on the Thames off Deptford', 838, NULL, 3, 1, 0);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile, Eliminato)
-VALUES(idOperaSeq.nextVal, 'FrÃ©dÃ©ric Chopin', 800, 850, 6, 1, 0);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile, Eliminato)
-VALUES(idOperaSeq.nextVal, 'The Dream of Saint Catherine of Alexandria', 824, NULL, 3, 1, 0);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile, Eliminato)
-VALUES(idOperaSeq.nextVal, 'The Shaded Stream or The Puits Noir Stream', 812, NULL, 1, 1, 0);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile, Eliminato)
-VALUES(idOperaSeq.nextVal, 'The Last Judgment', 524, NULL, 1, 1, 0);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile, Eliminato)
-VALUES(idOperaSeq.nextVal, 'Circumcision', 534, NULL, 3, 1, 0);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile, Eliminato)
-VALUES(idOperaSeq.nextVal, 'Equestrian Portrait of Cardinal-Infante Fernando of Austria', 473, NULL, 4, 1, 0);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile, Eliminato)
-VALUES(idOperaSeq.nextVal, 'The Triumph of Caesar Section 8', 452, NULL, 1, 1, 0);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile, Eliminato)
-VALUES(idOperaSeq.nextVal, 'Portrait of Martin Luther', 450, 500, 2, 1, 0);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile, Eliminato)
-VALUES(idOperaSeq.nextVal, 'Still-Life with Lobster', 497, NULL, 4, 1, 0);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile, Eliminato)
-VALUES(idOperaSeq.nextVal, 'The Stoning of St Stephen detail', 459, NULL, 3, 1, 0);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile, Eliminato)
-VALUES(idOperaSeq.nextVal, 'The Coronation of the Nymph Amaryllis', 515, NULL, 3, 1, 0);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile, Eliminato)
-VALUES(idOperaSeq.nextVal, 'Seduction', 477, NULL, 2, 1, 0);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile, Eliminato)
-VALUES(idOperaSeq.nextVal, 'Concert', 528, NULL, 3, 1, 0);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile, Eliminato)
-VALUES(idOperaSeq.nextVal, 'Treatise on Silk Culture and Manufacture Series of Thirteen Drawings', 534, NULL, 1, 1, 0);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile, Eliminato)
-VALUES(idOperaSeq.nextVal, 'The Defence of Zaragoza', 466, NULL, 2, 1, 0);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile, Eliminato)
-VALUES(idOperaSeq.nextVal, 'Mars and Venus', 492, NULL, 4, 1, 0);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile, Eliminato)
-VALUES(idOperaSeq.nextVal, 'Diana Turns Actaeon into a Stag', 474, NULL, 3, 1, 0);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile, Eliminato)
-VALUES(idOperaSeq.nextVal, 'Storm at Sea', 532, NULL, 2, 1, 0);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile, Eliminato)
-VALUES(idOperaSeq.nextVal, 'Landscape with the Parable of the Tares among the Wheat', 535, NULL, 1, 1, 0);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile, Eliminato)
-VALUES(idOperaSeq.nextVal, 'Princess Yuliya Pavlovna Samoilova Leaving a Ball with Adopted Daughter Amacilia Pacini', 508, NULL, 6, 1, 0);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile, Eliminato)
-VALUES(idOperaSeq.nextVal, 'The Titan s Goblet', 474, NULL, 2, 1, 0);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile, Eliminato)
-VALUES(idOperaSeq.nextVal, 'Bust of Luisa Dati', 1014, NULL, 6, 1, 0);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile, Eliminato)
-VALUES(idOperaSeq.nextVal, 'Attila and his Hordes Overrun Italy and the Arts detail', 1013, NULL, 3, 1, 0);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile, Eliminato)
-VALUES(idOperaSeq.nextVal, 'Book and Picture Shop', 1006, NULL, 5, 1, 0);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile, Eliminato)
-VALUES(idOperaSeq.nextVal, 'View from the Giudecca', 635, NULL, 5, 1, 0);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile, Eliminato)
-VALUES(idOperaSeq.nextVal, 'St Philip', 589, NULL, 6, 1, 0);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile, Eliminato)
-VALUES(idOperaSeq.nextVal, 'Bust of Giovanni Andrea Muti', 600, 650, 6, 1, 0);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile, Eliminato)
-VALUES(idOperaSeq.nextVal, 'View of the Arsenale', 637, NULL, 1, 1, 0);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile, Eliminato)
-VALUES(idOperaSeq.nextVal, 'Still-Life with Peaches and Plums', 636, NULL, 1, 1, 0);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile, Eliminato)
-VALUES(idOperaSeq.nextVal, 'Skull in a Niche', 593, NULL, 2, 1, 0);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile, Eliminato)
-VALUES(idOperaSeq.nextVal, 'The Three Magi', 618, NULL, 3, 1, 0);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile, Eliminato)
-VALUES(idOperaSeq.nextVal, 'Wooded Landscape with Figures Crossing a Bridge', 636, NULL, 3, 1, 0);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile, Eliminato)
-VALUES(idOperaSeq.nextVal, 'Hercules the Archer', 639, NULL, 3, 1, 0);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile, Eliminato)
-VALUES(idOperaSeq.nextVal, 'Costume of the allegorical figure Arithmetic', 635, NULL, 4, 1, 0);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile, Eliminato)
-VALUES(idOperaSeq.nextVal, 'Portrait of Sir Charles Frederick', 577, NULL, 2, 1, 0);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile, Eliminato)
-VALUES(idOperaSeq.nextVal, 'The Education of Cupid', 574, NULL, 6, 1, 0);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile, Eliminato)
-VALUES(idOperaSeq.nextVal, 'Peasants with Cattle by a Ruined Aqueduct', 1426, NULL, 5, 1, 0);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile, Eliminato)
-VALUES(idOperaSeq.nextVal, 'Christ Washing the Apostles Feet', 1442, NULL, 4, 1, 0);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile, Eliminato)
-VALUES(idOperaSeq.nextVal, 'Arrival of the English Ambassadors', 1431, NULL, 2, 1, 0);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile, Eliminato)
-VALUES(idOperaSeq.nextVal, 'Three Angels', 1444, NULL, 4, 1, 0);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile, Eliminato)
-VALUES(idOperaSeq.nextVal, 'Diana Turns Actaeon into a Stag', 1447, NULL, 5, 1, 0);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile, Eliminato)
-VALUES(idOperaSeq.nextVal, 'Haymaking July', 1423, NULL, 1, 1, 0);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile, Eliminato)
-VALUES(idOperaSeq.nextVal, 'Vase', 1431, NULL, 2, 1, 0);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile, Eliminato)
-VALUES(idOperaSeq.nextVal, 'Winter', 1462, NULL, 6, 1, 0);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile, Eliminato)
-VALUES(idOperaSeq.nextVal, 'Liber Iesus', 1445, NULL, 3, 1, 0);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile, Eliminato)
-VALUES(idOperaSeq.nextVal, 'The Grief of Andromache', 1426, NULL, 5, 1, 0);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile, Eliminato)
-VALUES(idOperaSeq.nextVal, 'The Woman with the Pearl', 1437, NULL, 6, 1, 0);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile, Eliminato)
-VALUES(idOperaSeq.nextVal, 'View of the Three-Fountain Grove', 1427, NULL, 5, 1, 0);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile, Eliminato)
-VALUES(idOperaSeq.nextVal, 'The Picnic', 1435, NULL, 2, 1, 0);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile, Eliminato)
-VALUES(idOperaSeq.nextVal, 'Juno Receiving the Head of Argos', 1432, NULL, 5, 1, 0);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile, Eliminato)
-VALUES(idOperaSeq.nextVal, 'Seascape', 1462, NULL, 2, 1, 0);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile, Eliminato)
-VALUES(idOperaSeq.nextVal, 'Portrait of Madame Roger Jourdain', 1458, NULL, 4, 1, 0);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile, Eliminato)
-VALUES(idOperaSeq.nextVal, 'David with the Head of Goliath', 1449, NULL, 3, 1, 0);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile, Eliminato)
-VALUES(idOperaSeq.nextVal, 'Still-Life', 1457, NULL, 5, 1, 0);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile, Eliminato)
-VALUES(idOperaSeq.nextVal, 'Portrait of a Man Holding a Rose', 462, NULL, 1, 1, 0);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile, Eliminato)
-VALUES(idOperaSeq.nextVal, 'The Senses of Hearing', 482, NULL, 6, 1, 0);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile, Eliminato)
-VALUES(idOperaSeq.nextVal, 'The Judgment of Cambyses right panel', 426, NULL, 4, 1, 0);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile, Eliminato)
-VALUES(idOperaSeq.nextVal, 'The Duchess of Chaulnes as a Gardener in an AllÃ©e', 401, NULL, 3, 1, 0);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile, Eliminato)
-VALUES(idOperaSeq.nextVal, 'Boy with Grapes', 488, NULL, 1, 1, 0);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile, Eliminato)
-VALUES(idOperaSeq.nextVal, 'View on the River Severn at Worcester', 454, NULL, 1, 1, 0);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile, Eliminato)
-VALUES(idOperaSeq.nextVal, 'Cardinal Albrecht of Brandenburg as St Jerome in His Study', 458, NULL, 1, 1, 0);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile, Eliminato)
-VALUES(idOperaSeq.nextVal, 'Naked Young Woman in Front of the Mirror', 474, NULL, 3, 1, 0);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile, Eliminato)
-VALUES(idOperaSeq.nextVal, 'Eleonora di Toledo', 450, 500, 2, 1, 0);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile, Eliminato)
-VALUES(idOperaSeq.nextVal, 'Sts Peter and Paul', 456, NULL, 6, 1, 0);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile, Eliminato)
-VALUES(idOperaSeq.nextVal, 'Triumph of Venus', 468, NULL, 6, 1, 0);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile, Eliminato)
-VALUES(idOperaSeq.nextVal, 'Abundance with the Four Elements', 450, 500, 1, 1, 0);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile, Eliminato)
-VALUES(idOperaSeq.nextVal, 'Magpie on the Gallow', 488, NULL, 4, 1, 0);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile, Eliminato)
-VALUES(idOperaSeq.nextVal, 'The Ironers', 417, NULL, 6, 1, 0);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile, Eliminato)
-VALUES(idOperaSeq.nextVal, 'Jupiter seated', 417, NULL, 3, 1, 0);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile, Eliminato)
-VALUES(idOperaSeq.nextVal, 'Virgin and Child with St Francis of Assisi', 405, NULL, 3, 1, 0);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile, Eliminato)
-VALUES(idOperaSeq.nextVal, 'The Oath of Brutus', 398, NULL, 4, 1, 0);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile, Eliminato)
-VALUES(idOperaSeq.nextVal, 'Music Hall Singer La Chanson du Chien', 1804, NULL, 3, 1, 0);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile, Eliminato)
-VALUES(idOperaSeq.nextVal, 'Old Woman Reading a Bible', 1785, NULL, 1, 1, 0);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile, Eliminato)
-VALUES(idOperaSeq.nextVal, 'Set of Two Louis XIV Style Boulle Marquetry Pedestals', 1782, NULL, 3, 1, 0);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile, Eliminato)
-VALUES(idOperaSeq.nextVal, 'Louis XIV on Horseback', 1774, NULL, 2, 1, 0);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile, Eliminato)
-VALUES(idOperaSeq.nextVal, 'Bouquet in a Clay Vase', 1821, NULL, 6, 1, 0);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile, Eliminato)
-VALUES(idOperaSeq.nextVal, 'Herm of St Stephen', 1801, NULL, 6, 1, 0);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile, Eliminato)
-VALUES(idOperaSeq.nextVal, 'Andromeda and the Nereids', 1819, NULL, 1, 1, 0);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile, Eliminato)
-VALUES(idOperaSeq.nextVal, 'Volterra', 1831, NULL, 4, 1, 0);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile, Eliminato)
-VALUES(idOperaSeq.nextVal, 'Portrait of a Young Man', 1842, NULL, 5, 1, 0);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile, Eliminato)
-VALUES(idOperaSeq.nextVal, 'The Ancient of Days', 1804, NULL, 3, 1, 0);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile, Eliminato)
-VALUES(idOperaSeq.nextVal, 'Draughtsman', 1783, NULL, 5, 1, 0);
-INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile, Eliminato)
-VALUES(idOperaSeq.nextVal, 'Race Horses', 1845, NULL, 6, 1, 0);
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+VALUES(idOperaSeq.nextVal, 'PietÃ  at the Foot of the Cross', 996, NULL, 6, 1);
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+VALUES(idOperaSeq.nextVal, 'Hercules and Lichas', 1874, NULL, 3, 1);
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+VALUES(idOperaSeq.nextVal, 'Landscape with Philemon and Baucis', 1878, NULL, 6, 1);
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+VALUES(idOperaSeq.nextVal, 'St Peter s', 406, NULL, 3, 1);
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+VALUES(idOperaSeq.nextVal, 'The Conversion of Saul detail', 415, NULL, 6, 1);
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+VALUES(idOperaSeq.nextVal, 'Cypresses at Cagnes', 458, NULL, 1, 1);
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+VALUES(idOperaSeq.nextVal, 'Four Musical Angels', 442, NULL, 3, 1);
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+VALUES(idOperaSeq.nextVal, 'Christ Wearing the Crown of Thorns', 1361, NULL, 3, 1);
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+VALUES(idOperaSeq.nextVal, 'Landscape with Ruins', 1755, NULL, 6, 1);
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+VALUES(idOperaSeq.nextVal, 'Woman Bitten by a Snake Femme piquÃ©e par un serpent', 1749, NULL, 6, 1);
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+VALUES(idOperaSeq.nextVal, 'Holy Family with an Angel', 50, 100, 1, 1);
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+VALUES(idOperaSeq.nextVal, 'The Alchemist', 44, NULL, 1, 1);
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+VALUES(idOperaSeq.nextVal, 'Witchcraft Allegory of Hercules', 1901, NULL, 2, 1);
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+VALUES(idOperaSeq.nextVal, 'The Battle of Mongiovino', 1873, NULL, 2, 1);
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+VALUES(idOperaSeq.nextVal, 'The Creek', 653, NULL, 6, 1);
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+VALUES(idOperaSeq.nextVal, 'Apollo and Diana', 598, NULL, 2, 1);
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+VALUES(idOperaSeq.nextVal, 'View of Dresden from the Right Bank of the Elbe with the Augustus Bridge', 772, NULL, 6, 1);
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+VALUES(idOperaSeq.nextVal, 'Pearl Fishers', 744, NULL, 2, 1);
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+VALUES(idOperaSeq.nextVal, 'Christ on the Lake of Gennezaret', 724, NULL, 6, 1);
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+VALUES(idOperaSeq.nextVal, 'Battle between Christians and Moslems', 445, NULL, 4, 1);
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+VALUES(idOperaSeq.nextVal, 'The Arrival of a Stage-coach in the Courtyard of the Messageries', 400, 450, 5, 1);
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+VALUES(idOperaSeq.nextVal, 'Still-Life with Flowers and Fruit', 50, 100, 5, 1);
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+VALUES(idOperaSeq.nextVal, 'View of the Three-Fountain Grove', 334, NULL, 3, 1);
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+VALUES(idOperaSeq.nextVal, 'Spartan Girl', 319, NULL, 1, 1);
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+VALUES(idOperaSeq.nextVal, 'Still-Life with Flowers in a Wan-Li Vase', 364, NULL, 2, 1);
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+VALUES(idOperaSeq.nextVal, 'The Discovery of Achilles among the Daughters of Lycomedes', 848, NULL, 5, 1);
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+VALUES(idOperaSeq.nextVal, 'St Veneranda Enthroned', 694, NULL, 1, 1);
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+VALUES(idOperaSeq.nextVal, 'Costume drawing of a woman bearing a torch', 652, NULL, 6, 1);
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+VALUES(idOperaSeq.nextVal, 'Madonna and Child with Two Angels', 486, NULL, 5, 1);
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+VALUES(idOperaSeq.nextVal, 'May Queen Festival', 513, NULL, 4, 1);
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+VALUES(idOperaSeq.nextVal, 'The Miraculous Draught of Fishes', 1255, NULL, 1, 1);
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+VALUES(idOperaSeq.nextVal, 'Still-Life with Lobster and Fruit', 1250, 1300, 3, 1);
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+VALUES(idOperaSeq.nextVal, 'Cestello Annunciation in frame', 995, NULL, 5, 1);
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+VALUES(idOperaSeq.nextVal, 'Triptych of Haywain left wing', 1006, NULL, 5, 1);
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+VALUES(idOperaSeq.nextVal, 'Reconstruction of a triptych', 201, NULL, 3, 1);
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+VALUES(idOperaSeq.nextVal, 'Lamentation over St Francis', 245, NULL, 4, 1);
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+VALUES(idOperaSeq.nextVal, 'Portrait of Sir Thomas Exmewe', 1124, NULL, 5, 1);
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+VALUES(idOperaSeq.nextVal, 'Tanaquil', 1154, NULL, 1, 1);
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+VALUES(idOperaSeq.nextVal, 'The Conversion of St Paul', 1685, NULL, 5, 1);
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+VALUES(idOperaSeq.nextVal, 'Bacchus and Ceres with Nymphs and Satyrs', 1692, NULL, 2, 1);
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+VALUES(idOperaSeq.nextVal, 'Martin Luther as an Augustinian Monk', 1686, NULL, 3, 1);
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+VALUES(idOperaSeq.nextVal, 'Hercules in the Palace of Omphale', 1772, NULL, 3, 1);
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+VALUES(idOperaSeq.nextVal, 'Jael', 1805, NULL, 6, 1);
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+VALUES(idOperaSeq.nextVal, 'Cardinal Melchior de Polignac', 1821, NULL, 5, 1);
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+VALUES(idOperaSeq.nextVal, 'Red Apples at the Foot of a Tree', 864, NULL, 3, 1);
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+VALUES(idOperaSeq.nextVal, 'Water Glass and Jug', 894, NULL, 6, 1);
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+VALUES(idOperaSeq.nextVal, 'Madonna degli Alberetti', 909, NULL, 2, 1);
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+VALUES(idOperaSeq.nextVal, 'Hagar and the Angel', 944, NULL, 2, 1);
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+VALUES(idOperaSeq.nextVal, 'St Peter Consacrates Stephen as Deacon', 934, NULL, 2, 1);
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+VALUES(idOperaSeq.nextVal, 'The Spinner', 1765, NULL, 2, 1);
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+VALUES(idOperaSeq.nextVal, 'New Market Square in Dresden from the JÃ¼denhof', 1729, NULL, 4, 1);
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+VALUES(idOperaSeq.nextVal, 'The Kimono', 1331, NULL, 1, 1);
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+VALUES(idOperaSeq.nextVal, 'Chancellor Leonhard van Eck', 1334, NULL, 4, 1);
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+VALUES(idOperaSeq.nextVal, 'Interior decoration', 749, NULL, 5, 1);
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+VALUES(idOperaSeq.nextVal, 'Panels of Grotesque Ornament with Commedia dell  Arte Figures', 713, NULL, 4, 1);
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+VALUES(idOperaSeq.nextVal, 'The Apostle St James the Great Freeing the Magician Hermogenes', 700, 750, 5, 1);
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+VALUES(idOperaSeq.nextVal, 'The English Government', 774, NULL, 2, 1);
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+VALUES(idOperaSeq.nextVal, 'A Squall Approaching the Northern French Coast', 800, 850, 6, 1);
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+VALUES(idOperaSeq.nextVal, 'St Peter Consacrates Stephen as Deacon', 838, NULL, 1, 1);
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+VALUES(idOperaSeq.nextVal, 'Tomb of Carlo Emanuele III', 915, NULL, 1, 1);
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+VALUES(idOperaSeq.nextVal, 'Fontana del Tritone', 873, NULL, 2, 1);
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+VALUES(idOperaSeq.nextVal, 'Woman with Prayerbook', 850, 900, 2, 1);
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+VALUES(idOperaSeq.nextVal, 'Lamentation', 415, NULL, 4, 1);
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+VALUES(idOperaSeq.nextVal, 'Reading from Homer', 499, NULL, 4, 1);
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+VALUES(idOperaSeq.nextVal, 'Virgin in Glory with Saints', 452, NULL, 2, 1);
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+VALUES(idOperaSeq.nextVal, 'A Prince of Saxony', 227, NULL, 4, 1);
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+VALUES(idOperaSeq.nextVal, 'Flight of Aeneas', 200, 250, 2, 1);
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+VALUES(idOperaSeq.nextVal, 'Bouquet of Flowers in a Niche', 255, NULL, 5, 1);
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+VALUES(idOperaSeq.nextVal, 'Les Quatre Ã‰tats de la SociÃ©tÃ©: Artisan State', 187, NULL, 6, 1);
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+VALUES(idOperaSeq.nextVal, 'St Anne with the Virgin and Child and St Joachim', 206, NULL, 2, 1);
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+VALUES(idOperaSeq.nextVal, 'Still-life with Musical Instruments', 224, NULL, 1, 1);
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+VALUES(idOperaSeq.nextVal, 'Portrait of Felicita Sartori', 450, 500, 6, 1);
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+VALUES(idOperaSeq.nextVal, 'Charity with two children', 483, NULL, 6, 1);
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+VALUES(idOperaSeq.nextVal, 'Martyrdom of St Andrew', 800, 850, 6, 1);
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+VALUES(idOperaSeq.nextVal, 'The Painter and the Buyer', 839, NULL, 1, 1);
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+VALUES(idOperaSeq.nextVal, 'Alexande Dumas Fils', 672, NULL, 3, 1);
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+VALUES(idOperaSeq.nextVal, 'The Oath of Brutus', 934, NULL, 6, 1);
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+VALUES(idOperaSeq.nextVal, 'Landscape with the Fall of Icarus detail', 932, NULL, 1, 1);
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+VALUES(idOperaSeq.nextVal, 'Tomb of Clement VIII', 1675, NULL, 5, 1);
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+VALUES(idOperaSeq.nextVal, 'The Story of Esther', 1703, NULL, 4, 1);
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+VALUES(idOperaSeq.nextVal, 'Self-portrait', 874, NULL, 1, 1);
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+VALUES(idOperaSeq.nextVal, 'Rebecca at the Well', 886, NULL, 3, 1);
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+VALUES(idOperaSeq.nextVal, 'Portrait of the Marquise d Orvilliers', 856, NULL, 3, 1);
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+VALUES(idOperaSeq.nextVal, 'Portrait of a Woman Holding a Book', 866, NULL, 4, 1);
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+VALUES(idOperaSeq.nextVal, 'Danube Well detail', 900, 950, 1, 1);
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+VALUES(idOperaSeq.nextVal, 'Saint Matthew and the Angel', 1269, NULL, 6, 1);
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+VALUES(idOperaSeq.nextVal, 'Bouquet in a Niche', 1304, NULL, 4, 1);
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+VALUES(idOperaSeq.nextVal, 'Portraits of Johann I and Frederick III the Wise', 1262, NULL, 6, 1);
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+VALUES(idOperaSeq.nextVal, 'Flowers in a Vase', 1257, NULL, 2, 1);
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+VALUES(idOperaSeq.nextVal, 'Portrait of Rebecca Boylston', 1263, NULL, 5, 1);
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+VALUES(idOperaSeq.nextVal, 'The Stag Hunt of Elector Frederic the Wise', 1355, NULL, 1, 1);
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+VALUES(idOperaSeq.nextVal, 'Floor Scrapers', 1381, NULL, 4, 1);
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+VALUES(idOperaSeq.nextVal, 'Wool Factory', 1367, NULL, 3, 1);
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+VALUES(idOperaSeq.nextVal, 'Last Judgment Triptych right outer wing', 1428, NULL, 5, 1);
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+VALUES(idOperaSeq.nextVal, 'The Ã‰chevins of the City of Paris', 476, NULL, 6, 1);
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+VALUES(idOperaSeq.nextVal, 'Baldacchino', 482, NULL, 3, 1);
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+VALUES(idOperaSeq.nextVal, 'Still-life with Wine Glass and Silver Bowl', 523, NULL, 5, 1);
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+VALUES(idOperaSeq.nextVal, 'Cup and Cover', 528, NULL, 6, 1);
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+VALUES(idOperaSeq.nextVal, 'Writing Table bureau plat', 534, NULL, 4, 1);
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+VALUES(idOperaSeq.nextVal, 'The Intervention of the Sabine Women', 796, NULL, 5, 1);
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+VALUES(idOperaSeq.nextVal, 'Bust of Cardinal Giovanni Garzia Mellini', 828, NULL, 2, 1);
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+VALUES(idOperaSeq.nextVal, 'Resting on the Banks of the Tiber', 811, NULL, 5, 1);
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+VALUES(idOperaSeq.nextVal, 'Baptism', 800, 850, 5, 1);
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+VALUES(idOperaSeq.nextVal, 'Erecting a Calvary', 731, NULL, 1, 1);
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+VALUES(idOperaSeq.nextVal, 'Costume drawing of a female figure with torch', 817, NULL, 2, 1);
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+VALUES(idOperaSeq.nextVal, 'Flowers in a Vase with Shells and Insects', 700, 750, 6, 1);
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+VALUES(idOperaSeq.nextVal, 'The Rape of Proserpine', 817, NULL, 4, 1);
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+VALUES(idOperaSeq.nextVal, 'Countess NÃ¡kÃ³', 800, 850, 5, 1);
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+VALUES(idOperaSeq.nextVal, 'Virgin and Child with Sts Dominic and Thomas Aquinas', 800, 850, 6, 1);
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+VALUES(idOperaSeq.nextVal, 'Joseph Receiving His Father and Brothers in Egypt', 798, NULL, 6, 1);
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+VALUES(idOperaSeq.nextVal, 'Brook Watson and the Shark', 796, NULL, 5, 1);
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+VALUES(idOperaSeq.nextVal, 'Portrait of the Artist and His Family', 864, NULL, 6, 1);
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+VALUES(idOperaSeq.nextVal, 'Odalisque Reclining on a Divan', 423, NULL, 6, 1);
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+VALUES(idOperaSeq.nextVal, 'Landscape near Riva on Lake Garda', 441, NULL, 6, 1);
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+VALUES(idOperaSeq.nextVal, 'The Temptation of St Thomas Aquinas', 465, NULL, 5, 1);
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+VALUES(idOperaSeq.nextVal, 'Erdmann August', 400, 450, 6, 1);
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+VALUES(idOperaSeq.nextVal, 'The Penitent Magdalen in a Landscape', 462, NULL, 6, 1);
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+VALUES(idOperaSeq.nextVal, 'The Aeneid: The Death of Dido', 1013, NULL, 6, 1);
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+VALUES(idOperaSeq.nextVal, 'On the Boulevard', 1002, NULL, 4, 1);
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+VALUES(idOperaSeq.nextVal, 'Card Players', 1050, 1100, 5, 1);
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+VALUES(idOperaSeq.nextVal, 'Original Sin', 1034, NULL, 2, 1);
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+VALUES(idOperaSeq.nextVal, 'Hell', 1068, NULL, 6, 1);
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+VALUES(idOperaSeq.nextVal, 'Map of Delfland', 1925, NULL, 2, 1);
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+VALUES(idOperaSeq.nextVal, 'Tivoli Gardens at the Villa d Este', 1850, 1900, 6, 1);
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+VALUES(idOperaSeq.nextVal, 'Jules GrÃ©vy', 1894, NULL, 3, 1);
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+VALUES(idOperaSeq.nextVal, 'Ceres Allegory of Summer', 1903, NULL, 6, 1);
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+VALUES(idOperaSeq.nextVal, 'Portrait of the Cosmographer Sebastien MÃ¼nster', 1436, NULL, 4, 1);
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+VALUES(idOperaSeq.nextVal, 'Horse Frightened by a Storm', 1461, NULL, 3, 1);
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+VALUES(idOperaSeq.nextVal, 'The Miracles of the Penitent St Mary', 1454, NULL, 2, 1);
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+VALUES(idOperaSeq.nextVal, 'Beata Ludovica Albertoni', 1417, NULL, 4, 1);
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+VALUES(idOperaSeq.nextVal, 'Tobias Saying Farewell to his Father', 787, NULL, 6, 1);
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+VALUES(idOperaSeq.nextVal, 'Boy with Grapes', 835, NULL, 4, 1);
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+VALUES(idOperaSeq.nextVal, 'Madame Charles Max', 826, NULL, 6, 1);
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+VALUES(idOperaSeq.nextVal, 'Turkish Boys Let out of School', 795, NULL, 6, 1);
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+VALUES(idOperaSeq.nextVal, 'The Card Players', 1797, NULL, 1, 1);
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+VALUES(idOperaSeq.nextVal, 'Triptych of Jan Des Trompes rear of the wings', 1836, NULL, 6, 1);
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+VALUES(idOperaSeq.nextVal, 'Peasant Feast', 1800, 1850, 4, 1);
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+VALUES(idOperaSeq.nextVal, 'Jacques Joseph James Tissot', 1800, 1850, 3, 1);
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+VALUES(idOperaSeq.nextVal, 'Cheval Turk', 1800, 1850, 1, 1);
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+VALUES(idOperaSeq.nextVal, 'Still-Life with Oysters', 1798, NULL, 4, 1);
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+VALUES(idOperaSeq.nextVal, 'The Betrothal of the Virgin', 565, NULL, 6, 1);
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+VALUES(idOperaSeq.nextVal, 'The Masked Ball Given by the King', 629, NULL, 3, 1);
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+VALUES(idOperaSeq.nextVal, 'Forest scenes', 597, NULL, 1, 1);
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+VALUES(idOperaSeq.nextVal, 'Mountainous River Landscape', 612, NULL, 2, 1);
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+VALUES(idOperaSeq.nextVal, 'Hecuba Blinding Polymnestor', 584, NULL, 4, 1);
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+VALUES(idOperaSeq.nextVal, 'The Recapture of Buda Castle in 1686', 227, NULL, 1, 1);
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+VALUES(idOperaSeq.nextVal, 'Penitent St Jerome', 214, NULL, 4, 1);
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+VALUES(idOperaSeq.nextVal, 'Portrait of a Clean-Shaven Young Man', 200, 250, 4, 1);
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+VALUES(idOperaSeq.nextVal, 'Sant Ivo della Sapienza', 227, NULL, 2, 1);
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+VALUES(idOperaSeq.nextVal, 'Hell', 1046, NULL, 3, 1);
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+VALUES(idOperaSeq.nextVal, 'Portrait of Bartholomeus van der Wiere', 1046, NULL, 3, 1);
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+VALUES(idOperaSeq.nextVal, 'Elisa and her Daughter NapolÃ©onne', 1039, NULL, 5, 1);
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+VALUES(idOperaSeq.nextVal, 'Portrait of a Man and Woman', 1054, NULL, 3, 1);
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+VALUES(idOperaSeq.nextVal, 'St Peter Walking on the Water', 1053, NULL, 4, 1);
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+VALUES(idOperaSeq.nextVal, 'The Bridge at Maincy', 1327, NULL, 6, 1);
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+VALUES(idOperaSeq.nextVal, 'The Death of Holofernes', 1313, NULL, 5, 1);
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+VALUES(idOperaSeq.nextVal, 'Costume drawing for a female figure with torch', 1366, NULL, 4, 1);
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+VALUES(idOperaSeq.nextVal, 'Sketch for a sleigh', 1342, NULL, 1, 1);
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+VALUES(idOperaSeq.nextVal, 'Servant Returning from the Market La Pourvoyeuse', 1333, NULL, 6, 1);
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+VALUES(idOperaSeq.nextVal, 'The Last of England', 1356, NULL, 2, 1);
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+VALUES(idOperaSeq.nextVal, 'Dresden', 1382, NULL, 2, 1);
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+VALUES(idOperaSeq.nextVal, 'The Erection of the Cross', 1379, NULL, 1, 1);
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+VALUES(idOperaSeq.nextVal, 'The Capture of Samson', 1352, NULL, 3, 1);
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+VALUES(idOperaSeq.nextVal, 'Danubian Landscape', 1369, NULL, 2, 1);
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+VALUES(idOperaSeq.nextVal, 'Still-Life with Fish', 1377, NULL, 3, 1);
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+VALUES(idOperaSeq.nextVal, 'Paradise: Ascent of the Blessed', 1353, NULL, 5, 1);
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+VALUES(idOperaSeq.nextVal, 'Concert of Angels recto', 1374, NULL, 1, 1);
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+VALUES(idOperaSeq.nextVal, 'The Farmer s Family', 1393, NULL, 5, 1);
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+VALUES(idOperaSeq.nextVal, 'Raising of the Daughter of Jairus detail', 1326, NULL, 1, 1);
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+VALUES(idOperaSeq.nextVal, 'Four Allegories: Lust or Perseverance', 1338, NULL, 5, 1);
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+VALUES(idOperaSeq.nextVal, 'Memorial Statue of Pope Urban VIII', 1355, NULL, 4, 1);
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+VALUES(idOperaSeq.nextVal, 'Pierson La Hues', 1850, 1900, 2, 1);
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+VALUES(idOperaSeq.nextVal, 'The Feast of Herod', 1847, NULL, 3, 1);
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+VALUES(idOperaSeq.nextVal, 'Griffoni Polyptych: St Peter and St John the Baptist', 1886, NULL, 4, 1);
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+VALUES(idOperaSeq.nextVal, 'Pastoral Scene', 1895, NULL, 1, 1);
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+VALUES(idOperaSeq.nextVal, 'Portrait of a Young Man in Senator s Garb', 1854, NULL, 2, 1);
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+VALUES(idOperaSeq.nextVal, 'The Miracle of the Spring', 1850, 1900, 2, 1);
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+VALUES(idOperaSeq.nextVal, 'Margrave Casimir of Brandenburg-Kulmbach', 1903, NULL, 6, 1);
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+VALUES(idOperaSeq.nextVal, 'Perspective view of the longitudinal wall', 806, NULL, 1, 1);
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+VALUES(idOperaSeq.nextVal, 'Emperor Franz I of Austria in his Coronation Robes', 791, NULL, 5, 1);
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+VALUES(idOperaSeq.nextVal, 'San Domenico Altarpiece detail', 825, NULL, 6, 1);
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+VALUES(idOperaSeq.nextVal, 'Self-Portrait in a Peaked Cap', 750, 800, 3, 1);
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+VALUES(idOperaSeq.nextVal, 'Buildings at Tivoli', 817, NULL, 1, 1);
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+VALUES(idOperaSeq.nextVal, 'Burgomaster Arnold von Brauweiler', 800, 850, 5, 1);
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+VALUES(idOperaSeq.nextVal, 'Basket of Peaches', 773, NULL, 4, 1);
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+VALUES(idOperaSeq.nextVal, 'The Grief of Andromache', 458, NULL, 5, 1);
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+VALUES(idOperaSeq.nextVal, 'Still-life with Birds', 467, NULL, 3, 1);
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+VALUES(idOperaSeq.nextVal, 'Achilles Handing over to Chiron', 461, NULL, 6, 1);
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+VALUES(idOperaSeq.nextVal, 'Blue-Headed Quail-Dove', 439, NULL, 5, 1);
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+VALUES(idOperaSeq.nextVal, 'The Adoration of the Skulls', 485, NULL, 2, 1);
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+VALUES(idOperaSeq.nextVal, 'Burgomaster Arnold von Brauweiler', 464, NULL, 4, 1);
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+VALUES(idOperaSeq.nextVal, 'PietÃ  with Donors', 464, NULL, 1, 1);
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+VALUES(idOperaSeq.nextVal, 'The Massacre at Chios', 584, NULL, 6, 1);
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+VALUES(idOperaSeq.nextVal, 'The Virgin Appearing to Sts John the Baptist and John the Evangelist', 651, NULL, 5, 1);
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+VALUES(idOperaSeq.nextVal, 'Penitent St Jerome', 635, NULL, 1, 1);
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+VALUES(idOperaSeq.nextVal, 'Elymas Struck Blind by St Paul before the Proconsul Sergius Paulus', 597, NULL, 5, 1);
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+VALUES(idOperaSeq.nextVal, 'Miracle of the Relic of the Holy Cross', 654, NULL, 2, 1);
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+VALUES(idOperaSeq.nextVal, 'A Family Group', 656, NULL, 4, 1);
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+VALUES(idOperaSeq.nextVal, 'Renaissance Interior with Banqueters', 654, NULL, 6, 1);
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+VALUES(idOperaSeq.nextVal, 'Triptych with the Lamentation', 1741, NULL, 6, 1);
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+VALUES(idOperaSeq.nextVal, 'Mont Sainte-Victoire Seen from Les Lauves', 1739, NULL, 5, 1);
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+VALUES(idOperaSeq.nextVal, 'Horse Tamer from Marly-le-Roi', 1754, NULL, 2, 1);
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+VALUES(idOperaSeq.nextVal, 'Alexander the Great in the Temple of Jerusalem', 1736, NULL, 5, 1);
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+VALUES(idOperaSeq.nextVal, 'Commemorative Medal for Admiral Maarten Harpertszoon Tromp', 1734, NULL, 5, 1);
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+VALUES(idOperaSeq.nextVal, 'Still-Life with Cat and Rayfish', 1743, NULL, 6, 1);
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+VALUES(idOperaSeq.nextVal, 'The Soap Bubble', 1746, NULL, 4, 1);
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+VALUES(idOperaSeq.nextVal, 'Amsterdam', 424, NULL, 5, 1);
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+VALUES(idOperaSeq.nextVal, 'Portrait of Pope Clement VII', 409, NULL, 6, 1);
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+VALUES(idOperaSeq.nextVal, 'The State Barge of Cardinal Richelieu on the Rhone', 416, NULL, 4, 1);
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+VALUES(idOperaSeq.nextVal, 'Paolo Veronese', 400, 450, 6, 1);
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+VALUES(idOperaSeq.nextVal, 'Feast of Belshazzar', 397, NULL, 3, 1);
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+VALUES(idOperaSeq.nextVal, 'Winter Scene on a Canal', 392, NULL, 3, 1);
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+VALUES(idOperaSeq.nextVal, 'Flower Still-Life', 414, NULL, 3, 1);
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+VALUES(idOperaSeq.nextVal, 'Still-Life with Pipe an Jug', 721, NULL, 5, 1);
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+VALUES(idOperaSeq.nextVal, 'Bacchanal', 706, NULL, 4, 1);
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+VALUES(idOperaSeq.nextVal, 'Garden of Eden', 735, NULL, 6, 1);
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+VALUES(idOperaSeq.nextVal, 'Apollo and Diana Punishing Niobe by Killing her Children', 774, NULL, 2, 1);
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+VALUES(idOperaSeq.nextVal, 'The Disillusioned Medea The Enchantress', 703, NULL, 6, 1);
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+VALUES(idOperaSeq.nextVal, 'Bust of Camilla Barbadori', 779, NULL, 4, 1);
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+VALUES(idOperaSeq.nextVal, 'Panels from an altarpiece', 18, NULL, 4, 1);
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+VALUES(idOperaSeq.nextVal, 'St Helena', 91, NULL, 1, 1);
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+VALUES(idOperaSeq.nextVal, 'Angel', 21, NULL, 4, 1);
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+VALUES(idOperaSeq.nextVal, 'The Negro Page', 42, NULL, 2, 1);
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+VALUES(idOperaSeq.nextVal, 'The Cliff at Ã‰tretat after the Storm', 135, NULL, 3, 1);
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+VALUES(idOperaSeq.nextVal, 'Peacock', 75, NULL, 5, 1);
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+VALUES(idOperaSeq.nextVal, 'Holy Family', 105, NULL, 5, 1);
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+VALUES(idOperaSeq.nextVal, 'Mass of St Gregory', 93, NULL, 3, 1);
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+VALUES(idOperaSeq.nextVal, 'A Sunny Day in Iona', 109, NULL, 2, 1);
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+VALUES(idOperaSeq.nextVal, 'At the Races in the Countryside', 78, NULL, 4, 1);
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+VALUES(idOperaSeq.nextVal, 'The Ironers', 95, NULL, 5, 1);
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+VALUES(idOperaSeq.nextVal, 'The Nativity with Donors and Sts Jerome and Leonard', 125, NULL, 3, 1);
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+VALUES(idOperaSeq.nextVal, 'The Story of St Nicholas: St Nicholas saves the ship', 1244, NULL, 4, 1);
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+VALUES(idOperaSeq.nextVal, 'Lunette of the west wall', 1237, NULL, 6, 1);
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+VALUES(idOperaSeq.nextVal, 'Portrait of Doge Leonardo Loredan', 1238, NULL, 2, 1);
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+VALUES(idOperaSeq.nextVal, 'Portrait of General Bonaparte', 1255, NULL, 4, 1);
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+VALUES(idOperaSeq.nextVal, 'The Holy Women and St John at Golgotha', 1262, NULL, 3, 1);
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+VALUES(idOperaSeq.nextVal, 'The Blessed Virgin', 1261, NULL, 1, 1);
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+VALUES(idOperaSeq.nextVal, 'Portrait of Tommaso Raimondi', 1241, NULL, 6, 1);
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+VALUES(idOperaSeq.nextVal, 'Los', 1262, NULL, 3, 1);
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+VALUES(idOperaSeq.nextVal, 'Young Indian Woman Wrapping a Shell-Fringed Band round her Leg', 1259, NULL, 1, 1);
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+VALUES(idOperaSeq.nextVal, 'The Burning Bush', 850, 900, 4, 1);
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+VALUES(idOperaSeq.nextVal, 'Paintings for the Armadio degli Argenti', 851, NULL, 1, 1);
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+VALUES(idOperaSeq.nextVal, 'Madonna with Angels and Shepherds', 813, NULL, 1, 1);
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+VALUES(idOperaSeq.nextVal, 'Two Witches', 808, NULL, 6, 1);
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+VALUES(idOperaSeq.nextVal, 'Standing Gooseherder', 853, NULL, 5, 1);
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+VALUES(idOperaSeq.nextVal, 'Portrait of Caspar Hedio', 826, NULL, 1, 1);
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+VALUES(idOperaSeq.nextVal, 'The Agony of Christ in the Garden', 806, NULL, 1, 1);
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+VALUES(idOperaSeq.nextVal, 'Apse of the Tempietto', 809, NULL, 3, 1);
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+VALUES(idOperaSeq.nextVal, 'A Sea God Abducts a Woman', 1757, NULL, 5, 1);
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+VALUES(idOperaSeq.nextVal, 'The Dairy Maid', 1761, NULL, 5, 1);
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+VALUES(idOperaSeq.nextVal, 'Physician Gabriele Fonseca', 1731, NULL, 1, 1);
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+VALUES(idOperaSeq.nextVal, 'Presentation of Jesus at the Temple', 1750, 1800, 5, 1);
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+VALUES(idOperaSeq.nextVal, 'Landscape with Tobias and the Angel', 1736, NULL, 2, 1);
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+VALUES(idOperaSeq.nextVal, 'Mankind Beset by Devils reverse of Rebel Angels panel', 1782, NULL, 3, 1);
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+VALUES(idOperaSeq.nextVal, 'Holy Family with St Anne and the Infant St John', 1741, NULL, 2, 1);
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+VALUES(idOperaSeq.nextVal, 'Madonna with the Infant Christ and St John the Baptist', 1700, 1750, 3, 1);
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+VALUES(idOperaSeq.nextVal, 'Breakfast-piece', 1722, NULL, 1, 1);
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+VALUES(idOperaSeq.nextVal, 'Jupiter and Juno', 500, 550, 1, 1);
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+VALUES(idOperaSeq.nextVal, 'Portrait Bust of Johanna DorÃ©', 504, NULL, 5, 1);
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+VALUES(idOperaSeq.nextVal, 'The Sermon of St Stephen', 469, NULL, 6, 1);
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+VALUES(idOperaSeq.nextVal, 'Sketch for a sleigh', 517, NULL, 2, 1);
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+VALUES(idOperaSeq.nextVal, 'Christ on the Lake of Gennezaret', 476, NULL, 6, 1);
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+VALUES(idOperaSeq.nextVal, 'BarthÃ©lÃ©my Charles', 517, NULL, 3, 1);
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+VALUES(idOperaSeq.nextVal, 'St Rose of Lima before the Madonna', 468, NULL, 1, 1);
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+VALUES(idOperaSeq.nextVal, 'St Catherine of Alexandria', 467, NULL, 5, 1);
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+VALUES(idOperaSeq.nextVal, 'Hairy Harry', 1126, NULL, 6, 1);
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+VALUES(idOperaSeq.nextVal, 'Fish and Dead Game', 1153, NULL, 3, 1);
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+VALUES(idOperaSeq.nextVal, 'An Iron Foundry', 1114, NULL, 3, 1);
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+VALUES(idOperaSeq.nextVal, 'Suicide of Lucretia', 1154, NULL, 5, 1);
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+VALUES(idOperaSeq.nextVal, 'Nude Woman', 1122, NULL, 1, 1);
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+VALUES(idOperaSeq.nextVal, 'The Conversion of Saul detail', 1150, 1200, 4, 1);
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+VALUES(idOperaSeq.nextVal, 'David and Bathsheba', 1132, NULL, 6, 1);
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+VALUES(idOperaSeq.nextVal, 'Mars Disarmed by Venus and the Three Graces', 205, NULL, 2, 1);
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+VALUES(idOperaSeq.nextVal, 'Blond Odalisque L Odalisque Blonde', 205, NULL, 3, 1);
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+VALUES(idOperaSeq.nextVal, 'Portrait of a Scholar', 255, NULL, 5, 1);
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+VALUES(idOperaSeq.nextVal, 'Diana and Actaeon', 200, 250, 5, 1);
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+VALUES(idOperaSeq.nextVal, 'The Pearl of Brabant', 217, NULL, 4, 1);
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+VALUES(idOperaSeq.nextVal, 'Turkish Boys Let out of School', 273, NULL, 6, 1);
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+VALUES(idOperaSeq.nextVal, 'Old Woman Praying', 254, NULL, 1, 1);
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+VALUES(idOperaSeq.nextVal, 'Venus in Vulcan s Workshop', 200, 250, 4, 1);
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+VALUES(idOperaSeq.nextVal, 'The Marriage of St Catherine of Siena', 885, NULL, 4, 1);
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+VALUES(idOperaSeq.nextVal, 'Meleager s Hunt', 899, NULL, 2, 1);
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+VALUES(idOperaSeq.nextVal, 'Archduchess Johanna', 894, NULL, 3, 1);
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+VALUES(idOperaSeq.nextVal, 'Oration The prayer', 865, NULL, 4, 1);
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+VALUES(idOperaSeq.nextVal, 'Oration The prayer', 875, NULL, 2, 1);
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+VALUES(idOperaSeq.nextVal, 'Virgin of the Annunciation', 901, NULL, 2, 1);
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+VALUES(idOperaSeq.nextVal, 'The Wharf', 905, NULL, 3, 1);
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+VALUES(idOperaSeq.nextVal, 'Stag Hunting in the Dunes', 907, NULL, 5, 1);
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+VALUES(idOperaSeq.nextVal, 'Music', 861, NULL, 1, 1);
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+VALUES(idOperaSeq.nextVal, 'Travel sketchbook folio 38v', 794, NULL, 4, 1);
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+VALUES(idOperaSeq.nextVal, 'Still-Life with Apple Blossoms', 852, NULL, 4, 1);
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+VALUES(idOperaSeq.nextVal, 'Moses Striking the Rock', 859, NULL, 4, 1);
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+VALUES(idOperaSeq.nextVal, 'Red Hartebeest', 847, NULL, 4, 1);
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+VALUES(idOperaSeq.nextVal, 'The Holy Family with St John the Baptist', 792, NULL, 3, 1);
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+VALUES(idOperaSeq.nextVal, 'Desdemona Retiring to her Bed', 800, 850, 6, 1);
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+VALUES(idOperaSeq.nextVal, 'Head of the Dead Marat', 788, NULL, 3, 1);
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+VALUES(idOperaSeq.nextVal, 'Portrait of Ludwig X', 1752, NULL, 2, 1);
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+VALUES(idOperaSeq.nextVal, 'Portrait of Lucrezia Panciatichi', 1763, NULL, 6, 1);
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+VALUES(idOperaSeq.nextVal, 'St Bartholomew', 1749, NULL, 6, 1);
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+VALUES(idOperaSeq.nextVal, 'Four Musical Angels', 1725, NULL, 6, 1);
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+VALUES(idOperaSeq.nextVal, 'Medal of Pietro Bembo', 1700, 1750, 6, 1);
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+VALUES(idOperaSeq.nextVal, 'The Barges', 1729, NULL, 3, 1);
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+VALUES(idOperaSeq.nextVal, 'Portrait of Princess Anna Julianna EszterhÃ¡zy', 1774, NULL, 3, 1);
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+VALUES(idOperaSeq.nextVal, 'ChÃ¢teau de Bury', 1700, 1750, 4, 1);
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+VALUES(idOperaSeq.nextVal, 'Rehearsal of the Ballet Onstage', 1768, NULL, 2, 1);
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+VALUES(idOperaSeq.nextVal, 'The Burial of the Virgin and the Reception of Her Soul in Heaven', 1562, NULL, 5, 1);
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+VALUES(idOperaSeq.nextVal, 'St John the Evangelist in Patmos', 1588, NULL, 5, 1);
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+VALUES(idOperaSeq.nextVal, 'Supper at Emmaus', 1541, NULL, 4, 1);
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+VALUES(idOperaSeq.nextVal, 'Children and a Cow', 1548, NULL, 4, 1);
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+VALUES(idOperaSeq.nextVal, 'The Miracle of the Roses', 1605, NULL, 3, 1);
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+VALUES(idOperaSeq.nextVal, 'Odalisque Reclining on a Divan', 1567, NULL, 4, 1);
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+VALUES(idOperaSeq.nextVal, 'Morning Fog', 1565, NULL, 1, 1);
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+VALUES(idOperaSeq.nextVal, 'Admiral Thomas Mathews', 1553, NULL, 4, 1);
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+VALUES(idOperaSeq.nextVal, 'Caritas Romana Roman Charity', 1607, NULL, 2, 1);
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+VALUES(idOperaSeq.nextVal, 'Three Male Heads', 1556, NULL, 1, 1);
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+VALUES(idOperaSeq.nextVal, 'The Pier at Deauville', 1552, NULL, 6, 1);
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+VALUES(idOperaSeq.nextVal, 'Dead Christ Mourned by Angels', 711, NULL, 4, 1);
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+VALUES(idOperaSeq.nextVal, 'Self-Portrait The Cellist', 768, NULL, 6, 1);
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+VALUES(idOperaSeq.nextVal, 'The Virgin of the Assumption with St Thomas Receiving the Girdle', 752, NULL, 1, 1);
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+VALUES(idOperaSeq.nextVal, 'Presentation of Jesus in the Temple', 703, NULL, 3, 1);
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+VALUES(idOperaSeq.nextVal, 'St Dorothea', 706, NULL, 6, 1);
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+VALUES(idOperaSeq.nextVal, 'Portrait of FranÃ§ois I as St John the Baptist', 713, NULL, 4, 1);
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+VALUES(idOperaSeq.nextVal, 'George IV when Prince of Wales', 732, NULL, 5, 1);
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+VALUES(idOperaSeq.nextVal, 'Battle Scene', 757, NULL, 1, 1);
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+VALUES(idOperaSeq.nextVal, 'The Women of Algiers', 700, 750, 3, 1);
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+VALUES(idOperaSeq.nextVal, 'King David Playin a Psaltery', 713, NULL, 6, 1);
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+VALUES(idOperaSeq.nextVal, 'Melancholy', 727, NULL, 3, 1);
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+VALUES(idOperaSeq.nextVal, 'Venus at Bath', 245, NULL, 5, 1);
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+VALUES(idOperaSeq.nextVal, 'West wall of the chapel', 191, NULL, 2, 1);
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+VALUES(idOperaSeq.nextVal, 'Perugia Altarpiece left panel', 219, NULL, 3, 1);
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+VALUES(idOperaSeq.nextVal, 'Court of Isabella d Este', 243, NULL, 5, 1);
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+VALUES(idOperaSeq.nextVal, 'The Suicide of Saul detail', 228, NULL, 5, 1);
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+VALUES(idOperaSeq.nextVal, 'Death is Violent and Fast', 234, NULL, 4, 1);
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+VALUES(idOperaSeq.nextVal, 'Virgin and Child with Young St John the Baptist', 229, NULL, 3, 1);
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+VALUES(idOperaSeq.nextVal, 'Children s Games', 225, NULL, 3, 1);
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+VALUES(idOperaSeq.nextVal, 'Commemorative Medal for Admiral Michiel Adriaensz. de Ruyter', 217, NULL, 4, 1);
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+VALUES(idOperaSeq.nextVal, 'Study of the Sky at Sunset', 876, NULL, 1, 1);
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+VALUES(idOperaSeq.nextVal, 'The Assumption of the Virgin', 916, NULL, 2, 1);
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+VALUES(idOperaSeq.nextVal, 'Hans Melber', 853, NULL, 6, 1);
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+VALUES(idOperaSeq.nextVal, 'The Cloister of Santa Croce', 896, NULL, 4, 1);
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+VALUES(idOperaSeq.nextVal, 'The Dauphin FranÃ§ois', 902, NULL, 6, 1);
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+VALUES(idOperaSeq.nextVal, 'The Golden Isles Les Iles d Or', 914, NULL, 4, 1);
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+VALUES(idOperaSeq.nextVal, 'At the Entrance', 919, NULL, 2, 1);
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+VALUES(idOperaSeq.nextVal, 'Cast of the Dead Mask of Lorenzo de  Medici', 856, NULL, 4, 1);
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+VALUES(idOperaSeq.nextVal, 'The Actress', 886, NULL, 4, 1);
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+VALUES(idOperaSeq.nextVal, 'The Harvest Breton Landscape', 918, NULL, 4, 1);
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+VALUES(idOperaSeq.nextVal, 'Stormy Weather over the Roman Campagna', 799, NULL, 3, 1);
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+VALUES(idOperaSeq.nextVal, 'The Baptism of the Selenites', 800, 850, 1, 1);
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+VALUES(idOperaSeq.nextVal, 'Portrait of Jacob Fugger', 799, NULL, 4, 1);
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+VALUES(idOperaSeq.nextVal, 'Portraits of Lorenzo Pagans and Auguste Degas', 791, NULL, 2, 1);
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+VALUES(idOperaSeq.nextVal, 'Self-Portrait as a Young Man', 797, NULL, 5, 1);
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+VALUES(idOperaSeq.nextVal, 'Ceres', 831, NULL, 6, 1);
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+VALUES(idOperaSeq.nextVal, 'St Sebastian Altarpiece', 787, NULL, 6, 1);
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+VALUES(idOperaSeq.nextVal, 'The Four Elements: Earth', 813, NULL, 3, 1);
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+VALUES(idOperaSeq.nextVal, 'Christ at the Tomb Supported by Two Angels', 785, NULL, 5, 1);
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+VALUES(idOperaSeq.nextVal, 'Two Laughing Men Self-Portrait', 777, NULL, 6, 1);
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+VALUES(idOperaSeq.nextVal, 'Christ in the House of Martha and Mary', 836, NULL, 2, 1);
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+VALUES(idOperaSeq.nextVal, 'The Afternoon Meal', 811, NULL, 4, 1);
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+VALUES(idOperaSeq.nextVal, 'The Masked Ball Given by the King', 263, NULL, 1, 1);
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+VALUES(idOperaSeq.nextVal, 'Relief with the Blessing Christ', 227, NULL, 5, 1);
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+VALUES(idOperaSeq.nextVal, 'Return from the Falcon Hunt', 233, NULL, 3, 1);
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+VALUES(idOperaSeq.nextVal, 'Architectural and anatomical sketches', 258, NULL, 6, 1);
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+VALUES(idOperaSeq.nextVal, 'Cestello Annunciation in frame', 200, 250, 4, 1);
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+VALUES(idOperaSeq.nextVal, 'After Dinner at Ornans', 235, NULL, 1, 1);
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+VALUES(idOperaSeq.nextVal, 'Count Potocki', 223, NULL, 4, 1);
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+VALUES(idOperaSeq.nextVal, 'Head of the Baptist', 227, NULL, 5, 1);
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+VALUES(idOperaSeq.nextVal, 'Jacob s Fight with the Angel', 222, NULL, 6, 1);
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+VALUES(idOperaSeq.nextVal, 'Polyptych of San Vincenzo Ferreri central panel', 236, NULL, 5, 1);
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+VALUES(idOperaSeq.nextVal, 'Virgin and Child with Four Angels', 225, NULL, 1, 1);
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+VALUES(idOperaSeq.nextVal, 'Death of the Cavalryman', 1753, NULL, 5, 1);
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+VALUES(idOperaSeq.nextVal, 'The de Bie Family', 1723, NULL, 6, 1);
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+VALUES(idOperaSeq.nextVal, 'Elisa and her Daughter NapolÃ©onne', 1750, 1800, 1, 1);
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+VALUES(idOperaSeq.nextVal, 'Still-Life with Lobster', 1739, NULL, 5, 1);
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+VALUES(idOperaSeq.nextVal, 'Weymouth Bay', 1789, NULL, 2, 1);
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+VALUES(idOperaSeq.nextVal, 'A Lady and a Child by a Balustrade', 1766, NULL, 4, 1);
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+VALUES(idOperaSeq.nextVal, 'Old Fisherman', 1768, NULL, 3, 1);
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+VALUES(idOperaSeq.nextVal, 'Blackbuck', 1752, NULL, 2, 1);
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+VALUES(idOperaSeq.nextVal, 'St Lawrence Receives the Treasures of the Church detail', 1704, NULL, 5, 1);
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+VALUES(idOperaSeq.nextVal, 'Truth', 1761, NULL, 3, 1);
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+VALUES(idOperaSeq.nextVal, 'Souvenir of Mortefontaine', 1756, NULL, 2, 1);
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+VALUES(idOperaSeq.nextVal, 'The Hunt of Diana', 505, NULL, 4, 1);
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+VALUES(idOperaSeq.nextVal, 'The Descent of Christ', 450, 500, 3, 1);
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+VALUES(idOperaSeq.nextVal, 'Portrait of a Female Mule', 100, 150, 5, 1);
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+VALUES(idOperaSeq.nextVal, 'Madonna of the Pomegranate Madonna della Melagrana', 104, NULL, 3, 1);
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+VALUES(idOperaSeq.nextVal, 'Portraits of Fathers Lesueur and Jacquier', 73, NULL, 5, 1);
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+VALUES(idOperaSeq.nextVal, 'Portrait of Philipp Melanchthon', 87, NULL, 6, 1);
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+VALUES(idOperaSeq.nextVal, 'Jupiter', 64, NULL, 1, 1);
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+VALUES(idOperaSeq.nextVal, 'Madame RÃ©camier', 50, 100, 5, 1);
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+VALUES(idOperaSeq.nextVal, 'Scenes from the Life of David', 93, NULL, 4, 1);
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+VALUES(idOperaSeq.nextVal, 'Sketch for a sleigh with figures', 74, NULL, 4, 1);
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+VALUES(idOperaSeq.nextVal, 'Petronella Elias with a Basket of Fruit', 109, NULL, 6, 1);
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+VALUES(idOperaSeq.nextVal, 'Linaioli Tabernacle shutters closed', 88, NULL, 3, 1);
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+VALUES(idOperaSeq.nextVal, 'Canon Bernardinus de Salviatis with Three Saints', 671, NULL, 5, 1);
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+VALUES(idOperaSeq.nextVal, 'Francesco I d Este', 676, NULL, 2, 1);
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+VALUES(idOperaSeq.nextVal, 'Battle of Moscow on 7 September 1812', 686, NULL, 3, 1);
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+VALUES(idOperaSeq.nextVal, 'Odysseus Slays the Suitors in His Palace', 704, NULL, 1, 1);
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+VALUES(idOperaSeq.nextVal, 'Orpheus', 695, NULL, 6, 1);
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+VALUES(idOperaSeq.nextVal, 'Statues of Saints', 650, 700, 5, 1);
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+VALUES(idOperaSeq.nextVal, 'Marriage of Alexander and Roxane', 701, NULL, 5, 1);
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+VALUES(idOperaSeq.nextVal, 'View of the Villa Cagnola at Gazzada near Varese', 692, NULL, 6, 1);
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+VALUES(idOperaSeq.nextVal, 'The Molo', 657, NULL, 5, 1);
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+VALUES(idOperaSeq.nextVal, 'Tombs in the Gaddi Chapel', 1231, NULL, 4, 1);
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+VALUES(idOperaSeq.nextVal, 'Cotton mill', 836, NULL, 2, 1);
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+VALUES(idOperaSeq.nextVal, 'The Death of Cleopatra', 856, NULL, 1, 1);
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+VALUES(idOperaSeq.nextVal, 'A Ballplayer and His Page', 815, NULL, 5, 1);
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+VALUES(idOperaSeq.nextVal, 'Winter Landscape near Vordingborg', 800, 850, 5, 1);
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+VALUES(idOperaSeq.nextVal, 'The Miracle of The Fervent', 804, NULL, 2, 1);
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+VALUES(idOperaSeq.nextVal, 'Girl with Racket and Shuttlecock', 828, NULL, 2, 1);
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+VALUES(idOperaSeq.nextVal, 'Sacred Conversation', 808, NULL, 3, 1);
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+VALUES(idOperaSeq.nextVal, 'Peter Ulner', 850, 900, 4, 1);
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+VALUES(idOperaSeq.nextVal, 'Sleeping Venus', 839, NULL, 1, 1);
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+VALUES(idOperaSeq.nextVal, 'Venus Presenting Aeneas with Armour Forged by Vulcan', 838, NULL, 4, 1);
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+VALUES(idOperaSeq.nextVal, 'Breakfast-piece', 849, NULL, 5, 1);
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+VALUES(idOperaSeq.nextVal, 'Concert of Angels recto', 807, NULL, 4, 1);
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+VALUES(idOperaSeq.nextVal, 'Landscape with Bridge', 827, NULL, 6, 1);
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+VALUES(idOperaSeq.nextVal, 'Juno and Hercules', 828, NULL, 4, 1);
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+VALUES(idOperaSeq.nextVal, 'Old Woman Peeling Apple', 214, NULL, 5, 1);
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+VALUES(idOperaSeq.nextVal, 'Communion', 224, NULL, 1, 1);
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+VALUES(idOperaSeq.nextVal, 'Amenaide', 274, NULL, 2, 1);
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+VALUES(idOperaSeq.nextVal, 'Portrait of Giulia Bellelli', 247, NULL, 1, 1);
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+VALUES(idOperaSeq.nextVal, 'Scenes from the Story of Tobias 1', 208, NULL, 5, 1);
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+VALUES(idOperaSeq.nextVal, 'Portrait of a Lady as St Lucy', 213, NULL, 6, 1);
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+VALUES(idOperaSeq.nextVal, 'The Ten Thousand Martyrs on the Mount Ararat', 258, NULL, 4, 1);
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+VALUES(idOperaSeq.nextVal, 'The Rescue at Fowey Harbour', 231, NULL, 6, 1);
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+VALUES(idOperaSeq.nextVal, 'Young Man Playing the Lute', 200, 250, 5, 1);
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+VALUES(idOperaSeq.nextVal, 'Perseus Fighting with Phineus detail', 212, NULL, 6, 1);
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+VALUES(idOperaSeq.nextVal, 'Cabinet', 200, 250, 4, 1);
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+VALUES(idOperaSeq.nextVal, 'Venus and Mars', 271, NULL, 6, 1);
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+VALUES(idOperaSeq.nextVal, 'Lunch on the Field', 275, NULL, 2, 1);
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+VALUES(idOperaSeq.nextVal, 'Rodin', 1301, NULL, 6, 1);
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+VALUES(idOperaSeq.nextVal, 'The Naked Warrior The Archer', 1255, NULL, 3, 1);
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+VALUES(idOperaSeq.nextVal, 'Little Fourteen-Year-Old Dancer', 1251, NULL, 6, 1);
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+VALUES(idOperaSeq.nextVal, 'Ops', 1278, NULL, 3, 1);
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+VALUES(idOperaSeq.nextVal, 'The Cure of Folly Extraction of the Stone of Madness', 1246, NULL, 5, 1);
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+VALUES(idOperaSeq.nextVal, 'Laundress', 1241, NULL, 3, 1);
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+VALUES(idOperaSeq.nextVal, 'Presentation of Jesus in the Temple Cell 10', 1281, NULL, 4, 1);
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+VALUES(idOperaSeq.nextVal, 'Jeanne BÃ©cu', 1247, NULL, 2, 1);
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+VALUES(idOperaSeq.nextVal, 'Village Scene with Figures and Cows', 1265, NULL, 3, 1);
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+VALUES(idOperaSeq.nextVal, 'Banquet Still-Life', 1655, NULL, 6, 1);
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+VALUES(idOperaSeq.nextVal, 'Christ in Glory', 1669, NULL, 6, 1);
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+VALUES(idOperaSeq.nextVal, 'Dignified Couples Courting', 1636, NULL, 3, 1);
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+VALUES(idOperaSeq.nextVal, 'The Milliner The Morning', 1641, NULL, 3, 1);
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+VALUES(idOperaSeq.nextVal, 'Ugolino Martelli', 1669, NULL, 2, 1);
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+VALUES(idOperaSeq.nextVal, 'Dune Landscape by Moonlight', 1641, NULL, 6, 1);
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+VALUES(idOperaSeq.nextVal, 'Raising of the Daughter of Jairus detail', 1617, NULL, 2, 1);
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+VALUES(idOperaSeq.nextVal, 'The Bride of Abydos', 1682, NULL, 3, 1);
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+VALUES(idOperaSeq.nextVal, 'Ceres Allegory of Summer', 1650, 1700, 5, 1);
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+VALUES(idOperaSeq.nextVal, 'Malvern Hall in Warwickshire', 1673, NULL, 3, 1);
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+VALUES(idOperaSeq.nextVal, 'Portrait of Dr. Johannes Cuspinian', 1663, NULL, 3, 1);
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+VALUES(idOperaSeq.nextVal, 'Still-Life with Garland of Flowers and Golden Tazza', 1652, NULL, 1, 1);
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+VALUES(idOperaSeq.nextVal, 'Study for the Equestrian Statue of Louis XV', 1695, NULL, 6, 1);
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+VALUES(idOperaSeq.nextVal, 'Allegorical composition celebrating the Humanities', 1674, NULL, 2, 1);
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+VALUES(idOperaSeq.nextVal, 'Illustration for Goethe s Faust', 1691, NULL, 1, 1);
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+VALUES(idOperaSeq.nextVal, 'Landscape with the Toilet of Venus', 1478, NULL, 1, 1);
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+VALUES(idOperaSeq.nextVal, 'Portrait of the Cosmographer Sebastien MÃ¼nster', 1468, NULL, 1, 1);
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+VALUES(idOperaSeq.nextVal, 'Calumny of Apelles', 1496, NULL, 3, 1);
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+VALUES(idOperaSeq.nextVal, 'Epiphany', 1450, 1500, 4, 1);
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+VALUES(idOperaSeq.nextVal, 'The Tomb of William the Silent in an Imaginary Church', 1400, 1450, 6, 1);
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+VALUES(idOperaSeq.nextVal, 'Nebuchadnezzar', 1487, NULL, 6, 1);
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+VALUES(idOperaSeq.nextVal, 'Children and a Cow', 1491, NULL, 3, 1);
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+VALUES(idOperaSeq.nextVal, 'Habakkuk and the Angel detail', 1436, NULL, 6, 1);
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+VALUES(idOperaSeq.nextVal, 'Ceiling fresco', 1450, 1500, 3, 1);
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+VALUES(idOperaSeq.nextVal, 'St Augustine in His Cell', 1438, NULL, 6, 1);
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+VALUES(idOperaSeq.nextVal, 'Family Portrait', 1449, NULL, 4, 1);
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+VALUES(idOperaSeq.nextVal, 'Beheading of John the Baptist', 1433, NULL, 2, 1);
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+VALUES(idOperaSeq.nextVal, 'Nebuchadnezzar', 1473, NULL, 1, 1);
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+VALUES(idOperaSeq.nextVal, 'Les Quatre Ã‰tats de la SociÃ©tÃ©: Poor State', 1435, NULL, 4, 1);
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+VALUES(idOperaSeq.nextVal, 'Goldsmith JÃ¶rg ZÃ¼rer of Augsburg', 1464, NULL, 5, 1);
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+VALUES(idOperaSeq.nextVal, 'Rebecca at the Well', 1255, NULL, 3, 1);
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+VALUES(idOperaSeq.nextVal, 'Still-Life', 1284, NULL, 4, 1);
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+VALUES(idOperaSeq.nextVal, 'Portrait of Louis XVI', 1275, NULL, 2, 1);
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+VALUES(idOperaSeq.nextVal, 'The Oath of the Saxons', 1282, NULL, 6, 1);
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+VALUES(idOperaSeq.nextVal, 'Three Male Heads', 1251, NULL, 4, 1);
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+VALUES(idOperaSeq.nextVal, 'The Triumph of Caesar Section 3', 1250, 1300, 4, 1);
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+VALUES(idOperaSeq.nextVal, 'Boat Warpers', 1254, NULL, 2, 1);
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+VALUES(idOperaSeq.nextVal, 'Christ Carrying the Cross', 817, NULL, 4, 1);
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+VALUES(idOperaSeq.nextVal, 'St James the Greater at Hermogenes', 829, NULL, 4, 1);
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+VALUES(idOperaSeq.nextVal, 'Portrait of Duke Ludwig X of Bavaria', 812, NULL, 1, 1);
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+VALUES(idOperaSeq.nextVal, 'FranÃ§ois I', 806, NULL, 2, 1);
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+VALUES(idOperaSeq.nextVal, 'Santa Cristina Altarpiece', 800, 850, 6, 1);
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+VALUES(idOperaSeq.nextVal, 'Painter in his Studio', 814, NULL, 2, 1);
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+VALUES(idOperaSeq.nextVal, 'Potrait of a Carthusian', 797, NULL, 1, 1);
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+VALUES(idOperaSeq.nextVal, 'Still-Life with Landscape View', 802, NULL, 3, 1);
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+VALUES(idOperaSeq.nextVal, 'Vertumnus and Pomona', 815, NULL, 6, 1);
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+VALUES(idOperaSeq.nextVal, 'Oval with Panorama of Piazza della Signoria', 835, NULL, 2, 1);
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+VALUES(idOperaSeq.nextVal, 'Christ on the Lake of Gennezaret', 825, NULL, 5, 1);
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+VALUES(idOperaSeq.nextVal, 'Vase', 838, NULL, 6, 1);
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+VALUES(idOperaSeq.nextVal, 'The Piazza della Signoria in Florence', 800, 850, 6, 1);
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+VALUES(idOperaSeq.nextVal, 'Abraham and Isaac', 1941, NULL, 6, 1);
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+VALUES(idOperaSeq.nextVal, 'Lear Grasping a Sword', 1929, NULL, 5, 1);
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+VALUES(idOperaSeq.nextVal, 'Paradise: Terrestrial Paradise', 1925, NULL, 2, 1);
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+VALUES(idOperaSeq.nextVal, 'Triptych of Garden of Earthly Delights left wing', 1894, NULL, 3, 1);
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+VALUES(idOperaSeq.nextVal, 'Haarlem Printer Abraham Casteleyn and His Wife Margarieta van Bancken', 1934, NULL, 4, 1);
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+VALUES(idOperaSeq.nextVal, 'Two-Headed Lamb', 1868, NULL, 6, 1);
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+VALUES(idOperaSeq.nextVal, 'Allegory of Peace', 1900, 1950, 6, 1);
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+VALUES(idOperaSeq.nextVal, 'The Lion of St Mark', 1874, NULL, 3, 1);
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+VALUES(idOperaSeq.nextVal, 'Schatacook Mountain', 1862, NULL, 5, 1);
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+VALUES(idOperaSeq.nextVal, 'The Adoration of the Magi', 1921, NULL, 6, 1);
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+VALUES(idOperaSeq.nextVal, 'Sketch for the Marshal Moncey Monument', 1881, NULL, 1, 1);
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+VALUES(idOperaSeq.nextVal, 'Portrait of Johannes Geiler von Kaysersberg', 1938, NULL, 3, 1);
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+VALUES(idOperaSeq.nextVal, 'Pilate s Dispute with the High Priest; The Holy Women and St John at Golgotha', 1914, NULL, 5, 1);
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+VALUES(idOperaSeq.nextVal, 'Winter Scene at Yselmuiden', 1942, NULL, 3, 1);
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+VALUES(idOperaSeq.nextVal, 'The Sermon of St John the Baptist', 1917, NULL, 3, 1);
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+VALUES(idOperaSeq.nextVal, 'Burning of the Heretics Auto-da-fÃ©', 1924, NULL, 5, 1);
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+VALUES(idOperaSeq.nextVal, 'Epiphany', 796, NULL, 5, 1);
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+VALUES(idOperaSeq.nextVal, 'Diana Turns Actaeon into a Stag', 836, NULL, 5, 1);
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+VALUES(idOperaSeq.nextVal, 'Sketch for The Leaping Horse', 817, NULL, 2, 1);
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+VALUES(idOperaSeq.nextVal, 'Portrait of a Young Girl', 861, NULL, 6, 1);
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+VALUES(idOperaSeq.nextVal, 'Dead Christ Supported by Nicodemus', 794, NULL, 2, 1);
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+VALUES(idOperaSeq.nextVal, 'Bernardino Campi Painting Sofonisba Anguissola', 844, NULL, 6, 1);
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+VALUES(idOperaSeq.nextVal, 'Herm of St Stephen', 850, 900, 6, 1);
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+VALUES(idOperaSeq.nextVal, 'Self-Portrait with an Eyeshade', 802, NULL, 2, 1);
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+VALUES(idOperaSeq.nextVal, 'Venus and Amor', 878, NULL, 3, 1);
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+VALUES(idOperaSeq.nextVal, 'The Holy Family and The Education of the Virgin', 828, NULL, 5, 1);
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+VALUES(idOperaSeq.nextVal, 'ManiÃ¨re universelle pour pratiquer la perspective detail', 789, NULL, 4, 1);
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+VALUES(idOperaSeq.nextVal, 'Eros and Anteros', 847, NULL, 4, 1);
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+VALUES(idOperaSeq.nextVal, 'Shipping on the Thames off Deptford', 838, NULL, 3, 1);
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+VALUES(idOperaSeq.nextVal, 'FrÃ©dÃ©ric Chopin', 800, 850, 6, 1);
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+VALUES(idOperaSeq.nextVal, 'The Dream of Saint Catherine of Alexandria', 824, NULL, 3, 1);
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+VALUES(idOperaSeq.nextVal, 'The Shaded Stream or The Puits Noir Stream', 812, NULL, 1, 1);
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+VALUES(idOperaSeq.nextVal, 'The Last Judgment', 524, NULL, 1, 1);
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+VALUES(idOperaSeq.nextVal, 'Circumcision', 534, NULL, 3, 1);
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+VALUES(idOperaSeq.nextVal, 'Equestrian Portrait of Cardinal-Infante Fernando of Austria', 473, NULL, 4, 1);
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+VALUES(idOperaSeq.nextVal, 'The Triumph of Caesar Section 8', 452, NULL, 1, 1);
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+VALUES(idOperaSeq.nextVal, 'Portrait of Martin Luther', 450, 500, 2, 1);
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+VALUES(idOperaSeq.nextVal, 'Still-Life with Lobster', 497, NULL, 4, 1);
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+VALUES(idOperaSeq.nextVal, 'The Stoning of St Stephen detail', 459, NULL, 3, 1);
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+VALUES(idOperaSeq.nextVal, 'The Coronation of the Nymph Amaryllis', 515, NULL, 3, 1);
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+VALUES(idOperaSeq.nextVal, 'Seduction', 477, NULL, 2, 1);
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+VALUES(idOperaSeq.nextVal, 'Concert', 528, NULL, 3, 1);
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+VALUES(idOperaSeq.nextVal, 'Treatise on Silk Culture and Manufacture Series of Thirteen Drawings', 534, NULL, 1, 1);
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+VALUES(idOperaSeq.nextVal, 'The Defence of Zaragoza', 466, NULL, 2, 1);
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+VALUES(idOperaSeq.nextVal, 'Mars and Venus', 492, NULL, 4, 1);
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+VALUES(idOperaSeq.nextVal, 'Diana Turns Actaeon into a Stag', 474, NULL, 3, 1);
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+VALUES(idOperaSeq.nextVal, 'Storm at Sea', 532, NULL, 2, 1);
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+VALUES(idOperaSeq.nextVal, 'Landscape with the Parable of the Tares among the Wheat', 535, NULL, 1, 1);
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+VALUES(idOperaSeq.nextVal, 'Princess Yuliya Pavlovna Samoilova Leaving a Ball with Adopted Daughter Amacilia Pacini', 508, NULL, 6, 1);
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+VALUES(idOperaSeq.nextVal, 'The Titan s Goblet', 474, NULL, 2, 1);
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+VALUES(idOperaSeq.nextVal, 'Bust of Luisa Dati', 1014, NULL, 6, 1);
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+VALUES(idOperaSeq.nextVal, 'Attila and his Hordes Overrun Italy and the Arts detail', 1013, NULL, 3, 1);
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+VALUES(idOperaSeq.nextVal, 'Book and Picture Shop', 1006, NULL, 5, 1);
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+VALUES(idOperaSeq.nextVal, 'View from the Giudecca', 635, NULL, 5, 1);
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+VALUES(idOperaSeq.nextVal, 'St Philip', 589, NULL, 6, 1);
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+VALUES(idOperaSeq.nextVal, 'Bust of Giovanni Andrea Muti', 600, 650, 6, 1);
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+VALUES(idOperaSeq.nextVal, 'View of the Arsenale', 637, NULL, 1, 1);
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+VALUES(idOperaSeq.nextVal, 'Still-Life with Peaches and Plums', 636, NULL, 1, 1);
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+VALUES(idOperaSeq.nextVal, 'Skull in a Niche', 593, NULL, 2, 1);
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+VALUES(idOperaSeq.nextVal, 'The Three Magi', 618, NULL, 3, 1);
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+VALUES(idOperaSeq.nextVal, 'Wooded Landscape with Figures Crossing a Bridge', 636, NULL, 3, 1);
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+VALUES(idOperaSeq.nextVal, 'Hercules the Archer', 639, NULL, 3, 1);
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+VALUES(idOperaSeq.nextVal, 'Costume of the allegorical figure Arithmetic', 635, NULL, 4, 1);
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+VALUES(idOperaSeq.nextVal, 'Portrait of Sir Charles Frederick', 577, NULL, 2, 1);
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+VALUES(idOperaSeq.nextVal, 'The Education of Cupid', 574, NULL, 6, 1);
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+VALUES(idOperaSeq.nextVal, 'Peasants with Cattle by a Ruined Aqueduct', 1426, NULL, 5, 1);
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+VALUES(idOperaSeq.nextVal, 'Christ Washing the Apostles Feet', 1442, NULL, 4, 1);
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+VALUES(idOperaSeq.nextVal, 'Arrival of the English Ambassadors', 1431, NULL, 2, 1);
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+VALUES(idOperaSeq.nextVal, 'Three Angels', 1444, NULL, 4, 1);
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+VALUES(idOperaSeq.nextVal, 'Diana Turns Actaeon into a Stag', 1447, NULL, 5, 1);
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+VALUES(idOperaSeq.nextVal, 'Haymaking July', 1423, NULL, 1, 1);
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+VALUES(idOperaSeq.nextVal, 'Vase', 1431, NULL, 2, 1);
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+VALUES(idOperaSeq.nextVal, 'Winter', 1462, NULL, 6, 1);
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+VALUES(idOperaSeq.nextVal, 'Liber Iesus', 1445, NULL, 3, 1);
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+VALUES(idOperaSeq.nextVal, 'The Grief of Andromache', 1426, NULL, 5, 1);
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+VALUES(idOperaSeq.nextVal, 'The Woman with the Pearl', 1437, NULL, 6, 1);
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+VALUES(idOperaSeq.nextVal, 'View of the Three-Fountain Grove', 1427, NULL, 5, 1);
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+VALUES(idOperaSeq.nextVal, 'The Picnic', 1435, NULL, 2, 1);
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+VALUES(idOperaSeq.nextVal, 'Juno Receiving the Head of Argos', 1432, NULL, 5, 1);
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+VALUES(idOperaSeq.nextVal, 'Seascape', 1462, NULL, 2, 1);
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+VALUES(idOperaSeq.nextVal, 'Portrait of Madame Roger Jourdain', 1458, NULL, 4, 1);
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+VALUES(idOperaSeq.nextVal, 'David with the Head of Goliath', 1449, NULL, 3, 1);
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+VALUES(idOperaSeq.nextVal, 'Still-Life', 1457, NULL, 5, 1);
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+VALUES(idOperaSeq.nextVal, 'Portrait of a Man Holding a Rose', 462, NULL, 1, 1);
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+VALUES(idOperaSeq.nextVal, 'The Senses of Hearing', 482, NULL, 6, 1);
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+VALUES(idOperaSeq.nextVal, 'The Judgment of Cambyses right panel', 426, NULL, 4, 1);
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+VALUES(idOperaSeq.nextVal, 'The Duchess of Chaulnes as a Gardener in an AllÃ©e', 401, NULL, 3, 1);
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+VALUES(idOperaSeq.nextVal, 'Boy with Grapes', 488, NULL, 1, 1);
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+VALUES(idOperaSeq.nextVal, 'View on the River Severn at Worcester', 454, NULL, 1, 1);
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+VALUES(idOperaSeq.nextVal, 'Cardinal Albrecht of Brandenburg as St Jerome in His Study', 458, NULL, 1, 1);
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+VALUES(idOperaSeq.nextVal, 'Naked Young Woman in Front of the Mirror', 474, NULL, 3, 1);
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+VALUES(idOperaSeq.nextVal, 'Eleonora di Toledo', 450, 500, 2, 1);
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+VALUES(idOperaSeq.nextVal, 'Sts Peter and Paul', 456, NULL, 6, 1);
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+VALUES(idOperaSeq.nextVal, 'Triumph of Venus', 468, NULL, 6, 1);
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+VALUES(idOperaSeq.nextVal, 'Abundance with the Four Elements', 450, 500, 1, 1);
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+VALUES(idOperaSeq.nextVal, 'Magpie on the Gallow', 488, NULL, 4, 1);
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+VALUES(idOperaSeq.nextVal, 'The Ironers', 417, NULL, 6, 1);
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+VALUES(idOperaSeq.nextVal, 'Jupiter seated', 417, NULL, 3, 1);
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+VALUES(idOperaSeq.nextVal, 'Virgin and Child with St Francis of Assisi', 405, NULL, 3, 1);
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+VALUES(idOperaSeq.nextVal, 'The Oath of Brutus', 398, NULL, 4, 1);
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+VALUES(idOperaSeq.nextVal, 'Music Hall Singer La Chanson du Chien', 1804, NULL, 3, 1);
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+VALUES(idOperaSeq.nextVal, 'Old Woman Reading a Bible', 1785, NULL, 1, 1);
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+VALUES(idOperaSeq.nextVal, 'Set of Two Louis XIV Style Boulle Marquetry Pedestals', 1782, NULL, 3, 1);
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+VALUES(idOperaSeq.nextVal, 'Louis XIV on Horseback', 1774, NULL, 2, 1);
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+VALUES(idOperaSeq.nextVal, 'Bouquet in a Clay Vase', 1821, NULL, 6, 1);
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+VALUES(idOperaSeq.nextVal, 'Herm of St Stephen', 1801, NULL, 6, 1);
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+VALUES(idOperaSeq.nextVal, 'Andromeda and the Nereids', 1819, NULL, 1, 1);
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+VALUES(idOperaSeq.nextVal, 'Volterra', 1831, NULL, 4, 1);
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+VALUES(idOperaSeq.nextVal, 'Portrait of a Young Man', 1842, NULL, 5, 1);
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+VALUES(idOperaSeq.nextVal, 'The Ancient of Days', 1804, NULL, 3, 1);
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+VALUES(idOperaSeq.nextVal, 'Draughtsman', 1783, NULL, 5, 1);
+INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
+VALUES(idOperaSeq.nextVal, 'Race Horses', 1845, NULL, 6, 1);
 /**********STANZE*********/
 SET DEFINE OFF;
 /*Stanze museo 1 galleria di arte moderna*/

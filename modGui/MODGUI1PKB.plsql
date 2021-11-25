@@ -1,3 +1,4 @@
+SET DEFINE OFF;
 CREATE OR REPLACE PACKAGE BODY modGUI1 as
 
     procedure ApriPagina(titolo varchar2 default 'Senza titolo', idSessione int default 0) is
@@ -394,5 +395,66 @@ CREATE OR REPLACE PACKAGE BODY modGUI1 as
       begin
         htp.print('<th class="' || classe || '">' || testo || '</th>');
       end intestazioneTabella;
+    procedure RedirectEsito (
+        idSessione NUMBER DEFAULT NULL,         --SESSIONE
+        pageTitle VARCHAR2 DEFAULT NULL,        --TITOLO PAGINA
+        msg VARCHAR2 DEFAULT NULL,              --MESSAGGIO DI SOTTOTESTO
+        nuovaOp VARCHAR2 DEFAULT NULL,          --BOTTONE PER LINK A PAGINA DI DESTINAZIONE
+        nuovaOpURL VARCHAR2 DEFAULT NULL,       --NOME PROCEDURA DI DESTINAZIONE
+        parametrinuovaOp VARCHAR2 DEFAULT '',   --PARAMETRI PER OPERAZIONE DI DESTINAZIONE, USARE // INVECE DI &
+        backToMenu VARCHAR2 DEFAULT NULL,       --BOTTONE PER LINK A PAGINA MENU
+        backToMenuURL VARCHAR2 DEFAULT NULL,    --NOME PROCEDURA DI DESTINAZIONE DEL MENU
+        parametribackToMenu VARCHAR2 DEFAULT '' --PARAMETRI PER MENU, USARE // INVECE DI &
+        ) is
+        begin
+            htp.print('<script> window.location = "'||costanti.server||costanti.radice||
+            'EsitoOperazione?idSessione='||IDSESSIONE||
+            '&pageTitle='||pageTitle||
+            '&msg='||msg||
+            '&nuovaOp='||nuovaOp||
+            '&nuovaOpURL='||nuovaOpURL||
+            '&parametrinuovaOp='||parametrinuovaOp||
+            '&backToMenu='||backToMenu||
+            '&backToMenuURL='||backToMenuURL||
+            '&parametribackToMenu='||parametribackToMenu||'"</script>');
+    end RedirectEsito;
+    
+    procedure EsitoOperazione(
+        idSessione NUMBER DEFAULT NULL,
+        pageTitle VARCHAR2 DEFAULT NULL,
+        msg VARCHAR2 DEFAULT NULL,
+        nuovaOp VARCHAR2 DEFAULT NULL,
+        nuovaOpURL VARCHAR2 DEFAULT NULL,
+        parametrinuovaOp VARCHAR2 DEFAULT '',
+        backToMenu VARCHAR2 DEFAULT NULL,
+        backToMenuURL VARCHAR2 DEFAULT NULL,
+        parametribackToMenu VARCHAR2 DEFAULT ''
+        ) is 
+        paramOp VARCHAR2(250);
+        paramBTM VARCHAR2(250);
+        begin
+        paramOP := REPLACE(parametrinuovaOp,'//','&');
+        paramBTM := REPLACE(parametribackToMenu,'//','&');
+            modGUI1.ApriPagina(pageTitle, idSessione);
+            if idSessione IS NULL then
+                modGUI1.Header;
+            else
+                modGUI1.Header(idSessione);
+            end if;
+            htp.br;htp.br;htp.br;htp.br;htp.br;htp.br;
+                modGUI1.ApriDiv('class="w3-modal-content w3-card-4 w3-animate-zoom" style="max-width:450px"');
+                    modGUI1.ApriDiv('class="w3-center"');
+                    htp.print('<h1>'||pageTitle||'</h1>');
+                    if msg IS NOT NULL then
+                        htp.prn('<p>'||msg||'</p>');
+                    end if;
+                    if nuovaOp IS NOT NULL OR nuovaOpURL IS NOT NULL then
+                        MODGUI1.collegamento(nuovaOp, nuovaOpURL||'?idSessione='||idSessione||paramOP,'w3-button w3-block w3-black w3-section w3-padding');
+                    end if;
+                        MODGUI1.collegamento(backToMenu, backToMenuURL||'?idSessione='||idSessione||paramBTM,'w3-button w3-block w3-black w3-section w3-padding');
+                    modGUI1.ChiudiDiv;
+                modGUI1.ChiudiDiv;
+    end EsitoOperazione;
 
 end modGUI1;
+SET DEFINE ON;

@@ -57,7 +57,8 @@ BEGIN
    modgui1.INPUTTEXT('newMuseo','Nome Museo',1,newMuseo);
    htp.br;  
    MODGUI1.LABEL('Stato');
-   MODGUI1.SelectOpen('newStato');
+     MODGUI1.SelectOpen('newStato');
+
    modGUI1.SelectOption('increazione','increazione');
    modGUI1.SelectOption('sospeso','sospeso');
    modGUI1.SelectOption('incorso','incorso');
@@ -507,6 +508,8 @@ BEGIN
    modgui1.INPUTRADIOBUTTON('opere presenti','scelta',2);
    htp.br;
    modgui1.INPUTRADIOBUTTON('opere prestate','scelta',3);
+   htp.br;
+   modgui1.INPUTRADIOBUTTON('introiti museo','scelta',4);
    htp.br;htp.br;htp.br;
   modgui1.INPUTSUBMIT('invia');
   
@@ -515,7 +518,53 @@ BEGIN
   htp.htmlClose;
 END form1monitoraggio;
 
+procedure form2monitoraggio
+(
+   MuseoId IN MUSEI.IdMuseo%TYPE,
+   NameMuseo IN MUSEI.NOME%TYPE,
+   Data1 VARCHAR2,
+   Data2 VARCHAR2
+)
+is
 
+CURSOR cur IS Select MUSEI.IDMUSEO, MUSEI.NOME
+                        FROM MUSEI;
+MusId_cur cur%Rowtype; 
+BEGIN
+  htp.htmlOpen;
+  
+  MODGUI1.ApriPagina('Statistiche sale museo');
+  MODGUI1.HEADER();
+  htp.BODYOPEN();
+  htp.br;htp.br;htp.br;htp.br;htp.br;htp.br;
+
+  htp.prn('<h1 align="center">Scegli museo</h1>');
+  MODGUI1.apridiv('class="w3-modal-content w3-card-4" style="max-width:600px; margin-top:110px"');
+  modGUI1.ApriForm('operazioniGruppo4.controllastatistica2','invia','w3-container'); 
+  MODGUI1.LABEL('Nome del museo');
+  MODGUI1.SelectOpen('MuseoId',NameMuseo);
+  FOR MusId_cur IN cur LOOP
+    MODGUI1.SelectOption(MusId_cur.IdMuseo,MusId_cur.NOME);
+  END LOOP;
+  MODGUI1.SelectClose;
+  htp.br;htp.br;
+   MODGUI1.LABEL('Operazione');
+   htp.br;
+   modgui1.INPUTRADIOBUTTON('visitatori unici','scelta',5);
+   htp.br;
+   modgui1.INPUTRADIOBUTTON('visitatori medi','scelta',6);
+   htp.br;
+   modGUI1.InputDate('Data1','Data1',1,Data1);
+   htp.br;
+   modGUI1.InputDate('Data2','Data2',1,Data2);
+   htp.br;htp.br;
+  modgui1.INPUTSUBMIT('invia');
+  
+  MODGUI1.ChiudiForm;
+  MODGUI1.ChiudiDiv();
+  htp.htmlClose;
+end form2monitoraggio;
+/*-----------------------------------------*/
 procedure salepresenti
 (
   sessionID IN number default 0,
@@ -566,7 +615,7 @@ IS
   CURSOR oper_cursor IS
   Select DISTINCT Opere.Titolo,Opere.Anno,Opere.FinePeriodo
   FROM OPERE,STANZE,SALEOPERE
-  WHERE STANZE.MUSEO=MuseoId AND STANZE.IdStanza=SALEOPERE.Sala AND  OPERE.IdOpera=SALEOPERE.Opera;
+  WHERE STANZE.MUSEO=MuseoId AND STANZE.IdStanza=SALEOPERE.Sala AND  OPERE.IdOpera=SALEOPERE.Opera AND SALEOPERE.DataUscita IS NULL;
   val_ope oper_cursor%Rowtype;
 
 BEGIN
@@ -590,7 +639,7 @@ loop
     HTP.TableData(val_ope.FinePeriodo,'center');
     HTP.TableRowClose;
     
-end loop;
+end loop; 
 HTP.TableClose;
 modGUI1.ChiudiDiv();
 htp.bodyClose;
@@ -606,7 +655,7 @@ is
 CURSOR oper_cursor IS
 Select  DISTINCT Opere.Titolo,Opere.Anno,Opere.FinePeriodo
 FROM STANZE,OPERE,SALEOPERE
-WHERE  STANZE.MUSEO=MuseoId AND STANZE.IdStanza=SALEOPERE.Sala AND  OPERE.IdOpera=SALEOPERE.Opera AND OPERE.Museo<>MuseoId;
+WHERE  STANZE.MUSEO=MuseoId AND STANZE.IdStanza=SALEOPERE.Sala AND  OPERE.IdOpera=SALEOPERE.Opera AND OPERE.Museo<>MuseoId  AND SALEOPERE.DataUscita IS NULL;
 val_ope oper_cursor%Rowtype;
 
 BEGIN
@@ -637,6 +686,112 @@ modGUI1.ChiudiDiv();
 htp.bodyClose;
 END opereprestate;
 /*scelta statistica*/
+procedure visitatoriunici
+(
+   sessionID IN number default 0,
+   MuseoId IN MUSEI.IdMuseo%TYPE,
+   Data1 VARCHAR2,
+   Data2 VARCHAR2
+)
+is 
+dateini Date:= TO_DATE(Data1 default NULL on conversion error, 'YYYY-MM-DD');
+datefin Date:= TO_DATE(Data2 default NULL on conversion error, 'YYYY-MM-DD');
+CURSOR vis_cursor IS
+
+Select   UTENTI.IDUTENTE,UTENTI.NOME,UTENTI.COGNOME,UTENTI.DATANASCITA,UTENTI.INDIRIZZO,UTENTI.EMAIL
+FROM TITOLIINGRESSO,VISITE,UTENTIMUSEO,UTENTI
+WHERE TITOLIINGRESSO.MUSEO=MuseoId AND  VISITE.TITOLOINGRESSO= TITOLIINGRESSO.IDTITOLOING AND  VISITE.VISITATORE=UTENTIMUSEO.IDUTENTE AND UTENTIMUSEO.IDUTENTE=UTENTI.IDUTENTE AND VISITE.DATAVISITA>dateini AND VISITE.DATAVISITA<datefin;
+val_vis vis_cursor%Rowtype;
+nvisitatori number;
+begin 
+
+Select  Count(*)
+INTO nvisitatori
+FROM TITOLIINGRESSO,VISITE,UTENTIMUSEO
+WHERE TITOLIINGRESSO.MUSEO=MuseoId AND  VISITE.TITOLOINGRESSO= TITOLIINGRESSO.IDTITOLOING AND  VISITE.VISITATORE=UTENTIMUSEO.IDUTENTE AND VISITE.DATAVISITA>dateini AND VISITE.DATAVISITA<datefin;
+MODGUI1.ApriPagina('Visualizzazione opere museo');
+MODGUI1.HEADER();
+htp.br;htp.br;htp.br;htp.br;
+htp.prn('<h1 align="center">visitatori Museo</h1>');
+htp.prn('<p align="center"><b>numero visitatori museo periodo ' || Data1 ||'--'|| Data2 ||':</b> ' || nvisitatori ||'</p>');
+modgui1.apridiv('class="w3-modal-content w3-card-4 w3-animate-zoom" style="max-width:1600px; margin-top:110px"');
+HTP.TABLEOPEN(CALIGN  => 'center' );
+      HTP.TableRowOpen;
+      HTP.TableData('Nome',CATTRIBUTES  =>'style="font-weight:bold"');
+      HTP.TableData('Cognome',CATTRIBUTES  =>'style="font-weight:bold"');
+      HTP.TableData('Indirizzo',CATTRIBUTES  =>'style="font-weight:bold; text-align:center"');
+      HTP.TableData('Email',CATTRIBUTES  =>'style="font-weight:bold; text-align:center"');
+      HTP.TableData('Data di Nascita',CATTRIBUTES  =>'style="font-weight:bold; text-align:center"');
+    
+      /* inserire il tipo stanza*/
+      HTP.TableRowClose;
+
+FOR val_vis in vis_cursor
+loop
+   HTP.TableRowOpen;
+   HTP.TableData(val_vis.Nome);
+   HTP.TableData(val_vis.Cognome ,'center');
+   HTP.TableData(val_vis.Indirizzo,'center');
+   HTP.TableData(val_vis.Email,'center');
+   HTP.TableData(val_vis.DATANASCITA,'center');  
+   HTP.TableRowClose;
+    
+end loop;
+HTP.TableClose;
+modgui1.chiudiDiv();
+htp.bodyClose;
+end visitatoriunici;
+
+procedure introitimuseo
+(
+   sessionID in number default 0,
+   MuseoId IN Musei.IdMuseo%TYPE
+)
+is 
+ introiti_campiestivi number;
+ introiti_museo number;
+ introiti_totale number;
+begin 
+select SUM(TIPOLOGIEINGRESSO.COSTOTOTALE)
+into introiti_museo
+from TIPOLOGIEINGRESSO,TITOLIINGRESSO
+where MuseoId=TITOLIINGRESSO.MUSEO AND TITOLIINGRESSO.TIPOLOGIA=TIPOLOGIEINGRESSO.IDTIPOLOGIAING;
+
+
+SELECT SUM(TARIFFECAMPIESTIVI.PREZZO)
+into introiti_campiestivi
+FROM TARIFFECAMPIESTIVI,CAMPIESTIVI,PAGAMENTICAMPIESTIVI
+WHERE MuseoId=CAMPIESTIVI.MUSEO AND CAMPIESTIVI.IDCAMPIESTIVI=TARIFFECAMPIESTIVI.CAMPOESTIVO AND PAGAMENTICAMPIESTIVI.TARIFFA=TARIFFECAMPIESTIVI.IDTARIFFA;
+
+introiti_totale:=introiti_museo+introiti_campiestivi;
+
+MODGUI1.ApriPagina('Visualizzazione introiti museo');
+MODGUI1.HEADER();
+htp.br;htp.br;htp.br;htp.br;htp.br;htp.br;
+htp.prn('<h1 align="center">Introiti Museo </h1>');
+htp.br;
+modgui1.apridiv('class="w3-modal-content w3-card-4 w3-animate-zoom" style="max-width:600px; margin-top:110px"');
+HTP.TABLEOPEN(CALIGN  => 'center',   CATTRIBUTES =>'style="font-size:20px"' );
+      HTP.TableRowOpen;
+      HTP.TableData('Introti del museo: ',CATTRIBUTES  =>'style="font-weight:bold"');
+      HTP.TableData( introiti_museo|| ' €');
+      HTP.TableRowClose;
+     
+      HTP.TableRowOpen;
+      HTP.TableData('Introti dei campiestivi: ',CATTRIBUTES  =>'style="font-weight:bold"');
+      HTP.TableData( introiti_campiestivi|| ' €');
+      HTP.TableRowClose;
+      HTP.TableRowOpen;
+      HTP.TableData('Introti totali: ',CATTRIBUTES  =>'style="font-weight:bold"');
+      HTP.TableData( introiti_totale || ' €');
+      HTP.TableRowClose;
+HTP.TableClose;
+      /* inserire il tipo stanza*/
+      
+modgui1.chiudiDiv();
+htp.bodyClose;
+end introitimuseo;
+
 procedure controllastatistica
 (
    MuseoId IN MUSEI.IdMuseo%TYPE,
@@ -649,10 +804,32 @@ else if scelta=1
    then salepresenti(0,MuseoId);
    else if scelta=3
    then opereprestate(0,MuseoId);
+   else if scelta=4
+   then introitimuseo(0,MuseoId);
+   end if;
    end if;
 end if;
   end if;
 end controllastatistica;
+
+
+procedure controllastatistica2
+(
+   MuseoId IN MUSEI.IdMuseo%TYPE,
+   scelta in number,
+   Data1 VARCHAR2,
+   Data2  varchar2
+)
+is 
+
+begin
+if scelta=5
+   then visitatoriunici(0,MuseoId,Data1,Data2);
+else if scelta=6
+   then salepresenti(0,MuseoId);
+end if;
+  end if;
+end controllastatistica2;
 
 /*---------------STATISTICHE CAMPI ESTIVI-------------------------------*/
 procedure form1campiestivi
@@ -676,7 +853,7 @@ BEGIN
   htp.prn('<h1 align="center">Scegli museo</h1>');
   MODGUI1.apridiv('class="w3-modal-content w3-card-4" style="max-width:600px; margin-top:110px"');
   modGUI1.ApriForm('operazioniGruppo4.controllastatisticacampo','invia','w3-container'); 
-  MODGUI1.LABEL('Nome del Campo estiv');
+  MODGUI1.LABEL('Nome del Campo estivo');
   MODGUI1.SelectOpen('CampoestivoId',NameCampoestivo);
   FOR campId_cur IN cur LOOP
     MODGUI1.SelectOption(campId_cur.IdCampiEstivi,campId_cur.NOME);

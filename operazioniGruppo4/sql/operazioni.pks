@@ -57,10 +57,24 @@ procedure controllastatistica
    MuseoId IN MUSEI.IdMuseo%TYPE,
    scelta in number
 );
+procedure controllastatistica2
+(
+   MuseoId IN MUSEI.IdMuseo%TYPE,
+   scelta in number,
+   Data1 varchar2,
+   Data2 varchar2
+);
 procedure form1monitoraggio
 (
    MuseoId IN MUSEI.IdMuseo%TYPE,
    NameMuseo IN MUSEI.NOME%TYPE
+);
+procedure form2monitoraggio
+(
+   MuseoId IN MUSEI.IdMuseo%TYPE,
+   NameMuseo IN MUSEI.NOME%TYPE,
+   Data1 VARCHAR2,
+   Data2 VARCHAR2
 );
 
 
@@ -78,6 +92,18 @@ procedure opereprestate
 (
    sessionID IN number default 0,
    MuseoId IN Musei.IdMuseo%TYPE
+);
+procedure introitimuseo
+(
+   sessionID in number default 0,
+   MuseoId IN Musei.IdMuseo%TYPE
+);
+procedure visitatoriunici
+(
+   sessionID IN number default 0,
+   MuseoId IN MUSEI.IdMuseo%TYPE,
+   Data1 VARCHAR2,
+   Data2 VARCHAR2
 );
 /*---------statistiche CAMPI ESTIVI-----------*/
 procedure form1campiestivi

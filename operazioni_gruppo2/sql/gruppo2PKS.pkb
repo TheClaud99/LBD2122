@@ -1,47 +1,5 @@
 CREATE OR REPLACE PACKAGE gruppo2 AS
 
-
-PROCEDURE genericErrorPage(
-    idSessione NUMBER DEFAULT 0,
-    pageTitle VARCHAR2 DEFAULT 'Errore',
-    msg VARCHAR2 DEFAULT 'Errore sconosciuto',
-    redirectText VARCHAR2 DEFAULT 'OK',
-    redirect VARCHAR2 DEFAULT NULL
-);
-
--- Procedura per feedback (chiama EsitoOperazione)
--- pageTitle: titolo della pagina HTML
--- msg: il messaggio di errore (opzionale)
--- nuovaOp: il nome del bottone che porta alla nuova operazione (opzionale)
--- nuovaOpURL: il nome della procedura da ripetere (opzionale)
--- parametrinuovaOp: i parametri da passare alla procedura chiamata (opzionale)
--- backToMenu: il nome del pulsante per tornare al menu (obbligatorio)
--- backToMenuURL: URL del menu a cui andare (obbligatorio)
--- parametribackToMenu: parametri da passare al menu di ritorno
-PROCEDURE RedirectEsito (
-    idSessione NUMBER DEFAULT NULL,
-    pageTitle VARCHAR2 DEFAULT NULL,
-    msg VARCHAR2 DEFAULT NULL,
-    nuovaOp VARCHAR2 DEFAULT NULL,
-    nuovaOpURL VARCHAR2 DEFAULT NULL,
-    parametrinuovaOp VARCHAR2 DEFAULT '',
-    backToMenu VARCHAR2 DEFAULT NULL,
-    backToMenuURL VARCHAR2 DEFAULT NULL,
-    parametribackToMenu VARCHAR2 DEFAULT ''
-    );
-
-PROCEDURE EsitoOperazione(
-    idSessione NUMBER DEFAULT NULL,
-    pageTitle VARCHAR2 DEFAULT NULL,
-    msg VARCHAR2 DEFAULT NULL,
-    nuovaOp VARCHAR2 DEFAULT NULL,
-    nuovaOpURL VARCHAR2 DEFAULT NULL,
-    parametrinuovaOp VARCHAR2 DEFAULT '',
-    backToMenu VARCHAR2 DEFAULT NULL,
-    backToMenuURL VARCHAR2 DEFAULT NULL,
-    parametribackToMenu VARCHAR2 DEFAULT ''
-    );
-
 /* OPERAZIONI SULLE OPERE */
 PROCEDURE coloreClassifica(posizione NUMBER DEFAULT 0);
 PROCEDURE SpostamentiOpera (

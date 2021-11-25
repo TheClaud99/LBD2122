@@ -27292,33 +27292,33 @@ INSERT INTO NEWSLETTERUTENTI (IdNews, IdUtente)
 VALUES (2, 121);
 /***********TIPOLOGIEINGRESSO*************/
 INSERT INTO TIPOLOGIEINGRESSO (IdTipologiaIng, Costototale, LimiteSala, LimiteTempo, Durata, Nome, Eliminato)
-VALUES (IdTipologiaingSeq.nextVal, 10, 18, null, '1', 'Biglietto 18 sale, 10â‚¬', 0); --idM=1
+VALUES (IdTipologiaingSeq.nextVal, 10, 18, null, '1', 'Biglietto 18 sale, 10€', 0); --idM=1
 INSERT INTO TIPOLOGIEINGRESSO (IdTipologiaIng, Costototale, LimiteSala, LimiteTempo, Durata, Nome, Eliminato)
-VALUES (IdTipologiaingSeq.nextVal, 6, 9, null, '1', 'Biglietto 9 sale, 6â‚¬', 0); --idM=1
+VALUES (IdTipologiaingSeq.nextVal, 6, 9, null, '1', 'Biglietto 9 sale, 6€', 0); --idM=1
 INSERT INTO TIPOLOGIEINGRESSO (IdTipologiaIng, Costototale, LimiteSala, LimiteTempo, Durata, Nome, Eliminato)
-VALUES (IdTipologiaingSeq.nextVal, 12, 19, null, '1', 'Biglietto 19 sale, 12â‚¬', 0); --idM=2
+VALUES (IdTipologiaingSeq.nextVal, 12, 19, null, '1', 'Biglietto 19 sale, 12€', 0); --idM=2
 INSERT INTO TIPOLOGIEINGRESSO (IdTipologiaIng, Costototale, LimiteSala, LimiteTempo, Durata, Nome, Eliminato)
-VALUES (IdTipologiaingSeq.nextVal, 7, 9, null, '1', 'Biglietto 9 sale, 21â‚¬', 0); --idM=2
+VALUES (IdTipologiaingSeq.nextVal, 7, 9, null, '1', 'Biglietto 9 sale, 21€', 0); --idM=2
 INSERT INTO TIPOLOGIEINGRESSO (IdTipologiaIng, Costototale, LimiteSala, LimiteTempo, Durata, Nome, Eliminato)
-VALUES (IdTipologiaingSeq.nextVal, 13, 21, null, '1', 'Biglietto 21 sale, 21â‚¬', 0); --idM=3
+VALUES (IdTipologiaingSeq.nextVal, 13, 21, null, '1', 'Biglietto 21 sale, 21€', 0); --idM=3
 INSERT INTO TIPOLOGIEINGRESSO (IdTipologiaIng, Costototale, LimiteSala, LimiteTempo, Durata, Nome, Eliminato)
-VALUES (IdTipologiaingSeq.nextVal, 8, 10, null, '1', 'Biglietto 10 sale, 8â‚¬', 0); --idM=3
+VALUES (IdTipologiaingSeq.nextVal, 8, 10, null, '1', 'Biglietto 10 sale, 8€', 0); --idM=3
 INSERT INTO TIPOLOGIEINGRESSO (IdTipologiaIng, Costototale, LimiteSala, LimiteTempo, Durata, Nome, Eliminato)
-VALUES (IdTipologiaingSeq.nextVal, 12, 19, null, '1', 'Biglietto 19 sale, 12â‚¬', 0); --idM=4
+VALUES (IdTipologiaingSeq.nextVal, 12, 19, null, '1', 'Biglietto 19 sale, 12€', 0); --idM=4
 INSERT INTO TIPOLOGIEINGRESSO (IdTipologiaIng, Costototale, LimiteSala, LimiteTempo, Durata, Nome, Eliminato)
-VALUES (IdTipologiaingSeq.nextVal, 7, 10, null, '1', 'Biglietto 10 sale, 7â‚¬', 0); --idM=4
+VALUES (IdTipologiaingSeq.nextVal, 7, 10, null, '1', 'Biglietto 10 sale, 7€', 0); --idM=4
 INSERT INTO TIPOLOGIEINGRESSO (IdTipologiaIng, Costototale, LimiteSala, LimiteTempo, Durata, Nome, Eliminato)
-VALUES (IdTipologiaingSeq.nextVal, 10, 17, null, '1', 'Biglietto 17 sale, 10â‚¬', 0); --idM=5
+VALUES (IdTipologiaingSeq.nextVal, 10, 17, null, '1', 'Biglietto 17 sale, 10€', 0); --idM=5
 INSERT INTO TIPOLOGIEINGRESSO (IdTipologiaIng, Costototale, LimiteSala, LimiteTempo, Durata, Nome, Eliminato)
-VALUES (IdTipologiaingSeq.nextVal, 5, 8, null, '1', 'Biglietto 8 sale, 5â‚¬', 0); --idM=5
+VALUES (IdTipologiaingSeq.nextVal, 5, 8, null, '1', 'Biglietto 8 sale, 5€', 0); --idM=5
 INSERT INTO TIPOLOGIEINGRESSO (IdTipologiaIng, Costototale, LimiteSala, LimiteTempo, Durata, Nome, Eliminato)
-VALUES (IdTipologiaingSeq.nextVal, 10, 18, null, '1', 'Biglietto 18 sale, 10â‚¬', 0); --idM=6
+VALUES (IdTipologiaingSeq.nextVal, 10, 18, null, '1', 'Biglietto 18 sale, 10€', 0); --idM=6
 INSERT INTO TIPOLOGIEINGRESSO (IdTipologiaIng, Costototale, LimiteSala, LimiteTempo, Durata, Nome, Eliminato)
-VALUES (IdTipologiaingSeq.nextVal, 5, 9, null, '1', 'Biglietto 9 sale, 5â‚¬', 0); --idM=6
+VALUES (IdTipologiaingSeq.nextVal, 5, 9, null, '1', 'Biglietto 9 sale, 5€', 0); --idM=6
 INSERT INTO TIPOLOGIEINGRESSO (IdTipologiaIng, Costototale, LimiteSala, LimiteTempo, Durata, Nome, Eliminato)
-VALUES (IdTipologiaingSeq.nextVal, 30, 100, null, '365', 'Abb annuale 100 ore, 30â‚¬', 0); --abbonamento
+VALUES (IdTipologiaingSeq.nextVal, 30, 100, null, '365', 'Abb annuale 100 ore, 30€', 0); --abbonamento
 INSERT INTO TIPOLOGIEINGRESSO (IdTipologiaIng, Costototale, LimiteSala, LimiteTempo, Durata, Nome, Eliminato)
-VALUES (IdTipologiaingSeq.nextVal, 35, null, 999, '365', 'Abb annuale no lim, 35â‚¬', 0); --abbonamento
+VALUES (IdTipologiaingSeq.nextVal, 35, null, 999, '365', 'Abb annuale no lim, 35€', 0); --abbonamento
 /************TIPOLOGIEINGRESSOMUSEI************/
 INSERT INTO TIPOLOGIEINGRESSOMUSEI(IdTipologiaIng, IdMuseo)
 VALUES(1, 1);

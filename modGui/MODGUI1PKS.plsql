@@ -40,6 +40,29 @@ procedure apriElementoTabella(classe varchar2 default 'defElementoTabella', id v
 procedure chiudiElementoTabella;
 procedure ElementoTabella(testo varchar2);
 procedure intestazioneTabella(testo varchar2, classe varchar2 default 'defHeaderTable');
+procedure RedirectEsito (
+    idSessione NUMBER DEFAULT NULL,
+    pageTitle VARCHAR2 DEFAULT NULL,
+    msg VARCHAR2 DEFAULT NULL,
+    nuovaOp VARCHAR2 DEFAULT NULL,
+    nuovaOpURL VARCHAR2 DEFAULT NULL,
+    parametrinuovaOp VARCHAR2 DEFAULT '',
+    backToMenu VARCHAR2 DEFAULT NULL,
+    backToMenuURL VARCHAR2 DEFAULT NULL,
+    parametribackToMenu VARCHAR2 DEFAULT ''
+    );
+
+procedure EsitoOperazione(
+    idSessione NUMBER DEFAULT NULL,
+    pageTitle VARCHAR2 DEFAULT NULL,
+    msg VARCHAR2 DEFAULT NULL,
+    nuovaOp VARCHAR2 DEFAULT NULL,
+    nuovaOpURL VARCHAR2 DEFAULT NULL,
+    parametrinuovaOp VARCHAR2 DEFAULT '',
+    backToMenu VARCHAR2 DEFAULT NULL,
+    backToMenuURL VARCHAR2 DEFAULT NULL,
+    parametribackToMenu VARCHAR2 DEFAULT ''
+    );
 
 end modGUI1;
 

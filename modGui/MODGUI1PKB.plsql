@@ -1,3 +1,4 @@
+SET DEFINE OFF;
 CREATE OR REPLACE PACKAGE BODY modGUI1 as
 
     procedure ApriPagina(titolo varchar2 default 'Senza titolo', idSessione int default 0) is
@@ -456,3 +457,4 @@ CREATE OR REPLACE PACKAGE BODY modGUI1 as
     end EsitoOperazione;
 
 end modGUI1;
+SET DEFINE ON;

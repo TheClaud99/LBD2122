@@ -9,7 +9,16 @@ PROCEDURE genericErrorPage(
     redirect VARCHAR2 DEFAULT NULL
 );
 
-procedure RedirectEsito (
+-- Procedura per feedback (chiama EsitoOperazione)
+-- pageTitle: titolo della pagina HTML
+-- msg: il messaggio di errore (opzionale)
+-- nuovaOp: il nome del bottone che porta alla nuova operazione (opzionale)
+-- nuovaOpURL: il nome della procedura da ripetere (opzionale)
+-- parametrinuovaOp: i parametri da passare alla procedura chiamata (opzionale)
+-- backToMenu: il nome del pulsante per tornare al menu (obbligatorio)
+-- backToMenuURL: URL del menu a cui andare (obbligatorio)
+-- parametribackToMenu: parametri da passare al menu di ritorno
+PROCEDURE RedirectEsito (
     idSessione NUMBER DEFAULT NULL,
     pageTitle VARCHAR2 DEFAULT NULL,
     msg VARCHAR2 DEFAULT NULL,
@@ -21,7 +30,7 @@ procedure RedirectEsito (
     parametribackToMenu VARCHAR2 DEFAULT ''
     );
 
-procedure EsitoOperazione(
+PROCEDURE EsitoOperazione(
     idSessione NUMBER DEFAULT NULL,
     pageTitle VARCHAR2 DEFAULT NULL,
     msg VARCHAR2 DEFAULT NULL,
@@ -34,8 +43,8 @@ procedure EsitoOperazione(
     );
 
 /* OPERAZIONI SULLE OPERE */
-procedure coloreClassifica(posizione NUMBER DEFAULT 0);
-procedure SpostamentiOpera (
+PROCEDURE coloreClassifica(posizione NUMBER DEFAULT 0);
+PROCEDURE SpostamentiOpera (
     idSessione NUMBER DEFAULT 0,
     operaID NUMBER DEFAULT 0
 );
@@ -44,15 +53,15 @@ PROCEDURE SpostaOpera(
         operaID NUMBER DEFAULT 0,
         salaID NUMBER DEFAULT 0
 );
-procedure SpostamentoOpera(
+PROCEDURE SpostamentoOpera(
     idSessione NUMBER DEFAULT 0,
     operaID NUMBER DEFAULT 0,
     Esposizione NUMBER DEFAULT 0,
     NuovaSalaID NUMBER DEFAULT 0
 );
-procedure menuOpere (idSessione NUMBER DEFAULT NULL);
-procedure selezioneMuseo(idSessione NUMBER DEFAULT 0);
-Procedure StatisticheOpere(
+PROCEDURE menuOpere (idSessione NUMBER DEFAULT NULL);
+PROCEDURE selezioneMuseo(idSessione NUMBER DEFAULT 0);
+PROCEDURE StatisticheOpere(
     idSessione NUMBER DEFAULT 0,
     museoID NUMBER DEFAULT 0
 );
@@ -63,34 +72,36 @@ PROCEDURE InserisciOpera(
     fineperiodo VARCHAR2 DEFAULT NULL,
     idmusei NUMBER DEFAULT NULL
 );
-procedure AggiungiAutore(
+PROCEDURE AggiungiAutore(
     idSessione NUMBER DEFAULT 0,
     operaID NUMBER DEFAULT 0,
     lingue VARCHAR2 DEFAULT null
 );
-procedure AggiuntaAutore(
+PROCEDURE AggiuntaAutore(
     idSessione NUMBER DEFAULT 0,
     operaID NUMBER DEFAULT 0,
     autoreID NUMBER DEFAULT 0,
     lingue VARCHAR2 default NULL
 );
-procedure RimuoviAutore(
+
+-- Rimuove un Autore dall'Opera indicata (pagina conferma)
+PROCEDURE RimuoviAutoreOpera(
     idSessione NUMBER DEFAULT 0,
     operaID NUMBER DEFAULT 0,
     lingue VARCHAR2 DEFAULT null
 );
-
-procedure RimozioneAutore(
+-- Rimuove un Autore dall'Opera indicata
+PROCEDURE RimozioneAutoreOpera(
     idSessione NUMBER DEFAULT 0,
     operaID NUMBER DEFAULT 0,
     autoreID NUMBER DEFAULT 0
 );
 
-procedure EliminazioneOpera(
+PROCEDURE EliminazioneOpera(
     idSessione NUMBER default 0,
     operaID NUMBER default 0
 );
-procedure RimozioneOpera(
+PROCEDURE RimozioneOpera(
     idSessione NUMBER default 0,
     operaID NUMBER default 0
 );
@@ -133,39 +144,40 @@ PROCEDURE InserisciDatiOpera(
     fineperiodo NUMBER DEFAULT NULL,
     idmusei NUMBER DEFAULT NULL
 );
-procedure VisualizzaOpera (
+PROCEDURE VisualizzaOpera (
     idSessione NUMBER default 0,
     operaID NUMBER default 0,
     lingue VARCHAR2 default 'sconosciuto',
     livelli VARCHAR2 DEFAULT 'Sconosciuto'
 );
-procedure linguaELivello(
+PROCEDURE linguaELivello(
     idSessione NUMBER default 0,
     operaID NUMBER default 0
 );
 /* OPERAZIONI SUGLI AUTORI */
 PROCEDURE menuAutori(idSessione NUMBER DEFAULT NULL);
+PROCEDURE menuAutoriEliminati(idSessione NUMBER DEFAULT NULL);
 
-procedure selezioneOpStatAut(idSessione NUMBER DEFAULT 0);
+PROCEDURE selezioneOpStatAut(idSessione NUMBER DEFAULT 0);
 
-procedure selezioneAutoreStatistica(
+PROCEDURE selezioneAutoreStatistica(
     idSessione NUMBER DEFAULT 0,
     operazione NUMBER DEFAULT 0
 );
 
-Procedure StatisticheAutori(
+PROCEDURE StatisticheAutori(
     idSessione NUMBER DEFAULT 0,
     operazione NUMBER DEFAULT 0,
     authID NUMBER DEFAULT 0
 );
 
-procedure selezioneMuseoAutoreStatistica(
+PROCEDURE selezioneMuseoAutoreStatistica(
     idSessione NUMBER DEFAULT 0,
     operazione NUMBER DEFAULT 0,
     authID NUMBER DEFAULT 0
 );
 
-Procedure StatisticheMuseoAutori(
+PROCEDURE StatisticheMuseoAutori(
     idSessione NUMBER DEFAULT 0,
     operazione NUMBER DEFAULT 0,
     authID NUMBER DEFAULT 0,
@@ -220,11 +232,24 @@ PROCEDURE UpdateAutore(
 	newNation VARCHAR2 DEFAULT 'Sconosciuta'
 );
 
-procedure EliminazioneAutore(
+PROCEDURE EliminazioneAutore(
     idSessione NUMBER default 0,
     authorID NUMBER default 0
 );
-procedure RimozioneAutore(
+
+-- Setta l'attributo 'Eliminato' dell'autore a 1 => l'autore scompare dal menuAutori
+-- e va in menuAutoriEliminati (ma non rimossi) 
+procedure SetAutoreEliminato(
+    idSessione NUMBER default 0,
+    authorID NUMBER default 0
+);
+
+PROCEDURE RimozioneAutore(
+    idSessione NUMBER default 0,
+    authorID NUMBER default 0
+);
+
+PROCEDURE DeleteAutore(
     idSessione NUMBER default 0,
     authorID NUMBER default 0
 );
@@ -260,12 +285,12 @@ PROCEDURE modificaDescrizione(
     idDescrizione NUMBER DEFAULT NULL
 );
 
-procedure EliminazioneDescrizione(
+PROCEDURE EliminazioneDescrizione(
     idSessione NUMBER default 0,
     idDescrizione NUMBER default 0
 );
 
-procedure RimozioneDescrizione(
+PROCEDURE RimozioneDescrizione(
     idSessione NUMBER default 0,
     idDescrizione NUMBER default 0
 );
@@ -279,7 +304,7 @@ PROCEDURE UpdateDescrizione(
     newtesto CLOB DEFAULT null
 );
 
-Procedure StatisticheDescrizioni(
+PROCEDURE StatisticheDescrizioni(
     idSessione NUMBER DEFAULT 0,
     operazione NUMBER DEFAULT 0
 );

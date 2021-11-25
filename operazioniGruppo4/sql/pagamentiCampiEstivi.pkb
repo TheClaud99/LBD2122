@@ -56,7 +56,7 @@ begin
     if (dataPagamento is null) or (tariffa = 0) or (acquirente = 0) then
         modgui1.label('Parametri inseriti in maniera errata');
         modgui1.apriform('InserisciPagamentoCampiEstivi');
-        htp.formhidden('idSessione', idSessione);
+        htp.formhidden('sessionID', sessionID);
         htp.formhidden('dataPagamento', dataPagamento);
         htp.formhidden('tariffa', tariffa);
         htp.formhidden('acquirente', acquirente);
@@ -81,11 +81,19 @@ begin
         htp.tableclose;
         
         modgui1.apriform('ControllaPagamentoCampiEstivi');
-        htp.formhidden('idSessione', idSessione);
+        htp.formhidden('sessionID', sessionID);
         htp.formhidden('dataPagamento', dataPagamento);
         htp.formhidden('tariffa', tariffa);
         htp.formhidden('acquirente', acquirente);
-        modgui1.inputsubmit('indietro');
+        modgui1.inputsubmit('Conferma');
+        modgui1.chiudiform;
+
+        modgui1.apriform('InserisciPagamentoCampiEstivi');
+        htp.formhidden('sessionID', sessionID);
+        htp.formhidden('dataPagamento', dataPagamento);
+        htp.formhidden('tariffa', tariffa);
+        htp.formhidden('acquirente', acquirente);
+        modgui1.inputsubmit('Annulla');
         modgui1.chiudiform;
     end if;
 
@@ -101,7 +109,6 @@ procedure ControllaPagamentoCampiEstivi(
     tariffa in PAGAMENTICAMPIESTIVI.Tariffa%type, 
     acquirente in PAGAMENTICAMPIESTIVI.Acquirente%type
 ) is 
-declare
     type errorsTable is table of varchar2(32);
     errors errorsTable;
     errorsCount integer := 0;
@@ -160,7 +167,7 @@ begin
     modgui1.ApriPagina();
     modgui1.Header();
     htp.bodyopen;
-    modGUI1.ApriDiv('class="w3-modal-content w3-card-4" style="max-width:600px"');
+    modgui1.apridiv('class="w3-modal-content w3-card-4" style="max-width:600px"');
 
     select count(*) 
     into found
@@ -225,9 +232,9 @@ begin
         htp.tabledata(pagamento.Tariffa);
         htp.tabledata(pagamento.Acquirente);
         htp.tablerowclose;
-    end loop
+    end loop;
+
     htp.tableclose;
-    
     htp.bodyclose;
     htp.htmlclose;
   

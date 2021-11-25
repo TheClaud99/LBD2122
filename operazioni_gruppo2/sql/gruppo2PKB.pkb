@@ -683,7 +683,6 @@ LOOP
                     MODGUI1.Collegamento(nomee||' '||Cognomee,
                         'ModificaAutore?idSessione='||idSessione||'&authorID='||auth.IdAutore||'&operazione=0'
                         ||'&caller=visualizzaOpera&callerParams=//operaID='||operaID||'//lingue='||lingue||'//livelli='||livelli);
-                    htp.prn(', ');
                     
                     END LOOP;
                     
@@ -714,7 +713,6 @@ LOOP
                     MODGUI1.Collegamento(nomee||' '||Cognomee,
                         'ModificaAutore?idSessione='||idSessione||'&authorID='||auth.IdAutore||'&operazione=0'
                         ||'&caller=visualizzaOpera&callerParams=//operaID='||operaID||'//lingue='||lingue||'//livelli='||livelli);
-                    htp.prn(', ');
                     
                     END LOOP;
 
@@ -1590,11 +1588,12 @@ BEGIN
                 modGUI1.ApriDiv('class="w3-container w3-center"');
                     htp.prn('<p>'|| autore.Nome ||' '||autore.Cognome||'</p>');
                 modGUI1.ChiudiDiv;
-                -- Azioni di modifica e rimozione mostrate solo se autorizzatii
+                if not (HASROLE(idSessione, 'GM') or HASROLE(idSessione, 'GCE')) THEN
                 modGUI1.Collegamento('Visualizza',
                     'ModificaAutore?idSessione='||idSessione||'&authorID='||autore.IdAutore||'&operazione=0',
                     'w3-black w3-margin w3-button');
-                IF hasRole(IdSessione, 'DBA') THEN
+                END IF;
+                IF hasRole(IdSessione, 'DBA')  or hasRole(IdSessione, 'GO') THEN
                     -- parametro modifica messo a true: possibile fare editing dell'autore
                     modGUI1.Collegamento('Modifica',
                         'ModificaAutore?idSessione='||idSessione||'&authorID='||autore.IdAutore||'&operazione=1',
@@ -1829,7 +1828,7 @@ nomecompleto VARCHAR2(50);
     ELSE
 
     htp.prn('<h1 align="center">Seleziona l''autore</h1>');
-    modGUI1.ApriDiv('class="w3-modal-content w3-card-4 w3-animate-zoom" style="max-width:600px"');
+    modGUI1.ApriDiv('class="w3-modal-content w3-card-4 w3-animate-zoom" style="max-width:700px"');
         modGUI1.ApriDiv('class="w3-section"');
             -- Link di ritorno al menuAutori
             modGUI1.Collegamento('X',
@@ -1851,7 +1850,7 @@ nomecompleto VARCHAR2(50);
                 htp.prn('<button class="w3-button w3-block w3-black w3-section w3-padding" type="submit">Seleziona</button>');
                 modGUI1.ChiudiForm;
             ELSIF operazione = 3 THEN
-                modGUI1.ApriForm('selezioneMuseoAutoreStatistica');
+                modGUI1.ApriForm('StatisticheMuseoAutori');
                 htp.FORMHIDDEN('idSessione',idSessione);
                 htp.FORMHIDDEN('operazione',operazione);
                 MODGUI1.SELECTOPEN('authID', 'authID');
@@ -1859,6 +1858,13 @@ nomecompleto VARCHAR2(50);
                 LOOP
                     nomecompleto := an_auth.Nome||' '||an_auth.cognome;
                     modGUI1.SELECTOPTION(an_auth.IdAutore, nomecompleto, 0);
+                END LOOP;
+                MODGUI1.SELECTClose;
+                htp.print('&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;');
+                MODGUI1.SELECTOPEN('museoID', 'museoID');
+                FOR an_mus IN (SELECT IDMUSEO,NOME FROM MUSEI ORDER BY NOME ASC)
+                LOOP
+                    modGUI1.SELECTOPTION(an_mus.idmuseo, an_mus.Nome, 0);
                 END LOOP;
                 MODGUI1.SELECTClose;
                 htp.prn('<button class="w3-button w3-block w3-black w3-section w3-padding" type="submit">Seleziona</button>');
@@ -1949,7 +1955,7 @@ SELECT * INTO auth FROM autori WHERE authID=IDAUTORE;
             END LOOP;
         end IF;
 
-        --COLLABORAZIONI EFFETTUATE -------da testare
+        --COLLABORAZIONI EFFETTUATE
         if operazione=2 THEN
         modGUI1.ApriDiv('class="w3-container" style="width:100%"');
         htp.print('<h2><b>Opere create in collaborazione</b></h2>');
@@ -1977,7 +1983,7 @@ END;
 
 procedure selezioneMuseoAutoreStatistica(
     idSessione NUMBER DEFAULT 0,
-    operazione NUMBER DEFAULT 0,
+    operazione NUMBER DEFAULT 0, 
     authID NUMBER DEFAULT 0
 )IS
 BEGIN
@@ -2017,7 +2023,7 @@ modGUI1.ApriPagina('Selezione statistica', idSessione);
             MODGUI1.chiudiDiv;
         modGUI1.ChiudiDiv;
     modGUI1.ChiudiDiv;
-END selezioneMuseoAutoreStatistica;
+END selezioneMuseoAutoreStatistica; 
 
 
 Procedure StatisticheMuseoAutori(

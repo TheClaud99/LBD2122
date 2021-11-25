@@ -18,7 +18,7 @@ begin
     htp.header(1, 'Inserisci una nuova tariffa', 'centered');
     modgui1.apridiv('class="w3-modal-content w3-card-4 w3-animate-zoom" style="max-width:600px; margin-top:110px"');
 
-    modgui1.apriform('ConfermaTariffeCampiEstivi', 'invia', 'w3-container');
+    modgui1.apriform('tariffeCampiEstiviOperazioni.ConfermaTariffeCampiEstivi', 'invia', 'w3-container');
     htp.formhidden('sessionID', 0);
 
     modgui1.label('Prezzo');
@@ -57,13 +57,13 @@ procedure ConfermaTariffeCampiEstivi
 ) is
 begin
     htp.htmlopen;
-    modgu1.apripagina('Conferma Tariffa Campi Estivi');
+    modgui1.apripagina('Conferma Tariffa Campi Estivi');
     modgui1.header();
     htp.bodyopen();
-    modui1.apridiv('class="w3-modal-content w3-card-4" style="max-width:600px"');
+    modgui1.apridiv('class="w3-modal-content w3-card-4" style="max-width:600px"');
     if (etaMinima < 0) or (etaMassima < etaMinima) then
         modgui1.label('Parametri inseriti in maniera errata');
-        modgui1.apriform('InserisciTariffeCampiEstivi');
+        modgui1.apriform('tariffeCampiEstiviOperazioni.InserisciTariffeCampiEstivi');
         htp.formhidden('sessionID', sessionID);
         htp.formhidden('prezzo', prezzo);
         htp.formhidden('etaMinima', etaMinima);
@@ -93,7 +93,7 @@ begin
     
         htp.tableclose;
 
-        modgui1.apriform('ControllaTariffeCampiEstivi');
+        modgui1.apriform('tariffeCampiEstiviOperazioni.ControllaTariffeCampiEstivi');
         htp.formhidden('sessionID', sessionID);
         htp.formhidden('prezzo', prezzo);
         htp.formhidden('etaMinima', etaMinima);
@@ -102,7 +102,7 @@ begin
         modgui1.inputsubmit('Conferma');
         modgui1.chiudiform;
 
-        modgui1.apriform('InserisciTariffeCampiEstivi');
+        modgui1.apriform('tariffeCampiEstiviOperazioni.InserisciTariffeCampiEstivi');
         htp.formhidden('sessionID', sessionID);
         htp.formhidden('prezzo', prezzo);
         htp.formhidden('etaMinima', etaMinima);
@@ -112,9 +112,9 @@ begin
         modgui1.chiudiform;
     end if;
 
-    modgu1.chiudidiv;
+    modgui1.chiudidiv;
     htp.bodyclose();
-    htp.htlclose();
+    htp.htmlclose();
 
 end;
 
@@ -133,7 +133,7 @@ procedure ControllaTariffeCampiEstivi
 
 begin
     htp.htmlopen;
-    mogui1.apripagina('Controlla Tariffe Campi Estivi');
+    modgui1.apripagina('Controlla Tariffe Campi Estivi');
     modgui1.header();
     htp.bodyopen();
     modgui1.apridiv('class="w3-modal-content w3-card-4" style="max-width:600px"');
@@ -143,16 +143,10 @@ begin
     from CAMPIESTIVI
     where CAMPIESTIVI.IdCampiEstivi = campoEstivo;
 
-    /*
-    if campoEstivoExists > 0 then
-        campoEstivoExists := 1;
-    end if;
-    */
-
     if campoEstivoExists = 0 then
         errors.extend;
         errorsCount := errorsCount + 1;
-        errors(errorsCount) := "campoEstivo";
+        errors(errorsCount) := 'campoEstivo';
     end if;
 
     if errorsCount > 0 then
@@ -200,7 +194,7 @@ begin
         for tariffa in (
             select Prezzo, Etaminima, Etamassima, CampoEstivo
             from TARIFFECAMPIESTIVI
-            where TARIFFECAMPIESTIVI.IdTariffa = idTariffa;
+            where TARIFFECAMPIESTIVI.IdTariffa = idTariffa
         )
         loop
           htp.tablerowopen;
@@ -209,7 +203,7 @@ begin
           htp.tabledata(tariffa.Etamassima);
           htp.tabledata(tariffa.CampoEstivo);
           htp.tablerowclose;
-        end loop
+        end loop;
         htp.tableclose;
     else
         modgui1.apripagina('Tariffa non trovata', sessionID);
@@ -231,7 +225,8 @@ procedure ModificaTariffeCampiEstivi
     campoEstivo in TARIFFECAMPIESTIVI.CampoEstivo%type default 0
 ) is 
 begin
-    
+    htp.htmlopen;
+    htp.htmlclose;
 end;
 
 procedure CancellaTariffeCampiEstivi
@@ -240,7 +235,8 @@ procedure CancellaTariffeCampiEstivi
     idTariffa in TARIFFECAMPIESTIVI.IdTariffa%type
 ) is
 begin
-    
+    htp.htmlopen;
+    htp.htmlclose;
 end;
 
 procedure MonitoraTariffeCampiEstivi_preferenzaTariffa
@@ -249,7 +245,7 @@ procedure MonitoraTariffeCampiEstivi_preferenzaTariffa
 ) is 
 begin
     htp.htmlopen;
-    mogui1.apripagina();
+    modgui1.apripagina();
     modgui1.header();
     htp.bodyopen;
     modgui1.apridiv('class="w3-modal-content w3-card-4" style="max-width:600px"');
@@ -265,12 +261,12 @@ begin
                 from PAGAMENTICAMPIESTIVI
                 group by Tariffa
             )
-        );
+        )
     )
     loop
         htp.tablerowopen;
-        htp.tabledata(pagamento.Tariffa);
-        htp.tabledata(pagamento.conto);
+        htp.tabledata(tariffa.Tariffa);
+        htp.tabledata(tariffa.conto);
         htp.tablerowclose;
     end loop;
 
@@ -285,8 +281,9 @@ procedure monitoraTariffeCampiEstivi_tariffeAnno
     sessionID in number,
     anno in number
 ) is
+begin
     htp.htmlopen;
-    mogui1.apripagina();
+    modgui1.apripagina();
     modgui1.header();
     htp.bodyopen;
     modgui1.apridiv('class="w3-modal-content w3-card-4" style="max-width:600px"');
@@ -295,7 +292,7 @@ procedure monitoraTariffeCampiEstivi_tariffeAnno
     for tariffa in (
         select TARIFFA, DATAPAGAMENTO
         from PAGAMENTICAMPIESTIVI
-        where extract(year from DATAPAGAMENTO)= anno;
+        where extract(year from DATAPAGAMENTO)= anno
     )
     loop
         htp.tablerowopen;
@@ -307,8 +304,6 @@ procedure monitoraTariffeCampiEstivi_tariffeAnno
     htp.tableclose;
     htp.bodyclose;
     htp.htmlclose;
-begin
-  
 end;
 
 procedure MonitoraTariffeCampiEstivi_tariffeCampo
@@ -318,7 +313,7 @@ procedure MonitoraTariffeCampiEstivi_tariffeCampo
 ) is 
 begin
     htp.htmlopen;
-    mogui1.apripagina();
+    modgui1.apripagina();
     modgui1.header();
     htp.bodyopen;
     modgui1.apridiv('class="w3-modal-content w3-card-4" style="max-width:600px"');
@@ -329,7 +324,7 @@ begin
         from TARIFFECAMPIESTIVI join PAGAMENTICAMPIESTIVI 
         on TARIFFECAMPIESTIVI.IdTariffa = PAGAMENTICAMPIESTIVI.TARIFFA
         where CampoEstivo = campoEstivo
-        order by Prezzo desc;
+        order by Prezzo desc
     )
     loop
         htp.tablerowopen;

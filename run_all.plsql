@@ -1,13 +1,12 @@
 -- CREAZIONE TABELLE
--- @gestioneDB/delete_data.plsql
--- @gestioneDB/create_table.plsql
--- @modGui/COSTANTI.plsql
--- @modGui/Login/trigger_utenti.plsql
+--@gestioneDB/delete_data.plsql
+--@gestioneDB/create_table.plsql
+--@modGUI/Login/login_sessioni.plsql
+--@modGui/Login/trigger_utenti.plsql
+--@modGui/Login/hasRole.plsql
 
 -- INSERIMENTO DATI
--- @gestioneDB/populate_table.plsql
-
-
+@gestioneDB/populate_table.plsql
 
 ----------------
 -- OPERAZIONI --
@@ -17,7 +16,6 @@
 @modGui/COSTANTI.plsql
 @modGui/MODGUI1PKS.plsql
 @modGui/MODGUI1PKB.plsql
-@modGui/hasRole.plsql
 
 -- GRUPPO 3
 @operazioneGruppo3/visite.plsql

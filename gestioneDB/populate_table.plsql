@@ -19971,14 +19971,6 @@ VALUES (IdTariffaSeq.nextval, 320.18, 15, 30, 8);
 INSERT INTO TARIFFECAMPIESTIVI (IdTariffa, Prezzo, Etaminima, Etamassima, CampoEstivo)
 VALUES (IdTariffaSeq.nextval, 751.17, 18, 999, 4);
 
-/********RUOLISESSIONI*********/
-INSERT INTO RUOLISESSIONI (Ruolo, IdSessione) VALUES ('U', 0);
-INSERT INTO RUOLISESSIONI (Ruolo, IdSessione) VALUES ('DBA', 1);
-INSERT INTO RUOLISESSIONI (Ruolo, IdSessione) VALUES ('AB', 2);
-INSERT INTO RUOLISESSIONI (Ruolo, IdSessione) VALUES ('GM', 3);
-INSERT INTO RUOLISESSIONI (Ruolo, IdSessione) VALUES ('GO', 4);
-INSERT INTO RUOLISESSIONI (Ruolo, IdSessione) VALUES ('GCE', 5);
-
 /************UTENTI*************/
 INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico, Eliminato)
 VALUES (IdUtenteseq.nextval,'Hichem','Toomey',to_date('23/07/2005','DD/MM/YYYY HH24:MI:SS'),'2 Misty Marsh Drive, Savannah','hichem@toomey.it','3494740733', 0);

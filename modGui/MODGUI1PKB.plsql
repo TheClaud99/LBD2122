@@ -1,3 +1,4 @@
+SET DEFINE OFF;
 CREATE OR REPLACE PACKAGE BODY modGUI1 as
 
     procedure ApriPagina(titolo varchar2 default 'Senza titolo', idSessione int default 0) is
@@ -21,7 +22,10 @@ CREATE OR REPLACE PACKAGE BODY modGUI1 as
                     modGUI1.Collegamento('Musei','MuseiHome?idSessione='|| idSessione,'w3-bar-item w3-button');
                     modGUI1.Collegamento('Campi Estivi','CampiEstiviHome?idSessione='|| idSessione,'w3-bar-item w3-button');
                     -- !FIXME: punta a radice.Home, quindi se radice != /apex/utente/webpages non riporta alla home
-                    modGUI1.Collegamento('LOG OUT','Home','w3-bar-item w3-button w3-red');
+                    modGUI1.ApriForm('RimozioneSessione', 'formLogOut', 'w3-container', 1);
+                        htp.FormHidden('idSessione', modGUI1.get_id_sessione());
+                        htp.prn('<button class="w3-button w3-block w3-red w3-section w3-padding">LOG OUT</button>');
+                    modGUI1.ChiudiForm;
                 ELSE
                     modGUI1.Collegamento('HOME','Home','w3-bar-item w3-button');
                 end if;
@@ -72,7 +76,11 @@ CREATE OR REPLACE PACKAGE BODY modGUI1 as
                     htp.prn('<img src="https://www.sologossip.it/wp-content/uploads/2020/12/clementino-sologossip.jpg" style="margin-left:6px; width:60px; height:60px;">');
                     modGUI1.ApriDiv('class="w3-dropdown-content" style="background-color:transparent;position:fixed;z-index:1;"');
                         -- !FIXME: punta a radice.Home, quindi se radice != /apex/utente/webpages non riporta alla home
-                        modGUI1.Collegamento('LOG OUT','Home','w3-button w3-red w3-small"');
+                        --modGUI1.Collegamento('LOG OUT','Home','w3-button w3-red w3-small"');
+                        modGUI1.ApriForm('RimozioneSessione', 'formLogOut', 'w3-container', 1);
+                            htp.FormHidden('idSessione', modGUI1.get_id_sessione());
+                            htp.prn('<button class="w3-button w3-red w3-small">LOG OUT</button>');
+                        modGUI1.ChiudiForm;
                     modGUI1.ChiudiDiv;
                 modGUI1.ChiudiDiv;
             modGUI1.ChiudiDiv;
@@ -109,16 +117,6 @@ CREATE OR REPLACE PACKAGE BODY modGUI1 as
         modGUI1.ChiudiDiv;
     end Login;
 
-    /* Da collegare al bottone LOG OUT sia dropdown che menu laterare */
-    PROCEDURE Logout(
-        idSessione NUMBER DEFAULT 0
-    ) IS
-    v_session SESSIONI%ROWTYPE;
-    BEGIN
-        -- Update la sessione corrente (non terminata) per l'utente
-        -- Setto data di fine a data corrente
-        UPDATE SESSIONI SET DataFine = sysdate WHERE LoginID=idSessione AND DataFine IS NULL;
-    END Logout;
 
     PROCEDURE set_cookie (idSessione IN UTENTILOGIN.idUtenteLogin%TYPE, url VARCHAR2 DEFAULT '') IS
     actualURL VARCHAR(1024);
@@ -185,6 +183,20 @@ CREATE OR REPLACE PACKAGE BODY modGUI1 as
         EXCEPTION WHEN OTHERS THEN
             htp.prn('<script> window.location.href = "'||costanti.radice2||'erroreLogin"</script>');
     end;
+
+    procedure RimozioneSessione(idsessione NUMBER DEFAULT 0) IS
+    v_session SESSIONI%ROWTYPE;
+    BEGIN
+        -- Update la sessione corrente (non terminata) per l'utente
+        -- Setto data di fine a data corrente
+        UPDATE SESSIONI SET DataFine = sysdate WHERE LoginID=idSessione AND DataFine IS NULL;
+        -- Rimuovo il cookie settato al login
+        owa_util.mime_header('text/html', FALSE);
+        owa_cookie.remove("NAME"  => 'SESSION_ID',
+                          val  => 0);
+        owa_util.redirect_url(costanti.server||'/apex/nvetrini.webpages.Home');
+        owa_util.http_header_close;
+    END RimozioneSessione;
  
     procedure erroreLogin IS
     BEGIN 
@@ -197,12 +209,13 @@ CREATE OR REPLACE PACKAGE BODY modGUI1 as
         /* Home ha prefisso radice, serve invece "utente.webpages." fino al merge dei pacchetti
         collegamento('X','Home','w3-button w3-xlarge w3-red w3-display-topright');*/
             htp.anchor(costanti.server||'/apex/nvetrini.webpages.Home', 
-                'X', 
-                'w3-button w3-xlarge w3-red w3-display-topright');
+                'X',
+                'logout',
+                'class="w3-btn w3-red w3-display-topright"');
             
             htp.prn('<h1 align="center">ERRORE LOGIN</h1>');
             MODGUI1.APRIDIV('class="w3-center"');
-            htp.print('password o EMAIL non valida');
+            htp.print('password o email non valida');
             htp.br;
             MODGUI1.ChiudiDiv;
         modGUI1.ChiudiDiv; 

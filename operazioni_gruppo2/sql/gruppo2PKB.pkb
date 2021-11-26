@@ -11,7 +11,6 @@ CREATE OR REPLACE PACKAGE BODY gruppo2 AS
  * - Rimozione Autore ✅
  * OPERAZIONI STATISTICHE E MONITORAGGIO
  * - Storico prestiti dell’Opera ✅
- * - Storico spostamenti relativi ad un Museo ❌ //procedura relativa al gruppo museo
  * - Autori dell’Opera ✅
  * - Tipo Sala in cui si trova l’Opera ✅
  * - Descrizioni dell’Opera ✅
@@ -40,6 +39,8 @@ procedure menuOpere (idSessione NUMBER DEFAULT NULL) is
             htp.print('&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;');
             modGUI1.Collegamento('Inserisci descrizione','InserisciDescrizione?idSessione='||idSessione||'','w3-btn w3-round-xxlarge w3-black');
             htp.print('&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;');
+            modGUI1.Collegamento('Opere Eliminate','menuOpereEliminate?idSessione='||idSessione||'','w3-btn w3-round-xxlarge w3-black');
+            htp.print('&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;');
         end if;
             htp.prn('<button onclick="document.getElementById(''11'').style.display=''block''" class="w3-btn w3-round-xxlarge w3-black">Statistiche</button>');
         modGUI1.ChiudiDiv;
@@ -47,11 +48,11 @@ procedure menuOpere (idSessione NUMBER DEFAULT NULL) is
         htp.br;
         modGUI1.ApriDiv('class="w3-row w3-container"');
     --Visualizzazione TUTTE LE OPERE *temporanea*
-            FOR opera IN (SELECT * FROM Opere)
+            FOR opera IN (SELECT * FROM Opere WHERE Eliminato = 0)
             LOOP
                 modGUI1.ApriDiv('class="w3-col l4 w3-padding-large w3-center"');
                     modGUI1.ApriDiv('class="w3-card-4" style="height:600px;"');
-                    htp.prn('<img src="https://cdn.pixabay.com/photo/2016/10/22/15/32/water-1761027__480.jpg" alt="Alps" style="width:100%;">');
+                    htp.prn('<img src="https://www.stateofmind.it/wp-content/uploads/2018/01/La-malattia-rappresentata-nelle-opere-darte-e-in-letteratura-680x382.jpg" alt="Alps" style="width:100%;">');
                             modGUI1.ApriDiv('class="w3-container w3-center"');
                                 htp.prn('<p><b>Titolo: </b>'|| opera.titolo ||'</p>');
                                 htp.br;
@@ -76,6 +77,110 @@ procedure menuOpere (idSessione NUMBER DEFAULT NULL) is
 
         modGUI1.chiudiDiv;
 end menuOpere;
+
+
+procedure menuOpereEliminate (idSessione NUMBER DEFAULT NULL) is
+    begin
+        htp.prn('<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css"> ');
+        modGUI1.ApriPagina('Opere',idSessione);
+        if idSessione IS NULL then
+            modGUI1.Header(0);
+        else
+            modGUI1.Header(idSessione);
+        end if;
+        htp.br;htp.br;htp.br;htp.br;htp.br;
+        modGUI1.ApriDiv('class="w3-center"');
+        htp.prn('<h1>Opere Eliminate</h1>'); --TITOLO
+        modGUI1.Collegamento('Torna al menù Opere','menuOpere?idSessione='||idsessione,'w3-btn w3-round-xxlarge w3-black');
+        htp.print('&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;');
+        modGUI1.ChiudiDiv;
+            gruppo2.selezioneMuseo(idSessione);
+        htp.br;
+        modGUI1.ApriDiv('class="w3-row w3-container"');
+    --Visualizzazione TUTTE LE OPERE *temporanea*
+            FOR opera IN (SELECT * FROM Opere WHERE Eliminato = 1)
+            LOOP
+                modGUI1.ApriDiv('class="w3-col l4 w3-padding-large w3-center"');
+                    modGUI1.ApriDiv('class="w3-card-4" style="height:600px;"');
+                    htp.prn('<img src="https://www.stateofmind.it/wp-content/uploads/2018/01/La-malattia-rappresentata-nelle-opere-darte-e-in-letteratura-680x382.jpg" alt="Alps" style="width:100%;">');
+                            modGUI1.ApriDiv('class="w3-container w3-center"');
+                                htp.prn('<p><b>Titolo: </b>'|| opera.titolo ||'</p>');
+                                htp.br;
+                                htp.prn('<p><b>Anno: </b>'|| opera.anno ||'</p>');
+                            modGUI1.ChiudiDiv;
+                        htp.prn('<button onclick="document.getElementById(''LinguaeLivelloOpera'||opera.idOpera||''').style.display=''block''" class="w3-margin w3-button w3-black w3-hover-white">Visualizza</button>');
+                        gruppo2.linguaELivello(idSessione,opera.idOpera);
+                        htp.print('&nbsp;');
+                        if hasRole(IdSessione, 'DBA') or hasRole(IdSessione, 'SU') then
+                        --bottone elimina
+                        modGUI1.Collegamento('Ripristina','ripristinaOpera?idSessione='||idsessione||'&operaID='||opera.idOpera,'w3-btn w3-green');
+                        htp.print('&nbsp;');
+                        htp.prn('<button onclick="document.getElementById(''ElimOperaDef'||opera.idOpera||''').style.display=''block''" class="w3-margin w3-button w3-red w3-hover-white">Elimina</button>');
+                        gruppo2.EliminazioneDefinitivaOpera(idSessione,opera.idOpera);
+                        htp.br;
+                    end if;
+                    modGUI1.ChiudiDiv;
+                modGUI1.ChiudiDiv;
+            END LOOP;
+        modGUI1.chiudiDiv;
+end menuOpereEliminate;
+
+procedure ripristinaOpera(
+    idSessione NUMBER DEFAULT 0,
+    operaID NUMBER DEFAULT 0
+)IS
+BEGIN
+    UPDATE opere SET eliminato=0 WHERE idOpera=operaID;
+    MODGUI1.redirect('MenuOpere?idSessione='||idSessione);
+END;
+
+--Procedura popUp per la conferma
+procedure EliminazioneDefinitivaOpera(
+    idSessione NUMBER default 0, 
+    operaID NUMBER default 0
+)is /*Form popup lingua */
+var1 VARCHAR2(100);
+    begin
+        modGUI1.ApriDiv('id="ElimOperaDef'||operaID||'" class="w3-modal"');
+            modGUI1.ApriDiv('class="w3-modal-content w3-card-4 w3-animate-zoom" style="max-width:600px"');
+                modGUI1.ApriDiv('class="w3-center"');
+                    htp.br;
+                    htp.prn('<span onclick="document.getElementById(''ElimOperaDef'||operaID||''').style.display=''none''" class="w3-button w3-xlarge w3-red w3-display-topright" title="Close Modal">X</span>');
+                htp.print('<h1><b>Confermi?</b></h1>');
+                modGUI1.ChiudiDiv;
+                        modGUI1.ApriDiv('class="w3-section"');
+                            htp.br;
+                            SELECT titolo INTO var1 FROM OPERE WHERE idOpera=operaId;
+                            htp.prn('stai per rimuovere: '||var1);
+                            modGUI1.Collegamento('Conferma',
+                            'RimozioneDefinitivaOpera?idSessione='||idSessione||'&operaID='||operaID,
+                            'w3-button w3-block w3-green w3-section w3-padding');
+                            htp.prn('<span onclick="document.getElementById(''ElimOperaDef'||operaID||''').style.display=''none''" class="w3-button w3-block w3-red w3-section w3-padding" title="Close Modal">Annulla</span>');
+                        modGUI1.ChiudiDiv;
+                    modGUI1.ChiudiForm;
+            modGUI1.ChiudiDiv;
+        modGUI1.ChiudiDiv;
+end EliminazioneDefinitivaOpera;
+
+procedure RimozioneDefinitivaOpera(
+    idSessione NUMBER default 0,
+    operaID NUMBER default 0
+)is
+esposizione NUMBER(5);
+BEGIN
+    SELECT COUNT(*) INTO esposizione FROM saleopere WHERE opera=operaID AND datauscita IS NULL;
+    IF esposizione > 0
+    THEN
+        MODGUI1.RedirectEsito(idSessione,'Eliminazione NON eseguita', 'Controlla i vincoli d''integrità.',null,null,null,'Torna alle opere','menuOpereEliminate',null);
+    ELSE
+        DELETE FROM saleopere WHERE opera = operaID;
+        DELETE FROM autoriopere WHERE idopera = operaID;
+        DELETE FROM descrizioni WHERE opera = operaID;
+        DELETE FROM OPERE WHERE idOpera = operaID;
+        -- Ritorno al menu opere
+        MODGUI1.RedirectEsito(idSessione,'Eliminazione completata', null,null,null,null,'Torna alle opere','menuOpereEliminate',null);
+    END IF;
+end RimozioneDefinitivaOpera;
 
 --Procedura popUp per la conferma
 procedure EliminazioneOpera(
@@ -105,7 +210,6 @@ var1 VARCHAR2(100);
         modGUI1.ChiudiDiv;
 end EliminazioneOpera;
 
-
 --Procedura rimozione opera
 procedure RimozioneOpera(
     idSessione NUMBER default 0,
@@ -116,13 +220,12 @@ BEGIN
     SELECT COUNT(*) INTO esposizione FROM saleopere WHERE opera=operaID AND datauscita IS NULL;
     IF esposizione > 0
     THEN
-        modGUI1.RedirectEsito(idSessione,'Eliminazione NON eseguita', 'Controlla i vincoli d''integrità.',null,null,null,'Torna alle opere','menuOpere',null);
+        MODGUI1.RedirectEsito(idSessione,'Eliminazione NON eseguita', 'Controlla i vincoli d''integrità.',null,null,null,'Torna alle opere','menuOpere',null);
     ELSE
-        DELETE FROM OPERE WHERE idOpera = operaID;
+        UPDATE opere SET Eliminato = 1 WHERE idopera = operaID;
         -- Ritorno al menu opere
-        modGUI1.RedirectEsito(idSessione,'Eliminazione completata', null,null,null,null,'Torna alle opere','menuOpere',null);
+        MODGUI1.RedirectEsito(idSessione,'Eliminazione completata', null,null,null,null,'Torna alle opere','menuOpere',null);
     END IF;
-
 end RimozioneOpera;
 
  
@@ -302,11 +405,11 @@ PROCEDURE InserisciDatiOpera(
         THEN
         -- faccio il commit dello statement precedente
         commit;
-        modGUI1.RedirectEsito(idSessione,'Inserimento andato a buon fine', null,'Inserisci una nuova opera','inserisciOpera',null,'Torna alle opere','menuOpere',null);
+        MODGUI1.RedirectEsito(idSessione,'Inserimento andato a buon fine', null,'Inserisci una nuova opera','inserisciOpera',null,'Torna alle opere','menuOpere',null);
 		-- Ritorno al menu opere
         END IF;
         EXCEPTION WHEN OTHERS THEN
-        modGUI1.RedirectEsito(idSessione,'Inserimento non riuscito', null,'Riprova','inserisciOpera',null,'Torna alle opere','menuOpere',null);
+        MODGUI1.RedirectEsito(idSessione,'Inserimento non riuscito', null,'Riprova','inserisciOpera',null,'Torna alle opere','menuOpere',null);
 		
 END InserisciDatiOpera;
 
@@ -447,28 +550,28 @@ PROCEDURE UpdateOpera(
 	operaID NUMBER DEFAULT 0,
 	newTitolo VARCHAR2 DEFAULT 'Sconosciuto',
 	newAnno VARCHAR2 DEFAULT 'Sconosciuto',
-	newFineperiodo NUMBER DEFAULT 0,
+	newFineperiodo NUMBER DEFAULT NULL,
 	newIDmusei NUMBER DEFAULT 0
 ) IS
-
+ 
 BEGIN
-    IF newFineperiodo>newAnno THEN
+    IF (NewFineperiodo is NULL) or (newFineperiodo>newAnno) THEN
 	UPDATE Opere SET
 		titolo=newTitolo,
 		anno=newAnno,
 		fineperiodo=newFineperiodo,
 		Museo=newIDmusei
 	WHERE IdOpera=operaID;
-    modGUI1.RedirectEsito(idSessione,'Update eseguito correttamente', null,null,null,null,'Torna alle opere','menuOpere',null);
+    MODGUI1.RedirectEsito(idSessione,'Update eseguito correttamente', null,null,null,null,'Torna alle opere','menuOpere',null);
     ELSE
     --EXCEPTION WHEN OTHERS THEN
-    modGUI1.RedirectEsito(idSessione, 'Update fallito',
+    MODGUI1.RedirectEsito(idSessione, 'Update fallito',
                 'Errore: parametri non ammessi',
                 'Torna all''update',
                 'ModificaOpera', 
                 '//operaID='||operaID||'//titoloOpera='||newTitolo,
                 'Torna al menù','menuOpere');
-    end if;
+    END IF;
 END;
 
 
@@ -492,6 +595,7 @@ cognomee VARCHAR2(50) DEFAULT 'sconosciuto';
 CURSOR Cur IS SELECT * FROM autoriopere WHERE idopera = operaID;
 
 varSala NUMBER(5) DEFAULT 0;
+varEliminato NUMBER(2) DEFAULT 0;
 varMuseo NUMBER(5) DEFAULT 0;
 varTipoSala VARCHAR2(100) DEFAULT 'Sconosciuto';
 varNomeStanza VARCHAR2(100) DEFAULT 'Sconosciuto';
@@ -506,22 +610,46 @@ BEGIN
     end if;
     htp.br;htp.br;htp.br;htp.br;htp.br;htp.br;
     modGUI1.ApriDiv('class="w3-center"');
-    SELECT Titolo into var1 FROM OPERE WHERE idOpera=operaID;
+    SELECT Titolo, Eliminato into var1, varEliminato FROM OPERE WHERE idOpera=operaID;
     htp.prn('<h1><b>'||var1||'</b></h1>'); --TITOLO
+    --ritorno al menù opere
+    
 
-    if hasRole(IdSessione, 'DBA') or hasRole(IdSessione, 'GO') then
+    if (hasRole(IdSessione, 'DBA') or hasRole(IdSessione, 'GO')) and varEliminato = 0 then
     modGUI1.Collegamento('Inserisci','InserisciDescrizione?idSessione='||idSessione||'&language='||lingue||'&d_level='||livelli||'&operaID='||OperaID,'w3-btn w3-round-xxlarge w3-black');
     htp.print('&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;');
     end if;
-
-    if(lingue='Italian')then
-    htp.prn('<button onclick="document.getElementById(''id104'').style.display=''block''" class="w3-btn w3-round-xxlarge w3-black">più info</button>');
-    end if;
-    if(lingue='English')then
-    htp.prn('<button onclick="document.getElementById(''id104'').style.display=''block''" class="w3-btn w3-round-xxlarge w3-black">more info</button>');
-    end if;
-    if(lingue='Chinese')then
-    htp.prn('<button onclick="document.getElementById(''id104'').style.display=''block''" class="w3-btn w3-round-xxlarge w3-black">更多信息</button>');
+    if varEliminato = 0 then
+        if(lingue='Italian')then
+            if  varEliminato = 0 then
+                modGUI1.Collegamento('Torna al menù','menuOpere?idSessione='||idsessione,'w3-btn w3-round-xxlarge w3-black');
+                htp.print('&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;');
+            else 
+                modGUI1.Collegamento('Torna al menù','menuOpereEliminate?idSessione='||idsessione,'w3-btn w3-round-xxlarge w3-black');
+                htp.print('&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;');
+            end if;
+            htp.prn('<button onclick="document.getElementById(''id104'').style.display=''block''" class="w3-btn w3-round-xxlarge w3-black">Più info</button>');
+        end if;
+        if(lingue='English')then
+            if  varEliminato = 0 then
+                modGUI1.Collegamento('Back to menù','menuOpere?idSessione='||idsessione,'w3-btn w3-round-xxlarge w3-black');
+                htp.print('&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;');
+            else 
+                modGUI1.Collegamento('Back to menù','menuOpereEliminate?idSessione='||idsessione,'w3-btn w3-round-xxlarge w3-black');
+                htp.print('&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;');
+            end if;
+            htp.prn('<button onclick="document.getElementById(''id104'').style.display=''block''" class="w3-btn w3-round-xxlarge w3-black">More info</button>');
+        end if;
+        if(lingue='Chinese')then
+            if  varEliminato = 0 then
+                modGUI1.Collegamento('回到菜单','menuOpere?idSessione='||idsessione,'w3-btn w3-round-xxlarge w3-black');
+                htp.print('&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;');
+            else 
+                modGUI1.Collegamento('回到菜单','menuOpereEliminate?idSessione='||idsessione,'w3-btn w3-round-xxlarge w3-black');
+                htp.print('&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;');
+            end if;
+            htp.prn('<button onclick="document.getElementById(''id104'').style.display=''block''" class="w3-btn w3-round-xxlarge w3-black">更多信息</button>');
+        end if;
     end if;
 modGUI1.ChiudiDiv;
 gruppo2.spostamentiOpera(idSessione,operaID);
@@ -546,13 +674,12 @@ FOR des IN (
 LOOP
     modGUI1.ApriDiv('class="w3-row w3-container w3-border w3-round-small w3-padding-large w3-hover-light-grey" style="width:100%"');
         modGUI1.ApriDiv('class="w3-container w3-cell"');
-        htp.prn('<img src="https://cdn.pixabay.com/photo/2016/10/22/15/32/water-1761027__480.jpg" alt="Alps" style="width:500px; height:300px;">');
+        htp.prn('<img src="https://www.stateofmind.it/wp-content/uploads/2018/01/La-malattia-rappresentata-nelle-opere-darte-e-in-letteratura-680x382.jpg" alt="Alps" style="width:500px; height:300px;">');
         modGUI1.ChiudiDiv;
         modGUI1.ApriDiv('class="w3-container w3-cell w3-border-right w3-cell-middle" style="width:1120px; height:300px"');
             htp.prn('<h5><b>'||var1||'</b></h5>');
             htp.prn('<p>'||SUBSTR(des.testo,0,100)||'</p>');
             htp.br;
-
             SELECT COUNT(*) INTO num FROM saleopere WHERE opera=operaID AND datauscita IS NULL;
             IF num = 0 THEN
             varNomeMuseo := 'NonEsposta';
@@ -578,7 +705,7 @@ LOOP
                 if(lingue='Italian')
                 then
                 htp.prn('<h5><b>Esposta: </b>❌</h5>');
-                if hasRole(IdSessione, 'DBA') or hasRole(IdSessione, 'GO') then
+                if (hasRole(IdSessione, 'DBA') or hasRole(IdSessione, 'GO')) and varEliminato = 0 then
                 modGUI1.collegamento('sposta',
                     'SpostaOpera?idSessione='||idSessione||'&operaID='||operaID||'&salaID='||varSala,
                     'w3-green w3-margin w3-button w3-small w3-round-xxlarge');
@@ -592,10 +719,11 @@ LOOP
                     MODGUI1.Collegamento(nomee||' '||Cognomee,
                         'ModificaAutore?idSessione='||idSessione||'&authorID='||auth.IdAutore||'&operazione=0'
                         ||'&caller=visualizzaOpera&callerParams=//operaID='||operaID||'//lingue='||lingue||'//livelli='||livelli);
+                    htp.prn(', ');
                     
                     END LOOP;
                     
-                    if hasRole(IdSessione, 'DBA') or hasRole(IdSessione, 'GO') then
+                    if (hasRole(IdSessione, 'DBA') or hasRole(IdSessione, 'GO')) and varEliminato = 0 then
                     modGUI1.Collegamento('Aggiungi Autore',
                         'AggiungiAutore?idSessione='||idSessione||'&operaID='||operaID,
                         'w3-yellow w3-margin w3-button w3-small w3-round-xxlarge');
@@ -608,7 +736,7 @@ LOOP
                 if(lingue='English')
                 then
                 htp.prn('<h5><b>Exposed: </b>❌</h5>');
-                if hasRole(IdSessione, 'DBA') or hasRole(IdSessione, 'GO') then
+                if (hasRole(IdSessione, 'DBA') or hasRole(IdSessione, 'GO')) and varEliminato = 0 then
                 modGUI1.collegamento('sposta',
                     'SpostaOpera?idSessione='||idSessione||'&operaID='||operaID||'&salaID='||varSala,
                     'w3-green w3-margin w3-button w3-small w3-round-xxlarge');
@@ -622,10 +750,11 @@ LOOP
                     MODGUI1.Collegamento(nomee||' '||Cognomee,
                         'ModificaAutore?idSessione='||idSessione||'&authorID='||auth.IdAutore||'&operazione=0'
                         ||'&caller=visualizzaOpera&callerParams=//operaID='||operaID||'//lingue='||lingue||'//livelli='||livelli);
+                    htp.prn(', ');
                     
                     END LOOP;
 
-                    if hasRole(IdSessione, 'DBA') or hasRole(IdSessione, 'GO') then
+                    if (hasRole(IdSessione, 'DBA') or hasRole(IdSessione, 'GO')) and varEliminato = 0 then
                     modGUI1.Collegamento('Aggiungi Autore',
                         'AggiungiAutore?idSessione='||idSessione||'&operaID='||operaID,
                         'w3-yellow w3-margin w3-button w3-small w3-round-xxlarge');
@@ -638,7 +767,7 @@ LOOP
                 if(lingue='Chinese')
                 then
                 htp.prn('<h5><b>裸露: </b>❌</h5>');
-                if hasRole(IdSessione, 'DBA') or hasRole(IdSessione, 'GO') then
+                if (hasRole(IdSessione, 'DBA') or hasRole(IdSessione, 'GO')) and varEliminato = 0 then
                 modGUI1.collegamento('sposta',
                     'SpostaOpera?idSessione='||idSessione||'&operaID='||operaID||'&salaID='||varSala,
                     'w3-green w3-margin w3-button w3-small w3-round-xxlarge');
@@ -655,7 +784,7 @@ LOOP
                     htp.prn(', ');
                     END LOOP;
 
-                    if hasRole(IdSessione, 'DBA') or hasRole(IdSessione, 'GO') then
+                    if (hasRole(IdSessione, 'DBA') or hasRole(IdSessione, 'GO')) and varEliminato = 0 then
                     modGUI1.Collegamento('Aggiungi Autore',
                         'AggiungiAutore?idSessione='||idSessione||'&operaID='||operaID,
                         'w3-yellow w3-margin w3-button w3-small w3-round-xxlarge');
@@ -676,7 +805,7 @@ LOOP
                 MODGUI1.Collegamento(''||varNomeMuseo||'','visualizzaMuseo?idSessione='||idSessione||'&idMuseo='||varMuseo);
                 htp.br;
                 htp.prn('<b>Sala: </b>'||varNomeStanza||'<b> tipo di sala: </b>'||varTipoSala); 
-                if hasRole(IdSessione, 'DBA') or hasRole(IdSessione, 'GO') then
+                if (hasRole(IdSessione, 'DBA') or hasRole(IdSessione, 'GO')) and varEliminato = 0 then
                 modGUI1.collegamento('sposta',
                     'SpostaOpera?idSessione='||idSessione||'&operaID='||operaID||'&salaID='||varSala,
                     'w3-green w3-margin w3-button w3-small w3-round-xxlarge');
@@ -693,7 +822,7 @@ LOOP
                     htp.prn(', ');
                     END LOOP;
                     
-                    if hasRole(IdSessione, 'DBA') or hasRole(IdSessione, 'GO') then
+                    if (hasRole(IdSessione, 'DBA') or hasRole(IdSessione, 'GO')) and varEliminato = 0 then
                     modGUI1.Collegamento('Aggiungi Autore',
                         'AggiungiAutore?idSessione='||idSessione||'&operaID='||operaID,
                         'w3-yellow w3-margin w3-button w3-small w3-round-xxlarge');
@@ -712,7 +841,7 @@ LOOP
                 MODGUI1.Collegamento(''||varNomeMuseo||'','visualizzaMuseo?idSessione='||idSessione||'&idMuseo='||varMuseo);
                 htp.br;
                 htp.prn('<b>Room: </b>'||varNomeStanza||'<b> type of room: </b>'||varTipoSala);--COLLEGAMENTO NOME STANZA
-                if hasRole(IdSessione, 'DBA') or hasRole(IdSessione, 'GO') then
+                if (hasRole(IdSessione, 'DBA') or hasRole(IdSessione, 'GO')) and varEliminato = 0 then
                 modGUI1.collegamento('sposta',
                     'SpostaOpera?idSessione='||idSessione||'&operaID='||operaID||'&salaID='||varSala,
                     'w3-green w3-margin w3-button w3-small w3-round-xxlarge');
@@ -730,7 +859,7 @@ LOOP
                     
                     END LOOP;
                     
-                    if hasRole(IdSessione, 'DBA') or hasRole(IdSessione, 'GO') then
+                    if (hasRole(IdSessione, 'DBA') or hasRole(IdSessione, 'GO')) and varEliminato = 0 then
                     modGUI1.Collegamento('Aggiungi Autore',
                         'AggiungiAutore?idSessione='||idSessione||'&operaID='||operaID,
                         'w3-yellow w3-margin w3-button w3-small w3-round-xxlarge');
@@ -749,7 +878,7 @@ LOOP
                 MODGUI1.Collegamento(''||varNomeMuseo||'','visualizzaMuseo?idSessione='||idSessione||'&idMuseo='||varMuseo);
                 htp.br;
                 htp.prn('<b>房间: </b>'||varNomeStanza||'<b> 大厅类型: </b>'||varTipoSala); --COLLEGAMENTO NOME STANZA
-                if hasRole(IdSessione, 'DBA') or hasRole(IdSessione, 'GO') then
+                if (hasRole(IdSessione, 'DBA') or hasRole(IdSessione, 'GO')) and varEliminato = 0 then
                 modGUI1.collegamento('sposta',
                     'SpostaOpera?idSessione='||idSessione||'&operaID='||operaID||'&salaID='||varSala,
                     'w3-green w3-margin w3-button w3-small w3-round-xxlarge');
@@ -766,7 +895,7 @@ LOOP
                     htp.prn(', ');
                     END LOOP;
 
-                    if hasRole(IdSessione, 'DBA') or hasRole(IdSessione, 'GO') then
+                    if (hasRole(IdSessione, 'DBA') or hasRole(IdSessione, 'GO')) and varEliminato = 0 then
                     modGUI1.Collegamento('Aggiungi Autore',
                         'AggiungiAutore?idSessione='||idSessione||'&operaID='||operaID,
                         'w3-yellow w3-margin w3-button w3-small w3-round-xxlarge');
@@ -781,7 +910,7 @@ LOOP
 
             modGUI1.ChiudiDiv;
             modGUI1.ApriDiv('class="w3-container w3-cell w3-cell-middle"');
-            if hasRole(IdSessione, 'DBA') or hasRole(IdSessione, 'GO')
+            if (hasRole(IdSessione, 'DBA') or hasRole(IdSessione, 'GO')) and varEliminato = 0
             then
                 modGUI1.collegamento('Modifica',
                     'ModificaDescrizione?idSessione='||idSessione||'&idDescrizione='||des.idDesc,
@@ -870,11 +999,11 @@ procedure SpostamentoOpera(
         UPDATE SALEOPERE SET datauscita = TO_DATE(TO_CHAR(SYSDATE, 'dd/mm/yyyy'), 'dd/mm/yyyy') WHERE datauscita IS NULL AND opera = operaID; 
         INSERT INTO SALEOPERE(IdMovimento, Sala, Opera, DataArrivo, DataUscita) VALUES (IdMovimentoSeq.nextVal, NuovaSalaID, operaID, TO_DATE(TO_CHAR(SYSDATE, 'dd/mm/yyyy'), 'dd/mm/yyyy'), null);
         UPDATE OPERE SET Esponibile = 1 WHERE idopera = operaID;
-        modGUI1.RedirectEsito(idSessione,'Spostamento eseguito', null,null,null,null,'Torna alle opere','menuOpere',null);  
+        MODGUI1.RedirectEsito(idSessione,'Spostamento eseguito', null,null,null,null,'Torna alle opere','menuOpere',null);  
     else
         UPDATE OPERE SET Esponibile = 0 WHERE idopera = operaID;
         UPDATE SALEOPERE SET datauscita = TO_DATE(TO_CHAR(SYSDATE, 'dd/mm/yyyy'), 'dd/mm/yyyy') WHERE datauscita IS NULL AND opera = operaID; 
-        modGUI1.RedirectEsito(idSessione,'Opera non più esposta',null,null,null,null,'Torna alle opere','menuOpere',null);  
+        MODGUI1.RedirectEsito(idSessione,'Opera non più esposta',null,null,null,null,'Torna alle opere','menuOpere',null);  
     END IF;
 END;
 
@@ -937,30 +1066,30 @@ controllo NUMBER(3);
             INSERT INTO AUTORIOPERE VALUES
                 (autoreID,operaID);
             IF SQL%FOUND THEN
-            modGUI1.RedirectEsito(idSessione, 'Inserimento riuscito',
+            MODGUI1.RedirectEsito(idSessione, 'Inserimento riuscito',
                 'autore aggiunto all''opera',
                 null,null,null,
                 'Torna al menù','menuOpere');
             ELSE
                 if lingue is not null THEN
-                    modGUI1.RedirectEsito(idSessione, 'Inserimento fallito',
+                    MODGUI1.RedirectEsito(idSessione, 'Inserimento fallito',
                     'Errore: Autore già presente',
                     'Torna all''opera','VisualizzaOpera', 
                     '//operaID='||operaID||'//lingue='||lingue,'Torna al menù','menuOpere');
                     ELSE
-                    modGUI1.RedirectEsito(idSessione, 'Inserimento fallito',
+                    MODGUI1.RedirectEsito(idSessione, 'Inserimento fallito',
                     'Errore: Autore già presente',
                     null,null, null,'Torna al menù','menuOpere');
                 END IF;
             END IF;
         ELSE
             if lingue is not null THEN
-                modGUI1.RedirectEsito(idSessione, 'Inserimento fallito',
+                MODGUI1.RedirectEsito(idSessione, 'Inserimento fallito',
                 'Errore: Autore già presente',
                 'Torna all''opera','VisualizzaOpera', 
                 '//operaID='||operaID||'//lingue='||lingue,'Torna al menù','menuOpere');
                 ELSE
-                modGUI1.RedirectEsito(idSessione, 'Inserimento fallito',
+                MODGUI1.RedirectEsito(idSessione, 'Inserimento fallito',
                 'Errore: Autore già presente',
                 null,null, null,'Torna al menù','menuOpere');
             END IF;
@@ -1023,12 +1152,12 @@ controllo NUMBER(3);
                 DELETE FROM AUTORIOPERE 
                 WHERE AUTORIOPERE.IdOpera=operaID AND AUTORIOPERE.IdAutore=autoreID;
                 IF SQL%FOUND THEN
-                    modGUI1.RedirectEsito(idSessione, 'Rimozione riuscita',
+                    MODGUI1.RedirectEsito(idSessione, 'Rimozione riuscita',
                         'Autore Rimosso',
                         null,null,null,
                         'Torna al menù','menuOpere');
                 ELSE
-                    modGUI1.RedirectEsito(idSessione, 'Rimozione NON riuscita',
+                    MODGUI1.RedirectEsito(idSessione, 'Rimozione NON riuscita',
                         'Autore NON Rimosso',
                         null,null,null,
                         'Torna al menù','menuOpere');
@@ -1037,14 +1166,14 @@ controllo NUMBER(3);
             DELETE FROM AUTORIOPERE 
             WHERE AUTORIOPERE.IdOpera=operaID AND AUTORIOPERE.IdAutore=autoreID;
             IF SQL%FOUND THEN
-                modGUI1.RedirectEsito(idSessione, 'Rimozione riuscita',
+                MODGUI1.RedirectEsito(idSessione, 'Rimozione riuscita',
                     'Autore Rimosso',
-                    'Torna alla rimozione','RimuoviAutoreOpera','RimuoviAutoreOpera//operaID='||operaID,
+                    'Torna alla rimozione','RimuoviAutoreOpera','//operaID='||operaID,
                     'Torna al menù','menuOpere');
             ELSE
-                modGUI1.RedirectEsito(idSessione, 'Rimozione NON riuscita',
+                MODGUI1.RedirectEsito(idSessione, 'Rimozione NON riuscita',
                     'Autore NON Rimosso',
-                    'Torna alla rimozione','RimuoviAutoreOpera','RimuoviAutoreOpera//operaID='||operaID,
+                    'Torna alla rimozione','RimuoviAutoreOpera','//operaID='||operaID,
                     'Torna al menù','menuOpere');
             END IF;
     END IF;
@@ -1065,7 +1194,7 @@ k NUMBER default 1;
 BEGIN
     SELECT museo INTO proprietario FROM opere WHERE idopera = operaID;
     DECLARE
-        CURSOR cur is SELECT * FROM saleopere WHERE opera = operaID;
+        CURSOR cur is SELECT * FROM saleopere WHERE opera = operaID ORDER BY dataarrivo;
     BEGIN
         SELECT nome into var1 FROM MUSEI WHERE proprietario=idMuseo;
         modGUI1.ApriDiv('id="id104" class="w3-modal"');
@@ -1169,6 +1298,7 @@ BEGIN
             htp.prn('<h1><b>STATISTICHE DELLE OPERE</b></h1>'); --TITOLO
             IF(museoID=0)THEN
                     htp.prn('<h4><b>tutti i musei</b></h4>');
+                    modGUI1.Collegamento('Torna al menù Opere','menuOpere?idSessione='||idsessione,'w3-btn w3-round-xxlarge w3-black');
                     modGUI1.ChiudiDiv;
                     htp.br;
                     modGUI1.ApriDiv('class="w3-container" style="width:100%"');
@@ -1184,7 +1314,7 @@ BEGIN
                             modGUI1.ApriDiv('class="w3-col l4 w3-padding-large w3-center"');
                             gruppo2.coloreClassifica(k);
                                 modGUI1.ApriDiv('class="w3-card-4"');
-                                htp.prn('<img src="https://cdn.pixabay.com/photo/2016/10/22/15/32/water-1761027__480.jpg" alt="Alps" style="width:100%">');
+                                htp.prn('<img src="http://www.visitoslo.com/contentassets/3932b41a7b684b40a28d3195191265fe/edvard-munch-nasjonalbiblioteket.jpg" alt="Alps" style="width:100%">');
                                     modGUI1.ApriDiv('class="w3-container w3-center"');
                                     --INIZIO DESCRIZIONI
                                         htp.prn('<b>Titolo: </b>');
@@ -1217,7 +1347,7 @@ BEGIN
                             modGUI1.ApriDiv('class="w3-col l4 w3-padding-large w3-center"');
                                 gruppo2.coloreClassifica(k);
                                 modGUI1.ApriDiv('class="w3-card-4"');
-                                htp.prn('<img src="https://cdn.pixabay.com/photo/2016/10/22/15/32/water-1761027__480.jpg" alt="Alps" style="width:100%">');
+                                htp.prn('<img src="http://www.visitoslo.com/contentassets/3932b41a7b684b40a28d3195191265fe/edvard-munch-nasjonalbiblioteket.jpg" alt="Alps" style="width:100%">');
                                         modGUI1.ApriDiv('class="w3-container w3-center" style="height:150px;"');
                                         --INIZIO DESCRIZIONI
                                             htp.prn('<b>Titolo: </b>');
@@ -1249,7 +1379,7 @@ BEGIN
                         modGUI1.ApriDiv('class="w3-col l4 w3-padding-large w3-center"');
                         gruppo2.coloreClassifica(k);
                             modGUI1.ApriDiv('class="w3-card-4"');
-                            htp.prn('<img src="https://cdn.pixabay.com/photo/2016/10/22/15/32/water-1761027__480.jpg" alt="Alps" style="width:100%">');
+                            htp.prn('<img src="http://www.visitoslo.com/contentassets/3932b41a7b684b40a28d3195191265fe/edvard-munch-nasjonalbiblioteket.jpg" alt="Alps" style="width:100%">');
                                 modGUI1.ApriDiv('class="w3-container w3-center"');
                                     --INIZIO DESCRIZIONI
                                     htp.prn('<b>Titolo: </b>');
@@ -1281,7 +1411,7 @@ BEGIN
                         modGUI1.ApriDiv('class="w3-col l4 w3-padding-large w3-center"');
                         gruppo2.coloreClassifica(k);
                             modGUI1.ApriDiv('class="w3-card-4"');
-                            htp.prn('<img src="https://cdn.pixabay.com/photo/2016/10/22/15/32/water-1761027__480.jpg" alt="Alps" style="width:100%">');
+                            htp.prn('<img src="http://www.visitoslo.com/contentassets/3932b41a7b684b40a28d3195191265fe/edvard-munch-nasjonalbiblioteket.jpg" alt="Alps" style="width:100%">');
                                 modGUI1.ApriDiv('class="w3-container w3-center"');
                                     --INIZIO DESCRIZIONI
                                     htp.prn('<b>Titolo: </b>');
@@ -1298,7 +1428,10 @@ BEGIN
             ELSE
                     SELECT nome INTO var1 FROM MUSEI WHERE idMuseo=museoID;
                     --htp.prn('<h4><b>'||var1||'</b></h4>');
-                    MODGUI1.Collegamento('<h4><b>'||var1||'</b></h4>','visualizzaMuseo?idSessione='||idSessione||'&idMuseo='||museoID);
+                    MODGUI1.Collegamento('<h4><b>'||var1||'</b></h4>','visualizzaMuseo?idSessione='||idSessione||'&idMuseo='||museoID,'w3-btn w3-round-xxlarge w3-white w3-border w3-hover-yellow');
+                    htp.br;
+                    htp.br;
+                    modGUI1.Collegamento('Torna al menù Opere','menuOpere?idSessione='||idsessione,'w3-btn w3-round-xxlarge w3-black');
                     modGUI1.ChiudiDiv;
                     htp.br;
                     modGUI1.ApriDiv('class="w3-container" style="width:100%"');
@@ -1315,7 +1448,7 @@ BEGIN
                             modGUI1.ApriDiv('class="w3-col l4 w3-padding-large w3-center"');
                             gruppo2.coloreClassifica(k);
                                 modGUI1.ApriDiv('class="w3-card-4"');
-                                htp.prn('<img src="https://cdn.pixabay.com/photo/2016/10/22/15/32/water-1761027__480.jpg" alt="Alps" style="width:100%">');
+                                htp.prn('<img src="http://www.visitoslo.com/contentassets/3932b41a7b684b40a28d3195191265fe/edvard-munch-nasjonalbiblioteket.jpg" alt="Alps" style="width:100%">');
                                     modGUI1.ApriDiv('class="w3-container w3-center"');
                                     --INIZIO DESCRIZIONI
                                         htp.prn('<b>Titolo: </b>');
@@ -1348,7 +1481,7 @@ BEGIN
                             modGUI1.ApriDiv('class="w3-col l4 w3-padding-large w3-center"');
                                 gruppo2.coloreClassifica(k);
                                 modGUI1.ApriDiv('class="w3-card-4"');
-                                htp.prn('<img src="https://cdn.pixabay.com/photo/2016/10/22/15/32/water-1761027__480.jpg" alt="Alps" style="width:100%">');
+                                htp.prn('<img src="http://www.visitoslo.com/contentassets/3932b41a7b684b40a28d3195191265fe/edvard-munch-nasjonalbiblioteket.jpg" alt="Alps" style="width:100%">');
                                         modGUI1.ApriDiv('class="w3-container w3-center" style="height:150px;"');
                                         --INIZIO DESCRIZIONI
                                             htp.prn('<b>Titolo: </b>');
@@ -1382,13 +1515,13 @@ BEGIN
                         modGUI1.ApriDiv('class="w3-col l4 w3-padding-large w3-center"');
                         gruppo2.coloreClassifica(k);
                             modGUI1.ApriDiv('class="w3-card-4"');
-                            htp.prn('<img src="https://cdn.pixabay.com/photo/2016/10/22/15/32/water-1761027__480.jpg" alt="Alps" style="width:100%">');
+                            htp.prn('<img src="http://www.visitoslo.com/contentassets/3932b41a7b684b40a28d3195191265fe/edvard-munch-nasjonalbiblioteket.jpg" alt="Alps" style="width:100%">');
                                 modGUI1.ApriDiv('class="w3-container w3-center"');
                                     --INIZIO DESCRIZIONI
                                     htp.prn('<b>Titolo: </b>');
                                     htp.prn('<button onclick="document.getElementById(''LinguaeLivelloOpera'||var.idOpera||''').style.display=''block''" class="w3-margin w3-btn w3-border">'|| varOpera ||'</button>');
                                     gruppo2.linguaELivello(idSessione,var.idOpera);
-                                    htp.prn('<p><b>Anno realizzazione </b>'||years||' D.C</p>');
+                                    htp.prn('<p><b>Anno realizzazione </b>'||years||' D.C.</p>');
                                     p:=annoCorrente-years;
                                     htp.prn('<p><b>Anni </b>'||p||'</p>');
                                     --FINE DESCRIZIONI
@@ -1414,7 +1547,7 @@ BEGIN
                         modGUI1.ApriDiv('class="w3-col l4 w3-padding-large w3-center"');
                         gruppo2.coloreClassifica(k);
                             modGUI1.ApriDiv('class="w3-card-4"');
-                            htp.prn('<img src="https://cdn.pixabay.com/photo/2016/10/22/15/32/water-1761027__480.jpg" alt="Alps" style="width:100%">');
+                            htp.prn('<img src="http://www.visitoslo.com/contentassets/3932b41a7b684b40a28d3195191265fe/edvard-munch-nasjonalbiblioteket.jpg" alt="Alps" style="width:100%">');
                                 modGUI1.ApriDiv('class="w3-container w3-center"');
                                     --INIZIO DESCRIZIONI
                                     htp.prn('<b>Titolo: </b>');
@@ -1493,7 +1626,7 @@ BEGIN
     LOOP
         modGUI1.ApriDiv('class="w3-col l4 w3-padding-large w3-center"');
             modGUI1.ApriDiv('class="w3-card-4"');
-                htp.prn('<img src="https://cdn.pixabay.com/photo/2016/10/22/15/32/water-1761027__480.jpg" alt="Alps" style="width:100%;">');
+                htp.prn('<img src="http://www.visitoslo.com/contentassets/3932b41a7b684b40a28d3195191265fe/edvard-munch-nasjonalbiblioteket.jpg" alt="Alps" style="width:100%;">');
                 modGUI1.ApriDiv('class="w3-container w3-center"');
                     htp.prn('<p>'|| autore.Nome ||' '||autore.Cognome||'</p>');
                 modGUI1.ChiudiDiv;
@@ -1545,7 +1678,7 @@ BEGIN
     LOOP
         modGUI1.ApriDiv('class="w3-col l4 w3-padding-large w3-center"');
             modGUI1.ApriDiv('class="w3-card-4"');
-                htp.prn('<img src="https://cdn.pixabay.com/photo/2016/10/22/15/32/water-1761027__480.jpg" alt="Alps" style="width:100%;">');
+                htp.prn('<img src="http://www.visitoslo.com/contentassets/3932b41a7b684b40a28d3195191265fe/edvard-munch-nasjonalbiblioteket.jpg" alt="Alps" style="width:100%;">');
                 modGUI1.ApriDiv('class="w3-container w3-center"');
                     htp.prn('<p>'|| autore.Nome ||' '||autore.Cognome||'</p>');
                 modGUI1.ChiudiDiv;
@@ -1821,7 +1954,7 @@ SELECT * INTO auth FROM autori WHERE authID=IDAUTORE;
             LOOP
                 modGUI1.ApriDiv('class="w3-col l4 w3-padding-large w3-center"');
                     modGUI1.ApriDiv('class="w3-card-4" style="height:600px;"');
-                    htp.prn('<img src="https://cdn.pixabay.com/photo/2016/10/22/15/32/water-1761027__480.jpg" alt="Alps" style="width:100%;">');
+                    htp.prn('<img src="https://www.stateofmind.it/wp-content/uploads/2018/01/La-malattia-rappresentata-nelle-opere-darte-e-in-letteratura-680x382.jpg" alt="Alps" style="width:100%;">');
                             modGUI1.ApriDiv('class="w3-container w3-center"');
                                 htp.prn('<p>'|| op.titolo ||'</p>');
                                 htp.br;
@@ -1852,7 +1985,7 @@ SELECT * INTO auth FROM autori WHERE authID=IDAUTORE;
             LOOP
                 modGUI1.ApriDiv('class="w3-col l4 w3-padding-large w3-center"');
                     modGUI1.ApriDiv('class="w3-card-4"');
-                    htp.prn('<img src="https://cdn.pixabay.com/photo/2016/10/22/15/32/water-1761027__480.jpg" alt="Alps" style="width:100%;">');
+                    htp.prn('<img src="https://upload.wikimedia.org/wikipedia/commons/6/68/Museo_del_Prado_2016_%2825185969599%29.jpg" alt="Alps" style="width:100%;">');
                             modGUI1.ApriDiv('class="w3-container w3-center"');
                                 htp.prn('<p><b>'||mus.Nome||'</b></p>');
                                 modGUI1.Collegamento('Visualizza', 
@@ -1875,7 +2008,7 @@ SELECT * INTO auth FROM autori WHERE authID=IDAUTORE;
             LOOP
                 modGUI1.ApriDiv('class="w3-col l4 w3-padding-large w3-center"');
                     modGUI1.ApriDiv('class="w3-card-4" style="height:600px;"');
-                    htp.prn('<img src="https://cdn.pixabay.com/photo/2016/10/22/15/32/water-1761027__480.jpg" alt="Alps" style="width:100%;">');
+                    htp.prn('<img src="https://www.stateofmind.it/wp-content/uploads/2018/01/La-malattia-rappresentata-nelle-opere-darte-e-in-letteratura-680x382.jpg" alt="Alps" style="width:100%;">');
                             modGUI1.ApriDiv('class="w3-container w3-center"');
                                 htp.prn('<p>'|| op.titolo ||'</p>');
                                 htp.br;
@@ -1997,7 +2130,7 @@ BEGIN
         LOOP
             modGUI1.ApriDiv('class="w3-col l4 w3-padding-large w3-center"');
                 modGUI1.ApriDiv('class="w3-card-4" style="height:600px;"');
-                htp.prn('<img src="https://cdn.pixabay.com/photo/2016/10/22/15/32/water-1761027__480.jpg" alt="Alps" style="width:100%;">');
+                htp.prn('<img src="https://www.stateofmind.it/wp-content/uploads/2018/01/La-malattia-rappresentata-nelle-opere-darte-e-in-letteratura-680x382.jpg" alt="Alps" style="width:100%;">');
                     modGUI1.ApriDiv('class="w3-container w3-center"');
                         htp.prn('<p>'|| op.Titolo ||'</p>');
                         htp.br;
@@ -2027,7 +2160,7 @@ BEGIN
             eta := (sysdate - an_author.DataNascita) / 365;
             modGUI1.ApriDiv('class="w3-col l4 w3-padding-large w3-center"');
                 modGUI1.ApriDiv('class="w3-card-4"');
-                htp.prn('<img src="https://cdn.pixabay.com/photo/2016/10/22/15/32/water-1761027__480.jpg" alt="Alps" style="width:100%;">');
+                htp.prn('<img src="http://www.visitoslo.com/contentassets/3932b41a7b684b40a28d3195191265fe/edvard-munch-nasjonalbiblioteket.jpg" alt="Alps" style="width:100%;">');
                     modGUI1.ApriDiv('class="w3-container w3-center"');
                         htp.prn('<p>'||an_author.Nome||' '||an_author.Cognome||'</p>');
                         htp.br;
@@ -2702,7 +2835,7 @@ modGUI1.ApriPagina('ModificaDescrizione',idSessione);
                     modGUI1.InputTextArea('newtesto', DESCR.testo, 1, DESCR.testo);
                     htp.br; htp.br;
                     modGUI1.InputSubmit('Modifica');
-                    MODGUI1.collegamento('Annulla','VisualizzaOpera?idSessione='||idSessione||'&operaID='||descr.opera||'&lingue='||descr.lingua,'w3-button w3-block w3-black w3-section w3-padding');
+                    MODGUI1.collegamento('Annulla','VisualizzaOpera?idSessione='||idSessione||'&operaID='||descr.opera||'&lingue='||descr.lingua||'&livelli='||descr.livello,'w3-button w3-block w3-black w3-section w3-padding');
                 modGUI1.ChiudiForm;
             --FINE SEZIONE DA MODIFICARE
             modGUI1.ChiudiDiv;
@@ -2803,6 +2936,7 @@ cursor lin is (SELECT LINGUA, count(lingua) as clin
                         FROM DESCRIZIONI
                         GROUP by LINGUA
                     )));
+                 
 BEGIN
     MODGUI1.ApriPagina('StatisticheDescrizioni',idSessione);
         modGUI1.Header(idSessione);

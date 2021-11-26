@@ -5,9 +5,12 @@ procedure erroreLogin;
 procedure ApriPagina(titolo varchar2 default 'Senza titolo', idSessione int default 0);
 procedure Header (idSessione int default 0);
 procedure BannerUtente (idSessione int default 0);
+/* Login & logout */
 procedure Login;
+PROCEDURE Logout(idSessione NUMBER DEFAULT 0);
 procedure set_cookie (idSessione IN UTENTILOGIN.idUtenteLogin%TYPE, url VARCHAR2 DEFAULT '');
 procedure CreazioneSessione (usernames VARCHAR2 DEFAULT 'Sconosciuto', passwords VARCHAR2 DEFAULT 'Sconosciuto', url VARCHAR2 DEFAULT 'Sconosciuto');
+
 procedure Bottone (colore varchar2,text varchar2 default 'myButton', id varchar2 default '', fun VARCHAR2 DEFAULT '');
 procedure ApriDiv (attributi varchar2 default '');
 procedure ChiudiDiv;
@@ -36,7 +39,7 @@ procedure apriTabella(classe varchar2 default 'defTable');
 procedure chiudiTabella;
 procedure apriRigaTabella(classe varchar2 default 'defRowTable');
 procedure chiudiRigaTabella;
-procedure apriElementoTabella(classe varchar2 default 'defElementoTabella', id varchar2 default ''); 
+procedure apriElementoTabella(classe varchar2 default 'defElementoTabella', id varchar2 default '');
 procedure chiudiElementoTabella;
 procedure ElementoTabella(testo varchar2);
 procedure intestazioneTabella(testo varchar2, classe varchar2 default 'defHeaderTable');
@@ -65,4 +68,3 @@ procedure EsitoOperazione(
     );
 
 end modGUI1;
-

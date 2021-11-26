@@ -1,4 +1,3 @@
-SET DEFINE OFF;
 CREATE OR REPLACE PACKAGE BODY modGUI1 as
 
     procedure ApriPagina(titolo varchar2 default 'Senza titolo', idSessione int default 0) is
@@ -21,6 +20,7 @@ CREATE OR REPLACE PACKAGE BODY modGUI1 as
                     modGUI1.Collegamento('HOME','Home?idSessione='|| idSessione,'w3-bar-item w3-button');
                     modGUI1.Collegamento('Musei','MuseiHome?idSessione='|| idSessione,'w3-bar-item w3-button');
                     modGUI1.Collegamento('Campi Estivi','CampiEstiviHome?idSessione='|| idSessione,'w3-bar-item w3-button');
+                    -- !FIXME: punta a radice.Home, quindi se radice != /apex/utente/webpages non riporta alla home
                     modGUI1.Collegamento('LOG OUT','Home','w3-bar-item w3-button w3-red');
                 ELSE
                     modGUI1.Collegamento('HOME','Home','w3-bar-item w3-button');
@@ -40,6 +40,12 @@ CREATE OR REPLACE PACKAGE BODY modGUI1 as
                 }
             </script>
         ');
+        EXCEPTION
+            WHEN OTHERS THEN
+                modGUI1.ApriPagina('?', 0);
+                modGUI1.APriDiv;
+                htp.prn('Errore: '||sqlerrm);
+                modGUI1.ChiudiDiv;
     end Header;
  
 
@@ -65,6 +71,7 @@ CREATE OR REPLACE PACKAGE BODY modGUI1 as
                 modGUI1.ApriDiv('class="w3-quarter w3-right w3-dropdown-hover"');
                     htp.prn('<img src="https://www.sologossip.it/wp-content/uploads/2020/12/clementino-sologossip.jpg" style="margin-left:6px; width:60px; height:60px;">');
                     modGUI1.ApriDiv('class="w3-dropdown-content" style="background-color:transparent;position:fixed;z-index:1;"');
+                        -- !FIXME: punta a radice.Home, quindi se radice != /apex/utente/webpages non riporta alla home
                         modGUI1.Collegamento('LOG OUT','Home','w3-button w3-red w3-small"');
                     modGUI1.ChiudiDiv;
                 modGUI1.ChiudiDiv;
@@ -83,7 +90,7 @@ CREATE OR REPLACE PACKAGE BODY modGUI1 as
                     htp.prn('<span onclick="document.getElementById(''id01'').style.display=''none''" class="w3-button w3-xlarge w3-red w3-display-topright" title="Close Modal">X</span>
                             <img src="https://termoidraulicabassini.it/wp-content/uploads/2015/12/utente.png" alt="Avatar" style="width:30%" class="w3-circle w3-margin-top">');
                 modGUI1.ChiudiDiv;
-                    modGUI1.ApriForm('modGUI1.CreazioneSessione','formLogIn','w3-container',1);
+                    modGUI1.ApriForm('CreazioneSessione','formLogIn','w3-container',1);
                         modGUI1.ApriDiv('class="w3-section"');
                             modGUI1.Label('Username:');
                             modGUI1.InputText('usernames','Enter Username',1);
@@ -102,7 +109,19 @@ CREATE OR REPLACE PACKAGE BODY modGUI1 as
         modGUI1.ChiudiDiv;
     end Login;
 
+    /* Da collegare al bottone LOG OUT sia dropdown che menu laterare */
+    PROCEDURE Logout(
+        idSessione NUMBER DEFAULT 0
+    ) IS
+    v_session SESSIONI%ROWTYPE;
+    BEGIN
+        -- Update la sessione corrente (non terminata) per l'utente
+        -- Setto data di fine a data corrente
+        UPDATE SESSIONI SET DataFine = sysdate WHERE LoginID=idSessione AND DataFine IS NULL;
+    END Logout;
+
     PROCEDURE set_cookie (idSessione IN UTENTILOGIN.idUtenteLogin%TYPE, url VARCHAR2 DEFAULT '') IS
+    actualURL VARCHAR(1024);
     begin
         -- htp.prn('<h1>'||idSessione||'</h1>');
         owa_util.mime_header('text/html', FALSE);
@@ -121,13 +140,29 @@ CREATE OR REPLACE PACKAGE BODY modGUI1 as
     end;
  
     procedure CreazioneSessione (usernames VARCHAR2 DEFAULT 'Sconosciuto', passwords VARCHAR2 DEFAULT 'Sconosciuto', url VARCHAR2 DEFAULT 'Sconosciuto')is
-    sessione NUMBER DEFAULT 0;
+    vLogin UtentiLogin.IdUtenteLogin%TYPE;
+    vSessionID Sessioni.LoginID%TYPE;
+    SafeURL VARCHAR2(1024);
     begin
-       SELECT idUtenteLogin into sessione FROM UTENTILOGIN
+       SELECT idUtenteLogin into vLogin FROM UTENTILOGIN
        WHERE username=usernames AND password=passwords;
         IF SQL%FOUND THEN
-            set_cookie(sessione, url);
             -- htp.prn('<script> window.location.href = "'||url||'?idSessione='||sessione||'"</script>');
+            -- Creo una nuova sessione per questo utente (se già non ne aveva una aperta)
+            BEGIN
+                -- Una sessione è presente se trovo un loginID=vLogin e se tale sessione non è già terminata
+                -- cioè DataFine != null 
+                -- (quindi vi è al più una sessione non terminata per utente ma potrei avere più sessioni terminate)
+                SELECT LoginID INTO vSessionID FROM SESSIONI WHERE LoginID=vLogin AND DataFine IS NULL;
+                EXCEPTION
+                    WHEN no_data_found THEN
+                    -- Nuova sessione
+                    INSERT INTO SESSIONI (LoginID,DataInizio,DataFine) 
+                    VALUES (vLogin, SYSDATE(), NULL);
+                    commit;
+                -- Se la sessione era già presente non devo fare niente
+            END;
+            set_cookie(vLogin, url);
         END IF;
         EXCEPTION WHEN OTHERS THEN
             htp.prn('<script> window.location.href = "'||costanti.radice2||'erroreLogin"</script>');
@@ -140,7 +175,13 @@ CREATE OR REPLACE PACKAGE BODY modGUI1 as
         htp.br;htp.br;htp.br;htp.br;htp.br;htp.br;
         --DA MODIFICARE
         modGUI1.ApriDiv('class="w3-modal-content w3-card-4 w3-animate-zoom w3-display-center" style="max-width:600px" ');
-        collegamento('X','Home','w3-button w3-xlarge w3-red w3-display-topright');
+
+        /* Home ha prefisso radice, serve invece "utente.webpages." fino al merge dei pacchetti
+        collegamento('X','Home','w3-button w3-xlarge w3-red w3-display-topright');*/
+            htp.anchor(costanti.server||'/apex/nvetrini.webpages.Home', 
+                'X', 
+                'w3-button w3-xlarge w3-red w3-display-topright');
+            
             htp.prn('<h1 align="center">ERRORE LOGIN</h1>');
             MODGUI1.APRIDIV('class="w3-center"');
             htp.print('password o EMAIL non valida');
@@ -457,4 +498,3 @@ CREATE OR REPLACE PACKAGE BODY modGUI1 as
     end EsitoOperazione;
 
 end modGUI1;
-SET DEFINE ON;

@@ -205,6 +205,11 @@ PROCEDURE UpdateAutore(
 	newNation VARCHAR2 DEFAULT 'Sconosciuta'
 );
 
+procedure ripristinaAutore(
+    idSessione NUMBER DEFAULT 0,
+    authID NUMBER DEFAULT 0
+);
+
 PROCEDURE EliminazioneAutore(
     idSessione NUMBER default 0,
     authorID NUMBER default 0

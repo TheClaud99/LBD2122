@@ -1314,7 +1314,7 @@ BEGIN
                             modGUI1.ApriDiv('class="w3-col l4 w3-padding-large w3-center"');
                             gruppo2.coloreClassifica(k);
                                 modGUI1.ApriDiv('class="w3-card-4"');
-                                htp.prn('<img src="http://www.visitoslo.com/contentassets/3932b41a7b684b40a28d3195191265fe/edvard-munch-nasjonalbiblioteket.jpg" alt="Alps" style="width:100%">');
+                                htp.prn('<img src="https://www.stateofmind.it/wp-content/uploads/2018/01/La-malattia-rappresentata-nelle-opere-darte-e-in-letteratura-680x382.jpg" alt="Alps" style="width:100%">');
                                     modGUI1.ApriDiv('class="w3-container w3-center"');
                                     --INIZIO DESCRIZIONI
                                         htp.prn('<b>Titolo: </b>');
@@ -1347,7 +1347,7 @@ BEGIN
                             modGUI1.ApriDiv('class="w3-col l4 w3-padding-large w3-center"');
                                 gruppo2.coloreClassifica(k);
                                 modGUI1.ApriDiv('class="w3-card-4"');
-                                htp.prn('<img src="http://www.visitoslo.com/contentassets/3932b41a7b684b40a28d3195191265fe/edvard-munch-nasjonalbiblioteket.jpg" alt="Alps" style="width:100%">');
+                                htp.prn('<img src="https://www.stateofmind.it/wp-content/uploads/2018/01/La-malattia-rappresentata-nelle-opere-darte-e-in-letteratura-680x382.jpg" alt="Alps" style="width:100%">');
                                         modGUI1.ApriDiv('class="w3-container w3-center" style="height:150px;"');
                                         --INIZIO DESCRIZIONI
                                             htp.prn('<b>Titolo: </b>');
@@ -1379,7 +1379,7 @@ BEGIN
                         modGUI1.ApriDiv('class="w3-col l4 w3-padding-large w3-center"');
                         gruppo2.coloreClassifica(k);
                             modGUI1.ApriDiv('class="w3-card-4"');
-                            htp.prn('<img src="http://www.visitoslo.com/contentassets/3932b41a7b684b40a28d3195191265fe/edvard-munch-nasjonalbiblioteket.jpg" alt="Alps" style="width:100%">');
+                            htp.prn('<img src="https://www.stateofmind.it/wp-content/uploads/2018/01/La-malattia-rappresentata-nelle-opere-darte-e-in-letteratura-680x382.jpg" alt="Alps" style="width:100%">');
                                 modGUI1.ApriDiv('class="w3-container w3-center"');
                                     --INIZIO DESCRIZIONI
                                     htp.prn('<b>Titolo: </b>');
@@ -1411,7 +1411,7 @@ BEGIN
                         modGUI1.ApriDiv('class="w3-col l4 w3-padding-large w3-center"');
                         gruppo2.coloreClassifica(k);
                             modGUI1.ApriDiv('class="w3-card-4"');
-                            htp.prn('<img src="http://www.visitoslo.com/contentassets/3932b41a7b684b40a28d3195191265fe/edvard-munch-nasjonalbiblioteket.jpg" alt="Alps" style="width:100%">');
+                            htp.prn('<img src="https://www.stateofmind.it/wp-content/uploads/2018/01/La-malattia-rappresentata-nelle-opere-darte-e-in-letteratura-680x382.jpg" alt="Alps" style="width:100%">');
                                 modGUI1.ApriDiv('class="w3-container w3-center"');
                                     --INIZIO DESCRIZIONI
                                     htp.prn('<b>Titolo: </b>');
@@ -1448,7 +1448,7 @@ BEGIN
                             modGUI1.ApriDiv('class="w3-col l4 w3-padding-large w3-center"');
                             gruppo2.coloreClassifica(k);
                                 modGUI1.ApriDiv('class="w3-card-4"');
-                                htp.prn('<img src="http://www.visitoslo.com/contentassets/3932b41a7b684b40a28d3195191265fe/edvard-munch-nasjonalbiblioteket.jpg" alt="Alps" style="width:100%">');
+                                htp.prn('<img src="https://www.stateofmind.it/wp-content/uploads/2018/01/La-malattia-rappresentata-nelle-opere-darte-e-in-letteratura-680x382.jpg" alt="Alps" style="width:100%">');
                                     modGUI1.ApriDiv('class="w3-container w3-center"');
                                     --INIZIO DESCRIZIONI
                                         htp.prn('<b>Titolo: </b>');
@@ -1481,7 +1481,7 @@ BEGIN
                             modGUI1.ApriDiv('class="w3-col l4 w3-padding-large w3-center"');
                                 gruppo2.coloreClassifica(k);
                                 modGUI1.ApriDiv('class="w3-card-4"');
-                                htp.prn('<img src="http://www.visitoslo.com/contentassets/3932b41a7b684b40a28d3195191265fe/edvard-munch-nasjonalbiblioteket.jpg" alt="Alps" style="width:100%">');
+                                htp.prn('<img src="https://www.stateofmind.it/wp-content/uploads/2018/01/La-malattia-rappresentata-nelle-opere-darte-e-in-letteratura-680x382.jpg" alt="Alps" style="width:100%">');
                                         modGUI1.ApriDiv('class="w3-container w3-center" style="height:150px;"');
                                         --INIZIO DESCRIZIONI
                                             htp.prn('<b>Titolo: </b>');
@@ -1515,7 +1515,7 @@ BEGIN
                         modGUI1.ApriDiv('class="w3-col l4 w3-padding-large w3-center"');
                         gruppo2.coloreClassifica(k);
                             modGUI1.ApriDiv('class="w3-card-4"');
-                            htp.prn('<img src="http://www.visitoslo.com/contentassets/3932b41a7b684b40a28d3195191265fe/edvard-munch-nasjonalbiblioteket.jpg" alt="Alps" style="width:100%">');
+                            htp.prn('<img src="https://www.stateofmind.it/wp-content/uploads/2018/01/La-malattia-rappresentata-nelle-opere-darte-e-in-letteratura-680x382.jpg" alt="Alps" style="width:100%">');
                                 modGUI1.ApriDiv('class="w3-container w3-center"');
                                     --INIZIO DESCRIZIONI
                                     htp.prn('<b>Titolo: </b>');
@@ -1547,7 +1547,7 @@ BEGIN
                         modGUI1.ApriDiv('class="w3-col l4 w3-padding-large w3-center"');
                         gruppo2.coloreClassifica(k);
                             modGUI1.ApriDiv('class="w3-card-4"');
-                            htp.prn('<img src="http://www.visitoslo.com/contentassets/3932b41a7b684b40a28d3195191265fe/edvard-munch-nasjonalbiblioteket.jpg" alt="Alps" style="width:100%">');
+                            htp.prn('<img src="https://www.stateofmind.it/wp-content/uploads/2018/01/La-malattia-rappresentata-nelle-opere-darte-e-in-letteratura-680x382.jpg" alt="Alps" style="width:100%">');
                                 modGUI1.ApriDiv('class="w3-container w3-center"');
                                     --INIZIO DESCRIZIONI
                                     htp.prn('<b>Titolo: </b>');

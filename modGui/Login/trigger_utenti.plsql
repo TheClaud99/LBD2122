@@ -13,4 +13,4 @@ BEGIN
     :new.Nome||UPPER(:new.Cognome), 
     'utente', 
     'U');
-END; 
+END;

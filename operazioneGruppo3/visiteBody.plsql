@@ -151,16 +151,19 @@ CREATE OR REPLACE PACKAGE BODY packagevisite AS
         </html>');
     END;
 
-    PROCEDURE visualizza_visite (
-        idsessione INT DEFAULT 0
-    ) IS
+    PROCEDURE visualizza_visite IS
+        id_sessione NUMBER(10) := NULL;
     BEGIN
-        modgui1.apripagina();
-        modgui1.header();
+        id_sessione := modgui1.get_id_sessione;
+        modgui1.apripagina(
+                          'Visite',
+                          id_sessione
+        );
+        modgui1.header(id_sessione);
         modgui1.apridiv('style="margin-top: 110px"');
         modgui1.apridiv('class="w3-center"');
         htp.prn('<h1>Visite</h1>');
-        IF ( idsessione = 1 ) THEN
+        IF ( id_sessione = 1 ) THEN
             modgui1.collegamento(
                                 'Aggiungi',
                                 'PackageVisite.pagina_inserisci_visita',
@@ -202,7 +205,7 @@ CREATE OR REPLACE PACKAGE BODY packagevisite AS
                                 'packagevisite.visualizzavisita?idvisitaselezionata=' || visita.idvisita,
                                 'w3-button w3-margin w3-black'
             );
-            IF ( idsessione = 1 ) THEN
+            IF ( id_sessione = 1 ) THEN
                 modgui1.collegamento(
                                     'Modifica',
                                     'packagevisite.pagina_modifica_visita?carica_default=1&idvisitaselezionata=' || visita.idvisita,

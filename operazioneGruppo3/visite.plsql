@@ -50,8 +50,6 @@ CREATE OR REPLACE PACKAGE packagevisite AS
         action               IN  VARCHAR2 DEFAULT NULL
     );
 
-    PROCEDURE visualizza_visite (
-        idsessione INT DEFAULT 0
-    );
+    PROCEDURE visualizza_visite;
 
 END packagevisite;

@@ -119,6 +119,24 @@ CREATE OR REPLACE PACKAGE BODY modGUI1 as
         when others then
             null;
     end;
+
+    -- Ritorna l'id della sessione in corso se esiste,
+    -- 0 altrimenti
+    function get_id_sessione
+    RETURN NUMBER IS
+        v varchar2(255) := null;
+        c owa_cookie.cookie;
+    BEGIN
+        c := owa_cookie.get('SESSION_ID');
+
+        IF c.num_vals > 0 THEN
+            v := c.vals(1);
+            RETURN TO_NUMBER(v);
+        ELSE
+            RETURN 0;
+        END IF;
+
+    END;
  
     procedure CreazioneSessione (usernames VARCHAR2 DEFAULT 'Sconosciuto', passwords VARCHAR2 DEFAULT 'Sconosciuto', url VARCHAR2 DEFAULT 'Sconosciuto')is
     sessione NUMBER DEFAULT 0;
@@ -457,4 +475,4 @@ CREATE OR REPLACE PACKAGE BODY modGUI1 as
     end EsitoOperazione;
 
 end modGUI1;
-SET DEFINE ON;
+-- SET DEFINE ON;

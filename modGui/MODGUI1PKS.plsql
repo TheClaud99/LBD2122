@@ -7,6 +7,7 @@ procedure Header (idSessione int default 0);
 procedure BannerUtente (idSessione int default 0);
 procedure Login;
 procedure set_cookie (idSessione IN UTENTILOGIN.idUtenteLogin%TYPE, url VARCHAR2 DEFAULT '');
+function get_id_sessione return NUMBER;
 procedure CreazioneSessione (usernames VARCHAR2 DEFAULT 'Sconosciuto', passwords VARCHAR2 DEFAULT 'Sconosciuto', url VARCHAR2 DEFAULT 'Sconosciuto');
 procedure Bottone (colore varchar2,text varchar2 default 'myButton', id varchar2 default '', fun VARCHAR2 DEFAULT '');
 procedure ApriDiv (attributi varchar2 default '');

@@ -2906,10 +2906,11 @@ procedure RimozioneDescrizione(
 ) IS
 opid number(5);
 oplingua VARCHAR2(25);
+oplivello VARCHAR2(25);
 BEGIN
-    SELECT Opera, LINGUA into opid, oplingua
+    SELECT Opera, LINGUA,livello into opid, oplingua, oplivello
     FROM DESCRIZIONI WHERE IDDESC=idDescrizione;
-    modGUI1.RedirectEsito(idSessione,'Rimozione riuscita', null,null,null, null,'Torna all''opera','VisualizzaOpera','//operaID='||opid||'//lingue='||oplingua);
+    modGUI1.RedirectEsito(idSessione,'Rimozione riuscita', null,null,null, null,'Torna all''opera','VisualizzaOpera','//operaID='||opid||'//lingue='||oplingua||'//livelli='||oplivello);
         DELETE FROM DESCRIZIONI WHERE IDDESC = idDescrizione;
         commit;
 end RimozioneDescrizione;

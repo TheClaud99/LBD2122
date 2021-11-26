@@ -1,9 +1,9 @@
 -- CREAZIONE TABELLE
---@gestioneDB/delete_data.plsql
---@gestioneDB/create_table.plsql
+@gestioneDB/delete_data.plsql
+@gestioneDB/create_table.plsql
 --@modGUI/Login/login_sessioni.plsql
---@modGui/Login/trigger_utenti.plsql
---@modGui/Login/hasRole.plsql
+@modGui/Login/trigger_utenti.plsql
+@modGui/Login/hasRole.plsql
 
 -- INSERIMENTO DATI
 @gestioneDB/populate_table.plsql

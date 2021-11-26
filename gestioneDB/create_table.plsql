@@ -203,6 +203,39 @@ Create Table UTENTICAMPIESTIVI
    RichiestaAssistenza number(1) not null check(RichiestaAssistenza IN(0,1))
 );
 
+
+
+/* Tabella che contiene username, password e ruolo di ogni utente */
+Create Table UTENTILOGIN
+(
+   IdUtenteLogin number(5) primary key,
+   IdCliente NUMBER(5) DEFAULT NULL REFERENCES Utenti(IdUtente),
+   Username VARCHAR2(50) not null,
+   Password VARCHAR2(50) not null,
+   Ruolo VARCHAR2(10) DEFAULT 'U' not null,
+   CHECK(Ruolo IN ('DBA', 'SU', 'AB', 'GM', 'GCE', 'GO', 'U'))
+);
+/* Definizione ruoli  */
+/*
+DBA = Amministratore della base di dati
+SU = SuperUser
+AB = Addetto biglietteria
+GM = Gestore museo (non ha riferimento al particolare museo)
+GCE = Gestore campi estivi (non ha riferimento al particolare campo)
+GO = Gestore opere (non ha riferimento al particolare museo)
+U = UTENTE (cliente)
+*/
+
+/* Tabella delle sessioni: contiene lo storico degli utenti loggati */
+-- DataFine viene settata != null quando utente fa logout
+CREATE TABLE Sessioni(
+   LoginID NUMBER(5) REFERENCES UtentiLogin(IdUtenteLogin),
+   DataInizio DATE NOT NULL,
+   DataFine DATE DEFAULT NULL,
+   CONSTRAINT PK_sessioni PRIMARY KEY (LoginID,DataInizio),
+   CHECK (DataInizio < DataFine OR DataFine IS NULL)
+);
+
 Create Table PAGAMENTICAMPIESTIVI
 (
    IdPagamento number(5) primary key,

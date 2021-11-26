@@ -11,22 +11,23 @@ AUTORIOPERE:7903
 DESCRIZIONI:9104
 CAMPIESTIVI:19905
 TARIFFECAMPIESTIVI:19924
-UTENTI:19973
-UTENTICAMPIESTIVI:22072
-UTENTIMUSEO:23073
-PAGAMENTICAMPIESTIVI:23874
-UTENTIPAGAMENTI:24473
-TUTORI:25072
-NEWSLETTER:26139
-NEWSLETTERUTENTI:26144
-TIPOLOGIEINGRESSO:27283
-TIPOLOGIEINGRESSOMUSEI:27312
-TITOLIINGRESSO:27385
-BIGLIETTI:29952
-ABBONAMENTI:29977
-VARCHI:29986
-VISITE:30301
-VISITEVARCHI:30329
+UTENTILOGIN: 19973
+UTENTI: 19985
+UTENTICAMPIESTIVI:22085
+UTENTIMUSEO:23086
+PAGAMENTICAMPIESTIVI:23887
+UTENTIPAGAMENTI:24486
+TUTORI:25085
+NEWSLETTER:26152
+NEWSLETTERUTENTI:26157
+TIPOLOGIEINGRESSO:27296
+TIPOLOGIEINGRESSOMUSEI:27325
+TITOLIINGRESSO:27374
+BIGLIETTI:29858
+ABBONAMENTI:29883
+VARCHI:29889
+VISITE:30204
+VISITEVARCHI:30232
 */
 /**********MUSEI*********/
 SET DEFINE OFF;
@@ -42,7 +43,6 @@ INSERT INTO MUSEI (IdMuseo, Nome, Indirizzo, Eliminato)
 VALUES (5, 'Museo di Scienze Naturali', 'Via Galileo Galilei 20, Pisa (PI)', 0);
 INSERT INTO MUSEI (IdMuseo, Nome, Indirizzo, Eliminato)
 VALUES (6, 'Pinacoteca Nazionale', 'Via Francesco Petrarca 44, Pisa (PI)', 0);
-/***********OPERE************/
 /***********OPERE************/
 INSERT INTO OPERE (idOpera, Titolo, Anno, FinePeriodo, Museo, Esponibile)
 VALUES(idOperaSeq.nextVal, 'PietÃ  at the Foot of the Cross', 996, NULL, 6, 1);
@@ -19970,7 +19970,18 @@ INSERT INTO TARIFFECAMPIESTIVI (IdTariffa, Prezzo, Etaminima, Etamassima, CampoE
 VALUES (IdTariffaSeq.nextval, 320.18, 15, 30, 8);
 INSERT INTO TARIFFECAMPIESTIVI (IdTariffa, Prezzo, Etaminima, Etamassima, CampoEstivo)
 VALUES (IdTariffaSeq.nextval, 751.17, 18, 999, 4);
-
+/***********UTENTILOGIN***********/
+/* Inserimento di utenti con non sono clienti (non hanno FK in IdCliente) */
+INSERT INTO UTENTILOGIN (IdUtenteLogin, IdCliente, Username, Password, Ruolo)
+VALUES (IdUtenteLoginSeq.nextval, NULL, 'MarioROSSI', 'dba', 'DBA');
+INSERT INTO UTENTILOGIN (IdUtenteLogin, IdCliente, Username, Password, Ruolo)
+VALUES (IdUtenteLoginSeq.nextval, NULL, 'LuigiBIANCHI', 'ab', 'AB');
+INSERT INTO UTENTILOGIN (IdUtenteLogin, IdCliente, Username, Password, Ruolo)
+VALUES (IdUtenteLoginSeq.nextval, NULL, 'StefanoVERDI', 'gm', 'GM');
+INSERT INTO UTENTILOGIN (IdUtenteLogin, IdCliente, Username, Password, Ruolo)
+VALUES (IdUtenteLoginSeq.nextval, NULL, 'PaoloNERI', 'go', 'GO');
+INSERT INTO UTENTILOGIN (IdUtenteLogin, IdCliente, Username, Password, Ruolo)
+VALUES (IdUtenteLoginSeq.nextval, NULL, 'MarcoGIALLI', 'gce', 'GCE');
 /************UTENTI*************/
 INSERT INTO UTENTI (IdUtente, Nome, Cognome, DataNascita, Indirizzo, Email, RecapitoTelefonico, Eliminato)
 VALUES (IdUtenteseq.nextval,'Hichem','Toomey',to_date('23/07/2005','DD/MM/YYYY HH24:MI:SS'),'2 Misty Marsh Drive, Savannah','hichem@toomey.it','3494740733', 0);
@@ -30902,18 +30913,6 @@ INSERT INTO VISITEVARCHI (IdVisita, IdVarco, AttraversamentoVarco)
 VALUES (13, 25, to_date('15:54:15', 'HH24:MI:SS'));
 INSERT INTO VISITEVARCHI (IdVisita, IdVarco, AttraversamentoVarco)
 VALUES (13, 25, to_date('15:55:13', 'HH24:MI:SS'));
-
-/********UTENTILOGIN*********/
-INSERT INTO UTENTILOGIN (IdUtenteLogin, IdCliente, Username, Password, Ruolo)
-VALUES (IdUtenteLoginSeq.nextval, NULL, 'MarioROSSI', 'dba', 'DBA');
-INSERT INTO UTENTILOGIN (IdUtenteLogin, IdCliente, Username, Password, Ruolo)
-VALUES (IdUtenteLoginSeq.nextval, NULL, 'LuigiBIANCHI', 'ab', 'AB');
-INSERT INTO UTENTILOGIN (IdUtenteLogin, IdCliente, Username, Password, Ruolo)
-VALUES (IdUtenteLoginSeq.nextval, NULL, 'StefanoVERDI', 'gm', 'GM');
-INSERT INTO UTENTILOGIN (IdUtenteLogin, IdCliente, Username, Password, Ruolo)
-VALUES (IdUtenteLoginSeq.nextval, NULL, 'PaoloNERI', 'go', 'GO');
-INSERT INTO UTENTILOGIN (IdUtenteLogin, IdCliente, Username, Password, Ruolo)
-VALUES (IdUtenteLoginSeq.nextval, NULL, 'MarcoGIALLI', 'gce', 'GCE');
 
 SET DEFINE ON;
 commit;

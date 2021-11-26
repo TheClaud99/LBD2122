@@ -1,5 +1,4 @@
 DROP TABLE UTENTILOGIN;
-DROP TABLE RUOLISESSIONI;
 DROP SEQUENCE IdUtenteLoginSeq;
 
 /* Tabella che contiene username, password e ruolo di ogni utente */
@@ -39,20 +38,5 @@ maxvalue 99999
 cycle;
 
 ALTER SEQUENCE IdUtenteLoginSeq RESTART START WITH 1;
-
-commit;
-
-
-/* Inserimento di utenti con non sono clienti (non hanno FK in IdCliente) */
-INSERT INTO UTENTILOGIN (IdUtenteLogin, IdCliente, Username, Password, Ruolo)
-VALUES (IdUtenteLoginSeq.nextval, NULL, 'MarioROSSI', 'dba', 'DBA');
-INSERT INTO UTENTILOGIN (IdUtenteLogin, IdCliente, Username, Password, Ruolo)
-VALUES (IdUtenteLoginSeq.nextval, NULL, 'LuigiBIANCHI', 'ab', 'AB');
-INSERT INTO UTENTILOGIN (IdUtenteLogin, IdCliente, Username, Password, Ruolo)
-VALUES (IdUtenteLoginSeq.nextval, NULL, 'StefanoVERDI', 'gm', 'GM');
-INSERT INTO UTENTILOGIN (IdUtenteLogin, IdCliente, Username, Password, Ruolo)
-VALUES (IdUtenteLoginSeq.nextval, NULL, 'PaoloNERI', 'go', 'GO');
-INSERT INTO UTENTILOGIN (IdUtenteLogin, IdCliente, Username, Password, Ruolo)
-VALUES (IdUtenteLoginSeq.nextval, NULL, 'MarcoGIALLI', 'gce', 'GCE');
 
 commit;

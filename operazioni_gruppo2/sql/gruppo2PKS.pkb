@@ -6,6 +6,16 @@ PROCEDURE SpostamentiOpera (
     idSessione NUMBER DEFAULT 0,
     operaID NUMBER DEFAULT 0
 );
+procedure EliminazioneDefinitivaOpera(
+    idSessione NUMBER default 0,
+    operaID NUMBER default 0
+);
+
+procedure RimozioneDefinitivaOpera(
+    idSessione NUMBER default 0,
+    operaID NUMBER default 0
+);
+
 PROCEDURE SpostaOpera(
         idSessione NUMBER DEFAULT 0,
         operaID NUMBER DEFAULT 0,
@@ -18,6 +28,7 @@ PROCEDURE SpostamentoOpera(
     NuovaSalaID NUMBER DEFAULT 0
 );
 PROCEDURE menuOpere (idSessione NUMBER DEFAULT NULL);
+procedure menuOpereEliminate (idSessione NUMBER DEFAULT NULL);
 PROCEDURE selezioneMuseo(idSessione NUMBER DEFAULT 0);
 PROCEDURE StatisticheOpere(
     idSessione NUMBER DEFAULT 0,
@@ -63,6 +74,10 @@ PROCEDURE RimozioneOpera(
     idSessione NUMBER default 0,
     operaID NUMBER default 0
 );
+procedure ripristinaOpera(
+    idSessione NUMBER DEFAULT 0,
+    operaID NUMBER DEFAULT 0
+);
 PROCEDURE ConfermaDatiOpera(
     idSessione NUMBER DEFAULT 0,
     titolo VARCHAR2 DEFAULT 'Sconosciuto',
@@ -91,7 +106,7 @@ PROCEDURE UpdateOpera(
 	operaID NUMBER DEFAULT 0,
 	newTitolo VARCHAR2 DEFAULT 'Sconosciuto',
 	newAnno VARCHAR2 DEFAULT 'Sconosciuto',
-	newFineperiodo NUMBER DEFAULT 0,
+	newFineperiodo NUMBER DEFAULT NULL,
 	newIDmusei NUMBER DEFAULT 0
 );
 

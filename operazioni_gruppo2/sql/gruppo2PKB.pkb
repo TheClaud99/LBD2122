@@ -129,9 +129,14 @@ procedure ripristinaOpera(
     idSessione NUMBER DEFAULT 0,
     operaID NUMBER DEFAULT 0
 )IS
+op Opere%ROWTYPE;
 BEGIN
+    SELECT * INTO op from opere where idOpera=operaID;
     UPDATE opere SET eliminato=0 WHERE idOpera=operaID;
-    MODGUI1.redirect('MenuOpere?idSessione='||idSessione);
+    modGUI1.RedirectEsito(idSessione, 'Ripristino riuscito', 
+            'L''opera '||op.titolo||' è stato ripristinata', 
+            'Torna al menu opere eliminate', 'menuOpereEliminate', null,
+            'Torna al menu opere', 'MenuOpere', null);
 END;
 
 --Procedura popUp per la conferma
@@ -178,7 +183,9 @@ BEGIN
         DELETE FROM descrizioni WHERE opera = operaID;
         DELETE FROM OPERE WHERE idOpera = operaID;
         -- Ritorno al menu opere
-        MODGUI1.RedirectEsito(idSessione,'Eliminazione completata', null,null,null,null,'Torna alle opere','menuOpereEliminate',null);
+        MODGUI1.RedirectEsito(idSessione,'Eliminazione riuscita', null,
+            'Torna al menu opere eliminate', 'menuOpereEliminate', null,
+            'Torna al menu opere', 'MenuOpere', null);
     END IF;
 end RimozioneDefinitivaOpera;
 
@@ -224,7 +231,7 @@ BEGIN
     ELSE
         UPDATE opere SET Eliminato = 1 WHERE idopera = operaID;
         -- Ritorno al menu opere
-        MODGUI1.RedirectEsito(idSessione,'Eliminazione completata', null,null,null,null,'Torna alle opere','menuOpere',null);
+        MODGUI1.RedirectEsito(idSessione,'Eliminazione completata', null,'Vai al menù opere eliminate','menuOpereEliminate',null,'Torna alle opere','menuOpere',null);
     END IF;
 end RimozioneOpera;
 
@@ -1686,11 +1693,9 @@ BEGIN
                 modGUI1.Collegamento('Visualizza',
                     'ModificaAutore?idSessione='||idSessione||'&authorID='||autore.IdAutore||'&operazione=0',
                     'w3-black w3-margin w3-button');
-                IF hasRole(IdSessione, 'DBA') THEN
-                    -- parametro modifica messo a true: possibile fare editing dell'autore
-                    modGUI1.Collegamento('Modifica',
-                        'ModificaAutore?idSessione='||idSessione||'&authorID='||autore.IdAutore||'&operazione=1',
-                        'w3-green w3-margin w3-button');
+                if hasRole(IdSessione, 'DBA') or hasRole(IdSessione, 'SU') then
+                    modGUI1.Collegamento('Ripristina','ripristinaAutore?idSessione='||idsessione||'&authID='||autore.IdAutore,'w3-btn w3-green');
+                    htp.print('&nbsp;');
                     htp.prn('<button onclick="document.getElementById(''RimozioneAutore'||autore.IdAutore||''').style.display=''block''" class="w3-margin w3-button w3-red w3-hover-white">Rimuovi</button>');
                     gruppo2.RimozioneAutore(idSessione,autore.IdAutore);
                 END IF;
@@ -1699,6 +1704,20 @@ BEGIN
     END LOOP;
     modGUI1.chiudiDiv;
 END menuAutoriELiminati;
+
+procedure ripristinaAutore(
+    idSessione NUMBER DEFAULT 0,
+    authID NUMBER DEFAULT 0
+)IS
+auth Autori%ROWTYPE;
+BEGIN
+    SELECT * INTO auth from Autori where IdAutore=authID;
+    UPDATE AUTORI SET eliminato=0 WHERE IDAUTORE=authID;
+    modGUI1.RedirectEsito(idSessione, 'Ripristino riuscito', 
+            'L''autore '||auth.Nome||' '||auth.Cognome||' è stato ripristinato', 
+            'Torna al menu autori eliminati', 'menuAutoriELiminati', null,
+            'Torna al menu autori', 'menuAutori', null);
+END;
 
 
 --Procedura popUp per la conferma
@@ -1747,7 +1766,7 @@ BEGIN
     ELSE
         modGUI1.RedirectEsito(idSessione, 'Eliminazione riuscita', 
             'L''autore '||auth.Nome||' '||auth.Cognome||' è stato eliminato', 
-            null, null, null,
+            'Vai al menu autori eliminati', 'menuAutoriELiminati', null,
             'Torna al menu autori', 'menuAutori', null);
         UPDATE Autori SET Eliminato=1 WHERE IdAutore = authorID;
         commit;
@@ -1786,10 +1805,12 @@ PROCEDURE DeleteAutore(
     idSessione NUMBER DEFAULT 0,
     authorID NUMBER DEFAULT 0
 ) IS
+auth autori%ROWTYPE;
 numOpereRealizzate NUMBER(5); 
 BEGIN
     -- non è possibile rimuovere un autore che ha realizzato almeno un opera
     -- se non si rimuovono prima le opere in questione
+    SELECT * into auth FROM AUTORI WHERE IDAUTORE=authorID;
     SELECT COUNT(*) INTO numOpereRealizzate FROM AutoriOpere WHERE IdAutore=authorID;
     IF numOpereRealizzate > 0
     THEN
@@ -1797,18 +1818,16 @@ BEGIN
         modGUI1.RedirectEsito(
             idSessione,
             'Rimozione fallita',
-            'L''autore ha delle opere nella base di dati',
+            'L''autore '||auth.Nome||' '||auth.Cognome||'ha delle opere nella base di dati',
             null, null, null,
             'Torna al menu Autori',
             'menuAutori');
     ELSE
         -- esito positivo: solo opzione per tornare al menu
-         modGUI1.RedirectEsito(
-            idSessione,
-            'Rimozione riuscita',
-            null, null, null, null,
-            'Torna al menu Autori',
-            'menuAutori');
+            modGUI1.RedirectEsito(idSessione, 'Rimozione riuscita', 
+            'L''autore '||auth.Nome||' '||auth.Cognome||' è stato rimosso', 
+            'Torna al menu autori eliminati', 'menuAutoriELiminati', null,
+            'Torna al menu autori', 'menuAutori', null);
         -- Setto autore ad eliminato
         DELETE FROM Autori WHERE IdAutore=authorID;
         commit;
@@ -2579,11 +2598,14 @@ PROCEDURE InserisciDescrizione(
     d_text VARCHAR2 DEFAULT NULL,
     operaID NUMBER DEFAULT NULL
 ) IS
-def_lingua VARCHAR2(255) := 'Inserisci la lingua...';
+--def_lingua VARCHAR2(255) := 'Inserisci la lingua...';
 def_descr VARCHAR2(255) := 'Inserisci la descrizione...';
 bambino_SELECTed NUMBER(1) := 0;
 adulto_SELECTed NUMBER(1) := 0;
 esperto_SELECTed NUMBER(1) := 0;
+italian_SELECTed NUMBER(1) := 0;
+English_SELECTed NUMBER(1) := 0;
+Chinese_SELECTed NUMBER(1) := 0;
 BEGIN
     modGUI1.ApriPagina('Inserimento Descrizione', idSessione);
 
@@ -2601,9 +2623,21 @@ BEGIN
         modGUI1.ApriForm('ConfermaDatiDescrizione');
         htp.FORMHIDDEN('idSessione',idSessione);
         htp.br;
-        MODGUI1.Label('Lingua*'); -- TODO: usare dropdown per avere nome standardizzato
-        MODGUI1.InputText('language', def_lingua, 1, language);
-        htp.br;
+        --MODGUI1.Label('Lingua*'); -- TODO: usare dropdown per avere nome standardizzato
+        --MODGUI1.InputText('language', def_lingua, 1, language);
+        --htp.br;
+        IF language = 'Italian' THEN
+            italian_SELECTed := 1;
+        ELSIF language = 'English' THEN
+            English_SELECTed := 1;
+        ELSIF language = 'Chinese' THEN
+            Chinese_SELECTed := 1;
+        END IF;
+        modGUI1.Label('Lingua*');
+            modGUI1.InputRadioButton('Italiano ', 'language', 'Italian', italian_SELECTed, 0);
+            modGUI1.InputRadioButton('English ', 'language', 'English', English_SELECTed, 0);
+            modGUI1.InputRadioButton('中国人 ', 'language', 'Chinese', Chinese_SELECTed, 0);
+            htp.br;
         -- Codice per autoselezione livello
 
         IF d_level = 'bambino' THEN
@@ -2718,7 +2752,7 @@ BEGIN
                 HTP.FORMHIDDEN('d_level', d_level);
                 HTP.FORMHIDDEN('d_text', d_text);
                 HTP.FORMHIDDEN('operaID', OperaID);
-                MODGUI1.InputSubmit('Annulla');
+                MODGUI1.InputSubmit('Annulla'); 
             MODGUI1.ChiudiDiv;
     modGUI1.ChiudiDiv;
     END IF;

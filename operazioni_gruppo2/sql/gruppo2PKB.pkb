@@ -1310,7 +1310,7 @@ BEGIN
                     htp.br;
                     modGUI1.ApriDiv('class="w3-container" style="width:100%"');
                     k:=1;
-                    htp.print('<h2><b>Opere più viste</b></h2>');
+                    htp.print('<h2><b>Opere esposte per più tempo</b></h2>');
                     --INIZIO LOOP DELLA VISUALIZZAZIONE
                         FOR var in (SELECT * FROM   (SELECT opera,dataarrivo,datauscita FROM saleopere, stanze 
                                                     WHERE idstanza = saleopere.sala AND datauscita IS NOT NULL 
@@ -1444,7 +1444,7 @@ BEGIN
                     modGUI1.ApriDiv('class="w3-container" style="width:100%"');
 
                     k:=1;
-                    htp.print('<h2><b>Opere più viste</b></h2>');
+                    htp.print('<h2><b>Opere esposte per più tempo</b></h2>');
                     --INIZIO LOOP DELLA VISUALIZZAZIONE
                         FOR var in (SELECT * FROM   (SELECT opera,dataarrivo,datauscita FROM saleopere, stanze 
                                                     WHERE idstanza = saleopere.sala AND stanze.museo = museoID AND datauscita IS NOT NULL 

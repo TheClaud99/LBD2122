@@ -194,7 +194,7 @@ CREATE OR REPLACE PACKAGE BODY modGUI1 as
         owa_util.mime_header('text/html', FALSE);
         owa_cookie.remove("NAME"  => 'SESSION_ID',
                           val  => 0);
-        owa_util.redirect_url(costanti.server||'/apex/nvetrini.webpages.Home');
+        owa_util.redirect_url(costanti.server|| costanti.radice || 'webpages.Home');
         owa_util.http_header_close;
     END RimozioneSessione;
  
@@ -208,7 +208,7 @@ CREATE OR REPLACE PACKAGE BODY modGUI1 as
 
         /* Home ha prefisso radice, serve invece "utente.webpages." fino al merge dei pacchetti
         collegamento('X','Home','w3-button w3-xlarge w3-red w3-display-topright');*/
-            htp.anchor(costanti.server||'/apex/nvetrini.webpages.Home', 
+            htp.anchor(costanti.server|| costanti.radice || 'webpages.Home', 
                 'X',
                 'logout',
                 'class="w3-btn w3-red w3-display-topright"');

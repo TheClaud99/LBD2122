@@ -205,7 +205,16 @@ CREATE OR REPLACE PACKAGE BODY packagevisite AS
                                 'packagevisite.visualizzavisita?idvisitaselezionata=' || visita.idvisita,
                                 'w3-button w3-margin w3-black'
             );
-            IF ( id_sessione = 1 ) THEN
+            IF ( hasrole(
+                        id_sessione,
+                        'AB'
+                 ) OR hasrole(
+                             id_sessione,
+                             'SU'
+                      ) OR hasrole(
+                                  id_sessione,
+                                  'DBA'
+                           ) ) THEN
                 modgui1.collegamento(
                                     'Modifica',
                                     'packagevisite.pagina_modifica_visita?carica_default=1&idvisitaselezionata=' || visita.idvisita,

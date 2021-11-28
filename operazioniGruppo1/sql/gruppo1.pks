@@ -159,7 +159,6 @@ PROCEDURE inserisci_newsletter (
 */
 
 PROCEDURE statisticheNewsLetter (
-	sessionID NUMBER DEFAULT 0,
 	newsletterID NUMBER DEFAULT -1
 );
 

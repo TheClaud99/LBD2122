@@ -348,10 +348,10 @@ BEGIN
 		-- faccio il commit dello statement precedente
 		commit;
 		EsitoPositivoUtenti(sessionID);
-	
+
 	ELSE
 		EsitoNegativoUtenti(sessionID);
-		
+
 	END IF;
 
     EXCEPTION
@@ -363,7 +363,7 @@ END;
 
 procedure EsitoPositivoUtenti(
     sessionID NUMBER DEFAULT 0
-    ) is 
+    ) is
     begin
         modGUI1.ApriPagina('EsitoPositivoUtenti',sessionID);
         modGUI1.Header(sessionID);
@@ -380,7 +380,7 @@ end;
 
 procedure EsitoNegativoUtenti(
     sessionID NUMBER DEFAULT 0
-    ) is 
+    ) is
     begin
         modGUI1.ApriPagina('EsitoPositivoUtenti',sessionID);
         modGUI1.Header(sessionID);
@@ -490,9 +490,9 @@ BEGIN
 		HTP.tableClose;
 		if sessionID = 1 then
 		MODGUI1.Collegamento('Modifica', 'ModificaUtente?sessionID='||sessionID||'&utenteID='||utenteID, 'w3-button w3-blue w3-margin');
-			MODGUI1.Collegamento('Elimina', 
+			MODGUI1.Collegamento('Elimina',
 				'EliminaUtente?sessionID='||sessionID||'&utenteID='||utenteID,
-				'w3-button w3-red w3-margin', 
+				'w3-button w3-red w3-margin',
 				'return confirm(''Sei sicuro di voler eliminare il profilo di '||NomeUtente||' '||CognomeUtente||'?'')'
 			);
 		end if;
@@ -810,7 +810,7 @@ begin
         modGUI1.Header(sessionID);
 		modGUI1.ApriDiv('class="w3-center" style="margin-top:110px;"');
         htp.prn('<h1>Lista utenti</h1>');
-		 if sessionID = 1 
+		 if sessionID = 1
         then
             modGUI1.Collegamento('Inserisci','InserisciUtente?sessionID='||sessionID||'','w3-btn w3-round-xxlarge w3-black');
             htp.print('&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;');
@@ -832,7 +832,7 @@ begin
                         if sessionID = 1 then
 						modGUI1.Collegamento('Modifica',
                             'ModificaUtente?sessionID='||sessionID||'&utenteID='||utente.Idutente,
-                            'w3-margin w3-blue w3-button');        
+                            'w3-margin w3-blue w3-button');
                         modGUI1.Collegamento('Elimina',
                             'EliminaUtente?sessionID='||sessionID||'&utenteID='||utente.Idutente,
                             'w3-red w3-margin w3-button',
@@ -867,14 +867,14 @@ is
             modGUI1.ChiudiDiv;
 			HTP.BodyClose;
 		HTP.HtmlClose;
-		
+
 END;
 
 procedure sommaTitoli(
 	sessionID NUMBER DEFAULT 0,
 	dataInizioFun VARCHAR2 DEFAULT NULL,
 	dataFineFun VARCHAR2 DEFAULT NULL,
-	utenteID NUMBER DEFAULT 0 
+	utenteID NUMBER DEFAULT 0
 )
 is
 	dataInizio DATE := TO_DATE(dataInizioFun default NULL on conversion error, 'YYYY-MM-DD');
@@ -883,7 +883,7 @@ is
 	res NUMBER := 0;
 	BEGIN
 		if utenteID = 0 then
-			select COUNT(*) 
+			select COUNT(*)
 			into res
 			from titoliingresso
 			where Emissione > dataInizio and Emissione < dataFine;
@@ -893,16 +893,16 @@ is
 			from titoliingresso
 			where Emissione > dataInizio and Emissione < dataFine and titoliingresso.ACQUIRENTE = utenteID;
 		end if;
-			
+
 		modGUI1.ApriPagina('Statistiche utenti',sessionID);
         modGUI1.Header(sessionID);
         htp.br;htp.br;htp.br;htp.br;htp.br;htp.br;
             modGUI1.ApriDiv('class="w3-modal-content w3-card-4 w3-animate-zoom w3-padding-large" style="max-width:450px"');
                 modGUI1.ApriDiv('class="w3-center"');
                 htp.print('<h1>Operazione eseguita correttamente </h1>');
-				if res > 0 then 
+				if res > 0 then
 					htp.print('<h3>Il risultato è '||res||'</h3>');
-				else 
+				else
 					htp.print('<h3>Il risultato è 0</h3>');
 				end if;
                 MODGUI1.collegamento('Torna alle statistiche','StatisticheUtenti?sessionID='||sessionID||'','w3-button w3-block w3-black w3-section w3-padding');
@@ -916,7 +916,7 @@ procedure mediaCostoTitoli(
 	sessionID NUMBER DEFAULT 0,
 	dataInizioFun VARCHAR2 DEFAULT NULL,
 	dataFineFun VARCHAR2 DEFAULT NULL,
-	utenteID NUMBER DEFAULT 0 
+	utenteID NUMBER DEFAULT 0
 )
 is
 	dataInizio DATE := TO_DATE(dataInizioFun default NULL on conversion error, 'YYYY-MM-DD');
@@ -925,7 +925,7 @@ is
 	res NUMBER(6) := 0;
 	BEGIN
 		if utenteID = 0 then
-			select AVG(COSTOTOTALE) 
+			select AVG(COSTOTOTALE)
 			into res
 			from tipologieingresso
 			join titoliingresso on idtipologiaing = tipologia
@@ -937,16 +937,16 @@ is
 			join titoliingresso on idtipologiaing = tipologia
 			where Emissione > dataInizio and Emissione < dataFine and titoliingresso.ACQUIRENTE = utenteID;
 		end if;
-			
+
 		modGUI1.ApriPagina('Statistiche utenti',sessionID);
         modGUI1.Header(sessionID);
         htp.br;htp.br;htp.br;htp.br;htp.br;htp.br;
             modGUI1.ApriDiv('class="w3-modal-content w3-card-4 w3-animate-zoom w3-padding-large" style="max-width:450px"');
                 modGUI1.ApriDiv('class="w3-center"');
                 htp.print('<h1>Operazione eseguita correttamente </h1>');
-				if res > 0 then 
+				if res > 0 then
 					htp.print('<h3>Il risultato è '||res||'</h3>');
-				else 
+				else
 					htp.print('<h3>Il risultato è 0</h3>');
 				end if;
                 MODGUI1.collegamento('Torna alle statistiche','StatisticheUtenti?sessionID='||sessionID||'','w3-button w3-block w3-black w3-section w3-padding');
@@ -960,7 +960,7 @@ procedure NumeroVisiteMusei(
 	sessionID NUMBER DEFAULT 0,
 	dataInizioFun VARCHAR2 DEFAULT NULL,
 	dataFineFun VARCHAR2 DEFAULT NULL,
-	utenteID NUMBER DEFAULT 0 
+	utenteID NUMBER DEFAULT 0
 )
 is
 	dataInizio DATE := TO_DATE(dataInizioFun default NULL on conversion error, 'YYYY-MM-DD');
@@ -969,26 +969,26 @@ is
 	res NUMBER(6) := 0;
 	BEGIN
 		if utenteID = 0 then
-			select COUNT(*) 
+			select COUNT(*)
 			into res
 			from visite
 			where datavisita > dataInizio and datavisita < dataFine;
 		else
-			select COUNT(*) 
+			select COUNT(*)
 			into res
 			from visite
 			where datavisita > dataInizio and datavisita < dataFine and visite.visitatore = utenteID;
 		end if;
-			
+
 		modGUI1.ApriPagina('Statistiche utenti',sessionID);
         modGUI1.Header(sessionID);
         htp.br;htp.br;htp.br;htp.br;htp.br;htp.br;
             modGUI1.ApriDiv('class="w3-modal-content w3-card-4 w3-animate-zoom w3-padding-large" style="max-width:450px"');
                 modGUI1.ApriDiv('class="w3-center"');
                 htp.print('<h1>Operazione eseguita correttamente </h1>');
-				if res > 0 then 
+				if res > 0 then
 					htp.print('<h3>Il risultato è '||res||'</h3>');
-				else 
+				else
 					htp.print('<h3>Il risultato è 0</h3>');
 				end if;
                 MODGUI1.collegamento('Torna alle statistiche','StatisticheUtenti?sessionID='||sessionID||'','w3-button w3-block w3-black w3-section w3-padding');
@@ -1010,26 +1010,26 @@ is
 	res NUMBER(6) := 0;
 	res2 NUMBER(6) := 0;
 	BEGIN
-		
-		select COUNT(*) 
+
+		select COUNT(*)
 		into res
 		from utenti;
-	
-		select COUNT(*) 
+
+		select COUNT(*)
 		into res2
 		from titoliingresso
 		where emissione > dataInizio and emissione < dataFine;
-		
-			
+
+
 		modGUI1.ApriPagina('Statistiche utenti',sessionID);
         modGUI1.Header(sessionID);
         htp.br;htp.br;htp.br;htp.br;htp.br;htp.br;
             modGUI1.ApriDiv('class="w3-modal-content w3-card-4 w3-animate-zoom w3-padding-large" style="max-width:450px"');
                 modGUI1.ApriDiv('class="w3-center"');
                 htp.print('<h1>Operazione eseguita correttamente </h1>');
-				if res > 0 then 
+				if res > 0 then
 					htp.print('<h3>Il risultato è '||to_integer(res2/res)||'</h3>');
-				else 
+				else
 					htp.print('<h3>Il risultato è 0</h3>');
 				end if;
                 MODGUI1.collegamento('Torna alle statistiche','StatisticheUtenti?sessionID='||sessionID||'','w3-button w3-block w3-black w3-section w3-padding');
@@ -1205,8 +1205,8 @@ begin
 					MODGUI1.ChiudiForm;
 				modgui1.chiudiRigaTabella;
 
-				
-						
+
+
 			modgui1.chiudiTabella;
 
 			MODGUI1.collegamento('Torna al menu','ListaUtenti?sessionID='||sessionID||'','w3-button w3-block w3-black w3-section w3-padding');
@@ -1422,17 +1422,15 @@ BEGIN
 END;
 
 
------ Numero visitatori iscritti alla Newsletter scelta❌
-
 
 
 -------------------------------------------------------------FINE TODO */
 
 
 PROCEDURE statisticheNewsLetter (
-	sessionID NUMBER DEFAULT 0,
 	newsletterID NUMBER DEFAULT -1
 ) IS
+	id_sessione NUMBER(10) := NULL;
 	temp NUMBER(10) := 0;
 	nomeNew VARCHAR2(100) := '';
 	numeroVisitatori NUMBER(10) := 0;
@@ -1448,7 +1446,14 @@ PROCEDURE statisticheNewsLetter (
 	U_RECAPITO UTENTI.RECAPITOTELEFONICO%TYPE :='';
 
     newsletterInesistente EXCEPTION;
+	sessionIdExecption EXCEPTION;
 BEGIN
+
+	id_sessione := modgui1.get_id_sessione;
+	if id_sessione = 0
+	THEN
+		RAISE sessionIdExecption;
+	end if;
 
 	if newsletterID = -1
 	THEN
@@ -1563,6 +1568,18 @@ BEGIN
 
 		HTP.BodyClose;
 		HTP.HtmlClose;
+	WHEN sessionIdExecption THEN
+		MODGUI1.ApriPagina('Errore', sessionID);
+		MODGUI1.Header();
+		HTP.BodyOpen;
+
+		MODGUI1.ApriDiv;
+		MODGUI1.LABEL('idSessione non settato o corretto');
+		MODGUI1.collegamento('visualizza newsletter', 'visualizzaNewsletter');
+		MODGUI1.ChiudiDiv;
+
+		HTP.BodyClose;
+		HTP.HtmlClose;
 END;
 END GRUPPO1;
 
@@ -1582,9 +1599,9 @@ END GRUPPO1;
 
 /*
  *  OPERAZIONI SULLE NEWSLETTER
- * - Inserimento ❌ (da testare)
+ * - Inserimento ✅
  * - Cancellazione❌
- * - Visualizzazione❌
+ * - Visualizzazione ✅
  * - Iscrizione(rimozione)❌
  * - Cancellazione Iscrizione❌
  * OPERAZIONI STATISTICHE E MONITORAGGIO

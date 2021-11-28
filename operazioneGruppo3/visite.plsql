@@ -37,17 +37,18 @@ CREATE OR REPLACE PACKAGE packagevisite AS
     );
 
     PROCEDURE pagina_rimuovi_visita (
-        idvisitaselezionata  IN  visite.idvisita%TYPE
+        idvisitaselezionata IN visite.idvisita%TYPE
     );
 
     PROCEDURE rimuovi_visita (
-        idvisitaselezionata  IN  visite.idvisita%TYPE
+        idvisitaselezionata IN visite.idvisita%TYPE
     );
 
     PROCEDURE visualizzavisita (
         idvisitaselezionata  IN  visite.idvisita%TYPE,
         titolo               IN  VARCHAR2 DEFAULT NULL,
-        action               IN  VARCHAR2 DEFAULT NULL
+        action               IN  VARCHAR2 DEFAULT NULL,
+        button_text          IN  VARCHAR2 DEFAULT NULL
     );
 
     PROCEDURE visualizza_visite;

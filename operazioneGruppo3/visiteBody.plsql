@@ -87,7 +87,8 @@ CREATE OR REPLACE PACKAGE BODY packagevisite AS
     PROCEDURE visualizzavisita (
         idvisitaselezionata  IN  visite.idvisita%TYPE,
         titolo               IN  VARCHAR2 DEFAULT NULL,
-        action               IN  VARCHAR2 DEFAULT NULL
+        action               IN  VARCHAR2 DEFAULT NULL,
+        button_text          IN VARCHAR2 DEFAULT NULL
     ) IS
         visita visite%rowtype;
     BEGIN
@@ -127,12 +128,12 @@ CREATE OR REPLACE PACKAGE BODY packagevisite AS
             );
 
             IF action IS NOT NULL THEN
-                modgui1.apriform(action);
-                htp.formhidden(
-                              'idvisitaselezionata',
-                              idvisitaselezionata
-                );
-                modgui1.inputsubmit('Conferma');
+                modgui1.apriform(action, 'formVisualizza');
+                modgui1.inputsubmit(CASE
+                                     WHEN button_text IS NULL THEN
+                                         'Conferma'
+                                     ELSE button_text
+                                 END);
                 modgui1.chiudiform;
             END IF;
 
@@ -202,7 +203,7 @@ CREATE OR REPLACE PACKAGE BODY packagevisite AS
             modgui1.chiudidiv;
             modgui1.collegamento(
                                 'Visualizza',
-                                'packagevisite.visualizzavisita?idvisitaselezionata=' || visita.idvisita,
+                                'packagevisite.visualizzavisita?idvisitaselezionata=' || visita.idvisita || '&titolo=Visita+numero+' || visita.idvisita || '&action=packageVisite.visualizza_visite&button_text=Trona+alla+home',
                                 'w3-button w3-margin w3-black'
             );
             IF ( hasrole(
@@ -296,7 +297,9 @@ CREATE OR REPLACE PACKAGE BODY packagevisite AS
 
         visualizzavisita(
                         idvisitaselezionata,
-                        'Visita aggiornata'
+                        'Visita aggiornata',
+                        'PackageVisite.visualizza_visite',
+                        'Torna ad home'
         );
     END;
 
@@ -614,6 +617,15 @@ CREATE OR REPLACE PACKAGE BODY packagevisite AS
                         'Elimina visita',
                         'PackageVisite.rimuovi_visita'
         );
+
+        htp.prn('<script>
+            window.addEventListener("load", function() {
+                let form = document.formVisualizza;
+                form.insertAdjacentHTML("afterbegin", ''<input type="hidden" name="idvisitaselezionata" value="'
+                || idvisitaselezionata
+                || '">'');
+            });
+        </script>');
     END;
 
     PROCEDURE pagina_inserisci_visita (

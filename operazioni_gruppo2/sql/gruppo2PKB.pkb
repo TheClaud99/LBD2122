@@ -38,11 +38,11 @@ procedure menuOpere is
         htp.prn('<h1>Opere</h1>');
         if hasRole(idSessione, 'DBA') or hasRole(idSessione, 'GO')
         then
-            modGUI1.Collegamento('Inserisci opera',gruppo2.gr2||'InserisciOpera?idSessione='||idSessione||'','w3-btn w3-round-xxlarge w3-black');
+            modGUI1.Collegamento('Inserisci opera',gruppo2.gr2||'InserisciOpera','w3-btn w3-round-xxlarge w3-black');
             htp.print('&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;');
-            modGUI1.Collegamento('Inserisci descrizione',gruppo2.gr2||'InserisciDescrizione?idSessione='||idSessione||'','w3-btn w3-round-xxlarge w3-black');
+            modGUI1.Collegamento('Inserisci descrizione',gruppo2.gr2||'InserisciDescrizione','w3-btn w3-round-xxlarge w3-black');
             htp.print('&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;');
-            modGUI1.Collegamento('Opere Eliminate',gruppo2.gr2||'menuOpereEliminate?idSessione='||idSessione||'','w3-btn w3-round-xxlarge w3-black');
+            modGUI1.Collegamento('Opere Eliminate',gruppo2.gr2||'menuOpereEliminate','w3-btn w3-round-xxlarge w3-black');
             htp.print('&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;');
         end if;
             htp.prn('<button onclick="document.getElementById(''11'').style.display=''block''" class="w3-btn w3-round-xxlarge w3-black">Statistiche</button>');
@@ -68,7 +68,7 @@ procedure menuOpere is
                     if hasRole(idSessione, 'DBA') or hasRole(idSessione, 'GO') then
                     --bottone modifica
                     modGUI1.Collegamento('Modifica',
-                        gruppo2.gr2||'ModificaOpera?idSessione='||idSessione||'&operaID='||opera.IdOpera||'&titoloOpera='||opera.titolo,
+                        gruppo2.gr2||'ModificaOpera?&operaID='||opera.IdOpera||'&titoloOpera='||opera.titolo,
                         'w3-green w3-margin w3-button');
                     --bottone elimina
                     htp.prn('<button onclick="document.getElementById(''ElimOpera'||opera.idOpera||''').style.display=''block''" class="w3-margin w3-button w3-red w3-hover-white">Elimina</button>');

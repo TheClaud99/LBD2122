@@ -96,7 +96,7 @@ BEGIN
     htp.br;htp.br;htp.br;htp.br;htp.br;
     modGUI1.ApriDiv('class="w3-center"');
     htp.prn('<h1>Opere Eliminate</h1>');
-    modGUI1.Collegamento('Torna al menù Opere',gruppo2.gr2||'menuOpere?idSessione='||'w3-btn w3-round-xxlarge w3-black');
+    modGUI1.Collegamento('Torna al menù Opere',gruppo2.gr2||'menuOpere','w3-btn w3-round-xxlarge w3-black');
     htp.print('&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;');
     modGUI1.ChiudiDiv;
         gruppo2.selezioneMuseo;
@@ -118,7 +118,7 @@ BEGIN
                     htp.print('&nbsp;');
                     if hasRole(idSessione, 'DBA') or hasRole(idSessione, 'SU') then
                     --bottone elimina
-                    modGUI1.Collegamento('Ripristina',gruppo2.gr2||'ripristinaOpera?idSessione='||idsessione||'&operaID='||opera.idOpera,'w3-btn w3-green');
+                    modGUI1.Collegamento('Ripristina',gruppo2.gr2||'ripristinaOpera&operaID='||opera.idOpera,'w3-btn w3-green');
                     htp.print('&nbsp;');
                     htp.prn('<button onclick="document.getElementById(''ElimOperaDef'||opera.idOpera||''').style.display=''block''" class="w3-margin w3-button w3-red w3-hover-white">Elimina</button>');
                     gruppo2.EliminazioneDefinitivaOpera(opera.idOpera);

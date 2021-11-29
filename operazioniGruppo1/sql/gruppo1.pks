@@ -4,7 +4,7 @@ root constant VARCHAR2(125) := 'http://131.114.73.203:8080/apex/';
 user constant VARCHAR2(25) := 'fgiannotti.gruppo1.';
 
 procedure InserisciUtente(
-	sessionID NUMBER DEFAULT 0,
+	idSessione NUMBER DEFAULT 0,
 	nome VARCHAR2 DEFAULT NULL,
 	cognome VARCHAR2 DEFAULT NULL,
 	dataNascita VARCHAR2 DEFAULT NULL,
@@ -18,7 +18,7 @@ procedure InserisciUtente(
 );
 
 PROCEDURE ConfermaDatiUtente(
-	sessionID NUMBER DEFAULT 0,
+	idSessione NUMBER DEFAULT 0,
 	nome VARCHAR2 DEFAULT NULL,
 	cognome VARCHAR2 DEFAULT NULL,
 	dataNascita VARCHAR2 DEFAULT NULL,
@@ -32,7 +32,7 @@ PROCEDURE ConfermaDatiUtente(
 );
 
 PROCEDURE InserisciDatiUtente (
-    sessionID NUMBER DEFAULT 0,
+    idSessione NUMBER DEFAULT 0,
 	nome VARCHAR2 DEFAULT NULL,
 	cognome VARCHAR2 DEFAULT NULL,
 	dataNascita VARCHAR2 DEFAULT NULL,
@@ -46,25 +46,25 @@ PROCEDURE InserisciDatiUtente (
 );
 
 procedure EsitoPositivoUtenti(
-    sessionID NUMBER DEFAULT 0
+    idSessione NUMBER DEFAULT 0
 );
 
 procedure EsitoNegativoUtenti(
-    sessionID NUMBER DEFAULT 0
+    idSessione NUMBER DEFAULT 0
 );
 
 PROCEDURE VisualizzaUtente (
-    sessionID NUMBER DEFAULT 0,
+    idSessione NUMBER DEFAULT 0,
 	utenteID NUMBER
 );
 
 PROCEDURE ModificaUtente (
-    sessionID NUMBER DEFAULT 0,
+    idSessione NUMBER DEFAULT 0,
 	utenteID NUMBER DEFAULT NULL
 );
 
 PROCEDURE ModificaDatiUtente (
-	sessionID NUMBER DEFAULT 0,
+	idSessione NUMBER DEFAULT 0,
 	utenteID NUMBER,
 	nomeNew VARCHAR2 DEFAULT NULL,
 	cognomeNew VARCHAR2 DEFAULT NULL,
@@ -79,47 +79,47 @@ PROCEDURE ModificaDatiUtente (
 );
 
 PROCEDURE EliminaUtente(
-	sessionID NUMBER DEFAULT 0,
+	idSessione NUMBER DEFAULT 0,
 	utenteID NUMBER
 );
 
 PROCEDURE ListaUtenti(
-	sessionID NUMBER default 0
+	idSessione NUMBER default 0
 );
 
 procedure etaMediaUtenti(
-	 sessionID NUMBER DEFAULT 0
+	 idSessione NUMBER DEFAULT 0
  );
 
 procedure sommaTitoli(
-	sessionID NUMBER DEFAULT 0,
+	idSessione NUMBER DEFAULT 0,
 	dataInizioFun VARCHAR2 DEFAULT NULL,
 	dataFineFun VARCHAR2 DEFAULT NULL,
 	utenteID NUMBER DEFAULT 0
 );
 
 procedure mediaCostoTitoli(
-	sessionID NUMBER DEFAULT 0,
+	idSessione NUMBER DEFAULT 0,
 	dataInizioFun VARCHAR2 DEFAULT NULL,
 	dataFineFun VARCHAR2 DEFAULT NULL,
 	utenteID NUMBER DEFAULT 0
 );
 
 procedure NumeroVisiteMusei(
-	sessionID NUMBER DEFAULT 0,
+	idSessione NUMBER DEFAULT 0,
 	dataInizioFun VARCHAR2 DEFAULT NULL,
 	dataFineFun VARCHAR2 DEFAULT NULL,
 	utenteID NUMBER DEFAULT 0
 );
 
 procedure NumeroMedioTitoli(
-	sessionID NUMBER DEFAULT 0,
+	idSessione NUMBER DEFAULT 0,
 	dataInizioFun VARCHAR2 DEFAULT NULL,
 	dataFineFun VARCHAR2 DEFAULT NULL
 );
 
 procedure StatisticheUtenti(
-	sessionID NUMBER default 0
+	idSessione NUMBER default 0
 );
 
 PROCEDURE acquistabiglietto(
@@ -149,11 +149,11 @@ PROCEDURE pagina_acquista_biglietto(
 --TODO DA TESTARE
 /*
 PROCEDURE inserisciNewsLetter (
-    sessionID NUMBER DEFAULT 0
+    idSessione NUMBER DEFAULT 0
 );
 
 PROCEDURE inserisci_newsletter (
-    sessionID NUMBER DEFAULT 0,
+    idSessione NUMBER DEFAULT 0,
 	nome varchar2(25) not null
 );
 */

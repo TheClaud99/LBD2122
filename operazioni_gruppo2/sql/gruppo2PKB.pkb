@@ -36,7 +36,7 @@ procedure menuOpere is
         htp.br;htp.br;htp.br;htp.br;htp.br;
         modGUI1.ApriDiv('class="w3-center"');
         htp.prn('<h1>Opere</h1>');
-        if hasRole(IdSessione, 'DBA') or hasRole(IdSessione, 'GO')
+        if hasRole(idSessione, 'DBA') or hasRole(idSessione, 'GO')
         then
             modGUI1.Collegamento('Inserisci opera',gruppo2.gr2||'InserisciOpera?idSessione='||idSessione||'','w3-btn w3-round-xxlarge w3-black');
             htp.print('&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;');
@@ -47,7 +47,7 @@ procedure menuOpere is
         end if;
             htp.prn('<button onclick="document.getElementById(''11'').style.display=''block''" class="w3-btn w3-round-xxlarge w3-black">Statistiche</button>');
         modGUI1.ChiudiDiv;
-            gruppo2.selezioneMuseo(idSessione);
+            gruppo2.selezioneMuseo;
         htp.br;
         
         --Visualizzazione TUTTE LE OPERE *temporanea*
@@ -63,16 +63,16 @@ procedure menuOpere is
                             htp.prn('<p><b>Anno: </b>'|| opera.anno ||'</p>');
                         modGUI1.ChiudiDiv;
                     htp.prn('<button onclick="document.getElementById(''LinguaeLivelloOpera'||opera.idOpera||''').style.display=''block''" class="w3-margin w3-button w3-black w3-hover-white">Visualizza</button>');
-                    gruppo2.linguaELivello(idSessione,opera.idOpera);
+                    gruppo2.linguaELivello(opera.idOpera);
 
-                    if hasRole(IdSessione, 'DBA') or hasRole(IdSessione, 'GO') then
+                    if hasRole(idSessione, 'DBA') or hasRole(idSessione, 'GO') then
                     --bottone modifica
                     modGUI1.Collegamento('Modifica',
                         gruppo2.gr2||'ModificaOpera?idSessione='||idSessione||'&operaID='||opera.IdOpera||'&titoloOpera='||opera.titolo,
                         'w3-green w3-margin w3-button');
                     --bottone elimina
                     htp.prn('<button onclick="document.getElementById(''ElimOpera'||opera.idOpera||''').style.display=''block''" class="w3-margin w3-button w3-red w3-hover-white">Elimina</button>');
-                    gruppo2.EliminazioneOpera(idSessione,opera.idOpera);
+                    gruppo2.EliminazioneOpera(opera.idOpera);
                     htp.br;
                 end if;
                 modGUI1.ChiudiDiv;
@@ -96,10 +96,10 @@ BEGIN
     htp.br;htp.br;htp.br;htp.br;htp.br;
     modGUI1.ApriDiv('class="w3-center"');
     htp.prn('<h1>Opere Eliminate</h1>');
-    modGUI1.Collegamento('Torna al menù Opere',gruppo2.gr2||'menuOpere?idSessione='||idsessione,'w3-btn w3-round-xxlarge w3-black');
+    modGUI1.Collegamento('Torna al menù Opere',gruppo2.gr2||'menuOpere?idSessione='||'w3-btn w3-round-xxlarge w3-black');
     htp.print('&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;');
     modGUI1.ChiudiDiv;
-        gruppo2.selezioneMuseo(idSessione);
+        gruppo2.selezioneMuseo;
     htp.br;
     modGUI1.ApriDiv('class="w3-row w3-container"');
 --Visualizzazione TUTTE LE OPERE *temporanea*
@@ -114,14 +114,14 @@ BEGIN
                             htp.prn('<p><b>Anno: </b>'|| opera.anno ||'</p>');
                         modGUI1.ChiudiDiv;
                     htp.prn('<button onclick="document.getElementById(''LinguaeLivelloOpera'||opera.idOpera||''').style.display=''block''" class="w3-margin w3-button w3-black w3-hover-white">Visualizza</button>');
-                    gruppo2.linguaELivello(idSessione,opera.idOpera);
+                    gruppo2.linguaELivello(opera.idOpera);
                     htp.print('&nbsp;');
-                    if hasRole(IdSessione, 'DBA') or hasRole(IdSessione, 'SU') then
+                    if hasRole(idSessione, 'DBA') or hasRole(idSessione, 'SU') then
                     --bottone elimina
                     modGUI1.Collegamento('Ripristina',gruppo2.gr2||'ripristinaOpera?idSessione='||idsessione||'&operaID='||opera.idOpera,'w3-btn w3-green');
                     htp.print('&nbsp;');
                     htp.prn('<button onclick="document.getElementById(''ElimOperaDef'||opera.idOpera||''').style.display=''block''" class="w3-margin w3-button w3-red w3-hover-white">Elimina</button>');
-                    gruppo2.EliminazioneDefinitivaOpera(idSessione,opera.idOpera);
+                    gruppo2.EliminazioneDefinitivaOpera(opera.idOpera);
                     htp.br;
                 end if;
                 modGUI1.ChiudiDiv;
@@ -138,7 +138,7 @@ op Opere%ROWTYPE;
 BEGIN
     SELECT * INTO op from opere where idOpera=operaID;
     --UPDATE opere SET eliminato=0 WHERE idOpera=operaID;
-    modGUI1.RedirectEsito(idSessione, 'Ripristino riuscito', 
+    modGUI1.RedirectEsito( 'Ripristino riuscito', 
             'L''opera '||op.titolo||' è stato ripristinata', 
             'Torna al menu opere eliminate', gruppo2.gr2||'menuOpereEliminate', null,
             'Torna al menu opere', gruppo2.gr2||'MenuOpere', null);
@@ -146,7 +146,6 @@ END;
 
 --Procedura popUp per la conferma
 procedure EliminazioneDefinitivaOpera(
-    idSessione NUMBER default 0, 
     operaID NUMBER default 0
 )is /*Form popup lingua */
 var1 VARCHAR2(100);
@@ -182,7 +181,7 @@ BEGIN
     SELECT COUNT(*) INTO esposizione FROM saleopere WHERE opera=operaID AND datauscita IS NULL;
     IF esposizione > 0
     THEN
-        MODGUI1.RedirectEsito(idSessione,'Eliminazione NON eseguita', 'Controlla i vincoli d''integrità.',
+        MODGUI1.RedirectEsito('Eliminazione NON eseguita', 'Controlla i vincoli d''integrità.',
             null,null,null,
             'Torna alle opere',gruppo2.gr2||'menuOpereEliminate',null);
     ELSE
@@ -191,7 +190,7 @@ BEGIN
         DELETE FROM descrizioni WHERE opera = operaID;
         DELETE FROM OPERE WHERE idOpera = operaID;
         -- Ritorno al menu opere
-        MODGUI1.RedirectEsito(idSessione,'Eliminazione riuscita', null,
+        MODGUI1.RedirectEsito('Eliminazione riuscita', null,
             'Torna al menu opere eliminate', gruppo2.gr2||'menuOpereEliminate', null,
             'Torna al menu opere', gruppo2.gr2||'MenuOpere', null);
     END IF;
@@ -235,13 +234,13 @@ BEGIN
     SELECT COUNT(*) INTO esposizione FROM saleopere WHERE opera=operaID AND datauscita IS NULL;
     IF esposizione > 0
     THEN
-        MODGUI1.RedirectEsito(idSessione,'Eliminazione NON eseguita', 'Controlla i vincoli d''integrità.',
+        MODGUI1.RedirectEsito('Eliminazione NON eseguita', 'Controlla i vincoli d''integrità.',
             null,null,null,
             'Torna alle opere',gruppo2.gr2||'menuOpere',null);
     ELSE
         --UPDATE opere SET Eliminato = 1 WHERE idopera = operaID;
         -- Ritorno al menu opere
-        MODGUI1.RedirectEsito(idSessione,'Eliminazione completata', null,
+        MODGUI1.RedirectEsito('Eliminazione completata', null,
             'Vai al menù opere eliminate',gruppo2.gr2||'menuOpereEliminate',null,
             'Torna alle opere',gruppo2.gr2||'menuOpere',null);
     END IF;
@@ -415,18 +414,17 @@ PROCEDURE InserisciDatiOpera(
 idSessione NUMBER(5) := modgui1.get_id_sessione();
 BEGIN
     INSERT INTO Opere VALUES
-        (IdOperaSeq.NEXTVAL,titolo,anno,fineperiodo,idmusei,1,);--0);
-    IF SQL%FOUND
-    THEN
+        (IdOperaSeq.NEXTVAL,titolo,anno,fineperiodo,idmusei,1); -- ,0)
+    IF SQL%FOUND THEN
     -- faccio il commit dello statement precedente
     commit;
-    MODGUI1.RedirectEsito(idSessione,'Inserimento andato a buon fine', null,
+    MODGUI1.RedirectEsito('Inserimento andato a buon fine', null,
         'Inserisci una nuova opera',gruppo2.gr2||'inserisciOpera',null,
         'Torna alle opere',gruppo2.gr2||'menuOpere',null);
     -- Ritorno al menu opere
     END IF;
     EXCEPTION WHEN OTHERS THEN
-    MODGUI1.RedirectEsito(idSessione,'Inserimento non riuscito', null,
+    MODGUI1.RedirectEsito('Inserimento non riuscito', null,
         'Riprova',gruppo2.gr2||'inserisciOpera',null,
         'Torna alle opere',gruppo2.gr2||'menuOpere',null);
 END InserisciDatiOpera;
@@ -576,12 +574,12 @@ BEGIN
 		fineperiodo=newFineperiodo,
 		Museo=newIDmusei
 	WHERE IdOpera=operaID;
-    MODGUI1.RedirectEsito(idSessione,'Update eseguito correttamente', null,
+    MODGUI1.RedirectEsito('Update eseguito correttamente', null,
         null,null,null,
         'Torna alle opere',gruppo2.gr2||'menuOpere',null);
     ELSE
     --EXCEPTION WHEN OTHERS THEN
-    MODGUI1.RedirectEsito(idSessione, 'Update fallito',
+    MODGUI1.RedirectEsito( 'Update fallito',
                 'Errore: parametri non ammessi',
                 'Torna all''update',
                 gruppo2.gr2||'ModificaOpera', 
@@ -631,7 +629,7 @@ BEGIN
     --ritorno al menù opere
     
 
-    if (hasRole(IdSessione, 'DBA') or hasRole(IdSessione, 'GO')) and varEliminato = 0 then
+    if (hasRole(idSessione, 'DBA') or hasRole(idSessione, 'GO')) and varEliminato = 0 then
     modGUI1.Collegamento('Inserisci',
         gruppo2.gr2||'InserisciDescrizione?language='||lingue||'&d_level='||livelli||'&operaID='||OperaID,
         'w3-btn w3-round-xxlarge w3-black');
@@ -655,7 +653,7 @@ BEGIN
         if(lingue='English')then
             if  varEliminato = 0 then
                 modGUI1.Collegamento('Back to menù',
-                    grupppo2.gr2||'menuOpere',
+                    gruppo2.gr2||'menuOpere',
                     'w3-btn w3-round-xxlarge w3-black');
                 htp.print('&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;');
             else 
@@ -735,7 +733,7 @@ LOOP
                 if(lingue='Italian')
                 then
                 htp.prn('<h5><b>Esposta: </b>❌</h5>');
-                if (hasRole(IdSessione, 'DBA') or hasRole(IdSessione, 'GO')) and varEliminato = 0 then
+                if (hasRole(idSessione, 'DBA') or hasRole(idSessione, 'GO')) and varEliminato = 0 then
                 modGUI1.collegamento('sposta',
                     gruppo2.gr2||'SpostaOpera?operaID='||operaID||'&salaID='||varSala,
                     'w3-green w3-margin w3-button w3-small w3-round-xxlarge');
@@ -753,7 +751,7 @@ LOOP
                     
                     END LOOP;
                     
-                    if (hasRole(IdSessione, 'DBA') or hasRole(IdSessione, 'GO')) and varEliminato = 0 then
+                    if (hasRole(idSessione, 'DBA') or hasRole(idSessione, 'GO')) and varEliminato = 0 then
                     modGUI1.Collegamento('Aggiungi Autore',
                         gruppo2.gr2||'AggiungiAutore?operaID='||operaID,
                         'w3-yellow w3-margin w3-button w3-small w3-round-xxlarge');
@@ -766,7 +764,7 @@ LOOP
                 if(lingue='English')
                 then
                 htp.prn('<h5><b>Exposed: </b>❌</h5>');
-                if (hasRole(IdSessione, 'DBA') or hasRole(IdSessione, 'GO')) and varEliminato = 0 then
+                if (hasRole(idSessione, 'DBA') or hasRole(idSessione, 'GO')) and varEliminato = 0 then
                 modGUI1.collegamento('sposta',
                     gruppo2.gr2||'SpostaOpera?operaID='||operaID||'&salaID='||varSala,
                     'w3-green w3-margin w3-button w3-small w3-round-xxlarge');
@@ -784,7 +782,7 @@ LOOP
                     
                     END LOOP;
 
-                    if (hasRole(IdSessione, 'DBA') or hasRole(IdSessione, 'GO')) and varEliminato = 0 then
+                    if (hasRole(idSessione, 'DBA') or hasRole(idSessione, 'GO')) and varEliminato = 0 then
                     modGUI1.Collegamento('Aggiungi Autore',
                         gruppo2.gr2||'AggiungiAutore?operaID='||operaID,
                         'w3-yellow w3-margin w3-button w3-small w3-round-xxlarge');
@@ -797,7 +795,7 @@ LOOP
                 if(lingue='Chinese')
                 then
                 htp.prn('<h5><b>裸露: </b>❌</h5>');
-                if (hasRole(IdSessione, 'DBA') or hasRole(IdSessione, 'GO')) and varEliminato = 0 then
+                if (hasRole(idSessione, 'DBA') or hasRole(idSessione, 'GO')) and varEliminato = 0 then
                 modGUI1.collegamento('sposta',
                     gruppo2.gr2||'SpostaOpera?operaID='||operaID||'&salaID='||varSala,
                     'w3-green w3-margin w3-button w3-small w3-round-xxlarge');
@@ -814,7 +812,7 @@ LOOP
                     htp.prn(', ');
                     END LOOP;
 
-                    if (hasRole(IdSessione, 'DBA') or hasRole(IdSessione, 'GO')) and varEliminato = 0 then
+                    if (hasRole(idSessione, 'DBA') or hasRole(idSessione, 'GO')) and varEliminato = 0 then
                     modGUI1.Collegamento('Aggiungi Autore',
                         gruppo2.gr2||'AggiungiAutore?operaID='||operaID,
                         'w3-yellow w3-margin w3-button w3-small w3-round-xxlarge');
@@ -835,7 +833,7 @@ LOOP
                 MODGUI1.Collegamento(''||varNomeMuseo||'','visualizzaMuseo?idSessione='||idSessione||'&idMuseo='||varMuseo);
                 htp.br;
                 htp.prn('<b>Sala: </b>'||varNomeStanza||'<b> tipo di sala: </b>'||varTipoSala); 
-                if (hasRole(IdSessione, 'DBA') or hasRole(IdSessione, 'GO')) and varEliminato = 0 then
+                if (hasRole(idSessione, 'DBA') or hasRole(idSessione, 'GO')) and varEliminato = 0 then
                 modGUI1.collegamento('sposta',
                     gruppo2.gr2||'SpostaOpera?operaID='||operaID||'&salaID='||varSala,
                     'w3-green w3-margin w3-button w3-small w3-round-xxlarge');
@@ -852,7 +850,7 @@ LOOP
                     htp.prn(', ');
                     END LOOP;
                     
-                    if (hasRole(IdSessione, 'DBA') or hasRole(IdSessione, 'GO')) and varEliminato = 0 then
+                    if (hasRole(idSessione, 'DBA') or hasRole(idSessione, 'GO')) and varEliminato = 0 then
                     modGUI1.Collegamento('Aggiungi Autore',
                         gruppo2.gr2||'AggiungiAutore?operaID='||operaID,
                         'w3-yellow w3-margin w3-button w3-small w3-round-xxlarge');
@@ -871,7 +869,7 @@ LOOP
                 MODGUI1.Collegamento(''||varNomeMuseo||'','visualizzaMuseo?idSessione='||idSessione||'&idMuseo='||varMuseo);
                 htp.br;
                 htp.prn('<b>Room: </b>'||varNomeStanza||'<b> type of room: </b>'||varTipoSala);--COLLEGAMENTO NOME STANZA
-                if (hasRole(IdSessione, 'DBA') or hasRole(IdSessione, 'GO')) and varEliminato = 0 then
+                if (hasRole(idSessione, 'DBA') or hasRole(idSessione, 'GO')) and varEliminato = 0 then
                 modGUI1.collegamento('sposta',
                     gruppo2.gr2||'SpostaOpera?operaID='||operaID||'&salaID='||varSala,
                     'w3-green w3-margin w3-button w3-small w3-round-xxlarge');
@@ -889,7 +887,7 @@ LOOP
                     
                     END LOOP;
                     
-                    if (hasRole(IdSessione, 'DBA') or hasRole(IdSessione, 'GO')) and varEliminato = 0 then
+                    if (hasRole(idSessione, 'DBA') or hasRole(idSessione, 'GO')) and varEliminato = 0 then
                     modGUI1.Collegamento('Aggiungi Autore',
                         gruppo2.gr2||'AggiungiAutore?operaID='||operaID,
                         'w3-yellow w3-margin w3-button w3-small w3-round-xxlarge');
@@ -908,7 +906,7 @@ LOOP
                 MODGUI1.Collegamento(''||varNomeMuseo||'','visualizzaMuseo?idSessione='||idSessione||'&idMuseo='||varMuseo);
                 htp.br;
                 htp.prn('<b>房间: </b>'||varNomeStanza||'<b> 大厅类型: </b>'||varTipoSala); --COLLEGAMENTO NOME STANZA
-                if (hasRole(IdSessione, 'DBA') or hasRole(IdSessione, 'GO')) and varEliminato = 0 then
+                if (hasRole( 'DBA') or hasRole( 'GO')) and varEliminato = 0 then
                 modGUI1.collegamento('sposta',
                     gruppo2.gr2||'SpostaOpera?operaID='||operaID||'&salaID='||varSala,
                     'w3-green w3-margin w3-button w3-small w3-round-xxlarge');
@@ -925,7 +923,7 @@ LOOP
                     htp.prn(', ');
                     END LOOP;
 
-                    if (hasRole(IdSessione, 'DBA') or hasRole(IdSessione, 'GO')) and varEliminato = 0 then
+                    if (hasRole( 'DBA') or hasRole( 'GO')) and varEliminato = 0 then
                     modGUI1.Collegamento('Aggiungi Autore',
                         gruppo2.gr2||'AggiungiAutore?operaID='||operaID,
                         'w3-yellow w3-margin w3-button w3-small w3-round-xxlarge');
@@ -938,7 +936,7 @@ LOOP
 
             modGUI1.ChiudiDiv;
             modGUI1.ApriDiv('class="w3-container w3-cell w3-cell-middle"');
-            if (hasRole(IdSessione, 'DBA') or hasRole(IdSessione, 'GO')) and varEliminato = 0
+            if (hasRole( 'DBA') or hasRole( 'GO')) and varEliminato = 0
             then
                 modGUI1.collegamento('Modifica',
                     gruppo2.gr2||'ModificaDescrizione?idDescrizione='||des.idDesc,
@@ -1022,13 +1020,13 @@ idSessione NUMBER(5) := modgui1.get_id_sessione();
         UPDATE SALEOPERE SET datauscita = TO_DATE(TO_CHAR(SYSDATE, 'dd/mm/yyyy'), 'dd/mm/yyyy') WHERE datauscita IS NULL AND opera = operaID; 
         INSERT INTO SALEOPERE(IdMovimento, Sala, Opera, DataArrivo, DataUscita) VALUES (IdMovimentoSeq.nextVal, NuovaSalaID, operaID, TO_DATE(TO_CHAR(SYSDATE, 'dd/mm/yyyy'), 'dd/mm/yyyy'), null);
         UPDATE OPERE SET Esponibile = 1 WHERE idopera = operaID;
-        MODGUI1.RedirectEsito(idSessione,'Spostamento eseguito', null,
+        MODGUI1.RedirectEsito('Spostamento eseguito', null,
             null,null,null,
             'Torna alle opere',gruppo2.gr2||'menuOpere',null);  
     else
         UPDATE OPERE SET Esponibile = 0 WHERE idopera = operaID;
         UPDATE SALEOPERE SET datauscita = TO_DATE(TO_CHAR(SYSDATE, 'dd/mm/yyyy'), 'dd/mm/yyyy') WHERE datauscita IS NULL AND opera = operaID; 
-        MODGUI1.RedirectEsito(idSessione,'Opera non più esposta',null,
+        MODGUI1.RedirectEsito('Opera non più esposta',null,
             null,null,null,
             'Torna alle opere',gruppo2.gr2||'menuOpere',null);  
     END IF;
@@ -1092,29 +1090,29 @@ controllo NUMBER(3);
             INSERT INTO AUTORIOPERE VALUES
                 (autoreID,operaID);
             IF SQL%FOUND THEN
-            MODGUI1.RedirectEsito(idSessione, 'Inserimento riuscito',
+            MODGUI1.RedirectEsito( 'Inserimento riuscito',
                 'autore aggiunto all''opera',
                 null,null,null,
                 'Torna al menù',gruppo2.gr2||'menuOpere');
             ELSE
                 if lingue is not null THEN
-                    MODGUI1.RedirectEsito(idSessione, 'Inserimento fallito','Errore: Autore già presente',
+                    MODGUI1.RedirectEsito( 'Inserimento fallito','Errore: Autore già presente',
                     'Torna all''opera',gruppo2.gr2||'VisualizzaOpera', '//operaID='||operaID||'//lingue='||lingue,
                     'Torna al menù',gruppo2.gr2||'menuOpere');
                     ELSE
-                    MODGUI1.RedirectEsito(idSessione, 'Inserimento fallito',
+                    MODGUI1.RedirectEsito( 'Inserimento fallito',
                     'Errore: Autore già presente',
                     null,null, null,'Torna al menù',gruppo2.gr2||'menuOpere');
                 END IF;
             END IF;
         ELSE
             if lingue is not null THEN
-                MODGUI1.RedirectEsito(idSessione, 'Inserimento fallito',
+                MODGUI1.RedirectEsito( 'Inserimento fallito',
                 'Errore: Autore già presente',
                 'Torna all''opera',gruppo2.gr2||'VisualizzaOpera', 
                 '//operaID='||operaID||'//lingue='||lingue,'Torna al menù',gruppo2.gr2||'menuOpere');
                 ELSE
-                MODGUI1.RedirectEsito(idSessione, 'Inserimento fallito',
+                MODGUI1.RedirectEsito( 'Inserimento fallito',
                 'Errore: Autore già presente',
                 null,null, null,'Torna al menù',gruppo2.gr2||'menuOpere');
             END IF;
@@ -1141,7 +1139,7 @@ nomecompleto VARCHAR2(50);
         modGUI1.ApriDiv('class="w3-section"');
             -- Link di ritorno al menuAutori
             modGUI1.Collegamento('X',
-                grupo2.gr2||'menuOpere',
+                gruppo2.gr2||'menuOpere',
                 'w3-btn w3-large w3-red w3-display-topright');
             -- Form per mandare dati alla procedura di conferma
             htp.br;
@@ -1176,12 +1174,12 @@ controllo NUMBER(3);
                 DELETE FROM AUTORIOPERE 
                 WHERE AUTORIOPERE.IdOpera=operaID AND AUTORIOPERE.IdAutore=autoreID;
                 IF SQL%FOUND THEN
-                    MODGUI1.RedirectEsito(idSessione, 'Rimozione riuscita',
+                    MODGUI1.RedirectEsito( 'Rimozione riuscita',
                         'Autore Rimosso',
                         null,null,null,
                         'Torna al menù',gruppo2.gr2||'menuOpere');
                 ELSE
-                    MODGUI1.RedirectEsito(idSessione, 'Rimozione NON riuscita',
+                    MODGUI1.RedirectEsito( 'Rimozione NON riuscita',
                         'Autore NON Rimosso',
                         null,null,null,
                         'Torna al menù',gruppo2.gr2||'menuOpere');
@@ -1190,12 +1188,12 @@ controllo NUMBER(3);
             DELETE FROM AUTORIOPERE 
             WHERE AUTORIOPERE.IdOpera=operaID AND AUTORIOPERE.IdAutore=autoreID;
             IF SQL%FOUND THEN
-                MODGUI1.RedirectEsito(idSessione, 'Rimozione riuscita',
+                MODGUI1.RedirectEsito( 'Rimozione riuscita',
                     'Autore Rimosso',
                     'Torna alla rimozione',gruppo2.gr2||'RimuoviAutoreOpera','//operaID='||operaID,
                     'Torna al menù',gruppo2.gr2||'menuOpere');
             ELSE
-                MODGUI1.RedirectEsito(idSessione, 'Rimozione NON riuscita',
+                MODGUI1.RedirectEsito( 'Rimozione NON riuscita',
                     'Autore NON Rimosso',
                     'Torna alla rimozione',gruppo2.gr2||'RimuoviAutoreOpera','//operaID='||operaID,
                     'Torna al menù',gruppo2.gr2||'menuOpere');
@@ -1260,8 +1258,7 @@ BEGIN
 end SpostamentiOpera;
 
 
-procedure selezioneMuseo(
-)IS
+procedure selezioneMuseo IS
 idSessione NUMBER(5) := modgui1.get_id_sessione();
     BEGIN
         modGUI1.ApriDiv('id="11" class="w3-modal"');
@@ -1404,7 +1401,7 @@ BEGIN
                                     --INIZIO DESCRIZIONI
                                     htp.prn('<b>Titolo: </b>');
                                     htp.prn('<button onclick="document.getElementById(''LinguaeLivelloOpera'||var.idOpera||''').style.display=''block''" class="w3-margin w3-btn w3-border">'|| varOpera ||'</button>');
-                                    gruppo2.linguaELivello(idSessione,var.idOpera);
+                                    gruppo2.linguaELivello(var.idOpera);
                                     htp.prn('<p><b>Anno realizzazione </b>'||years||' D.C</p>');
                                     p:=annoCorrente-years;
                                     htp.prn('<p><b>Anni </b>'||p||'</p>');
@@ -1436,7 +1433,7 @@ BEGIN
                                     --INIZIO DESCRIZIONI
                                     htp.prn('<b>Titolo: </b>');
                                     htp.prn('<button onclick="document.getElementById(''LinguaeLivelloOpera'||var.idOpera||''').style.display=''block''" class="w3-margin w3-btn w3-border">'|| varOpera ||'</button>');
-                                    gruppo2.linguaELivello(idSessione,var.idOpera);
+                                    gruppo2.linguaELivello(var.idOpera);
                                     htp.prn('<p><b>N. autori </b>'||var.numAutori||'</p>');
                                     --FINE DESCRIZIONI
                                 modGUI1.ChiudiDiv;
@@ -1449,7 +1446,7 @@ BEGIN
                     SELECT nome INTO var1 FROM MUSEI WHERE idMuseo=museoID;
                     --htp.prn('<h4><b>'||var1||'</b></h4>');
                     MODGUI1.Collegamento('<h4><b>'||var1||'</b></h4>',
-                        gruppo3.gr2||'visualizzaMuseo?idMuseo='||museoID,
+                        gruppo2.gr2||'visualizzaMuseo?idMuseo='||museoID,
                         'w3-btn w3-round-xxlarge w3-white w3-border w3-hover-yellow');
                     htp.br;
                     htp.br;
@@ -1477,7 +1474,7 @@ BEGIN
                                     --INIZIO DESCRIZIONI
                                         htp.prn('<b>Titolo: </b>');
                                         htp.prn('<button onclick="document.getElementById(''LinguaeLivelloOpera'||var.Opera||''').style.display=''block''" class="w3-margin w3-btn w3-border">'|| varOpera ||'</button>');
-                                        gruppo2.linguaELivello(idSessione,var.Opera);
+                                        gruppo2.linguaELivello(var.Opera);
                                         p:=var.datauscita-var.dataarrivo;
                                         htp.prn('<p><b>Esposta per </b>'||p||' giorni</p>');
                                     --FINE DESCRIZIONI
@@ -1510,7 +1507,7 @@ BEGIN
                                         --INIZIO DESCRIZIONI
                                             htp.prn('<b>Titolo: </b>');
                                             htp.prn('<button onclick="document.getElementById(''LinguaeLivelloOpera'||var.Opera||''').style.display=''block''" class="w3-margin w3-btn w3-border">'|| varOpera ||'</button>');
-                                            gruppo2.linguaELivello(idSessione,var.Opera);
+                                            gruppo2.linguaELivello(var.Opera);
                                             htp.prn('<p><b>Esposta dal :</b>'||var.dataarrivo||'</p>');
                                         --FINE DESCRIZIONI
                                         modGUI1.ChiudiDiv;
@@ -1544,7 +1541,7 @@ BEGIN
                                     --INIZIO DESCRIZIONI
                                     htp.prn('<b>Titolo: </b>');
                                     htp.prn('<button onclick="document.getElementById(''LinguaeLivelloOpera'||var.idOpera||''').style.display=''block''" class="w3-margin w3-btn w3-border">'|| varOpera ||'</button>');
-                                    gruppo2.linguaELivello(idSessione,var.idOpera);
+                                    gruppo2.linguaELivello(var.idOpera);
                                     htp.prn('<p><b>Anno realizzazione </b>'||years||' D.C.</p>');
                                     p:=annoCorrente-years;
                                     htp.prn('<p><b>Anni </b>'||p||'</p>');
@@ -1633,7 +1630,7 @@ BEGIN
     htp.br;htp.br;htp.br;htp.br;
      modGUI1.ApriDiv('class="w3-center"');
         htp.prn('<h1>Autori</h1>'); --TITOLO
-        if hasRole(IdSessione, 'DBA') or hasRole(IdSessione, 'GO')
+        if hasRole(idSessione, 'DBA') or hasRole(idSessione, 'GO')
         then
             modGUI1.Collegamento('Inserisci',
                 gruppo2.gr2||'InserisciAutore',
@@ -1664,7 +1661,7 @@ BEGIN
                     gruppo2.gr2||'ModificaAutore?authorID='||autore.IdAutore||'&operazione=0',
                     'w3-black w3-margin w3-button');
                 END IF;
-                IF hasRole(IdSessione, 'DBA')  or hasRole(IdSessione, 'GO') THEN
+                IF hasRole(idSessione, 'DBA')  or hasRole(idSessione, 'GO') THEN
                     -- parametro modifica messo a true: possibile fare editing dell'autore
                     modGUI1.Collegamento('Modifica',
                         gruppo2.gr2||'ModificaAutore?authorID='||autore.IdAutore||'&operazione=1',
@@ -1694,7 +1691,7 @@ BEGIN
     htp.br;htp.br;htp.br;htp.br;
      modGUI1.ApriDiv('class="w3-center"');
         htp.prn('<h1>Autori eliminati</h1>');
-        if hasRole(IdSessione, 'DBA') or hasRole(IdSessione, 'GO')
+        if hasRole(idSessione, 'DBA') or hasRole(idSessione, 'GO')
         then
             modGUI1.Collegamento('Torna al menu autori', 
                 gruppo2.gr2||'menuAutori', 
@@ -1718,7 +1715,7 @@ BEGIN
                 modGUI1.Collegamento('Visualizza',
                     gruppo2.gr2||'ModificaAutore?authorID='||autore.IdAutore||'&operazione=0',
                     'w3-black w3-margin w3-button');
-                if hasRole(IdSessione, 'DBA') or hasRole(IdSessione, 'SU') then
+                if hasRole(idSessione, 'DBA') or hasRole(idSessione, 'SU') then
                     modGUI1.Collegamento('Ripristina',
                         gruppo2.gr2||'ripristinaAutore?authID='||autore.IdAutore,
                         'w3-btn w3-green');
@@ -1740,7 +1737,7 @@ auth Autori%ROWTYPE;
 BEGIN
     SELECT * INTO auth from Autori where IdAutore=authID;
     UPDATE AUTORI SET eliminato=0 WHERE IDAUTORE=authID;
-    modGUI1.RedirectEsito(idSessione, 'Ripristino riuscito', 
+    modGUI1.RedirectEsito( 'Ripristino riuscito', 
             'L''autore '||auth.Nome||' '||auth.Cognome||' è stato ripristinato', 
             'Torna al menu autori eliminati', gruppo2.gr2||'menuAutoriELiminati', null,
             'Torna al menu autori', gruppo2.gr2||'menuAutori', null);
@@ -1785,13 +1782,13 @@ auth Autori%ROWTYPE;
 BEGIN
     SELECT * INTO auth from Autori where IdAutore=authorID;
     IF auth.Eliminato = 1 THEN
-        modGUI1.RedirectEsito(idSessione, 'Eliminazione fallita', 
+        modGUI1.RedirectEsito( 'Eliminazione fallita', 
             'L''autore '||auth.Nome||' '||auth.Cognome||' è già stato eliminato', 
             null, null, null,
             'Torna al menu autori', gruppo2.gr2||'menuAutori', null);
             rollback;
     ELSE
-        modGUI1.RedirectEsito(idSessione, 'Eliminazione riuscita', 
+        modGUI1.RedirectEsito( 'Eliminazione riuscita', 
             'L''autore '||auth.Nome||' '||auth.Cognome||' è stato eliminato', 
             'Vai al menu autori eliminati', gruppo2.gr2||'menuAutoriEliminati', null,
             'Torna al menu autori', gruppo2.gr2||'menuAutori', null);
@@ -1843,7 +1840,7 @@ BEGIN
     THEN
         -- esito negativo: solo opzione per tornare al menu
         modGUI1.RedirectEsito(
-            idSessione,
+            
             'Rimozione fallita',
             'L''autore '||auth.Nome||' '||auth.Cognome||'ha delle opere nella base di dati',
             null, null, null,
@@ -1851,7 +1848,7 @@ BEGIN
             gruppo2.gr2||'menuAutori');
     ELSE
         -- esito positivo: solo opzione per tornare al menu
-            modGUI1.RedirectEsito(idSessione, 'Rimozione riuscita', 
+            modGUI1.RedirectEsito( 'Rimozione riuscita', 
             'L''autore '||auth.Nome||' '||auth.Cognome||' è stato rimosso', 
             'Torna al menu autori eliminati', gruppo2.gr2||'menuAutoriELiminati', null,
             'Torna al menu autori', gruppo2.gr2||'menuAutori', null);
@@ -1861,8 +1858,7 @@ BEGIN
     END IF;
 END;
 
-procedure selezioneOpStatAut(
-)IS
+procedure selezioneOpStatAut IS
 idSessione NUMBER(5) := modgui1.get_id_sessione();
     BEGIN
         modGUI1.ApriDiv('id="11" class="w3-modal"');
@@ -2004,7 +2000,7 @@ SELECT * INTO auth FROM autori WHERE authID=IDAUTORE;
                                 htp.br;
                                 htp.prn('<p>'|| op.anno ||'</p>');
                                 htp.prn('<button onclick="document.getElementById(''LinguaeLivelloOpera'||op.IDOPERA||''').style.display=''block''" class="w3-margin w3-button w3-black w3-hover-white">Visualizza</button>');
-                                gruppo2.linguaELivello(idSessione,op.IDOPERA);
+                                gruppo2.linguaELivello(op.IDOPERA);
                             modGUI1.ChiudiDiv;
                     modGUI1.ChiudiDiv;
                 modGUI1.ChiudiDiv;
@@ -2179,7 +2175,7 @@ BEGIN
                         htp.prn('<p>'|| op.Anno ||'</p>');
                         htp.prn('<button onclick="document.getElementById(''LinguaeLivelloOpera'
                             ||TO_CHAR(op.IdOpera)||''').style.display=''block''" class="w3-margin w3-button w3-black w3-hover-white">Visualizza</button>');
-                        gruppo2.linguaELivello(idSessione, op.IdOpera);
+                        gruppo2.linguaELivello( op.IdOpera);
                     modGUI1.ChiudiDiv;
                 modGUI1.ChiudiDiv;
             modGUI1.ChiudiDiv;
@@ -2296,13 +2292,13 @@ END;
 
 -- Procedura per confermare i dati dell'inserimento di un Autore
 PROCEDURE ConfermaDatiAutore(
-    idSessione NUMBER DEFAULT 0,
     authName VARCHAR2 DEFAULT 'Sconosciuto',
     authSurname VARCHAR2 DEFAULT 'Sconosciuto',
     dataNascita VARCHAR2 DEFAULT NULL,
     dataMorte VARCHAR2 DEFAULT NULL,
     nation VARCHAR2 DEFAULT 'Sconosciuta'
 ) IS
+idSessione NUMBER(5) := modgui1.get_id_sessione();
 numAutori NUMBER := 0;
 birth DATE := to_date(dataNascita, 'YYYY-MM-DD');
 death DATE := to_date(dataMorte, 'YYYY-MM-DD');
@@ -2322,45 +2318,45 @@ BEGIN
     OR nation IS NULL
     THEN
         IF idSessione <> 1 THEN
-            modGUI1.RedirectEsito(idSessione, 'Inserimento fallito',
+            modGUI1.RedirectEsito( 'Inserimento fallito',
                 'Errore: Operazione non autorizzata (controlla di essere loggato)',
-                'Torna all''inserimento','InserisciAutore', 
+                'Torna all''inserimento',gruppo2.gr2||'InserisciAutore', 
                 '//authName='||authName||'//authSurname='||authSurname||'//dataNascita='||dataNascita||'//dataMorte='||dataMorte||'//nation='||nation,
-                'Torna al menù','menuAutori');
+                'Torna al menù',gruppo2.gr2||'menuAutori');
             ELSIF numAutori > 0 THEN
-                modGUI1.RedirectEsito(idSessione, 'Inserimento fallito',
+                modGUI1.RedirectEsito( 'Inserimento fallito',
                     'Errore: Autore già presente',
-                    'Torna all''inserimento','InserisciAutore', 
+                    'Torna all''inserimento',gruppo2.gr2||'InserisciAutore', 
                     '//authName='||authName||'//authSurname='||authSurname||'//dataNascita='||dataNascita||'//dataMorte='||dataMorte||'//nation='||nation,
-                    'Torna al menù','menuAutori');
+                    'Torna al menù',gruppo2.gr2||'menuAutori');
 
             ELSE
 				-- I tre rami che seguono non possono essere raggiunti chiamando
 				-- InserisciAutore, ma sono possibili chiamando direttamente ConfermaDatiAutore
                 IF authName IS NULL THEN
-                    modGUI1.RedirectEsito(idSessione, 'Inserimento fallito',
+                    modGUI1.RedirectEsito( 'Inserimento fallito',
                         'Errore: Inserire Nome',
-                        'Torna all''inserimento','InserisciAutore', 
+                        'Torna all''inserimento',gruppo2.gr2||'InserisciAutore', 
                         '//authName='||authName||'//authSurname='||authSurname||'//dataNascita='||dataNascita||'//dataMorte='||dataMorte||'//nation='||nation,
-                        'Torna al menù','menuAutori');
+                        'Torna al menù',gruppo2.gr2||'menuAutori');
                 ELSIF authSurname IS NULL THEN
-                    modGUI1.RedirectEsito(idSessione, 'Inserimento fallito',
+                    modGUI1.RedirectEsito( 'Inserimento fallito',
                         'Errore: Inserire Cognome',
-                        'Torna all''inserimento','InserisciAutore', 
+                        'Torna all''inserimento',gruppo2.gr2||'InserisciAutore', 
                         '//authName='||authName||'//authSurname='||authSurname||'//dataNascita='||dataNascita||'//dataMorte='||dataMorte||'//nation='||nation,
-                        'Torna al menù','menuAutori');
+                        'Torna al menù',gruppo2.gr2||'menuAutori');
                 ELSIF nation IS NULL THEN
-                    modGUI1.RedirectEsito(idSessione, 'Inserimento fallito',
+                    modGUI1.RedirectEsito( 'Inserimento fallito',
                         'Errore: Inserire nazionalità',
-                        'Torna all''inserimento','InserisciAutore', 
+                        'Torna all''inserimento',gruppo2.gr2||'InserisciAutore', 
                         '//authName='||authName||'//authSurname='||authSurname||'//dataNascita='||dataNascita||'//dataMorte='||dataMorte||'//nation='||nation,
-                        'Torna al menù','menuAutori');
+                        'Torna al menù',gruppo2.gr2||'menuAutori');
                 ELSIF to_date(dataNascita, 'YYYY-MM-DD') > to_date(dataMorte, 'YYYY-MM-DD') THEN
-                    modGUI1.RedirectEsito(idSessione, 'Inserimento fallito',
+                    modGUI1.RedirectEsito( 'Inserimento fallito',
                         'Errore: data di nascita postuma alla data di morte',
-                        'Torna all''inserimento','InserisciAutore', 
+                        'Torna all''inserimento',gruppo2.gr2||'InserisciAutore', 
                         '//authName='||authName||'//authSurname='||authSurname||'//dataNascita='||dataNascita||'//dataMorte='||dataMorte||'//nation='||nation,
-                        'Torna al menù','menuAutori');
+                        'Torna al menù',gruppo2.gr2||'menuAutori');
                 END IF;
             END IF;
     ELSE
@@ -2402,8 +2398,7 @@ BEGIN
             htp.br;
             modGUI1.ChiudiDiv;
             -- Form nascosto per conferma insert
-            MODGUI1.ApriForm('InserisciDatiAutore');
-            HTP.FORMHIDDEN('idSessione', idSessione);
+            MODGUI1.ApriForm(gruppo2.gr2||'InserisciDatiAutore');
             HTP.FORMHIDDEN('authName', authName);
             HTP.FORMHIDDEN('authSurname', authSurname);
             HTP.FORMHIDDEN('dataNascita', dataNascita);
@@ -2412,8 +2407,7 @@ BEGIN
             MODGUI1.InputSubmit('Conferma');
             MODGUI1.ChiudiForm;
             -- Form nascosto per ritorno ad InserisciAutore con form precompilato
-            MODGUI1.ApriForm('InserisciAutore');
-            HTP.FORMHIDDEN('idSessione', idSessione);
+            MODGUI1.ApriForm(gruppo2.gr2||'InserisciAutore');
             HTP.FORMHIDDEN('authName', authName);
             HTP.FORMHIDDEN('authSurname', authSurname);
             HTP.FORMHIDDEN('dataNascita', dataNascita);
@@ -2425,19 +2419,19 @@ BEGIN
     END IF;
 	-- Solo per testing
     EXCEPTION WHEN OTHERS THEN
-        modGUI1.RedirectEsito(idSessione, 'Errore', 'Errore sconosciuto', 'OK','menuAutori');
+        modGUI1.RedirectEsito( 'Errore', 'Errore sconosciuto', 'OK',gruppo2.gr2||'menuAutori');
 END;
 
 -- Effettua l'inserimento di un nuovo Autore nella base di dati
 -- Oppure effettua rollback se non consentito
 PROCEDURE InserisciDatiAutore(
-    idSessione NUMBER DEFAULT 0,
     authName VARCHAR2 DEFAULT 'Sconosciuto',
     authSurname VARCHAR2 DEFAULT 'Sconosciuto',
     dataNascita VARCHAR2 DEFAULT NULL,
     dataMorte VARCHAR2 DEFAULT NULL,
     nation VARCHAR2 DEFAULT 'Sconosciuta'
 ) IS
+idSessione NUMBER(5) := modgui1.get_id_sessione();
 birth DATE := TO_DATE(dataNascita default NULL on conversion error, 'YYYY-MM-DD');
 death DATE := TO_DATE(dataMorte default NULL on conversion error, 'YYYY-MM-DD');
 numAutori NUMBER(10) := 0;
@@ -2450,22 +2444,24 @@ BEGIN
     THEN
         -- faccio il commit dello statement precedente
         commit;
-        modGUI1.RedirectEsito(idSessione, 'Inserimento riuscito', null,'Inserisci nuovo autore','InserisciAutore', null,'Torna al menù','menuAutori');
+        modGUI1.RedirectEsito( 'Inserimento riuscito', null,
+            'Inserisci nuovo autore',gruppo2.gr2||'InserisciAutore', null,
+            'Torna al menù',gruppo2.gr2||'menuAutori');
     ELSE
-        modGUI1.RedirectEsito(idSessione, 'Inserimento fallito',
+        modGUI1.RedirectEsito( 'Inserimento fallito',
              'Errore',
-             'Torna all''inserimento','InserisciAutore', 
+             'Torna all''inserimento',gruppo2.gr2||'InserisciAutore', 
              '//authName='||authName||'//authSurname='||authSurname||'//dataNascita='||dataNascita||'//dataMorte='||dataMorte||'//nation='||nation,
-             'Torna al menù','menuAutori');
+             'Torna al menù',gruppo2.gr2||'menuAutori');
             ROLLBACK;
     END IF;
     EXCEPTION
     WHEN AutorePresente THEN
-        modGUI1.RedirectEsito(idSessione, 'Inserimento fallito',
+        modGUI1.RedirectEsito( 'Inserimento fallito',
              'Errore: Autore già presente',
-             'Torna all''inserimento','InserisciAutore', 
+             'Torna all''inserimento',gruppo2.gr2||'InserisciAutore', 
              '//authName='||authName||'//authSurname='||authSurname||'//dataNascita='||dataNascita||'//dataMorte='||dataMorte||'//nation='||nation,
-             'Torna al menù','menuAutori');
+             'Torna al menù',gruppo2.gr2||'menuAutori');
             ROLLBACK;
 END;
 
@@ -2475,12 +2471,12 @@ END;
 --  0: Visualizzazione
 --  1: Modifica
 PROCEDURE ModificaAutore(
-	idSessione NUMBER DEFAULT 0,
 	authorID NUMBER DEFAULT 0,
     operazione NUMBER DEFAULT 0,
     caller VARCHAR2 DEFAULT NULL,
     callerParams VARCHAR2 DEFAULT ''
 ) IS
+idSessione NUMBER(5) := modgui1.get_id_sessione();
 this_autore Autori%ROWTYPE;
 op_title VARCHAR2(25);
 -- Gli eventuali parametri della procedura chiamante
@@ -2502,13 +2498,12 @@ BEGIN
 
 	modGUI1.ApriDiv('class="w3-modal-content w3-card-4 w3-animate-zoom" style="max-width:600px" ');
 		modGUI1.ApriDiv('class="w3-section"');
-        modGUI1.Collegamento('X','menuAutori?idSessione='||idSessione||'',' w3-btn w3-large w3-red w3-display-topright');
+        modGUI1.Collegamento('X',gruppo2.gr2||'menuAutori',' w3-btn w3-large w3-red w3-display-topright');
         htp.br;
 		htp.header(2, 'Dettagli Autore', 'center');
 		-- caso modifica
 		IF operazione = 1 THEN
-            modGUI1.ApriForm('UpdateAutore');
-                htp.formhidden('idSessione', idSessione);
+            modGUI1.ApriForm(gruppo2.gr2||'UpdateAutore');
                 htp.formhidden('authID', this_autore.IdAutore);
                 modGUI1.Label('Nome:');
 				modGUI1.InputText('newName', this_autore.Nome, 1, this_autore.Nome);
@@ -2558,7 +2553,7 @@ BEGIN
         IF caller is not null THEN
         params := REPLACE(callerParams,'//','&');
         MODGUI1.collegamento('Annulla',
-            caller||'?idSessione='||idSessione||params,
+            gruppo2.gr2||caller||'?'||params,
             'w3-button w3-block w3-black w3-section w3-padding');
         END IF; 
 		modGUI1.ChiudiDiv;
@@ -2566,7 +2561,6 @@ BEGIN
 END ModificaAutore;
 
 PROCEDURE UpdateAutore(
-	idSessione NUMBER DEFAULT 0,
 	authID NUMBER DEFAULT 0,
 	newName VARCHAR2 DEFAULT 'Sconosciuto',
 	newSurname VARCHAR2 DEFAULT 'Sconosciuto',
@@ -2574,6 +2568,7 @@ PROCEDURE UpdateAutore(
 	newDeath VARCHAR2 DEFAULT NULL,
 	newNation VARCHAR2 DEFAULT 'Sconosciuta'
 ) IS
+idSessione NUMBER(5) := modgui1.get_id_sessione();
 Errore_data EXCEPTION;
 BEGIN
     IF TO_DATE(newBirth, 'YYYY-MM-DD') > TO_DATE(newDeath, 'YYYY-MM-DD') THEN
@@ -2588,14 +2583,14 @@ BEGIN
 	WHERE IdAutore=authID;
 
     commit;
-    modGUI1.RedirectEsito(idSessione, 'Aggiornamento riuscito', null,null,null, null,'Torna al menù','menuAutori');
+    modGUI1.RedirectEsito(idSessione,'Aggiornamento riuscito', null,null,null, null,'Torna al menù',gruppo2.gr2||'menuAutori');
 
     EXCEPTION
 		WHEN Errore_data THEN
-            modGUI1.RedirectEsito(idSessione, 'Aggiornamento fallito',
+            modGUI1.RedirectEsito( 'Aggiornamento fallito',
              'Errore: data di nascita postuma alla data di morte',
-             'Torna alla modifica','ModificaAutore', 
-             '//authorID='||authID||'//operazione=1','Torna al menù','menuAutori');
+             'Torna alla modifica',gruppo2.gr2||'ModificaAutore', 
+             '//authorID='||authID||'//operazione=1','Torna al menù',gruppo2.gr2||'menuAutori');
             ROLLBACK;
 END;
 
@@ -2613,12 +2608,12 @@ END;
 
 -- Procedura per l'inserimento di nuove descrizioni di Opere nella base di dati
 PROCEDURE InserisciDescrizione(
-    idSessione NUMBER DEFAULT NULL,
     language VARCHAR2 DEFAULT NULL,
     d_level VARCHAR2 DEFAULT NULL,
     d_text VARCHAR2 DEFAULT NULL,
     operaID NUMBER DEFAULT NULL
 ) IS
+idSessione NUMBER(5) := modgui1.get_id_sessione();
 --def_lingua VARCHAR2(255) := 'Inserisci la lingua...';
 def_descr VARCHAR2(255) := 'Inserisci la descrizione...';
 bambino_SELECTed NUMBER(1) := 0;
@@ -2639,10 +2634,9 @@ BEGIN
     htp.prn('<h1 align="center">Inserimento Descrizione</h1>');
     modGUI1.ApriDiv('class="w3-modal-content w3-card-4 w3-animate-zoom" style="max-width:600px"');
         modGUI1.ApriDiv('class="w3-section"');
-        modGUI1.Collegamento('X','menuOpere?idSessione='||idSessione||'',' w3-btn w3-large w3-red w3-display-topright');
+        modGUI1.Collegamento('X',gruppo2.gr2||'menuOpere?',' w3-btn w3-large w3-red w3-display-topright');
         -- Form per mandare dati alla procedura di conferma
         modGUI1.ApriForm('ConfermaDatiDescrizione');
-        htp.FORMHIDDEN('idSessione',idSessione);
         htp.br;
         --MODGUI1.Label('Lingua*'); -- TODO: usare dropdown per avere nome standardizzato
         --MODGUI1.InputText('language', def_lingua, 1, language);
@@ -2699,7 +2693,9 @@ BEGIN
         MODGUI1.SELECTClose;
         MODGUI1.InputSubmit('Inserisci');
         if operaId is not null and language is not null and d_level is not null THEN
-        MODGUI1.collegamento('Annulla','VisualizzaOpera?idSessione='||idSessione||'&operaID='||operaID||'&lingue='||language||'&livelli='||d_level,'w3-button w3-block w3-black w3-section w3-padding');
+        MODGUI1.collegamento('Annulla',
+            gruppo2.gr2||'VisualizzaOpera?operaID='||operaID||'&lingue='||language||'&livelli='||d_level,
+            'w3-button w3-block w3-black w3-section w3-padding');
         end if;
         MODGUI1.ChiudiForm;
     MODGUI1.ChiudiDiv;
@@ -2708,12 +2704,12 @@ END;
 
 -- Conferma o annulla l'immissione di una nuova iscrizione per un'Opera
 PROCEDURE ConfermaDatiDescrizione(
-    idSessione NUMBER DEFAULT 0,
     language VARCHAR2 DEFAULT 'Sconosciuta',
     d_level VARCHAR2 DEFAULT 'Sconosciuto',
     d_text VARCHAR2 DEFAULT NULL,
     operaID NUMBER DEFAULT NULL
 ) IS
+idSessione NUMBER(5) := modgui1.get_id_sessione();
 v_opera Opere%ROWTYPE;
 BEGIN 
     SELECT * INTO v_opera FROM Opere WHERE Opere.IdOpera = operaID;
@@ -2722,18 +2718,18 @@ BEGIN
         OR d_text IS NULL
         OR OperaID IS NULL
     THEN
-        modGUI1.RedirectEsito(idSessione,
+        modGUI1.RedirectEsito(
             'Errore',
             'Uno dei parametri immessi non è corretto',
             'Correggi',
-            'InserisciDescrizione',
+            gruppo2.gr2||'InserisciDescrizione',
             '//language='||language||'//d_level='||d_level||'//d_text='||d_text||'//operaID='||operaID);
     ELSIF SQL%NOTFOUND THEN
-        modGUI1.RedirectEsito(idSessione,
+        modGUI1.RedirectEsito(
             'Errore',
             'Opera inesistente',
             'Correggi',
-            'InserisciDescrizione',
+            gruppo2.gr2||'InserisciDescrizione',
             '//language='||language||'//d_level='||d_level||'//d_text='||d_text||'//operaID='||operaID);
     ELSE
         -- Parametri OK, pulsante conferma o annulla
@@ -2748,7 +2744,9 @@ BEGIN
         htp.prn('<h1 align="center">Conferma Dati Descrizione</h1>');
         modGUI1.ApriDiv('class="w3-modal-content w3-card-4 w3-animate-zoom" style="max-width:600px"');
             modGUI1.ApriDiv('class="w3-section"');
-                modGUI1.Collegamento('X','menuOpere?idSessione='||idSessione||'',' w3-btn w3-large w3-red w3-display-topright');
+                modGUI1.Collegamento('X',
+                    gruppo2.gr2||'menuOpere?',
+                    'w3-btn w3-large w3-red w3-display-topright');
                 modGUI1.Label('Lingua:');
                 HTP.PRINT(language);
                 htp.br;
@@ -2759,7 +2757,6 @@ BEGIN
                 HTP.PRINT(d_text);
                 -- Form nascosto per conferma insert
                 MODGUI1.ApriForm('InserisciDatiDescrizione');
-                HTP.FORMHIDDEN('idSessione', idSessione);
                 HTP.FORMHIDDEN('language', language);
                 HTP.FORMHIDDEN('d_level', d_level);
                 HTP.FORMHIDDEN('d_text', d_text);
@@ -2768,7 +2765,6 @@ BEGIN
                 MODGUI1.ChiudiForm;
                 -- Form nascosto per ritorno ad InserisciAutore con form precompilato
                 MODGUI1.ApriForm('InserisciDescrizione');
-                HTP.FORMHIDDEN('idSessione', idSessione);
                 HTP.FORMHIDDEN('language', language);
                 HTP.FORMHIDDEN('d_level', d_level);
                 HTP.FORMHIDDEN('d_text', d_text);
@@ -2781,12 +2777,12 @@ END;
 
 -- Effettua l'inserimento di una nuova descrizione nella base di dati
 PROCEDURE InserisciDatiDescrizione(
-    idSessione NUMBER DEFAULT 0,
     language VARCHAR2 DEFAULT 'Sconosciuta',
     d_level VARCHAR2 DEFAULT 'Sconosciuto',
     d_text VARCHAR2 DEFAULT NULL,
     operaID NUMBER DEFAULT NULL
 ) IS
+idSessione NUMBER(5) := modgui1.get_id_sessione();
 OperaInesistente EXCEPTION;  -- eccezione lanciata se l'opera operaID non esiste
 Opera Opere%ROWTYPE;
 BEGIN
@@ -2797,14 +2793,14 @@ BEGIN
     INSERT INTO DESCRIZIONI VALUES
     (IdDescSeq.NEXTVAL, language, LOWER(d_level), d_text, operaID);
         commit;
-        modGUI1.RedirectEsito(idSessione, 
+        modGUI1.RedirectEsito( 
             'Inserimento riuscito', 
             'Inserimento riuscito', 
             'Torna all''opera',
-            'VisualizzaOpera',
+            gruppo2.gr2||'VisualizzaOpera',
             '//operaID='||operaID||'//lingue='||language||'//livelli='||d_level,
             'Torna al menu Opere',
-            'menuOpere');
+            gruppo2.gr2||'menuOpere');
      ELSE
     -- opera non presente: eccezione
         RAISE OperaInesistente;
@@ -2812,21 +2808,21 @@ BEGIN
 
     EXCEPTION
         WHEN OperaInesistente THEN
-            modGUI1.RedirectEsito(idSessione, 
+            modGUI1.RedirectEsito( 
                 'Inserimento fallito', 
                 'Inserimento fallito', 
                 'Correggi',
-                'InserisciDescrizione',
+                gruppo2.gr2||'InserisciDescrizione',
                 '//language='||language||'//d_level='||d_level||'//d_text='||d_text||'//operaID='||operaID,
                 'Torna al menu Opere',
-                'menuOpere');
+                gruppo2.gr2||'menuOpere');
             ROLLBACK;
    END;
 
 PROCEDURE modificaDescrizione(
-        idSessione NUMBER DEFAULT 0,
         idDescrizione NUMBER DEFAULT NULL
 ) IS
+idSessione NUMBER(5) := modgui1.get_id_sessione();
 DESCR descrizioni%ROWTYPE;
 tit VARCHAR2(100);
 bambino_SELECTed NUMBER(1) := 0;
@@ -2844,10 +2840,9 @@ modGUI1.ApriPagina('ModificaDescrizione',idSessione);
         htp.prn('<h1 align="center">Modifica Descrizione</h1>');
         modGUI1.ApriDiv('class="w3-modal-content w3-card-4 w3-animate-zoom" style="max-width:600px"');
             modGUI1.ApriDiv('class="w3-section"');
-            modGUI1.Collegamento('X','menuOpere?idSessione='||idSessione||'',' w3-btn w3-large w3-red w3-display-topright');
+            modGUI1.Collegamento('X',gruppo2.gr2||'menuOpere?',' w3-btn w3-large w3-red w3-display-topright');
             --INIZIO SEZIONE DA MODIFICARE
-                modGUI1.ApriForm('UpdateDescrizione',NULL,'w3-container');
-                    htp.FORMHIDDEN('idSessione',idSessione);
+                modGUI1.ApriForm(gruppo2.gr2||'UpdateDescrizione',NULL,'w3-container');
                     htp.FORMHIDDEN('descrID', idDescrizione);
                     modGUI1.Label('Opera*');
                     MODGUI1.SELECTOPEN('newopera', 'newopera');
@@ -2890,7 +2885,9 @@ modGUI1.ApriPagina('ModificaDescrizione',idSessione);
                     modGUI1.InputTextArea('newtesto', DESCR.testo, 1, DESCR.testo);
                     htp.br; htp.br;
                     modGUI1.InputSubmit('Modifica');
-                    MODGUI1.collegamento('Annulla','VisualizzaOpera?idSessione='||idSessione||'&operaID='||descr.opera||'&lingue='||descr.lingua||'&livelli='||descr.livello,'w3-button w3-block w3-black w3-section w3-padding');
+                    MODGUI1.collegamento('Annulla',
+                        gruppo2.gr2||'VisualizzaOpera?operaID='||descr.opera||'&lingue='||descr.lingua||'&livelli='||descr.livello,
+                        'w3-button w3-block w3-black w3-section w3-padding');
                 modGUI1.ChiudiForm;
             --FINE SEZIONE DA MODIFICARE
             modGUI1.ChiudiDiv;
@@ -2899,13 +2896,13 @@ END;
 
 
 PROCEDURE UpdateDescrizione(
-	idSessione NUMBER DEFAULT 0,
 	descrID NUMBER DEFAULT 0, 
     newopera number DEFAULT 0,
     newlingua varchar2 DEFAULT null,
     newlivello varchar2 DEFAULT null,
     newtesto CLOB DEFAULT null
 ) IS
+idSessione NUMBER(5) := modgui1.get_id_sessione();
 Errore_data EXCEPTION;
 BEGIN
 IF descrid is null or newopera is null THEN
@@ -2919,17 +2916,19 @@ IF descrid is null or newopera is null THEN
 	WHERE IDDESC=descrID;
 
     commit;
-    modGUI1.RedirectEsito(idSessione, 'Aggiornamento riuscito', null,null, null, null,'Torna all''opera','VisualizzaOpera','//operaID='||newopera||'//lingue='||newlingua);
+    modGUI1.RedirectEsito( 'Aggiornamento riuscito', null,null, null, null,
+        'Torna all''opera',gruppo2.gr2||'VisualizzaOpera','//operaID='||newopera||'//lingue='||newlingua);
     EXCEPTION
 		WHEN Errore_data THEN
-            modGUI1.RedirectEsito(idSessione, 'Aggiornamento fallito', null,null, null, null,'Torna all''opera','VisualizzaOpera','//operaID='||newopera||'//lingue='||newlingua);
+            modGUI1.RedirectEsito( 'Aggiornamento fallito', null,null, null, null,
+                'Torna all''opera',gruppo2.gr2||'VisualizzaOpera','//operaID='||newopera||'//lingue='||newlingua);
             ROLLBACK;
 END;
 
 procedure EliminazioneDescrizione(
-    idSessione NUMBER default 0,
     idDescrizione NUMBER default 0
 ) IS
+idSessione NUMBER(5) := modgui1.get_id_sessione();
 dLingua DESCRIZIONI.Lingua%TYPE;
 dLivello DESCRIZIONI.Livello%TYPE;
 BEGIN
@@ -2945,7 +2944,7 @@ BEGIN
                         SELECT Lingua,Livello INTO dLingua,dLivello FROM DESCRIZIONI WHERE IDDESC=idDescrizione;
                         htp.prn('stai per rimuovere: '||dLingua||' '||dLivello);
                         modGUI1.Collegamento('Conferma',
-                        'RimozioneDescrizione?idSessione='||idSessione||'&idDescrizione='||idDescrizione,
+                        gruppo2.gr2||'RimozioneDescrizione?idDescrizione='||idDescrizione,
                         'w3-button w3-block w3-green w3-section w3-padding');
                         htp.prn('<span onclick="document.getElementById(''ElimDescrizione'||idDescrizione||''').style.display=''none''" class="w3-button w3-block w3-red w3-section w3-padding" title="Close Modal">Annulla</span>');
                     modGUI1.ChiudiDiv;
@@ -2956,24 +2955,25 @@ end EliminazioneDescrizione;
 
 --Procedura rimozione descrizione
 procedure RimozioneDescrizione(
-    idSessione NUMBER default 0,
     idDescrizione NUMBER default 0
 ) IS
+idSessione NUMBER(5) := modgui1.get_id_sessione();
 opid number(5);
 oplingua VARCHAR2(25);
 oplivello VARCHAR2(25);
 BEGIN
     SELECT Opera, LINGUA,livello into opid, oplingua, oplivello
     FROM DESCRIZIONI WHERE IDDESC=idDescrizione;
-    modGUI1.RedirectEsito(idSessione,'Rimozione riuscita', null,null,null, null,'Torna all''opera','VisualizzaOpera','//operaID='||opid||'//lingue='||oplingua||'//livelli='||oplivello);
+    modGUI1.RedirectEsito('Rimozione riuscita', null,null,null, null,
+        'Torna all''opera',gruppo2.gr2||'VisualizzaOpera','//operaID='||opid||'//lingue='||oplingua||'//livelli='||oplivello);
         DELETE FROM DESCRIZIONI WHERE IDDESC = idDescrizione;
         commit;
 end RimozioneDescrizione;
 
 Procedure StatisticheDescrizioni(
-    idSessione NUMBER DEFAULT 0,
     operazione NUMBER DEFAULT 0
 )IS
+idSessione NUMBER(5) := modgui1.get_id_sessione();
 cursor liv is (SELECT livello, count(LIVELLO) as cliv
                 FROM DESCRIZIONI GROUP by LIVELLO
                 HAVING COUNT(LIVELLO)=(
@@ -3001,7 +3001,7 @@ BEGIN
         modGUI1.ApriDiv('class="w3-modal-content w3-card-4 w3-animate-zoom" style="max-width:600px"');
             modGUI1.ApriDiv('class="w3-section"');
                 modGUI1.Collegamento('X',
-                    'menuOpere?idSessione='||idSessione,
+                    gruppo2.gr2||'menuOpere'||
                     'w3-btn w3-large w3-red w3-display-topright');
                 -- Form per mandare dati alla procedura di conferma
                 htp.br;

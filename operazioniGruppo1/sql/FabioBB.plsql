@@ -4,7 +4,10 @@ CREATE OR REPLACE PACKAGE BODY testFB AS
 	PROCEDURE visualizzaNewsletters
 	IS
 		id_sessione NUMBER(10) := NULL;
+		id_client NUMBER(10) := NULL;
 		sessionIdExecption EXCEPTION;
+
+		temp NUMBER(10) := NULL;
 	BEGIN
 
 		id_sessione := modgui1.get_id_sessione;
@@ -19,6 +22,8 @@ CREATE OR REPLACE PACKAGE BODY testFB AS
         modgui1.apridiv('class="w3-center"');
         htp.prn('<h1>Newsletter</h1>');
 
+		SELECT IDCLIENTE INTO id_client FROM UTENTILOGIN WHERE UTENTILOGIN.IDUTENTELOGIN = id_sessione;
+		htp.prn('<h1>ID CLIENT ' || TO_CHAR(id_client) || ' </h1>');
 		--TODO-hasperms()..
 
 		/*if hasRole(id_sessione, 'DBA')
@@ -27,6 +32,7 @@ CREATE OR REPLACE PACKAGE BODY testFB AS
 			OR hasRole(id_sessione, 'GCE')
 			OR hasRole(id_sessione, 'GO')
 		*/
+
 
 		if hasRole(id_sessione, 'DBA')
 		THEN
@@ -58,21 +64,35 @@ CREATE OR REPLACE PACKAGE BODY testFB AS
 			htp.br;
 			htp.prn(to_char(newsletter.ELIMINATO));
 			htp.br;
-			modgui1.chiudidiv;
-			--todo has perms
-			/*
-            IF ( id_sessione = 1 ) THEN
-                modgui1.collegamento(
-                                    'Modifica',
-                                    'packagevisite.pagina_modifica_visita?carica_default=1--idvisitaselezionata=' || visita.idvisita,
-                                    'w3-button w3-margin w3-green'
-                );
-                modgui1.collegamento(
-                                    'Rimuovi',
-                                    'packagevisite.pagina_rimuovi_visita?idvisitaselezionata=' || visita.idvisita,
-                                    'w3-button w3-margin w3-red'
-                );
-            END IF;*/
+			htp.br;
+
+
+			if id_client IS NOT NULL
+			THEN
+				--questa querry non potrà mai fallire.
+				SELECT COUNT(*) INTO temp FROM NEWSLETTERUTENTI WHERE NEWSLETTERUTENTI.IDNEWS = newsletter.IDNEWS AND NEWSLETTERUTENTI.IDUTENTE = id_client;
+
+				if temp = 0
+				THEN
+					--utente selezionato non è iscritto alla newsletter
+					modgui1.collegamento(
+										'Iscriviti',
+										'PackageVisite.....',
+										'w3-btn w3-round-xxlarge w3-green'
+					);
+				end if;
+
+				if temp > 0
+				THEN
+					--utente selezionato non è iscritto alla newsletter
+					modgui1.collegamento(
+										'Disiscriviti',
+										'PackageVisite.....',
+										'w3-btn w3-round-xxlarge w3-green'
+					);
+				end if;
+			END IF;
+
 			if hasRole(id_sessione, 'DBA')
 			THEN
 				modgui1.collegamento(
@@ -86,7 +106,7 @@ CREATE OR REPLACE PACKAGE BODY testFB AS
 									'w3-btn w3-round-xxlarge w3-black'
 				);
 			END IF;
-
+			modgui1.chiudidiv;
             modgui1.chiudidiv;
             modgui1.chiudidiv;
         END LOOP;
@@ -101,7 +121,7 @@ CREATE OR REPLACE PACKAGE BODY testFB AS
 		MODGUI1.Header(id_sessione);
 		HTP.BodyOpen;
 
-		MODGUI1.ApriDiv;
+		modgui1.apridiv('style="margin-top: 110px"');
 		MODGUI1.LABEL('idSessione non settato o corretto');
 		MODGUI1.collegamento('visualizza newsletter', 'visualizzaNewsletter');
 		MODGUI1.ChiudiDiv;

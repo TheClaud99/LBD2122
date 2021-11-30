@@ -14,7 +14,8 @@ procedure InserisciUtente(
 	utenteMuseo VARCHAR2 DEFAULT NULL,
 	utenteDonatore VARCHAR2 DEFAULT NULL,
 	utenteCampiEstivi VARCHAR2 DEFAULT NULL,
-	utenteAssistenza VARCHAR2 DEFAULT NULL
+	utenteAssistenza VARCHAR2 DEFAULT NULL,
+	utenteTutore NUMBER DEFAULT 0
 );
 
 PROCEDURE ConfermaDatiUtente(
@@ -28,7 +29,8 @@ PROCEDURE ConfermaDatiUtente(
 	utenteMuseo VARCHAR2 DEFAULT NULL,
 	utenteDonatore VARCHAR2 DEFAULT NULL,
 	utenteCampiEstivi VARCHAR2 DEFAULT NULL,
-	utenteAssistenza VARCHAR2 DEFAULT NULL
+	utenteAssistenza VARCHAR2 DEFAULT NULL,
+	utenteTutore NUMBER DEFAULT 0
 );
 
 PROCEDURE InserisciDatiUtente (
@@ -42,7 +44,8 @@ PROCEDURE InserisciDatiUtente (
 	utenteMuseo VARCHAR2 DEFAULT NULL,
 	utenteDonatore VARCHAR2 DEFAULT NULL,
 	utenteCampiEstivi VARCHAR2 DEFAULT NULL,
-	utenteAssistenza VARCHAR2 DEFAULT NULL
+	utenteAssistenza VARCHAR2 DEFAULT NULL,
+	utenteTutore NUMBER DEFAULT 0
 );
 
 procedure EsitoPositivoUtenti(
@@ -75,7 +78,8 @@ PROCEDURE ModificaDatiUtente (
 	utenteMuseoNew VARCHAR2 DEFAULT NULL,
 	utenteDonatoreNew VARCHAR2 DEFAULT NULL,
 	utenteCampiEstiviNew VARCHAR2 DEFAULT NULL,
-	utenteAssistenzaNew VARCHAR2 DEFAULT NULL
+	utenteAssistenzaNew VARCHAR2 DEFAULT NULL,
+	utenteTutoreNew NUMBER DEFAULT 0
 );
 
 PROCEDURE EliminaUtente(

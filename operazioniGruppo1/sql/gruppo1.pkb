@@ -53,8 +53,12 @@ PROCEDURE InserisciUtente(
 	utenteMuseo VARCHAR2 DEFAULT NULL,
 	utenteDonatore VARCHAR2 DEFAULT NULL,
 	utenteCampiEstivi VARCHAR2 DEFAULT NULL,
-	utenteAssistenza VARCHAR2 DEFAULT NULL
+	utenteAssistenza VARCHAR2 DEFAULT NULL,
+	utenteTutore NUMBER DEFAULT 0
 ) IS
+	nomeutente utenti.nome%TYPE;
+	cognomeutente utenti.cognome%TYPE;
+	varidutente utenti.Idutente%TYPE;
 BEGIN
 
     MODGUI1.ApriPagina('Inserimento utenti', idSessione);
@@ -75,6 +79,28 @@ BEGIN
 	HTP.BR;
 	MODGUI1.Label('Data nascita*');
 	MODGUI1.InputDate('dataNascita', 'dataNascita', 1, dataNascita);
+	HTP.BR;
+	if utenteTutore = 0 then
+		MODGUI1.ApriDiv('style="margin-left: 2%; margin-right: 2%; display: none" id="third"');
+	else 
+		MODGUI1.ApriDiv('style="margin-left: 2%; margin-right: 2%; display: block" id="third"');
+	end if;
+	modgui1.label('Tutore*');
+	modgui1.selectopen('utenteTutore', 'idutentetutore');
+	for utente in (select idutente from utenti)
+	loop
+		select idutente, nome, cognome
+		into varidutente, nomeutente, cognomeutente
+		from utenti
+		where idutente=utente.idutente;
+		if utenteTutore = varidutente then 
+			MODGUI1.SelectOption(varidutente, ''|| nomeutente ||' '||cognomeutente||'', 1);
+		else
+			MODGUI1.SelectOption(varidutente, ''|| nomeutente ||' '||cognomeutente||'', 0);
+		end if;
+	end loop;
+	modgui1.selectclose();
+	modgui1.chiudiDiv;
 	HTP.BR;
 	MODGUI1.Label('Indirizzo*');
 	MODGUI1.InputText('indirizzo', 'Indirizzo', 1, indirizzo);
@@ -152,6 +178,22 @@ BEGIN
 					}
 				}
 			}
+
+			const checkNascita = document.getElementById("dataNascita");
+			const divTutore = document.getElementById("third")
+			checkNascita.addEventListener("change", (event) => {
+				let start = new Date(checkNascita.value);
+				let now = Date.now()
+  				let elapsed =  now - start;
+				let age = Math.floor(((((elapsed / 1000) / 60) / 60) /24) / 365);
+				if (age < 18) {
+					divTutore.style.display = "block"
+				}
+				else {
+					divTutore.style.display = "none"
+				}
+			});
+			
         </script>');
 
 	HTP.BodyClose;
@@ -170,8 +212,12 @@ PROCEDURE ConfermaDatiUtente(
 	utenteMuseo VARCHAR2 DEFAULT NULL,
 	utenteDonatore VARCHAR2 DEFAULT NULL,
 	utenteCampiEstivi VARCHAR2 DEFAULT NULL,
-	utenteAssistenza VARCHAR2 DEFAULT NULL
+	utenteAssistenza VARCHAR2 DEFAULT NULL,
+	utenteTutore NUMBER DEFAULT 0
 ) IS
+	nomeutente utenti.nome%TYPE;
+	cognomeutente utenti.cognome%TYPE;
+	varidutente utenti.Idutente%TYPE;
 BEGIN
 	-- se utente non autorizzato: messaggio errore
 	IF nome IS NULL
@@ -206,6 +252,16 @@ BEGIN
 		HTP.TableData('Cognome: ');
 		HTP.TableData(cognome);
 		HTP.TableRowClose;
+		if utenteTutore != 0 then
+			select nome, cognome
+			into nomeutente, cognomeutente
+			from utenti
+			where idutente=utenteTutore;               
+			HTP.TableRowOpen;
+			HTP.TableData('Tutore: ');
+			HTP.TableData(nomeutente||' '||cognomeutente);
+			HTP.TableRowClose;
+		end if;
 		HTP.TableRowOpen;
 		HTP.TableData('Data Nascita: ');
 		HTP.TableData(dataNascita);
@@ -253,6 +309,9 @@ BEGIN
 		HTP.FORMHIDDEN('nome', nome);
 		HTP.FORMHIDDEN('cognome', cognome);
 		HTP.FORMHIDDEN('dataNascita', dataNascita);
+		if utenteTutore != 0 then
+			HTP.FORMHIDDEN('utenteTutore', utenteTutore);
+		end if;
 		HTP.FORMHIDDEN('Indirizzo', indirizzo);
 		HTP.FORMHIDDEN('utenteEmail', email);
         HTP.FORMHIDDEN('Telefono', telefono);
@@ -272,7 +331,7 @@ BEGIN
 		MODGUI1.ChiudiForm;
 		MODGUI1.Collegamento(
             'Annulla',
-			'InserisciUtente?nome='||nome||'&cognome='||cognome||'&dataNascita='||dataNascita||'&indirizzo='||indirizzo||'&email='||email||'&telefono='||telefono||'&utenteMuseo='||utenteMuseo||'&utenteDonatore='||utenteDonatore||'&utenteCampiEstivi='||utenteCampiEstivi||'&utenteAssistenza='||utenteAssistenza,
+			'InserisciUtente?nome='||nome||'&cognome='||cognome||'&dataNascita='||dataNascita||'&indirizzo='||indirizzo||'&email='||email||'&telefono='||telefono||'&utenteMuseo='||utenteMuseo||'&utenteDonatore='||utenteDonatore||'&utenteCampiEstivi='||utenteCampiEstivi||'&utenteAssistenza='||utenteAssistenza||'&utenteTutore='||utenteTutore,
 			'w3-button w3-block w3-black w3-section w3-padding'
         );
 		MODGUI1.ChiudiDiv;
@@ -294,7 +353,8 @@ PROCEDURE InserisciDatiUtente (
 	utenteMuseo VARCHAR2 DEFAULT NULL,
 	utenteDonatore VARCHAR2 DEFAULT NULL,
 	utenteCampiEstivi VARCHAR2 DEFAULT NULL,
-	utenteAssistenza VARCHAR2 DEFAULT NULL
+	utenteAssistenza VARCHAR2 DEFAULT NULL,
+	utenteTutore NUMBER DEFAULT 0
 ) IS
     birth DATE := TO_DATE(dataNascita default NULL on conversion error, 'YYYY-MM-DD');
     EmailPresente EXCEPTION;
@@ -341,6 +401,11 @@ BEGIN
 			insert into UTENTICAMPIESTIVI
 			values (tempIdUtente, 0);
 		end if;
+	end if;
+
+	if utenteTutore != 0 then
+		insert into TUTORI
+		values (utenteTutore, tempIdUtente);
 	end if;
 
 	IF SQL%FOUND
@@ -410,6 +475,10 @@ IS
 	UtenteAssistenza UTENTICAMPIESTIVI.Richiestaassistenza%TYPE;
 	temp NUMBER(10) := 0;
     temp2 NUMBER(10) := 0;
+	temp3 NUMBER(10) := 0;
+	NomeTutore UTENTI.Nome%TYPE;
+    CognomeTutore UTENTI.Cognome%TYPE;
+	idTutoreUtente UTENTI.idutente%TYPE;
 
 
 BEGIN
@@ -435,6 +504,20 @@ BEGIN
 		where utenteID = UTENTICAMPIESTIVI.idutente;
 	end if;
 
+	select count(*) into temp3 from TUTORI
+	where IDTUTELATO = utenteID;
+
+	
+	if temp3 > 0 THEN
+		select idtutore into idTutoreUtente from TUTORI
+		where IDTUTELATO = utenteID;
+		
+		select nome, cognome into NomeTutore, CognomeTutore from UTENTI
+		where idutente = idTutoreUtente;
+		
+	end if;
+	
+	
 	IF SQL%FOUND
 	THEN
 
@@ -453,6 +536,13 @@ BEGIN
 		HTP.tablerowopen;
 		HTP.tabledata('Data nascita: '||DataNascitaUtente);
 		HTP.tablerowclose;
+		
+		if temp3 > 0 then
+			HTP.tablerowopen;
+			HTP.tabledata('Tutore: '||NomeTutore|| ' '||CognomeTutore);
+			HTP.tablerowclose;
+		end if;
+		
 		HTP.tablerowopen;
 		HTP.tabledata('Indirizzo: '||IndirizzoUtente);
 		HTP.tablerowopen;
@@ -526,6 +616,11 @@ IS
 	UtenteAssistenza UTENTICAMPIESTIVI.Richiestaassistenza%TYPE;
 	temp NUMBER(10) := 0;
     temp2 NUMBER(10) := 0;
+	temp3 NUMBER(10) := 0;
+	NomeTutore UTENTI.Nome%TYPE;
+    CognomeTutore UTENTI.Cognome%TYPE;
+	idTutoreUtente UTENTI.idutente%TYPE;
+	varidTutore UTENTI.idutente%TYPE;
 
 BEGIN
 
@@ -550,6 +645,16 @@ BEGIN
 		where utenteID = UTENTICAMPIESTIVI.idutente;
 	end if;
 
+	select count(*) into temp3 from TUTORI
+	where IDTUTELATO = utenteID;
+
+	
+	if temp3 > 0 THEN
+		select idtutore into idTutoreUtente from TUTORI
+		where IDTUTELATO = utenteID;
+	end if;
+		
+
 	IF SQL%FOUND
 	THEN
 
@@ -559,7 +664,7 @@ BEGIN
 		modgui1.apridiv('class="w3-modal-content w3-card-4 w3-animate-zoom w3-padding-large" style="max-width:600px; margin-top:110px"');
 		HTP.header(2, 'Modifica utente');
 		MODGUI1.ApriForm('ModificaDatiUtente');
-		HTP.FORMHIDDEN('idSessione',0);
+		HTP.FORMHIDDEN('idSessione',idSessione);
 		HTP.FORMHIDDEN('utenteID',utenteID);
 		MODGUI1.Label('Nome*');
 		MODGUI1.InputText('nomeNew', 'Nome utente', 1, NomeUtente);
@@ -569,6 +674,28 @@ BEGIN
 		HTP.BR;
 		MODGUI1.Label('Data nascita*');
 		MODGUI1.InputDate('dataNascita', 'dataNascitaNew', 1, DataNascitaUtente);
+		HTP.BR;
+		if temp3 = 0 then
+			MODGUI1.ApriDiv('style="margin-left: 2%; margin-right: 2%; display: none" id="third"');
+		else 
+			MODGUI1.ApriDiv('style="margin-left: 2%; margin-right: 2%; display: block" id="third"');
+		end if;
+		modgui1.label('Tutore*');
+		modgui1.selectopen('utenteTutoreNew', 'idutentetutore');
+		for utente in (select idutente from utenti)
+		loop
+			select idutente, nome, cognome
+			into varidTutore, NomeTutore, CognomeTutore
+			from utenti
+			where idutente=utente.idutente;
+			if idTutoreUtente = varidTutore then 
+				MODGUI1.SelectOption(varidTutore, ''|| NomeTutore ||' '||CognomeTutore||'', 1);
+			else
+				MODGUI1.SelectOption(varidTutore, ''|| NomeTutore ||' '||CognomeTutore||'', 0);
+			end if;
+		end loop;
+		modgui1.selectclose();
+		modgui1.chiudiDiv;
 		HTP.BR;
 		MODGUI1.Label('Indirizzo*');
 		MODGUI1.InputText('indirizzoNew', 'Indirizzo', 1, IndirizzoUtente);
@@ -649,6 +776,22 @@ BEGIN
 					}
 				}
 			}
+			const checkNascita = document.getElementById("dataNascita");
+			const divTutore = document.getElementById("third")
+			checkNascita.addEventListener("change", (event) => {
+				let start = new Date(checkNascita.value);
+				let now = Date.now()
+  				let elapsed =  now - start;
+				let age = Math.floor(((((elapsed / 1000) / 60) / 60) /24) / 365);
+				if (age < 18) {
+					divTutore.style.display = "block"
+					document.getElementById("idutentetutore").disabled = false;
+				}
+				else {
+					divTutore.style.display = "none"
+					document.getElementById("idutentetutore").disabled = true;
+				}
+			});
         </script>');
 
 		HTP.BodyClose;
@@ -676,7 +819,8 @@ PROCEDURE ModificaDatiUtente (
 	utenteMuseoNew VARCHAR2 DEFAULT NULL,
 	utenteDonatoreNew VARCHAR2 DEFAULT NULL,
 	utenteCampiEstiviNew VARCHAR2 DEFAULT NULL,
-	utenteAssistenzaNew VARCHAR2 DEFAULT NULL
+	utenteAssistenzaNew VARCHAR2 DEFAULT NULL,
+	utenteTutoreNew NUMBER DEFAULT 0
 ) IS
     birth DATE := TO_DATE(dataNascitaNew default NULL on conversion error, 'YYYY-MM-DD');
     EmailPresente EXCEPTION;
@@ -685,6 +829,7 @@ PROCEDURE ModificaDatiUtente (
     temp2 NUMBER(10) := 0;
 	temp3 NUMBER(10) := 0;
     temp4 NUMBER(10) := 0;
+	temp5 NUMBER(10) := 0;
 	EmailUtente UTENTI.Email%TYPE;
 	RecapitoTelefonicoUtente UTENTI.RecapitoTelefonico%TYPE;
 
@@ -770,7 +915,23 @@ BEGIN
 		end if;
 	end if;
 
+	select count(*) into temp5 from TUTORI where IDTUTELATO = utenteID;
 
+	if temp5 > 0 THEN
+		if utenteTutoreNew = 0 then
+			delete from TUTORI where IDTUTELATO = utenteID;
+		else
+			update tutori set
+				IDTUTORE = utenteTutoreNew
+			where IDTUTELATO = utenteID;
+		end if;
+	else
+		if utenteTutoreNew != 0 THEN
+			insert into TUTORI
+			values (utenteTutoreNew, utenteID);
+		end if;
+	end if;
+	 
 	IF SQL%FOUND THEN
 		commit;
 		EsitoPositivoUtenti(idSessione);
@@ -1028,7 +1189,7 @@ is
                 modGUI1.ApriDiv('class="w3-center"');
                 htp.print('<h1>Operazione eseguita correttamente </h1>');
 				if res > 0 then
-					htp.print('<h3>Il risultato è '||to_integer(res2/res)||'</h3>');
+					htp.print('<h3>Il risultato è '||res2/res||'</h3>');
 				else
 					htp.print('<h3>Il risultato è 0</h3>');
 				end if;
@@ -1554,7 +1715,7 @@ BEGIN
 	MODGUI1.chiudiDiv;
 	htp.bodyclose;
 	htp.htmlclose;
-
+	
 	EXCEPTION
 	when newsletterInesistente THEN
 		MODGUI1.ApriPagina('Errore', idSessione);
@@ -1580,6 +1741,7 @@ BEGIN
 
 		HTP.BodyClose;
 		HTP.HtmlClose;
+		
 END;
 END GRUPPO1;
 

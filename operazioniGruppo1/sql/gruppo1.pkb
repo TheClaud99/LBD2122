@@ -1602,8 +1602,8 @@ END GRUPPO1;
  * - Inserimento ✅
  * - Cancellazione❌
  * - Visualizzazione ✅
- * - Iscrizione(rimozione)❌
- * - Cancellazione Iscrizione❌
+ * - Iscrizione(rimozione)✅
+ * - Cancellazione Iscrizione✅
  * OPERAZIONI STATISTICHE E MONITORAGGIO
  * - Numero visitatori iscritti alla Newsletter scelta ✅
  * - Età media dei visitatori iscritti alla Newsletter scelta ✅

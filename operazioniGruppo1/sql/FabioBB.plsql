@@ -23,8 +23,6 @@ CREATE OR REPLACE PACKAGE BODY testFB AS
         htp.prn('<h1>Newsletter</h1>');
 
 		SELECT IDCLIENTE INTO id_client FROM UTENTILOGIN WHERE UTENTILOGIN.IDUTENTELOGIN = id_sessione;
-		htp.prn('<h1>ID CLIENT ' || TO_CHAR(id_client) || ' </h1>');
-		--TODO-hasperms()..
 
 		/*if hasRole(id_sessione, 'DBA')
 			OR hasRole(id_sessione, 'AB')
@@ -53,7 +51,6 @@ CREATE OR REPLACE PACKAGE BODY testFB AS
                 NEWSLETTER
 			WHERE NEWSLETTER.ELIMINATO = 0
         ) LOOP
-			---TODO stampare meglio le newsletter.
             modgui1.apridiv('class="w3-col l4 w3-padding-large w3-center"');
             modgui1.apridiv('class="w3-card-4"');
             htp.prn('<img src="https://cdn.pixabay.com/photo/2016/10/22/15/32/water-1761027__480.jpg" alt="Alps" style="width:100%">');
@@ -77,7 +74,7 @@ CREATE OR REPLACE PACKAGE BODY testFB AS
 					--utente selezionato non è iscritto alla newsletter
 					modgui1.collegamento(
 										'Iscriviti',
-										'PackageVisite.....',
+										'testFB.iscrivitiNewsletter?newsletterid=' || TO_CHAR(newsletter.IDNEWS) || '&clientid=' || TO_CHAR(id_client),
 										'w3-btn w3-round-xxlarge w3-green'
 					);
 				end if;
@@ -87,8 +84,8 @@ CREATE OR REPLACE PACKAGE BODY testFB AS
 					--utente selezionato non è iscritto alla newsletter
 					modgui1.collegamento(
 										'Disiscriviti',
-										'PackageVisite.....',
-										'w3-btn w3-round-xxlarge w3-green'
+										'testFB.disiscrivitiNewsletter?newsletterid=' || TO_CHAR(newsletter.IDNEWS) || '&clientid=' || TO_CHAR(id_client),
+										'w3-btn w3-round-xxlarge w3-red'
 					);
 				end if;
 			END IF;
@@ -106,6 +103,7 @@ CREATE OR REPLACE PACKAGE BODY testFB AS
 									'w3-btn w3-round-xxlarge w3-black'
 				);
 			END IF;
+			htp.br;
 			modgui1.chiudidiv;
             modgui1.chiudidiv;
             modgui1.chiudidiv;
@@ -130,6 +128,89 @@ CREATE OR REPLACE PACKAGE BODY testFB AS
 		HTP.HtmlClose;
 
 
+	END;
+
+	PROCEDURE iscrivitiNewsletter (
+		newsletterid NUMBER DEFAULT -1,
+		clientid NUMBER DEFAULT -1
+	) IS
+		id_sessione NUMBER(10) := NULL;
+		newslettername VARCHAR2(50) := NULL;
+		dataErrorException EXCEPTION;
+	BEGIN
+
+		if newsletterid = -1 OR clientid = -1
+		THEN
+			raise dataErrorException;
+		end if;
+
+		SELECT NEWSLETTER.NOME INTO newslettername FROM NEWSLETTER WHERE NEWSLETTER.IDNEWS = newsletterid;
+
+
+		id_sessione := modgui1.get_id_sessione;
+
+		MODGUI1.ApriPagina('Iscrizione newsletter', id_sessione);
+		HTP.BodyOpen;
+		MODGUI1.Header(id_sessione);
+		modgui1.apridiv('style="margin-top: 110px"');
+		modgui1.ApriDivCard;
+		modgui1.apridiv('class="w3-container w3-center"');
+		HTP.header(1,'Sei stato inserito nella newsletter', 'center');
+		htp.br;
+		HTP.prn('<h1> ' || newslettername || '</h1>');
+		htp.br;
+		htp.br;
+		modgui1.collegamento(
+					'Visualizza Newsletter',
+					'testFB.visualizzaNewsletters',
+					'w3-btn w3-round-xxlarge w3-black'
+		);
+
+		INSERT INTO NEWSLETTERUTENTI VALUES (newsletterid,clientid);
+		modgui1.ChiudiDiv;
+		modgui1.ChiudiDiv;
+		modgui1.ChiudiDiv;
+	END;
+
+	PROCEDURE disiscrivitiNewsletter (
+		newsletterid NUMBER DEFAULT -1,
+		clientid NUMBER DEFAULT -1
+	) IS
+		id_sessione NUMBER(10) := NULL;
+		newslettername VARCHAR2(50) := NULL;
+		dataErrorException EXCEPTION;
+	BEGIN
+		if newsletterid = -1 OR clientid = -1
+		THEN
+			raise dataErrorException;
+		end if;
+
+		SELECT NEWSLETTER.NOME INTO newslettername FROM NEWSLETTER WHERE NEWSLETTER.IDNEWS = newsletterid;
+
+
+		id_sessione := modgui1.get_id_sessione;
+
+		MODGUI1.ApriPagina('Disiscrizione newsletter', id_sessione);
+		HTP.BodyOpen;
+		MODGUI1.Header(id_sessione);
+		modgui1.apridiv('style="margin-top: 110px"');
+		modgui1.ApriDivCard;
+		modgui1.apridiv('class="w3-container w3-center"');
+		HTP.header(1,'Sei stato rimosso dalla newsletter', 'center');
+		htp.br;
+		HTP.prn('<h1> ' || newslettername || '</h1>');
+		htp.br;
+		htp.br;
+		modgui1.collegamento(
+					'Visualizza Newsletter',
+					'testFB.visualizzaNewsletters',
+					'w3-btn w3-round-xxlarge w3-black'
+		);
+
+		DELETE FROM NEWSLETTERUTENTI WHERE NEWSLETTERUTENTI.IDNEWS = newsletterid AND NEWSLETTERUTENTI.IDUTENTE = clientid;
+		modgui1.ChiudiDiv;
+		modgui1.ChiudiDiv;
+		modgui1.ChiudiDiv;
 	END;
 
 	PROCEDURE statisticheNewsLetter (
@@ -288,48 +369,48 @@ CREATE OR REPLACE PACKAGE BODY testFB AS
 	END;
 
 
-PROCEDURE inserisciNewsLetter
-	IS
+	PROCEDURE inserisciNewsLetter
+		IS
+			id_sessione NUMBER(10) := NULL;
+			sessionIdExecption EXCEPTION;
+		BEGIN
+
+		id_sessione := modgui1.get_id_sessione;
+		if id_sessione = 0
+		THEN
+			RAISE sessionIdExecption;
+		end if;
+		MODGUI1.ApriPagina('Inserimento newsletter', id_sessione);
+
+		HTP.BodyOpen;
+		MODGUI1.Header(id_sessione);
+		modgui1.apridiv('style="margin-top: 110px"');
+		modgui1.ApriDivCard;
+		HTP.header(1,'Inserisci una nuova newsletter', 'center');
+
+		MODGUI1.ApriForm('testfb.inserisci_newsletter');
+
+		MODGUI1.Label('Nome*');
+		MODGUI1.InputText('nome', 'Nome newsletter', 1);
+		HTP.BR;
+		MODGUI1.InputSubmit('Inserisci');
+
+		MODGUI1.ChiudiDiv;
+		MODGUI1.ChiudiForm;
+		MODGUI1.ChiudiDiv;
+
+		HTP.BodyClose;
+		HTP.HtmlClose;
+
+	END;
+
+	PROCEDURE inserisci_newsletter (
+		nome varchar2 DEFAULT 'sconosciuto',
+		checked number DEFAULT 0
+	) IS
 		id_sessione NUMBER(10) := NULL;
 		sessionIdExecption EXCEPTION;
 	BEGIN
-
-	id_sessione := modgui1.get_id_sessione;
-	if id_sessione = 0
-	THEN
-		RAISE sessionIdExecption;
-	end if;
-	MODGUI1.ApriPagina('Inserimento newsletter', id_sessione);
-
-	HTP.BodyOpen;
-	MODGUI1.Header(id_sessione);
-	modgui1.apridiv('style="margin-top: 110px"');
-	modgui1.ApriDivCard;
-	HTP.header(1,'Inserisci una nuova newsletter', 'center');
-
-	MODGUI1.ApriForm('testfb.inserisci_newsletter');
-
-	MODGUI1.Label('Nome*');
-	MODGUI1.InputText('nome', 'Nome newsletter', 1);
-	HTP.BR;
-	MODGUI1.InputSubmit('Inserisci');
-
-	MODGUI1.ChiudiDiv;
-	MODGUI1.ChiudiForm;
-	MODGUI1.ChiudiDiv;
-
-	HTP.BodyClose;
-	HTP.HtmlClose;
-
-END;
-
-PROCEDURE inserisci_newsletter (
-	nome varchar2 DEFAULT 'sconosciuto',
-	checked number DEFAULT 0
-) IS
-	id_sessione NUMBER(10) := NULL;
-	sessionIdExecption EXCEPTION;
-BEGIN
 
 	id_sessione := modgui1.get_id_sessione;
 	if id_sessione = 0
@@ -378,6 +459,6 @@ BEGIN
 
 	MODGUI1.ChiudiDiv;
 
-END;
+	END;
 
 END testFB;

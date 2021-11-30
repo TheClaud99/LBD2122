@@ -2,6 +2,10 @@ create or replace package operazioniGruppo4 as
 
 /*OPERAZIONI CAMPIESTIVI*/
 procedure menucampiestivi;
+procedure menumusei
+(
+   idsessione IN number default 0
+);
 procedure inseriscicampiestivi
 (
    newNome in CAMPIESTIVI.Nome%TYPE default null,
@@ -33,6 +37,7 @@ procedure visualizzacampiestivi
 /*OPERAZIONI MUSEO*/
 procedure inseriscimuseo
 ( 
+   idsessione IN number default 0,
    newNome in Musei.Nome%TYPE default null,
    newIndirizzo in MUSEI.INDIRIZZO%TYPE default null
 );
@@ -46,19 +51,39 @@ procedure controllamusei
    newNome in Musei.Nome%TYPE default null,
    newIndirizzo in MUSEI.INDIRIZZO%TYPE default null
 );
-procedure modificamusei /*da finire*/
+procedure visualizzamusei
 (
+   idsessione IN number default 0,
+   MuseoId IN MUSEI.IdMuseo%TYPE
+);
+procedure modificamusei 
+(
+   MuseoId IN MUSEI.IdMuseo%TYPE,
+   newNome in Musei.Nome%TYPE default null,
+   newIndirizzo in MUSEI.INDIRIZZO%TYPE default null
+);
+procedure confermamodificamuseo
+(
+   MuseoId IN MUSEI.IdMuseo%TYPE,
+   newNome in Musei.Nome%TYPE default null,
+   newIndirizzo in MUSEI.INDIRIZZO%TYPE default null
+);
+procedure updatemusei
+(
+   MuseoId IN MUSEI.IdMuseo%TYPE,
    newNome in Musei.Nome%TYPE default null,
    newIndirizzo in MUSEI.INDIRIZZO%TYPE default null
 );
 /*STATISTICHE MUSEO*/
 procedure controllastatistica
 (
+   idsessione IN number default 0,
    MuseoId IN MUSEI.IdMuseo%TYPE,
    scelta in number
 );
 procedure controllastatistica2
 (
+   idsessione IN number default 0,
    MuseoId IN MUSEI.IdMuseo%TYPE,
    scelta in number,
    Data1 varchar2,
@@ -66,6 +91,7 @@ procedure controllastatistica2
 );
 procedure form1monitoraggio
 (
+   idsessione IN number default 0,
    MuseoId IN MUSEI.IdMuseo%TYPE,
    NameMuseo IN MUSEI.NOME%TYPE
 );
@@ -80,27 +106,34 @@ procedure form2monitoraggio
 
 procedure salepresenti
 (
-   sessionID IN number default 0,
+   idsessione IN number default 0,
    MuseoId IN  Musei.IdMuseo%TYPE
 );
 procedure operepresentimuseo
 (
-   sessionID IN number default 0,
+   idsessione IN number default 0,
    MuseoId IN  Musei.IdMuseo%TYPE
 );
 procedure opereprestate
 (
-   sessionID IN number default 0,
+   idsessione IN number default 0,
    MuseoId IN Musei.IdMuseo%TYPE
 );
 procedure introitimuseo
 (
-   sessionID in number default 0,
+   idsessione IN number default 0,
    MuseoId IN Musei.IdMuseo%TYPE
 );
 procedure visitatoriunici
 (
-   sessionID IN number default 0,
+    idsessione IN number default 0,
+   MuseoId IN MUSEI.IdMuseo%TYPE,
+   Data1 VARCHAR2,
+   Data2 VARCHAR2
+);
+procedure visitatorimedi 
+(
+  idsessione IN number default 0,
    MuseoId IN MUSEI.IdMuseo%TYPE,
    Data1 VARCHAR2,
    Data2 VARCHAR2
@@ -127,4 +160,8 @@ procedure tariffecampi
    sessionID IN number default 0,
    CampoestivoId IN CAMPIESTIVI.IDCAMPIESTIVI%TYPE
 );
+/*procedure etamediatariffe(
+   sessionID IN number default 0,
+   CampoestivoId IN CAMPIESTIVI.IDCAMPIESTIVI%TYPE
+);*/
 end operazioniGruppo4;

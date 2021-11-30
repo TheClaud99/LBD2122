@@ -1,3 +1,4 @@
+SET DEFINE OFF;
 Create or replace PACKAGE body operazioniGruppo4 as
 /*visualizza tutti i campi estivi*/
 procedure menucampiestivi
@@ -80,8 +81,6 @@ BEGIN
    htp.htmlClose;
 END inseriscicampiestivi;
 
-
-/*Funzione per confermare o annulare l'iserimento di un campo estivo*/
 procedure confermacampiestivi
 (
    newNome in CAMPIESTIVI.Nome%TYPE default null,
@@ -294,9 +293,77 @@ BEGIN
    modgui1.ChiudiDiv();
 
 END visualizzacampiestivi;
-/*funzione che inserisce un museo-*/
+/*--------------------------------------------------------------MUSEI-----------------------------------------*/
+
+procedure menumusei
+(
+   idsessione IN number default 0
+)
+   is
+   begin
+   htp.prn('<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css"> ');
+   modGUI1.ApriPagina('MUSEI');
+   modGUI1.Header();
+   htp.br;htp.br;htp.br;htp.br;htp.br;
+   htp.prn('<h1 Align="center">Musei</h1>');
+   MODGUI1.APRIDIV('class="w3-col l4 w3-padding-large w3-left"');
+   htp.prn('<h1 Align="center">Inserimento</h1>');
+   MODGUI1.APRIDIV('class="w3-center"');
+   modGUI1.Collegamento('inserisci Musei',
+                            'operazioniGruppo4.inseriscimuseo?newNome=&newIndirizzo=',
+                            'w3-black w3-round w3-margin w3-button');
+   MODGUI1.ChiudiDiv();
+   MODGUI1.ChiudiDiv();
+   MODGUI1.APRIDIV('class="w3-col l4 w3-padding-large w3-right"');
+   htp.prn('<h1 Align="center">Statistiche</h1>');
+    MODGUI1.APRIDIV('class="w3-center"');
+   modGUI1.Collegamento('Statistiche1',
+                            'operazioniGruppo4.form1monitoraggio?MuseoId=&NameMuseo=',
+                            'w3-black w3-round w3-margin w3-button');
+   modGUI1.Collegamento('Statistiche2',
+                            'operazioniGruppo4.form2monitoraggio?MuseoId=&NameMuseo=&Data1=&Data2=',
+                            'w3-black w3-round w3-margin w3-button');
+   MODGUI1.ChiudiDiv();
+   MODGUI1.ChiudiDiv();
+   modGUI1.ApriDiv('class="w3-row w3-container"');
+    FOR museo IN (Select IdMuseo,Nome,Indirizzo from MUSEI)
+    LOOP
+        modGUI1.ApriDiv('class="w3-col l4 w3-padding-large w3-center"');
+            modGUI1.ApriDiv('class="w3-card-4" style="height:600px;"');
+                htp.prn('<img src="https://cdn.pixabay.com/photo/2016/10/22/15/32/water-1761027__480.jpg" alt="Alps" style="width:100%;">');
+                modGUI1.ApriDiv('class="w3-container w3-center"');
+                
+                  HTP.TABLEOPEN(CALIGN  => 'center' );
+                  HTP.TableRowOpen;
+                  HTP.TableData('Nome',CATTRIBUTES  =>'style="font-weight:bold; text-align: center"');
+                  HTP.TableData('Indirizzo',CATTRIBUTES  =>'style="font-weight:bold; text-align: center"');
+                  /* inserire il tipo stanza*/
+                  HTP.TableRowClose;
+
+                  HTP.TableRowOpen;
+                  HTP.TableData(museo.Nome ,'center');
+                  HTP.TableData(museo.Indirizzo,'center');
+                  HTP.TableRowClose;
+    
+                  HTP.TableClose;
+                 /* htp.prn('<p>'|| museo.IdMuseo ||' '||museo.Nome||' '||museo.Indirizzo||'</p>');*/
+                  modGUI1.ChiudiDiv;      
+                  modGUI1.Collegamento('VisualizzaMusei',
+                            'operazioniGruppo4.visualizzaMusei?museoId='||museo.IdMuseo,
+                            'w3-green w3-margin w3-button');
+            
+                  modGUI1.Collegamento('Modifica Musei',
+                            'operazioniGruppo4.modificamusei?museoId='||museo.IdMuseo||'&newNome='||museo.Nome||'&newIndirizzo='||museo.Indirizzo,
+                            'w3-red w3-margin w3-button');
+            modGUI1.ChiudiDiv;
+        modGUI1.ChiudiDiv;
+    END LOOP;
+    modGUI1.chiudiDiv;
+   end;
+   /*funzione che inserisce un museo-*/
 procedure inseriscimuseo
 ( 
+   idsessione IN number default 0,
    newNome in Musei.Nome%TYPE default null,
    newIndirizzo in MUSEI.INDIRIZZO%TYPE default null
 )
@@ -355,11 +422,11 @@ begin
    else
      HTP.TableOpen;
       HTP.TableRowOpen;
-      HTP.TableData('Nome: ');
+      HTP.TableData('Nome: ',CATTRIBUTES  =>'style="font-weight:bold"');
       HTP.TableData(newNome);
       HTP.TableRowClose;
       HTP.TableRowOpen;
-      HTP.TableData('Indirizzo: ');
+      HTP.TableData('Indirizzo: ',CATTRIBUTES  =>'style="font-weight:bold"');
       HTP.TableData(newIndirizzo);
       HTP.TableRowClose;
       HTP.TableClose;
@@ -413,40 +480,54 @@ BEGIN
    where  newNome = Musei.NOME;
    if quanti >0
       then 
-      MODGUI1.Label('Il Museo specificato è già stato inserito');
-      MODGUI1.ApriForm('operazioniGruppo4.inseriscimuseo');
-      HTP.FORMHIDDEN('newNome', newNome);
-      HTP.FORMHIDDEN('newIndirizzo',  newIndirizzo);
-      MODGUI1.InputSubmit('Reinserisci');
-      MODGUI1.ChiudiForm;
+      MODGUI1.RedirectEsito(0,'Inserimento fallito', null,'Inserisci una nuovo museo','operazioniGruppo4.inseriscimuseo','//newNome='||newNome||'//newIndirizzo='||newIndirizzo,'Torna al menu musei','operazioniGruppo4.menumusei',null);
  ELSE
-      insert into Musei(IdMuseo,Nome,Indirizzo) VALUES (IdMuseoseq.NEXTVAL,newNome,newIndirizzo);
-       htp.print('<H1 ALIGN=CENTER>');
-      modgui1.LABEL('Museo inserito correttamente');
-      htp.print('</H1>');
-      htp.prn('<TABLE ALIGN=Center> <TR> <TD ALIGN=Center> <b>Nome</b></TD><TD ALIGN=Center> <b>Indirizzo</b> </TD> </TR>');
-      for museo in (select nome,indirizzo from MUSEI)
-      LOOP
-         htp.prn('<TR> <TD>'||museo.nome);
-         htp.prn('</TD> <TD>'||museo.indirizzo);
-         htp.prn('</TD> </TR>');
-      end LOOP;
-      htp.prn('</TABLE>');
-      MODGUI1.ApriForm('operazioniGruppo4.inseriscimuseo');
-      HTP.FORMHIDDEN('newNome', newNome);
-      HTP.FORMHIDDEN('newIndirizzo',  newIndirizzo);
-      MODGUI1.InputSubmit('Reinserisci');
+      insert into Musei VALUES (IdMuseoseq.NEXTVAL,newNome,newIndirizzo,0);
+      MODGUI1.RedirectEsito(0,'Inserimento completato', null,'Inserisci una nuovo museo','operazioniGruppo4.inseriscimuseo','//newNome='||newNome||'//newIndirizzo='||newIndirizzo,'Torna al menu musei','operazioniGruppo4.menumusei',null);
    end if;
-   
-   MODGUI1.ChiudiForm;
-   MODGUI1.ChiudiDiv;
       htp.bodyClose;
       htp.htmlClose;
 
 
 END controllamusei;
+procedure visualizzamusei
+(
+   idsessione IN number default 0,
+   MuseoId IN MUSEI.IdMuseo%TYPE
+)
+is
+museo MUSEI%rowtype;
+BEGIN 
+   select *
+   into museo
+   from MUSEI
+   where  MuseoId=MUSEI.IDMUSEO;
+
+   modgui1.apripagina();
+   modgui1.header();
+   htp.br;htp.br;htp.br;htp.br;htp.br;
+   htp.prn('<h1 align="center">Museo</h1>');
+   modgui1.ApriDiv('class="w3-modal-content w3-card-4" style="max-width:600px"');
+
+   htp.tableopen('ALIGN CENTER');
+        htp.tablerowopen;
+        htp.tabledata('Nome: ',CATTRIBUTES  =>'style="font-weight:bold"');
+        htp.tabledata(museo.Nome);
+        htp.tablerowclose;
+        htp.tablerowopen;
+        htp.tabledata('Indirizzo: ',CATTRIBUTES  =>'style="font-weight:bold"');
+        htp.tabledata(museo.Indirizzo);
+        htp.tablerowclose;
+   htp.TableClose;
+   htp.br;htp.br;htp.br;
+   htp.print('&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;');
+   modGUI1.Collegamento('Torna al menù','operazioniGruppo4.menumusei?idsessione='||idsessione,'w3-btn w3-round w3-black ');
+   modgui1.ChiudiDiv();
+
+END visualizzamusei;
 procedure modificamusei
 (
+    MuseoId IN MUSEI.IdMuseo%TYPE,
    newNome in Musei.Nome%TYPE default null,
    newIndirizzo in MUSEI.INDIRIZZO%TYPE default null
 )
@@ -459,7 +540,8 @@ htp.htmlOpen;
    htp.br;htp.br;htp.br;htp.br;htp.br;htp.br;  
    htp.prn('<h1 align="center">Modifica Musei</h1>');
    MODGUI1.APRIDIV('class="w3-modal-content w3-card-4" style="max-width:600px"');
-   modgui1.ApriForm('operazioniGruppo4.confermamusei','invia','w3-container');/*da completare*/
+   modgui1.ApriForm('operazioniGruppo4.confermamodificamuseo','invia','w3-container');
+   HTP.FORMHIDDEN('MuseoId', MuseoId);
    modgui1.LABEL('Nome museo');
    modgui1.INPUTTEXT('newNome','Nome',1,newNome);
    htp.br;
@@ -474,11 +556,88 @@ htp.htmlOpen;
 
   
 end modificamusei;
+procedure confermamodificamuseo
+(
+   MuseoId IN MUSEI.IdMuseo%TYPE,
+   newNome in Musei.Nome%TYPE default null,
+   newIndirizzo in MUSEI.INDIRIZZO%TYPE default null
+)
+is
+begin 
+modgui1.APRIPAGINA('Modifica Museo');
+modgui1.HEADER();
+   htp.br;
+   htp.br;
+   htp.br;
+    htp.br;
+   htp.br;
+   modGUI1.ApriDiv('class="w3-modal-content w3-card-4" style="max-width:600px"');
+   if (newNome is null) or (newIndirizzo is null)
+     then MODGUI1.LABEL('Parametri inseriti in maniera errata');
+
+     MODGUI1.ApriForm('operazioniGruppo4.modificamusei');
+     HTP.FORMHIDDEN('MuseoId', MuseoId);
+      HTP.FORMHIDDEN('newNome', newNome);
+      HTP.FORMHIDDEN('newIndirizzo',  newIndirizzo);
+      MODGUI1.InputSubmit('indietro');
+   else
+     HTP.TableOpen(CALIGN=>'CENTER');
+      HTP.TableRowOpen;
+      HTP.TableData('Nome: ',CATTRIBUTES  =>'style="font-weight:bold"');
+      HTP.TableData(newNome);
+      HTP.TableRowClose;
+      HTP.TableRowOpen;
+      HTP.TableData('Indirizzo: ',CATTRIBUTES  =>'style="font-weight:bold"');
+      HTP.TableData(newIndirizzo);
+      HTP.TableRowClose;
+      HTP.TableClose;
+      
+      htp.br;
+
+      MODGUI1.ApriForm('operazioniGruppo4.updatemusei');
+      HTP.FORMHIDDEN('MuseoId', MuseoId);
+      HTP.FORMHIDDEN('newNome', newNome);
+      HTP.FORMHIDDEN('newIndirizzo',  newIndirizzo);
+      MODGUI1.InputSubmit('Conferma');
+      MODGUI1.ChiudiForm;
+
+      MODGUI1.ApriForm('operazioniGruppo4.modificamusei');
+      HTP.FORMHIDDEN('MuseoId', MuseoId);
+      HTP.FORMHIDDEN('newNome', newNome);
+      HTP.FORMHIDDEN('newIndirizzo',  newIndirizzo);
+      MODGUI1.InputSubmit('Annulla');
+      MODGUI1.ChiudiForm;
+
+      MODGUI1.ChiudiDiv;
+   end if;
+  
+end confermamodificamuseo;
+
+procedure updatemusei
+(
+   MuseoId IN MUSEI.IdMuseo%TYPE,
+   newNome in Musei.Nome%TYPE default null,
+   newIndirizzo in MUSEI.INDIRIZZO%TYPE default null
+)
+is
+
+begin
+MODGUI1.ApriPagina('museo');
+MODGUI1.HEADER();
+htp.br;htp.br;htp.br;htp.br;htp.br;htp.br;
+UPDATE MUSEI SET
+		Nome=newNome,
+		Indirizzo=newIndirizzo
+	WHERE IdMuseo=MuseoId;
+MODGUI1.RedirectEsito(0,'Modifica riuscita','Museo modificato correttamente',null,null,null,'Torna al menu musei','operazioniGruppo4.menumusei',null);
+
+end updatemusei;
 /*----------statistiche musei----*/
 procedure form1monitoraggio
 (
-  MuseoId IN MUSEI.IdMuseo%TYPE,
-  NameMuseo IN MUSEI.NOME%TYPE
+   idsessione IN number default 0,
+   MuseoId IN MUSEI.IdMuseo%TYPE,
+   NameMuseo IN MUSEI.NOME%TYPE
 )
 is
 CURSOR cur IS Select MUSEI.IDMUSEO, MUSEI.NOME
@@ -567,7 +726,7 @@ end form2monitoraggio;
 /*-----------------------------------------*/
 procedure salepresenti
 (
-  sessionID IN number default 0,
+  idsessione IN number default 0,
    MuseoId IN  Musei.IdMuseo%TYPE
 )
 is 
@@ -583,8 +742,13 @@ MODGUI1.ApriPagina('Visualizzazione sale museo');
 MODGUI1.HEADER();
   htp.br;htp.br;htp.br;htp.br;
 htp.prn('<h1 align="center">Sale Museo</h1>');
+MODGUI1.APRIDIV('class="w3-center"');
+modGUI1.Collegamento('menù','operazioniGruppo4.menumusei?idsessione='||idsessione,'w3-btn w3-round-xxlarge w3-black ');
+htp.print('&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;');
+modGUI1.Collegamento('statistiche','operazioniGruppo4.form1monitoraggio?idsessione='||idsessione||'&MuseoId='||MuseoId||'&NameMuseo=','w3-btn w3-round-xxlarge w3-black ');
+MODGUI1.ChiudiDiv;
 modgui1.apridiv('class="w3-modal-content w3-card-4 w3-animate-zoom" style="max-width:600px; margin-top:110px"');
-HTP.TABLEOPEN(CALIGN  => 'center' );
+HTP.TABLEOPEN(CALIGN  => 'center',CATTRIBUTES =>'class="w3-table w3-striped"' );
       HTP.TableRowOpen;
       HTP.TableData('Nome Stanza',CATTRIBUTES  =>'style="font-weight:bold"');
       HTP.TableData('Dimensione Stanza',CATTRIBUTES  =>'style="font-weight:bold"');
@@ -607,7 +771,7 @@ END salepresenti;
 /*OPERE PRESENTI NEL MUSEO*/
 procedure operepresentimuseo
 (
-   sessionID IN number default 0,
+   idsessione IN number default 0,
    MuseoId IN  Musei.IdMuseo%TYPE
 )
 /*problema*/
@@ -623,8 +787,15 @@ MODGUI1.ApriPagina('Visualizzazione opere museo');
 MODGUI1.HEADER();
   htp.br;htp.br;htp.br;htp.br;
 htp.prn('<h1 align="center">Opere Museo</h1>');
+
+MODGUI1.APRIDIV('class="w3-center"');
+modGUI1.Collegamento('menù','operazioniGruppo4.menumusei?idsessione='||idsessione,'w3-btn w3-round-xxlarge w3-black ');
+htp.print('&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;');
+modGUI1.Collegamento('statistiche','operazioniGruppo4.form1monitoraggio?idsessione='||idsessione||'&MuseoId='||MuseoId||'&NameMuseo=','w3-btn w3-round-xxlarge w3-black ');
+MODGUI1.ChiudiDiv;
+
 modgui1.apridiv('class="w3-modal-content w3-card-4 w3-animate-zoom" style="max-width:600px; margin-top:110px"');
-HTP.TABLEOPEN(CALIGN  => 'center' );
+HTP.TABLEOPEN(CALIGN  => 'center',CATTRIBUTES =>'class="w3-table w3-striped"' );
       HTP.TableRowOpen;
       HTP.TableData('Titolo opera',CATTRIBUTES  =>'style="font-weight:bold"');
       HTP.TableData('Anno opera',CATTRIBUTES  =>'style="font-weight:bold"');
@@ -640,14 +811,13 @@ loop
     HTP.TableRowClose;
     
 end loop; 
-HTP.TableClose;
 modGUI1.ChiudiDiv();
 htp.bodyClose;
 END operepresentimuseo;
 
 procedure opereprestate
 (
-   sessionID IN number default 0,
+   idsessione IN number default 0,
    MuseoId IN MUSEI.IdMuseo%TYPE
 )
 /*problema*/
@@ -664,8 +834,15 @@ MODGUI1.ApriPagina('Visualizzazione opere museo');
 MODGUI1.HEADER();
   htp.br;htp.br;htp.br;htp.br;
 htp.prn('<h1 align="center">Opere Museo</h1>');
+
+MODGUI1.APRIDIV('class="w3-center"');
+modGUI1.Collegamento('menù','operazioniGruppo4.menumusei?idsessione='||idsessione,'w3-btn w3-round-xxlarge w3-black ');
+htp.print('&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;');
+modGUI1.Collegamento('statistiche','operazioniGruppo4.form1monitoraggio?idsessione='||idsessione||'&MuseoId='||MuseoId||'&NameMuseo=','w3-btn w3-round-xxlarge w3-black ');
+MODGUI1.ChiudiDiv;
+
 modgui1.apridiv('class="w3-modal-content w3-card-4 w3-animate-zoom" style="max-width:600px; margin-top:110px"');
-HTP.TABLEOPEN(CALIGN  => 'center' );
+HTP.TABLEOPEN(CALIGN  => 'center',CATTRIBUTES =>'class="w3-table w3-striped"' );
       HTP.TableRowOpen;
       HTP.TableData('Titolo opera',CATTRIBUTES  =>'style="font-weight:bold"');
       HTP.TableData('Anno opera',CATTRIBUTES  =>'style="font-weight:bold"');
@@ -688,7 +865,7 @@ END opereprestate;
 /*scelta statistica*/
 procedure visitatoriunici
 (
-   sessionID IN number default 0,
+   idsessione IN number default 0,
    MuseoId IN MUSEI.IdMuseo%TYPE,
    Data1 VARCHAR2,
    Data2 VARCHAR2
@@ -713,9 +890,15 @@ MODGUI1.ApriPagina('Visualizzazione opere museo');
 MODGUI1.HEADER();
 htp.br;htp.br;htp.br;htp.br;
 htp.prn('<h1 align="center">visitatori Museo</h1>');
+MODGUI1.APRIDIV('class="w3-center"');
+modGUI1.Collegamento('menù','operazioniGruppo4.menumusei?idsessione='||idsessione,'w3-btn w3-round-xxlarge w3-black ');
+htp.print('&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;');
+modGUI1.Collegamento('statistiche','operazioniGruppo4.form2monitoraggio?idsessione='||idsessione||'&MuseoId='||MuseoId||'&NameMuseo=','w3-btn w3-round-xxlarge w3-black ');
+MODGUI1.ChiudiDiv;
 htp.prn('<p align="center"><b>numero visitatori museo periodo ' || Data1 ||'--'|| Data2 ||':</b> ' || nvisitatori ||'</p>');
 modgui1.apridiv('class="w3-modal-content w3-card-4 w3-animate-zoom" style="max-width:1600px; margin-top:110px"');
-HTP.TABLEOPEN(CALIGN  => 'center' );
+
+HTP.TABLEOPEN(CALIGN  => 'center',CATTRIBUTES =>'class="w3-table w3-striped"' );
       HTP.TableRowOpen;
       HTP.TableData('Nome',CATTRIBUTES  =>'style="font-weight:bold"');
       HTP.TableData('Cognome',CATTRIBUTES  =>'style="font-weight:bold"');
@@ -742,9 +925,48 @@ modgui1.chiudiDiv();
 htp.bodyClose;
 end visitatoriunici;
 
+procedure visitatorimedi 
+(
+   idsessione IN number default 0,
+   MuseoId IN MUSEI.IdMuseo%TYPE,
+   Data1 VARCHAR2,
+   Data2 VARCHAR2
+)
+is 
+dateini Date:= TO_DATE(Data1 default NULL on conversion error, 'YYYY-MM-DD');
+datefin Date:= TO_DATE(Data2 default NULL on conversion error, 'YYYY-MM-DD');
+CURSOR vis_cursor IS
+
+Select   UTENTI.IDUTENTE,UTENTI.NOME,UTENTI.COGNOME,UTENTI.DATANASCITA,UTENTI.INDIRIZZO,UTENTI.EMAIL
+FROM TITOLIINGRESSO,VISITE,UTENTIMUSEO,UTENTI
+WHERE TITOLIINGRESSO.MUSEO=MuseoId AND  VISITE.TITOLOINGRESSO= TITOLIINGRESSO.IDTITOLOING AND  VISITE.VISITATORE=UTENTIMUSEO.IDUTENTE AND UTENTIMUSEO.IDUTENTE=UTENTI.IDUTENTE AND VISITE.DATAVISITA>dateini AND VISITE.DATAVISITA<datefin;
+val_vis vis_cursor%Rowtype;
+nvisitatori number;
+ngiorni number:=datefin-dateini;
+mvisitatori number;
+begin
+
+Select  count(*)
+into nvisitatori
+FROM TITOLIINGRESSO,VISITE,UTENTIMUSEO,UTENTI
+WHERE TITOLIINGRESSO.MUSEO=MuseoId AND  VISITE.TITOLOINGRESSO= TITOLIINGRESSO.IDTITOLOING AND  VISITE.VISITATORE=UTENTIMUSEO.IDUTENTE AND UTENTIMUSEO.IDUTENTE=UTENTI.IDUTENTE AND VISITE.DATAVISITA>dateini AND VISITE.DATAVISITA<datefin;
+mvisitatori:=nvisitatori/ngiorni;
+MODGUI1.ApriPagina('Visualizzazione introiti museo');
+MODGUI1.HEADER();
+htp.br;htp.br;htp.br;htp.br;
+htp.prn('<h1 align="center">visitatori medi del Museo</h1>');
+htp.br;
+MODGUI1.APRIDIV('class="w3-center"');
+modGUI1.Collegamento('menù','operazioniGruppo4.menumusei?idsessione='||idsessione,'w3-btn w3-round-xxlarge w3-black ');
+htp.print('&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;');
+modGUI1.Collegamento('statistiche','operazioniGruppo4.form2monitoraggio?idsessione='||idsessione||'&MuseoId='||MuseoId||'&NameMuseo=','w3-btn w3-round-xxlarge w3-black ');
+MODGUI1.ChiudiDiv;
+htp.prn('<p align="center"><b>numero dei visitatori medi nel periodo ' || Data1 ||'--'|| Data2 ||':</b> ' || mvisitatori ||'</p>');
+
+end; 
 procedure introitimuseo
 (
-   sessionID in number default 0,
+   idsessione IN number default 0,
    MuseoId IN Musei.IdMuseo%TYPE
 )
 is 
@@ -769,9 +991,16 @@ MODGUI1.ApriPagina('Visualizzazione introiti museo');
 MODGUI1.HEADER();
 htp.br;htp.br;htp.br;htp.br;htp.br;htp.br;
 htp.prn('<h1 align="center">Introiti Museo </h1>');
+
+MODGUI1.APRIDIV('class="w3-center"');
+modGUI1.Collegamento('menù','operazioniGruppo4.menumusei?idsessione='||idsessione,'w3-btn w3-round-xxlarge w3-black ');
+htp.print('&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;');
+modGUI1.Collegamento('statistiche','operazioniGruppo4.form1monitoraggio?idsessione='||idsessione||'&MuseoId='||MuseoId||'&NameMuseo=','w3-btn w3-round-xxlarge w3-black ');
+MODGUI1.ChiudiDiv;
+
 htp.br;
 modgui1.apridiv('class="w3-modal-content w3-card-4 w3-animate-zoom" style="max-width:600px; margin-top:110px"');
-HTP.TABLEOPEN(CALIGN  => 'center',   CATTRIBUTES =>'style="font-size:20px"' );
+HTP.TABLEOPEN(CALIGN  => 'center',CATTRIBUTES =>'class="w3-table w3-striped"' );
       HTP.TableRowOpen;
       HTP.TableData('Introti del museo: ',CATTRIBUTES  =>'style="font-weight:bold"');
       HTP.TableData( introiti_museo|| ' €');
@@ -794,18 +1023,19 @@ end introitimuseo;
 
 procedure controllastatistica
 (
+   idsessione IN number default 0,
    MuseoId IN MUSEI.IdMuseo%TYPE,
    scelta in number
 )
 is begin
 if scelta=2
-   then operepresentimuseo(0,MuseoId);
+   then operepresentimuseo(idsessione,MuseoId);
 else if scelta=1
-   then salepresenti(0,MuseoId);
+   then salepresenti(idsessione,MuseoId);
    else if scelta=3
-   then opereprestate(0,MuseoId);
+   then opereprestate(idsessione,MuseoId);
    else if scelta=4
-   then introitimuseo(0,MuseoId);
+   then introitimuseo(idsessione,MuseoId);
    end if;
    end if;
 end if;
@@ -815,6 +1045,7 @@ end controllastatistica;
 
 procedure controllastatistica2
 (
+   idsessione IN number default 0,
    MuseoId IN MUSEI.IdMuseo%TYPE,
    scelta in number,
    Data1 VARCHAR2,
@@ -824,9 +1055,9 @@ is
 
 begin
 if scelta=5
-   then visitatoriunici(0,MuseoId,Data1,Data2);
+   then visitatoriunici(idsessione,MuseoId,Data1,Data2);
 else if scelta=6
-   then salepresenti(0,MuseoId);
+   then visitatorimedi(idsessione,MuseoId,Data1,Data2);
 end if;
   end if;
 end controllastatistica2;
@@ -987,3 +1218,4 @@ modGUI1.ChiudiDiv();
 htp.bodyClose;
 end tariffecampi;
 end operazioniGruppo4;
+-- SET DEFINE ON;

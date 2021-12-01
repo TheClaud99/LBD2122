@@ -375,23 +375,6 @@ Create Table VISITEVARCHI
    */
 );
 
-/* Tabella di corrispondenze tra ruolo e idsessione */
-CREATE TABLE RUOLISESSIONI (
-   Ruolo VARCHAR2(5) PRIMARY KEY,
-   IdSessione NUMBER(5) DEFAULT 0
-);
-
-/* Tabella che contiene username, password e ruolo di ogni utente */
-Create Table UTENTILOGIN
-(
-   IdUtenteLogin number(5) primary key,
-   IdCliente NUMBER(5) DEFAULT NULL REFERENCES Utenti(IdUtente),
-   Username VARCHAR2(50) not null,
-   Password VARCHAR2(25) not null,
-   Ruolo VARCHAR2(5) not null REFERENCES RuoliSessioni(Ruolo)
-);
-
-
 /*--------*/
 /*SEQUENCE*/
 /*--------*/

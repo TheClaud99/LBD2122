@@ -88,11 +88,14 @@ CREATE OR REPLACE PACKAGE BODY packagevisite AS
         idvisitaselezionata  IN  visite.idvisita%TYPE,
         titolo               IN  VARCHAR2 DEFAULT NULL,
         action               IN  VARCHAR2 DEFAULT NULL,
-        button_text          IN VARCHAR2 DEFAULT NULL
+        button_text          IN  VARCHAR2 DEFAULT NULL
     ) IS
         visita visite%rowtype;
     BEGIN
-        modgui1.apripagina('Visualizza visita', modgui1.get_id_sessione);
+        modgui1.apripagina(
+                          'Visualizza visita',
+                          modgui1.get_id_sessione
+        );
         modgui1.header(modgui1.get_id_sessione);
         modgui1.apridiv('style="margin-top: 110px"');
         BEGIN
@@ -113,6 +116,11 @@ CREATE OR REPLACE PACKAGE BODY packagevisite AS
             END IF;
 
             modgui1.apridivcard();
+            modgui1.collegamento(
+                                'X',
+                                'packageVisite.visualizza_visite',
+                                ' w3-btn w3-large w3-red w3-display-topright'
+            );
             tabella_dati_visita(
                                to_char(
                                       visita.datavisita,
@@ -128,12 +136,17 @@ CREATE OR REPLACE PACKAGE BODY packagevisite AS
             );
 
             IF action IS NOT NULL THEN
-                modgui1.apriform(action, 'formVisualizza');
-                modgui1.inputsubmit(CASE
-                                     WHEN button_text IS NULL THEN
-                                         'Conferma'
-                                     ELSE button_text
-                                 END);
+                modgui1.apriform(
+                                action,
+                                'formVisualizza'
+                );
+                modgui1.inputsubmit(
+                                   CASE
+                                       WHEN button_text IS NULL THEN
+                                           'Conferma'
+                                       ELSE button_text
+                                   END
+                );
                 modgui1.chiudiform;
             END IF;
 
@@ -203,9 +216,14 @@ CREATE OR REPLACE PACKAGE BODY packagevisite AS
             modgui1.chiudidiv;
             modgui1.collegamento(
                                 'Visualizza',
-                                'packagevisite.visualizzavisita?idvisitaselezionata=' || visita.idvisita || '&titolo=Visita+numero+' || visita.idvisita || '&action=packageVisite.visualizza_visite&button_text=Trona+alla+home',
+                                'packagevisite.visualizzavisita?idvisitaselezionata='
+                                || visita.idvisita
+                                || '&titolo=Visita+numero+'
+                                || visita.idvisita
+                                || '&action=packageVisite.visualizza_visite&button_text=Trona+alla+home',
                                 'w3-button w3-margin w3-black'
             );
+
             IF ( hasrole(
                         id_sessione,
                         'AB'
@@ -311,7 +329,10 @@ CREATE OR REPLACE PACKAGE BODY packagevisite AS
         WHERE
             idvisita = idvisitaselezionata;
 
-        modgui1.apripagina('Elimina visita', modgui1.get_id_sessione);
+        modgui1.apripagina(
+                          'Elimina visita',
+                          modgui1.get_id_sessione
+        );
         modgui1.header(modgui1.get_id_sessione);
         modgui1.apridiv('style="margin-top: 110px"');
         htp.header(
@@ -545,7 +566,10 @@ CREATE OR REPLACE PACKAGE BODY packagevisite AS
     ) IS
         visita visite%rowtype;
     BEGIN
-        modgui1.apripagina('Modifica visita', modgui1.get_id_sessione);
+        modgui1.apripagina(
+                          'Modifica visita',
+                          modgui1.get_id_sessione
+        );
         modgui1.header(modgui1.get_id_sessione);
         modgui1.apridiv('style="margin-top: 110px"');
         htp.prn('<h1>Modifica visita</h1>');
@@ -617,7 +641,6 @@ CREATE OR REPLACE PACKAGE BODY packagevisite AS
                         'Elimina visita',
                         'PackageVisite.rimuovi_visita'
         );
-
         htp.prn('<script>
             window.addEventListener("load", function() {
                 let form = document.formVisualizza;
@@ -637,7 +660,10 @@ CREATE OR REPLACE PACKAGE BODY packagevisite AS
         convalida            IN  NUMBER DEFAULT NULL
     ) IS
     BEGIN
-        modgui1.apripagina('Inserisci nuova visita', modgui1.get_id_sessione);
+        modgui1.apripagina(
+                          'Inserisci nuova visita',
+                          modgui1.get_id_sessione
+        );
         modgui1.header(modgui1.get_id_sessione);
         modgui1.apridiv('style="margin-top: 110px"');
         htp.prn('<h1>Inserimento visita</h1>');

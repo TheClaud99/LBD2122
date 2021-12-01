@@ -65,6 +65,7 @@ Create Table OPERE
    FinePeriodo number(4),
    Museo number(5) not null REFERENCES MUSEI(IdMuseo),
    Esponibile number(1)  default 1 check (Esponibile in (0,1)),
+   Eliminato number(1) default 0 check (Eliminato in (0,1)),
    
    check ((Anno < FinePeriodo) or (FinePeriodo is null))
    -- TODO Anno < SYSTIMESTAMP

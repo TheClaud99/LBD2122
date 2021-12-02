@@ -745,7 +745,7 @@ LOOP
                     SELECT autori.NOME, autori.cognome INTO nomee, cognomee FROM autori WHERE idautore = auth.idautore;
                     MODGUI1.Collegamento(nomee||' '||Cognomee,
                         gruppo2.gr2||'ModificaAutore?authorID='||auth.IdAutore||'&operazione=0'
-                        ||'&caller='||gruppo2.gr2||'visualizzaOpera&callerParams=//operaID='||operaID||'//lingue='||lingue||'//livelli='||livelli);
+                        ||'&caller=visualizzaOpera&callerParams=//operaID='||operaID||'//lingue='||lingue||'//livelli='||livelli);
                     htp.prn(', ');
                     
                     END LOOP;
@@ -776,7 +776,7 @@ LOOP
                     SELECT autori.NOME, autori.cognome INTO nomee, cognomee FROM autori WHERE idautore = auth.idautore;
                     MODGUI1.Collegamento(nomee||' '||Cognomee,
                         gruppo2.gr2||'ModificaAutore?authorID='||auth.IdAutore||'&operazione=0'
-                        ||'&caller='||gruppo2.gr2||'visualizzaOpera&callerParams=//operaID='||operaID||'//lingue='||lingue||'//livelli='||livelli);
+                        ||'&caller=visualizzaOpera&callerParams=//operaID='||operaID||'//lingue='||lingue||'//livelli='||livelli);
                     htp.prn(', ');
                     
                     END LOOP;
@@ -807,7 +807,7 @@ LOOP
                     SELECT autori.NOME, autori.cognome INTO nomee, cognomee FROM autori WHERE idautore = auth.idautore;
                     MODGUI1.Collegamento(nomee||' '||Cognomee,
                         gruppo2.gr2||'ModificaAutore?authorID='||auth.IdAutore||'&operazione=0'
-                        ||'&caller='||gruppo2.gr2||'visualizzaOpera&callerParams=//operaID='||operaID||'//lingue='||lingue||'//livelli='||livelli);
+                        ||'&caller=visualizzaOpera&callerParams=//operaID='||operaID||'//lingue='||lingue||'//livelli='||livelli);
                     htp.prn(', ');
                     END LOOP;
 
@@ -845,7 +845,7 @@ LOOP
                     SELECT autori.NOME, autori.cognome INTO nomee, cognomee FROM autori WHERE idautore = auth.idautore;
                     MODGUI1.Collegamento(nomee||' '||Cognomee,
                         gruppo2.gr2||'ModificaAutore?authorID='||auth.IdAutore||'&operazione=0'
-                        ||'&caller='||gruppo2.gr2||'visualizzaOpera&callerParams=//operaID='||operaID||'//lingue='||lingue||'//livelli='||livelli);
+                        ||'&caller=visualizzaOpera&callerParams=//operaID='||operaID||'//lingue='||lingue||'//livelli='||livelli);
                     htp.prn(', ');
                     END LOOP;
                     
@@ -881,7 +881,7 @@ LOOP
                     SELECT autori.NOME, autori.cognome INTO nomee, cognomee FROM autori WHERE idautore = auth.idautore;
                     MODGUI1.Collegamento(nomee||' '||Cognomee,
                         gruppo2.gr2||'ModificaAutore?authorID='||auth.IdAutore||'&operazione=0'
-                        ||'&caller='||gruppo2.gr2||'visualizzaOpera&callerParams=//operaID='||operaID||'//lingue='||lingue||'//livelli='||livelli);
+                        ||'&caller=visualizzaOpera&callerParams=//operaID='||operaID||'//lingue='||lingue||'//livelli='||livelli);
                     htp.prn(', ');
                     
                     END LOOP;
@@ -918,7 +918,7 @@ LOOP
                     SELECT autori.NOME, autori.cognome INTO nomee, cognomee FROM autori WHERE idautore = auth.idautore;
                     MODGUI1.Collegamento(nomee||' '||Cognomee,
                         gruppo2.gr2||'ModificaAutore?authorID='||auth.IdAutore||'&operazione=0'
-                        ||'&caller='||gruppo2.gr2||'visualizzaOpera&callerParams=//operaID='||operaID||'//lingue='||lingue||'//livelli='||livelli);
+                        ||'&caller=visualizzaOpera&callerParams=//operaID='||operaID||'//lingue='||lingue||'//livelli='||livelli);
                     htp.prn(', ');
                     END LOOP;
 
@@ -1984,7 +1984,7 @@ SELECT * INTO auth FROM autori WHERE authID=IDAUTORE;
         htp.print('<h2><b>Opere realizzate da ');
         modGUI1.Collegamento(auth.Nome||' '||auth.Cognome, 
                             gruppo2.gr2||'ModificaAutore?authorID='||auth.IdAutore||'&operazione=0'
-                            ||'&caller='||gruppo2.gr2||'statisticheAutori'||'&callerParams=//operazione='||operazione||'//authID='||authID);
+                            ||'&caller=statisticheAutori'||'&callerParams=//operazione='||operazione||'//authID='||authID);
         htp.print('</b></h2>');
             FOR op IN (SELECT opere.IDOPERA, titolo, anno
                 FROM OPERE JOIN AUTORIOPERE on (OPERE.idopera = AUTORIOPERE.idopera)
@@ -2011,7 +2011,7 @@ SELECT * INTO auth FROM autori WHERE authID=IDAUTORE;
         htp.print('<h2><b>Musei con opere di ');
         modGUI1.Collegamento(auth.Nome||' '||auth.Cognome, 
                             gruppo2.gr2||'ModificaAutore?authorID='||auth.IdAutore||'&operazione=0'
-                            ||'&caller='||gruppo2.gr2||'statisticheAutori'||'&callerParams=//operazione='||operazione||'//authID='||authID);
+                            ||'&caller=statisticheAutori'||'&callerParams=//operazione='||operazione||'//authID='||authID);
         htp.print(' esposte</b></h2>');
             FOR mus IN (SELECT DISTINCT *
                     FROM MUSEI WHERE
@@ -2151,7 +2151,7 @@ BEGIN
         htp.prn('<h4><b>Opere realizzate da ');
         modGUI1.Collegamento(auth.Nome||' '||auth.Cognome, 
                 gruppo2.gr2||'ModificaAutore?authorID='||auth.IdAutore||'&operazione=0'
-                ||'&caller='||gruppo2.gr2||'StatisticheMuseoAutori'
+                ||'&caller=StatisticheMuseoAutori'
                 ||'&callerParams=//operazione='||operazione||'//authID='||authID||'//museoID='||museoID);
         htp.prn(' esposte in ');
         modGUI1.Collegamento(mus.Nome,
@@ -2210,7 +2210,7 @@ BEGIN
                         htp.br;
                         modGUI1.Collegamento('Visualizza', 
                             gruppo2.gr2||'ModificaAutore?authorID='||an_author.IdAutore||'&operazione=0'
-                            ||'&caller='||gruppo2.gr2||'StatisticheMuseoAutori'
+                            ||'&caller=StatisticheMuseoAutori'
                             ||'&callerParams=//operazione='||operazione||'//authID='||authID||'//museoID='||museoID,
                             'w3-white w3-margin w3-button w3-border');
                     modGUI1.ChiudiDiv;

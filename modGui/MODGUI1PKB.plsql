@@ -467,8 +467,9 @@ CREATE OR REPLACE PACKAGE BODY modGUI1 as
       begin
         htp.print('<th class="' || classe || '">' || testo || '</th>');
       end intestazioneTabella;
+      
+      
     procedure RedirectEsito (
-        idSessione NUMBER DEFAULT NULL,         --SESSIONE
         pageTitle VARCHAR2 DEFAULT NULL,        --TITOLO PAGINA
         msg VARCHAR2 DEFAULT NULL,              --MESSAGGIO DI SOTTOTESTO
         nuovaOp VARCHAR2 DEFAULT NULL,          --BOTTONE PER LINK A PAGINA DI DESTINAZIONE
@@ -479,9 +480,8 @@ CREATE OR REPLACE PACKAGE BODY modGUI1 as
         parametribackToMenu VARCHAR2 DEFAULT '' --PARAMETRI PER MENU, USARE // INVECE DI &
         ) is
         begin
-            htp.print('<script> window.location = "'||costanti.server||costanti.radice||
-            'EsitoOperazione?idSessione='||IDSESSIONE||
-            '&pageTitle='||pageTitle||
+            htp.print('<script> window.location = "'||costanti.server||costanti.radice2||
+            'EsitoOperazione?pageTitle='||pageTitle||
             '&msg='||msg||
             '&nuovaOp='||nuovaOp||
             '&nuovaOpURL='||nuovaOpURL||
@@ -492,7 +492,6 @@ CREATE OR REPLACE PACKAGE BODY modGUI1 as
     end RedirectEsito;
     
     procedure EsitoOperazione(
-        idSessione NUMBER DEFAULT NULL,
         pageTitle VARCHAR2 DEFAULT NULL,
         msg VARCHAR2 DEFAULT NULL,
         nuovaOp VARCHAR2 DEFAULT NULL,
@@ -501,7 +500,8 @@ CREATE OR REPLACE PACKAGE BODY modGUI1 as
         backToMenu VARCHAR2 DEFAULT NULL,
         backToMenuURL VARCHAR2 DEFAULT NULL,
         parametribackToMenu VARCHAR2 DEFAULT ''
-        ) is 
+        )is 
+        idSessione NUMBER(5) := modgui1.get_id_sessione();
         paramOp VARCHAR2(250);
         paramBTM VARCHAR2(250);
         begin
@@ -521,12 +521,13 @@ CREATE OR REPLACE PACKAGE BODY modGUI1 as
                         htp.prn('<p>'||msg||'</p>');
                     end if;
                     if nuovaOp IS NOT NULL OR nuovaOpURL IS NOT NULL then
-                        MODGUI1.collegamento(nuovaOp, nuovaOpURL||'?idSessione='||idSessione||paramOP,'w3-button w3-block w3-black w3-section w3-padding');
+                        MODGUI1.collegamento(nuovaOp, nuovaOpURL||paramOP,'w3-button w3-block w3-black w3-section w3-padding');
                     end if;
-                        MODGUI1.collegamento(backToMenu, backToMenuURL||'?idSessione='||idSessione||paramBTM,'w3-button w3-block w3-black w3-section w3-padding');
+                        MODGUI1.collegamento(backToMenu, backToMenuURL||paramBTM,'w3-button w3-block w3-black w3-section w3-padding');
                     modGUI1.ChiudiDiv;
                 modGUI1.ChiudiDiv;
     end EsitoOperazione;
+
 
 end modGUI1;
 -- SET DEFINE ON;

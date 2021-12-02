@@ -118,7 +118,7 @@ BEGIN
                     htp.print('&nbsp;');
                     if hasRole(idSessione, 'DBA') or hasRole(idSessione, 'SU') then
                     --bottone elimina
-                    modGUI1.Collegamento('Ripristina',gruppo2.gr2||'ripristinaOpera&operaID='||opera.idOpera,'w3-btn w3-green');
+                    modGUI1.Collegamento('Ripristina',gruppo2.gr2||'ripristinaOpera?operaID='||opera.idOpera,'w3-btn w3-green');
                     htp.print('&nbsp;');
                     htp.prn('<button onclick="document.getElementById(''ElimOperaDef'||opera.idOpera||''').style.display=''block''" class="w3-margin w3-button w3-red w3-hover-white">Elimina</button>');
                     gruppo2.EliminazioneDefinitivaOpera(opera.idOpera);

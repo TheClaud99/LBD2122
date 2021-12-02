@@ -1786,11 +1786,11 @@ BEGIN
             'Torna al menu autori', gruppo2.gr2||'menuAutori', null);
             rollback;
     ELSE
+        UPDATE Autori SET Eliminato=1 WHERE IdAutore = authorID;
         modGUI1.RedirectEsito('Eliminazione riuscita', 
             'L''autore '||auth.Nome||' '||auth.Cognome||' è stato eliminato', 
             'Vai al menu autori eliminati', gruppo2.gr2||'menuAutoriEliminati', null,
             'Torna al menu autori', gruppo2.gr2||'menuAutori', null);
-        UPDATE Autori SET Eliminato=1 WHERE IdAutore = authorID;
         commit;
     END IF;
 END SetAutoreEliminato;
@@ -1843,13 +1843,13 @@ BEGIN
             'Torna al menu Autori',
             gruppo2.gr2||'menuAutori');
     ELSE
+        DELETE FROM Autori WHERE IdAutore=authorID;
         -- esito positivo: solo opzione per tornare al menu
             modGUI1.RedirectEsito('Rimozione riuscita', 
             'L''autore '||auth.Nome||' '||auth.Cognome||' è stato rimosso', 
             'Torna al menu autori eliminati', gruppo2.gr2||'menuAutoriELiminati', null,
             'Torna al menu autori', gruppo2.gr2||'menuAutori', null);
         -- Setto autore ad eliminato
-        DELETE FROM Autori WHERE IdAutore=authorID;
         commit;
     END IF;
 END;

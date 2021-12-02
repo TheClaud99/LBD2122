@@ -138,7 +138,7 @@ op Opere%ROWTYPE;
 BEGIN
     SELECT * INTO op from opere where idOpera=operaID;
     --UPDATE opere SET eliminato=0 WHERE idOpera=operaID;
-    modGUI1.RedirectEsito(idSessione, 'Ripristino riuscito', 
+    modGUI1.RedirectEsito('Ripristino riuscito', 
             'L''opera '||op.titolo||' è stato ripristinata', 
             'Torna al menu opere eliminate', gruppo2.gr2||'menuOpereEliminate', null,
             'Torna al menu opere', gruppo2.gr2||'MenuOpere', null);
@@ -181,7 +181,7 @@ BEGIN
     SELECT COUNT(*) INTO esposizione FROM saleopere WHERE opera=operaID AND datauscita IS NULL;
     IF esposizione > 0
     THEN
-        MODGUI1.RedirectEsito(idSessione,'Eliminazione NON eseguita', 'Controlla i vincoli d''integrità.',
+        MODGUI1.RedirectEsito('Eliminazione NON eseguita', 'Controlla i vincoli d''integrità.',
             null,null,null,
             'Torna alle opere',gruppo2.gr2||'menuOpereEliminate',null);
     ELSE
@@ -190,7 +190,7 @@ BEGIN
         DELETE FROM descrizioni WHERE opera = operaID;
         DELETE FROM OPERE WHERE idOpera = operaID;
         -- Ritorno al menu opere
-        MODGUI1.RedirectEsito(idSessione,'Eliminazione riuscita', null,
+        MODGUI1.RedirectEsito('Eliminazione riuscita', null,
             'Torna al menu opere eliminate', gruppo2.gr2||'menuOpereEliminate', null,
             'Torna al menu opere', gruppo2.gr2||'MenuOpere', null);
     END IF;
@@ -215,7 +215,7 @@ var1 VARCHAR2(100);
                             SELECT titolo INTO var1 FROM OPERE WHERE idOpera=operaId;
                             htp.prn('stai per rimuovere: '||var1);
                             modGUI1.Collegamento('Conferma',
-                            gruppo2.gr2||'RimozioneOpera?idSessione='||idSessione||'&operaID='||operaID,
+                            gruppo2.gr2||'RimozioneOpera?operaID='||operaID,
                             'w3-button w3-block w3-green w3-section w3-padding');
                             htp.prn('<span onclick="document.getElementById(''ElimOpera'||operaID||''').style.display=''none''" class="w3-button w3-block w3-red w3-section w3-padding" title="Close Modal">Annulla</span>');
                         modGUI1.ChiudiDiv;
@@ -234,13 +234,13 @@ BEGIN
     SELECT COUNT(*) INTO esposizione FROM saleopere WHERE opera=operaID AND datauscita IS NULL;
     IF esposizione > 0
     THEN
-        MODGUI1.RedirectEsito(idSessione,'Eliminazione NON eseguita', 'Controlla i vincoli d''integrità.',
+        MODGUI1.RedirectEsito('Eliminazione NON eseguita', 'Controlla i vincoli d''integrità.',
             null,null,null,
             'Torna alle opere',gruppo2.gr2||'menuOpere',null);
     ELSE
         --UPDATE opere SET Eliminato = 1 WHERE idopera = operaID;
         -- Ritorno al menu opere
-        MODGUI1.RedirectEsito(idSessione,'Eliminazione completata', null,
+        MODGUI1.RedirectEsito('Eliminazione completata', null,
             'Vai al menù opere eliminate',gruppo2.gr2||'menuOpereEliminate',null,
             'Torna alle opere',gruppo2.gr2||'menuOpere',null);
     END IF;
@@ -417,13 +417,13 @@ BEGIN
     IF SQL%FOUND THEN
     -- faccio il commit dello statement precedente
     commit;
-    MODGUI1.RedirectEsito(idSessione,'Inserimento andato a buon fine', null,
+    MODGUI1.RedirectEsito('Inserimento andato a buon fine', null,
         'Inserisci una nuova opera',gruppo2.gr2||'inserisciOpera',null,
         'Torna alle opere',gruppo2.gr2||'menuOpere',null);
     -- Ritorno al menu opere
     END IF;
     EXCEPTION WHEN OTHERS THEN
-    MODGUI1.RedirectEsito(idSessione,'Inserimento non riuscito', null,
+    MODGUI1.RedirectEsito('Inserimento non riuscito', null,
         'Riprova',gruppo2.gr2||'inserisciOpera',null,
         'Torna alle opere',gruppo2.gr2||'menuOpere',null);
 END InserisciDatiOpera;
@@ -573,12 +573,12 @@ BEGIN
 		fineperiodo=newFineperiodo,
 		Museo=newIDmusei
 	WHERE IdOpera=operaID;
-    MODGUI1.RedirectEsito(idSessione,'Update eseguito correttamente', null,
+    MODGUI1.RedirectEsito('Update eseguito correttamente', null,
         null,null,null,
         'Torna alle opere',gruppo2.gr2||'menuOpere',null);
     ELSE
     --EXCEPTION WHEN OTHERS THEN
-    MODGUI1.RedirectEsito(idSessione, 'Update fallito',
+    MODGUI1.RedirectEsito('Update fallito',
                 'Errore: parametri non ammessi',
                 'Torna all''update',
                 gruppo2.gr2||'ModificaOpera', 
@@ -1018,13 +1018,13 @@ idSessione NUMBER(5) := modgui1.get_id_sessione();
         UPDATE SALEOPERE SET datauscita = TO_DATE(TO_CHAR(SYSDATE, 'dd/mm/yyyy'), 'dd/mm/yyyy') WHERE datauscita IS NULL AND opera = operaID; 
         INSERT INTO SALEOPERE(IdMovimento, Sala, Opera, DataArrivo, DataUscita) VALUES (IdMovimentoSeq.nextVal, NuovaSalaID, operaID, TO_DATE(TO_CHAR(SYSDATE, 'dd/mm/yyyy'), 'dd/mm/yyyy'), null);
         UPDATE OPERE SET Esponibile = 1 WHERE idopera = operaID;
-        MODGUI1.RedirectEsito(idSessione,'Spostamento eseguito', null,
+        MODGUI1.RedirectEsito('Spostamento eseguito', null,
             null,null,null,
             'Torna alle opere',gruppo2.gr2||'menuOpere',null);  
     else
         UPDATE OPERE SET Esponibile = 0 WHERE idopera = operaID;
         UPDATE SALEOPERE SET datauscita = TO_DATE(TO_CHAR(SYSDATE, 'dd/mm/yyyy'), 'dd/mm/yyyy') WHERE datauscita IS NULL AND opera = operaID; 
-        MODGUI1.RedirectEsito(idSessione,'Opera non più esposta',null,
+        MODGUI1.RedirectEsito('Opera non più esposta',null,
             null,null,null,
             'Torna alle opere',gruppo2.gr2||'menuOpere',null);  
     END IF;
@@ -1088,29 +1088,29 @@ controllo NUMBER(3);
             INSERT INTO AUTORIOPERE VALUES
                 (autoreID,operaID);
             IF SQL%FOUND THEN
-            MODGUI1.RedirectEsito(idSessione, 'Inserimento riuscito',
+            MODGUI1.RedirectEsito('Inserimento riuscito',
                 'autore aggiunto all''opera',
                 null,null,null,
                 'Torna al menù',gruppo2.gr2||'menuOpere');
             ELSE
                 if lingue is not null THEN
-                    MODGUI1.RedirectEsito(idSessione, 'Inserimento fallito','Errore: Autore già presente',
+                    MODGUI1.RedirectEsito('Inserimento fallito','Errore: Autore già presente',
                     'Torna all''opera',gruppo2.gr2||'VisualizzaOpera', '//operaID='||operaID||'//lingue='||lingue,
                     'Torna al menù',gruppo2.gr2||'menuOpere');
                     ELSE
-                    MODGUI1.RedirectEsito(idSessione, 'Inserimento fallito',
+                    MODGUI1.RedirectEsito('Inserimento fallito',
                     'Errore: Autore già presente',
                     null,null, null,'Torna al menù',gruppo2.gr2||'menuOpere');
                 END IF;
             END IF;
         ELSE
             if lingue is not null THEN
-                MODGUI1.RedirectEsito(idSessione, 'Inserimento fallito',
+                MODGUI1.RedirectEsito('Inserimento fallito',
                 'Errore: Autore già presente',
                 'Torna all''opera',gruppo2.gr2||'VisualizzaOpera', 
                 '//operaID='||operaID||'//lingue='||lingue,'Torna al menù',gruppo2.gr2||'menuOpere');
                 ELSE
-                MODGUI1.RedirectEsito(idSessione, 'Inserimento fallito',
+                MODGUI1.RedirectEsito('Inserimento fallito',
                 'Errore: Autore già presente',
                 null,null, null,'Torna al menù',gruppo2.gr2||'menuOpere');
             END IF;
@@ -1172,12 +1172,12 @@ controllo NUMBER(3);
                 DELETE FROM AUTORIOPERE 
                 WHERE AUTORIOPERE.IdOpera=operaID AND AUTORIOPERE.IdAutore=autoreID;
                 IF SQL%FOUND THEN
-                    MODGUI1.RedirectEsito(idSessione, 'Rimozione riuscita',
+                    MODGUI1.RedirectEsito('Rimozione riuscita',
                         'Autore Rimosso',
                         null,null,null,
                         'Torna al menù',gruppo2.gr2||'menuOpere');
                 ELSE
-                    MODGUI1.RedirectEsito(idSessione, 'Rimozione NON riuscita',
+                    MODGUI1.RedirectEsito('Rimozione NON riuscita',
                         'Autore NON Rimosso',
                         null,null,null,
                         'Torna al menù',gruppo2.gr2||'menuOpere');
@@ -1186,12 +1186,12 @@ controllo NUMBER(3);
             DELETE FROM AUTORIOPERE 
             WHERE AUTORIOPERE.IdOpera=operaID AND AUTORIOPERE.IdAutore=autoreID;
             IF SQL%FOUND THEN
-                MODGUI1.RedirectEsito(idSessione, 'Rimozione riuscita',
+                MODGUI1.RedirectEsito('Rimozione riuscita',
                     'Autore Rimosso',
                     'Torna alla rimozione',gruppo2.gr2||'RimuoviAutoreOpera','//operaID='||operaID,
                     'Torna al menù',gruppo2.gr2||'menuOpere');
             ELSE
-                MODGUI1.RedirectEsito(idSessione, 'Rimozione NON riuscita',
+                MODGUI1.RedirectEsito('Rimozione NON riuscita',
                     'Autore NON Rimosso',
                     'Torna alla rimozione',gruppo2.gr2||'RimuoviAutoreOpera','//operaID='||operaID,
                     'Torna al menù',gruppo2.gr2||'menuOpere');
@@ -1735,7 +1735,7 @@ auth Autori%ROWTYPE;
 BEGIN
     SELECT * INTO auth from Autori where IdAutore=authID;
     UPDATE AUTORI SET eliminato=0 WHERE IDAUTORE=authID;
-    modGUI1.RedirectEsito(idSessione, 'Ripristino riuscito', 
+    modGUI1.RedirectEsito('Ripristino riuscito', 
             'L''autore '||auth.Nome||' '||auth.Cognome||' è stato ripristinato', 
             'Torna al menu autori eliminati', gruppo2.gr2||'menuAutoriELiminati', null,
             'Torna al menu autori', gruppo2.gr2||'menuAutori', null);
@@ -1780,13 +1780,13 @@ auth Autori%ROWTYPE;
 BEGIN
     SELECT * INTO auth from Autori where IdAutore=authorID;
     IF auth.Eliminato = 1 THEN
-        modGUI1.RedirectEsito(idSessione, 'Eliminazione fallita', 
+        modGUI1.RedirectEsito('Eliminazione fallita', 
             'L''autore '||auth.Nome||' '||auth.Cognome||' è già stato eliminato', 
             null, null, null,
             'Torna al menu autori', gruppo2.gr2||'menuAutori', null);
             rollback;
     ELSE
-        modGUI1.RedirectEsito(idSessione, 'Eliminazione riuscita', 
+        modGUI1.RedirectEsito('Eliminazione riuscita', 
             'L''autore '||auth.Nome||' '||auth.Cognome||' è stato eliminato', 
             'Vai al menu autori eliminati', gruppo2.gr2||'menuAutoriEliminati', null,
             'Torna al menu autori', gruppo2.gr2||'menuAutori', null);
@@ -1837,15 +1837,14 @@ BEGIN
     IF numOpereRealizzate > 0
     THEN
         -- esito negativo: solo opzione per tornare al menu
-        modGUI1.RedirectEsito(idSessione,
-            'Rimozione fallita',
+        modGUI1.RedirectEsito('Rimozione fallita',
             'L''autore '||auth.Nome||' '||auth.Cognome||'ha delle opere nella base di dati',
             null, null, null,
             'Torna al menu Autori',
             gruppo2.gr2||'menuAutori');
     ELSE
         -- esito positivo: solo opzione per tornare al menu
-            modGUI1.RedirectEsito(idSessione, 'Rimozione riuscita', 
+            modGUI1.RedirectEsito('Rimozione riuscita', 
             'L''autore '||auth.Nome||' '||auth.Cognome||' è stato rimosso', 
             'Torna al menu autori eliminati', gruppo2.gr2||'menuAutoriELiminati', null,
             'Torna al menu autori', gruppo2.gr2||'menuAutori', null);
@@ -2315,13 +2314,13 @@ BEGIN
     OR nation IS NULL
     THEN
         IF idSessione <> 1 THEN
-            modGUI1.RedirectEsito(idSessione, 'Inserimento fallito',
+            modGUI1.RedirectEsito('Inserimento fallito',
                 'Errore: Operazione non autorizzata (controlla di essere loggato)',
                 'Torna all''inserimento',gruppo2.gr2||'InserisciAutore', 
                 '//authName='||authName||'//authSurname='||authSurname||'//dataNascita='||dataNascita||'//dataMorte='||dataMorte||'//nation='||nation,
                 'Torna al menù',gruppo2.gr2||'menuAutori');
             ELSIF numAutori > 0 THEN
-                modGUI1.RedirectEsito(idSessione, 'Inserimento fallito',
+                modGUI1.RedirectEsito('Inserimento fallito',
                     'Errore: Autore già presente',
                     'Torna all''inserimento',gruppo2.gr2||'InserisciAutore', 
                     '//authName='||authName||'//authSurname='||authSurname||'//dataNascita='||dataNascita||'//dataMorte='||dataMorte||'//nation='||nation,
@@ -2331,25 +2330,25 @@ BEGIN
 				-- I tre rami che seguono non possono essere raggiunti chiamando
 				-- InserisciAutore, ma sono possibili chiamando direttamente ConfermaDatiAutore
                 IF authName IS NULL THEN
-                    modGUI1.RedirectEsito(idSessione, 'Inserimento fallito',
+                    modGUI1.RedirectEsito('Inserimento fallito',
                         'Errore: Inserire Nome',
                         'Torna all''inserimento',gruppo2.gr2||'InserisciAutore', 
                         '//authName='||authName||'//authSurname='||authSurname||'//dataNascita='||dataNascita||'//dataMorte='||dataMorte||'//nation='||nation,
                         'Torna al menù',gruppo2.gr2||'menuAutori');
                 ELSIF authSurname IS NULL THEN
-                    modGUI1.RedirectEsito(idSessione, 'Inserimento fallito',
+                    modGUI1.RedirectEsito('Inserimento fallito',
                         'Errore: Inserire Cognome',
                         'Torna all''inserimento',gruppo2.gr2||'InserisciAutore', 
                         '//authName='||authName||'//authSurname='||authSurname||'//dataNascita='||dataNascita||'//dataMorte='||dataMorte||'//nation='||nation,
                         'Torna al menù',gruppo2.gr2||'menuAutori');
                 ELSIF nation IS NULL THEN
-                    modGUI1.RedirectEsito(idSessione, 'Inserimento fallito',
+                    modGUI1.RedirectEsito('Inserimento fallito',
                         'Errore: Inserire nazionalità',
                         'Torna all''inserimento',gruppo2.gr2||'InserisciAutore', 
                         '//authName='||authName||'//authSurname='||authSurname||'//dataNascita='||dataNascita||'//dataMorte='||dataMorte||'//nation='||nation,
                         'Torna al menù',gruppo2.gr2||'menuAutori');
                 ELSIF to_date(dataNascita, 'YYYY-MM-DD') > to_date(dataMorte, 'YYYY-MM-DD') THEN
-                    modGUI1.RedirectEsito(idSessione, 'Inserimento fallito',
+                    modGUI1.RedirectEsito('Inserimento fallito',
                         'Errore: data di nascita postuma alla data di morte',
                         'Torna all''inserimento',gruppo2.gr2||'InserisciAutore', 
                         '//authName='||authName||'//authSurname='||authSurname||'//dataNascita='||dataNascita||'//dataMorte='||dataMorte||'//nation='||nation,
@@ -2416,7 +2415,7 @@ BEGIN
     END IF;
 	-- Solo per testing
     EXCEPTION WHEN OTHERS THEN
-        modGUI1.RedirectEsito(idSessione, 'Errore', 'Errore sconosciuto', 'OK',gruppo2.gr2||'menuAutori');
+        modGUI1.RedirectEsito('Errore', 'Errore sconosciuto', 'OK',gruppo2.gr2||'menuAutori');
 END;
 
 -- Effettua l'inserimento di un nuovo Autore nella base di dati
@@ -2441,11 +2440,11 @@ BEGIN
     THEN
         -- faccio il commit dello statement precedente
         commit;
-        modGUI1.RedirectEsito(idSessione, 'Inserimento riuscito', null,
+        modGUI1.RedirectEsito('Inserimento riuscito', null,
             'Inserisci nuovo autore',gruppo2.gr2||'InserisciAutore', null,
             'Torna al menù',gruppo2.gr2||'menuAutori');
     ELSE
-        modGUI1.RedirectEsito(idSessione, 'Inserimento fallito',
+        modGUI1.RedirectEsito('Inserimento fallito',
              'Errore',
              'Torna all''inserimento',gruppo2.gr2||'InserisciAutore', 
              '//authName='||authName||'//authSurname='||authSurname||'//dataNascita='||dataNascita||'//dataMorte='||dataMorte||'//nation='||nation,
@@ -2454,7 +2453,7 @@ BEGIN
     END IF;
     EXCEPTION
     WHEN AutorePresente THEN
-        modGUI1.RedirectEsito(idSessione, 'Inserimento fallito',
+        modGUI1.RedirectEsito('Inserimento fallito',
              'Errore: Autore già presente',
              'Torna all''inserimento',gruppo2.gr2||'InserisciAutore', 
              '//authName='||authName||'//authSurname='||authSurname||'//dataNascita='||dataNascita||'//dataMorte='||dataMorte||'//nation='||nation,
@@ -2580,11 +2579,11 @@ BEGIN
 	WHERE IdAutore=authID;
 
     commit;
-    modGUI1.RedirectEsito(idSessione,'Aggiornamento riuscito', null,null,null, null,'Torna al menù',gruppo2.gr2||'menuAutori');
+    modGUI1.RedirectEsito('Aggiornamento riuscito', null,null,null, null,'Torna al menù',gruppo2.gr2||'menuAutori');
 
     EXCEPTION
 		WHEN Errore_data THEN
-            modGUI1.RedirectEsito(idSessione, 'Aggiornamento fallito',
+            modGUI1.RedirectEsito('Aggiornamento fallito',
              'Errore: data di nascita postuma alla data di morte',
              'Torna alla modifica',gruppo2.gr2||'ModificaAutore', 
              '//authorID='||authID||'//operazione=1','Torna al menù',gruppo2.gr2||'menuAutori');
@@ -2715,15 +2714,13 @@ BEGIN
         OR d_text IS NULL
         OR OperaID IS NULL
     THEN
-        modGUI1.RedirectEsito(idSessione,
-            'Errore',
+        modGUI1.RedirectEsito('Errore',
             'Uno dei parametri immessi non è corretto',
             'Correggi',
             gruppo2.gr2||'InserisciDescrizione',
             '//language='||language||'//d_level='||d_level||'//d_text='||d_text||'//operaID='||operaID);
     ELSIF SQL%NOTFOUND THEN
-        modGUI1.RedirectEsito(idSessione,
-            'Errore',
+        modGUI1.RedirectEsito('Errore',
             'Opera inesistente',
             'Correggi',
             gruppo2.gr2||'InserisciDescrizione',
@@ -2790,8 +2787,7 @@ BEGIN
     INSERT INTO DESCRIZIONI VALUES
     (IdDescSeq.NEXTVAL, language, LOWER(d_level), d_text, operaID);
         commit;
-        modGUI1.RedirectEsito(idSessione, 
-            'Inserimento riuscito', 
+        modGUI1.RedirectEsito('Inserimento riuscito', 
             'Inserimento riuscito', 
             'Torna all''opera',
             gruppo2.gr2||'VisualizzaOpera',
@@ -2805,8 +2801,7 @@ BEGIN
 
     EXCEPTION
         WHEN OperaInesistente THEN
-            modGUI1.RedirectEsito(idSessione, 
-                'Inserimento fallito', 
+            modGUI1.RedirectEsito('Inserimento fallito', 
                 'Inserimento fallito', 
                 'Correggi',
                 gruppo2.gr2||'InserisciDescrizione',
@@ -2913,11 +2908,11 @@ IF descrid is null or newopera is null THEN
 	WHERE IDDESC=descrID;
 
     commit;
-    modGUI1.RedirectEsito(idSessione, 'Aggiornamento riuscito', null,null, null, null,
+    modGUI1.RedirectEsito('Aggiornamento riuscito', null,null, null, null,
         'Torna all''opera',gruppo2.gr2||'VisualizzaOpera','//operaID='||newopera||'//lingue='||newlingua);
     EXCEPTION
 		WHEN Errore_data THEN
-            modGUI1.RedirectEsito(idSessione, 'Aggiornamento fallito', null,null, null, null,
+            modGUI1.RedirectEsito('Aggiornamento fallito', null,null, null, null,
                 'Torna all''opera',gruppo2.gr2||'VisualizzaOpera','//operaID='||newopera||'//lingue='||newlingua);
             ROLLBACK;
 END;
@@ -2961,7 +2956,7 @@ oplivello VARCHAR2(25);
 BEGIN
     SELECT Opera, LINGUA,livello into opid, oplingua, oplivello
     FROM DESCRIZIONI WHERE IDDESC=idDescrizione;
-    modGUI1.RedirectEsito(idSessione,'Rimozione riuscita', null,null,null, null,
+    modGUI1.RedirectEsito('Rimozione riuscita', null,null,null, null,
         'Torna all''opera',gruppo2.gr2||'VisualizzaOpera','//operaID='||opid||'//lingue='||oplingua||'//livelli='||oplivello);
         DELETE FROM DESCRIZIONI WHERE IDDESC = idDescrizione;
         commit;

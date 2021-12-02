@@ -2632,11 +2632,8 @@ BEGIN
         modGUI1.ApriDiv('class="w3-section"');
         modGUI1.Collegamento('X',gruppo2.gr2||'menuOpere?',' w3-btn w3-large w3-red w3-display-topright');
         -- Form per mandare dati alla procedura di conferma
-        modGUI1.ApriForm('ConfermaDatiDescrizione');
+        modGUI1.ApriForm(gruppo2.gr2||'ConfermaDatiDescrizione');
         htp.br;
-        --MODGUI1.Label('Lingua*'); -- TODO: usare dropdown per avere nome standardizzato
-        --MODGUI1.InputText('language', def_lingua, 1, language);
-        --htp.br;
         IF language = 'Italian' THEN
             italian_SELECTed := 1;
         ELSIF language = 'English' THEN
@@ -2750,7 +2747,7 @@ BEGIN
                 modGUI1.Label('Testo descrizione:');
                 HTP.PRINT(d_text);
                 -- Form nascosto per conferma insert
-                MODGUI1.ApriForm('InserisciDatiDescrizione');
+                MODGUI1.ApriForm(gruppo2.gr2||'InserisciDatiDescrizione');
                 HTP.FORMHIDDEN('language', language);
                 HTP.FORMHIDDEN('d_level', d_level);
                 HTP.FORMHIDDEN('d_text', d_text);
@@ -2758,7 +2755,7 @@ BEGIN
                 MODGUI1.InputSubmit('Conferma');
                 MODGUI1.ChiudiForm;
                 -- Form nascosto per ritorno ad InserisciAutore con form precompilato
-                MODGUI1.ApriForm('InserisciDescrizione');
+                MODGUI1.ApriForm(gruppo2.gr2||'InserisciDescrizione');
                 HTP.FORMHIDDEN('language', language);
                 HTP.FORMHIDDEN('d_level', d_level);
                 HTP.FORMHIDDEN('d_text', d_text);
@@ -2790,7 +2787,7 @@ BEGIN
         modGUI1.RedirectEsito('Inserimento riuscito', 
             'Inserimento riuscito', 
             'Torna all''opera',
-            gruppo2.gr2||'VisualizzaOpera',
+            gruppo2.gr2||'visualizzaOpera',
             '//operaID='||operaID||'//lingue='||language||'//livelli='||d_level,
             'Torna al menu Opere',
             gruppo2.gr2||'menuOpere');

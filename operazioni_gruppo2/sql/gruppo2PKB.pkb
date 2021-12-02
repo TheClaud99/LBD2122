@@ -622,8 +622,7 @@ BEGIN
     end if;
     htp.br;htp.br;htp.br;htp.br;htp.br;htp.br;
     modGUI1.ApriDiv('class="w3-center"');
-    --SELECT Titolo, Eliminato into var1, varEliminato FROM OPERE WHERE idOpera=operaID;
-    SELECT Titolo, Esponibile into var1, varEliminato FROM OPERE WHERE idOpera=operaID;
+    SELECT Titolo, Eliminato into var1, varEliminato FROM OPERE WHERE idOpera=operaID;
     htp.prn('<h1><b>'||var1||'</b></h1>'); --TITOLO
     --ritorno al menù opere
     

@@ -137,7 +137,7 @@ idSessione NUMBER(5) := modgui1.get_id_sessione();
 op Opere%ROWTYPE;
 BEGIN
     SELECT * INTO op from opere where idOpera=operaID;
-    --UPDATE opere SET eliminato=0 WHERE idOpera=operaID;
+    UPDATE opere SET eliminato=0 WHERE idOpera=operaID;
     modGUI1.RedirectEsito('Ripristino riuscito', 
             'L''opera '||op.titolo||' è stato ripristinata', 
             'Torna al menu opere eliminate', gruppo2.gr2||'menuOpereEliminate', null,
@@ -163,7 +163,7 @@ BEGIN
                         SELECT titolo INTO var1 FROM OPERE WHERE idOpera=operaId;
                         htp.prn('stai per rimuovere: '||var1);
                         modGUI1.Collegamento('Conferma',
-                        gruppo2.gr2||'RimozioneDefinitivaOpera?idSessione='||idSessione||'&operaID='||operaID,
+                        gruppo2.gr2||'RimozioneDefinitivaOpera?operaID='||operaID,
                         'w3-button w3-block w3-green w3-section w3-padding');
                         htp.prn('<span onclick="document.getElementById(''ElimOperaDef'||operaID||''').style.display=''none''" class="w3-button w3-block w3-red w3-section w3-padding" title="Close Modal">Annulla</span>');
                     modGUI1.ChiudiDiv;

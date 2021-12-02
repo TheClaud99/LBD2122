@@ -30,10 +30,6 @@ CREATE OR REPLACE PACKAGE BODY packagevisite AS
         nome_tipologia  tipologieingresso.nome%TYPE;
     BEGIN
         modgui1.apridiv('style="margin-left: 2%; margin-right: 2%;"');
-        htp.header(
-                  2,
-                  'Dati visita'
-        );
         htp.tableopen;
         htp.tablerowopen;
         htp.tabledata('Data visita: ');
@@ -194,11 +190,17 @@ CREATE OR REPLACE PACKAGE BODY packagevisite AS
                 *
             FROM
                 visite
+            ORDER BY
+                idvisita DESC
         ) LOOP
             modgui1.apridiv('class="w3-col l4 w3-padding-large w3-center"');
             modgui1.apridiv('class="w3-card-4"');
             htp.prn('<img src="https://cdn.pixabay.com/photo/2016/10/22/15/32/water-1761027__480.jpg" alt="Alps" style="width:100%">');
             modgui1.apridiv('class="w3-container w3-center"');
+            htp.header(
+                      2,
+                      'Visita ' || visita.idvisita
+            );
             tabella_dati_visita(
                                to_char(
                                       visita.datavisita,

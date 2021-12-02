@@ -1,7 +1,10 @@
 create or replace package operazioniGruppo4 as
 
 /*OPERAZIONI CAMPIESTIVI*/
-procedure menucampiestivi;
+procedure menucampiestivi
+(
+   idsessione IN number default 0
+);
 procedure menumusei
 (
    idsessione IN number default 0
@@ -58,6 +61,7 @@ procedure visualizzamusei
 );
 procedure modificamusei 
 (
+   idsessione IN number default 0,
    MuseoId IN MUSEI.IdMuseo%TYPE,
    newNome in Musei.Nome%TYPE default null,
    newIndirizzo in MUSEI.INDIRIZZO%TYPE default null
@@ -133,7 +137,7 @@ procedure visitatoriunici
 );
 procedure visitatorimedi 
 (
-  idsessione IN number default 0,
+   idsessione IN number default 0,
    MuseoId IN MUSEI.IdMuseo%TYPE,
    Data1 VARCHAR2,
    Data2 VARCHAR2
@@ -141,9 +145,9 @@ procedure visitatorimedi
 /*---------statistiche CAMPI ESTIVI-----------*/
 procedure form1campiestivi
 (
+   idsessione IN number default 0,
    CampoestivoId IN CAMPIESTIVI.IDCAMPIESTIVI%TYPE,
-   NameCampoestivo IN CAMPIESTIVI.NOME%TYPE,
-   SessionId In NUMBER default 0
+   NameCampoestivo IN CAMPIESTIVI.NOME%TYPE
 );
 procedure controllastatisticacampo
 (
@@ -160,8 +164,8 @@ procedure tariffecampi
    sessionID IN number default 0,
    CampoestivoId IN CAMPIESTIVI.IDCAMPIESTIVI%TYPE
 );
-/*procedure etamediatariffe(
+procedure etamediatariffe(
    sessionID IN number default 0,
    CampoestivoId IN CAMPIESTIVI.IDCAMPIESTIVI%TYPE
-);*/
+);
 end operazioniGruppo4;

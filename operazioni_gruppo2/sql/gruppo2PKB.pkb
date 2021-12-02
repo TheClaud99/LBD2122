@@ -238,7 +238,7 @@ BEGIN
             null,null,null,
             'Torna alle opere',gruppo2.gr2||'menuOpere',null);
     ELSE
-        --UPDATE opere SET Eliminato = 1 WHERE idopera = operaID;
+        UPDATE opere SET Eliminato = 1 WHERE idopera = operaID;
         -- Ritorno al menu opere
         MODGUI1.RedirectEsito('Eliminazione completata', null,
             'Vai al menù opere eliminate',gruppo2.gr2||'menuOpereEliminate',null,
@@ -574,15 +574,15 @@ BEGIN
 		Museo=newIDmusei
 	WHERE IdOpera=operaID;
     MODGUI1.RedirectEsito('Update eseguito correttamente', null,
-        null,null,null,
+        null, null, null,
         'Torna alle opere',gruppo2.gr2||'menuOpere',null);
     ELSE
     --EXCEPTION WHEN OTHERS THEN
     MODGUI1.RedirectEsito('Update fallito',
                 'Errore: parametri non ammessi',
                 'Torna all''update',
-                gruppo2.gr2||'ModificaOpera', 
-                '//operaID='||operaID||'//titoloOpera='||newTitolo,
+                gruppo2.gr2||'ModificaOpera?', 
+                'operaID='||operaID||'//titoloOpera='||newTitolo,
                 'Torna al menù',gruppo2.gr2||'menuOpere');
     END IF;
 END;
@@ -733,7 +733,7 @@ LOOP
                 htp.prn('<h5><b>Esposta: </b>❌</h5>');
                 if (hasRole(idSessione, 'DBA') or hasRole(idSessione, 'GO')) and varEliminato = 0 then
                 modGUI1.collegamento('sposta',
-                    gruppo2.gr2||'SpostaOpera?operaID='||operaID||'&salaID='||varSala,
+                    gruppo2.gr2||'SpostaOpera?operaID='||operaID||'&salaID='||varSala||'&lingue='||lingue||'&livelli='||livelli,
                     'w3-green w3-margin w3-button w3-small w3-round-xxlarge');
                 end if;
                 htp.br;
@@ -764,7 +764,7 @@ LOOP
                 htp.prn('<h5><b>Exposed: </b>❌</h5>');
                 if (hasRole(idSessione, 'DBA') or hasRole(idSessione, 'GO')) and varEliminato = 0 then
                 modGUI1.collegamento('sposta',
-                    gruppo2.gr2||'SpostaOpera?operaID='||operaID||'&salaID='||varSala,
+                    gruppo2.gr2||'SpostaOpera?operaID='||operaID||'&salaID='||varSala||'&lingue='||lingue||'&livelli='||livelli,
                     'w3-green w3-margin w3-button w3-small w3-round-xxlarge');
                 end if;
                 htp.br;
@@ -795,7 +795,7 @@ LOOP
                 htp.prn('<h5><b>裸露: </b>❌</h5>');
                 if (hasRole(idSessione, 'DBA') or hasRole(idSessione, 'GO')) and varEliminato = 0 then
                 modGUI1.collegamento('sposta',
-                    gruppo2.gr2||'SpostaOpera?operaID='||operaID||'&salaID='||varSala,
+                    gruppo2.gr2||'SpostaOpera?operaID='||operaID||'&salaID='||varSala||'&lingue='||lingue||'&livelli='||livelli,
                     'w3-green w3-margin w3-button w3-small w3-round-xxlarge');
                 end if;
                 htp.br;
@@ -833,7 +833,7 @@ LOOP
                 htp.prn('<b>Sala: </b>'||varNomeStanza||'<b> tipo di sala: </b>'||varTipoSala); 
                 if (hasRole(idSessione, 'DBA') or hasRole(idSessione, 'GO')) and varEliminato = 0 then
                 modGUI1.collegamento('sposta',
-                    gruppo2.gr2||'SpostaOpera?operaID='||operaID||'&salaID='||varSala,
+                    gruppo2.gr2||'SpostaOpera?operaID='||operaID||'&salaID='||varSala||'&lingue='||lingue||'&livelli='||livelli,
                     'w3-green w3-margin w3-button w3-small w3-round-xxlarge');
                 end if;
                 htp.br;
@@ -869,7 +869,7 @@ LOOP
                 htp.prn('<b>Room: </b>'||varNomeStanza||'<b> type of room: </b>'||varTipoSala);--COLLEGAMENTO NOME STANZA
                 if (hasRole(idSessione, 'DBA') or hasRole(idSessione, 'GO')) and varEliminato = 0 then
                 modGUI1.collegamento('sposta',
-                    gruppo2.gr2||'SpostaOpera?operaID='||operaID||'&salaID='||varSala,
+                    gruppo2.gr2||'SpostaOpera?operaID='||operaID||'&salaID='||varSala||'&lingue='||lingue||'&livelli='||livelli,
                     'w3-green w3-margin w3-button w3-small w3-round-xxlarge');
                 end if;
                 htp.br;
@@ -906,7 +906,7 @@ LOOP
                 htp.prn('<b>房间: </b>'||varNomeStanza||'<b> 大厅类型: </b>'||varTipoSala); --COLLEGAMENTO NOME STANZA
                 if (hasRole(idSessione, 'DBA') or hasRole(idSessione, 'GO')) and varEliminato = 0 then
                 modGUI1.collegamento('sposta',
-                    gruppo2.gr2||'SpostaOpera?operaID='||operaID||'&salaID='||varSala,
+                    gruppo2.gr2||'SpostaOpera?operaID='||operaID||'&salaID='||varSala||'&lingue='||lingue||'&livelli='||livelli,
                     'w3-green w3-margin w3-button w3-small w3-round-xxlarge');
                 end if;
                 htp.br;
@@ -954,12 +954,20 @@ end VisualizzaOpera;
 
 
 PROCEDURE SpostaOpera(
-        operaID NUMBER DEFAULT 0,
-        salaID NUMBER DEFAULT 0
+    operaID NUMBER DEFAULT 0,
+    salaID NUMBER DEFAULT 0,
+    lingue VARCHAR2 default NULL,
+    livelli VARCHAR2 DEFAULT 'Sconosciuto'
     ) IS
     idSessione NUMBER(5) := modgui1.get_id_sessione();
     nomeStanza VARCHAR2(50) DEFAULT 'sconosciuto';
+    Esponibile_SELECTed NUMBER(1) := 0;
+    NEsponibile_SELECTed NUMBER(1) := 0;
     BEGIN
+    SELECT ESPONIBILE into Esponibile_SELECTed from OPERE where IDOPERA=operaId;
+    if Esponibile_SELECTed = 0 THEN
+        NEsponibile_SELECTed := 1;
+    end if;
         modGUI1.ApriPagina('SpostaOpera',idSessione);
                 if idSessione IS NULL then
                 modGUI1.Header;
@@ -970,13 +978,15 @@ PROCEDURE SpostaOpera(
                 htp.prn('<h1 align="center">Sposta Opera</h1>');
                 modGUI1.ApriDiv('class="w3-modal-content w3-card-4 w3-animate-zoom" style="max-width:600px"');
                     modGUI1.ApriDiv('class="w3-section"');
-                    modGUI1.Collegamento('X','menuOpere',' w3-btn w3-large w3-red w3-display-topright');
+                    modGUI1.Collegamento('X',gruppo2.gr2||'menuOpere',' w3-btn w3-large w3-red w3-display-topright');
                         modGUI1.ApriForm(gruppo2.gr2||'SpostamentoOpera','Spostamento opera','w3-container');
                             htp.FORMHIDDEN('operaID',operaID);
+                            htp.FORMHIDDEN('lingue',lingue);
+                            htp.FORMHIDDEN('livelli',livelli);
                             htp.br;
                             htp.prn('<b>Status opera: </b>');
-                            modGUI1.InputRadioButton('Esponibile ', 'esposizione',1, 0, 0, 1);
-                            modGUI1.InputRadioButton('Non esponibile ', 'esposizione',0, 0, 0, 1);
+                            modGUI1.InputRadioButton('Esponibile ', 'esposizione',1, Esponibile_SELECTed, 0, 1);
+                            modGUI1.InputRadioButton('Non esponibile ', 'esposizione',0, NEsponibile_SELECTed, 0, 1);
                             
                             htp.br;
                             htp.br;
@@ -1010,7 +1020,9 @@ END;
 procedure SpostamentoOpera(
     operaID NUMBER DEFAULT 0,
     Esposizione NUMBER DEFAULT 0,
-    NuovaSalaID NUMBER DEFAULT 0
+    NuovaSalaID NUMBER DEFAULT 0,
+    lingue VARCHAR2 default NULL,
+    livelli VARCHAR2 DEFAULT 'Sconosciuto'
 )IS
 idSessione NUMBER(5) := modgui1.get_id_sessione();
     BEGIN
@@ -1019,13 +1031,15 @@ idSessione NUMBER(5) := modgui1.get_id_sessione();
         INSERT INTO SALEOPERE(IdMovimento, Sala, Opera, DataArrivo, DataUscita) VALUES (IdMovimentoSeq.nextVal, NuovaSalaID, operaID, TO_DATE(TO_CHAR(SYSDATE, 'dd/mm/yyyy'), 'dd/mm/yyyy'), null);
         UPDATE OPERE SET Esponibile = 1 WHERE idopera = operaID;
         MODGUI1.RedirectEsito('Spostamento eseguito', null,
-            null,null,null,
+            --null,null,null,
+            'Torna all''opera',gruppo2.gr2||'VisualizzaOpera?', 'operaID='||operaID||'//lingue='||lingue||'//livelli='||livelli,
             'Torna alle opere',gruppo2.gr2||'menuOpere',null);  
     else
         UPDATE OPERE SET Esponibile = 0 WHERE idopera = operaID;
         UPDATE SALEOPERE SET datauscita = TO_DATE(TO_CHAR(SYSDATE, 'dd/mm/yyyy'), 'dd/mm/yyyy') WHERE datauscita IS NULL AND opera = operaID; 
         MODGUI1.RedirectEsito('Opera non più esposta',null,
-            null,null,null,
+            --null,null,null,
+            'Torna all''opera',gruppo2.gr2||'VisualizzaOpera?', 'operaID='||operaID||'//lingue='||lingue||'//livelli='||livelli,
             'Torna alle opere',gruppo2.gr2||'menuOpere',null);  
     END IF;
 END;
@@ -1095,7 +1109,7 @@ controllo NUMBER(3);
             ELSE
                 if lingue is not null THEN
                     MODGUI1.RedirectEsito('Inserimento fallito','Errore: Autore già presente',
-                    'Torna all''opera',gruppo2.gr2||'VisualizzaOpera', '//operaID='||operaID||'//lingue='||lingue,
+                    'Torna all''opera',gruppo2.gr2||'VisualizzaOpera?', 'operaID='||operaID||'//lingue='||lingue,
                     'Torna al menù',gruppo2.gr2||'menuOpere');
                     ELSE
                     MODGUI1.RedirectEsito('Inserimento fallito',
@@ -1107,8 +1121,8 @@ controllo NUMBER(3);
             if lingue is not null THEN
                 MODGUI1.RedirectEsito('Inserimento fallito',
                 'Errore: Autore già presente',
-                'Torna all''opera',gruppo2.gr2||'VisualizzaOpera', 
-                '//operaID='||operaID||'//lingue='||lingue,'Torna al menù',gruppo2.gr2||'menuOpere');
+                'Torna all''opera',gruppo2.gr2||'VisualizzaOpera?', 
+                'operaID='||operaID||'//lingue='||lingue,'Torna al menù',gruppo2.gr2||'menuOpere');
                 ELSE
                 MODGUI1.RedirectEsito('Inserimento fallito',
                 'Errore: Autore già presente',
@@ -2787,8 +2801,8 @@ BEGIN
         modGUI1.RedirectEsito('Inserimento riuscito', 
             'Inserimento riuscito', 
             'Torna all''opera',
-            gruppo2.gr2||'visualizzaOpera',
-            '//operaID='||operaID||'//lingue='||language||'//livelli='||d_level,
+            gruppo2.gr2||'VisualizzaOpera?',
+            'operaID='||operaID||'//lingue='||language||'//livelli='||d_level,
             'Torna al menu Opere',
             gruppo2.gr2||'menuOpere');
      ELSE
@@ -2906,11 +2920,11 @@ IF descrid is null or newopera is null THEN
 
     commit;
     modGUI1.RedirectEsito('Aggiornamento riuscito', null,null, null, null,
-        'Torna all''opera',gruppo2.gr2||'VisualizzaOpera','//operaID='||newopera||'//lingue='||newlingua);
+        'Torna all''opera',gruppo2.gr2||'VisualizzaOpera?','operaID='||newopera||'//lingue='||newlingua);
     EXCEPTION
 		WHEN Errore_data THEN
             modGUI1.RedirectEsito('Aggiornamento fallito', null,null, null, null,
-                'Torna all''opera',gruppo2.gr2||'VisualizzaOpera','//operaID='||newopera||'//lingue='||newlingua);
+                'Torna all''opera',gruppo2.gr2||'VisualizzaOpera?','operaID='||newopera||'//lingue='||newlingua);
             ROLLBACK;
 END;
 
@@ -2954,7 +2968,7 @@ BEGIN
     SELECT Opera, LINGUA,livello into opid, oplingua, oplivello
     FROM DESCRIZIONI WHERE IDDESC=idDescrizione;
     modGUI1.RedirectEsito('Rimozione riuscita', null,null,null, null,
-        'Torna all''opera',gruppo2.gr2||'VisualizzaOpera','//operaID='||opid||'//lingue='||oplingua||'//livelli='||oplivello);
+        'Torna all''opera',gruppo2.gr2||'VisualizzaOpera?','operaID='||opid||'//lingue='||oplingua||'//livelli='||oplivello);
         DELETE FROM DESCRIZIONI WHERE IDDESC = idDescrizione;
         commit;
 end RimozioneDescrizione;

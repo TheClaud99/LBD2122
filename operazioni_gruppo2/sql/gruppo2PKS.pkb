@@ -5,35 +5,39 @@ gr2 CONSTANT VARCHAR2(25) := 'gruppo2.';
 /* OPERAZIONI SULLE OPERE */
 PROCEDURE coloreClassifica(posizione NUMBER DEFAULT 0);
 PROCEDURE SpostamentiOpera (
-    
+
     operaID NUMBER DEFAULT 0
 );
 procedure EliminazioneDefinitivaOpera(
-    
+
     operaID NUMBER default 0
 );
 
 procedure RimozioneDefinitivaOpera(
-    
+
     operaID NUMBER default 0
 );
 
 PROCEDURE SpostaOpera(
-        
-        operaID NUMBER DEFAULT 0,
-        salaID NUMBER DEFAULT 0
+
+    operaID NUMBER DEFAULT 0,
+    salaID NUMBER DEFAULT 0,
+    lingue VARCHAR2 default NULL,
+    livelli VARCHAR2 DEFAULT 'Sconosciuto'
 );
 PROCEDURE SpostamentoOpera(
-    
+
     operaID NUMBER DEFAULT 0,
     Esposizione NUMBER DEFAULT 0,
-    NuovaSalaID NUMBER DEFAULT 0
+    NuovaSalaID NUMBER DEFAULT 0,
+    lingue VARCHAR2 default NULL,
+    livelli VARCHAR2 DEFAULT 'Sconosciuto'
 );
 PROCEDURE menuOpere ;
 procedure menuOpereEliminate ;
 PROCEDURE selezioneMuseo;
 PROCEDURE StatisticheOpere(
-    
+
     museoID NUMBER DEFAULT 0
 );
 PROCEDURE InserisciOpera(
@@ -43,12 +47,12 @@ PROCEDURE InserisciOpera(
     idmusei NUMBER DEFAULT NULL
 );
 PROCEDURE AggiungiAutore(
-    
+
     operaID NUMBER DEFAULT 0,
     lingue VARCHAR2 DEFAULT null
 );
 PROCEDURE AggiuntaAutore(
-    
+
     operaID NUMBER DEFAULT 0,
     autoreID NUMBER DEFAULT 0,
     lingue VARCHAR2 default NULL
@@ -56,31 +60,31 @@ PROCEDURE AggiuntaAutore(
 
 -- Rimuove un Autore dall'Opera indicata (pagina conferma)
 PROCEDURE RimuoviAutoreOpera(
-    
+
     operaID NUMBER DEFAULT 0,
     lingue VARCHAR2 DEFAULT null
 );
 -- Rimuove un Autore dall'Opera indicata
 PROCEDURE RimozioneAutoreOpera(
-    
+
     operaID NUMBER DEFAULT 0,
     autoreID NUMBER DEFAULT 0
 );
 
 PROCEDURE EliminazioneOpera(
-    
+
     operaID NUMBER default 0
 );
 PROCEDURE RimozioneOpera(
-    
+
     operaID NUMBER default 0
 );
 procedure ripristinaOpera(
-    
+
     operaID NUMBER DEFAULT 0
 );
 PROCEDURE ConfermaDatiOpera(
-    
+
     titolo VARCHAR2 DEFAULT 'Sconosciuto',
     anno VARCHAR2 DEFAULT NULL,
     fineperiodo VARCHAR2 DEFAULT NULL,
@@ -88,7 +92,7 @@ PROCEDURE ConfermaDatiOpera(
 );
 
 PROCEDURE ConfermaUpdateOpera(
-    
+
     operaID NUMBER DEFAULT 0,
     titolo VARCHAR2 DEFAULT 'Sconosciuto',
     anno VARCHAR2 DEFAULT NULL,
@@ -97,13 +101,13 @@ PROCEDURE ConfermaUpdateOpera(
 );
 
 PROCEDURE ModificaOpera(
-    
+
     operaID NUMBER DEFAULT 0,
     titoloOpera VARCHAR2 DEFAULT 'Sconosciuto'
 );
 
 PROCEDURE UpdateOpera(
-	
+
 	operaID NUMBER DEFAULT 0,
 	newTitolo VARCHAR2 DEFAULT 'Sconosciuto',
 	newAnno VARCHAR2 DEFAULT 'Sconosciuto',
@@ -112,20 +116,20 @@ PROCEDURE UpdateOpera(
 );
 
 PROCEDURE InserisciDatiOpera(
-    
+
     titolo VARCHAR2 DEFAULT 'Sconosciuto',
     anno NUMBER DEFAULT NULL,
     fineperiodo NUMBER DEFAULT NULL,
     idmusei NUMBER DEFAULT NULL
 );
 PROCEDURE VisualizzaOpera (
-    
+
     operaID NUMBER default 0,
     lingue VARCHAR2 default 'sconosciuto',
     livelli VARCHAR2 DEFAULT 'Sconosciuto'
 );
 PROCEDURE linguaELivello(
-    
+
     operaID NUMBER default 0
 );
 /* OPERAZIONI SUGLI AUTORI */
@@ -135,24 +139,24 @@ PROCEDURE menuAutoriEliminati;
 PROCEDURE selezioneOpStatAut;
 
 PROCEDURE selezioneAutoreStatistica(
-    
+
     operazione NUMBER DEFAULT 0
 );
 
 PROCEDURE StatisticheAutori(
-    
+
     operazione NUMBER DEFAULT 0,
     authID NUMBER DEFAULT 0
 );
 
 PROCEDURE selezioneMuseoAutoreStatistica(
-    
+
     operazione NUMBER DEFAULT 0,
     authID NUMBER DEFAULT 0
 );
 
 PROCEDURE StatisticheMuseoAutori(
-    
+
     operazione NUMBER DEFAULT 0,
     authID NUMBER DEFAULT 0,
     museoID NUMBER DEFAULT 0
@@ -167,7 +171,7 @@ PROCEDURE InserisciAutore(
 );
 
 PROCEDURE ConfermaDatiAutore(
-    
+
     authName VARCHAR2 DEFAULT 'Sconosciuto',
     authSurname VARCHAR2 DEFAULT 'Sconosciuto',
     dataNascita varchar2 DEFAULT NULL,
@@ -187,7 +191,7 @@ PROCEDURE InserisciDatiAutore(
 --  0: Visualizzazione
 --  1: Modifica
 PROCEDURE ModificaAutore(
-	
+
 	authorID NUMBER DEFAULT 0,
     operazione NUMBER DEFAULT 0,
     caller VARCHAR2 DEFAULT NULL,
@@ -195,7 +199,7 @@ PROCEDURE ModificaAutore(
 );
 
 PROCEDURE UpdateAutore(
-	
+
 	authID NUMBER DEFAULT 0,
 	newName VARCHAR2 DEFAULT 'Sconosciuto',
 	newSurname VARCHAR2 DEFAULT 'Sconosciuto',
@@ -205,24 +209,24 @@ PROCEDURE UpdateAutore(
 );
 
 procedure ripristinaAutore(
-    
+
     authID NUMBER DEFAULT 0
 );
 
 PROCEDURE EliminazioneAutore(
-    
+
     authorID NUMBER default 0
 );
 
 -- Setta l'attributo 'Eliminato' dell'autore a 1 => l'autore scompare dal menuAutori
--- e va in menuAutoriEliminati (ma non rimossi) 
+-- e va in menuAutoriEliminati (ma non rimossi)
 procedure SetAutoreEliminato(
-    
+
     authorID NUMBER default 0
 );
 
 PROCEDURE RimozioneAutore(
-    
+
     authorID NUMBER default 0
 );
 
@@ -240,7 +244,7 @@ PROCEDURE InserisciDescrizione(
 );
 
 PROCEDURE ConfermaDatiDescrizione(
-    
+
     language VARCHAR2 DEFAULT 'Sconosciuta',
     d_level VARCHAR2 DEFAULT 'Sconosciuto',
     d_text VARCHAR2 DEFAULT NULL,
@@ -248,7 +252,7 @@ PROCEDURE ConfermaDatiDescrizione(
 );
 
 PROCEDURE InserisciDatiDescrizione(
-    
+
     language VARCHAR2 DEFAULT 'Sconosciuta',
     d_level VARCHAR2 DEFAULT 'Sconosciuto',
     d_text VARCHAR2 DEFAULT NULL,
@@ -256,22 +260,22 @@ PROCEDURE InserisciDatiDescrizione(
 );
 
 PROCEDURE modificaDescrizione(
-    
+
     idDescrizione NUMBER DEFAULT NULL
 );
 
 PROCEDURE EliminazioneDescrizione(
-    
+
     idDescrizione NUMBER default 0
 );
 
 PROCEDURE RimozioneDescrizione(
-    
+
     idDescrizione NUMBER default 0
 );
 
 PROCEDURE UpdateDescrizione(
-	
+
 	descrID NUMBER DEFAULT 0,
     newopera number DEFAULT 0,
     newlingua varchar2 DEFAULT null,
@@ -280,7 +284,7 @@ PROCEDURE UpdateDescrizione(
 );
 
 PROCEDURE StatisticheDescrizioni(
-    
+
     operazione NUMBER DEFAULT 0
 );
 END gruppo2;

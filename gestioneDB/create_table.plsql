@@ -65,6 +65,7 @@ Create Table OPERE
    FinePeriodo number(4),
    Museo number(5) not null REFERENCES MUSEI(IdMuseo),
    Esponibile number(1)  default 1 check (Esponibile in (0,1)),
+   Eliminato number(1) default 0 check (Eliminato in (0,1)) not null,
    
    check ((Anno < FinePeriodo) or (FinePeriodo is null))
    -- TODO Anno < SYSTIMESTAMP
@@ -374,23 +375,6 @@ Create Table VISITEVARCHI
    • IF(IdVisita1 == IdVisita2) => IdVarco1.Stanza1.Museo == IdVarco2.Stanza1.Museo
    */
 );
-
-/* Tabella di corrispondenze tra ruolo e idsessione */
-CREATE TABLE RUOLISESSIONI (
-   Ruolo VARCHAR2(5) PRIMARY KEY,
-   IdSessione NUMBER(5) DEFAULT 0
-);
-
-/* Tabella che contiene username, password e ruolo di ogni utente */
-Create Table UTENTILOGIN
-(
-   IdUtenteLogin number(5) primary key,
-   IdCliente NUMBER(5) DEFAULT NULL REFERENCES Utenti(IdUtente),
-   Username VARCHAR2(50) not null,
-   Password VARCHAR2(25) not null,
-   Ruolo VARCHAR2(5) not null REFERENCES RuoliSessioni(Ruolo)
-);
-
 
 /*--------*/
 /*SEQUENCE*/

@@ -103,7 +103,7 @@ BEGIN
     htp.br;
     modGUI1.ApriDiv('class="w3-row w3-container"');
 --Visualizzazione TUTTE LE OPERE *temporanea*
-        FOR opera IN (SELECT * FROM Opere)-- WHERE Eliminato = 1)
+        FOR opera IN (SELECT * FROM Opere WHERE Eliminato = 1)
         LOOP
             modGUI1.ApriDiv('class="w3-col l4 w3-padding-large w3-center"');
                 modGUI1.ApriDiv('class="w3-card-4" style="height:600px;"');
@@ -118,7 +118,7 @@ BEGIN
                     htp.print('&nbsp;');
                     if hasRole(idSessione, 'DBA') or hasRole(idSessione, 'SU') then
                     --bottone elimina
-                    modGUI1.Collegamento('Ripristina',gruppo2.gr2||'ripristinaOpera&operaID='||opera.idOpera,'w3-btn w3-green');
+                    modGUI1.Collegamento('Ripristina',gruppo2.gr2||'ripristinaOpera?operaID='||opera.idOpera,'w3-btn w3-green');
                     htp.print('&nbsp;');
                     htp.prn('<button onclick="document.getElementById(''ElimOperaDef'||opera.idOpera||''').style.display=''block''" class="w3-margin w3-button w3-red w3-hover-white">Elimina</button>');
                     gruppo2.EliminazioneDefinitivaOpera(opera.idOpera);
@@ -137,8 +137,8 @@ idSessione NUMBER(5) := modgui1.get_id_sessione();
 op Opere%ROWTYPE;
 BEGIN
     SELECT * INTO op from opere where idOpera=operaID;
-    --UPDATE opere SET eliminato=0 WHERE idOpera=operaID;
-    modGUI1.RedirectEsito( 'Ripristino riuscito', 
+    UPDATE opere SET eliminato=0 WHERE idOpera=operaID;
+    modGUI1.RedirectEsito('Ripristino riuscito', 
             'L''opera '||op.titolo||' è stato ripristinata', 
             'Torna al menu opere eliminate', gruppo2.gr2||'menuOpereEliminate', null,
             'Torna al menu opere', gruppo2.gr2||'MenuOpere', null);
@@ -163,7 +163,7 @@ BEGIN
                         SELECT titolo INTO var1 FROM OPERE WHERE idOpera=operaId;
                         htp.prn('stai per rimuovere: '||var1);
                         modGUI1.Collegamento('Conferma',
-                        gruppo2.gr2||'RimozioneDefinitivaOpera?idSessione='||idSessione||'&operaID='||operaID,
+                        gruppo2.gr2||'RimozioneDefinitivaOpera?operaID='||operaID,
                         'w3-button w3-block w3-green w3-section w3-padding');
                         htp.prn('<span onclick="document.getElementById(''ElimOperaDef'||operaID||''').style.display=''none''" class="w3-button w3-block w3-red w3-section w3-padding" title="Close Modal">Annulla</span>');
                     modGUI1.ChiudiDiv;
@@ -215,7 +215,7 @@ var1 VARCHAR2(100);
                             SELECT titolo INTO var1 FROM OPERE WHERE idOpera=operaId;
                             htp.prn('stai per rimuovere: '||var1);
                             modGUI1.Collegamento('Conferma',
-                            gruppo2.gr2||'RimozioneOpera?idSessione='||idSessione||'&operaID='||operaID,
+                            gruppo2.gr2||'RimozioneOpera?operaID='||operaID,
                             'w3-button w3-block w3-green w3-section w3-padding');
                             htp.prn('<span onclick="document.getElementById(''ElimOpera'||operaID||''').style.display=''none''" class="w3-button w3-block w3-red w3-section w3-padding" title="Close Modal">Annulla</span>');
                         modGUI1.ChiudiDiv;
@@ -413,8 +413,7 @@ PROCEDURE InserisciDatiOpera(
 )IS
 idSessione NUMBER(5) := modgui1.get_id_sessione();
 BEGIN
-    INSERT INTO Opere VALUES
-        (IdOperaSeq.NEXTVAL,titolo,anno,fineperiodo,idmusei,1); -- ,0)
+    INSERT INTO Opere VALUES (IdOperaSeq.NEXTVAL,titolo,anno,fineperiodo,idmusei, 1,0);
     IF SQL%FOUND THEN
     -- faccio il commit dello statement precedente
     commit;
@@ -579,7 +578,7 @@ BEGIN
         'Torna alle opere',gruppo2.gr2||'menuOpere',null);
     ELSE
     --EXCEPTION WHEN OTHERS THEN
-    MODGUI1.RedirectEsito( 'Update fallito',
+    MODGUI1.RedirectEsito('Update fallito',
                 'Errore: parametri non ammessi',
                 'Torna all''update',
                 gruppo2.gr2||'ModificaOpera', 
@@ -623,8 +622,7 @@ BEGIN
     end if;
     htp.br;htp.br;htp.br;htp.br;htp.br;htp.br;
     modGUI1.ApriDiv('class="w3-center"');
-    --SELECT Titolo, Eliminato into var1, varEliminato FROM OPERE WHERE idOpera=operaID;
-    SELECT Titolo, Esponibile into var1, varEliminato FROM OPERE WHERE idOpera=operaID;
+    SELECT Titolo, Eliminato into var1, varEliminato FROM OPERE WHERE idOpera=operaID;
     htp.prn('<h1><b>'||var1||'</b></h1>'); --TITOLO
     --ritorno al menù opere
     
@@ -746,7 +744,7 @@ LOOP
                     SELECT autori.NOME, autori.cognome INTO nomee, cognomee FROM autori WHERE idautore = auth.idautore;
                     MODGUI1.Collegamento(nomee||' '||Cognomee,
                         gruppo2.gr2||'ModificaAutore?authorID='||auth.IdAutore||'&operazione=0'
-                        ||'&caller='||gruppo2.gr2||'visualizzaOpera&callerParams=//operaID='||operaID||'//lingue='||lingue||'//livelli='||livelli);
+                        ||'&caller=visualizzaOpera&callerParams=//operaID='||operaID||'//lingue='||lingue||'//livelli='||livelli);
                     htp.prn(', ');
                     
                     END LOOP;
@@ -777,7 +775,7 @@ LOOP
                     SELECT autori.NOME, autori.cognome INTO nomee, cognomee FROM autori WHERE idautore = auth.idautore;
                     MODGUI1.Collegamento(nomee||' '||Cognomee,
                         gruppo2.gr2||'ModificaAutore?authorID='||auth.IdAutore||'&operazione=0'
-                        ||'&caller='||gruppo2.gr2||'visualizzaOpera&callerParams=//operaID='||operaID||'//lingue='||lingue||'//livelli='||livelli);
+                        ||'&caller=visualizzaOpera&callerParams=//operaID='||operaID||'//lingue='||lingue||'//livelli='||livelli);
                     htp.prn(', ');
                     
                     END LOOP;
@@ -808,7 +806,7 @@ LOOP
                     SELECT autori.NOME, autori.cognome INTO nomee, cognomee FROM autori WHERE idautore = auth.idautore;
                     MODGUI1.Collegamento(nomee||' '||Cognomee,
                         gruppo2.gr2||'ModificaAutore?authorID='||auth.IdAutore||'&operazione=0'
-                        ||'&caller='||gruppo2.gr2||'visualizzaOpera&callerParams=//operaID='||operaID||'//lingue='||lingue||'//livelli='||livelli);
+                        ||'&caller=visualizzaOpera&callerParams=//operaID='||operaID||'//lingue='||lingue||'//livelli='||livelli);
                     htp.prn(', ');
                     END LOOP;
 
@@ -846,7 +844,7 @@ LOOP
                     SELECT autori.NOME, autori.cognome INTO nomee, cognomee FROM autori WHERE idautore = auth.idautore;
                     MODGUI1.Collegamento(nomee||' '||Cognomee,
                         gruppo2.gr2||'ModificaAutore?authorID='||auth.IdAutore||'&operazione=0'
-                        ||'&caller='||gruppo2.gr2||'visualizzaOpera&callerParams=//operaID='||operaID||'//lingue='||lingue||'//livelli='||livelli);
+                        ||'&caller=visualizzaOpera&callerParams=//operaID='||operaID||'//lingue='||lingue||'//livelli='||livelli);
                     htp.prn(', ');
                     END LOOP;
                     
@@ -882,7 +880,7 @@ LOOP
                     SELECT autori.NOME, autori.cognome INTO nomee, cognomee FROM autori WHERE idautore = auth.idautore;
                     MODGUI1.Collegamento(nomee||' '||Cognomee,
                         gruppo2.gr2||'ModificaAutore?authorID='||auth.IdAutore||'&operazione=0'
-                        ||'&caller='||gruppo2.gr2||'visualizzaOpera&callerParams=//operaID='||operaID||'//lingue='||lingue||'//livelli='||livelli);
+                        ||'&caller=visualizzaOpera&callerParams=//operaID='||operaID||'//lingue='||lingue||'//livelli='||livelli);
                     htp.prn(', ');
                     
                     END LOOP;
@@ -906,7 +904,7 @@ LOOP
                 MODGUI1.Collegamento(''||varNomeMuseo||'','visualizzaMuseo?idSessione='||idSessione||'&idMuseo='||varMuseo);
                 htp.br;
                 htp.prn('<b>房间: </b>'||varNomeStanza||'<b> 大厅类型: </b>'||varTipoSala); --COLLEGAMENTO NOME STANZA
-                if (hasRole( 'DBA') or hasRole( 'GO')) and varEliminato = 0 then
+                if (hasRole(idSessione, 'DBA') or hasRole(idSessione, 'GO')) and varEliminato = 0 then
                 modGUI1.collegamento('sposta',
                     gruppo2.gr2||'SpostaOpera?operaID='||operaID||'&salaID='||varSala,
                     'w3-green w3-margin w3-button w3-small w3-round-xxlarge');
@@ -919,11 +917,11 @@ LOOP
                     SELECT autori.NOME, autori.cognome INTO nomee, cognomee FROM autori WHERE idautore = auth.idautore;
                     MODGUI1.Collegamento(nomee||' '||Cognomee,
                         gruppo2.gr2||'ModificaAutore?authorID='||auth.IdAutore||'&operazione=0'
-                        ||'&caller='||gruppo2.gr2||'visualizzaOpera&callerParams=//operaID='||operaID||'//lingue='||lingue||'//livelli='||livelli);
+                        ||'&caller=visualizzaOpera&callerParams=//operaID='||operaID||'//lingue='||lingue||'//livelli='||livelli);
                     htp.prn(', ');
                     END LOOP;
 
-                    if (hasRole( 'DBA') or hasRole( 'GO')) and varEliminato = 0 then
+                    if (hasRole(idSessione, 'DBA') or hasRole(idSessione, 'GO')) and varEliminato = 0 then
                     modGUI1.Collegamento('Aggiungi Autore',
                         gruppo2.gr2||'AggiungiAutore?operaID='||operaID,
                         'w3-yellow w3-margin w3-button w3-small w3-round-xxlarge');
@@ -936,7 +934,7 @@ LOOP
 
             modGUI1.ChiudiDiv;
             modGUI1.ApriDiv('class="w3-container w3-cell w3-cell-middle"');
-            if (hasRole( 'DBA') or hasRole( 'GO')) and varEliminato = 0
+            if (hasRole(idSessione, 'DBA') or hasRole(idSessione, 'GO')) and varEliminato = 0
             then
                 modGUI1.collegamento('Modifica',
                     gruppo2.gr2||'ModificaDescrizione?idDescrizione='||des.idDesc,
@@ -1090,29 +1088,29 @@ controllo NUMBER(3);
             INSERT INTO AUTORIOPERE VALUES
                 (autoreID,operaID);
             IF SQL%FOUND THEN
-            MODGUI1.RedirectEsito( 'Inserimento riuscito',
+            MODGUI1.RedirectEsito('Inserimento riuscito',
                 'autore aggiunto all''opera',
                 null,null,null,
                 'Torna al menù',gruppo2.gr2||'menuOpere');
             ELSE
                 if lingue is not null THEN
-                    MODGUI1.RedirectEsito( 'Inserimento fallito','Errore: Autore già presente',
+                    MODGUI1.RedirectEsito('Inserimento fallito','Errore: Autore già presente',
                     'Torna all''opera',gruppo2.gr2||'VisualizzaOpera', '//operaID='||operaID||'//lingue='||lingue,
                     'Torna al menù',gruppo2.gr2||'menuOpere');
                     ELSE
-                    MODGUI1.RedirectEsito( 'Inserimento fallito',
+                    MODGUI1.RedirectEsito('Inserimento fallito',
                     'Errore: Autore già presente',
                     null,null, null,'Torna al menù',gruppo2.gr2||'menuOpere');
                 END IF;
             END IF;
         ELSE
             if lingue is not null THEN
-                MODGUI1.RedirectEsito( 'Inserimento fallito',
+                MODGUI1.RedirectEsito('Inserimento fallito',
                 'Errore: Autore già presente',
                 'Torna all''opera',gruppo2.gr2||'VisualizzaOpera', 
                 '//operaID='||operaID||'//lingue='||lingue,'Torna al menù',gruppo2.gr2||'menuOpere');
                 ELSE
-                MODGUI1.RedirectEsito( 'Inserimento fallito',
+                MODGUI1.RedirectEsito('Inserimento fallito',
                 'Errore: Autore già presente',
                 null,null, null,'Torna al menù',gruppo2.gr2||'menuOpere');
             END IF;
@@ -1174,12 +1172,12 @@ controllo NUMBER(3);
                 DELETE FROM AUTORIOPERE 
                 WHERE AUTORIOPERE.IdOpera=operaID AND AUTORIOPERE.IdAutore=autoreID;
                 IF SQL%FOUND THEN
-                    MODGUI1.RedirectEsito( 'Rimozione riuscita',
+                    MODGUI1.RedirectEsito('Rimozione riuscita',
                         'Autore Rimosso',
                         null,null,null,
                         'Torna al menù',gruppo2.gr2||'menuOpere');
                 ELSE
-                    MODGUI1.RedirectEsito( 'Rimozione NON riuscita',
+                    MODGUI1.RedirectEsito('Rimozione NON riuscita',
                         'Autore NON Rimosso',
                         null,null,null,
                         'Torna al menù',gruppo2.gr2||'menuOpere');
@@ -1188,12 +1186,12 @@ controllo NUMBER(3);
             DELETE FROM AUTORIOPERE 
             WHERE AUTORIOPERE.IdOpera=operaID AND AUTORIOPERE.IdAutore=autoreID;
             IF SQL%FOUND THEN
-                MODGUI1.RedirectEsito( 'Rimozione riuscita',
+                MODGUI1.RedirectEsito('Rimozione riuscita',
                     'Autore Rimosso',
                     'Torna alla rimozione',gruppo2.gr2||'RimuoviAutoreOpera','//operaID='||operaID,
                     'Torna al menù',gruppo2.gr2||'menuOpere');
             ELSE
-                MODGUI1.RedirectEsito( 'Rimozione NON riuscita',
+                MODGUI1.RedirectEsito('Rimozione NON riuscita',
                     'Autore NON Rimosso',
                     'Torna alla rimozione',gruppo2.gr2||'RimuoviAutoreOpera','//operaID='||operaID,
                     'Torna al menù',gruppo2.gr2||'menuOpere');
@@ -1737,7 +1735,7 @@ auth Autori%ROWTYPE;
 BEGIN
     SELECT * INTO auth from Autori where IdAutore=authID;
     UPDATE AUTORI SET eliminato=0 WHERE IDAUTORE=authID;
-    modGUI1.RedirectEsito( 'Ripristino riuscito', 
+    modGUI1.RedirectEsito('Ripristino riuscito', 
             'L''autore '||auth.Nome||' '||auth.Cognome||' è stato ripristinato', 
             'Torna al menu autori eliminati', gruppo2.gr2||'menuAutoriELiminati', null,
             'Torna al menu autori', gruppo2.gr2||'menuAutori', null);
@@ -1782,17 +1780,17 @@ auth Autori%ROWTYPE;
 BEGIN
     SELECT * INTO auth from Autori where IdAutore=authorID;
     IF auth.Eliminato = 1 THEN
-        modGUI1.RedirectEsito( 'Eliminazione fallita', 
+        modGUI1.RedirectEsito('Eliminazione fallita', 
             'L''autore '||auth.Nome||' '||auth.Cognome||' è già stato eliminato', 
             null, null, null,
             'Torna al menu autori', gruppo2.gr2||'menuAutori', null);
             rollback;
     ELSE
-        modGUI1.RedirectEsito( 'Eliminazione riuscita', 
+        UPDATE Autori SET Eliminato=1 WHERE IdAutore = authorID;
+        modGUI1.RedirectEsito('Eliminazione riuscita', 
             'L''autore '||auth.Nome||' '||auth.Cognome||' è stato eliminato', 
             'Vai al menu autori eliminati', gruppo2.gr2||'menuAutoriEliminati', null,
             'Torna al menu autori', gruppo2.gr2||'menuAutori', null);
-        UPDATE Autori SET Eliminato=1 WHERE IdAutore = authorID;
         commit;
     END IF;
 END SetAutoreEliminato;
@@ -1839,21 +1837,19 @@ BEGIN
     IF numOpereRealizzate > 0
     THEN
         -- esito negativo: solo opzione per tornare al menu
-        modGUI1.RedirectEsito(
-            
-            'Rimozione fallita',
+        modGUI1.RedirectEsito('Rimozione fallita',
             'L''autore '||auth.Nome||' '||auth.Cognome||'ha delle opere nella base di dati',
             null, null, null,
             'Torna al menu Autori',
             gruppo2.gr2||'menuAutori');
     ELSE
+        DELETE FROM Autori WHERE IdAutore=authorID;
         -- esito positivo: solo opzione per tornare al menu
-            modGUI1.RedirectEsito( 'Rimozione riuscita', 
+            modGUI1.RedirectEsito('Rimozione riuscita', 
             'L''autore '||auth.Nome||' '||auth.Cognome||' è stato rimosso', 
             'Torna al menu autori eliminati', gruppo2.gr2||'menuAutoriELiminati', null,
             'Torna al menu autori', gruppo2.gr2||'menuAutori', null);
         -- Setto autore ad eliminato
-        DELETE FROM Autori WHERE IdAutore=authorID;
         commit;
     END IF;
 END;
@@ -1986,7 +1982,7 @@ SELECT * INTO auth FROM autori WHERE authID=IDAUTORE;
         htp.print('<h2><b>Opere realizzate da ');
         modGUI1.Collegamento(auth.Nome||' '||auth.Cognome, 
                             gruppo2.gr2||'ModificaAutore?authorID='||auth.IdAutore||'&operazione=0'
-                            ||'&caller='||gruppo2.gr2||'statisticheAutori'||'&callerParams=//operazione='||operazione||'//authID='||authID);
+                            ||'&caller=statisticheAutori'||'&callerParams=//operazione='||operazione||'//authID='||authID);
         htp.print('</b></h2>');
             FOR op IN (SELECT opere.IDOPERA, titolo, anno
                 FROM OPERE JOIN AUTORIOPERE on (OPERE.idopera = AUTORIOPERE.idopera)
@@ -2013,7 +2009,7 @@ SELECT * INTO auth FROM autori WHERE authID=IDAUTORE;
         htp.print('<h2><b>Musei con opere di ');
         modGUI1.Collegamento(auth.Nome||' '||auth.Cognome, 
                             gruppo2.gr2||'ModificaAutore?authorID='||auth.IdAutore||'&operazione=0'
-                            ||'&caller='||gruppo2.gr2||'statisticheAutori'||'&callerParams=//operazione='||operazione||'//authID='||authID);
+                            ||'&caller=statisticheAutori'||'&callerParams=//operazione='||operazione||'//authID='||authID);
         htp.print(' esposte</b></h2>');
             FOR mus IN (SELECT DISTINCT *
                     FROM MUSEI WHERE
@@ -2153,7 +2149,7 @@ BEGIN
         htp.prn('<h4><b>Opere realizzate da ');
         modGUI1.Collegamento(auth.Nome||' '||auth.Cognome, 
                 gruppo2.gr2||'ModificaAutore?authorID='||auth.IdAutore||'&operazione=0'
-                ||'&caller='||gruppo2.gr2||'StatisticheMuseoAutori'
+                ||'&caller=StatisticheMuseoAutori'
                 ||'&callerParams=//operazione='||operazione||'//authID='||authID||'//museoID='||museoID);
         htp.prn(' esposte in ');
         modGUI1.Collegamento(mus.Nome,
@@ -2212,7 +2208,7 @@ BEGIN
                         htp.br;
                         modGUI1.Collegamento('Visualizza', 
                             gruppo2.gr2||'ModificaAutore?authorID='||an_author.IdAutore||'&operazione=0'
-                            ||'&caller='||gruppo2.gr2||'StatisticheMuseoAutori'
+                            ||'&caller=StatisticheMuseoAutori'
                             ||'&callerParams=//operazione='||operazione||'//authID='||authID||'//museoID='||museoID,
                             'w3-white w3-margin w3-button w3-border');
                     modGUI1.ChiudiDiv;
@@ -2318,13 +2314,13 @@ BEGIN
     OR nation IS NULL
     THEN
         IF idSessione <> 1 THEN
-            modGUI1.RedirectEsito( 'Inserimento fallito',
+            modGUI1.RedirectEsito('Inserimento fallito',
                 'Errore: Operazione non autorizzata (controlla di essere loggato)',
                 'Torna all''inserimento',gruppo2.gr2||'InserisciAutore', 
                 '//authName='||authName||'//authSurname='||authSurname||'//dataNascita='||dataNascita||'//dataMorte='||dataMorte||'//nation='||nation,
                 'Torna al menù',gruppo2.gr2||'menuAutori');
             ELSIF numAutori > 0 THEN
-                modGUI1.RedirectEsito( 'Inserimento fallito',
+                modGUI1.RedirectEsito('Inserimento fallito',
                     'Errore: Autore già presente',
                     'Torna all''inserimento',gruppo2.gr2||'InserisciAutore', 
                     '//authName='||authName||'//authSurname='||authSurname||'//dataNascita='||dataNascita||'//dataMorte='||dataMorte||'//nation='||nation,
@@ -2334,25 +2330,25 @@ BEGIN
 				-- I tre rami che seguono non possono essere raggiunti chiamando
 				-- InserisciAutore, ma sono possibili chiamando direttamente ConfermaDatiAutore
                 IF authName IS NULL THEN
-                    modGUI1.RedirectEsito( 'Inserimento fallito',
+                    modGUI1.RedirectEsito('Inserimento fallito',
                         'Errore: Inserire Nome',
                         'Torna all''inserimento',gruppo2.gr2||'InserisciAutore', 
                         '//authName='||authName||'//authSurname='||authSurname||'//dataNascita='||dataNascita||'//dataMorte='||dataMorte||'//nation='||nation,
                         'Torna al menù',gruppo2.gr2||'menuAutori');
                 ELSIF authSurname IS NULL THEN
-                    modGUI1.RedirectEsito( 'Inserimento fallito',
+                    modGUI1.RedirectEsito('Inserimento fallito',
                         'Errore: Inserire Cognome',
                         'Torna all''inserimento',gruppo2.gr2||'InserisciAutore', 
                         '//authName='||authName||'//authSurname='||authSurname||'//dataNascita='||dataNascita||'//dataMorte='||dataMorte||'//nation='||nation,
                         'Torna al menù',gruppo2.gr2||'menuAutori');
                 ELSIF nation IS NULL THEN
-                    modGUI1.RedirectEsito( 'Inserimento fallito',
+                    modGUI1.RedirectEsito('Inserimento fallito',
                         'Errore: Inserire nazionalità',
                         'Torna all''inserimento',gruppo2.gr2||'InserisciAutore', 
                         '//authName='||authName||'//authSurname='||authSurname||'//dataNascita='||dataNascita||'//dataMorte='||dataMorte||'//nation='||nation,
                         'Torna al menù',gruppo2.gr2||'menuAutori');
                 ELSIF to_date(dataNascita, 'YYYY-MM-DD') > to_date(dataMorte, 'YYYY-MM-DD') THEN
-                    modGUI1.RedirectEsito( 'Inserimento fallito',
+                    modGUI1.RedirectEsito('Inserimento fallito',
                         'Errore: data di nascita postuma alla data di morte',
                         'Torna all''inserimento',gruppo2.gr2||'InserisciAutore', 
                         '//authName='||authName||'//authSurname='||authSurname||'//dataNascita='||dataNascita||'//dataMorte='||dataMorte||'//nation='||nation,
@@ -2419,7 +2415,7 @@ BEGIN
     END IF;
 	-- Solo per testing
     EXCEPTION WHEN OTHERS THEN
-        modGUI1.RedirectEsito( 'Errore', 'Errore sconosciuto', 'OK',gruppo2.gr2||'menuAutori');
+        modGUI1.RedirectEsito('Errore', 'Errore sconosciuto', 'OK',gruppo2.gr2||'menuAutori');
 END;
 
 -- Effettua l'inserimento di un nuovo Autore nella base di dati
@@ -2444,11 +2440,11 @@ BEGIN
     THEN
         -- faccio il commit dello statement precedente
         commit;
-        modGUI1.RedirectEsito( 'Inserimento riuscito', null,
+        modGUI1.RedirectEsito('Inserimento riuscito', null,
             'Inserisci nuovo autore',gruppo2.gr2||'InserisciAutore', null,
             'Torna al menù',gruppo2.gr2||'menuAutori');
     ELSE
-        modGUI1.RedirectEsito( 'Inserimento fallito',
+        modGUI1.RedirectEsito('Inserimento fallito',
              'Errore',
              'Torna all''inserimento',gruppo2.gr2||'InserisciAutore', 
              '//authName='||authName||'//authSurname='||authSurname||'//dataNascita='||dataNascita||'//dataMorte='||dataMorte||'//nation='||nation,
@@ -2457,7 +2453,7 @@ BEGIN
     END IF;
     EXCEPTION
     WHEN AutorePresente THEN
-        modGUI1.RedirectEsito( 'Inserimento fallito',
+        modGUI1.RedirectEsito('Inserimento fallito',
              'Errore: Autore già presente',
              'Torna all''inserimento',gruppo2.gr2||'InserisciAutore', 
              '//authName='||authName||'//authSurname='||authSurname||'//dataNascita='||dataNascita||'//dataMorte='||dataMorte||'//nation='||nation,
@@ -2583,11 +2579,11 @@ BEGIN
 	WHERE IdAutore=authID;
 
     commit;
-    modGUI1.RedirectEsito(idSessione,'Aggiornamento riuscito', null,null,null, null,'Torna al menù',gruppo2.gr2||'menuAutori');
+    modGUI1.RedirectEsito('Aggiornamento riuscito', null,null,null, null,'Torna al menù',gruppo2.gr2||'menuAutori');
 
     EXCEPTION
 		WHEN Errore_data THEN
-            modGUI1.RedirectEsito( 'Aggiornamento fallito',
+            modGUI1.RedirectEsito('Aggiornamento fallito',
              'Errore: data di nascita postuma alla data di morte',
              'Torna alla modifica',gruppo2.gr2||'ModificaAutore', 
              '//authorID='||authID||'//operazione=1','Torna al menù',gruppo2.gr2||'menuAutori');
@@ -2718,15 +2714,13 @@ BEGIN
         OR d_text IS NULL
         OR OperaID IS NULL
     THEN
-        modGUI1.RedirectEsito(
-            'Errore',
+        modGUI1.RedirectEsito('Errore',
             'Uno dei parametri immessi non è corretto',
             'Correggi',
             gruppo2.gr2||'InserisciDescrizione',
             '//language='||language||'//d_level='||d_level||'//d_text='||d_text||'//operaID='||operaID);
     ELSIF SQL%NOTFOUND THEN
-        modGUI1.RedirectEsito(
-            'Errore',
+        modGUI1.RedirectEsito('Errore',
             'Opera inesistente',
             'Correggi',
             gruppo2.gr2||'InserisciDescrizione',
@@ -2793,8 +2787,7 @@ BEGIN
     INSERT INTO DESCRIZIONI VALUES
     (IdDescSeq.NEXTVAL, language, LOWER(d_level), d_text, operaID);
         commit;
-        modGUI1.RedirectEsito( 
-            'Inserimento riuscito', 
+        modGUI1.RedirectEsito('Inserimento riuscito', 
             'Inserimento riuscito', 
             'Torna all''opera',
             gruppo2.gr2||'VisualizzaOpera',
@@ -2808,8 +2801,7 @@ BEGIN
 
     EXCEPTION
         WHEN OperaInesistente THEN
-            modGUI1.RedirectEsito( 
-                'Inserimento fallito', 
+            modGUI1.RedirectEsito('Inserimento fallito', 
                 'Inserimento fallito', 
                 'Correggi',
                 gruppo2.gr2||'InserisciDescrizione',
@@ -2916,11 +2908,11 @@ IF descrid is null or newopera is null THEN
 	WHERE IDDESC=descrID;
 
     commit;
-    modGUI1.RedirectEsito( 'Aggiornamento riuscito', null,null, null, null,
+    modGUI1.RedirectEsito('Aggiornamento riuscito', null,null, null, null,
         'Torna all''opera',gruppo2.gr2||'VisualizzaOpera','//operaID='||newopera||'//lingue='||newlingua);
     EXCEPTION
 		WHEN Errore_data THEN
-            modGUI1.RedirectEsito( 'Aggiornamento fallito', null,null, null, null,
+            modGUI1.RedirectEsito('Aggiornamento fallito', null,null, null, null,
                 'Torna all''opera',gruppo2.gr2||'VisualizzaOpera','//operaID='||newopera||'//lingue='||newlingua);
             ROLLBACK;
 END;

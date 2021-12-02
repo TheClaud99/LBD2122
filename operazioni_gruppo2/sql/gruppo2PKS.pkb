@@ -176,7 +176,6 @@ PROCEDURE ConfermaDatiAutore(
 );
 
 PROCEDURE InserisciDatiAutore(
-    
     authName VARCHAR2 DEFAULT 'Sconosciuto',
     authSurname VARCHAR2 DEFAULT 'Sconosciuto',
     dataNascita varchar2 DEFAULT NULL,

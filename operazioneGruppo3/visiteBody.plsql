@@ -173,7 +173,16 @@ CREATE OR REPLACE PACKAGE BODY packagevisite AS
         modgui1.apridiv('style="margin-top: 110px"');
         modgui1.apridiv('class="w3-center"');
         htp.prn('<h1>Visite</h1>');
-        IF ( id_sessione = 1 ) THEN
+        IF hasrole(
+                  id_sessione,
+                  'AB'
+           ) OR hasrole(
+                       id_sessione,
+                       'SU'
+                ) OR hasrole(
+                            id_sessione,
+                            'DBA'
+                     ) THEN
             modgui1.collegamento(
                                 'Aggiungi',
                                 'PackageVisite.pagina_inserisci_visita',
@@ -226,16 +235,16 @@ CREATE OR REPLACE PACKAGE BODY packagevisite AS
                                 'w3-button w3-margin w3-black'
             );
 
-            IF ( hasrole(
-                        id_sessione,
-                        'AB'
-                 ) OR hasrole(
-                             id_sessione,
-                             'SU'
-                      ) OR hasrole(
-                                  id_sessione,
-                                  'DBA'
-                           ) ) THEN
+            IF hasrole(
+                      id_sessione,
+                      'AB'
+               ) OR hasrole(
+                           id_sessione,
+                           'SU'
+                    ) OR hasrole(
+                                id_sessione,
+                                'DBA'
+                         ) THEN
                 modgui1.collegamento(
                                     'Modifica',
                                     'packagevisite.pagina_modifica_visita?carica_default=1&idvisitaselezionata=' || visita.idvisita,
@@ -367,6 +376,11 @@ CREATE OR REPLACE PACKAGE BODY packagevisite AS
         tipologia      tipologieingresso%rowtype;
     BEGIN
         modgui1.apridivcard();
+        modgui1.collegamento(
+                            'X',
+                            'packageVisite.visualizza_visite',
+                            ' w3-btn w3-large w3-red w3-display-topright'
+        );
         modgui1.apriform(
                         action,
                         'formCreaVisita',

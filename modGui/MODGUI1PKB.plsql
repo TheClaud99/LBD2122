@@ -378,7 +378,7 @@ CREATE OR REPLACE PACKAGE BODY modGUI1 as
             htp.prn(' required');
         end if;
         htp.prn('> ');
-        htp.prn(testo);
+        htp.prn('<label>' || testo || '<label>');
     end InputRadioButton;
 
     procedure InputCheckbox (testo varchar2, nome varchar2, checked int default 0, disabled int default 0) is

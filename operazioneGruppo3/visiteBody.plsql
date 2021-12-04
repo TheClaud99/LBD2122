@@ -161,6 +161,63 @@ CREATE OR REPLACE PACKAGE BODY packagevisite AS
         </html>');
     END;
 
+    PROCEDURE modal_statistiche_visite IS
+        idsessione NUMBER(5) := modgui1.get_id_sessione;
+    BEGIN
+        modgui1.apridiv('id="modal_statistiche" class="w3-modal"');
+        modgui1.apridiv('class="w3-modal-content w3-card-4 w3-animate-zoom" style="max-width:600px"');
+        modgui1.apridiv('class="w3-center"');
+        htp.br;
+        htp.prn('<span onclick="document.getElementById(''modal_statistiche'').style.display=''none''" class="w3-button w3-xlarge w3-red w3-display-topright" title="Close Modal">X</span>');
+        htp.print('<h1>Seleziona l''operazione</h1>');
+        modgui1.chiudidiv;
+        modgui1.apriform(
+                        'packageVisite.selezioneVisiteStatistica',
+                        'seleziona statistica',
+                        'w3-container w3-margin'
+        );
+        htp.prn('<p>');
+        modgui1.inputradiobutton(
+                                'Numero di visite in un intervallo di tempo',
+                                'operazione',
+                                0
+        );
+        htp.prn('</p>');
+        htp.prn('<p>');
+        modgui1.inputradiobutton(
+                                'Numero medio di visitatori in un intervallo di tempo',
+                                'operazione',
+                                1
+        );
+        htp.prn('</p>');
+        htp.prn('<p>');
+        modgui1.inputradiobutton(
+                                'Visite effettuate con biglietto',
+                                'operazione',
+                                2
+        );
+        htp.prn('</p>');
+        htp.prn('<p>');
+        modgui1.inputradiobutton(
+                                'Visite effettuate con abbonamento',
+                                'operazione',
+                                3
+        );
+        htp.prn('</p>');
+        htp.prn('<p>');
+        modgui1.inputradiobutton(
+                                'Durata media di una visita in un arco temporale scelto',
+                                'operazione',
+                                4
+        );
+        htp.prn('</p>');
+        htp.prn('<button class="w3-button w3-block w3-black w3-section w3-padding" type="submit">Seleziona</button>');
+        modgui1.chiudidiv;
+        modgui1.chiudiform;
+        modgui1.chiudidiv;
+        modgui1.chiudidiv;
+    END;
+
     PROCEDURE visualizza_visite IS
         id_sessione NUMBER(10) := NULL;
     BEGIN
@@ -186,8 +243,10 @@ CREATE OR REPLACE PACKAGE BODY packagevisite AS
             modgui1.collegamento(
                                 'Aggiungi',
                                 'PackageVisite.pagina_inserisci_visita',
-                                'w3-btn w3-round-xxlarge w3-black'
+                                'w3-btn w3-round-xxlarge w3-black w3-margin'
             ); /*bottone che rimanda alla procedura inserimento solo se la sessione è 1*/
+
+            htp.prn('<button onclick="document.getElementById(''modal_statistiche'').style.display=''block''" class="w3-btn w3-round-xxlarge w3-black w3-margin">Statistiche</button>');
         END IF;
 
         modgui1.chiudidiv;
@@ -263,6 +322,9 @@ CREATE OR REPLACE PACKAGE BODY packagevisite AS
 
         modgui1.chiudidiv();
         modgui1.chiudidiv();
+
+        modal_statistiche_visite;
+
         htp.prn('</body>
         </html>');
     END;

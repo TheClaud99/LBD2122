@@ -129,7 +129,7 @@ CREATE OR REPLACE PACKAGE BODY modGUI1 as
             expires => sysdate + 365); 
 
         -- Set the cookie and redirect to another page
-        owa_util.redirect_url(url ||'?idSessione=' || idSessione);
+        owa_util.redirect_url(url);
 
         owa_util.http_header_close;
     exception

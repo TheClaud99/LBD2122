@@ -45,14 +45,19 @@ procedure menuOpere is
             modGUI1.Collegamento('Opere Eliminate',gruppo2.gr2||'menuOpereEliminate','w3-btn w3-round-xxlarge w3-black');
             htp.print('&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;');
         end if;
-            htp.prn('<button onclick="document.getElementById(''11'').style.display=''block''" class="w3-btn w3-round-xxlarge w3-black">Statistiche</button>');
+            htp.br;htp.br;
+            htp.prn('<button onclick="document.getElementById(''11'').style.display=''block''"'
+                ||' class="w3-btn w3-round-xxlarge w3-black">Statistiche Opere</button>');
+            htp.print('&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;');
+            modGUI1.Collegamento('Statistiche Descrizioni',
+                gruppo2.gr2||'statisticheDescrizioni',
+                'w3-btn w3-round-xxlarge w3-black');
+        gruppo2.selezioneMuseo;
         modGUI1.ChiudiDiv;
-            gruppo2.selezioneMuseo;
-        htp.br;
         
         --Visualizzazione TUTTE LE OPERE *temporanea*
         modGUI1.ApriDiv('class="w3-row w3-container"');
-        FOR opera IN (SELECT * FROM Opere)-- WHERE Eliminato = 0) <= FIXME
+        FOR opera IN (SELECT * FROM Opere WHERE Eliminato = 0)
         LOOP
             modGUI1.ApriDiv('class="w3-col l4 w3-padding-large w3-center"');
                 modGUI1.ApriDiv('class="w3-card-4" style="height:600px;"');
@@ -1278,24 +1283,24 @@ idSessione NUMBER(5) := modgui1.get_id_sessione();
                 modGUI1.ApriDiv('class="w3-center"');
                     htp.br;
                     htp.prn('<span onclick="document.getElementById(''11'').style.display=''none''" class="w3-button w3-xlarge w3-red w3-display-topright" title="Close Modal">X</span>');
-                htp.print('<h1>Seleziona il museo</h1>');
+                    htp.print('<h1>Seleziona il museo</h1>');
                 modGUI1.ChiudiDiv;
-                    modGUI1.ApriForm(gruppo2.gr2||'StatisticheOpere','seleziona museo','w3-container');
-                        htp.print('<h4>');
+                modGUI1.ApriForm(gruppo2.gr2||'StatisticheOpere','seleziona museo','w3-container');
+                    htp.print('<h4>');
+                    htp.br;
+                    htp.print('&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;');
+                    modGUI1.InputRadioButton('TUTTI I MUSEI','museoID',0);
+                    for mus IN (SELECT * FROM MUSEI)
+                    LOOP
                         htp.br;
                         htp.print('&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;');
-                        modGUI1.InputRadioButton('TUTTI I MUSEI','museoID',0, 0, 0);
-                        for mus IN (SELECT * FROM MUSEI)
-                        LOOP
-                            htp.br;
-                            htp.print('&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;');
-                            modGUI1.InputRadioButton(mus.Nome,'museoID',mus.idMuseo, 0, 0);
-                        END LOOP;
-                        htp.print('</h4>');
-                            htp.br;
-                            htp.prn('<button class="w3-button w3-block w3-black w3-section w3-padding" type="submit">Seleziona</button>');
-                        modGUI1.ChiudiDiv;
-                    modGUI1.ChiudiForm;
+                        modGUI1.InputRadioButton(mus.Nome,'museoID',mus.idMuseo);
+                    END LOOP;
+                    htp.print('</h4>');
+                    htp.br;
+                    htp.prn('<button class="w3-button w3-block w3-black w3-section w3-padding" type="submit">Seleziona</button>');
+                    modGUI1.ChiudiDiv;
+                modGUI1.ChiudiForm;
             modGUI1.ChiudiDiv;
         modGUI1.ChiudiDiv;
 END selezioneMuseo;
@@ -1973,6 +1978,8 @@ Procedure StatisticheAutori(
 )IS
 idSessione NUMBER(5) := modgui1.get_id_sessione();
 auth Autori%ROWTYPE;
+prevMuseo Musei.idmuseo%TYPE;
+museoProprietario Musei%ROWTYPE;
 BEGIN
 SELECT * INTO auth FROM autori WHERE authID=IDAUTORE;
     MODGUI1.ApriPagina('StatisticheAutori',idSessione);
@@ -1990,7 +1997,7 @@ SELECT * INTO auth FROM autori WHERE authID=IDAUTORE;
         modGUI1.ChiudiDiv;
         htp.br;
 
-        --OPERE REALIZZATE
+        --OPERE REALIZZATE (raggruppate per museo di appartenenza)
         if operazione=0 THEN 
         modGUI1.ApriDiv('class="w3-container" style="width:100%"');
         htp.print('<h2><b>Opere realizzate da ');
@@ -1998,17 +2005,30 @@ SELECT * INTO auth FROM autori WHERE authID=IDAUTORE;
                             gruppo2.gr2||'ModificaAutore?authorID='||auth.IdAutore||'&operazione=0'
                             ||'&caller=statisticheAutori'||'&callerParams=//operazione='||operazione||'//authID='||authID);
         htp.print('</b></h2>');
-            FOR op IN (SELECT opere.IDOPERA, titolo, anno
-                FROM OPERE JOIN AUTORIOPERE on (OPERE.idopera = AUTORIOPERE.idopera)
-                WHERE IDAUTORE=AUTH.idautore)
+
+            -- DA CONTROLLARE: visualizzare di seguito
+            prevMuseo := -1;
+            FOR op IN (SELECT IdOpera, Titolo, Anno, Museo
+                FROM OPERE JOIN AUTORIOPERE using (IdOpera)
+                WHERE IDAUTORE=AUTH.idautore
+                ORDER BY Museo)
             LOOP
+                IF prevMuseo != op.Museo THEN
+                    modGUI1.ApriDiv('class="w3-row"');
+                    SELECT * INTO MuseoProprietario FROM Musei WHERE IdMuseo = op.Museo;
+                    htp.prn('<b><h4>Opere di proprietà di '||MuseoProprietario.Nome||'</b></h4>');
+                    prevMuseo := op.Museo;
+                ELSE
+                    modGUI1.ChiudiDiv;
+                END IF;
                 modGUI1.ApriDiv('class="w3-col l4 w3-padding-large w3-center"');
                     modGUI1.ApriDiv('class="w3-card-4" style="height:600px;"');
                     htp.prn('<img src="https://www.stateofmind.it/wp-content/uploads/2018/01/La-malattia-rappresentata-nelle-opere-darte-e-in-letteratura-680x382.jpg" alt="Alps" style="width:100%;">');
                             modGUI1.ApriDiv('class="w3-container w3-center"');
-                                htp.prn('<p>'|| op.titolo ||'</p>');
+                                htp.prn('<p> Titolo: '|| op.titolo ||'</p>');
                                 htp.br;
-                                htp.prn('<p>'|| op.anno ||'</p>');
+                                htp.prn('<p>Anno di realizzazione: '|| op.anno ||'</p>');
+                                htp.br;
                                 htp.prn('<button onclick="document.getElementById(''LinguaeLivelloOpera'||op.IDOPERA||''').style.display=''block''" class="w3-margin w3-button w3-black w3-hover-white">Visualizza</button>');
                                 gruppo2.linguaELivello(op.IDOPERA);
                             modGUI1.ChiudiDiv;
@@ -2025,22 +2045,31 @@ SELECT * INTO auth FROM autori WHERE authID=IDAUTORE;
                             gruppo2.gr2||'ModificaAutore?authorID='||auth.IdAutore||'&operazione=0'
                             ||'&caller=statisticheAutori'||'&callerParams=//operazione='||operazione||'//authID='||authID);
         htp.print(' esposte</b></h2>');
-            FOR mus IN (SELECT DISTINCT *
-                    FROM MUSEI WHERE
-                    IDMUSEO IN (SELECT STANZE.MUSEO FROM stanze JOIN SALEOPERE on (stanze.IDSTANZA=SALEOPERE.SALA) WHERE
-                    saleopere.DATAUSCITA is null and SALEOPERE.OPERA in
-                    (SELECT DISTINCT opere.IDOPERA
-                        FROM OPERE JOIN AUTORIOPERE on (OPERE.idopera = AUTORIOPERE.idopera)
-                        WHERE IDAUTORE=AUTH.idautore)))
+
+        -- La query seleziona tutti i musei nei quali le opere dell'autore scelto
+        -- sono al momento esposte, raggruppate per IdMuseo, e calcola il loro numero
+            FOR mus_count IN (
+                SELECT M.IdMuseo Museo,M.Nome Nome, count(SO.Opera) NumOpere
+                FROM Musei M JOIN Stanze S ON M.IdMuseo = S.Museo
+                    JOIN SaleOpere SO ON S.IdStanza = SO.Sala
+                WHERE SO.datauscita IS NULL AND SO.Opera IN
+                    (SELECT IdOpera FROM AutoriOpere WHERE IdAutore=auth.IdAutore)
+                GROUP BY M.IdMuseo,M.Nome)
             LOOP
                 modGUI1.ApriDiv('class="w3-col l4 w3-padding-large w3-center"');
                     modGUI1.ApriDiv('class="w3-card-4"');
                     htp.prn('<img src="https://upload.wikimedia.org/wikipedia/commons/6/68/Museo_del_Prado_2016_%2825185969599%29.jpg" alt="Alps" style="width:100%;">');
                             modGUI1.ApriDiv('class="w3-container w3-center"');
-                                htp.prn('<p><b>'||mus.Nome||'</b></p>');
-                                modGUI1.Collegamento('Visualizza', 
-                                    gruppo2.gr2||'visualizzaMuseo?museoID='||mus.IdMuseo,
+                                htp.prn('<p><b>'||mus_count.Nome||' ('||mus_count.NumOpere||' opere presenti)</b></p>');
+                                modGUI1.Collegamento('Visualizza Museo', 
+                                    gruppo2.gr2||'visualizzaMuseo?museoID='||mus_count.Museo,
                                     'w3-black w3-margin w3-button');
+                                
+                                modGUI1.Collegamento('Visualizza Opere',
+                                    gruppo2.gr2||'StatisticheMuseoAutori?'
+                                    ||'operazione=3&authID='||auth.IdAutore||'&museoID='||mus_count.Museo,
+                                    'w3-black w3-margin w3-button');
+
                             modGUI1.ChiudiDiv;
                     modGUI1.ChiudiDiv;
                 modGUI1.ChiudiDiv;
@@ -2173,7 +2202,7 @@ BEGIN
             SELECT Opera AS IdOpera,Titolo,Anno -- se usate altri attributi nella pagina aggiungeteli qui
             FROM OPERE JOIN AUTORIOPERE ON OPERE.IdOpera = AUTORIOPERE.IdOpera
                 JOIN SALEOPERE ON OPERE.IdOpera = SALEOPERE.Opera
-            WHERE IDAUTORE=AUTH.idautore AND SALEOPERE.Sala IN 
+            WHERE IDAUTORE=AUTH.idautore AND SaleOpere.datauscita IS NULL AND SALEOPERE.Sala IN 
                 (SELECT STANZE.IdStanza FROM Stanze WHERE STANZE.Museo = museoID))
         LOOP
             modGUI1.ApriDiv('class="w3-col l4 w3-padding-large w3-center"');
@@ -3002,10 +3031,8 @@ BEGIN
         htp.br;htp.br;htp.br;htp.br;htp.br;htp.br;
         htp.prn('<h1 align="center">Statistiche descrizioni</h1>');
         modGUI1.ApriDiv('class="w3-modal-content w3-card-4 w3-animate-zoom" style="max-width:600px"');
-            modGUI1.ApriDiv('class="w3-section"');
-                modGUI1.Collegamento('X',
-                    gruppo2.gr2||'menuOpere'||
-                    'w3-btn w3-large w3-red w3-display-topright');
+            modGUI1.ApriDiv('class="w3-container"');
+                modGUI1.Collegamento('X',gruppo2.gr2||'menuOpere?',' w3-btn w3-large w3-red w3-display-topright');
                 -- Form per mandare dati alla procedura di conferma
                 htp.br;
                 htp.prn('<h3><b>Livello più presente:</b></h3>');

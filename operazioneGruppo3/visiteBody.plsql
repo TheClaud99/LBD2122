@@ -218,9 +218,47 @@ CREATE OR REPLACE PACKAGE BODY packagevisite AS
         modgui1.chiudidiv;
     END;
 
-    PROCEDURE visualizza_visite IS
-        id_sessione NUMBER(10) := NULL;
+
+    function build_query(
+        var_data_visita IN VARCHAR2 DEFAULT ''
+    )
+    RETURN VARCHAR2 IS
+        lv_sql varchar2(255);
+        lv_where varchar2(255);
+        
     BEGIN
+
+        lv_where := '1=1';
+        IF var_data_visita IS NOT NULL THEN
+            lv_where := lv_where || ' AND datavisita > :dt';
+        ELSE
+            lv_where := lv_where || ' AND (1=1 OR datavisita > :data_visita)';
+        END IF;
+        
+        lv_sql := 'SELECT * FROM view_visite WHERE '
+                  || lv_where
+                  || ' ORDER BY idVisita DESC';
+
+        return lv_sql;
+    END;
+    PROCEDURE visualizza_visite (
+        var_data_visita IN VARCHAR2 DEFAULT ''
+    ) IS
+        id_sessione      NUMBER(10) := NULL;
+        lv_sql           VARCHAR2(100);
+        TYPE visitecurtyp IS REF CURSOR;
+        v_visite_cursor  visitecurtyp;
+        visita           view_visite%rowtype;
+    BEGIN
+
+        lv_sql := build_query(var_data_visita);
+        htp.prn(lv_sql);
+        OPEN v_visite_cursor FOR lv_sql
+            USING to_date(
+                         var_data_visita,
+                         'YYYY/MM/DD'
+                  );
+
         id_sessione := modgui1.get_id_sessione;
         modgui1.apripagina(
                           'Visite',
@@ -247,20 +285,16 @@ CREATE OR REPLACE PACKAGE BODY packagevisite AS
             ); /*bottone che rimanda alla procedura inserimento solo se la sessione è 1*/
 
             htp.prn('<button onclick="document.getElementById(''modal_statistiche'').style.display=''block''" class="w3-btn w3-round-xxlarge w3-black w3-margin">Statistiche</button>');
+            -- htp.prn('<button onclick="document.getElementById(''modal_filtri'').style.display=''block''" class="w3-btn w3-round-xxlarge w3-black w3-margin">Filtri</button>');
         END IF;
 
         modgui1.chiudidiv;
         htp.br;
         modgui1.apridiv('class="w3-row w3-container"');
         --INIZIO LOOP DELLA VISUALIZZAZIONE
-        FOR visita IN (
-            SELECT
-                *
-            FROM
-                visite
-            ORDER BY
-                idvisita DESC
-        ) LOOP
+        LOOP
+            FETCH v_visite_cursor INTO visita;
+            EXIT WHEN v_visite_cursor%notfound;
             modgui1.apridiv('class="w3-col l4 w3-padding-large w3-center"');
             modgui1.apridiv('class="w3-card-4"');
             htp.prn('<img src="https://cdn.pixabay.com/photo/2016/10/22/15/32/water-1761027__480.jpg" alt="Alps" style="width:100%">');
@@ -320,11 +354,10 @@ CREATE OR REPLACE PACKAGE BODY packagevisite AS
             modgui1.chiudidiv;
         END LOOP;
 
+        CLOSE v_visite_cursor;
         modgui1.chiudidiv();
         modgui1.chiudidiv();
-
         modal_statistiche_visite;
-
         htp.prn('</body>
         </html>');
     END;

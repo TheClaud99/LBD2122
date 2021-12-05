@@ -51,6 +51,8 @@ CREATE OR REPLACE PACKAGE packagevisite AS
         button_text          IN  VARCHAR2 DEFAULT NULL
     );
 
-    PROCEDURE visualizza_visite;
+    PROCEDURE visualizza_visite (
+        var_data_visita IN VARCHAR2 DEFAULT ''
+    );
 
 END packagevisite;

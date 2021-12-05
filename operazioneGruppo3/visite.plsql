@@ -52,7 +52,7 @@ CREATE OR REPLACE PACKAGE packagevisite AS
     );
 
     PROCEDURE visualizza_visite (
-        var_data_visita IN VARCHAR2 DEFAULT ''
+        var_data_visita IN VARCHAR2 DEFAULT NULL
     );
 
 END packagevisite;

@@ -219,40 +219,33 @@ CREATE OR REPLACE PACKAGE BODY packagevisite AS
     END;
 
 
-    function build_query(
-        var_data_visita IN VARCHAR2 DEFAULT ''
-    )
-    RETURN VARCHAR2 IS
-        lv_sql varchar2(255);
-        lv_where varchar2(255);
-        
+    FUNCTION build_query (
+        var_data_visita IN VARCHAR2 DEFAULT NULL
+    ) RETURN VARCHAR2 IS
+        lv_where      VARCHAR2(255);
+        v_base_query  VARCHAR2(2000) := 'with binds as (
+          select :bind1 as var_data_visita
+            from dual)
+       SELECT view_visite.* FROM view_visite, binds b
+       WHERE 1=1 ';
     BEGIN
-
-        lv_where := '1=1';
         IF var_data_visita IS NOT NULL THEN
-            lv_where := lv_where || ' AND datavisita > :dt';
-        ELSE
-            lv_where := lv_where || ' AND (1=1 OR datavisita > :data_visita)';
+            lv_where := lv_where || ' AND datavisita > b.var_data_visita';
         END IF;
-        
-        lv_sql := 'SELECT * FROM view_visite WHERE '
-                  || lv_where
-                  || ' ORDER BY idVisita DESC';
 
-        return lv_sql;
+        v_base_query := v_base_query || lv_where;
+        RETURN v_base_query;
     END;
+
     PROCEDURE visualizza_visite (
-        var_data_visita IN VARCHAR2 DEFAULT ''
+        var_data_visita IN VARCHAR2 DEFAULT NULL
     ) IS
         id_sessione      NUMBER(10) := NULL;
-        lv_sql           VARCHAR2(100);
-        TYPE visitecurtyp IS REF CURSOR;
-        v_visite_cursor  visitecurtyp;
+        lv_sql           VARCHAR2(2000);
+        v_visite_cursor  sys_refcursor;
         visita           view_visite%rowtype;
     BEGIN
-
         lv_sql := build_query(var_data_visita);
-        htp.prn(lv_sql);
         OPEN v_visite_cursor FOR lv_sql
             USING to_date(
                          var_data_visita,
@@ -291,7 +284,7 @@ CREATE OR REPLACE PACKAGE BODY packagevisite AS
         modgui1.chiudidiv;
         htp.br;
         modgui1.apridiv('class="w3-row w3-container"');
-        --INIZIO LOOP DELLA VISUALIZZAZIONE
+        -- INIZIO LOOP DELLA VISUALIZZAZIONE
         LOOP
             FETCH v_visite_cursor INTO visita;
             EXIT WHEN v_visite_cursor%notfound;

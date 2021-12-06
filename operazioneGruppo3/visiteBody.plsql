@@ -162,7 +162,6 @@ CREATE OR REPLACE PACKAGE BODY packagevisite AS
     END;
 
     PROCEDURE modal_statistiche_visite IS
-        idsessione NUMBER(5) := modgui1.get_id_sessione;
     BEGIN
         modgui1.apridiv('id="modal_statistiche" class="w3-modal"');
         modgui1.apridiv('class="w3-modal-content w3-card-4 w3-animate-zoom" style="max-width:600px"');
@@ -218,39 +217,82 @@ CREATE OR REPLACE PACKAGE BODY packagevisite AS
         modgui1.chiudidiv;
     END;
 
+    PROCEDURE modal_filtri_visite(
+        data_visita_from  IN  VARCHAR2 DEFAULT NULL,
+        data_visita_to    IN  VARCHAR2 DEFAULT NULL
+    ) IS
+    BEGIN
+        modgui1.apridiv('id="modal_filtri" class="w3-modal"');
+        modgui1.apridiv('class="w3-modal-content w3-card-4 w3-animate-zoom" style="max-width:600px"');
+        modgui1.apridiv('class="w3-center"');
+        htp.br;
+        htp.prn('<span onclick="document.getElementById(''modal_filtri'').style.display=''none''" class="w3-button w3-xlarge w3-red w3-display-topright" title="Close Modal">X</span>');
+        htp.print('<h1>Filtri</h1>');
+        modgui1.chiudidiv;
+        modgui1.apriform(
+                        'packageVisite.visualizza_visite',
+                        'seleziona statistica',
+                        'w3-container w3-margin'
+        );
+
+        htp.prn('<label for="data_visita_from">Da:</label>
+        <input class="w3-input" type="datetime-local" id="data_visita_from" name="data_visita_from" value="' || data_visita_from || '">');
+
+        htp.prn('<label for="data_visita_to">A:</label>
+        <input class="w3-input" type="datetime-local" id="data_visita_to" name="data_visita_to" value="' || data_visita_to || '">');
+        
+        htp.prn('<button class="w3-button w3-block w3-black w3-section w3-padding" type="submit">Applica</button>');
+        modgui1.chiudidiv;
+        modgui1.chiudiform;
+        modgui1.chiudidiv;
+        modgui1.chiudidiv;
+    END;
 
     FUNCTION build_query (
-        var_data_visita IN VARCHAR2 DEFAULT NULL
+        data_visita_from  IN  VARCHAR2 DEFAULT NULL,
+        data_visita_to    IN  VARCHAR2 DEFAULT NULL
     ) RETURN VARCHAR2 IS
         lv_where      VARCHAR2(255);
         v_base_query  VARCHAR2(2000) := 'with binds as (
-          select :bind1 as var_data_visita
+          select :bind1 as data_visita_from,
+          :bind2 as data_visita_to
             from dual)
        SELECT view_visite.* FROM view_visite, binds b
        WHERE 1=1 ';
     BEGIN
-        IF var_data_visita IS NOT NULL THEN
-            lv_where := lv_where || ' AND datavisita > b.var_data_visita';
+        IF data_visita_from IS NOT NULL THEN
+            lv_where := lv_where || ' AND datavisita >= b.data_visita_from';
         END IF;
-
+        IF data_visita_to IS NOT NULL THEN
+            lv_where := lv_where || ' AND datavisita <= b.data_visita_to';
+        END IF;
         v_base_query := v_base_query || lv_where;
         RETURN v_base_query;
     END;
 
     PROCEDURE visualizza_visite (
-        var_data_visita IN VARCHAR2 DEFAULT NULL
+        data_visita_from  IN  VARCHAR2 DEFAULT NULL,
+        data_visita_to    IN  VARCHAR2 DEFAULT NULL
     ) IS
+
         id_sessione      NUMBER(10) := NULL;
         lv_sql           VARCHAR2(2000);
-        v_visite_cursor  sys_refcursor;
+        v_visite_cursor  SYS_REFCURSOR;
         visita           view_visite%rowtype;
     BEGIN
-        lv_sql := build_query(var_data_visita);
+        lv_sql := build_query(
+                             data_visita_from,
+                             data_visita_to
+                  );
+        htp.print(lv_sql);
         OPEN v_visite_cursor FOR lv_sql
             USING to_date(
-                         var_data_visita,
-                         'YYYY/MM/DD'
-                  );
+                         data_visita_from,
+                         'YYYY-MM-DD"T"HH24:MI'
+                  ), to_date(
+                            data_visita_to,
+                            'YYYY-MM-DD"T"HH24:MI'
+                     );
 
         id_sessione := modgui1.get_id_sessione;
         modgui1.apripagina(
@@ -278,7 +320,7 @@ CREATE OR REPLACE PACKAGE BODY packagevisite AS
             ); /*bottone che rimanda alla procedura inserimento solo se la sessione è 1*/
 
             htp.prn('<button onclick="document.getElementById(''modal_statistiche'').style.display=''block''" class="w3-btn w3-round-xxlarge w3-black w3-margin">Statistiche</button>');
-            -- htp.prn('<button onclick="document.getElementById(''modal_filtri'').style.display=''block''" class="w3-btn w3-round-xxlarge w3-black w3-margin">Filtri</button>');
+            htp.prn('<button onclick="document.getElementById(''modal_filtri'').style.display=''block''" class="w3-btn w3-round-xxlarge w3-black w3-margin">Filtri</button>');
         END IF;
 
         modgui1.chiudidiv;
@@ -351,6 +393,7 @@ CREATE OR REPLACE PACKAGE BODY packagevisite AS
         modgui1.chiudidiv();
         modgui1.chiudidiv();
         modal_statistiche_visite;
+        modal_filtri_visite(data_visita_from, data_visita_to);
         htp.prn('</body>
         </html>');
     END;

@@ -80,6 +80,62 @@ CREATE OR REPLACE PACKAGE BODY packagevisite AS
             dbms_output.put_line('Error: ' || sqlerrm);
     END;
 
+    PROCEDURE select_utente (
+        nome                 VARCHAR2 DEFAULT 'id_utente',
+        id                   VARCHAR2 DEFAULT 'id_utente',
+        idutenteselezionato  IN utenti.idutente%TYPE DEFAULT NULL
+    ) IS
+        utente utenti%rowtype;
+    BEGIN
+        modgui1.selectopen(
+                          nome,
+                          id
+        );
+        FOR utente_museo IN (
+            SELECT
+                idutente
+            FROM
+                utentimuseo
+        ) LOOP
+            SELECT
+                *
+            INTO utente
+            FROM
+                utenti
+            WHERE
+                idutente = utente_museo.idutente;
+
+            IF utente_museo.idutente = idutenteselezionato THEN
+                modgui1.selectoption(
+                                    utente.idutente,
+                                    utente.nome
+                                    || ' '
+                                    || utente.cognome,
+                                    1
+                );
+
+            ELSE
+                modgui1.selectoption(
+                                    utente.idutente,
+                                    utente.nome
+                                    || ' '
+                                    || utente.cognome,
+                                    0
+                );
+            END IF;
+
+        END LOOP;
+
+        modgui1.emptyselectoption(
+                                 CASE
+                                     WHEN idutenteselezionato IS NULL THEN
+                                         1
+                                     ELSE 0
+                                 END
+        );
+        modgui1.selectclose();
+    END;
+
     PROCEDURE visualizzavisita (
         idvisitaselezionata  IN  visite.idvisita%TYPE,
         titolo               IN  VARCHAR2 DEFAULT NULL,
@@ -217,9 +273,10 @@ CREATE OR REPLACE PACKAGE BODY packagevisite AS
         modgui1.chiudidiv;
     END;
 
-    PROCEDURE modal_filtri_visite(
+    PROCEDURE modal_filtri_visite (
         data_visita_from  IN  VARCHAR2 DEFAULT NULL,
-        data_visita_to    IN  VARCHAR2 DEFAULT NULL
+        data_visita_to    IN  VARCHAR2 DEFAULT NULL,
+        id_utente         IN  NUMBER DEFAULT NULL
     ) IS
     BEGIN
         modgui1.apridiv('id="modal_filtri" class="w3-modal"');
@@ -234,13 +291,26 @@ CREATE OR REPLACE PACKAGE BODY packagevisite AS
                         'seleziona statistica',
                         'w3-container w3-margin'
         );
-
-        htp.prn('<label for="data_visita_from">Da:</label>
-        <input class="w3-input" type="datetime-local" id="data_visita_from" name="data_visita_from" value="' || data_visita_from || '">');
-
-        htp.prn('<label for="data_visita_to">A:</label>
-        <input class="w3-input" type="datetime-local" id="data_visita_to" name="data_visita_to" value="' || data_visita_to || '">');
-        
+        htp.prn('
+        <div class="w3-half">
+            <label for="data_visita_from">Da:</label>
+            <input class="w3-input" type="datetime-local" id="data_visita_from" name="data_visita_from" value="'
+                || data_visita_from
+                || '">
+        </div>');
+        htp.prn('
+        <div class="w3-half">
+            <label for="data_visita_to">A:</label>
+            <input class="w3-input" type="datetime-local" id="data_visita_to" name="data_visita_to" value="'
+                || data_visita_to
+                || '">
+        </div>');
+        htp.prn('<label for="data_visita_to">Utente:</label>');
+        select_utente(
+                     'id_utente',
+                     'id_utente',
+                     id_utente
+        );
         htp.prn('<button class="w3-button w3-block w3-black w3-section w3-padding" type="submit">Applica</button>');
         modgui1.chiudidiv;
         modgui1.chiudiform;
@@ -250,12 +320,14 @@ CREATE OR REPLACE PACKAGE BODY packagevisite AS
 
     FUNCTION build_query (
         data_visita_from  IN  VARCHAR2 DEFAULT NULL,
-        data_visita_to    IN  VARCHAR2 DEFAULT NULL
+        data_visita_to    IN  VARCHAR2 DEFAULT NULL,
+        id_utente         IN  NUMBER DEFAULT NULL
     ) RETURN VARCHAR2 IS
         lv_where      VARCHAR2(255);
         v_base_query  VARCHAR2(2000) := 'with binds as (
           select :bind1 as data_visita_from,
-          :bind2 as data_visita_to
+          :bind2 as data_visita_to,
+          :bind3 as id_utente
             from dual)
        SELECT view_visite.* FROM view_visite, binds b
        WHERE 1=1 ';
@@ -266,13 +338,17 @@ CREATE OR REPLACE PACKAGE BODY packagevisite AS
         IF data_visita_to IS NOT NULL THEN
             lv_where := lv_where || ' AND datavisita <= b.data_visita_to';
         END IF;
+        IF id_utente IS NOT NULL THEN
+            lv_where := lv_where || ' AND idutente = b.id_utente';
+        END IF;
         v_base_query := v_base_query || lv_where;
         RETURN v_base_query;
     END;
 
     PROCEDURE visualizza_visite (
         data_visita_from  IN  VARCHAR2 DEFAULT NULL,
-        data_visita_to    IN  VARCHAR2 DEFAULT NULL
+        data_visita_to    IN  VARCHAR2 DEFAULT NULL,
+        id_utente         IN  NUMBER DEFAULT NULL
     ) IS
 
         id_sessione      NUMBER(10) := NULL;
@@ -282,7 +358,8 @@ CREATE OR REPLACE PACKAGE BODY packagevisite AS
     BEGIN
         lv_sql := build_query(
                              data_visita_from,
-                             data_visita_to
+                             data_visita_to,
+                             id_utente
                   );
         htp.print(lv_sql);
         OPEN v_visite_cursor FOR lv_sql
@@ -292,7 +369,7 @@ CREATE OR REPLACE PACKAGE BODY packagevisite AS
                   ), to_date(
                             data_visita_to,
                             'YYYY-MM-DD"T"HH24:MI'
-                     );
+                     ), id_utente;
 
         id_sessione := modgui1.get_id_sessione;
         modgui1.apripagina(
@@ -393,7 +470,11 @@ CREATE OR REPLACE PACKAGE BODY packagevisite AS
         modgui1.chiudidiv();
         modgui1.chiudidiv();
         modal_statistiche_visite;
-        modal_filtri_visite(data_visita_from, data_visita_to);
+        modal_filtri_visite(
+                           data_visita_from,
+                           data_visita_to,
+                           id_utente
+        );
         htp.prn('</body>
         </html>');
     END;
@@ -543,57 +624,11 @@ CREATE OR REPLACE PACKAGE BODY packagevisite AS
         );
         htp.br;
         modgui1.label('Utente');
-        modgui1.selectopen(
-                          'idUtenteSelezionato',
-                          'utente-selezionato'
+        select_utente(
+                     'idUtenteSelezionato',
+                     'utente-selezionato',
+                     idutenteselezionato
         );
-        FOR utente IN (
-            SELECT
-                idutente
-            FROM
-                utentimuseo
-        ) LOOP
-            SELECT
-                idutente,
-                nome,
-                cognome
-            INTO
-                varidutente,
-                nomeutente,
-                cognomeutente
-            FROM
-                utenti
-            WHERE
-                idutente = utente.idutente;
-
-            IF utente.idutente = idutenteselezionato THEN
-                modgui1.selectoption(
-                                    varidutente,
-                                    nomeutente
-                                    || ' '
-                                    || cognomeutente,
-                                    1
-                );
-            ELSE
-                modgui1.selectoption(
-                                    varidutente,
-                                    nomeutente
-                                    || ' '
-                                    || cognomeutente,
-                                    0
-                );
-            END IF;
-
-        END LOOP;
-
-        modgui1.emptyselectoption(
-                                 CASE
-                                     WHEN idutenteselezionato IS NULL THEN
-                                         1
-                                     ELSE 0
-                                 END
-        );
-        modgui1.selectclose();
         htp.br;
         modgui1.label('Titolo di ingresso');
         modgui1.selectopen(

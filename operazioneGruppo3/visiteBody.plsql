@@ -33,17 +33,22 @@ CREATE OR REPLACE PACKAGE BODY packagevisite AS
     BEGIN
         htp.prn('<div class="w3-row">');
         htp.prn('<div class="w3-col s3 w3-center"><p>Data visita:</p></div>');
-        htp.prn('<div class="w3-col s9 w3-center"><p>' || datavisitachar || '</p></div>');
+        htp.prn('<div class="w3-col s9 w3-center"><p>'
+                || datavisitachar
+                || '</p></div>');
         htp.prn('</div>');
         htp.prn('<div class="w3-row">');
         htp.prn('<div class="w3-col s3 w3-center"><p>Ora visita:</p></div>');
-        htp.prn('<div class="w3-col s9 w3-center"><p>' || oravisita || '</p></div>');
+        htp.prn('<div class="w3-col s9 w3-center"><p>'
+                || oravisita
+                || '</p></div>');
         htp.prn('</div>');
         htp.prn('<div class="w3-row">');
         htp.prn('<div class="w3-col s3 w3-center"><p>Durata visita:</p></div>');
-        htp.prn('<div class="w3-col s9 w3-center"><p>' || duratavisita || '</p></div>');
+        htp.prn('<div class="w3-col s9 w3-center"><p>'
+                || duratavisita
+                || '</p></div>');
         htp.prn('</div>');
-        
         SELECT
             nome,
             cognome
@@ -54,12 +59,17 @@ CREATE OR REPLACE PACKAGE BODY packagevisite AS
             utenti
         WHERE
             idutente = idutenteselezionato;
+
         htp.prn('<div class="w3-row">');
         htp.prn('<div class="w3-col s3 w3-center"><p>Utente:</p></div>');
-        htp.prn('<div class="w3-col s9 w3-center"><p>' || nomeutente || ' ' || cognomeutente || '</p></div>');
-        htp.prn('</div>');
+        htp.prn('<div class="w3-col s9 w3-center"><p>'
+                || nomeutente
+                || ' '
+                || cognomeutente
+                || '</p></div>');
 
-         SELECT
+        htp.prn('</div>');
+        SELECT
             nome
         INTO nome_tipologia
         FROM
@@ -70,9 +80,10 @@ CREATE OR REPLACE PACKAGE BODY packagevisite AS
 
         htp.prn('<div class="w3-row">');
         htp.prn('<div class="w3-col s3 w3-center"><p>Tipologia ingresso:</p></div>');
-        htp.prn('<div class="w3-col s9 w3-center"><p>' || nome_tipologia || '</p></div>');
+        htp.prn('<div class="w3-col s9 w3-center"><p>'
+                || nome_tipologia
+                || '</p></div>');
         htp.prn('</div>');
-
         IF id_museo IS NOT NULL THEN
             SELECT
                 nome
@@ -82,10 +93,12 @@ CREATE OR REPLACE PACKAGE BODY packagevisite AS
             WHERE
                 idmuseo = id_museo;
 
-        htp.prn('<div class="w3-row">');
-        htp.prn('<div class="w3-col s3 w3-center"><p>Museo:</p></div>');
-        htp.prn('<div class="w3-col s9 w3-center"><p>' || nome_museo || '</p></div>');
-        htp.prn('</div>');
+            htp.prn('<div class="w3-row">');
+            htp.prn('<div class="w3-col s3 w3-center"><p>Museo:</p></div>');
+            htp.prn('<div class="w3-col s9 w3-center"><p>'
+                    || nome_museo
+                    || '</p></div>');
+            htp.prn('</div>');
         END IF;
 
     EXCEPTION
@@ -227,6 +240,7 @@ CREATE OR REPLACE PACKAGE BODY packagevisite AS
                                 'packageVisite.visualizza_visite',
                                 ' w3-btn w3-large w3-red w3-display-topright'
             );
+            htp.prn('<div class="w3-container">');
             tabella_dati_visita(
                                to_char(
                                       visita.datavisita,
@@ -256,6 +270,7 @@ CREATE OR REPLACE PACKAGE BODY packagevisite AS
                 modgui1.chiudiform;
             END IF;
 
+            htp.prn('</div>');
             modgui1.chiudidiv();
         EXCEPTION
             WHEN no_data_found THEN
@@ -503,7 +518,7 @@ CREATE OR REPLACE PACKAGE BODY packagevisite AS
             );
 
             htp.prn('<div class="w3-row">');
-             modgui1.collegamento(
+            modgui1.collegamento(
                                 'Visualizza',
                                 'packagevisite.visualizzavisita?idvisitaselezionata='
                                 || visita.idvisita
@@ -534,8 +549,8 @@ CREATE OR REPLACE PACKAGE BODY packagevisite AS
                                     'w3-button w3-margin w3-red'
                 );
             END IF;
-            htp.prn('</div>');
 
+            htp.prn('</div>');
             modgui1.chiudidiv;
             modgui1.chiudidiv;
             modgui1.chiudidiv;

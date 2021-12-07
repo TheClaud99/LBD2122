@@ -29,6 +29,7 @@ CREATE OR REPLACE PACKAGE BODY packagevisite AS
         nomeutente      utenti.nome%TYPE;
         cognomeutente   utenti.cognome%TYPE;
         nome_tipologia  tipologieingresso.nome%TYPE;
+        id_tipologia  tipologieingresso.nome%TYPE;
         nome_museo      musei.nome%TYPE;
     BEGIN
         htp.prn('<div class="w3-row">');
@@ -70,8 +71,9 @@ CREATE OR REPLACE PACKAGE BODY packagevisite AS
 
         htp.prn('</div>');
         SELECT
-            nome
-        INTO nome_tipologia
+            nome,
+            IdTipologiaIng
+        INTO nome_tipologia, id_tipologia
         FROM
             titoliingresso
             JOIN tipologieingresso ON tipologieingresso.idtipologiaing = titoliingresso.tipologia
@@ -79,10 +81,18 @@ CREATE OR REPLACE PACKAGE BODY packagevisite AS
             idtitoloing = idtitoloselezionato;
 
         htp.prn('<div class="w3-row">');
-        htp.prn('<div class="w3-col s3 w3-center"><p>Tipologia ingresso:</p></div>');
-        htp.prn('<div class="w3-col s9 w3-center"><p>'
-                || nome_tipologia
-                || '</p></div>');
+        htp.prn('<div class="w3-col s3 w3-center"><p>Titolo / Tipologia ingresso:</p></div>');
+        htp.prn('<div class="w3-col s9 w3-center"><p>');
+            modgui1.collegamento(
+                                idtitoloselezionato,
+                                'packageAcquistaTitoli.visualizzatitoloing?varidtitoloing=' || idtitoloselezionato
+            );
+            htp.prn(' / ');
+            modgui1.collegamento(
+                                nome_tipologia,
+                                'operazioniGruppo1.visualizzaTipologia?idTipologia=' || id_tipologia
+            );
+            htp.prn('</p></div>');
         htp.prn('</div>');
         IF id_museo IS NOT NULL THEN
             SELECT
@@ -95,9 +105,12 @@ CREATE OR REPLACE PACKAGE BODY packagevisite AS
 
             htp.prn('<div class="w3-row">');
             htp.prn('<div class="w3-col s3 w3-center"><p>Museo:</p></div>');
-            htp.prn('<div class="w3-col s9 w3-center"><p>'
-                    || nome_museo
-                    || '</p></div>');
+            htp.prn('<div class="w3-col s9 w3-center"><p>');
+            modgui1.collegamento(
+                                nome_museo,
+                                'operazioniGruppo4.visualizzaMusei?idMuseo=' || id_museo
+            );
+            htp.prn('</p></div>');
             htp.prn('</div>');
         END IF;
 
@@ -800,7 +813,6 @@ CREATE OR REPLACE PACKAGE BODY packagevisite AS
                            idutenteselezionato,
                            idtitoloselezionato
         );
-        
         modgui1.apriform('packagevisite.InserisciVisita');
         htp.formhidden(
                       'datavisitachar',

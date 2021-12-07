@@ -31,22 +31,19 @@ CREATE OR REPLACE PACKAGE BODY packagevisite AS
         nome_tipologia  tipologieingresso.nome%TYPE;
         nome_museo      musei.nome%TYPE;
     BEGIN
-        modgui1.apridiv('style="margin-left: 2%; margin-right: 2%;"');
-        htp.tableopen;
-        htp.tablerowopen;
-        htp.tabledata('Data visita: ');
-        htp.tabledata(datavisitachar);
-        htp.tablerowclose;
-        htp.tablerowopen;
-        htp.tabledata('Ora visita: ');
-        htp.tabledata(oravisita);
-        htp.tablerowclose;
-        htp.tablerowopen;
-        htp.tabledata('Durata visita: ');
-        htp.tabledata(duratavisita);
-        htp.tablerowclose;
-        htp.tablerowopen;
-        htp.tabledata('Utente: ');
+        htp.prn('<div class="w3-row">');
+        htp.prn('<div class="w3-col s3 w3-center"><p>Data visita:</p></div>');
+        htp.prn('<div class="w3-col s9 w3-center"><p>' || datavisitachar || '</p></div>');
+        htp.prn('</div>');
+        htp.prn('<div class="w3-row">');
+        htp.prn('<div class="w3-col s3 w3-center"><p>Ora visita:</p></div>');
+        htp.prn('<div class="w3-col s9 w3-center"><p>' || oravisita || '</p></div>');
+        htp.prn('</div>');
+        htp.prn('<div class="w3-row">');
+        htp.prn('<div class="w3-col s3 w3-center"><p>Durata visita:</p></div>');
+        htp.prn('<div class="w3-col s9 w3-center"><p>' || duratavisita || '</p></div>');
+        htp.prn('</div>');
+        
         SELECT
             nome,
             cognome
@@ -57,14 +54,12 @@ CREATE OR REPLACE PACKAGE BODY packagevisite AS
             utenti
         WHERE
             idutente = idutenteselezionato;
+        htp.prn('<div class="w3-row">');
+        htp.prn('<div class="w3-col s3 w3-center"><p>Utente:</p></div>');
+        htp.prn('<div class="w3-col s9 w3-center"><p>' || nomeutente || ' ' || cognomeutente || '</p></div>');
+        htp.prn('</div>');
 
-        htp.tabledata(nomeutente
-                      || ' '
-                      || cognomeutente);
-        htp.tablerowclose;
-        htp.tablerowopen;
-        htp.tabledata('Tipologia ingresso: ');
-        SELECT
+         SELECT
             nome
         INTO nome_tipologia
         FROM
@@ -73,11 +68,12 @@ CREATE OR REPLACE PACKAGE BODY packagevisite AS
         WHERE
             idtitoloing = idtitoloselezionato;
 
-        htp.tabledata(nome_tipologia);
-        htp.tablerowclose;
-        htp.tablerowopen;
+        htp.prn('<div class="w3-row">');
+        htp.prn('<div class="w3-col s3 w3-center"><p>Tipologia ingresso:</p></div>');
+        htp.prn('<div class="w3-col s9 w3-center"><p>' || nome_tipologia || '</p></div>');
+        htp.prn('</div>');
+
         IF id_museo IS NOT NULL THEN
-            htp.tabledata('Museo: ');
             SELECT
                 nome
             INTO nome_museo
@@ -86,12 +82,12 @@ CREATE OR REPLACE PACKAGE BODY packagevisite AS
             WHERE
                 idmuseo = id_museo;
 
-            htp.tabledata(nome_museo);
+        htp.prn('<div class="w3-row">');
+        htp.prn('<div class="w3-col s3 w3-center"><p>Museo:</p></div>');
+        htp.prn('<div class="w3-col s9 w3-center"><p>' || nome_museo || '</p></div>');
+        htp.prn('</div>');
         END IF;
 
-        htp.tablerowclose;
-        htp.tableclose;
-        modgui1.chiudidiv;
     EXCEPTION
         WHEN OTHERS THEN
             dbms_output.put_line('Error: ' || sqlerrm);
@@ -506,8 +502,8 @@ CREATE OR REPLACE PACKAGE BODY packagevisite AS
                                visita.idmuseo
             );
 
-            modgui1.chiudidiv;
-            modgui1.collegamento(
+            htp.prn('<div class="w3-row">');
+             modgui1.collegamento(
                                 'Visualizza',
                                 'packagevisite.visualizzavisita?idvisitaselezionata='
                                 || visita.idvisita
@@ -538,7 +534,9 @@ CREATE OR REPLACE PACKAGE BODY packagevisite AS
                                     'w3-button w3-margin w3-red'
                 );
             END IF;
+            htp.prn('</div>');
 
+            modgui1.chiudidiv;
             modgui1.chiudidiv;
             modgui1.chiudidiv;
         END LOOP;

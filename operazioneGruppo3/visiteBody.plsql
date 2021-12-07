@@ -22,12 +22,14 @@ CREATE OR REPLACE PACKAGE BODY packagevisite AS
         oravisita            IN  VARCHAR2,
         duratavisita         IN  NUMBER,
         idutenteselezionato  IN  utenti.idutente%TYPE,
-        idtitoloselezionato  IN  titoliingresso.idtitoloing%TYPE
+        idtitoloselezionato  IN  titoliingresso.idtitoloing%TYPE,
+        id_museo             IN  musei.idmuseo%TYPE DEFAULT NULL
     ) IS
 
         nomeutente      utenti.nome%TYPE;
         cognomeutente   utenti.cognome%TYPE;
         nome_tipologia  tipologieingresso.nome%TYPE;
+        nome_museo      musei.nome%TYPE;
     BEGIN
         modgui1.apridiv('style="margin-left: 2%; margin-right: 2%;"');
         htp.tableopen;
@@ -72,6 +74,21 @@ CREATE OR REPLACE PACKAGE BODY packagevisite AS
             idtitoloing = idtitoloselezionato;
 
         htp.tabledata(nome_tipologia);
+        htp.tablerowclose;
+        htp.tablerowopen;
+        IF id_museo IS NOT NULL THEN
+            htp.tabledata('Museo: ');
+            SELECT
+                nome
+            INTO nome_museo
+            FROM
+                musei
+            WHERE
+                idmuseo = id_museo;
+
+            htp.tabledata(nome_museo);
+        END IF;
+
         htp.tablerowclose;
         htp.tableclose;
         modgui1.chiudidiv;
@@ -129,6 +146,47 @@ CREATE OR REPLACE PACKAGE BODY packagevisite AS
         modgui1.emptyselectoption(
                                  CASE
                                      WHEN idutenteselezionato IS NULL THEN
+                                         1
+                                     ELSE 0
+                                 END
+        );
+        modgui1.selectclose();
+    END;
+
+    PROCEDURE select_museo (
+        nome      VARCHAR2 DEFAULT 'id_museo',
+        id        VARCHAR2 DEFAULT 'id_museo',
+        id_museo  IN utenti.idutente%TYPE DEFAULT NULL
+    ) IS
+    BEGIN
+        modgui1.selectopen(
+                          nome,
+                          id
+        );
+        FOR museo IN (
+            SELECT
+                *
+            FROM
+                musei
+        ) LOOP
+            IF museo.idmuseo = id_museo THEN
+                modgui1.selectoption(
+                                    museo.idmuseo,
+                                    museo.nome,
+                                    1
+                );
+            ELSE
+                modgui1.selectoption(
+                                    museo.idmuseo,
+                                    museo.nome,
+                                    0
+                );
+            END IF;
+        END LOOP;
+
+        modgui1.emptyselectoption(
+                                 CASE
+                                     WHEN id_museo IS NULL THEN
                                          1
                                      ELSE 0
                                  END
@@ -276,7 +334,8 @@ CREATE OR REPLACE PACKAGE BODY packagevisite AS
     PROCEDURE modal_filtri_visite (
         data_visita_from  IN  VARCHAR2 DEFAULT NULL,
         data_visita_to    IN  VARCHAR2 DEFAULT NULL,
-        id_utente         IN  NUMBER DEFAULT NULL
+        id_utente         IN  NUMBER DEFAULT NULL,
+        id_museo          IN  NUMBER DEFAULT NULL
     ) IS
     BEGIN
         modgui1.apridiv('id="modal_filtri" class="w3-modal"');
@@ -305,12 +364,22 @@ CREATE OR REPLACE PACKAGE BODY packagevisite AS
                 || data_visita_to
                 || '">
         </div>');
-        htp.prn('<label for="data_visita_to">Utente:</label>');
+        htp.prn('<p style="margin-top: 86px">');
+        htp.prn('<label for="data_visita_to">Utente: </label>');
         select_utente(
                      'id_utente',
                      'id_utente',
                      id_utente
         );
+        htp.prn('</p>');
+        htp.prn('<p>');
+        htp.prn('<label for="data_visita_to">Museo: </label>');
+        select_museo(
+                    'id_museo',
+                    'id_museo',
+                    id_museo
+        );
+        htp.prn('</p>');
         htp.prn('<button class="w3-button w3-block w3-black w3-section w3-padding" type="submit">Applica</button>');
         modgui1.chiudidiv;
         modgui1.chiudiform;
@@ -321,13 +390,15 @@ CREATE OR REPLACE PACKAGE BODY packagevisite AS
     FUNCTION build_query (
         data_visita_from  IN  VARCHAR2 DEFAULT NULL,
         data_visita_to    IN  VARCHAR2 DEFAULT NULL,
-        id_utente         IN  NUMBER DEFAULT NULL
+        id_utente         IN  NUMBER DEFAULT NULL,
+        id_museo          IN  NUMBER DEFAULT NULL
     ) RETURN VARCHAR2 IS
         lv_where      VARCHAR2(255);
         v_base_query  VARCHAR2(2000) := 'with binds as (
           select :bind1 as data_visita_from,
           :bind2 as data_visita_to,
-          :bind3 as id_utente
+          :bind3 as id_utente,
+          :bind4 as id_museo
             from dual)
        SELECT view_visite.* FROM view_visite, binds b
        WHERE 1=1 ';
@@ -341,6 +412,9 @@ CREATE OR REPLACE PACKAGE BODY packagevisite AS
         IF id_utente IS NOT NULL THEN
             lv_where := lv_where || ' AND idutente = b.id_utente';
         END IF;
+        IF id_museo IS NOT NULL THEN
+            lv_where := lv_where || ' AND idmuseo = b.id_museo';
+        END IF;
         v_base_query := v_base_query || lv_where;
         RETURN v_base_query;
     END;
@@ -348,7 +422,8 @@ CREATE OR REPLACE PACKAGE BODY packagevisite AS
     PROCEDURE visualizza_visite (
         data_visita_from  IN  VARCHAR2 DEFAULT NULL,
         data_visita_to    IN  VARCHAR2 DEFAULT NULL,
-        id_utente         IN  NUMBER DEFAULT NULL
+        id_utente         IN  NUMBER DEFAULT NULL,
+        id_museo          IN  NUMBER DEFAULT NULL
     ) IS
 
         id_sessione      NUMBER(10) := NULL;
@@ -359,7 +434,8 @@ CREATE OR REPLACE PACKAGE BODY packagevisite AS
         lv_sql := build_query(
                              data_visita_from,
                              data_visita_to,
-                             id_utente
+                             id_utente,
+                             id_museo
                   );
         htp.print(lv_sql);
         OPEN v_visite_cursor FOR lv_sql
@@ -369,7 +445,7 @@ CREATE OR REPLACE PACKAGE BODY packagevisite AS
                   ), to_date(
                             data_visita_to,
                             'YYYY-MM-DD"T"HH24:MI'
-                     ), id_utente;
+                     ), id_utente, id_museo;
 
         id_sessione := modgui1.get_id_sessione;
         modgui1.apripagina(
@@ -426,7 +502,8 @@ CREATE OR REPLACE PACKAGE BODY packagevisite AS
                                ),
                                visita.duratavisita,
                                visita.visitatore,
-                               visita.titoloingresso
+                               visita.titoloingresso,
+                               visita.idmuseo
             );
 
             modgui1.chiudidiv;
@@ -473,7 +550,8 @@ CREATE OR REPLACE PACKAGE BODY packagevisite AS
         modal_filtri_visite(
                            data_visita_from,
                            data_visita_to,
-                           id_utente
+                           id_utente,
+                           id_museo
         );
         htp.prn('</body>
         </html>');

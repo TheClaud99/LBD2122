@@ -361,36 +361,46 @@ CREATE OR REPLACE PACKAGE BODY packagevisite AS
                         'seleziona statistica',
                         'w3-container w3-margin'
         );
+        htp.prn('<div class="w3-row">');
         htp.prn('
-        <div class="w3-half">
+        <div class="w3-col s6 w3-padding-small">
             <label for="data_visita_from">Da:</label>
-            <input class="w3-input" type="datetime-local" id="data_visita_from" name="data_visita_from" value="'
+            <input class="w3-input w3-border w3-round-xlarge" type="datetime-local" id="data_visita_from" name="data_visita_from" value="'
                 || data_visita_from
                 || '">
         </div>');
         htp.prn('
-        <div class="w3-half">
+        <div class="w3-col s6 w3-padding-small">
             <label for="data_visita_to">A:</label>
-            <input class="w3-input" type="datetime-local" id="data_visita_to" name="data_visita_to" value="'
+            <input class="w3-input w3-border w3-round-xlarge" type="datetime-local" id="data_visita_to" name="data_visita_to" value="'
                 || data_visita_to
                 || '">
         </div>');
-        htp.prn('<p style="margin-top: 86px">');
-        htp.prn('<label for="data_visita_to">Utente: </label>');
+        htp.prn('</div>');
+        htp.prn('<div class="w3-row">');
+        htp.prn('<div class="w3-col s4 w3-center">');
+        htp.prn('<div class="w3-margin">Utente: </div>');
+        htp.prn('</div>');
+        htp.prn('<div class="w3-col s8 w3-center">');
         select_utente(
                      'id_utente',
                      'id_utente',
                      id_utente
         );
-        htp.prn('</p>');
-        htp.prn('<p>');
-        htp.prn('<label for="data_visita_to">Museo: </label>');
+        htp.prn('</div>');
+        htp.prn('</div>');
+        htp.prn('<div class="w3-row">');
+        htp.prn('<div class="w3-col s4 w3-center">');
+        htp.prn('<div class="w3-margin">Museo: </div>');
+        htp.prn('</div>');
+        htp.prn('<div class="w3-col s8 w3-center">');
         select_museo(
                     'id_museo',
                     'id_museo',
                     id_museo
         );
-        htp.prn('</p>');
+        htp.prn('</div>');
+        htp.prn('</div>');
         htp.prn('<button class="w3-button w3-block w3-black w3-section w3-padding" type="submit">Applica</button>');
         modgui1.chiudidiv;
         modgui1.chiudiform;
@@ -601,7 +611,8 @@ CREATE OR REPLACE PACKAGE BODY packagevisite AS
         visualizzavisita(
                         idvisitacreata,
                         'Visita creata',
-                        'PackageVisite.visualizza_visite'
+                        'PackageVisite.visualizza_visite',
+                        'Torna ad home'
         );
     END;
 
@@ -781,6 +792,7 @@ CREATE OR REPLACE PACKAGE BODY packagevisite AS
     ) IS
     BEGIN
         modgui1.apridivcard();
+        htp.prn('<div class="w3-container">');
         tabella_dati_visita(
                            datavisitachar,
                            oravisita,
@@ -788,6 +800,7 @@ CREATE OR REPLACE PACKAGE BODY packagevisite AS
                            idutenteselezionato,
                            idtitoloselezionato
         );
+        
         modgui1.apriform('packagevisite.InserisciVisita');
         htp.formhidden(
                       'datavisitachar',
@@ -812,6 +825,7 @@ CREATE OR REPLACE PACKAGE BODY packagevisite AS
         modgui1.inputsubmit('Conferma');
         htp.prn('<input id="button_annulla" type="submit" class="w3-button w3-block w3-black w3-section w3-padding" value="Annulla">');
         modgui1.chiudiform;
+        modgui1.chiudidiv();
         modgui1.chiudidiv();
         htp.prn('<script>
             let button_annulla = document.getElementById("button_annulla");

@@ -2,7 +2,9 @@ CREATE OR REPLACE package PackageStanze as
 
 PROCEDURE visualizzaSale (
         idSessione IN int default 0,
-        Sort IN int default 0
+        Sort IN int default 0,
+        Deleted IN int default 0,
+        Search IN VARCHAR2 default NULL
     );
 procedure visualizzaAmbientiServizio (idSessione IN int default 0);
 PROCEDURE formSala (
@@ -37,6 +39,10 @@ PROCEDURE modificaSala (
         nOpereform           IN NUMBER
     );
 PROCEDURE rimuoviSala (
+        idSessione IN int default 0,
+        varIdStanza IN NUMBER
+    );
+PROCEDURE ripristinaSala (
         idSessione IN int default 0,
         varIdStanza IN NUMBER
     );

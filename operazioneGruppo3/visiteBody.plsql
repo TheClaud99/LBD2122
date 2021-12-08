@@ -126,7 +126,6 @@ CREATE OR REPLACE PACKAGE BODY packagevisite AS
         id                   VARCHAR2 DEFAULT 'id_utente',
         idutenteselezionato  IN utenti.idutente%TYPE DEFAULT NULL
     ) IS
-        utente utenti%rowtype;
     BEGIN
         modgui1.selectopen(
                           nome,
@@ -139,21 +138,16 @@ CREATE OR REPLACE PACKAGE BODY packagevisite AS
                                      ELSE 0
                                  END
         );
-        FOR utente_museo IN (
+        FOR utente IN (
             SELECT
-                idutente
+                utenti.*
             FROM
-                utentimuseo
+                utentimuseo JOIN utenti on utentimuseo.idutente = utenti.idutente
+            ORDER BY nome
         ) LOOP
-            SELECT
-                *
-            INTO utente
-            FROM
-                utenti
-            WHERE
-                idutente = utente_museo.idutente;
 
-            IF utente_museo.idutente = idutenteselezionato THEN
+
+            IF utente.idutente = idutenteselezionato THEN
                 modgui1.selectoption(
                                     utente.idutente,
                                     utente.nome

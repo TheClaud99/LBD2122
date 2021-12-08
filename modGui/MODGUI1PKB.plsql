@@ -379,9 +379,9 @@ CREATE OR REPLACE PACKAGE BODY modGUI1 as
         htp.prn('<label>' || testo || '<label>');
     end InputRadioButton;
 
-    procedure InputCheckbox (testo varchar2, nome varchar2, checked int default 0, disabled int default 0) is
+    procedure InputCheckbox (testo varchar2, nome varchar2, checked int default 0, disabled int default 0, val varchar2 default 'on') is
     begin
-        htp.print('<input class="w3-check" type="checkbox" style="color:black;margin:10px;" name="'|| nome ||'"');
+        htp.print('<input class="w3-check" type="checkbox" style="color:black;margin:10px;" value="' || val || '" name="'|| nome ||'"');
         if (checked=1)
         then
             htp.prn(' checked');

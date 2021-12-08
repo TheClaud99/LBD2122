@@ -5,7 +5,8 @@ CREATE OR REPLACE VIEW view_visite AS
         musei.nome     AS nome_museo,
         musei.idmuseo,
         utenti.idutente,
-        utenti.nome    AS nome_utente
+        utenti.nome    AS nome_utente,
+        tipologieingresso.idtipologiaing
     FROM
         visite
         JOIN utenti ON visite.visitatore = utenti.idutente

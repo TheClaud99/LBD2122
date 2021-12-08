@@ -449,7 +449,7 @@ CREATE OR REPLACE PACKAGE BODY packagevisite AS
         IF id_museo IS NOT NULL THEN
             lv_where := lv_where || ' AND idmuseo = b.id_museo';
         END IF;
-        v_base_query := v_base_query || lv_where;
+        v_base_query := v_base_query || lv_where || ' ORDER BY IdVisita DESC';
         RETURN v_base_query;
     END;
 

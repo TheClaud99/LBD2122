@@ -142,11 +142,11 @@ CREATE OR REPLACE PACKAGE BODY packagevisite AS
             SELECT
                 utenti.*
             FROM
-                utentimuseo JOIN utenti on utentimuseo.idutente = utenti.idutente
-            ORDER BY nome
+                utentimuseo
+                JOIN utenti ON utentimuseo.idutente = utenti.idutente
+            ORDER BY
+                nome
         ) LOOP
-
-
             IF utente.idutente = idutenteselezionato THEN
                 modgui1.selectoption(
                                     utente.idutente,
@@ -165,7 +165,6 @@ CREATE OR REPLACE PACKAGE BODY packagevisite AS
                                     0
                 );
             END IF;
-
         END LOOP;
 
         modgui1.selectclose();
@@ -295,61 +294,6 @@ CREATE OR REPLACE PACKAGE BODY packagevisite AS
         </html>');
     END;
 
-    PROCEDURE modal_statistiche_visite IS
-    BEGIN
-        modgui1.apridiv('id="modal_statistiche" class="w3-modal"');
-        modgui1.apridiv('class="w3-modal-content w3-card-4 w3-animate-zoom" style="max-width:600px"');
-        modgui1.apridiv('class="w3-center"');
-        htp.br;
-        htp.prn('<span onclick="document.getElementById(''modal_statistiche'').style.display=''none''" class="w3-button w3-xlarge w3-red w3-display-topright" title="Close Modal">X</span>');
-        htp.print('<h1>Seleziona l''operazione</h1>');
-        modgui1.chiudidiv;
-        modgui1.apriform(
-                        'packageVisite.selezioneVisiteStatistica',
-                        'seleziona statistica',
-                        'w3-container w3-margin'
-        );
-        htp.prn('<p>');
-        modgui1.inputradiobutton(
-                                'Numero di visite in un intervallo di tempo',
-                                'operazione',
-                                0
-        );
-        htp.prn('</p>');
-        htp.prn('<p>');
-        modgui1.inputradiobutton(
-                                'Numero medio di visitatori in un intervallo di tempo',
-                                'operazione',
-                                1
-        );
-        htp.prn('</p>');
-        htp.prn('<p>');
-        modgui1.inputradiobutton(
-                                'Visite effettuate con biglietto',
-                                'operazione',
-                                2
-        );
-        htp.prn('</p>');
-        htp.prn('<p>');
-        modgui1.inputradiobutton(
-                                'Visite effettuate con abbonamento',
-                                'operazione',
-                                3
-        );
-        htp.prn('</p>');
-        htp.prn('<p>');
-        modgui1.inputradiobutton(
-                                'Durata media di una visita in un arco temporale scelto',
-                                'operazione',
-                                4
-        );
-        htp.prn('</p>');
-        htp.prn('<button class="w3-button w3-block w3-black w3-section w3-padding" type="submit">Seleziona</button>');
-        modgui1.chiudidiv;
-        modgui1.chiudiform;
-        modgui1.chiudidiv;
-        modgui1.chiudidiv;
-    END;
 
     PROCEDURE modal_filtri_visite (
         data_visita_from  IN  VARCHAR2 DEFAULT NULL,
@@ -448,6 +392,68 @@ CREATE OR REPLACE PACKAGE BODY packagevisite AS
         modgui1.chiudidiv;
     END;
 
+    PROCEDURE modal_statistiche_visite (
+        data_visita_from  IN  VARCHAR2 DEFAULT NULL,
+        data_visita_to    IN  VARCHAR2 DEFAULT NULL,
+        id_utente         IN  NUMBER DEFAULT NULL,
+        id_museo          IN  NUMBER DEFAULT NULL,
+        is_biglietto      IN  NUMBER DEFAULT NULL,
+        is_abbonamento    IN  NUMBER DEFAULT NULL
+    ) IS
+
+        lv_where      VARCHAR2(255);
+        v_base_query  VARCHAR2(2000) := 'with binds as (
+          select :bind1 as data_visita_from,
+          :bind2 as data_visita_to,
+          :bind3 as id_utente,
+          :bind4 as id_museo
+            from dual)
+        SELECT COUNT(view_visite.idvisita) FROM view_visite, binds b
+        WHERE 1=1 ';
+        counter       NUMBER(20);
+    BEGIN
+        IF data_visita_from IS NOT NULL THEN
+            lv_where := lv_where || ' AND datavisita >= b.data_visita_from';
+        END IF;
+        IF data_visita_to IS NOT NULL THEN
+            lv_where := lv_where || ' AND datavisita <= b.data_visita_to';
+        END IF;
+        IF id_utente IS NOT NULL THEN
+            lv_where := lv_where || ' AND idutente = b.id_utente';
+        END IF;
+        IF id_museo IS NOT NULL THEN
+            lv_where := lv_where || ' AND idmuseo = b.id_museo';
+        END IF;
+        IF is_biglietto = 1 THEN
+            lv_where := lv_where || ' AND EXISTS(SELECT * FROM biglietti WHERE biglietti.IdTipologiaIng=view_visite.IdTipologiaIng)';
+        END IF;
+        IF is_abbonamento = 1 THEN
+            lv_where := lv_where || ' AND EXISTS(SELECT * FROM abbonamenti WHERE abbonamenti.IdTipologiaIng=view_visite.IdTipologiaIng)';
+        END IF;
+        v_base_query := v_base_query || lv_where;
+        EXECUTE IMMEDIATE v_base_query
+        INTO counter USING data_visita_from, data_visita_to, id_utente, id_museo;
+
+        modgui1.apridiv('id="modal_statistiche" class="w3-modal"');
+        modgui1.apridiv('class="w3-modal-content w3-card-4 w3-animate-zoom" style="max-width:600px"');
+        modgui1.apridiv('class="w3-center"');
+        htp.prn('<span onclick="document.getElementById(''modal_statistiche'').style.display=''none''" class="w3-button w3-xlarge w3-red w3-display-topright" title="Close Modal">X</span>');
+        htp.print('<h1>Seleziona l''operazione</h1>');
+        modgui1.chiudidiv;
+        htp.prn('<div class"w3-container w3-margin">');
+        htp.prn('<div class="w3-row">');
+        htp.prn('<div class="w3-col s4 w3-center">');
+        htp.prn('<div class="w3-margin">Numero visite: </div>');
+        htp.prn('</div>');
+        htp.prn('<div class="w3-col s8 w3-center">');
+        htp.prn('<div class="w3-margin">' || counter || '</div>');
+        htp.prn('</div>');
+        htp.prn('</div>');
+        modgui1.chiudidiv;
+        modgui1.chiudidiv;
+        modgui1.chiudidiv;
+    END;
+
     FUNCTION build_query (
         data_visita_from  IN  VARCHAR2 DEFAULT NULL,
         data_visita_to    IN  VARCHAR2 DEFAULT NULL,
@@ -512,7 +518,6 @@ CREATE OR REPLACE PACKAGE BODY packagevisite AS
                              is_biglietto,
                              is_abbonamento
                   );
-        htp.print(lv_sql);
         OPEN v_visite_cursor FOR lv_sql
             USING to_date(
                          data_visita_from,
@@ -623,7 +628,14 @@ CREATE OR REPLACE PACKAGE BODY packagevisite AS
         CLOSE v_visite_cursor;
         modgui1.chiudidiv();
         modgui1.chiudidiv();
-        modal_statistiche_visite;
+        modal_statistiche_visite(
+                           data_visita_from,
+                           data_visita_to,
+                           id_utente,
+                           id_museo,
+                           is_biglietto,
+                           is_abbonamento
+        );
         modal_filtri_visite(
                            data_visita_from,
                            data_visita_to,

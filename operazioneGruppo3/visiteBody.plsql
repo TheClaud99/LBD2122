@@ -130,6 +130,15 @@ CREATE OR REPLACE PACKAGE BODY packagevisite AS
                           nome,
                           id
         );
+
+        modgui1.emptyselectoption(
+                                 CASE
+                                     WHEN idutenteselezionato IS NULL THEN
+                                         1
+                                     ELSE 0
+                                 END
+        );
+
         FOR utente_museo IN (
             SELECT
                 idutente
@@ -165,13 +174,6 @@ CREATE OR REPLACE PACKAGE BODY packagevisite AS
 
         END LOOP;
 
-        modgui1.emptyselectoption(
-                                 CASE
-                                     WHEN idutenteselezionato IS NULL THEN
-                                         1
-                                     ELSE 0
-                                 END
-        );
         modgui1.selectclose();
     END;
 
@@ -185,6 +187,15 @@ CREATE OR REPLACE PACKAGE BODY packagevisite AS
                           nome,
                           id
         );
+
+        modgui1.emptyselectoption(
+                                 CASE
+                                     WHEN id_museo IS NULL THEN
+                                         1
+                                     ELSE 0
+                                 END
+        );
+
         FOR museo IN (
             SELECT
                 *
@@ -205,14 +216,6 @@ CREATE OR REPLACE PACKAGE BODY packagevisite AS
                 );
             END IF;
         END LOOP;
-
-        modgui1.emptyselectoption(
-                                 CASE
-                                     WHEN id_museo IS NULL THEN
-                                         1
-                                     ELSE 0
-                                 END
-        );
         modgui1.selectclose();
     END;
 
@@ -414,6 +417,7 @@ CREATE OR REPLACE PACKAGE BODY packagevisite AS
         );
         htp.prn('</div>');
         htp.prn('</div>');
+        modgui1.inputReset;
         htp.prn('<button class="w3-button w3-block w3-black w3-section w3-padding" type="submit">Applica</button>');
         modgui1.chiudidiv;
         modgui1.chiudiform;

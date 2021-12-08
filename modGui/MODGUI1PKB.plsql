@@ -347,7 +347,7 @@ CREATE OR REPLACE PACKAGE BODY modGUI1 as
 
     procedure EmptySelectOption(selected int default 0) is
     begin
-        htp.prn('<option hidden disabled value ');
+        htp.prn('<option value ');
         if (selected=1)
         then
             htp.prn('selected>');

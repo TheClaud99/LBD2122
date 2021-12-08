@@ -43,7 +43,6 @@ CREATE OR REPLACE PACKAGE BODY gruppo1 AS
 
 --Procedura per inserimento Utente
 PROCEDURE InserisciUtente(
-    idSessione NUMBER DEFAULT 0,
 	nome VARCHAR2 DEFAULT NULL,
 	cognome VARCHAR2 DEFAULT NULL,
 	dataNascita VARCHAR2 DEFAULT NULL,
@@ -59,12 +58,17 @@ PROCEDURE InserisciUtente(
 	nomeutente utenti.nome%TYPE;
 	cognomeutente utenti.cognome%TYPE;
 	varidutente utenti.Idutente%TYPE;
+	idSessione NUMBER(5) := modgui1.get_id_sessione();
 BEGIN
 
     MODGUI1.ApriPagina('Inserimento utenti', idSessione);
 
 	HTP.BodyOpen;
-	MODGUI1.Header(); --da capire come combinarlo con il resto
+	if idSessione IS NULL then
+            modGUI1.Header(0);
+    else
+            modGUI1.Header(idSessione);
+    end if;
 	HTP.header(1,'Inserisci un nuovo utente', 'center');
 	modgui1.apridiv('class="w3-modal-content w3-card-4 w3-animate-zoom w3-padding-large" style="max-width:600px; margin-top:110px"');
 	HTP.header(2, 'Inserisci utente');
@@ -80,13 +84,9 @@ BEGIN
 	MODGUI1.Label('Data nascita*');
 	MODGUI1.InputDate('dataNascita', 'dataNascita', 1, dataNascita);
 	HTP.BR;
-	if utenteTutore = 0 then
-		MODGUI1.ApriDiv('style="margin-left: 2%; margin-right: 2%; display: none" id="third"');
-	else 
-		MODGUI1.ApriDiv('style="margin-left: 2%; margin-right: 2%; display: block" id="third"');
-	end if;
 	modgui1.label('Tutore*');
 	modgui1.selectopen('utenteTutore', 'idutentetutore');
+	MODGUI1.SelectOption(0, 'Tutore non necessario', 0);
 	for utente in (select idutente from utenti)
 	loop
 		select idutente, nome, cognome
@@ -100,7 +100,6 @@ BEGIN
 		end if;
 	end loop;
 	modgui1.selectclose();
-	modgui1.chiudiDiv;
 	HTP.BR;
 	MODGUI1.Label('Indirizzo*');
 	MODGUI1.InputText('indirizzo', 'Indirizzo', 1, indirizzo);
@@ -145,7 +144,7 @@ BEGIN
 
 	MODGUI1.InputSubmit('Inserisci');
 	MODGUI1.ChiudiForm;
-	MODGUI1.collegamento('Annulla','ListaUtenti?idSessione='||idSessione||'','w3-button w3-block w3-black w3-section w3-padding');
+	MODGUI1.collegamento('Annulla','ListaUtenti','w3-button w3-block w3-black w3-section w3-padding');
 	MODGUI1.ChiudiDiv;
 
 	htp.print('<script type="text/javascript">
@@ -178,21 +177,6 @@ BEGIN
 					}
 				}
 			}
-
-			const checkNascita = document.getElementById("dataNascita");
-			const divTutore = document.getElementById("third")
-			checkNascita.addEventListener("change", (event) => {
-				let start = new Date(checkNascita.value);
-				let now = Date.now()
-  				let elapsed =  now - start;
-				let age = Math.floor(((((elapsed / 1000) / 60) / 60) /24) / 365);
-				if (age < 18) {
-					divTutore.style.display = "block"
-				}
-				else {
-					divTutore.style.display = "none"
-				}
-			});
 			
         </script>');
 
@@ -202,7 +186,6 @@ END;
 
 -- Procedura per confermare i dati dell'inserimento di un Utente
 PROCEDURE ConfermaDatiUtente(
-	idSessione NUMBER DEFAULT 0,
 	nome VARCHAR2 DEFAULT NULL,
 	cognome VARCHAR2 DEFAULT NULL,
 	dataNascita VARCHAR2 DEFAULT NULL,
@@ -218,6 +201,7 @@ PROCEDURE ConfermaDatiUtente(
 	nomeutente utenti.nome%TYPE;
 	cognomeutente utenti.cognome%TYPE;
 	varidutente utenti.Idutente%TYPE;
+	idSessione NUMBER(5) := modgui1.get_id_sessione();
 BEGIN
 	-- se utente non autorizzato: messaggio errore
 	IF nome IS NULL
@@ -230,16 +214,24 @@ BEGIN
 		-- uno dei parametri con vincoli ha valori non validi
 		MODGUI1.APRIPAGINA('Pagina errore', 0);
 		HTP.BodyOpen;
-		MODGUI1.Header();
+		if idSessione IS NULL then
+            modGUI1.Header(0);
+		else
+				modGUI1.Header(idSessione);
+		end if;
 		MODGUI1.ApriDiv;
 		HTP.PRINT('Uno dei parametri immessi non valido');
 		MODGUI1.ChiudiDiv;
 		HTP.BodyClose;
 		HTP.HtmlClose;
 	ELSE
-		MODGUI1.APRIPAGINA('Pagina OK', 0);
+		MODGUI1.APRIPAGINA('Conferma dati utenti', idSessione);
 		HTP.BodyOpen;
-		MODGUI1.Header();
+		if idSessione IS NULL then
+            modGUI1.Header(0);
+		else
+				modGUI1.Header(idSessione);
+		end if;
 		modgui1.apridiv('class="w3-modal-content w3-card-4 w3-animate-zoom w3-padding-large" style="max-width:600px; margin-top:110px"');
 		HTP.header(2, 'Conferma dati utente');
 
@@ -305,7 +297,6 @@ BEGIN
 		HTP.TableClose;
 
 		MODGUI1.ApriForm('InserisciDatiUtente');
-		HTP.FORMHIDDEN('idSessione', idSessione);
 		HTP.FORMHIDDEN('nome', nome);
 		HTP.FORMHIDDEN('cognome', cognome);
 		HTP.FORMHIDDEN('dataNascita', dataNascita);
@@ -343,7 +334,6 @@ BEGIN
 END;
 
 PROCEDURE InserisciDatiUtente (
-    idSessione NUMBER DEFAULT 0,
 	nome VARCHAR2 DEFAULT NULL,
 	cognome VARCHAR2 DEFAULT NULL,
 	dataNascita VARCHAR2 DEFAULT NULL,
@@ -362,6 +352,7 @@ PROCEDURE InserisciDatiUtente (
     temp NUMBER(10) := 0;
     temp2 NUMBER(10) := 0;
 	tempIdUtente NUMBER(10) := 0;
+	idSessione NUMBER(5) := modgui1.get_id_sessione();
 
 BEGIN
 
@@ -412,48 +403,56 @@ BEGIN
 	THEN
 		-- faccio il commit dello statement precedente
 		commit;
-		EsitoPositivoUtenti(idSessione);
+		EsitoPositivoUtenti;
 
 	ELSE
-		EsitoNegativoUtenti(idSessione);
+		EsitoNegativoUtenti;
 
 	END IF;
 
     EXCEPTION
       when EmailPresente then
-       EsitoNegativoUtenti(idSessione);
+       EsitoNegativoUtenti;
     when TelefonoPresente then
-       EsitoNegativoUtenti(idSessione);
+       EsitoNegativoUtenti;
 END;
 
-procedure EsitoPositivoUtenti(
-    idSessione NUMBER DEFAULT 0
-    ) is
+procedure EsitoPositivoUtenti
+ is
+	idSessione NUMBER(5) := modgui1.get_id_sessione();
     begin
         modGUI1.ApriPagina('EsitoPositivoUtenti',idSessione);
-        modGUI1.Header(idSessione);
+        if idSessione IS NULL then
+            modGUI1.Header(0);
+		else
+				modGUI1.Header(idSessione);
+		end if;
         htp.br;htp.br;htp.br;htp.br;htp.br;htp.br;
             modGUI1.ApriDiv('class="w3-modal-content w3-card-4 w3-animate-zoom w3-padding-large" style="max-width:450px"');
                 modGUI1.ApriDiv('class="w3-center"');
                 htp.print('<h1>Operazione eseguita correttamente </h1>');
-                MODGUI1.collegamento('Torna al menu','ListaUtenti?idSessione='||idSessione||'','w3-button w3-block w3-black w3-section w3-padding');
+                MODGUI1.collegamento('Torna al menu','ListaUtenti','w3-button w3-block w3-black w3-section w3-padding');
                 modGUI1.ChiudiDiv;
             modGUI1.ChiudiDiv;
 			HTP.BodyClose;
 		HTP.HtmlClose;
 end;
 
-procedure EsitoNegativoUtenti(
-    idSessione NUMBER DEFAULT 0
-    ) is
+procedure EsitoNegativoUtenti
+ is
+	idSessione NUMBER(5) := modgui1.get_id_sessione();
     begin
         modGUI1.ApriPagina('EsitoPositivoUtenti',idSessione);
-        modGUI1.Header(idSessione);
+        if idSessione IS NULL then
+            modGUI1.Header(0);
+		else
+				modGUI1.Header(idSessione);
+		end if;
         htp.br;htp.br;htp.br;htp.br;htp.br;htp.br;
             modGUI1.ApriDiv('class="w3-modal-content w3-card-4 w3-animate-zoom w3-padding-large" style="max-width:450px"');
                 modGUI1.ApriDiv('class="w3-center"');
                 htp.print('<h1>Operazione NON eseguita</h1>');
-                MODGUI1.collegamento('Torna al menu','ListaUtenti?idSessione='||idSessione||'','w3-button w3-block w3-black w3-section w3-padding');
+                MODGUI1.collegamento('Torna al menu','ListaUtenti?','w3-button w3-block w3-black w3-section w3-padding');
                 modGUI1.ChiudiDiv;
             modGUI1.ChiudiDiv;
 			HTP.BodyClose;
@@ -461,7 +460,6 @@ procedure EsitoNegativoUtenti(
 end;
 
 PROCEDURE VisualizzaUtente (
-    idSessione NUMBER DEFAULT 0,
 	utenteID NUMBER
 )
 IS
@@ -479,6 +477,7 @@ IS
 	NomeTutore UTENTI.Nome%TYPE;
     CognomeTutore UTENTI.Cognome%TYPE;
 	idTutoreUtente UTENTI.idutente%TYPE;
+	idSessione NUMBER(5) := modgui1.get_id_sessione();
 
 
 BEGIN
@@ -523,7 +522,11 @@ BEGIN
 
 		MODGUI1.ApriPagina('Profile utente', idSessione);
 		HTP.BodyOpen;
-		MODGUI1.Header(idSessione);
+		if idSessione IS NULL then
+            modGUI1.Header(0);
+		else
+				modGUI1.Header(idSessione);
+		end if;
 		modgui1.apridiv('class="w3-modal-content w3-card-4 w3-animate-zoom w3-padding-large" style="max-width:600px; margin-top:110px"');
 		HTP.header(2, 'Profilo utente');
 		HTP.tableopen;
@@ -579,21 +582,25 @@ BEGIN
 		end if;
 		HTP.tableClose;
 		if idSessione = 1 then
-		MODGUI1.Collegamento('Modifica', 'ModificaUtente?idSessione='||idSessione||'&utenteID='||utenteID, 'w3-button w3-blue w3-margin');
+		MODGUI1.Collegamento('Modifica', 'ModificaUtente?utenteID='||utenteID, 'w3-button w3-blue w3-margin');
 			MODGUI1.Collegamento('Elimina',
-				'EliminaUtente?idSessione='||idSessione||'&utenteID='||utenteID,
+				'EliminaUtente?utenteID='||utenteID,
 				'w3-button w3-red w3-margin',
 				'return confirm(''Sei sicuro di voler eliminare il profilo di '||NomeUtente||' '||CognomeUtente||'?'')'
 			);
 		end if;
-		MODGUI1.collegamento('Torna al menu','ListaUtenti?idSessione='||idSessione||'','w3-button w3-block w3-black w3-section w3-padding');
+		MODGUI1.collegamento('Torna al menu','ListaUtenti','w3-button w3-block w3-black w3-section w3-padding');
 		MODGUI1.ChiudiDiv;
 		HTP.BodyClose;
 		HTP.HtmlClose;
 	ELSE
 		MODGUI1.ApriPagina('Utente non trovato', idSessione);
 		HTP.BodyOpen;
-
+		if idSessione IS NULL then
+            modGUI1.Header(0);
+		else
+				modGUI1.Header(idSessione);
+		end if;
 		HTP.PRN('Utente non trovato');
 
 		HTP.BodyClose;
@@ -602,7 +609,6 @@ BEGIN
 END;
 
 PROCEDURE ModificaUtente (
-    idSessione NUMBER DEFAULT 0,
 	utenteID NUMBER DEFAULT NULL
 )
 IS
@@ -621,6 +627,7 @@ IS
     CognomeTutore UTENTI.Cognome%TYPE;
 	idTutoreUtente UTENTI.idutente%TYPE;
 	varidTutore UTENTI.idutente%TYPE;
+	idSessione NUMBER(5) := modgui1.get_id_sessione();
 
 BEGIN
 
@@ -660,11 +667,14 @@ BEGIN
 
 		MODGUI1.ApriPagina('Profile utente', idSessione);
 		HTP.BodyOpen;
-		MODGUI1.Header(idSessione);
+		if idSessione IS NULL then
+            modGUI1.Header(0);
+		else
+				modGUI1.Header(idSessione);
+		end if;
 		modgui1.apridiv('class="w3-modal-content w3-card-4 w3-animate-zoom w3-padding-large" style="max-width:600px; margin-top:110px"');
 		HTP.header(2, 'Modifica utente');
 		MODGUI1.ApriForm('ModificaDatiUtente');
-		HTP.FORMHIDDEN('idSessione',idSessione);
 		HTP.FORMHIDDEN('utenteID',utenteID);
 		MODGUI1.Label('Nome*');
 		MODGUI1.InputText('nomeNew', 'Nome utente', 1, NomeUtente);
@@ -675,19 +685,15 @@ BEGIN
 		MODGUI1.Label('Data nascita*');
 		MODGUI1.InputDate('dataNascita', 'dataNascitaNew', 1, DataNascitaUtente);
 		HTP.BR;
-		if temp3 = 0 then
-			MODGUI1.ApriDiv('style="margin-left: 2%; margin-right: 2%; display: none" id="third"');
-		else 
-			MODGUI1.ApriDiv('style="margin-left: 2%; margin-right: 2%; display: block" id="third"');
-		end if;
 		modgui1.label('Tutore*');
 		modgui1.selectopen('utenteTutoreNew', 'idutentetutore');
+		MODGUI1.SelectOption(0, 'Tutore non necessario', 0);
 		for utente in (select idutente from utenti)
 		loop
 			select idutente, nome, cognome
 			into varidTutore, NomeTutore, CognomeTutore
 			from utenti
-			where idutente=utente.idutente;
+			where idutente=utente.idutente and utenteid != utente.idutente;
 			if idTutoreUtente = varidTutore then 
 				MODGUI1.SelectOption(varidTutore, ''|| NomeTutore ||' '||CognomeTutore||'', 1);
 			else
@@ -695,7 +701,6 @@ BEGIN
 			end if;
 		end loop;
 		modgui1.selectclose();
-		modgui1.chiudiDiv;
 		HTP.BR;
 		MODGUI1.Label('Indirizzo*');
 		MODGUI1.InputText('indirizzoNew', 'Indirizzo', 1, IndirizzoUtente);
@@ -742,7 +747,7 @@ BEGIN
 		MODGUI1.ChiudiForm;
 		MODGUI1.Collegamento(
             'Annulla',
-			'VisualizzaUtente?idSessione='||idSessione||'&utenteID='||utenteID,
+			'VisualizzaUtente?utenteID='||utenteID,
 			'w3-button w3-block w3-black w3-section w3-padding'
         );
 		MODGUI1.ChiudiDiv;
@@ -776,22 +781,6 @@ BEGIN
 					}
 				}
 			}
-			const checkNascita = document.getElementById("dataNascita");
-			const divTutore = document.getElementById("third")
-			checkNascita.addEventListener("change", (event) => {
-				let start = new Date(checkNascita.value);
-				let now = Date.now()
-  				let elapsed =  now - start;
-				let age = Math.floor(((((elapsed / 1000) / 60) / 60) /24) / 365);
-				if (age < 18) {
-					divTutore.style.display = "block"
-					document.getElementById("idutentetutore").disabled = false;
-				}
-				else {
-					divTutore.style.display = "none"
-					document.getElementById("idutentetutore").disabled = true;
-				}
-			});
         </script>');
 
 		HTP.BodyClose;
@@ -799,7 +788,11 @@ BEGIN
 	ELSE
 		MODGUI1.ApriPagina('Utente non trovato', idSessione);
 		HTP.BodyOpen;
-
+		if idSessione IS NULL then
+            modGUI1.Header(0);
+		else
+				modGUI1.Header(idSessione);
+		end if;
 		HTP.PRN('Utente non trovato');
 
 		HTP.BodyClose;
@@ -808,7 +801,6 @@ BEGIN
 END;
 
 PROCEDURE ModificaDatiUtente (
-	idSessione NUMBER DEFAULT 0,
 	utenteID NUMBER,
 	nomeNew VARCHAR2 DEFAULT NULL,
 	cognomeNew VARCHAR2 DEFAULT NULL,
@@ -832,6 +824,7 @@ PROCEDURE ModificaDatiUtente (
 	temp5 NUMBER(10) := 0;
 	EmailUtente UTENTI.Email%TYPE;
 	RecapitoTelefonicoUtente UTENTI.RecapitoTelefonico%TYPE;
+	idSessione NUMBER(5) := modgui1.get_id_sessione();
 
 BEGIN
 
@@ -934,16 +927,15 @@ BEGIN
 	 
 	IF SQL%FOUND THEN
 		commit;
-		EsitoPositivoUtenti(idSessione);
+		EsitoPositivoUtenti;
 	ELSE
-		EsitoNegativoUtenti(idSessione);
+		EsitoNegativoUtenti;
 	END IF;
 
 
 END;
 
 PROCEDURE EliminaUtente(
-	idSessione NUMBER DEFAULT 0,
 	utenteID NUMBER
 )
 IS
@@ -955,28 +947,31 @@ BEGIN
 
 	IF SQL%FOUND THEN
 		commit;
-		EsitoPositivoUtenti(idSessione);
+		EsitoPositivoUtenti;
 	ELSE
-		EsitoNegativoUtenti(idSessione);
+		EsitoNegativoUtenti;
 	END IF;
 
 END;
 
-PROCEDURE ListaUtenti(
-	idSessione NUMBER default 0
-)
+PROCEDURE ListaUtenti
 is
+idSessione NUMBER(5) := modgui1.get_id_sessione();
 begin
         modGUI1.ApriPagina('Lista utenti',idSessione);
-        modGUI1.Header(idSessione);
+        if idSessione IS NULL then
+            modGUI1.Header(0);
+		else
+				modGUI1.Header(idSessione);
+		end if;
 		modGUI1.ApriDiv('class="w3-center" style="margin-top:110px;"');
         htp.prn('<h1>Lista utenti</h1>');
-		 if idSessione = 1
+		if hasRole(idSessione, 'DBA') or hasRole(idSessione, 'SU')
         then
-            modGUI1.Collegamento('Inserisci','InserisciUtente?idSessione='||idSessione||'','w3-btn w3-round-xxlarge w3-black');
+            modGUI1.Collegamento('Inserisci','InserisciUtente','w3-btn w3-round-xxlarge w3-black');
             htp.print('&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;');
         end if;
-            modGUI1.Collegamento('Statistiche','StatisticheUtenti?idSessione='||idSessione||'','w3-btn w3-round-xxlarge w3-black');
+            modGUI1.Collegamento('Statistiche','StatisticheUtenti','w3-btn w3-round-xxlarge w3-black');
         modGUI1.ChiudiDiv;
         htp.br;
         modGUI1.ApriDiv('class="w3-row w3-container"');
@@ -988,14 +983,14 @@ begin
 							htp.br;
 						modGUI1.ChiudiDiv;
 						modGUI1.Collegamento('Visualizza',
-                            'VisualizzaUtente?idSessione='||idSessione||'&utenteID='||utente.Idutente,
+                            'VisualizzaUtente?utenteID='||utente.Idutente,
                             'w3-margin w3-green w3-button');
-                        if idSessione = 1 then
+                        if hasRole(idSessione, 'DBA') or hasRole(idSessione, 'GO') then
 						modGUI1.Collegamento('Modifica',
-                            'ModificaUtente?idSessione='||idSessione||'&utenteID='||utente.Idutente,
+                            'ModificaUtente?utenteID='||utente.Idutente,
                             'w3-margin w3-blue w3-button');
                         modGUI1.Collegamento('Elimina',
-                            'EliminaUtente?idSessione='||idSessione||'&utenteID='||utente.Idutente,
+                            'EliminaUtente?utenteID='||utente.Idutente,
                             'w3-red w3-margin w3-button',
 							'return confirm(''Sei sicuro di voler eliminare il profilo di '||utente.nome||' '||utente.cognome||'?'')'
 							);
@@ -1006,24 +1001,27 @@ begin
         modGUI1.chiudiDiv;
 end;
 
-procedure etaMediaUtenti(
-	idSessione NUMBER DEFAULT 0
-)
+procedure etaMediaUtenti
 is
 	tempMedia NUMBER := 0;
 	res INTEGER := 0;
+	idSessione NUMBER(5) := modgui1.get_id_sessione();
 	BEGIN
 		select AVG(to_number((EXTRACT(YEAR FROM dataNascita)))) into tempMedia from utenti;
 		res := to_number((EXTRACT(YEAR FROM SYSDATE()))) - tempMedia;
 
 		modGUI1.ApriPagina('EsitoPositivoUtenti',idSessione);
-        modGUI1.Header(idSessione);
+         if idSessione IS NULL then
+            modGUI1.Header(0);
+		else
+				modGUI1.Header(idSessione);
+		end if;
         htp.br;htp.br;htp.br;htp.br;htp.br;htp.br;
             modGUI1.ApriDiv('class="w3-modal-content w3-card-4 w3-animate-zoom w3-padding-large" style="max-width:450px"');
                 modGUI1.ApriDiv('class="w3-center"');
                 htp.print('<h1>Operazione eseguita correttamente </h1>');
 				htp.print('<h3>Il risultato è '||res||'</h3>');
-                MODGUI1.collegamento('Torna alle statistiche','StatisticheUtenti?idSessione='||idSessione||'','w3-button w3-block w3-black w3-section w3-padding');
+                MODGUI1.collegamento('Torna alle statistiche','StatisticheUtenti','w3-button w3-block w3-black w3-section w3-padding');
                 modGUI1.ChiudiDiv;
             modGUI1.ChiudiDiv;
 			HTP.BodyClose;
@@ -1032,7 +1030,6 @@ is
 END;
 
 procedure sommaTitoli(
-	idSessione NUMBER DEFAULT 0,
 	dataInizioFun VARCHAR2 DEFAULT NULL,
 	dataFineFun VARCHAR2 DEFAULT NULL,
 	utenteID NUMBER DEFAULT 0
@@ -1042,6 +1039,7 @@ is
 	dataFine DATE := TO_DATE(dataFineFun default NULL on conversion error, 'YYYY-MM-DD');
 	tempMedia NUMBER := 0;
 	res NUMBER := 0;
+	idSessione NUMBER(5) := modgui1.get_id_sessione();
 	BEGIN
 		if utenteID = 0 then
 			select COUNT(*)
@@ -1056,7 +1054,11 @@ is
 		end if;
 
 		modGUI1.ApriPagina('Statistiche utenti',idSessione);
-        modGUI1.Header(idSessione);
+         if idSessione IS NULL then
+            modGUI1.Header(0);
+		else
+				modGUI1.Header(idSessione);
+		end if;
         htp.br;htp.br;htp.br;htp.br;htp.br;htp.br;
             modGUI1.ApriDiv('class="w3-modal-content w3-card-4 w3-animate-zoom w3-padding-large" style="max-width:450px"');
                 modGUI1.ApriDiv('class="w3-center"');
@@ -1066,7 +1068,7 @@ is
 				else
 					htp.print('<h3>Il risultato è 0</h3>');
 				end if;
-                MODGUI1.collegamento('Torna alle statistiche','StatisticheUtenti?idSessione='||idSessione||'','w3-button w3-block w3-black w3-section w3-padding');
+                MODGUI1.collegamento('Torna alle statistiche','StatisticheUtenti','w3-button w3-block w3-black w3-section w3-padding');
                 modGUI1.ChiudiDiv;
             modGUI1.ChiudiDiv;
 			HTP.BodyClose;
@@ -1074,7 +1076,6 @@ is
 END;
 
 procedure mediaCostoTitoli(
-	idSessione NUMBER DEFAULT 0,
 	dataInizioFun VARCHAR2 DEFAULT NULL,
 	dataFineFun VARCHAR2 DEFAULT NULL,
 	utenteID NUMBER DEFAULT 0
@@ -1084,6 +1085,7 @@ is
 	dataFine DATE := TO_DATE(dataFineFun default NULL on conversion error, 'YYYY-MM-DD');
 	tempMedia NUMBER := 0;
 	res NUMBER(6) := 0;
+	idSessione NUMBER(5) := modgui1.get_id_sessione();
 	BEGIN
 		if utenteID = 0 then
 			select AVG(COSTOTOTALE)
@@ -1100,7 +1102,11 @@ is
 		end if;
 
 		modGUI1.ApriPagina('Statistiche utenti',idSessione);
-        modGUI1.Header(idSessione);
+         if idSessione IS NULL then
+            modGUI1.Header(0);
+		else
+				modGUI1.Header(idSessione);
+		end if;
         htp.br;htp.br;htp.br;htp.br;htp.br;htp.br;
             modGUI1.ApriDiv('class="w3-modal-content w3-card-4 w3-animate-zoom w3-padding-large" style="max-width:450px"');
                 modGUI1.ApriDiv('class="w3-center"');
@@ -1110,7 +1116,7 @@ is
 				else
 					htp.print('<h3>Il risultato è 0</h3>');
 				end if;
-                MODGUI1.collegamento('Torna alle statistiche','StatisticheUtenti?idSessione='||idSessione||'','w3-button w3-block w3-black w3-section w3-padding');
+                MODGUI1.collegamento('Torna alle statistiche','StatisticheUtenti','w3-button w3-block w3-black w3-section w3-padding');
                 modGUI1.ChiudiDiv;
             modGUI1.ChiudiDiv;
 			HTP.BodyClose;
@@ -1118,7 +1124,6 @@ is
 END;
 
 procedure NumeroVisiteMusei(
-	idSessione NUMBER DEFAULT 0,
 	dataInizioFun VARCHAR2 DEFAULT NULL,
 	dataFineFun VARCHAR2 DEFAULT NULL,
 	utenteID NUMBER DEFAULT 0
@@ -1128,6 +1133,7 @@ is
 	dataFine DATE := TO_DATE(dataFineFun default NULL on conversion error, 'YYYY-MM-DD');
 	tempMedia NUMBER := 0;
 	res NUMBER(6) := 0;
+	idSessione NUMBER(5) := modgui1.get_id_sessione();
 	BEGIN
 		if utenteID = 0 then
 			select COUNT(*)
@@ -1142,7 +1148,11 @@ is
 		end if;
 
 		modGUI1.ApriPagina('Statistiche utenti',idSessione);
-        modGUI1.Header(idSessione);
+        if idSessione IS NULL then
+            modGUI1.Header(0);
+		else
+				modGUI1.Header(idSessione);
+		end if;
         htp.br;htp.br;htp.br;htp.br;htp.br;htp.br;
             modGUI1.ApriDiv('class="w3-modal-content w3-card-4 w3-animate-zoom w3-padding-large" style="max-width:450px"');
                 modGUI1.ApriDiv('class="w3-center"');
@@ -1152,7 +1162,7 @@ is
 				else
 					htp.print('<h3>Il risultato è 0</h3>');
 				end if;
-                MODGUI1.collegamento('Torna alle statistiche','StatisticheUtenti?idSessione='||idSessione||'','w3-button w3-block w3-black w3-section w3-padding');
+                MODGUI1.collegamento('Torna alle statistiche','StatisticheUtenti','w3-button w3-block w3-black w3-section w3-padding');
                 modGUI1.ChiudiDiv;
             modGUI1.ChiudiDiv;
 			HTP.BodyClose;
@@ -1160,7 +1170,6 @@ is
 END;
 
 procedure NumeroMedioTitoli(
-	idSessione NUMBER DEFAULT 0,
 	dataInizioFun VARCHAR2 DEFAULT NULL,
 	dataFineFun VARCHAR2 DEFAULT NULL
 )
@@ -1170,6 +1179,7 @@ is
 	tempMedia NUMBER := 0;
 	res NUMBER(6) := 0;
 	res2 NUMBER(6) := 0;
+	idSessione NUMBER(5) := modgui1.get_id_sessione();
 	BEGIN
 
 		select COUNT(*)
@@ -1183,7 +1193,11 @@ is
 
 
 		modGUI1.ApriPagina('Statistiche utenti',idSessione);
-        modGUI1.Header(idSessione);
+        if idSessione IS NULL then
+            modGUI1.Header(0);
+		else
+				modGUI1.Header(idSessione);
+		end if;
         htp.br;htp.br;htp.br;htp.br;htp.br;htp.br;
             modGUI1.ApriDiv('class="w3-modal-content w3-card-4 w3-animate-zoom w3-padding-large" style="max-width:450px"');
                 modGUI1.ApriDiv('class="w3-center"');
@@ -1193,7 +1207,7 @@ is
 				else
 					htp.print('<h3>Il risultato è 0</h3>');
 				end if;
-                MODGUI1.collegamento('Torna alle statistiche','StatisticheUtenti?idSessione='||idSessione||'','w3-button w3-block w3-black w3-section w3-padding');
+                MODGUI1.collegamento('Torna alle statistiche','StatisticheUtenti','w3-button w3-block w3-black w3-section w3-padding');
                 modGUI1.ChiudiDiv;
             modGUI1.ChiudiDiv;
 			HTP.BodyClose;
@@ -1201,17 +1215,20 @@ is
 END;
 
 
-procedure StatisticheUtenti(
-	idSessione NUMBER default 0
-)
+procedure StatisticheUtenti
 is
 	nomeutente utenti.nome%TYPE;
 	cognomeutente utenti.cognome%TYPE;
 	varidutente utenti.Idutente%TYPE;
+	idSessione NUMBER(5) := modgui1.get_id_sessione();
 begin
 		MODGUI1.ApriPagina('Statistiche utente', idSessione);
 			HTP.BodyOpen;
-			MODGUI1.Header(idSessione);
+			if idSessione IS NULL then
+            modGUI1.Header(0);
+		else
+				modGUI1.Header(idSessione);
+		end if;
 			modgui1.apridiv('class="w3-modal-content w3-card-4 w3-animate-zoom" style="margin-top:110px"');
 			modgui1.apriTabella('w3-table w3-striped w3-centered');
 				modgui1.apriRigaTabella;
@@ -1222,7 +1239,6 @@ begin
 
 				modgui1.apriRigaTabella;
 					MODGUI1.ApriForm('etaMediaUtenti');
-					HTP.FORMHIDDEN('idSessione', idSessione);
 					modgui1.apriElementoTabella;
 						modgui1.apridiv('class="w3-padding-24"');
 						modgui1.elementoTabella('Tutti gli utenti');
@@ -1241,7 +1257,6 @@ begin
 
 				modgui1.apriRigaTabella;
 					MODGUI1.ApriForm('sommaTitoli');
-					HTP.FORMHIDDEN('idSessione', idSessione);
 					modgui1.apriElementoTabella;
 						modgui1.label('Utente');
 							modgui1.selectopen('utenteID', 'idutenteSommaTitoli');
@@ -1275,7 +1290,6 @@ begin
 
 				modgui1.apriRigaTabella;
 					MODGUI1.ApriForm('mediaCostoTitoli');
-					HTP.FORMHIDDEN('idSessione', idSessione);
 					modgui1.apriElementoTabella;
 						modgui1.label('Utente');
 							modgui1.selectopen('utenteID', 'idutenteSommaTitoli');
@@ -1309,7 +1323,6 @@ begin
 
 				modgui1.apriRigaTabella;
 					MODGUI1.ApriForm('NumeroVisiteMusei');
-					HTP.FORMHIDDEN('idSessione', idSessione);
 					modgui1.apriElementoTabella;
 						modgui1.label('Utente');
 							modgui1.selectopen('utenteID', 'idutenteSommaTitoli');
@@ -1343,7 +1356,6 @@ begin
 
 				modgui1.apriRigaTabella;
 					MODGUI1.ApriForm('NumeroMedioTitoli');
-					HTP.FORMHIDDEN('idSessione', idSessione);
 					modgui1.apriElementoTabella;
 						modgui1.apridiv('class="w3-padding-24"');
 						modgui1.elementoTabella('Tutti gli utenti');
@@ -1370,7 +1382,7 @@ begin
 
 			modgui1.chiudiTabella;
 
-			MODGUI1.collegamento('Torna al menu','ListaUtenti?idSessione='||idSessione||'','w3-button w3-block w3-black w3-section w3-padding');
+			MODGUI1.collegamento('Torna al menu','ListaUtenti?','w3-button w3-block w3-black w3-section w3-padding');
 		HTP.BodyClose;
 		HTP.HtmlClose;
 end;

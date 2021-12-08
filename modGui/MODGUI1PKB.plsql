@@ -54,10 +54,11 @@ CREATE OR REPLACE PACKAGE BODY modGUI1 as
  
 
     procedure BannerUtente (idSessione int default 0)is /*Banner Log-In o utente */
+    sessionID Sessioni.LoginID%TYPE := modgui1.get_id_sessione();
     nome varchar2(50) default 'Sconosciuto';
     impiego varchar(50) default 'Sconosciuto';
     begin
-        if (idSessione = 0) then
+        if (sessionID = 0) then
             modGUI1.ApriDiv('class="w3-container w3-right w3-large"');
                 htp.prn('
                     <button onclick="document.getElementById(''id01'').style.display=''block''" class="w3-margin w3-button w3-black w3-hover-white w3-large">LOG IN</button>
@@ -66,7 +67,7 @@ CREATE OR REPLACE PACKAGE BODY modGUI1 as
             modGUI1.Login;
         else
             modGUI1.ApriDiv('class="w3-right w3-padding"  style="max-height:80px; width:400px; margin-top:5px;"');
-                SELECT Username,Ruolo INTO nome,impiego FROM UtentiLogin WHERE idUtenteLogin=idSessione;
+                SELECT Username,Ruolo INTO nome,impiego FROM UtentiLogin WHERE idUtenteLogin=sessionID;
                 modGUI1.ApriDiv('class="w3-threequarter" style="text-align:right;"');
                     htp.prn(nome);
                     htp.br;
@@ -75,8 +76,6 @@ CREATE OR REPLACE PACKAGE BODY modGUI1 as
                 modGUI1.ApriDiv('class="w3-quarter w3-right w3-dropdown-hover"');
                     htp.prn('<img src="https://www.sologossip.it/wp-content/uploads/2020/12/clementino-sologossip.jpg" style="margin-left:6px; width:60px; height:60px;">');
                     modGUI1.ApriDiv('class="w3-dropdown-content" style="background-color:transparent;position:fixed;z-index:1;"');
-                        -- !FIXME: punta a radice.Home, quindi se radice != /apex/utente/webpages non riporta alla home
-                        --modGUI1.Collegamento('LOG OUT','Home','w3-button w3-red w3-small"');
                         modGUI1.ApriForm('RimozioneSessione', 'formLogOut', 'w3-container', 1);
                             htp.FormHidden('idSessione', modGUI1.get_id_sessione());
                             htp.prn('<button class="w3-button w3-red w3-small">LOG OUT</button>');
@@ -121,7 +120,6 @@ CREATE OR REPLACE PACKAGE BODY modGUI1 as
     PROCEDURE set_cookie (idSessione IN UTENTILOGIN.idUtenteLogin%TYPE, url VARCHAR2 DEFAULT '') IS
     actualURL VARCHAR(1024);
     begin
-        -- htp.prn('<h1>'||idSessione||'</h1>');
         owa_util.mime_header('text/html', FALSE);
         owa_cookie.send(
             name=>'SESSION_ID',

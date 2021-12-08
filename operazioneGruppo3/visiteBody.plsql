@@ -420,6 +420,20 @@ CREATE OR REPLACE PACKAGE BODY packagevisite AS
         htp.prn('</div>');
         htp.prn('<div class="w3-row">');
         htp.prn('<div class="w3-col s4 w3-center">');
+        htp.prn('<div class="w3-margin">È un abbonamento: </div>');
+        htp.prn('</div>');
+        htp.prn('<div class="w3-col s8 w3-center">');
+        modgui1.inputcheckbox(
+                             '',
+                             'is_abbonamento',
+                             is_abbonamento,
+                             0,
+                             1
+        );
+        htp.prn('</div>');
+        htp.prn('</div>');
+        htp.prn('<div class="w3-row">');
+        htp.prn('<div class="w3-col s4 w3-center">');
         htp.prn('<div class="w3-margin">È un biglietto: </div>');
         htp.prn('</div>');
         htp.prn('<div class="w3-col s8 w3-center">');
@@ -472,6 +486,9 @@ CREATE OR REPLACE PACKAGE BODY packagevisite AS
         END IF;
         IF is_biglietto = 1 THEN
             lv_where := lv_where || ' AND EXISTS(SELECT * FROM biglietti WHERE biglietti.IdTipologiaIng=view_visite.IdTipologiaIng)';
+        END IF;
+        IF is_abbonamento = 1 THEN
+            lv_where := lv_where || ' AND EXISTS(SELECT * FROM abbonamenti WHERE abbonamenti.IdTipologiaIng=view_visite.IdTipologiaIng)';
         END IF;
         v_base_query := v_base_query
                         || lv_where

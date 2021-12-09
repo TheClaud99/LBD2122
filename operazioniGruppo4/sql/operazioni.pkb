@@ -1,6 +1,60 @@
 SET DEFINE OFF;
 Create or replace PACKAGE body operazioniGruppo4 as
 /*visualizza tutti i campi estivi*/
+procedure menutariffe
+(
+   idCampo IN number default 0,
+   idsessione IN number default 0
+)
+is 
+
+begin 
+
+ htp.prn('<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css"> ');
+   modGUI1.ApriPagina(' tariffe Campi Estivi');
+   modGUI1.Header();
+   htp.br;htp.br;htp.br;htp.br;htp.br;
+   htp.prn('<h1 Align="center">Campi Estivi</h1>');
+   modGUI1.ApriDiv('class="w3-row w3-container"');
+    FOR tariffa IN (Select IdTariffa,Prezzo,Etaminima,Etamassima,CAMPOESTIVO,Eliminato from TARIFFECAMPIESTIVI)
+    LOOP
+        modGUI1.ApriDiv('class="w3-col l4 w3-padding-large w3-center"');
+            modGUI1.ApriDiv('class="w3-card-4" style="height:600px;"');
+                modGUI1.ApriDiv('class="w3-container w3-center"');
+               
+                  HTP.TABLEOPEN(CALIGN  => 'center' );
+                  HTP.TableRowOpen;
+                  HTP.TableData('IdTariffa',CATTRIBUTES  =>'style="font-weight:bold; text-align: center"');
+                  HTP.TableData('Prezzo ',CATTRIBUTES  =>'style="font-weight:bold; text-align: center"');
+                  HTP.TableData('Età minima',CATTRIBUTES  =>'style="font-weight:bold; text-align: center"');
+                  HTP.TableData('Età massima',CATTRIBUTES  =>'style="font-weight:bold; text-align: center"');
+                  HTP.TableRowClose;
+
+                  HTP.TableRowOpen;
+                  HTP.TableData(tariffa.IdTariffa ,'center');
+                  HTP.TableData(tariffa.Prezzo || '€','center');
+                  HTP.TableData(tariffa.Etaminima,'center');
+                  HTP.TableData(tariffa.Etamassima,'center');
+
+      
+                  HTP.TableRowClose;
+    
+                  HTP.TableClose;
+                modGUI1.ChiudiDiv;      
+               
+                modGUI1.ApriDiv('class="w3-center"');
+                   htp.prn('<h1 Align="center" style="font-size:170%;">pagamenti CampiEstivi</h1>');
+                     modGUI1.Collegamento('inserisci pagamento',
+                            'operazioniGruppo4.InserisciPagamentoCampiEstivi?datapagamento=&tariffa=&acquirente=',
+                            'w3-green w3-margin w3-button');
+                   
+                modgui1.ChiudiDiv;
+            modGUI1.ChiudiDiv;
+        modGUI1.ChiudiDiv;
+    END LOOP;
+    modGUI1.chiudiDiv;
+   end;
+
 procedure menucampiestivi
 (
    idsessione IN number default 0
@@ -29,11 +83,11 @@ procedure menucampiestivi
    MODGUI1.ChiudiDiv();
    MODGUI1.ChiudiDiv();
    modGUI1.ApriDiv('class="w3-row w3-container"');
+   
     FOR campo IN (Select IdCampiEstivi,Nome,Stato,DataInizio,DataConclusione,Museo from CAMPIESTIVI)
     LOOP
         modGUI1.ApriDiv('class="w3-col l4 w3-padding-large w3-center"');
-            modGUI1.ApriDiv('class="w3-card-4" style="height:600px;"');
-                htp.prn('<img src="https://cdn.pixabay.com/photo/2016/10/22/15/32/water-1761027__480.jpg" alt="Alps" style="width:100%;">');
+            modGUI1.ApriDiv('class="w3-card-4" style="height:570px;"');
                 modGUI1.ApriDiv('class="w3-container w3-center"');
                
                   HTP.TABLEOPEN(CALIGN  => 'center' );
@@ -56,10 +110,15 @@ procedure menucampiestivi
     
                   HTP.TableClose;
                 modGUI1.ChiudiDiv;      
-               modGUI1.Collegamento('VisualizzaCampiestivi',
+               modGUI1.Collegamento('Visualizza',
                             'operazioniGruppo4.visualizzacampiestivi?campiestiviId='||campo.IdCampiEstivi,
                             'w3-green w3-margin w3-button');
-               
+               modGUI1.Collegamento('tariffe',
+               'operazioniGruppo4.menutariffe?idCampo='||campo.IdCampiEstivi||'&idsessione='||idsessione,
+               'w3-green w3-margin w3-button');
+
+                   
+                modgui1.ChiudiDiv;
             modGUI1.ChiudiDiv;
         modGUI1.ChiudiDiv;
     END LOOP;
@@ -1386,13 +1445,13 @@ begin
                 htp.br;
             modgui1.chiudidiv;
 
-            mogui1.apriform(operazioniGruppo4.gr4||'ControllaPagamentoCampiEstivi');
+            modgui1.apriform(operazioniGruppo4.gr4||'ControllaPagamentoCampiEstivi', null, 'w3-container');
             htp.formhidden('dataPagamento', dataPagamento);
             htp.formhidden('tariffa', tariffa);
             htp.formhidden('acquirente', acquirente);
             modgui1.inputsubmit('Conferma');
             modgui1.chiudiform;
-            modgui1.apriform(operazioniGruppo4.gr4||'InserisciPagamentoCampiEstivi');
+            modgui1.apriform(operazioniGruppo4.gr4||'InserisciPagamentoCampiEstivi', null, 'w3-container');
             htp.formhidden('dataPagamento', dataPagamento);
             htp.formhidden('tariffa', tariffa);
             htp.formhidden('acquirente', acquirente);
@@ -1447,8 +1506,7 @@ begin
     select count(*) 
     into found
     from PAGAMENTICAMPIESTIVI
-    where PAGAMENTICAMPIESTIVI.IdPagamento = idPagamento 
-        and PAGAMENTICAMPIESTIVI.eliminato = 0;
+    where PAGAMENTICAMPIESTIVI.IdPagamento = idPagamento;
 
     htp.br;htp.br;htp.br;htp.br;htp.br;htp.br;
     if found > 0 then
@@ -1543,6 +1601,8 @@ begin
     htp.htmlclose;
   
 end;
+/*TARIFFE CAMPI ESTIVI---------------------------------------------------------*/
+
 
 end operazioniGruppo4;
 -- SET DEFINE ON;

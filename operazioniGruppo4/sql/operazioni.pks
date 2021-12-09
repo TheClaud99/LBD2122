@@ -1,5 +1,9 @@
 create or replace package operazioniGruppo4 as
 
+gr4 CONSTANT VARCHAR2(25) := 'operazioniGruppo4.';
+menu_m CONSTANT VARCHAR2(25) := 'menumusei';
+menu_ce CONSTANT VARCHAR2(25) := 'menucampiestivi';
+
 /*OPERAZIONI CAMPIESTIVI*/
 procedure menucampiestivi
 (
@@ -168,4 +172,40 @@ procedure etamediatariffe(
    sessionID IN number default 0,
    CampoestivoId IN CAMPIESTIVI.IDCAMPIESTIVI%TYPE
 );
+
+procedure InserisciPagamentoCampiEstivi(
+    dataPagamento in varchar2 default NULL,
+    tariffa in PAGAMENTICAMPIESTIVI.Tariffa%type default 0, 
+    acquirente in PAGAMENTICAMPIESTIVI.Aquirente%type default 0 
+);
+
+procedure ConfermaPagamentoCampiEstivi(
+    dataPagamento in varchar2 default NULL,
+    tariffa in PAGAMENTICAMPIESTIVI.Tariffa%type default 0, 
+    acquirente in PAGAMENTICAMPIESTIVI.Aquirente%type default 0
+);
+
+procedure ControllaPagamentoCampiEstivi(
+    dataPagamento in PAGAMENTICAMPIESTIVI.DataPagamento%type, 
+    tariffa in PAGAMENTICAMPIESTIVI.Tariffa%type, 
+    acquirente in PAGAMENTICAMPIESTIVI.Acquirente%type
+);
+
+procedure VisualizzaPagamentoCampiEstivi(
+    idPagamento in PAGAMENTICAMPIESTIVI.IdPagamento%type
+);
+
+procedure CancellaPagamentoCampiEstivi(
+    idPagamento in PAGAMENTICAMPIESTIVI.IdPagamento%type
+);
+
+procedure MonitoraggioPeriodoPagamentoCampiEstivi(
+    dataInizio in PAGAMENTICAMPIESTIVI.DataPagamento%type default NULL,
+    dataFine in PAGAMENTICAMPIESTIVI.DataPagamento%type default NULL
+);
+
+procedure MonitoraggioPagamentiTariffaPagamentoCampiEstivi(
+    tariffa in PAGAMENTICAMPIESTIVI.Tariffa%type default 0
+);
+
 end operazioniGruppo4;

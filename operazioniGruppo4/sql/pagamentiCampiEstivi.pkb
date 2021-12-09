@@ -152,22 +152,24 @@ begin
     where PAGAMENTICAMPIESTIVI.IdPagamento = idPagamento 
         and PAGAMENTICAMPIESTIVI.eliminato = 0;
 
-
+    htp.br;htp.br;htp.br;htp.br;htp.br;htp.br;
     if found > 0 then
-        htp.tableopen;
-        for pagamento in (
-            select DataPagamento, Tariffa, Acquirente 
-            from PAGAMENTICAMPIESTIVI
-            where PAGAMENTICAMPIESTIVI.IdPagamento = idPagamento and e;
-        )
-        loop
-          htp.tablerowopen;
-          htp.tabledata(pagamento.DataPagamento);
-          htp.tabledata(pagamento.Tariffa);
-          htp.tabledata(pagamento.Acquirente);
-          htp.tablerowclose;
-        end loop
-        htp.tableclose;
+        modgui1.apridiv('class="w3-center"');
+            htp.tableopen;
+            for pagamento in (
+                select DataPagamento, Tariffa, Acquirente 
+                from PAGAMENTICAMPIESTIVI
+                where PAGAMENTICAMPIESTIVI.IdPagamento = idPagamento and e;
+            )
+            loop
+            htp.tablerowopen;
+            htp.tabledata(pagamento.DataPagamento);
+            htp.tabledata(pagamento.Tariffa);
+            htp.tabledata(pagamento.Acquirente);
+            htp.tablerowclose;
+            end loop
+            htp.tableclose;
+        modgui1.chiudidiv;
     else
         modgui1.ApriPagina('Pagamento non trovato');
         htp.prn('Pagamento non trovato');
@@ -194,6 +196,7 @@ begin
     modgui1.ApriPagina();
     modgui1.Header();
     htp.bodyopen;
+    htp.br;htp.br;htp.br;htp.br;htp.br;htp.br;
     modGUI1.ApriDiv('class="w3-modal-content w3-card-4" style="max-width:600px"');
 
     htp.tableopen;
@@ -211,6 +214,7 @@ begin
         htp.tablerowclose;
     end loop;
 
+    modgui1.chiudidiv;
     htp.tableclose;
     htp.bodyclose;
     htp.htmlclose;
@@ -226,6 +230,7 @@ begin
     modgui1.ApriPagina();
     modgui1.Header();
     htp.bodyopen;
+    htp.br;htp.br;htp.br;htp.br;htp.br;htp.br;
     modGUI1.ApriDiv('class="w3-modal-content w3-card-4" style="max-width:600px"');
   
     select count(IdPagamento) into pagamentiTariffa
@@ -233,6 +238,7 @@ begin
     where  PAGAMENTICAMPIESTIVI.Tariffa = tariffa;
 
     htp.prn(pagamentiTariffa);
+    modgui1.chiudidiv;
     
     htp.bodyclose;
     htp.htmlclose;

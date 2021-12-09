@@ -13,6 +13,11 @@ procedure menumusei
 (
    idsessione IN number default 0
 );
+procedure menutariffe
+(
+   idCampo IN number default 0,
+   idsessione IN number default 0
+);
 procedure inseriscicampiestivi
 (
    newNome in CAMPIESTIVI.Nome%TYPE default null,
@@ -146,6 +151,7 @@ procedure visitatorimedi
    Data1 VARCHAR2,
    Data2 VARCHAR2
 );
+
 /*---------statistiche CAMPI ESTIVI-----------*/
 procedure form1campiestivi
 (
@@ -176,13 +182,13 @@ procedure etamediatariffe(
 procedure InserisciPagamentoCampiEstivi(
     dataPagamento in varchar2 default NULL,
     tariffa in PAGAMENTICAMPIESTIVI.Tariffa%type default 0, 
-    acquirente in PAGAMENTICAMPIESTIVI.Aquirente%type default 0 
+    acquirente in PAGAMENTICAMPIESTIVI.Acquirente%type default 0 
 );
 
 procedure ConfermaPagamentoCampiEstivi(
     dataPagamento in varchar2 default NULL,
     tariffa in PAGAMENTICAMPIESTIVI.Tariffa%type default 0, 
-    acquirente in PAGAMENTICAMPIESTIVI.Aquirente%type default 0
+    acquirente in PAGAMENTICAMPIESTIVI.Acquirente%type default 0
 );
 
 procedure ControllaPagamentoCampiEstivi(

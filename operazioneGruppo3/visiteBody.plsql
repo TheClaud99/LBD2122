@@ -63,12 +63,14 @@ CREATE OR REPLACE PACKAGE BODY packagevisite AS
 
         htp.prn('<div class="w3-row">');
         htp.prn('<div class="w3-col s3 w3-center"><p>Utente:</p></div>');
-        htp.prn('<div class="w3-col s9 w3-center"><p>'
-                || nomeutente
-                || ' '
-                || cognomeutente
-                || '</p></div>');
-
+        htp.prn('<div class="w3-col s9 w3-center"><p>');
+        modgui1.collegamento(
+                            nomeutente
+                            || ' '
+                            || cognomeutente,
+                            'gruppo1.VisualizzaUtente?utenteID=' || idutenteselezionato
+        );
+        htp.prn('</p></div>');
         htp.prn('</div>');
         SELECT
             nome,

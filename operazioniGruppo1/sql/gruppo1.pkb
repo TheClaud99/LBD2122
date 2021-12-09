@@ -73,8 +73,6 @@ BEGIN
 	modgui1.apridiv('class="w3-modal-content w3-card-4 w3-animate-zoom w3-padding-large" style="max-width:600px; margin-top:110px"');
 	HTP.header(2, 'Inserisci utente');
 	MODGUI1.ApriForm('ConfermaDatiUtente');
-	HTP.FORMHIDDEN('idSessione',idSessione);
-
 	MODGUI1.Label('Nome*');
 	MODGUI1.InputText('nome', 'Nome utente', 1, nome);
 	HTP.BR;
@@ -403,18 +401,30 @@ BEGIN
 	THEN
 		-- faccio il commit dello statement precedente
 		commit;
-		EsitoPositivoUtenti;
+		modGUI1.RedirectEsito('Successo', 
+            'L''utente '||nome||' '||cognome||' è stato inserito correttamente', 
+            'Inserisci un nuovo utente', 'InserisciUtente', null,
+            'Torna al menu utenti', 'ListaUtenti', null);
 
 	ELSE
-		EsitoNegativoUtenti;
+		modGUI1.RedirectEsito('Errore', 
+            'L''utente '||nome||' '||cognome||' non è stato inserito', 
+            'Riprova', 'InserisciUtente', null,
+            'Torna al menu utenti', 'ListaUtenti', null);
 
 	END IF;
 
     EXCEPTION
       when EmailPresente then
-       EsitoNegativoUtenti;
+       modGUI1.RedirectEsito('Errore', 
+            'Email non valida', 
+            'Riprova', 'InserisciUtente', null,
+            'Torna al menu utenti', 'ListaUtenti', null);
     when TelefonoPresente then
-       EsitoNegativoUtenti;
+       modGUI1.RedirectEsito('Errore', 
+            'Recapito telefonico non valido', 
+            'Riprova', 'InserisciUtente', null,
+            'Torna al menu utenti', 'ListaUtenti', null);
 END;
 
 procedure EsitoPositivoUtenti
@@ -581,7 +591,7 @@ BEGIN
 			end if;
 		end if;
 		HTP.tableClose;
-		if idSessione = 1 then
+		if hasRole(idSessione, 'DBA') or hasRole(idSessione, 'SU') then
 		MODGUI1.Collegamento('Modifica', 'ModificaUtente?utenteID='||utenteID, 'w3-button w3-blue w3-margin');
 			MODGUI1.Collegamento('Elimina',
 				'EliminaUtente?utenteID='||utenteID,
@@ -594,17 +604,10 @@ BEGIN
 		HTP.BodyClose;
 		HTP.HtmlClose;
 	ELSE
-		MODGUI1.ApriPagina('Utente non trovato', idSessione);
-		HTP.BodyOpen;
-		if idSessione IS NULL then
-            modGUI1.Header(0);
-		else
-				modGUI1.Header(idSessione);
-		end if;
-		HTP.PRN('Utente non trovato');
-
-		HTP.BodyClose;
-		HTP.HtmlClose;
+		modGUI1.RedirectEsito('Errore', 
+            'Impossibile visualizzare l''utente selezionato', 
+            'Riprova', 'VisualizzaUtente?utenteID='||utenteID, null,
+            'Torna al menu utenti', 'ListaUtenti', null);
 	END IF;
 END;
 
@@ -635,7 +638,7 @@ BEGIN
 	into NomeUtente, CognomeUtente, DataNascitaUtente, IndirizzoUtente, EmailUtente, RecapitoTelefonicoUtente
 	from UTENTI
 	where IDUTENTE = utenteID;
-
+	
 	select count(*) into temp from UTENTIMUSEO
 	where utenteID = UTENTIMUSEO.idutente;
 
@@ -660,7 +663,7 @@ BEGIN
 		select idtutore into idTutoreUtente from TUTORI
 		where IDTUTELATO = utenteID;
 	end if;
-		
+	
 
 	IF SQL%FOUND
 	THEN
@@ -693,7 +696,7 @@ BEGIN
 			select idutente, nome, cognome
 			into varidTutore, NomeTutore, CognomeTutore
 			from utenti
-			where idutente=utente.idutente and utenteid != utente.idutente;
+			where idutente=utente.idutente;
 			if idTutoreUtente = varidTutore then 
 				MODGUI1.SelectOption(varidTutore, ''|| NomeTutore ||' '||CognomeTutore||'', 1);
 			else
@@ -786,17 +789,10 @@ BEGIN
 		HTP.BodyClose;
 		HTP.HtmlClose;
 	ELSE
-		MODGUI1.ApriPagina('Utente non trovato', idSessione);
-		HTP.BodyOpen;
-		if idSessione IS NULL then
-            modGUI1.Header(0);
-		else
-				modGUI1.Header(idSessione);
-		end if;
-		HTP.PRN('Utente non trovato');
-
-		HTP.BodyClose;
-		HTP.HtmlClose;
+		modGUI1.RedirectEsito('Errore', 
+            'Impossibile visualizzare l''utente selezionato', 
+            'Riprova', 'ModificaUtente?utenteID='||utenteID, null,
+            'Torna al menu utenti', 'ListaUtenti', null);
 	END IF;
 END;
 
@@ -927,9 +923,15 @@ BEGIN
 	 
 	IF SQL%FOUND THEN
 		commit;
-		EsitoPositivoUtenti;
+		modGUI1.RedirectEsito('Successo', 
+            'L''utente '||nomeNew||' '||cognomeNew||' è stato modificato correttamente', 
+            'Visualizza utente', 'VisualizzaUtente?utenteID='||utenteID, null,
+            'Torna al menu utenti', 'ListaUtenti', null);
 	ELSE
-		EsitoNegativoUtenti;
+		modGUI1.RedirectEsito('Errore', 
+            'L''utente non è stato modificato', 
+            'Riprova', 'ModificaUtente?utenteID='||utenteID, null,
+            'Torna al menu utenti', 'ListaUtenti', null);
 	END IF;
 
 
@@ -943,7 +945,9 @@ BEGIN
 
 	delete from UTENTIMUSEO where IDUTENTE=utenteID;
 	delete from UTENTICAMPIESTIVI where IDUTENTE=utenteID;
-	delete from UTENTI where IDUTENTE=utenteID;
+	update UTENTI 
+	set ELIMINATO = 1
+	where IDUTENTE=utenteID;
 
 	IF SQL%FOUND THEN
 		commit;
@@ -1753,7 +1757,7 @@ BEGIN
 
 		HTP.BodyClose;
 		HTP.HtmlClose;
-		
+	
 END;
 END GRUPPO1;
 

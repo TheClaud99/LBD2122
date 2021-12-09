@@ -52,12 +52,13 @@ procedure menuOpere is
             modGUI1.Collegamento('Statistiche Descrizioni',
                 gruppo2.gr2||'statisticheDescrizioni',
                 'w3-btn w3-round-xxlarge w3-black');
-        gruppo2.selezioneMuseo;
         modGUI1.ChiudiDiv;
+        --Fuori dal div per evitare centraggio bottoni nel popup
+        gruppo2.selezioneMuseo;
         
         --Visualizzazione TUTTE LE OPERE *temporanea*
         modGUI1.ApriDiv('class="w3-row w3-container"');
-        FOR opera IN (SELECT * FROM Opere WHERE Eliminato = 0)
+        FOR opera IN (SELECT * FROM Opere WHERE Eliminato = 0 ORDER BY Titolo)
         LOOP
             modGUI1.ApriDiv('class="w3-col l4 w3-padding-large w3-center"');
                 modGUI1.ApriDiv('class="w3-card-4" style="height:600px;"');
@@ -108,7 +109,7 @@ BEGIN
     htp.br;
     modGUI1.ApriDiv('class="w3-row w3-container"');
 --Visualizzazione TUTTE LE OPERE *temporanea*
-        FOR opera IN (SELECT * FROM Opere WHERE Eliminato = 1)
+        FOR opera IN (SELECT * FROM Opere WHERE Eliminato = 1 ORDER BY Titolo)
         LOOP
             modGUI1.ApriDiv('class="w3-col l4 w3-padding-large w3-center"');
                 modGUI1.ApriDiv('class="w3-card-4" style="height:600px;"');
@@ -600,7 +601,7 @@ procedure VisualizzaOpera (
     livelli VARCHAR2 DEFAULT 'Sconosciuto'
 ) is
 idSessione NUMBER(5) := modgui1.get_id_sessione();
-var1 VARCHAR2 (40);
+var1 VARCHAR2 (100);
 testo1 VARCHAR2 (100);
 num NUMBER(10);
 num1 NUMBER(10);
@@ -1299,7 +1300,6 @@ idSessione NUMBER(5) := modgui1.get_id_sessione();
                     htp.print('</h4>');
                     htp.br;
                     htp.prn('<button class="w3-button w3-block w3-black w3-section w3-padding" type="submit">Seleziona</button>');
-                    modGUI1.ChiudiDiv;
                 modGUI1.ChiudiForm;
             modGUI1.ChiudiDiv;
         modGUI1.ChiudiDiv;
@@ -2017,9 +2017,8 @@ SELECT * INTO auth FROM autori WHERE authID=IDAUTORE;
                     modGUI1.ApriDiv('class="w3-row"');
                     SELECT * INTO MuseoProprietario FROM Musei WHERE IdMuseo = op.Museo;
                     htp.prn('<b><h4>Opere di proprietà di '||MuseoProprietario.Nome||'</b></h4>');
-                    prevMuseo := op.Museo;
-                ELSE
                     modGUI1.ChiudiDiv;
+                    prevMuseo := op.Museo;
                 END IF;
                 modGUI1.ApriDiv('class="w3-col l4 w3-padding-large w3-center"');
                     modGUI1.ApriDiv('class="w3-card-4" style="height:600px;"');

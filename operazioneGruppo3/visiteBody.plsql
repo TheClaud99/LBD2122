@@ -294,7 +294,6 @@ CREATE OR REPLACE PACKAGE BODY packagevisite AS
         </html>');
     END;
 
-
     PROCEDURE modal_filtri_visite (
         data_visita_from  IN  VARCHAR2 DEFAULT NULL,
         data_visita_to    IN  VARCHAR2 DEFAULT NULL,
@@ -408,9 +407,10 @@ CREATE OR REPLACE PACKAGE BODY packagevisite AS
           :bind3 as id_utente,
           :bind4 as id_museo
             from dual)
-        SELECT COUNT(view_visite.idvisita) FROM view_visite, binds b
+        SELECT COUNT(view_visite.idvisita), AVG(DurataVisita) FROM view_visite, binds b
         WHERE 1=1 ';
         counter       NUMBER(20);
+        media_durata  NUMBER(20, 2);
     BEGIN
         IF data_visita_from IS NOT NULL THEN
             lv_where := lv_where || ' AND datavisita >= b.data_visita_from';
@@ -432,7 +432,16 @@ CREATE OR REPLACE PACKAGE BODY packagevisite AS
         END IF;
         v_base_query := v_base_query || lv_where;
         EXECUTE IMMEDIATE v_base_query
-        INTO counter USING data_visita_from, data_visita_to, id_utente, id_museo;
+        INTO
+            counter,
+            media_durata
+            USING to_date(
+                         data_visita_from,
+                         'YYYY-MM-DD"T"HH24:MI'
+                  ), to_date(
+                            data_visita_to,
+                            'YYYY-MM-DD"T"HH24:MI'
+                     ), id_utente, id_museo;
 
         modgui1.apridiv('id="modal_statistiche" class="w3-modal"');
         modgui1.apridiv('class="w3-modal-content w3-card-4 w3-animate-zoom" style="max-width:600px"');
@@ -446,7 +455,20 @@ CREATE OR REPLACE PACKAGE BODY packagevisite AS
         htp.prn('<div class="w3-margin">Numero visite: </div>');
         htp.prn('</div>');
         htp.prn('<div class="w3-col s8 w3-center">');
-        htp.prn('<div class="w3-margin">' || counter || '</div>');
+        htp.prn('<div class="w3-margin">'
+                || counter
+                || '</div>');
+        htp.prn('</div>');
+        htp.prn('</div>');
+        htp.prn('<div class"w3-container w3-margin">');
+        htp.prn('<div class="w3-row">');
+        htp.prn('<div class="w3-col s4 w3-center">');
+        htp.prn('<div class="w3-margin">Durata media visite: </div>');
+        htp.prn('</div>');
+        htp.prn('<div class="w3-col s8 w3-center">');
+        htp.prn('<div class="w3-margin">'
+                || media_durata
+                || 'h</div>');
         htp.prn('</div>');
         htp.prn('</div>');
         modgui1.chiudidiv;
@@ -628,14 +650,6 @@ CREATE OR REPLACE PACKAGE BODY packagevisite AS
         CLOSE v_visite_cursor;
         modgui1.chiudidiv();
         modgui1.chiudidiv();
-        modal_statistiche_visite(
-                           data_visita_from,
-                           data_visita_to,
-                           id_utente,
-                           id_museo,
-                           is_biglietto,
-                           is_abbonamento
-        );
         modal_filtri_visite(
                            data_visita_from,
                            data_visita_to,
@@ -643,6 +657,14 @@ CREATE OR REPLACE PACKAGE BODY packagevisite AS
                            id_museo,
                            is_biglietto,
                            is_abbonamento
+        );
+        modal_statistiche_visite(
+                                data_visita_from,
+                                data_visita_to,
+                                id_utente,
+                                id_museo,
+                                is_biglietto,
+                                is_abbonamento
         );
         htp.prn('</body>
         </html>');

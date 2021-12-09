@@ -2,6 +2,9 @@ SET DEFINE OFF;
 
 CREATE OR REPLACE PACKAGE BODY testFB AS
 
+
+--        modgui1.apridiv('id="modal_filtri" class="w3-modal"');
+-- htp.prn('<span onclick="document.getElementById(''modal_filtri'').style.display=''none''" class="w3-button w3-xlarge w3-red w3-display-topright" title="Close Modal">X</span>');
 	PROCEDURE visualizzaNewsletters
 	IS
 		id_sessione NUMBER(10) := NULL;
@@ -24,14 +27,6 @@ CREATE OR REPLACE PACKAGE BODY testFB AS
         htp.prn('<h1>Newsletter</h1>');
 
 		SELECT IDCLIENTE INTO id_client FROM UTENTILOGIN WHERE UTENTILOGIN.IDUTENTELOGIN = id_sessione;
-
-		/*if hasRole(id_sessione, 'DBA')
-			OR hasRole(id_sessione, 'AB')
-			OR hasRole(id_sessione, 'GM')
-			OR hasRole(id_sessione, 'GCE')
-			OR hasRole(id_sessione, 'GO')
-		*/
-
 
 		if hasRole(id_sessione, 'DBA')
 		THEN
@@ -259,6 +254,12 @@ CREATE OR REPLACE PACKAGE BODY testFB AS
 
 		SELECT avg(age) into etaMediaIscritti FROM (SELECT MONTHS_BETWEEN(sysdate, UTENTI.DATANASCITA) / 12 age FROM UTENTI WHERE UTENTI.IDUTENTE IN (SELECT NEWSLETTERUTENTI.IDUTENTE FROM NEWSLETTERUTENTI WHERE NEWSLETTERUTENTI.IDNEWS = newsletterID));
 
+		SELECT avg(count) into temp  from ( SELECT NEWSLETTERUTENTI.IDUTENTE, count(*) as count
+											FROM NEWSLETTERUTENTI
+											WHERE NEWSLETTERUTENTI.IDNEWS = newsletterID
+														AND NEWSLETTERUTENTI.IDUTENTE IN (	SELECT TITOLIINGRESSO.ACQUIRENTE
+																							FROM TITOLIINGRESSO)
+											GROUP BY NEWSLETTERUTENTI.IDUTENTE);
 
 		MODGUI1.ApriPagina('Statistiche',id_sessione);
 		modgui1.header(id_sessione);
@@ -266,13 +267,58 @@ CREATE OR REPLACE PACKAGE BODY testFB AS
 		htp.prn(CONCAT('<h1> statistiche per newsletter </h1>', nomeNew));
 		htp.br();
 		modgui1.Label('Numero visitatori: ');
-		modgui1.Label(TO_CHAR(numeroVisitatori));
+		htp.prn('<span onclick="document.getElementById(''modal_filtri'').style.display=''block''"  title="Close Modal" style="text-decoration: underline;">' || TO_CHAR(numeroVisitatori) || '</span>');
 		htp.br();
 		modgui1.Label('Età media iscritti: ');
 		modgui1.Label(TO_CHAR(etaMediaIscritti));
 		htp.br();
+		modgui1.Label('Media acquisti da iscritti: ');
+		modgui1.Label(TO_CHAR(temp));
+		htp.br();
 
-		--hdaidhiaodh
+
+		--modal per vedere gli utenti
+		modgui1.apridiv('id="modal_filtri" class="w3-modal"');
+			modgui1.apridiv('class="w3-modal-content w3-card-4 w3-animate-zoom" style="max-width:600px"');
+			modgui1.apridiv('class="w3-center"');
+			htp.br;
+			htp.prn('<span onclick="document.getElementById(''modal_filtri'').style.display=''none''" class="w3-button w3-small w3-red w3-display-topright" title="Close Modal">X</span>');
+
+			htp.br;
+			htp.prn('<table style="width:100%" border="2">');
+			htp.prn('<tr>');
+				htp.prn('<th> id utente </th>');
+				htp.prn('<th> nome </th>');
+				htp.prn('<th> cognome </th>');
+				htp.prn('<th> data nascita </th>');
+				htp.prn('<th> indirizzo </th>');
+				htp.prn('<th> email </th>');
+			htp.prn('</tr>');
+
+			for utente in ( SELECT * from UTENTI where IdUtente IN (select VISITATORE from VISITE) AND IDUTENTE IN (SELECT IDUTENTE FROM NEWSLETTERUTENTI WHERE IDNEWS = newsletterID))
+			LOOP
+				htp.prn('<tr>');
+				htp.prn('<td>' );
+				modgui1.COLLEGAMENTO(TO_CHAR(utente.IDUTENTE), 'gruppo1.VisualizzaUtente?utenteID=' || TO_CHAR(utente.IDUTENTE));
+				htp.prn('</td>');
+				htp.prn('<td>' || TO_CHAR(utente.NOME) || '</td>');
+				htp.prn('<td>' || TO_CHAR(utente.COGNOME) || '</td>');
+				htp.prn('<td>' || TO_CHAR(utente.DATANASCITA, 'YYYY-MM-DD') || '</td>');
+				htp.prn('<td>' || TO_CHAR(utente.INDIRIZZO) || '</td>');
+				htp.prn('<td>' || TO_CHAR(utente.EMAIL) || '</td>');
+				htp.prn('</tr>');
+			END LOOP;
+			htp.prn('</table>');
+			MODGUI1.chiudiDiv;
+			MODGUI1.chiudiDiv;
+		modgui1.chiudiDiv;
+		--modal chiuso.
+
+
+
+		--TODO-aggiungere altre funzioni tipo: numero medio degli acquisti per utenti iscritti alla newsletter, l'utente con più acquisti etc...
+
+
 		modgui1.Label('Titoli di ingresso degli iscritti alla newsletter:');
 		--per ogni utente che è iscitto alla newsletter
 		--mostrare TUTTI i titoli di ingresso che ha acquistato
@@ -296,14 +342,13 @@ CREATE OR REPLACE PACKAGE BODY testFB AS
 			--id_utente.IDUTENTE tiene id dell'utente
 			htp.prn('<tr>');
 			htp.prn('<td>');
-			--primo printare i dati dell'utente.
 			SELECT UTENTI.NOME, UTENTI.COGNOME, UTENTI.DATANASCITA, UTENTI.INDIRIZZO, UTENTI.EMAIL, UTENTI.RECAPITOTELEFONICO
 				INTO U_NOME, U_COGNOME, U_NASCITA, U_INDIRIZZO, U_EMAIL, U_RECAPITO
 				FROM UTENTI
 				WHERE UTENTI.IDUTENTE = id_utente.IDUTENTE;
 
-			htp.prn(TO_CHAR(U_NOME));
-			htp.prn(TO_CHAR(U_COGNOME));
+			MODGUI1.COLLEGAMENTO(TO_CHAR(U_NOME) || ' ' ||TO_CHAR(U_COGNOME),
+								'gruppo1.VisualizzaUtente?utenteID=' || TO_CHAR(id_utente.IDUTENTE));
 			htp.br;
 			htp.prn(TO_CHAR(U_NASCITA, 'YYYY-MM-DD'));
 			htp.br;
@@ -321,12 +366,14 @@ CREATE OR REPLACE PACKAGE BODY testFB AS
 			)
 			LOOP
 			htp.prn('<td>');
-			htp.prn(CONCAT('ID: ', TO_CHAR(titolo.IDTITOLOING)));
+			htp.prn('ID:');
+			modgui1.COLLEGAMENTO(TO_CHAR(titolo.IDTITOLOING), 'packageAcquistaTitoli.visualizzatitoloing?varidtitoloing=' || TO_CHAR(titolo.IDTITOLOING));
 			htp.br;
 			htp.prn(CONCAT('EMISSIONE: ', TO_CHAR(titolo.EMISSIONE, 'YYYY-MM-DD HH24:MI')));
 			htp.br;
 			htp.prn(CONCAT('SCADENZA: ', TO_CHAR(titolo.SCADENZA, 'YYYY-MM-DD')));
 			htp.br;
+			--TODO collegamento con tipologia
 			htp.prn(CONCAT('TIPOLOGIA: ', TO_CHAR(titolo.TIPOLOGIA)));
 			htp.br;
 
@@ -337,7 +384,8 @@ CREATE OR REPLACE PACKAGE BODY testFB AS
 
 		END LOOP;
 		htp.prn('</table>');
-		----dshaheoh
+
+
 		MODGUI1.chiudiDiv;
 		htp.bodyclose;
 		htp.htmlclose;

@@ -58,7 +58,7 @@ procedure menuOpere is
         
         --Visualizzazione TUTTE LE OPERE *temporanea*
         modGUI1.ApriDiv('class="w3-row w3-container"');
-        FOR opera IN (SELECT * FROM Opere WHERE Eliminato = 0)
+        FOR opera IN (SELECT * FROM Opere WHERE Eliminato = 0 ORDER BY Titolo)
         LOOP
             modGUI1.ApriDiv('class="w3-col l4 w3-padding-large w3-center"');
                 modGUI1.ApriDiv('class="w3-card-4" style="height:600px;"');
@@ -109,7 +109,7 @@ BEGIN
     htp.br;
     modGUI1.ApriDiv('class="w3-row w3-container"');
 --Visualizzazione TUTTE LE OPERE *temporanea*
-        FOR opera IN (SELECT * FROM Opere WHERE Eliminato = 1)
+        FOR opera IN (SELECT * FROM Opere WHERE Eliminato = 1 ORDER BY Titolo)
         LOOP
             modGUI1.ApriDiv('class="w3-col l4 w3-padding-large w3-center"');
                 modGUI1.ApriDiv('class="w3-card-4" style="height:600px;"');
@@ -601,7 +601,7 @@ procedure VisualizzaOpera (
     livelli VARCHAR2 DEFAULT 'Sconosciuto'
 ) is
 idSessione NUMBER(5) := modgui1.get_id_sessione();
-var1 VARCHAR2 (40);
+var1 VARCHAR2 (100);
 testo1 VARCHAR2 (100);
 num NUMBER(10);
 num1 NUMBER(10);

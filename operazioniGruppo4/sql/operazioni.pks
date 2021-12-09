@@ -9,10 +9,7 @@ procedure menucampiestivi
 (
    idsessione IN number default 0
 );
-procedure menumusei
-(
-   idsessione IN number default 0
-);
+procedure menumusei;
 procedure menutariffe
 (
    idCampo IN number default 0,
@@ -49,7 +46,6 @@ procedure visualizzacampiestivi
 /*OPERAZIONI MUSEO*/
 procedure inseriscimuseo
 ( 
-   idsessione IN number default 0,
    newNome in Musei.Nome%TYPE default null,
    newIndirizzo in MUSEI.INDIRIZZO%TYPE default null
 );
@@ -210,8 +206,68 @@ procedure MonitoraggioPeriodoPagamentoCampiEstivi(
     dataFine in PAGAMENTICAMPIESTIVI.DataPagamento%type default NULL
 );
 
-procedure MonitoraggioPagamentiTariffaPagamentoCampiEstivi(
-    tariffa in PAGAMENTICAMPIESTIVI.Tariffa%type default 0
+procedure PagamentoCampiEstivi(
+    idtariffa in PAGAMENTICAMPIESTIVI.Tariffa%type default 0
+);
+/*tariffe campi estivi*/
+procedure InserisciTariffeCampiEstivi
+(
+    prezzo in TARIFFECAMPIESTIVI.Prezzo%type default 0,
+    etaMinima in TARIFFECAMPIESTIVI.Etaminima%type default 0,
+    etaMassima in TARIFFECAMPIESTIVI.Etamassima%type default 0,
+    campoEstivo in TARIFFECAMPIESTIVI.CampoEstivo%type default 0
+);
+
+procedure ConfermaTariffeCampiEstivi
+(
+    prezzo in TARIFFECAMPIESTIVI.Prezzo%type default 0,
+    etaMinima in TARIFFECAMPIESTIVI.Etaminima%type default 0,
+    etaMassima in TARIFFECAMPIESTIVI.Etamassima%type default 0,
+    campoEstivo in TARIFFECAMPIESTIVI.CampoEstivo%type default 0
+);
+
+procedure ControllaTariffeCampiEstivi
+(
+    prezzo in TARIFFECAMPIESTIVI.Prezzo%type default 0,
+    etaMinima in TARIFFECAMPIESTIVI.Etaminima%type default 0,
+    etaMassima in TARIFFECAMPIESTIVI.Etamassima%type default 0,
+    campoEstivo in TARIFFECAMPIESTIVI.CampoEstivo%type default 0
+);
+
+procedure VisualizzaTariffeCampiEstivi
+(
+    Tariffa in TARIFFECAMPIESTIVI.IdTariffa%type
+);
+
+/*procedure ModificaTariffeCampiEstivi
+(
+    idTariffa in TARIFFECAMPIESTIVI.IdTariffa%type, 
+    prezzo in TARIFFECAMPIESTIVI.Prezzo%type default 0,
+    etaMinima in TARIFFECAMPIESTIVI.Etaminima%type default 0,
+    etaMassima in TARIFFECAMPIESTIVI.Etamassima%type default 0,
+    campoEstivo in TARIFFECAMPIESTIVI.CampoEstivo%type default 0
+);
+
+procedure CancellaTariffeCampiEstivi
+(
+    idTariffa in TARIFFECAMPIESTIVI.IdTariffa%type
+);*/
+procedure form1tariffe
+(
+   campoEstivo in TARIFFECAMPIESTIVI.CampoEstivo%type,
+   anno in number
+);
+procedure preferenzaTariffa;
+
+procedure monitoraTariffeCampiEstivi_tariffeAnno
+(
+   campoEstivo in TARIFFECAMPIESTIVI.CampoEstivo%type,
+    anno in number
+);
+
+procedure MonitoraTariffeCampiEstivi_tariffeCampo
+(
+    campoEstivo in TARIFFECAMPIESTIVI.CampoEstivo%type
 );
 
 end operazioniGruppo4;

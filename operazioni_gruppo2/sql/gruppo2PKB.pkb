@@ -52,12 +52,13 @@ procedure menuOpere is
             modGUI1.Collegamento('Statistiche Descrizioni',
                 gruppo2.gr2||'statisticheDescrizioni',
                 'w3-btn w3-round-xxlarge w3-black');
-        gruppo2.selezioneMuseo;
         modGUI1.ChiudiDiv;
+        --Fuori dal div per evitare centraggio bottoni nel popup
+        gruppo2.selezioneMuseo;
         
         --Visualizzazione TUTTE LE OPERE *temporanea*
         modGUI1.ApriDiv('class="w3-row w3-container"');
-        FOR opera IN (SELECT * FROM Opere WHERE Eliminato = 0)
+        FOR opera IN (SELECT * FROM Opere WHERE Eliminato = 0 ORDER BY Titolo)
         LOOP
             modGUI1.ApriDiv('class="w3-col l4 w3-padding-large w3-center"');
                 modGUI1.ApriDiv('class="w3-card-4" style="height:600px;"');
@@ -108,7 +109,7 @@ BEGIN
     htp.br;
     modGUI1.ApriDiv('class="w3-row w3-container"');
 --Visualizzazione TUTTE LE OPERE *temporanea*
-        FOR opera IN (SELECT * FROM Opere WHERE Eliminato = 1)
+        FOR opera IN (SELECT * FROM Opere WHERE Eliminato = 1 ORDER BY Titolo)
         LOOP
             modGUI1.ApriDiv('class="w3-col l4 w3-padding-large w3-center"');
                 modGUI1.ApriDiv('class="w3-card-4" style="height:600px;"');
@@ -600,7 +601,7 @@ procedure VisualizzaOpera (
     livelli VARCHAR2 DEFAULT 'Sconosciuto'
 ) is
 idSessione NUMBER(5) := modgui1.get_id_sessione();
-var1 VARCHAR2 (40);
+var1 VARCHAR2 (100);
 testo1 VARCHAR2 (100);
 num NUMBER(10);
 num1 NUMBER(10);
@@ -625,9 +626,11 @@ BEGIN
     else
         modGUI1.Header(idSessione);
     end if;
+    SELECT Titolo, Eliminato into var1, varEliminato FROM OPERE WHERE idOpera=operaID;
+    
+    modGUI1.apriPagina(var1);
     htp.br;htp.br;htp.br;htp.br;htp.br;htp.br;
     modGUI1.ApriDiv('class="w3-center"');
-    SELECT Titolo, Eliminato into var1, varEliminato FROM OPERE WHERE idOpera=operaID;
     htp.prn('<h1><b>'||var1||'</b></h1>'); --TITOLO
     --ritorno al menù opere
     
@@ -1299,7 +1302,6 @@ idSessione NUMBER(5) := modgui1.get_id_sessione();
                     htp.print('</h4>');
                     htp.br;
                     htp.prn('<button class="w3-button w3-block w3-black w3-section w3-padding" type="submit">Seleziona</button>');
-                    modGUI1.ChiudiDiv;
                 modGUI1.ChiudiForm;
             modGUI1.ChiudiDiv;
         modGUI1.ChiudiDiv;
@@ -1675,13 +1677,13 @@ BEGIN
                 modGUI1.ChiudiDiv;
                 if not (HASROLE(idSessione, 'GM') or HASROLE(idSessione, 'GCE')) THEN
                 modGUI1.Collegamento('Visualizza',
-                    gruppo2.gr2||'ModificaAutore?authorID='||autore.IdAutore||'&operazione=0',
+                    gruppo2.gr2||'ModificaAutore?authorID='||autore.IdAutore||'&operazione=0&caller=menuAutori',
                     'w3-black w3-margin w3-button');
                 END IF;
                 IF hasRole(idSessione, 'DBA')  or hasRole(idSessione, 'GO') THEN
                     -- parametro modifica messo a true: possibile fare editing dell'autore
                     modGUI1.Collegamento('Modifica',
-                        gruppo2.gr2||'ModificaAutore?authorID='||autore.IdAutore||'&operazione=1',
+                        gruppo2.gr2||'ModificaAutore?authorID='||autore.IdAutore||'&operazione=1&caller=menuAutori',
                         'w3-green w3-margin w3-button');
                     -- Setta ad eliminato un autore
                     htp.prn('<button onclick="document.getElementById(''ElimAutore'||autore.IdAutore
@@ -1730,7 +1732,8 @@ BEGIN
                 modGUI1.ChiudiDiv;
                 -- Azioni di modifica e rimozione mostrate solo se autorizzatii
                 modGUI1.Collegamento('Visualizza',
-                    gruppo2.gr2||'ModificaAutore?authorID='||autore.IdAutore||'&operazione=0',
+                    gruppo2.gr2||'ModificaAutore?authorID='||autore.IdAutore||'&operazione=0'
+                    ||'&caller=menuAutoriEliminati',
                     'w3-black w3-margin w3-button');
                 if hasRole(idSessione, 'DBA') or hasRole(idSessione, 'SU') then
                     modGUI1.Collegamento('Ripristina',
@@ -2017,9 +2020,8 @@ SELECT * INTO auth FROM autori WHERE authID=IDAUTORE;
                     modGUI1.ApriDiv('class="w3-row"');
                     SELECT * INTO MuseoProprietario FROM Musei WHERE IdMuseo = op.Museo;
                     htp.prn('<b><h4>Opere di proprietà di '||MuseoProprietario.Nome||'</b></h4>');
-                    prevMuseo := op.Museo;
-                ELSE
                     modGUI1.ChiudiDiv;
+                    prevMuseo := op.Museo;
                 END IF;
                 modGUI1.ApriDiv('class="w3-col l4 w3-padding-large w3-center"');
                     modGUI1.ApriDiv('class="w3-card-4" style="height:600px;"');
@@ -2520,6 +2522,7 @@ this_autore Autori%ROWTYPE;
 op_title VARCHAR2(25);
 -- Gli eventuali parametri della procedura chiamante
 params VARCHAR2(255);
+menuRitorno VARCHAR2(255);
 BEGIN
     SELECT * INTO this_autore FROM Autori WHERE IdAutore = authorID;
     IF operazione = 0 THEN
@@ -2537,7 +2540,14 @@ BEGIN
 
 	modGUI1.ApriDiv('class="w3-modal-content w3-card-4 w3-animate-zoom" style="max-width:600px" ');
 		modGUI1.ApriDiv('class="w3-section"');
-        modGUI1.Collegamento('X',gruppo2.gr2||'menuAutori',' w3-btn w3-large w3-red w3-display-topright');
+        IF caller = 'visualizzaOpera' THEN
+            menuRitorno := 'menuOpere';
+        ELSIF caller = 'menuAutoriEliminati' THEN
+            menuRitorno := 'menuAutoriEliminati';
+        ELSE
+            menuRitorno := 'menuAutori';
+        END IF;
+        modGUI1.Collegamento('X',gruppo2.gr2||menuRitorno,' w3-btn w3-large w3-red w3-display-topright');
         htp.br;
 		htp.header(2, 'Dettagli Autore', 'center');
 		-- caso modifica
@@ -2590,10 +2600,16 @@ BEGIN
 
         -- Link per ritorno a procedura statistica dalla quale è stato chiamato
         IF caller is not null THEN
-        params := REPLACE(callerParams,'//','&');
-        MODGUI1.collegamento('Annulla',
-            gruppo2.gr2||caller||'?'||params,
-            'w3-button w3-block w3-black w3-section w3-padding');
+            params := REPLACE(callerParams,'//','&');
+            IF params IS NULL THEN
+                MODGUI1.collegamento('Annulla',
+                gruppo2.gr2||caller,
+                'w3-button w3-block w3-black w3-section w3-padding');
+            ELSE
+                MODGUI1.collegamento('Annulla',
+                gruppo2.gr2||caller||'?'||params,
+                'w3-button w3-block w3-black w3-section w3-padding');
+            END IF;
         END IF; 
 		modGUI1.ChiudiDiv;
 	modGUI1.ChiudiDiv;

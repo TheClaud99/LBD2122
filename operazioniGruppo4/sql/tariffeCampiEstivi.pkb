@@ -181,18 +181,26 @@ begin
     htp.br;htp.br;htp.br;htp.br;htp.br;htp.br;
     if found > 0 then
         modgui1.apridiv('class="w3-center"');
-            htp.tableopen;
+            htp.tableopen(CALIGN  => 'center',CATTRIBUTES =>'class="w3-table w3-striped"');
+            htp.tablerowopen;
+            htp.TableData('Prezzo',CATTRIBUTES  =>'style="font-weight:bold; text-align:center"');
+            htp.TableData('Eta minima',CATTRIBUTES  =>'style="font-weight:bold; text-align:center"');
+            htp.TableData('Eta massima',CATTRIBUTES  =>'style="font-weight:bold; text-align:center"');
+            htp.TableData('Campo Estivo',CATTRIBUTES  =>'style="font-weight:bold; text-align:center"');
+            htp.tablerowclose;
             for tariffa in (
-                select Prezzo, Etaminima, Etamassima, CampoEstivo
-                from TARIFFECAMPIESTIVI
+                select TARIFFECAMPIESTIVI.Prezzo, TARIFFECAMPIESTIVI.Etaminima, 
+                    TARIFFECAMPIESTIVI.Etamassima, CAMPIESTIVI.NOME
+                from TARIFFECAMPIESTIVI join CAMPIESTIVI 
+                    on TARIFFECAMPIESTIVI.CAMPOESTIVO = CAMPIESTIVI.IDCAMPIESTIVI
                 where TARIFFECAMPIESTIVI.IdTariffa = idTariffa
             )
             loop
             htp.tablerowopen;
-            htp.tabledata(tariffa.Prezzo);
-            htp.tabledata(tariffa.Etaminima);
-            htp.tabledata(tariffa.Etamassima);
-            htp.tabledata(tariffa.CampoEstivo);
+            htp.tabledata(tariffa.Prezzo,'center');
+            htp.tabledata(tariffa.Etaminima,'center');
+            htp.tabledata(tariffa.Etamassima,'center');
+            htp.tabledata(tariffa.NOME,'center');
             htp.tablerowclose;
             end loop;
             htp.tableclose;

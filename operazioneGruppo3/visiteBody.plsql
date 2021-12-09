@@ -302,7 +302,9 @@ CREATE OR REPLACE PACKAGE BODY packagevisite AS
         id_utente         IN  NUMBER DEFAULT NULL,
         id_museo          IN  NUMBER DEFAULT NULL,
         is_biglietto      IN  NUMBER DEFAULT NULL,
-        is_abbonamento    IN  NUMBER DEFAULT NULL
+        is_abbonamento    IN  NUMBER DEFAULT NULL,
+        order_by          IN  VARCHAR2 DEFAULT 'IdVisita',
+        sort_method       IN  VARCHAR2 DEFAULT 'ASC'
     ) IS
     BEGIN
         modgui1.apridiv('id="modal_filtri" class="w3-modal"');
@@ -385,6 +387,65 @@ CREATE OR REPLACE PACKAGE BODY packagevisite AS
         );
         htp.prn('</div>');
         htp.prn('</div>');
+        htp.prn('<div class="w3-row">');
+        htp.prn('<div class="w3-col w3-padding s4 w3-center">');
+        htp.prn('<div class="w3-margin">Ordina per: </div>');
+        htp.prn('</div>');
+        htp.prn('<div class="w3-col w3-padding s5 w3-center">');
+        modgui1.selectopen(
+                          'order_by',
+                          'order_by'
+        );
+        modgui1.selectoption(
+                            'IdVisita',
+                            'Identificativo',
+                            CASE
+                                WHEN order_by = 'Identificativo' THEN
+                                    1
+                                ELSE 0
+                            END
+        );
+
+        modgui1.selectoption(
+                            'duratavisita',
+                            'Durata',
+                            CASE
+                                WHEN order_by = 'duratavisita' THEN
+                                    1
+                                ELSE 0
+                            END
+        );
+
+        modgui1.selectclose();
+        htp.prn('</div>');
+        htp.prn('<div class="w3-col w3-padding s3 w3-center">');
+        modgui1.selectopen(
+                          'sort_method',
+                          'sort_method'
+        );
+        modgui1.selectoption(
+                            'ASC',
+                            'Crescente',
+                            CASE
+                                WHEN sort_method = 'ASC' THEN
+                                    1
+                                ELSE 0
+                            END
+        );
+
+        modgui1.selectoption(
+                            'DESC',
+                            'Decrescente',
+                            CASE
+                                WHEN sort_method = 'DESC' THEN
+                                    1
+                                ELSE 0
+                            END
+        );
+
+        modgui1.selectclose();
+        htp.prn('</div>');
+        htp.prn('</div>');
         modgui1.inputreset;
         htp.prn('<button class="w3-button w3-block w3-black w3-section w3-padding" type="submit">Applica</button>');
         modgui1.chiudidiv;
@@ -412,7 +473,10 @@ CREATE OR REPLACE PACKAGE BODY packagevisite AS
         SELECT COUNT(view_visite.idvisita), AVG(DurataVisita) FROM view_visite, binds b
         WHERE 1=1 ';
         counter       NUMBER(20);
-        media_durata  NUMBER(20, 2);
+        media_durata  NUMBER(
+                           20,
+                           2
+        );
     BEGIN
         IF data_visita_from IS NOT NULL THEN
             lv_where := lv_where || ' AND datavisita >= b.data_visita_from';
@@ -484,7 +548,9 @@ CREATE OR REPLACE PACKAGE BODY packagevisite AS
         id_utente         IN  NUMBER DEFAULT NULL,
         id_museo          IN  NUMBER DEFAULT NULL,
         is_biglietto      IN  NUMBER DEFAULT NULL,
-        is_abbonamento    IN  NUMBER DEFAULT NULL
+        is_abbonamento    IN  NUMBER DEFAULT NULL,
+        order_by          IN  VARCHAR2 DEFAULT 'IdVisita',
+        sort_method       IN  VARCHAR2 DEFAULT 'ASC'
     ) RETURN VARCHAR2 IS
         lv_where      VARCHAR2(255);
         v_base_query  VARCHAR2(2000) := 'with binds as (
@@ -516,7 +582,11 @@ CREATE OR REPLACE PACKAGE BODY packagevisite AS
         END IF;
         v_base_query := v_base_query
                         || lv_where
-                        || ' ORDER BY IdVisita DESC';
+                        || ' ORDER BY '
+                        || order_by
+                        || ' '
+                        || sort_method;
+
         RETURN v_base_query;
     END;
 
@@ -526,10 +596,12 @@ CREATE OR REPLACE PACKAGE BODY packagevisite AS
         id_utente         IN  NUMBER DEFAULT NULL,
         id_museo          IN  NUMBER DEFAULT NULL,
         is_biglietto      IN  NUMBER DEFAULT NULL,
-        is_abbonamento    IN  NUMBER DEFAULT NULL
+        is_abbonamento    IN  NUMBER DEFAULT NULL,
+        order_by          IN  VARCHAR2 DEFAULT 'IdVisita',
+        sort_method       IN  VARCHAR2 DEFAULT 'ASC'
     ) IS
 
-        id_sessione      NUMBER(10) := NULL;
+        id_sessione      NUMBER(10) := modgui1.get_id_sessione;
         lv_sql           VARCHAR2(2000);
         v_visite_cursor  SYS_REFCURSOR;
         visita           view_visite%rowtype;
@@ -540,8 +612,11 @@ CREATE OR REPLACE PACKAGE BODY packagevisite AS
                              id_utente,
                              id_museo,
                              is_biglietto,
-                             is_abbonamento
+                             is_abbonamento,
+                             order_by,
+                             sort_method
                   );
+
         OPEN v_visite_cursor FOR lv_sql
             USING to_date(
                          data_visita_from,
@@ -551,7 +626,6 @@ CREATE OR REPLACE PACKAGE BODY packagevisite AS
                             'YYYY-MM-DD"T"HH24:MI'
                      ), id_utente, id_museo;
 
-        id_sessione := modgui1.get_id_sessione;
         modgui1.apripagina(
                           'Visite',
                           id_sessione
@@ -658,8 +732,11 @@ CREATE OR REPLACE PACKAGE BODY packagevisite AS
                            id_utente,
                            id_museo,
                            is_biglietto,
-                           is_abbonamento
+                           is_abbonamento,
+                           order_by,
+                           sort_method
         );
+
         modal_statistiche_visite(
                                 data_visita_from,
                                 data_visita_to,

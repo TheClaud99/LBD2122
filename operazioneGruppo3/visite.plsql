@@ -57,7 +57,9 @@ CREATE OR REPLACE PACKAGE packagevisite AS
         id_utente         IN  NUMBER DEFAULT NULL,
         id_museo          IN  NUMBER DEFAULT NULL,
         is_biglietto      IN  NUMBER DEFAULT NULL,
-        is_abbonamento    IN  NUMBER DEFAULT NULL
+        is_abbonamento    IN  NUMBER DEFAULT NULL,
+        order_by          IN  VARCHAR2 DEFAULT 'IdVisita',
+        sort_method       IN  VARCHAR2 DEFAULT 'ASC'
     );
 
 END packagevisite;

@@ -51,7 +51,7 @@ procedure ConfermaPagamentoCampiEstivi(
     acquirente in PAGAMENTICAMPIESTIVI.Aquirente%type default 0
 ) is 
     idSessione number(5) := modgui1.get_id_sessione();
-    dataPagamento_date Date; := TO_DATE(dataPagamento default NULL on conversion error, 'YYYY-MM-DD');
+    dataPagamento_date Date := TO_DATE(dataPagamento default NULL on conversion error, 'YYYY-MM-DD');
     newIdPagamento PAGAMENTICAMPIESTIVI.IdPagamento%type;
 begin
     if tariffa = 0

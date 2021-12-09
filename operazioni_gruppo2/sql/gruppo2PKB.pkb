@@ -626,9 +626,11 @@ BEGIN
     else
         modGUI1.Header(idSessione);
     end if;
+    SELECT Titolo, Eliminato into var1, varEliminato FROM OPERE WHERE idOpera=operaID;
+    
+    modGUI1.apriPagina(var1);
     htp.br;htp.br;htp.br;htp.br;htp.br;htp.br;
     modGUI1.ApriDiv('class="w3-center"');
-    SELECT Titolo, Eliminato into var1, varEliminato FROM OPERE WHERE idOpera=operaID;
     htp.prn('<h1><b>'||var1||'</b></h1>'); --TITOLO
     --ritorno al menù opere
     
@@ -1675,13 +1677,13 @@ BEGIN
                 modGUI1.ChiudiDiv;
                 if not (HASROLE(idSessione, 'GM') or HASROLE(idSessione, 'GCE')) THEN
                 modGUI1.Collegamento('Visualizza',
-                    gruppo2.gr2||'ModificaAutore?authorID='||autore.IdAutore||'&operazione=0',
+                    gruppo2.gr2||'ModificaAutore?authorID='||autore.IdAutore||'&operazione=0&caller=menuAutori',
                     'w3-black w3-margin w3-button');
                 END IF;
                 IF hasRole(idSessione, 'DBA')  or hasRole(idSessione, 'GO') THEN
                     -- parametro modifica messo a true: possibile fare editing dell'autore
                     modGUI1.Collegamento('Modifica',
-                        gruppo2.gr2||'ModificaAutore?authorID='||autore.IdAutore||'&operazione=1',
+                        gruppo2.gr2||'ModificaAutore?authorID='||autore.IdAutore||'&operazione=1&caller=menuAutori',
                         'w3-green w3-margin w3-button');
                     -- Setta ad eliminato un autore
                     htp.prn('<button onclick="document.getElementById(''ElimAutore'||autore.IdAutore
@@ -1730,7 +1732,8 @@ BEGIN
                 modGUI1.ChiudiDiv;
                 -- Azioni di modifica e rimozione mostrate solo se autorizzatii
                 modGUI1.Collegamento('Visualizza',
-                    gruppo2.gr2||'ModificaAutore?authorID='||autore.IdAutore||'&operazione=0',
+                    gruppo2.gr2||'ModificaAutore?authorID='||autore.IdAutore||'&operazione=0'
+                    ||'&caller=menuAutoriEliminati',
                     'w3-black w3-margin w3-button');
                 if hasRole(idSessione, 'DBA') or hasRole(idSessione, 'SU') then
                     modGUI1.Collegamento('Ripristina',
@@ -2519,6 +2522,7 @@ this_autore Autori%ROWTYPE;
 op_title VARCHAR2(25);
 -- Gli eventuali parametri della procedura chiamante
 params VARCHAR2(255);
+menuRitorno VARCHAR2(255);
 BEGIN
     SELECT * INTO this_autore FROM Autori WHERE IdAutore = authorID;
     IF operazione = 0 THEN
@@ -2536,7 +2540,14 @@ BEGIN
 
 	modGUI1.ApriDiv('class="w3-modal-content w3-card-4 w3-animate-zoom" style="max-width:600px" ');
 		modGUI1.ApriDiv('class="w3-section"');
-        modGUI1.Collegamento('X',gruppo2.gr2||'menuAutori',' w3-btn w3-large w3-red w3-display-topright');
+        IF caller = 'visualizzaOpera' THEN
+            menuRitorno := 'menuOpere';
+        ELSIF caller = 'menuAutoriEliminati' THEN
+            menuRitorno := 'menuAutoriEliminati';
+        ELSE
+            menuRitorno := 'menuAutori';
+        END IF;
+        modGUI1.Collegamento('X',gruppo2.gr2||menuRitorno,' w3-btn w3-large w3-red w3-display-topright');
         htp.br;
 		htp.header(2, 'Dettagli Autore', 'center');
 		-- caso modifica
@@ -2589,10 +2600,16 @@ BEGIN
 
         -- Link per ritorno a procedura statistica dalla quale è stato chiamato
         IF caller is not null THEN
-        params := REPLACE(callerParams,'//','&');
-        MODGUI1.collegamento('Annulla',
-            gruppo2.gr2||caller||'?'||params,
-            'w3-button w3-block w3-black w3-section w3-padding');
+            params := REPLACE(callerParams,'//','&');
+            IF params IS NULL THEN
+                MODGUI1.collegamento('Annulla',
+                gruppo2.gr2||caller,
+                'w3-button w3-block w3-black w3-section w3-padding');
+            ELSE
+                MODGUI1.collegamento('Annulla',
+                gruppo2.gr2||caller||'?'||params,
+                'w3-button w3-block w3-black w3-section w3-padding');
+            END IF;
         END IF; 
 		modGUI1.ChiudiDiv;
 	modGUI1.ChiudiDiv;

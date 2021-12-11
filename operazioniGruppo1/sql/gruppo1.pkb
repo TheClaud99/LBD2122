@@ -1,3 +1,4 @@
+set define off;
 CREATE OR REPLACE PACKAGE BODY gruppo1 AS
 
 /*
@@ -1391,156 +1392,6 @@ begin
 		HTP.HtmlClose;
 end;
 
-
-PROCEDURE acquistabiglietto(
-	dataEmissionechar IN VARCHAR2,
-	dataScadenzachar IN VARCHAR2,
-	idmuseoselezionato IN VARCHAR2,
-	idtipologiaselezionata IN VARCHAR2,
-	idutenteselezionato IN VARCHAR2
-) IS
-	idbigliettocreato VARCHAR(5);
-	emiss DATE := TO_DATE(dataEmissionechar default null on conversion error, 'YYYY-MM-DD');
-	scad DATE := TO_DATE(dataScadenzachar default null on conversion error, 'YYYY-MM-DD');
-BEGIN
-	idbigliettocreato := idtitoloingseq.nextval;
-
-	INSERT INTO TITOLIINGRESSO(
-		idtitoloing,
-		Emissione,
-		Scadenza,
-		Acquirente,
-		Tipologia,
-		Museo
-	) VALUES (
-		idvisiteseq.nextval,
-		emiss,
-		scad,
-		idutenteselezionato,
-		idtipologiaselezionata,
-		idmuseoselezionato
-	);
-
-	--visualizzabiglietto(idbigliettocreato);
-END;
-
-PROCEDURE formacquistabiglietto(
-	dataEmissionechar IN VARCHAR2,
-	dataScadenzachar IN VARCHAR2,
-	idmuseoselezionato IN VARCHAR2 default null,
-	idtipologiaselezionata IN VARCHAR2 default null,
-	idutenteselezionato IN VARCHAR2 default null
-)IS
-	nomeutente utenti.nome%TYPE;
-	cognomeutente utenti.cognome%TYPE;
-	varidutente utenti.Idutente%TYPE;
-	nometipologia tipologieingresso.nome%TYPE;
-	varidmuseo musei.idmuseo%TYPE;
-	nomeMuseo musei.Nome%TYPE;
-	varidtipologia tipologieingresso.idtipologiaing%TYPE;
-	nometiping VARCHAR(25);
-BEGIN
-	modgui1.apridiv('class="w3-modal-content w3-card-4 w3-animate-zoom" style="max-width:600px"');
-	modgui1.apriform('pagina_acquista_biglietto', 'formAcquistaBiglietto', 'w3-container');
-	modgui1.apridiv('class="w3-section"');
-
-	modgui1.Label('Data emissione biglietto*: ');
-	modgui1.inputdate('DataEmissioneChar', 'DataEmissioneChar', 1, dataEmissionechar);
-	HTP.br;
-
-	modgui1.label('Data scadenza biglietto*: ');
-	modgui1.inputdate('DataScadenzaChar', 'DataScadenzaChar', 1, dataScadenzachar);
-	htp.br;
-
-	modgui1.label('Utente*: ');
-	modgui1.selectopen('idutenteselezionato', 'utente-selezionato');
-	for utente in (select idutente from utenti)
-	loop
-		select idutente, nome, cognome
-		into varidutente, nomeutente, cognomeutente
-		from utenti
-		where idutente=utente.idutente;
-		if utente.idutente = idutenteselezionato
-		then
-			MODGUI1.SelectOption(varidutente, ''|| nomeutente ||' '||cognomeutente||'', 1);
-		else
-			MODGUI1.SelectOption(varidutente, ''|| nomeutente ||' '||cognomeutente||'', 0);
-		end if;
-	end loop;
-	modgui1.selectclose();
-	htp.br;
-
-	modgui1.label('Museo*: ');
-	modgui1.selectopen('idmuseoselezionato', 'museo-selezionato');
-	for museo in (select idmuseo, nome from musei )
-	loop
-		if museo.idmuseo=idmuseoselezionato
-		then modgui1.SelectOption(museo.idmuseo, museo.nome, 1);
-		else modgui1.SelectOption(museo.idmuseo, museo.nome, 0);
-		end if;
-	end loop;
-	modgui1.SelectClose();
-	htp.br;
-
-	modgui1.label('Tipologia di biglietto*: ');
-	modgui1.selectopen('idtipologiaselezionata', 'tipologia-selezionata');
-	for tipologia in (
-		select TIPOLOGIEINGRESSO.IDTIPOLOGIAING, NOME
-		into varidtipologia, nometiping
-		from TIPOLOGIEINGRESSOMUSEI JOIN TIPOLOGIEINGRESSO
-        ON TIPOLOGIEINGRESSO.IDTIPOLOGIAING=TIPOLOGIEINGRESSOMUSEI.IDTIPOLOGIAING
-		where IdMuseo=idmuseoselezionato
-	)
-	LOOP
-		if idtipologiaselezionata= tipologia.idtipologiaing
-		then
-			modgui1.SelectOption(tipologia.idtipologiaing, tipologia.nome, 1);
-		else
-			modgui1.SelectOption(tipologia.idtipologiaing, tipologia.nome, 0);
-		end if;
-	end loop;
-	modgui1.selectclose();
-
-	htp.prn('<button class="w3-button w3-block w3-black w3-section w3-padding" type="submit" name="convalida" value="1">Acquista</button>');
-	modgui1.ChiudiDiv();
-	modgui1.chiudiform();
-	modgui1.chiudidiv();
-	htp.prn('<script>
-				document.getElementById("museo-selezionato").onchange= function inviaFormAcquistaBiglietto(){
-					document.formAcquistaBiglietto.submit();
-					}
-	</script>');
-END;
-
-PROCEDURE pagina_acquista_biglietto(
-	dataEmissionechar VARCHAR2 DEFAULT NULL,
-	dataScadenzachar VARCHAR2 DEFAULT NULL,
-	idmuseoselezionato VARCHAR2 DEFAULT NULL,
-	idtipologiaselezionata VARCHAR2 DEFAULT NULL,
-	idutenteselezionato VARCHAR2 DEFAULT NULL,
-	convalida IN NUMBER DEFAULT NULL
-) IS
-BEGIN
-	modgui1.apripagina();
-	modgui1.header();
-	modgui1.apridiv('style="margin-top: 110px"');
-	htp.prn('<h1> Acquisto biglietto </h1>');
-
-	if convalida IS NULL
-	then
-		formacquistabiglietto(dataEmissionechar, dataScadenzachar,
-					idmuseoselezionato, idtipologiaselezionata, idutenteselezionato);
-	else
-		htp.prn('<h1> Biglietto acquistato </h1>');
-		acquistabiglietto(dataEmissionechar, dataScadenzachar,
-							idmuseoselezionato, idtipologiaselezionata, idutenteselezionato);
-	end if;
-
-	modgui1.chiudidiv();
-	HTP.BodyClose;
-	HTP.HtmlClose;
-END;
-
 -------------------------------------------------------------TODO DA TESTARE
 /*
 PROCEDURE inserisciNewsLetter (
@@ -1734,7 +1585,7 @@ BEGIN
 	
 	EXCEPTION
 	when newsletterInesistente THEN
-		MODGUI1.ApriPagina('Errore', idSessione);
+		MODGUI1.ApriPagina('Errore', id_sessione);
 		MODGUI1.Header();
 		HTP.BodyOpen;
 
@@ -1746,7 +1597,7 @@ BEGIN
 		HTP.BodyClose;
 		HTP.HtmlClose;
 	WHEN idSessioneExecption THEN
-		MODGUI1.ApriPagina('Errore', idSessione);
+		MODGUI1.ApriPagina('Errore', id_sessione);
 		MODGUI1.Header();
 		HTP.BodyOpen;
 
@@ -1761,29 +1612,3 @@ BEGIN
 END;
 END GRUPPO1;
 
-/*
- *  OPERAZIONI SUI TITOLI DI INGRESSO
- * - Modifica ❌
- * - Cancellazione❌
- * - Visualizzazione ❌
- * - Acquisto abbonamento museale ❌
- * - Acquisto biglietto ❌
- * OPERAZIONI STATISTICHE E MONITORAGGIO
- * - Numero Titoli d’Ingresso emessi in un arco temporale scelto ❌
- * - Numero Titoli d’Ingresso emessi da un Museo in un arco temporale scelto ❌
- * - Abbonamenti in scadenza nel mese corrente ❌
-*/
-/*
-
-/*
- *  OPERAZIONI SULLE NEWSLETTER
- * - Inserimento ✅
- * - Cancellazione❌
- * - Visualizzazione ✅
- * - Iscrizione(rimozione)✅
- * - Cancellazione Iscrizione✅
- * OPERAZIONI STATISTICHE E MONITORAGGIO
- * - Numero visitatori iscritti alla Newsletter scelta ✅
- * - Età media dei visitatori iscritti alla Newsletter scelta ✅
- * - Titoli d’ingresso appartenenti ai visitatori iscritti alla Newsletter scelta ✅
-*/

@@ -1983,6 +1983,18 @@ idSessione NUMBER(5) := modgui1.get_id_sessione();
 auth Autori%ROWTYPE;
 prevMuseo Musei.idmuseo%TYPE;
 museoProprietario Musei%ROWTYPE;
+
+CURSOR lista_musei (author NUMBER) IS 
+    SELECT OE.Museo,OE.Nome,count(*) NumOpere
+    FROM OpereEsposte OE JOIN AutoriOpere AO ON OE.Opera = AO.IdOpera 
+        JOIN Opere OP ON AO.IdOpera = OP.IdOpera
+    WHERE AO.IdAutore = author
+    GROUP BY OE.Museo,OE.Nome;
+CURSOR lista_opere (author NUMBER, museum NUMBER) IS 
+    SELECT OP.Titolo, OP.IdOpera 
+    FROM OpereEsposte OE JOIN AutoriOpere AO ON OE.Opera = AO.IdOpera 
+        JOIN Opere OP ON AO.IdOpera = OP.IdOpera
+    WHERE AO.IdAutore = author AND OE.Museo = museum;
 BEGIN
 SELECT * INTO auth FROM autori WHERE authID=IDAUTORE;
     MODGUI1.ApriPagina('StatisticheAutori',idSessione);
@@ -2040,7 +2052,7 @@ SELECT * INTO auth FROM autori WHERE authID=IDAUTORE;
         end IF;
 
         -- MUSEI CON OPERE ESPOSTE
-        if operazione=1 THEN
+        IF operazione=1 THEN
         modGUI1.ApriDiv('class="w3-container" style="width:100%"');
         htp.print('<h2><b>Musei con opere di ');
         modGUI1.Collegamento(auth.Nome||' '||auth.Cognome, 
@@ -2048,35 +2060,49 @@ SELECT * INTO auth FROM autori WHERE authID=IDAUTORE;
                             ||'&caller=statisticheAutori'||'&callerParams=//operazione='||operazione||'//authID='||authID);
         htp.print(' esposte</b></h2>');
 
-        -- La query seleziona tutti i musei nei quali le opere dell'autore scelto
-        -- sono al momento esposte, raggruppate per IdMuseo, e calcola il loro numero
-            FOR mus_count IN (
-                SELECT M.IdMuseo Museo,M.Nome Nome, count(SO.Opera) NumOpere
-                FROM Musei M JOIN Stanze S ON M.IdMuseo = S.Museo
-                    JOIN SaleOpere SO ON S.IdStanza = SO.Sala
-                WHERE SO.datauscita IS NULL AND SO.Opera IN
-                    (SELECT IdOpera FROM AutoriOpere WHERE IdAutore=auth.IdAutore)
-                GROUP BY M.IdMuseo,M.Nome)
-            LOOP
-                modGUI1.ApriDiv('class="w3-col l4 w3-padding-large w3-center"');
-                    modGUI1.ApriDiv('class="w3-card-4"');
-                    htp.prn('<img src="https://upload.wikimedia.org/wikipedia/commons/6/68/Museo_del_Prado_2016_%2825185969599%29.jpg" alt="Alps" style="width:100%;">');
-                            modGUI1.ApriDiv('class="w3-container w3-center"');
-                                htp.prn('<p><b>'||mus_count.Nome||' ('||mus_count.NumOpere||' opere presenti)</b></p>');
-                                modGUI1.Collegamento('Visualizza Museo', 
-                                    gruppo2.gr2||'visualizzaMuseo?museoID='||mus_count.Museo,
-                                    'w3-black w3-margin w3-button');
-                                
-                                modGUI1.Collegamento('Visualizza Opere',
-                                    gruppo2.gr2||'StatisticheMuseoAutori?'
-                                    ||'operazione=3&authID='||auth.IdAutore||'&museoID='||mus_count.Museo,
-                                    'w3-black w3-margin w3-button');
-
-                            modGUI1.ChiudiDiv;
-                    modGUI1.ChiudiDiv;
+        -- Passando ai cursori i parametri appropriati viene mostrato ogni museo
+        -- nel quale sono esposte opere dell'autore ed un form per visualizzarle (con select)
+        FOR mus IN lista_musei(auth.IdAutore)
+        LOOP
+            modGUI1.ApriDiv('class="w3-col l4 w3-padding-large w3-center"');
+                modGUI1.ApriDiv('class="w3-card-4"');
+                htp.prn('<img src="https://upload.wikimedia.org/wikipedia/commons/6/68/Museo_del_Prado_2016_%2825185969599%29.jpg" alt="Alps" style="width:100%;">');
+                        modGUI1.ApriDiv('class="w3-container w3-center"');
+                            -- Nome del museo + numero di opere dell'autore esposte in quel museo
+                            htp.prn('<p><b>'||mus.Nome||' ('||mus.NumOpere||' opere presenti)</b></p>');
+                            modGUI1.Collegamento('Visualizza Museo', 
+                                gruppo2.gr2||'visualizzaMuseo?museoID='||mus.Museo,
+                                'w3-black w3-margin w3-button');
+                        -- Form per selezione opera da visualizzare (titolo + lingua + livello)
+                        modGUI1.ApriForm(gruppo2.gr2||'visualizzaOpera');
+                            modGUI1.label('Titolo: ');
+                            htp.br;
+                            modGUI1.SelectOpen('operaID', 'operaID');
+                            FOR opera IN lista_opere(auth.IdAutore, mus.Museo)
+                            LOOP
+                                modGUi1.SelectOption(opera.IdOpera, opera.Titolo);
+                            END LOOP;
+                            modGUI1.SelectClose;
+                            htp.br;
+                            modGUI1.label('Lingua descrizione: ');
+                            htp.br;
+                            modGUI1.InputRadioButton('Italiano ', 'lingue', 'Italian', 0, 0, 1);
+                            modGUI1.InputRadioButton('English ', 'lingue', 'English', 0, 0, 1);
+                            modGUI1.InputRadioButton('中国人 ', 'lingue', 'Chinese', 0, 0, 1);
+                            htp.br;
+                            modGUI1.label('Livello descrizione: ');
+                            htp.br;
+                            modGUI1.InputRadioButton('Bambino ', 'livelli', 'bambino', 0, 0, 1);
+                            modGUI1.InputRadioButton('Adulto ', 'livelli', 'adulto', 0, 0, 1);
+                            modGUI1.InputRadioButton('Esperto ', 'livelli', 'esperto', 0, 0, 1);
+                            modGUI1.InputSubmit('Visualizza Opera');
+                        modGUI1.ChiudiForm;
+                        modGUI1.ChiudiDiv;
                 modGUI1.ChiudiDiv;
-            END LOOP;
-        end IF;
+            modGUI1.ChiudiDiv;
+        END LOOP;
+
+        END IF;
 
         --COLLABORAZIONI EFFETTUATE
         if operazione=2 THEN
@@ -2101,7 +2127,10 @@ SELECT * INTO auth FROM autori WHERE authID=IDAUTORE;
                 modGUI1.ChiudiDiv;
             END LOOP;
         end IF;
-
+    EXCEPTION
+        WHEN OTHERS THEN
+            modGUI1.esitooperazione(pagetitle  => 'duh' /*IN VARCHAR2*/,
+                                    msg  => sqlerrm /*IN VARCHAR2*/);
 END;
 
 procedure selezioneMuseoAutoreStatistica(

@@ -1,8 +1,8 @@
 # Guida alla creazione del Database
 
-Prima eseguire create_table3.0.sql se non ancora create le tabelle.
+Prima eseguire create_table.sql se non ancora create le tabelle.
 
-Eseguire populate_table3.0.sql per aggiungere dati.
+Eseguire populate_table.sql per aggiungere dati.
 
 delete_data.sql per eliminare i dati dentro le tabelle e resettare le sequenze.
 

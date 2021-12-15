@@ -94,7 +94,7 @@ CREATE OR REPLACE PACKAGE BODY packagevisite AS
         htp.prn(' / ');
         modgui1.collegamento(
                             nome_tipologia,
-                            'operazioniGruppo1.visualizzaTipologia?idTipologia=' || id_tipologia
+                            'gruppo1.VisualizzaDatiTitoloIng?tipologiaIngID=' || id_tipologia
         );
         htp.prn('</p></div>');
         htp.prn('</div>');

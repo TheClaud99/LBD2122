@@ -1,11 +1,9 @@
 CREATE OR REPLACE PACKAGE packageAcquistaTitoli AS
 
- procedure TitoliHome(
-	 idsessione number default 0
- );
+ procedure TitoliHome;
 
 PROCEDURE visualizzatitoloing(
-	varidtitoloing NUMBER
+	varidtitoloing titoliingresso.IDTITOLOING%type
 );
 
 PROCEDURE acquistatitolo(
@@ -17,7 +15,12 @@ PROCEDURE acquistatitolo(
 );
 
 PROCEDURE pagina_modifica_titolo(
-	varidtitoloing varchar
+	varidtitoloing titoliingresso.IDTITOLOING%type
+);
+
+procedure confermamodificatitolo(
+	varidtitoloing TITOLIINGRESSO.IDTITOLOING%type,
+	idutenteselezionato utenti.idutente%type
 );
 
 PROCEDURE formacquistaabbonamento(
@@ -62,8 +65,6 @@ PROCEDURE confermaacquisto(
 	idutenteselezionato VARCHAR2 DEFAULT NULL
 );
 
-procedure cancellazionetitolo(
-	varidtitoloing varchar2
-);
+PROCEDURE abbonamenti_in_scadenza;
 
 END packageAcquistaTitoli;

@@ -3,40 +3,45 @@ CREATE OR REPLACE PACKAGE BODY packageAcquistaTitoli AS
 
 /*
  *  OPERAZIONI SUI TITOLI DI INGRESSO
- * - Modifica ❌
- * - Cancellazione 
- * - Visualizzazione 
- * - Acquisto abbonamento museale 
- * - Acquisto biglietto 
+ * - Modifica titolare OK
+ * - Visualizzazione OK
+ * - Acquisto abbonamento museale  OK
+ * - Acquisto biglietto OK
  * OPERAZIONI STATISTICHE E MONITORAGGIO
- * - Numero Titoli d’Ingresso emessi in un arco temporale scelto ❌
- * - Numero Titoli d’Ingresso emessi da un Museo in un arco temporale scelto ❌
+ * - Numero Titoli d’Ingresso emessi in un arco temporale scelto ❌ TODO WITH FILTER
+ * - Numero Titoli d’Ingresso emessi da un Museo in un arco temporale scelto ❌ TODO WITH FILTER
  * - Abbonamenti in scadenza nel mese corrente ❌
  */
 
  --VISUALIZZAZIONE
- procedure TitoliHome(
-	 idsessione number default 0
- )
+ PROCEDURE TitoliHome
  	is
-		--IdSessione NUMBER(5) := modgui1.get_id_sessione();
-    begin
-
+		idSessione NUMBER(5) := modgui1.get_id_sessione();
+		idcliente NUMBER(10) := NULL;
+		temp number(1) := 0;
+    BEGIN
+		MODGUI1.APRIPAGINA('Titoli d''ingresso');
         htp.prn('<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css"> ');
         modGUI1.Header(idSessione);
         htp.br;htp.br;htp.br;htp.br;htp.br;htp.br;
         modGUI1.ApriDiv('class="w3-center"');
             htp.prn('<h1>Titoli d''ingresso </h1>'); --TITOLO
 
-            modGUI1.Collegamento('Acquista biglietto','packageAcquistaTitoli.pagina_acquista_biglietto', 'w3-btn w3-round-xxlarge w3-black');
-			modGUI1.Collegamento('Acquista abbonamento','packageAcquistaTitoli.pagina_acquista_abbonamento','w3-btn w3-round-xxlarge w3-black'); /*bottone che rimanda alla procedura inserimento solo se la sessione è 1*/
- 
+            modGUI1.Collegamento('Acquista biglietto','packageAcquistaTitoli.pagina_acquista_biglietto', 'w3-btn w3-round-xxlarge w3-black w3-margin');
+			modGUI1.Collegamento('Acquista abbonamento','packageAcquistaTitoli.pagina_acquista_abbonamento','w3-btn w3-round-xxlarge w3-black w3-margin'); /*bottone che rimanda alla procedura inserimento solo se la sessione è 1*/
+			IF hasrole(idSessione,'AB')
+								OR hasrole(idSessione,'SU')
+								OR hasrole(idSessione,'DBA')
+			THEN
+				htp.br;
+				modGUI1.Collegamento('Abbonamenti in scadenza questo mese','packageAcquistaTitoli.abbonamenti_in_scadenza','w3-btn w3-round-xxlarge w3-black w3-margin');
+			end if;
         modGUI1.ChiudiDiv;
         htp.br;
         modGUI1.ApriDiv('class="w3-row w3-container"');
         --INIZIO LOOP DELLA VISUALIZZAZIONE
             FOR k IN (select titoliingresso.idtitoloing as idtitolo, tipologieingresso.nome as nometipologia,
-							 utenti.nome as nomeutente, utenti.cognome as cognomeutente
+							 utenti.nome as nomeutente, utenti.cognome as cognomeutente, to_char(scadenza, 'DD/MON/YYYY') as datascadenza, to_char(emissione, 'DD/MON/YYYY') as dataemissione
 						from titoliingresso 
 						join TIPOLOGIEINGRESSO on TITOLIINGRESSO.TIPOLOGIA=TIPOLOGIEINGRESSO.IDTIPOLOGIAING
 						join utenti on titoliingresso.ACQUIRENTE=utenti.IDUTENTE
@@ -48,40 +53,88 @@ CREATE OR REPLACE PACKAGE BODY packageAcquistaTitoli AS
                 modGUI1.ApriDiv('class="w3-col l4 w3-padding-large w3-center"');
                     modGUI1.ApriDiv('class="w3-card-4"');
                             modGUI1.ApriDiv('class="w3-container w3-center"');
+							
                             --INIZIO DESCRIZIONI
-                                htp.prn('<p>Titolo d''ingresso <b>'||k.idtitolo||'</b> </p>');
-								htp.prn('<p>'||k.nomeutente || ' ' || k.cognomeutente||' </p>');
-                                htp.prn('<p>'|| k.nometipologia ||'</p>');
+								select count(*) into temp
+								from titoliingresso join tipologieingresso on TITOLIINGRESSO.TIPOLOGIA=TIPOLOGIEINGRESSO.IDTIPOLOGIAING
+								join abbonamenti on abbonamenti.idtipologiaing=tipologieingresso.IDTIPOLOGIAING
+								where titoliingresso.IDTITOLOING=k.idtitolo;
+								if (temp>0) then
+								htp.header(
+                      						3,
+                      						'Abbonamento'
+            					);
+								ELSE
+								htp.header(
+                      						3,
+                      						'Biglietto'
+            					);
+								end if;
+								htp.prn('<div class="w3-row">');
+        						htp.prn('<div class="w3-col s3 w3-center"><p>Titolo d''ingresso:</p></div>');
+								htp.prn('<div class="w3-col s9 w3-center"><b>'
+                				|| k.idtitolo
+                				|| '</b></div>');
+        						htp.prn('</div>');
+
+								htp.prn('<div class="w3-row">');
+        						htp.prn('<div class="w3-col s3 w3-center"><p>Titolare:</p></div>');
+								htp.prn('<div class="w3-col s9 w3-center"><p>'
+                				||k.nomeutente || ' ' || k.cognomeutente|| '</p></div>');
+        						htp.prn('</div>');
+
+								htp.prn('<div class="w3-row">');
+        						htp.prn('<div class="w3-col s3 w3-center"><p>Tipologia:</p></div>');
+								htp.prn('<div class="w3-col s9 w3-center"><p>'
+                				|| k.nometipologia || '</p></div>');
+        						htp.prn('</div>');
+
+								htp.prn('<div class="w3-row">');
+        						htp.prn('<div class="w3-col s3 w3-center"><p>Data di emissione:</p></div>');
+								htp.prn('<div class="w3-col s9 w3-center"><p>'
+                				|| k.dataemissione
+                				|| '</p></div>');
+        						htp.prn('</div>');
+
+								htp.prn('<div class="w3-row">');
+        						htp.prn('<div class="w3-col s3 w3-center"><p>Data di scadenza:</p></div>');
+								htp.prn('<div class="w3-col s9 w3-center"><p>'
+                				|| k.datascadenza
+                				|| '</p></div>');
+        						htp.prn('</div>');
                             --FINE DESCRIZIONI
                             modGUI1.ChiudiDiv;
                             
+							htp.prn('<div class="w3-row">');
             				MODGUI1.Collegamento(
 								'Visualizza',
 								'packageAcquistaTitoli.visualizzatitoloing?varidtitoloing='||k.idtitolo,
 								'w3-button w3-margin w3-black');
+							
 							--utente autorizzato
-            				IF ( idsessione = 1 ) THEN
+            				IF hasrole(idSessione,'AB')
+								OR hasrole(idSessione,'SU')
+								OR hasrole(idSessione,'DBA')
+							THEN
                				 modgui1.collegamento(
 								'Modifica titolare',
-								'packageAcquistaTitoli.pagina_modifica_titolo?&varidtitoloing='||k.idtitolo,
+								'packageAcquistaTitoli.pagina_modifica_titolo?varidtitoloing='||k.idtitolo,
 								'w3-button w3-margin w3-green');
-               				 modgui1.collegamento(
-                                'Rimuovi',
-                                'packageAcquistaTitoli.cancellazionetitolo?&varidtitoloing='||k.idtitolo,
-                                'w3-button w3-margin w3-red'
-                			);
 							END IF;
+							htp.prn('</div>');
                     modGUI1.ChiudiDiv;
                 modGUI1.ChiudiDiv;
             END LOOP;
         --FINE LOOP
         modGUI1.chiudiDiv;
+	htp.bodyclose;
+	htp.htmlclose;
 end;
 
 PROCEDURE visualizzatitoloing(
-	varidtitoloing number
+	varidtitoloing titoliingresso.IDTITOLOING%type
 )is
-	IdSessione NUMBER(5) := modgui1.get_id_sessione();
+	idSessione NUMBER(5) := modgui1.get_id_sessione();
 
 	nomeutente utenti.nome%type;
 	cognomeutente utenti.COGNOME%type;
@@ -93,7 +146,7 @@ PROCEDURE visualizzatitoloing(
     nometipologia TIPOLOGIEINGRESSO.NOME%type;
 	varidtipologia TIPOLOGIEINGRESSO.IDTIPOLOGIAING%type;
 	temp number(3);
-begin
+BEGIN
 	select Emissione, Scadenza, TITOLIINGRESSO.Acquirente, IdMuseo, Musei.Nome, utenti.nome, utenti.cognome, TIPOLOGIEINGRESSO.NOME, TIPOLOGIEINGRESSO.IDTIPOLOGIAING
 	into emiss, scad, varidutente, varidmuseo, nomemuseo, nomeutente, cognomeutente, nometipologia, varidtipologia
 	from TITOLIINGRESSO join utenti on utenti.idutente=TITOLIINGRESSO.ACQUIRENTE
@@ -114,36 +167,63 @@ begin
 		HTP.header(2, 'Abbonamento', 'center');
 		end if;
 
+		--nome utente
+		htp.prn('<div class="w3-row">');
+        htp.prn('<div class="w3-col s3 w3-center"><p>Titolare:</p></div>');
+        htp.prn('<div class="w3-col s9 w3-center"><p>');
+        modgui1.collegamento(
+                            nomeutente
+                            || ' '
+                            || cognomeutente,
+                            'gruppo1.VisualizzaUtente?utenteID=' || varidutente
+        );
+        htp.prn('</p></div>');
+        htp.prn('</div>');
+		--titolo d'ingresso
+		htp.prn('<div class="w3-row">');
+        htp.prn('<div class="w3-col s3 w3-center"><p>Numero titolo d''ingresso:</p></div>');
+        htp.prn('<div class="w3-col s9 w3-center"><p>'
+                || varidtitoloing
+                || '</p></div>');
+        htp.prn('</div>');
+		--data emissione
+		htp.prn('<div class="w3-row">');
+        htp.prn('<div class="w3-col s3 w3-center"><p>Data di emissione:</p></div>');
+        htp.prn('<div class="w3-col s9 w3-center"><p>'
+                || to_char(emiss, 'DD/MON/YYYY HH24:MI')
+                || '</p></div>');
+        htp.prn('</div>');
+		--data scadenza
+		htp.prn('<div class="w3-row">');
+        htp.prn('<div class="w3-col s3 w3-center"><p>Data di scadenza:</p></div>');
+        htp.prn('<div class="w3-col s9 w3-center"><p>'
+                || to_char(scad, 'DD/MON/YYYY HH24:MI')
+                || '</p></div>');
+        htp.prn('</div>');
+		--museo
+		htp.prn('<div class="w3-row">');
+        htp.prn('<div class="w3-col s3 w3-center"><p>Museo:</p></div>');
+        htp.prn('<div class="w3-col s9 w3-center"><p>');
+        modgui1.collegamento(
+                                nomemuseo,
+                                'operazioniGruppo4.visualizzaMusei?idMuseo=' || varidmuseo
+            );
+        htp.prn('</p></div>');
+        htp.prn('</div>');
 		HTP.TableOpen;
-		HTP.TableRowOpen;
-		HTP.TableData('Titolare: ');
-		HTP.TableData(nomeutente || ' ' || cognomeutente);
-		HTP.TableRowClose;
-		HTP.TableRowOpen;
-		HTP.TableData('Museo: ');
-		HTP.TableData(nomemuseo);
-		HTP.TableRowClose;
 		HTP.TableRowOpen;
 		HTP.TableData('Tipologia di ingresso: ');
 		HTP.TableData(nometipologia);
-		HTP.TableRowClose;
-		HTP.TableRowOpen;
-		HTP.TableData('Data Emissione: ');
-		HTP.TableData(to_char(emiss, 'DD-MON-YYYY HH24:MI'));
-		HTP.TableRowClose;
-		HTP.TableRowOpen;
-		HTP.TableData('Data Scadenza: ');
-		HTP.TableData(to_char(scad, 'DD-MON-YYYY HH24:MI'));
 		HTP.TableRowClose;
 		HTP.TableClose;
 		modGUI1.Collegamento('X',
                 'packageAcquistaTitoli.titolihome',
                 'w3-btn w3-large w3-red w3-display-topright');
-		if(IdSessione=1)
+		if(idSessione=1)
 		then
-			modGUI1.Collegamento('Cancella titolo d''ingresso',
-                'packageAcquistaTitoli.cancellazionetitolo',
-                'w3-button w3-block w3-red w3-section w3-padding');
+			modGUI1.Collegamento('Modifica titolare',
+				'packageacquistatitoli.pagina_modifica_titolo?varidtitoloing='||varidtitoloing,
+				'w3-button w3-block w3-black w3-section');
 		end if;
 		modgui1.chiudidiv();
 		htp.bodyclose();
@@ -155,10 +235,10 @@ END;
 
 
 PROCEDURE pagina_modifica_titolo(
-	varidtitoloing varchar
+	varidtitoloing titoliingresso.IDTITOLOING%type
 )
 IS
-	IdSessione NUMBER(5) := modgui1.get_id_sessione();
+	idSessione NUMBER(5) := modgui1.get_id_sessione();
 	varidutenteold utenti.idutente%type;
 	varidutentenew utenti.idutente%type;
 	nomeutente utenti.nome%type;
@@ -184,8 +264,10 @@ BEGIN
 	htp.prn('<h1 align="center"> Modifica titolare </h1>');
 
 	modgui1.apridiv('class="w3-modal-content w3-card-4 w3-animate-zoom" style="max-width:600px"');
-	modgui1.apriform('packageAcquistaTitoli.pagina_modifica_titolo', 'confermamodificatitolo', 'w3-container');
+	modGUI1.ApriForm('packageacquistatitoli.confermamodificatitolo',NULL,'w3-container');
 	modgui1.apridiv('class="w3-section"');
+	
+		htp.formhidden('varidtitoloing', varidtitoloing);
 
 	modgui1.label('Utente*: ');
 	modgui1.selectopen('idutenteselezionato', 'utente-selezionato');
@@ -220,7 +302,7 @@ BEGIN
 		HTP.TableRowClose;
 		HTP.TableClose;
 
-	htp.prn('<button class="w3-button w3-block w3-black w3-section w3-padding" type="submit">Modifica</button>');
+	modgui1.inputsubmit('Modifica');
 	modgui1.collegamento(
                         'Torna alla visualizzazione di tutti i titoli d''ingresso',
                         'packageAcquistaTitoli.titolihome',
@@ -228,19 +310,101 @@ BEGIN
                 		);
 	modgui1.ChiudiDiv();
 	modgui1.chiudiform();
-	modgui1.chiudidiv();
-	
+	HTP.BodyClose;
+	HTP.HtmlClose;	
+
 END;
-/*
-procedure confermamodificatitolo(
-	idutenteselezionato utenti.idutente%type,
 
+
+PROCEDURE confermamodificatitolo(
+	varidtitoloing TITOLIINGRESSO.IDTITOLOING%type,
+	idutenteselezionato utenti.idutente%type
 )
+	IS
+		idSessione NUMBER(5) := modgui1.get_id_sessione();
 
-*/
+		nomeutente utenti.nome%type;
+		cognomeutente utenti.cognome%type;
+		varidutenteold utenti.idutente%type;
+		nomeutenteold utenti.nome%type;
+		cognomeutenteold utenti.cognome%type;
+		dataemissione titoliingresso.emissione%type;
+		datascadenza titoliingresso.scadenza%type;
+		nomemuseo musei.nome%type;
+		nometipologia TIPOLOGIEINGRESSO.nome%type;
+		
+	BEGIN
 
+		select nome, cognome into nomeutente, cognomeutente
+		from utenti where utenti.IDUTENTE=idutenteselezionato;
 
+		select utenti.idutente, utenti.nome, utenti.cognome, titoliingresso.emissione, titoliingresso.scadenza, musei.nome, TIPOLOGIEINGRESSO.nome
+		into varidutenteold, nomeutenteold, cognomeutenteold, dataemissione, datascadenza, nomemuseo, nometipologia
+		from TITOLIINGRESSO
+		join utenti on utenti.idutente=titoliingresso.acquirente
+		join musei on titoliingresso.museo=musei.idmuseo
+		join TIPOLOGIEINGRESSO on tipologieingresso.IDTIPOLOGIAING=titoliingresso.TIPOLOGIA
+		where TITOLIINGRESSO.IDTITOLOING=varidtitoloing;
+	
+	if (idutenteselezionato = varidutenteold)
+	THEN
+		modGUI1.RedirectEsito('Errore', 
+            'Non e'' stato selezionato un nuovo utente come titolare', 
+            'Riprova', 'packageacquistatitoli.pagina_modifica_titolo?varidtitoloing=', varidtitoloing,
+            'Torna al menu titoli d''ingresso', 'packageacquistatitoli.titolihome', null);
+	end if;
+	IF (idutenteselezionato is null) THEN
+		modGUI1.RedirectEsito('Errore', 
+            'Non e'' stato selezionato nessun utente', 
+            'Riprova', 'packageacquistatitoli.pagina_modifica_titolo?varidtitoloing=', varidtitoloing,
+            'Torna al menu titoli d''ingresso', 'packageacquistatitoli.titolihome', null);
+	ELSE
+		MODGUI1.APRIPAGINA('Pagina Conferma');
+		HTP.BodyOpen;
+		modgui1.header(idSessione);
+		modgui1.apridiv('style="margin-top: 110px"');
+		htp.prn('<h2 align="center"> Conferma immissione dati </h2>');
+		modgui1.apridiv('class="w3-modal-content w3-card-4 w3-animate-zoom" style="max-width:600px"');
 
+		HTP.TableOpen;
+		HTP.TableRowOpen;
+		HTP.TableData('<b>Nuovo titolare: </b>');
+		HTP.TableData('<b>' ||nomeutente||' '||cognomeutente|| '</b>');
+		HTP.TableRowClose;
+		HTP.TableRowOpen;
+		HTP.TableData('Vecchio titolare: ');
+		HTP.TableData(nomeutenteold||' '||cognomeutenteold);
+		HTP.TableRowClose;	
+		HTP.TableRowClose;		
+		HTP.TableData('Museo: ');
+		HTP.TableData(nomemuseo);
+		HTP.TableRowClose;
+		HTP.TableRowOpen;
+		HTP.TableData('Tipologia di ingresso: ');
+		HTP.TableData(nometipologia);
+		HTP.TableRowClose;
+		HTP.TableRowOpen;
+		HTP.TableData('Data Emissione: ');
+		HTP.TableData(to_char(dataemissione, 'DD-MON-YYYY HH24:MI'));
+		HTP.TableRowClose;
+		HTP.TableRowOpen;
+		HTP.TableData('Data Scadenza: ');
+		HTP.TableData(to_char(datascadenza, 'DD-MON-YYYY HH24:MI'));
+		HTP.TableRowClose;
+		HTP.TableClose;
+		modgui1.InputSubmit('Conferma');
+		modgui1.collegamento(
+                        'Annulla',
+                        'packageAcquistaTitoli.pagina_modifica_titolo?varidtitoloing='||varidtitoloing||'',
+                        'w3-button w3-block w3-red w3-section w3-padding'
+                		);
+		modgui1.chiudidiv();
+		modgui1.chiudidiv();
+		HTP.BodyClose;
+		HTP.HtmlClose;	
+	end if;
+
+END;
 
 PROCEDURE acquistatitolo(
 	dataEmissionechar IN VARCHAR2,
@@ -249,22 +413,20 @@ PROCEDURE acquistatitolo(
 	idtipologiaselezionata tipologieingresso.IDTIPOLOGIAING%type,
 	idutenteselezionato IN VARCHAR2
 ) IS
-	IdSessione NUMBER(5) := modgui1.get_id_sessione();
+	idSessione NUMBER(5) := modgui1.get_id_sessione();
 
-	varidtitoloing VARCHAR(5);
-	emiss DATE;
-	scadenza varchar2(20);
-	scad date;
-	tipologia varchar2(100);
+	varidtitoloing titoliingresso.IDTITOLOING%type;
+	scad date; --contiene data di scadenza in formato inseribile nel db
 	temp1 number(2); --flag che ci dice se abbiamo a che fare con un biglietto o un abbonamento
-	temp2 varchar(20); --contiene la data di scadenza in formato varchar
+	temp2 date; 
 	temp3 number(1); --flag che ci dice se l'utente e' gia presente nella tabella UTENTIMUSEO
 	durataabbonamento tipologieingresso.durata%type; --contiene la durata dell'abbonamento
 	datetime date; --contiene concatenati data e ora nel formato inseribile nel db
-	temp4 int;
-	durataabbnumb number(3);
+	scadenzaabb varchar2(10);
+	emissdate date; --contiene data emissione in formato data
+
 BEGIN
-	
+	modgui1.apridiv('style="margin-top: 110px"');
 	varidtitoloing := idtitoloingseq.nextval;
 	
 	datetime:=to_date(
@@ -272,19 +434,21 @@ BEGIN
                 || ' '
                 || dataemissionechar, 'HH24:MI YYYY/MM/DD'
             );
-
-	select durata into durataabbonamento from TIPOLOGIEINGRESSO where IDTIPOLOGIAING=idtipologiaselezionata;
-	htp.prn('<p>'||durataabbonamento||'</p>');
 	
+	select durata into durataabbonamento from TIPOLOGIEINGRESSO where IDTIPOLOGIAING=idtipologiaselezionata;
+	
+	emissdate:=to_date(dataemissionechar,'YYYY/MM/DD');
+	temp2:=emissdate+durataabbonamento;
+	scadenzaabb:=to_char(temp2, 'YYYY/MM/DD');
 	select count(*) into temp1 from Biglietti where idtipologiaselezionata= biglietti.IDTIPOLOGIAING;
+	
 	if(temp1>0)
 	then
 		scad:= to_date('23:59 ' ||dataemissionechar, 'HH24:MI YYYY/MM/DD');
 	ELSE
-		scad:= to_date('23:59 ' ||dataemissionechar, 'HH24:MI YYYY/MM/DD');
+		scad:= to_date('23:59 ' ||scadenzaabb, 'HH24:MI YYYY/MM/DD');
 	end if;
-
-
+	
 	INSERT INTO TITOLIINGRESSO(
 		idtitoloing,
 		Emissione,
@@ -309,7 +473,7 @@ BEGIN
 		values (idutenteselezionato, 0);
 	end if;
 
-	--visualizzatitoloing(varidtitoloing); 
+	visualizzatitoloing(varidtitoloing); 
 END;
 
 --ACQUISTO ABBONAMENTO
@@ -320,7 +484,7 @@ PROCEDURE formacquistaabbonamento(
 	idtipologiaselezionata IN VARCHAR2 default null,
 	idutenteselezionato IN VARCHAR2 default null
 )IS
-	IdSessione NUMBER(5) := modgui1.get_id_sessione();
+	idSessione NUMBER(5) := modgui1.get_id_sessione();
 
 	nomeutente utenti.nome%TYPE;
 	cognomeutente utenti.cognome%TYPE;
@@ -393,7 +557,6 @@ BEGIN
 	modgui1.inputtime('oraemissionechar','oraemissionechar', oraemissionechar);
 	HTP.br;
 
-
 	htp.prn('<button class="w3-button w3-block w3-black w3-section w3-padding" type="submit" name="convalida" value="1">Acquista</button>');
 	modgui1.collegamento(
                         'Torna alla visualizzazione di tutti i titoli d''ingresso',
@@ -418,7 +581,7 @@ PROCEDURE pagina_acquista_abbonamento(
 	idutenteselezionato VARCHAR2 DEFAULT NULL,
 	convalida IN NUMBER DEFAULT NULL
 ) IS
-	IdSessione NUMBER(5) := modgui1.get_id_sessione();
+	idSessione NUMBER(5) := modgui1.get_id_sessione();
 BEGIN
 	modgui1.apripagina('Pagina acquisto abbonamento');
 	modgui1.header(idSessione);
@@ -441,14 +604,14 @@ END;
 
 
 --ACQUISTO BIGLIETTO
-procedure formacquistabiglietto(
+PROCEDURE formacquistabiglietto(
 	dataEmissionechar IN VARCHAR2,
 	oraemissionechar in varchar2,
 	idmuseoselezionato IN VARCHAR2 default null,
 	idtipologiaselezionata IN VARCHAR2 default null,
 	idutenteselezionato IN VARCHAR2 default null
 )IS
-	IdSessione NUMBER(5) := modgui1.get_id_sessione();
+	idSessione NUMBER(5) := modgui1.get_id_sessione();
 
 	nomeutente utenti.nome%TYPE;
 	cognomeutente utenti.cognome%TYPE;
@@ -458,7 +621,7 @@ procedure formacquistabiglietto(
 	nomeMuseo musei.Nome%TYPE;
 	varidtipologia tipologieingresso.idtipologiaing%TYPE;
 	nometiping VARCHAR(25);
-begin
+BEGIN
 	modgui1.apridiv('class="w3-modal-content w3-card-4 w3-animate-zoom" style="max-width:600px"');
 	modgui1.apriform('packageAcquistaTitoli.pagina_acquista_biglietto', 'formacquistabiglietto', 'w3-container');
 	modgui1.apridiv('class="w3-section"');
@@ -543,7 +706,7 @@ PROCEDURE confermaacquisto(
 	idtipologiaselezionata VARCHAR2 DEFAULT NULL,
 	idutenteselezionato VARCHAR2 DEFAULT NULL
 )IS
-	IdSessione NUMBER(5) := modgui1.get_id_sessione();
+	idSessione NUMBER(5) := modgui1.get_id_sessione();
 
 	nomeutente  VARCHAR(100);
 	cognomeutente VARCHAR(100);
@@ -557,34 +720,40 @@ BEGIN
 	select nome into nomemuseo from musei where idmuseo=idmuseoselezionato;
 	select nome into nometipologia from tipologieingresso where idtipologiaing=idtipologiaselezionata;
 
-	IF dataEmissionechar is null
-    or idmuseoselezionato is null
-    or idtipologiaselezionata is null
-    or idutenteselezionato is null
-	or (dataemissionechar is not null and to_date(dataEmissionechar, 'YYYY/MM/DD')>sysdate)
-	
-    THEN
-    modgui1.apripagina('Pagina errore', 0);
-    htp.BodyOpen;
-	modgui1.header(idsessione);
-    modgui1.apridiv();
-    htp.print('Uno dei parametri immessi non valido');
-    modgui1.chiudidiv;
-    htp.BodyClose;
-    htp.HtmlClose;
-    ELSE
+	if (flag>0)
+	then
+		IF (dataEmissionechar is null) THEN
+		modGUI1.RedirectEsito('Errore', 
+            'Data di emissione non selezionata', 
+            'Riprova', 'packageacquistatitoli.pagina_acquista_biglietto?','dataemissionechar='||dataemissionechar||'//oraemissionechar='||oraemissionechar||'//idmuseoselezionato='||idmuseoselezionato||'//idutenteselezionato='||idutenteselezionato||'//idtipologiaselezionata='||idtipologiaselezionata,
+            'Torna al menu titoli d''ingresso', 'packageacquistatitoli.titolihome', null);
+    	ELSIF idmuseoselezionato is null THEN
+		modGUI1.RedirectEsito('Errore', 
+            'Nessun museo selezionato', 
+            'Riprova', 'packageacquistatitoli.pagina_acquista_biglietto?','dataemissionechar='||dataemissionechar||'//oraemissionechar='||oraemissionechar||'//idmuseoselezionato='||idmuseoselezionato||'//idutenteselezionato='||idutenteselezionato||'//idtipologiaselezionata='||idtipologiaselezionata,
+            'Torna al menu titoli d''ingresso', 'packageacquistatitoli.titolihome', null);
+   		ELSIF idtipologiaselezionata is null THEN
+		modGUI1.RedirectEsito('Errore', 
+            'Nessuna tipologia d''ingresso selezionata', 
+            'Riprova', 'packageacquistatitoli.pagina_acquista_biglietto?','dataemissionechar='||dataemissionechar||'//oraemissionechar='||oraemissionechar||'//idmuseoselezionato='||idmuseoselezionato||'//idutenteselezionato='||idutenteselezionato||'//idtipologiaselezionata='||idtipologiaselezionata,
+            'Torna al menu titoli d''ingresso', 'packageacquistatitoli.titolihome', null);
+   		ELSIF idutenteselezionato is null THEN
+		modGUI1.RedirectEsito('Errore', 
+            'Nessun utente selezionato', 
+            'Riprova', 'packageacquistatitoli.pagina_acquista_biglietto?','dataemissionechar='||dataemissionechar||'//oraemissionechar='||oraemissionechar||'//idmuseoselezionato='||idmuseoselezionato||'//idutenteselezionato='||idutenteselezionato||'//idtipologiaselezionata='||idtipologiaselezionata,
+            'Torna al menu titoli d''ingresso', 'packageacquistatitoli.titolihome', null);
+		ELSIF (dataemissionechar is not null and to_date(dataEmissionechar, 'YYYY/MM/DD')>sysdate) THEN
+		modGUI1.RedirectEsito('Errore', 
+            'Data di emissione selezionata maggiore della data corrente', 
+            'Riprova', 'packageacquistatitoli.pagina_acquista_biglietto?','dataemissionechar='||dataemissionechar||'//oraemissionechar='||oraemissionechar||'//idmuseoselezionato='||idmuseoselezionato||'//idutenteselezionato='||idutenteselezionato||'//idtipologiaselezionata='||idtipologiaselezionata,
+            'Torna al menu titoli d''ingresso', 'packageacquistatitoli.titolihome', null);
+    	ELSE
 		MODGUI1.APRIPAGINA('Pagina Conferma');
 		HTP.BodyOpen;
-		modgui1.header(Idsessione);
+		modgui1.header(idSessione);
 		htp.prn('<h2 align="center"> Conferma immissione dati </h2>');
-		if flag >0
-		then
 		MODGUI1.ApriDivcard();
 		HTP.header(3, 'Nuovo Biglietto', 'center');
-		else
-		MODGUI1.ApriDivcard();
-		HTP.header(3, 'Nuovo Abbonamento', 'center');
-		end if;
 
 		HTP.TableOpen;
 		HTP.TableRowOpen;
@@ -608,6 +777,66 @@ BEGIN
 		HTP.TableData(dataEmissioneChar || ' ' || oraemissionechar);
 		HTP.TableRowClose;
 		HTP.TableClose;
+		end if;
+
+	ELSE
+		IF (dataEmissionechar is null) THEN
+		modGUI1.RedirectEsito('Errore', 
+            'Data di emissione non selezionata', 
+            'Riprova', 'packageacquistatitoli.pagina_acquista_abbonamento?','dataemissionechar='||dataemissionechar||'//oraemissionechar='||oraemissionechar||'//idmuseoselezionato='||idmuseoselezionato||'//idutenteselezionato='||idutenteselezionato||'//idtipologiaselezionata='||idtipologiaselezionata,
+            'Torna al menu titoli d''ingresso', 'packageacquistatitoli.titolihome', null);
+    	ELSIF idmuseoselezionato is null THEN
+		modGUI1.RedirectEsito('Errore', 
+            'Nessun museo selezionato', 
+            'Riprova', 'packageacquistatitoli.pagina_acquista_abbonamento?','dataemissionechar='||dataemissionechar||'//oraemissionechar='||oraemissionechar||'//idmuseoselezionato='||idmuseoselezionato||'//idutenteselezionato='||idutenteselezionato||'//idtipologiaselezionata='||idtipologiaselezionata,
+            'Torna al menu titoli d''ingresso', 'packageacquistatitoli.titolihome', null);
+   		ELSIF idtipologiaselezionata is null THEN
+		modGUI1.RedirectEsito('Errore', 
+            'Nessuna tipologia d''ingresso selezionata', 
+            'Riprova', 'packageacquistatitoli.pagina_acquista_abbonamento?','dataemissionechar='||dataemissionechar||'//oraemissionechar='||oraemissionechar||'//idmuseoselezionato='||idmuseoselezionato||'//idutenteselezionato='||idutenteselezionato||'//idtipologiaselezionata='||idtipologiaselezionata,
+            'Torna al menu titoli d''ingresso', 'packageacquistatitoli.titolihome', null);
+   		ELSIF idutenteselezionato is null THEN
+		modGUI1.RedirectEsito('Errore', 
+            'Nessun utente selezionato', 
+            'Riprova', 'packageacquistatitoli.pagina_acquista_abbonamento?','dataemissionechar='||dataemissionechar||'//oraemissionechar='||oraemissionechar||'//idmuseoselezionato='||idmuseoselezionato||'//idutenteselezionato='||idutenteselezionato||'//idtipologiaselezionata='||idtipologiaselezionata,
+            'Torna al menu titoli d''ingresso', 'packageacquistatitoli.titolihome', null);
+		ELSIF (dataemissionechar is not null and to_date(dataEmissionechar, 'YYYY/MM/DD')>sysdate) THEN
+		modGUI1.RedirectEsito('Errore', 
+            'Data di emissione selezionata maggiore della data corrente', 
+            'Riprova', 'packageacquistatitoli.pagina_acquista_abbonamento?','dataemissionechar='||dataemissionechar||'//oraemissionechar='||oraemissionechar||'//idmuseoselezionato='||idmuseoselezionato||'//idutenteselezionato='||idutenteselezionato||'//idtipologiaselezionata='||idtipologiaselezionata,
+            'Torna al menu titoli d''ingresso', 'packageacquistatitoli.titolihome', null);
+    	ELSE
+		MODGUI1.APRIPAGINA('Pagina Conferma');
+		HTP.BodyOpen;
+		modgui1.header(idSessione);
+		htp.prn('<h2 align="center"> Conferma immissione dati </h2>');
+		MODGUI1.ApriDivcard();
+		HTP.header(3, 'Nuovo Abbonamento', 'center');
+
+		HTP.TableOpen;
+		HTP.TableRowOpen;
+		HTP.TableData('Nome: ');
+		HTP.TableData(nomeutente);
+		HTP.TableRowClose;
+		HTP.TableRowOpen;
+		htp.tabledata('Cognome: ');
+		htp.tabledata(cognomeutente);
+		HTP.TableRowClose;
+		HTP.TableRowOpen;
+		HTP.TableData('Museo: ');
+		HTP.TableData(nomemuseo);
+		HTP.TableRowClose;
+		HTP.TableRowOpen;
+		HTP.TableData('Tipologia di ingresso: ');
+		HTP.TableData(nometipologia);
+		HTP.TableRowClose;
+		HTP.TableRowOpen;
+		HTP.TableData('Data Emissione: ');
+		HTP.TableData(dataEmissioneChar || ' ' || oraemissionechar);
+		HTP.TableRowClose;
+		HTP.TableClose;
+		end if;
+
     end if;
 		modgui1.apriform('packageAcquistaTitoli.acquistatitolo');
 		htp.formhidden('dataemissionechar', dataemissionechar);
@@ -640,8 +869,8 @@ PROCEDURE pagina_acquista_biglietto(
 	idutenteselezionato VARCHAR2 DEFAULT NULL,
 	convalida IN NUMBER DEFAULT NULL
 )IS
-	IdSessione NUMBER(5) := modgui1.get_id_sessione();
-begin
+	idSessione NUMBER(5) := modgui1.get_id_sessione();
+BEGIN
 	modgui1.apripagina('Pagina acquisto biglietto');
 	modgui1.header(idSessione);
 	modgui1.apridiv('style="margin-top: 110px"');
@@ -663,11 +892,11 @@ end;
 
 
 -- Numero Titoli d’Ingresso emessi in un arco temporale scelto
-procedure statTitoliPerArcoTemp(
+PROCEDURE statTitoliPerArcoTemp(
 	datainizio VARCHAR2 default null,
 	datafine VARCHAR2 default null
 )IS
-	IdSessione NUMBER(5) := modgui1.get_id_sessione();
+	idSessione NUMBER(5) := modgui1.get_id_sessione();
 
 	iniziop date:= to_date(datainizio, 'YYYY-MM-DD');
 	finep date:= to_date(datafine, 'YYYY-MM-DD');
@@ -716,69 +945,66 @@ BEGIN
 	end if;
 
 END; 
---CANCELLAZIONE
-procedure cancellazionetitolo(
-	varidtitoloing varchar2
-)
-IS
-	IdSessione NUMBER(5) := modgui1.get_id_sessione();
 
-	temp number(1);
-	temp2 number(1);
+PROCEDURE abbonamenti_in_scadenza
+IS
+	idSessione NUMBER(5) := modgui1.get_id_sessione();
+	quant number(10):= null;
+	meseattuale varchar2(4):= to_char(01);
+	giornoattuale varchar2(4):= to_char(sysdate, 'DD');
+	annoattuale varchar2(4):= to_char(2022);
 BEGIN
 
-	select count(*)  into temp from TITOLIINGRESSO where IDTITOLOING=varidtitoloing;
-	if temp>0
-	then
-		DELETE FROM TITOLIINGRESSO
-		WHERE IDTITOLOING=varidtitoloing;
-		select count(*) into temp2 from TITOLIINGRESSO where IDTITOLOING=varidtitoloing;
-		if temp2<1
-		then
-			modgui1.apripagina('Pagina esito cancellazione');
-			htp.bodyopen;
-			modgui1.header();
-			modgui1.apridiv('style="margin-top: 110px"');
-			htp.header(1, 'Cancellazione titolo d''ingresso');
-			modgui1.apridivcard();
-			htp.prn('<h1> Successo! </h1>');
-			htp.br();
-			htp.print('Titolo d''ingresso eliminato correttamente.');
-    		modgui1.chiudidiv;
-			modgui1.chiudidiv;
-    		htp.BodyClose;
-    		htp.HtmlClose;
-		else
-			modgui1.apripagina('Pagina errore');
-			htp.bodyopen;
-			modgui1.header();
-			modgui1.apridiv('style="margin-top: 110px"');
-			htp.header(1, 'Cancellazione titolo d''ingresso');
-			modgui1.apridivcard();
-			htp.prn('<h1> Errore </h1>');
-			htp.br();
-			htp.print('Titolo d''ingresso non eliminato correttamente.');
-    		modgui1.chiudidiv;
-			modgui1.chiudidiv;
-    		htp.BodyClose;
-    		htp.HtmlClose;
-		end if;
-	ELSE
-		modgui1.apripagina('Pagina errore');
-		htp.bodyopen;
-		modgui1.header();
-		modgui1.apridiv('style="margin-top: 110px"');
-		htp.header(1, 'Cancellazione titolo d''ingresso');
-		modgui1.apridivcard();
-		htp.prn('<h1> Errore </h1>');
-		htp.br();
-		htp.print('Titolo d''ingresso non presente.');
-    	modgui1.chiudidiv;
-		modgui1.chiudidiv;
-    	htp.BodyClose;
-    	htp.HtmlClose;
-	end if;
-		
+	select distinct count(*) into quant
+					from titoliingresso 
+					join TIPOLOGIEINGRESSO on TITOLIINGRESSO.TIPOLOGIA=TIPOLOGIEINGRESSO.IDTIPOLOGIAING
+					join utenti on titoliingresso.ACQUIRENTE=utenti.IDUTENTE
+					join tipologieingressomusei on tipologieingresso.IDTIPOLOGIAING= tipologieingressomusei.IDTIPOLOGIAING
+					join musei on tipologieingressomusei.IDMUSEO= musei.IDMUSEO
+					join abbonamenti on TIPOLOGIEINGRESSO.IDTIPOLOGIAING=ABBONAMENTI.IDTIPOLOGIAING
+					where to_char(TITOLIINGRESSO.scadenza,'MM')=meseattuale AND to_char(TITOLIINGRESSO.scadenza,'DD')>=giornoattuale and to_char(TITOLIINGRESSO.scadenza,'YYYY')=annoattuale;
+
+	modgui1.apripagina('Visualizzazione Statistica');
+	modgui1.header(idsessione);
+	modgui1.apridiv('style="margin-top: 110px"');
+	htp.prn('<h1 align="center">Abbonamenti in scadenza questo mese</h1>');
+	htp.prn('<p p align="center"> Sono presenti <b> '||quant|| '</b> abbonamenti in scadenza entro la fine del mese </p>');
+
+	FOR k IN (select distinct titoliingresso.idtitoloing as idtitolo, tipologieingresso.nome as nometipologia,
+							 utenti.nome as nomeutente, utenti.cognome as cognomeutente
+						from titoliingresso 
+						join TIPOLOGIEINGRESSO on TITOLIINGRESSO.TIPOLOGIA=TIPOLOGIEINGRESSO.IDTIPOLOGIAING
+						join utenti on titoliingresso.ACQUIRENTE=utenti.IDUTENTE
+						join tipologieingressomusei on tipologieingresso.IDTIPOLOGIAING= tipologieingressomusei.IDTIPOLOGIAING
+						join musei on tipologieingressomusei.IDMUSEO= musei.IDMUSEO
+						join abbonamenti on TIPOLOGIEINGRESSO.IDTIPOLOGIAING=ABBONAMENTI.IDTIPOLOGIAING
+						where to_char(TITOLIINGRESSO.scadenza,'MM')=meseattuale AND to_char(TITOLIINGRESSO.scadenza,'DD')>=giornoattuale AND to_char(TITOLIINGRESSO.scadenza,'YYYY')=annoattuale
+						order by IDTITOLOING
+		)
+	LOOP
+                modGUI1.ApriDiv('class="w3-col l4 w3-padding-large w3-center"');
+                    modGUI1.ApriDiv('class="w3-card-4"');
+                            modGUI1.ApriDiv('class="w3-container w3-center"');
+                            --INIZIO DESCRIZIONI
+                                htp.prn('<p>Titolo d''ingresso <b>'||k.idtitolo||'</b> </p>');
+								htp.prn('<p>'||k.nomeutente || ' ' || k.cognomeutente||' </p>');
+                                htp.prn('<p>'|| k.nometipologia ||'</p>');
+                            --FINE DESCRIZIONI
+                            modGUI1.ChiudiDiv;
+                            
+            				MODGUI1.Collegamento(
+								'Visualizza',
+								'packageAcquistaTitoli.visualizzatitoloing?varidtitoloing='||k.idtitolo,
+								'w3-button w3-margin w3-black');
+                    modGUI1.ChiudiDiv;
+                modGUI1.ChiudiDiv;
+    END LOOP;
+	htp.BodyClose;
+	htp.HtmlClose;
+	
+
+
 END;
+
 
 END packageAcquistaTitoli;

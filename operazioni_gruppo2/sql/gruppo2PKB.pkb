@@ -267,7 +267,9 @@ BEGIN
             htp.print('<h1>Seleziona la lingua</h1>');
             modGUI1.ChiudiDiv;
                 modGUI1.ApriForm(gruppo2.gr2||'VisualizzaOpera','selezione lingue','w3-container');
-                    HTP.FORMHIDDEN('operaID',operaID);
+                    -- aggiunto attributo id="hiddenOperaID" per script in statisticheAutori()
+                    -- Nicola --
+                    HTP.FORMHIDDEN('operaID',operaID, 'id="hiddenOperaID"');
                     modGUI1.ApriDiv('class="w3-section"');
                         htp.br; 
                         htp.print('<h5>');
@@ -2083,19 +2085,32 @@ SELECT * INTO auth FROM autori WHERE authID=IDAUTORE;
                                 modGUi1.SelectOption(opera.IdOpera, opera.Titolo);
                             END LOOP;
                             modGUI1.SelectClose;
-                            htp.br;
-                            modGUI1.label('Lingua descrizione: ');
-                            htp.br;
-                            modGUI1.InputRadioButton('Italiano ', 'lingue', 'Italian', 0, 0, 1);
-                            modGUI1.InputRadioButton('English ', 'lingue', 'English', 0, 0, 1);
-                            modGUI1.InputRadioButton('中国人 ', 'lingue', 'Chinese', 0, 0, 1);
-                            htp.br;
-                            modGUI1.label('Livello descrizione: ');
-                            htp.br;
-                            modGUI1.InputRadioButton('Bambino ', 'livelli', 'bambino', 0, 0, 1);
-                            modGUI1.InputRadioButton('Adulto ', 'livelli', 'adulto', 0, 0, 1);
-                            modGUI1.InputRadioButton('Esperto ', 'livelli', 'esperto', 0, 0, 1);
-                            modGUI1.InputSubmit('Visualizza Opera');
+                            --
+                            -- Bottone submit + script per fill
+                            -- Quando viene premuto il bottone "Visualizza Opera" viene inserito
+                            -- nel popup lingue e livelli l'ID dell'opera e deselezionate le scelte
+                            -- precedenti (i due for nello script)
+                            htp.prn('<button onclick=setOperaPopup() '
+                            ||'class="w3-margin w3-button w3-black w3-hover-white">Visualizza Opera</button>');
+
+                            htp.script('function setOperaPopup() {
+                                var selectedWork = document.getElementById(''operaID'').value;
+                                var levelButtons = document.getElementsByName(''livelli'');
+                                for(i=0; i < levelButtons.length; i++) {
+                                    levelButtons[i].checked = false;
+                                }
+                                var langButtons = document.getElementsByName(''lingue'');
+                                for(i=0; i < langButtons.length; i++) {
+                                    langButtons[i].checked = false;
+                                }
+                                document.getElementById(''hiddenOperaID'').value = selectedWork;
+                                document.getElementById(''LinguaeLivelloOpera0'').style.display = ''block'';
+                            }');
+
+                        -- Popup senza parametri: va di default a idOpera=0 (usato nello script sopra)
+                        -- e poi viene cambiato dinamicamente
+                        gruppo2.linguaelivello;
+                        
                         modGUI1.ChiudiForm;
                         modGUI1.ChiudiDiv;
                 modGUI1.ChiudiDiv;

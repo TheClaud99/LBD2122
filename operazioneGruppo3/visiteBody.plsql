@@ -416,6 +416,26 @@ CREATE OR REPLACE PACKAGE BODY packagevisite AS
                             END
         );
 
+        modgui1.selectoption(
+                            'datavisita',
+                            'Data',
+                            CASE
+                                WHEN order_by = 'datavisita' THEN
+                                    1
+                                ELSE 0
+                            END
+        );
+
+        modgui1.selectoption(
+                            'costototale',
+                            'Costo tipologia',
+                            CASE
+                                WHEN order_by = 'datavisita' THEN
+                                    1
+                                ELSE 0
+                            END
+        );
+
         modgui1.selectclose();
         htp.prn('</div>');
         htp.prn('<div class="w3-col w3-padding s3 w3-center">');

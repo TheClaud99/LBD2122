@@ -294,7 +294,6 @@ end linguaELivello;
 -- Procedura per l'inserimento di nuove Opere nella base di dati
 PROCEDURE InserisciOpera(
     titolo VARCHAR2 DEFAULT 'Sconosciuto',
-    --titolo VARCHAR2 DEFAULT NULL,
     anno VARCHAR2 DEFAULT NULL,
     fineperiodo VARCHAR2 DEFAULT NULL,
     idmusei NUMBER DEFAULT NULL
@@ -304,18 +303,17 @@ placeholderTitolo VARCHAR2(255) := 'Titolo opera';
 placeholderAnno VARCHAR2(255) := 'Anno realizzazione';
 placeholderPeriodo VARCHAR2(255) := 'Periodo di realizzazione';
 BEGIN
-    modGUI1.ApriPagina('InserisciOpera',idSessione);--DA MODIFICARE campo PROVA
+    modGUI1.ApriPagina('InserisciOpera',idSessione);
         if idSessione IS NULL then
             modGUI1.Header;
         else
             modGUI1.Header(idSessione);
         end if;
         htp.br;htp.br;htp.br;htp.br;htp.br;htp.br;
-        htp.prn('<h1 align="center">Inserimento Opera</h1>');--DA MODIFICARE
+        htp.prn('<h1 align="center">Inserimento Opera</h1>');
         modGUI1.ApriDiv('class="w3-modal-content w3-card-4 w3-animate-zoom" style="max-width:600px"');
             modGUI1.ApriDiv('class="w3-section"');
             modGUI1.Collegamento('X',gruppo2.gr2||'menuOpere',' w3-btn w3-large w3-red w3-display-topright'); --Bottone per tornare indietro, cambiare COLLEGAMENTOPROVA
-            --INIZIO SEZIONE DA MODIFICARE
                 modGUI1.ApriForm(gruppo2.gr2||'ConfermaDatiOpera',NULL,'w3-container');
                     modGUI1.Label('Titolo*');
                     modGUI1.Inputtext('titolo', placeholderTitolo, 1, titolo);
@@ -371,26 +369,26 @@ var1 varchar2(40);
             modGUI1.Header(idSessione);
         end if;
         htp.br;htp.br;htp.br;htp.br;htp.br;htp.br;
-        htp.prn('<h1 align="center">CONFERMA DATI</h1>');--DA MODIFICARE
+        htp.prn('<h1 align="center">CONFERMA DATI</h1>');
         modGUI1.ApriDiv('class="w3-modal-content w3-card-4 w3-animate-zoom" style="max-width:600px" ');
             modGUI1.ApriDiv('class="w3-section"');
-
             --INIZIO RIEPILOGO
-                htp.br;
-                modGUI1.Label('Titolo:');
-                HTP.PRINT(titolo);--parametro passato
-                htp.br;
-                modGUI1.Label('Anno:');
-                HTP.PRINT(anno);--parametro passato
-                htp.br;
-                modGUI1.Label('Periodo:');
-                HTP.PRINT(fineperiodo);--parametro passato
-                htp.br;
-                modGUI1.Label('Nome museo:');
-                SELECT nome into var1 FROM Musei WHERE idMuseo=idMusei;
-                 HTP.PRINT(var1);
+            htp.br;
+            modGUI1.Label('Titolo:');
+            HTP.PRINT(titolo);--parametro passato
+            htp.br;
+            modGUI1.Label('Anno:');
+            HTP.PRINT(anno);--parametro passato
+            htp.br;
+            modGUI1.Label('Periodo:');
+            HTP.PRINT(fineperiodo);--parametro passato
+            htp.br;
+            modGUI1.Label('Nome museo:');
+            SELECT nome into var1 FROM Musei WHERE idMuseo=idMusei;
+                HTP.PRINT(var1);
             --FINE RIEPILOGO
             modGUI1.ChiudiDiv;
+            -- Form conferma
             MODGUI1.ApriForm(gruppo2.gr2||'InserisciDatiOpera');
             HTP.FORMHIDDEN('titolo', titolo);
             HTP.FORMHIDDEN('anno', anno);
@@ -398,6 +396,7 @@ var1 varchar2(40);
             HTP.FORMHIDDEN('idmusei', idmusei);
             MODGUI1.InputSubmit('Conferma');
             MODGUI1.ChiudiForm;
+            -- Form annullamento (per autofill di InserisciOpera)
             MODGUI1.ApriForm(gruppo2.gr2||'InserisciOpera');
             HTP.FORMHIDDEN('titolo', titolo);
             HTP.FORMHIDDEN('anno', anno);
@@ -1078,7 +1077,7 @@ nomecompleto VARCHAR2(50);
             -- Form per mandare dati alla procedura di conferma
             htp.br;
             MODGUI1.apriDIV('class=w3-center');
-                modGUI1.ApriForm('AggiuntaAutore');
+                modGUI1.ApriForm(gruppo2.gr2||'AggiuntaAutore');
                 htp.FORMHIDDEN('operaID',operaID);
                 MODGUI1.SELECTOPEN('autoreID', 'autoreID');
                 FOR aut IN (SELECT IdAutore,Nome,COGNOME FROM AUTORI)

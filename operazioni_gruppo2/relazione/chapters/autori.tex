@@ -1,0 +1,213 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%   Operazioni sugli Autori   %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Operazioni sugli Autori}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%     Visualizza Autore      %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Visualizzazione}
+\begin{itemize}
+	\item \textbf{Operazione}: ModificaAutore (con parametro operazione = 0)
+	\item \textbf{Obiettivo}: Visualizza le informazioni relative ad un Autore presente nel database
+	\item \textbf{Parametri}:
+	\begin{enumerate}
+		\item \textbf{idSessione}: in (da definire)
+		\item \textbf{authorID}: in number
+		\item \textbf{operazione}: in number
+		\item \textbf{caller}: in varchar2 (nome della procedura chiamante, per redirect)
+		\item \textbf{callerParams}: in varchar2 (parametri del chiamante)
+	\end{enumerate}
+	\item \textbf{Risultato}: Visualizza i dati relativi all'autore identificato da AuthorID, se presente nel database, restituisce un errore altrimenti
+	\item \textbf{Errori}: 
+	\begin{itemize}
+		\item L'Autore identificato da AuthorID non è presente nel database
+	\end{itemize}
+	\item \textbf{Usa}: Autori
+	\item \textbf{Modifica}: nessuno
+	\item \textbf{Precondizioni}:
+	\begin{itemize}
+		\item $\exists x \in Autori : x.IdAutore = AuthorID$
+	\end{itemize}
+	\item \textbf{Postcondizioni}: nessuna
+\end{itemize}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%      Inserisci Autore      %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Inserimento}
+\begin{itemize}
+	\item \textbf{Operazione}: InserisciAutore
+	\item \textbf{Obiettivo}: Inserisce un nuovo autore nel database
+	\item \textbf{Parametri}:
+	\begin{enumerate}
+		\item \textbf{idSessione}: in number
+		\item \textbf{authName}: in varchar2
+		\item \textbf{authSurname}: in varchar2
+		\item \textbf{dataNascita}: in date
+		\item \textbf{dataMorte}: in date
+		\item \textbf{nation}: in varchar2
+	\end{enumerate}
+	\item \textbf{Risultato}: Inserisce un nuovo autore nella tabella Autori con i dati specificati dai parametri, se consentito
+	\item \textbf{Errori}: 
+	\begin{itemize}
+		\item È già presente nel database un autore con gli stessi dati
+	\end{itemize}
+	\item \textbf{Usa}: Autori
+	\item \textbf{Modifica}: Autori
+	\item \textbf{Precondizioni}:
+	\begin{itemize}
+		\item $authName \ne null \land authSurname \ne null \land nation \ne null$
+		\item $dataNascita = null \\
+		\lor dataMorte = null \\ 
+		\lor (dataNascita \ne null \land dataMorte \ne null \land dataNascita < dataMorte)$
+		\item $\nexists x \in Autori : x.Nome = authName \land x.Cognome = authSurname \\
+		\land x.DataNascita = dataNascita \land x.DataMorte = dataMorte \\
+		\land x.Nazionalita = nation$
+		\item $|Autori| = n$
+	\end{itemize}
+	\item \textbf{Postcondizioni}:
+	\begin{itemize}
+		\item $(IdAutore,authName,authSurname,dataNascita,dataMorte,nation) \in Autori$
+		\item $|Autori| = n + 1$
+	\end{itemize}
+\end{itemize}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%      Modifica Autore      %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Modifica}
+\begin{itemize}
+	\item \textbf{Operazione}: ModificaAutore (con parametro operazione = 1)
+	\item \textbf{Obiettivo}: Modifica i dati di un Autore presente nel database
+	\item \textbf{Parametri}:
+	\begin{enumerate}
+		\item \textbf{idSessione}: in number
+		\item \textbf{authorID}: in number
+		\item \textbf{operazione}: in number
+		\item \textbf{caller}: in varchar2 (nome della procedura chiamante, per redirect)
+		\item \textbf{callerParams}: in varchar2 (parametri del chiamante)
+	\end{enumerate}
+	\item \textbf{Risultato}: Modifica i dati di un Autore nella base di dati, oppure restituisce un errore (e non modifica la base di dati)
+	\item \textbf{Errori}: 
+	\begin{itemize}
+		\item L'autore da modificare non è presente nella base di dati
+	\end{itemize}
+	\item \textbf{Usa}: Autori
+	\item \textbf{Modifica}: Autori
+	\item \textbf{Precondizioni}:
+	\begin{itemize}
+		\item $\exists x \in Autori : x.IdAutore = AuthorID$
+		\item $|Autori| = n$
+	\end{itemize}
+	\item \textbf{Postcondizioni}: $x \in Autori : x.IdAutore = AuthorID$ \\
+	(i nuovi valori sono acquisiti e controllati tramite un form)
+	\begin{itemize}
+		\item $x.Nome := newName$
+		\item $x.Cognome := newsurname$
+		\item $x.DataNascita := newbirth$
+		\item $ x.DataMorte := newdeath$
+		\item $x.Nazionalita := newnation$
+		\item $|Autori| = n$
+	\end{itemize}
+\end{itemize}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%       Elimina Autore       %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Eliminazione}
+\begin{itemize}
+	\item \textbf{Operazione}: DeleteAutore
+	\item \textbf{Obiettivo}: Setta un Autore presente nel database a eliminato
+	\item \textbf{Parametri}:
+	\begin{enumerate}
+		\item \textbf{idSessione}: in number
+		\item \textbf{AuthorID}: in number
+	\end{enumerate}
+	\item \textbf{Risultato}: Elimina l'Autore dalla base di dati, oppure restituisce un errore (e non modifica la base di dati)
+	\item \textbf{Errori}: 
+	\begin{itemize}
+		\item L'autore da eliminare non è presente nella base di dati, oppure è già eliminato
+	\end{itemize}
+	\item \textbf{Usa}: Autori
+	\item \textbf{Modifica}: Autori
+	\item \textbf{Precondizioni}:
+	\begin{itemize}
+		\item $\exists x \in Autori : x.IdAutore = AuthorID$
+		\item $|Autori| = n$
+	\end{itemize}
+	\item \textbf{Postcondizioni}:
+	\begin{itemize}
+		\item $\exists! x \in Autori : x.IdAutore = AuthorID \land x.Eliminato = 1$
+		\item $|Autori| = n$
+	\end{itemize}
+\end{itemize}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%       Rimuovi Autore       %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Rimozione}
+\begin{itemize}
+	\item \textbf{Operazione}: RimozioneAutore
+	\item \textbf{Obiettivo}: Rimuove un Autore dal database, se presente
+	\item \textbf{Parametri}:
+	\begin{enumerate}
+		\item \textbf{idSessione}: in number
+		\item \textbf{AuthorID}: in number
+	\end{enumerate}
+	\item \textbf{Risultato}: Rimuove un Autore dalla base di dati, oppure restituisce un errore (e non modifica la base di dati)
+	\item \textbf{Errori}: 
+	\begin{itemize}
+		\item L'autore da rimuovere ha delle Opere nella base di dati
+	\end{itemize}
+	\item \textbf{Usa}: Autori, AutoriOpere
+	\item \textbf{Modifica}: Autori
+	\item \textbf{Precondizioni}:
+	\begin{itemize}
+		\item $\exists x \in Autori : x.IdAutore = AuthorID$
+		\item $\nexists x \in AutoriOpere : x.IdAutore = AuthorID$
+		\item $|Autori| = n$
+	\end{itemize}
+	\item \textbf{Postcondizioni}:
+	\begin{itemize}
+		\item $\nexists x \in Autori : x.IdAutore = AuthorID$
+		\item $|Autori| = n - 1$
+	\end{itemize}
+\end{itemize}
+
+\subsection{Statistiche e monitoraggio}
+La scelta dell'operazione di statistica o monitoragio da eseguire avviene tramite dei radiobutton in un popup raggiungibile dal menu autori.
+
+A seconda della statistica scelta verranno presentati dei form per la selezione di un museo e/o di un autore su cui effettuare la statistica.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%       Opere realizzate dall'Autore (in qualunque museo)       %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsubsection{Opere realizzate dall’Autore}
+\begin{itemize}
+	\item \textbf{Operazione}: StatisticheAutori (con parametro operazione=0)
+	\item \textbf{Obiettivo}: Rimuove un Autore dal database, se presente
+	\item \textbf{Parametri}:
+	\begin{enumerate}
+		\item \textbf{idSessione}: in number
+		\item \textbf{operazione}: in number
+		\item \textbf{authID}: in number
+	\end{enumerate}
+	\item \textbf{Risultato}: Stampa una pagina contenente tutte le opere realizzate dall'autore considerato
+	\item \textbf{Errori}: nessuno
+	\item \textbf{Usa}: Autori, Opere, AutoriOpere
+	\item \textbf{Modifica}: nessuna
+	\item \textbf{Precondizioni}:
+	\begin{itemize}
+		\item $\exists x \in Autori : x.IdAutore = AuthorID$
+	\end{itemize}
+	\item \textbf{Postcondizioni}: nessuna
+\end{itemize}
+
+\Huge \textcolor{red}{TODO}
+
+\subsubsection{Musei con Opere dell’Autore esposte}
+\subsubsection{Collaborazioni effettuate}
+\subsubsection{Opere dell’Autore presenti in un Museo scelto}
+\subsubsection{Autori in vita le cui Opere sono esposte in un Museo scelto}

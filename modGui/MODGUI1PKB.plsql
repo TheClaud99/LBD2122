@@ -6,6 +6,7 @@ CREATE OR REPLACE PACKAGE BODY modGUI1 as
         htp.htmlOpen;
         htp.headOpen;
         htp.prn('<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css"> ');
+        htp.prn('<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">');
         htp.print('<script> ' || Costanti.jscript || ' </script>');
         htp.title(titolo);
         htp.headClose;
@@ -28,6 +29,42 @@ CREATE OR REPLACE PACKAGE BODY modGUI1 as
                     modGUI1.ChiudiForm;
                 ELSE
                     modGUI1.Collegamento('HOME','Home','w3-bar-item w3-button');
+                    --GRUPPO 1--
+                    modGUI1.ApriDiv('class="w3-bar-item w3-button" onclick="myAccFunc(''DemoAcc1'')"');
+                        htp.prn('GRUPPO 1 <i class="fa fa-caret-down"></i>');
+                    modGUI1.ChiudiDiv;
+                    modGUI1.ApriDiv('id="DemoAcc1" class="w3-hide w3-white w3-card-4"');
+                        modGUI1.Collegamento('Link','link','w3-bar-item w3-button');
+                        modGUI1.Collegamento('Link','link','w3-bar-item w3-button');
+                    modGUI1.ChiudiDiv;
+
+                    --GRUPPO 2--
+                    modGUI1.ApriDiv('class="w3-bar-item w3-button" onclick="myAccFunc(''DemoAcc2'')"');
+                        htp.prn('GRUPPO 2 <i class="fa fa-caret-down"></i>');
+                    modGUI1.ChiudiDiv;
+                    modGUI1.ApriDiv('id="DemoAcc2" class="w3-hide w3-white w3-card-4"');
+                        modGUI1.Collegamento('Link','link','w3-bar-item w3-button');
+                        modGUI1.Collegamento('Link','link','w3-bar-item w3-button');
+                    modGUI1.ChiudiDiv;
+
+                    --GRUPPO 3--
+                    modGUI1.ApriDiv('class="w3-bar-item w3-button" onclick="myAccFunc(''DemoAcc3'')"');
+                        htp.prn('GRUPPO 3 <i class="fa fa-caret-down"></i>');
+                    modGUI1.ChiudiDiv;
+                    modGUI1.ApriDiv('id="DemoAcc3" class="w3-hide w3-white w3-card-4"');
+                        modGUI1.Collegamento('Link','link','w3-bar-item w3-button');
+                        modGUI1.Collegamento('Link','link','w3-bar-item w3-button');
+                    modGUI1.ChiudiDiv;
+
+                    --GRUPPO 4--
+                    modGUI1.ApriDiv('class="w3-bar-item w3-button" onclick="myAccFunc(''DemoAcc4'')"');
+                        htp.prn('GRUPPO 4 <i class="fa fa-caret-down"></i>');
+                    modGUI1.ChiudiDiv;
+                    modGUI1.ApriDiv('id="DemoAcc4" class="w3-hide w3-white w3-card-4"');
+                        modGUI1.Collegamento('Link','link','w3-bar-item w3-button');
+                        modGUI1.Collegamento('Link','link','w3-bar-item w3-button');
+                    modGUI1.ChiudiDiv;
+                    
                 end if;
             modGUI1.ChiudiDiv;
             modGUI1.BannerUtente(idSessione);
@@ -40,6 +77,18 @@ CREATE OR REPLACE PACKAGE BODY modGUI1 as
                         x.className += " w3-show w3-animate-left";
                     }else{
                         x.className = x.className.replace(" w3-show", "");
+                    }
+                }
+
+                function myAccFunc(id) {
+                    var x = document.getElementById(id);
+                    if (x.className.indexOf("w3-show") == -1) {
+                        x.className += " w3-show";
+                        x.previousElementSibling.className += " w3-grey";
+                    } else { 
+                        x.className = x.className.replace(" w3-show", "");
+                        x.previousElementSibling.className = 
+                        x.previousElementSibling.className.replace(" w3-grey", "");
                     }
                 }
             </script>

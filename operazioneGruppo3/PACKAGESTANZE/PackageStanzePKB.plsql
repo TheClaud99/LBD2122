@@ -1,31 +1,30 @@
---SET DEFINE OFF;
+SET DEFINE OFF;
 CREATE OR REPLACE PACKAGE BODY PackageStanze as
-    
-    ---SALE--------------------------------------------------
+
+---SALE--------------------------------------------------
     
     PROCEDURE visualizzaSale (
-        idSessione IN int default 0,
         Sort IN int default 0,
         Deleted IN int default 0,
         Search IN VARCHAR2 default NULL
     ) is 
     museosel musei.nome%TYPE;
     BEGIN
-        modGUI1.ApriPagina('Sale', idSessione);
-        modGUI1.Header(idSessione);
+        modGUI1.ApriPagina('Sale');
+        modGUI1.Header;
         htp.br;htp.br;htp.br;htp.br;
         modGUI1.ApriDiv('class="w3-center"');
             htp.prn('<h1>Sale</h1>'); --TITOLO
-            if (idSessione=1)
+            if (MODGUI1.get_id_sessione=1)
             then 
-                modGUI1.Collegamento('Aggiungi','packagestanze.formSala?idSessione='||idSessione,'w3-btn w3-round-xxlarge w3-black w3-margin-right'); /*bottone che rimanda alla procedura inserimento solo se la sessione è 1*/
-                modGUI1.Collegamento('Cestino','packagestanze.visualizzaSale?idSessione='||idSessione||'&Deleted=1','w3-btn w3-round-xxlarge w3-red');
+                modGUI1.Collegamento('Aggiungi','packagestanze.formSala','w3-btn w3-round-xxlarge w3-black w3-margin-right'); /*bottone che rimanda alla procedura inserimento solo se la sessione è 1*/
+                modGUI1.Collegamento('Cestino','packagestanze.visualizzaSale?Deleted=1','w3-btn w3-round-xxlarge w3-red');
             END if;
         modGUI1.ChiudiDiv;
 
         --FORM RICERCA-----------------------
-        modGUI1.ApriDiv('class="w3-center"');
-            modGUI1.ApriForm('PackageStanze.visualizzaSale');
+        modGUI1.ApriDiv('class="w3-container w3-left w3-margin-left"');
+            modGUI1.ApriForm('PackageStanze.visualizzaSale',NULL,'" style="display:inline;');
                 modGUI1.INPUTTEXT('Search','Ricerca...',0,NULL,1000);
                 htp.prn('<input type="submit" value="🔎︎" class="w3-round-xxlarge" style="margin-left:2px;height:35px;display:inline;">');
                 htp.FORMHIDDEN('Deleted',Deleted);
@@ -40,7 +39,6 @@ CREATE OR REPLACE PACKAGE BODY PackageStanze as
                 modgui1.chiudiElementoTabella;
                 modgui1.APRIELEMENTOTABELLA;
                     modGUI1.ApriForm('PackageStanze.visualizzaSale',NULL,'" style="display:inline;');
-                        HTP.FORMHIDDEN('idSessione',idSessione);
                         HTP.FORMHIDDEN('Deleted',Deleted);
                         HTP.FORMHIDDEN('Search',Search);
                         modGUI1.SELECTOPEN('Sort');
@@ -77,7 +75,7 @@ CREATE OR REPLACE PACKAGE BODY PackageStanze as
                         ELSE 0
                     END
 
-                    AND STANZE.nome LIKE '%'||Search||'%'
+                    AND upper(STANZE.nome) LIKE '%'||upper(Search)||'%'
                     --ORDINAMENTI
                     ORDER BY 
                         (CASE WHEN Sort<>1 AND Sort<>2 AND Sort<>3 AND Sort<>4 then idstanza end),
@@ -87,7 +85,7 @@ CREATE OR REPLACE PACKAGE BODY PackageStanze as
                         (CASE WHEN Sort=4 then numopere end)
                     ) 
                 LOOP
-            htp.prn('<a style="text-decoration:none;" href='||COSTANTI.server || costanti.radice ||'packagestanze.visualizzaSala?idSessione='||idSessione||'&varIdSala='||sala.Idstanza||'>');
+            htp.prn('<a style="text-decoration:none;" href='||COSTANTI.server || costanti.radice ||'packagestanze.visualizzaSala?varIdSala='||sala.Idstanza||'>');
                 modGUI1.ApriDiv('class="w3-col l4 w3-padding-large w3-center w3-hover-light-grey"');
                     modGUI1.ApriDiv('class="w3-card-4"');
                     htp.prn('<img src="https://www.23bassi.com/wp-content/uploads/2019/03/vuota-web.jpg" alt="Alps" style="width:100%">');
@@ -108,12 +106,12 @@ CREATE OR REPLACE PACKAGE BODY PackageStanze as
                             --FINE DESCRIZIONI
                             modGUI1.ChiudiDiv;
                             
-                            IF(idSessione=1) THEN --Bottoni visualizzati in base alla sessione 
-                                modGUI1.Collegamento('Modifica','packagestanze.formSala?idSessione='||idSessione||'&modifica=1&varIdStanza='||sala.idstanza||'&varSalaMuseo='||sala.museo||'&varSalaNome='||sala.nome||'&varSalaDimensione='||sala.dimensione||'&varSalaTipo='||sala.tiposala||'&varSalaOpere='||sala.numopere,'w3-button w3-green');
+                            IF(MODGUI1.get_id_sessione=1) THEN --Bottoni visualizzati in base alla sessione 
+                                modGUI1.Collegamento('Modifica','packagestanze.formSala?modifica=1&varIdStanza='||sala.idstanza||'&varSalaMuseo='||sala.museo||'&varSalaNome='||sala.nome||'&varSalaDimensione='||sala.dimensione||'&varSalaTipo='||sala.tiposala||'&varSalaOpere='||sala.numopere,'w3-button w3-green');
                                 IF (sala.eliminato=0)THEN
-                                    modGUI1.Collegamento('Rimuovi','packagestanze.rimuoviSala?idSessione='||idSessione||'&varIdStanza='||sala.idstanza,'w3-button w3-red w3-margin');
+                                    modGUI1.Collegamento('Rimuovi','packagestanze.rimuoviSala?varIdStanza='||sala.idstanza,'w3-button w3-red w3-margin');
                                 ELSE
-                                    modGUI1.Collegamento('Ripristina','packagestanze.ripristinaSala?idSessione='||idSessione||'&varIdStanza='||sala.idstanza,'w3-button w3-yellow w3-margin');
+                                    modGUI1.Collegamento('Ripristina','packagestanze.ripristinaSala?varIdStanza='||sala.idstanza,'w3-button w3-yellow w3-margin');
                                 END IF;
                             END IF;
 
@@ -126,7 +124,6 @@ CREATE OR REPLACE PACKAGE BODY PackageStanze as
     END;
 
     PROCEDURE formSala (
-        idSessione IN int default 0,
         modifica IN NUMBER default 0,
         varIdStanza IN NUMBER default NULL,
         varSalaMuseo IN NUMBER default NULL,
@@ -138,8 +135,8 @@ CREATE OR REPLACE PACKAGE BODY PackageStanze as
         NomeMuseo MUSEI.Nome%TYPE;
         varIdMuseo MUSEI.IdMuseo%TYPE;
     BEGIN
-        modGUI1.ApriPagina('Form Sala',idSessione);
-        modGUI1.Header(idSessione);
+        modGUI1.ApriPagina('Form Sala');
+        modGUI1.Header;
         
         modGUI1.ApriDiv('style="margin-top: 110px"');
             htp.prn('<h1 class="w3-center">Inserimento sala</h1>');
@@ -189,7 +186,6 @@ CREATE OR REPLACE PACKAGE BODY PackageStanze as
                             modGUI1.InputNumber('idnOpere','nOpereform',NULL,varSalaOpere);
                             htp.br;
                             modGUI1.InputReset;
-                            HTP.FORMHIDDEN('idSessione',idSessione);
                             if (modifica=0)
                             then
                                 modGUI1.InputSubmit('Aggiungi');
@@ -204,7 +200,6 @@ CREATE OR REPLACE PACKAGE BODY PackageStanze as
     END;
 
     PROCEDURE visualizzaSala(
-        idSessione in INT default 0,
         varIdSala in NUMBER
         )is
         varNome VARCHAR2(20);
@@ -213,10 +208,13 @@ CREATE OR REPLACE PACKAGE BODY PackageStanze as
         varTiposala NUMBER;
         varNumopere NUMBER;
         varNomeMuseo MUSEI.NOME%TYPE;
+        varCountOpere NUMBER;
+        varNumVisite NUMBER;
+        varVisitatoriUnici NUMBER;
     BEGIN
         SELECT nome,dimensione,museo,tiposala,numopere INTO varNome,varDimensione,varMuseo,varTiposala,varNumopere FROM Stanze NATURAL JOIN Sale WHERE idstanza=varIdSala;
-        modGUI1.APRIPAGINA('Sala '||varIdSala,idSessione);
-        modGUI1.HEADER(idSessione);
+        modGUI1.APRIPAGINA('Sala '||varIdSala);
+        modGUI1.HEADER;
         htp.br;htp.br;htp.br;htp.br;htp.br;
         SELECT nome INTO varNomeMuseo FROM MUSEI WHERE (MUSEI.IDMUSEO=varMuseo);
         modGUI1.ApriDiv('class="w3-light-grey w3-container" style="margin:auto;width:60%;"');
@@ -234,7 +232,31 @@ CREATE OR REPLACE PACKAGE BODY PackageStanze as
                                 htp.prn('<p>Max opere: '|| varNumopere ||'</p>');  
             MODGUI1.ChiudiDiv;
             MODGUI1.ApriDiv('class="w3-container"');
-            htp.prn('<h3>Opere:</h3>');
+            --STATISTICHE------------------------------
+            htp.prn('<h3>Statistiche</h3>');
+            SELECT COUNT(*) INTO varNumVisite FROM VISITE INNER JOIN VISITEVARCHI USING (idvisita) INNER JOIN VARCHI ON (VISITEVARCHI.idvarco=VARCHI.idvarchi) --VISITE IN SALA
+            WHERE 
+                (stanza1=varIdSala OR stanza2=varIdSala);
+
+            
+            SELECT COUNT (DISTINCT visitatore) into varVisitatoriUnici FROM VISITE INNER JOIN VISITEVARCHI USING (idvisita) INNER JOIN VARCHI ON (VISITEVARCHI.idvarco=VARCHI.idvarchi)
+            WHERE 
+                (stanza1=varIdSala OR stanza2=varIdSala);
+            --AND
+            --    DATAVISITA between             
+
+            /*
+            Numero visitatori unici in un arco temporale scelto
+            Numero medio visitatori in un arco temporale scelto
+            Media permanenza in una sala*/
+            
+            htp.prn('Visite in sala: '||varNumVisite);
+            htp.br;
+            htp.prn('Visitatori unici sala: '||varVisitatoriUnici);
+
+            --OPERE------------------------------------
+            SELECT COUNT(*) INTO varCountOpere FROM OPERE INNER JOIN SALEOPERE ON SALEOPERE.opera=OPERE.idopera WHERE SALEOPERE.SALA=varIdSala;--Opere presenti nella Sala
+            htp.prn('<h3>Opere: '||varCountOpere||'</h3>');
                 MODGUI1.APRITABELLA('w3-table-all');
                     MODGUI1.APRIRIGATABELLA;
                         MODGUI1.APRIELEMENTOTABELLA;
@@ -260,7 +282,6 @@ CREATE OR REPLACE PACKAGE BODY PackageStanze as
     END;
     
     PROCEDURE inserisciSala (
-        idSessione IN int default 0,
         selectMusei IN musei.idmuseo%TYPE,
         nomeSala       IN  VARCHAR2,
         dimSala            IN  NUMBER,
@@ -303,7 +324,6 @@ CREATE OR REPLACE PACKAGE BODY PackageStanze as
     END;
 
     PROCEDURE modificaSala (
-        idSessione IN int default 0,
         varIdStanza IN NUMBER,
         selectMusei IN musei.idmuseo%TYPE,
         nomeSala       IN  VARCHAR2,
@@ -334,7 +354,6 @@ CREATE OR REPLACE PACKAGE BODY PackageStanze as
     END;
 
     PROCEDURE rimuoviSala (
-        idSessione IN int default 0,
         varIdStanza IN NUMBER
     ) IS
     BEGIN
@@ -352,7 +371,6 @@ CREATE OR REPLACE PACKAGE BODY PackageStanze as
     END;
 
     PROCEDURE ripristinaSala (
-        idSessione IN int default 0,
         varIdStanza IN NUMBER
     ) IS
     BEGIN
@@ -371,15 +389,15 @@ CREATE OR REPLACE PACKAGE BODY PackageStanze as
 
     ---AMBIENTI DI SERVIZIO---
     
-    PROCEDURE visualizzaAmbientiServizio (idSessione IN int default 0) is 
+    PROCEDURE visualizzaAmbientiServizio is 
     museosel musei.nome%TYPE;
     BEGIN
-        modGUI1.ApriPagina('Ambienti di servizio', idSessione);
-        modGUI1.Header(idSessione);
+        modGUI1.ApriPagina('Ambienti di servizio');
+        modGUI1.Header;
         htp.br;htp.br;htp.br;htp.br;
         modGUI1.ApriDiv('class="w3-center"');
             htp.prn('<h1>Ambienti di servizio</h1>'); --TITOLO
-            if (idSessione=1)
+            if (MODGUI1.get_id_sessione=1)
             then
                 modGUI1.Collegamento('Aggiungi','packagestanze.formAmbienteServizio','w3-btn w3-round-xxlarge w3-black'); /*bottone che rimanda alla procedura inserimento solo se la sessione è 1*/
             END if;
@@ -402,7 +420,7 @@ CREATE OR REPLACE PACKAGE BODY PackageStanze as
                             --FINE DESCRIZIONI
                             modGUI1.ChiudiDiv;
                             
-                            if(idSessione=1) then --Bottoni visualizzati in base alla sessione 
+                            if(MODGUI1.get_id_sessione=1) then --Bottoni visualizzati in base alla sessione 
                                 modGUI1.Collegamento('Modifica','packagestanze.formAmbienteServizio?modifica=1&varASMuseo='||AmbS.museo||'&varASNome='||AmbS.nome||'&varASDimensione='||AmbS.dimensione||'&varASTipo='||AmbS.tipoambiente,'w3-button w3-green');
                                 modGUI1.Collegamento('Rimuovi','packagestanze.rimuoviAmbienteServizio?idAS='||AmbS.idstanza, 'w3-button w3-red w3-margin');
                             END if;

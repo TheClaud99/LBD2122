@@ -1,6 +1,8 @@
 CREATE OR REPLACE PACKAGE gruppo2 AS
 
 gr2 CONSTANT VARCHAR2(25) := 'gruppo2.';
+gr4 CONSTANT VARCHAR2(25) := 'gruppo4.';
+gr3 CONSTANT VARCHAR2(25) := 'gruppo3.';
 
 /* OPERAZIONI SULLE OPERE */
 PROCEDURE coloreClassifica(posizione NUMBER DEFAULT 0);

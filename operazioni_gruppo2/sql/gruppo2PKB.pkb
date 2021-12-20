@@ -1,12 +1,10 @@
-SET DEFINE OFF;
-
 CREATE OR REPLACE PACKAGE BODY gruppo2 AS
 
 /*
  * OPERAZIONI SULLE OPERE
  * - Inserimento ✅
  * - Modifica ✅
- * - Visualizzazione ✅
+ * - Visualizzazione ✅ 
  * - Cancellazione (rimozione) ✅
  * - Spostamento ✅
  * - Aggiunta Autore ✅
@@ -713,7 +711,7 @@ LOOP
         modGUI1.ChiudiDiv;
         modGUI1.ApriDiv('class="w3-container w3-cell w3-border-right w3-cell-middle" style="width:1120px; height:300px"');
             htp.prn('<h5><b>'||var1||'</b></h5>');
-            htp.prn('<p>'||SUBSTR(des.testo,0,100)||'</p>');
+            htp.prn('<p>'||SUBSTR(des.testo,0,80)||'</p>');
             htp.br;
             SELECT COUNT(*) INTO num FROM saleopere WHERE opera=operaID AND datauscita IS NULL;
             IF num = 0 THEN
@@ -837,9 +835,11 @@ LOOP
                 htp.prn('<h5><b>Esposta: </b>✅</h5>');
                 htp.br;
                 htp.prn('<b>Museo: </b>');
-                MODGUI1.Collegamento(''||varNomeMuseo||'','visualizzaMuseo?idSessione='||idSessione||'&idMuseo='||varMuseo);
+                MODGUI1.Collegamento(''||varNomeMuseo||'',gruppo2.gr4||'visualizzamusei?MuseoID='||varMuseo);  
                 htp.br;
-                htp.prn('<b>Sala: </b>'||varNomeStanza||'<b> tipo di sala: </b>'||varTipoSala); 
+                htp.prn('<b> Sala: </b>'); 
+                MODGUI1.Collegamento(''||varNomeStanza||'',gruppo2.gr3||'visualizzaSala?varIdSala='||varSala);  
+                htp.prn('<b> tipo di sala: </b>'||varTipoSala); 
                 if (hasRole(idSessione, 'DBA') or hasRole(idSessione, 'GO')) and varEliminato = 0 then
                 modGUI1.collegamento('sposta',
                     gruppo2.gr2||'SpostaOpera?operaID='||operaID||'&salaID='||varSala||'&lingue='||lingue||'&livelli='||livelli,
@@ -872,10 +872,12 @@ LOOP
                 then
                 htp.prn('<h5><b>Exposed: </b>✅</h5>');
                 htp.br;
-                htp.prn('<b>Museum: </b>'); 
-                MODGUI1.Collegamento(''||varNomeMuseo||'','visualizzaMuseo?idSessione='||idSessione||'&idMuseo='||varMuseo);
+                htp.prn('<b>Museum: </b>');
+                MODGUI1.Collegamento(''||varNomeMuseo||'',gruppo2.gr4||'visualizzamusei?MuseoID='||varMuseo);  
                 htp.br;
-                htp.prn('<b>Room: </b>'||varNomeStanza||'<b> type of room: </b>'||varTipoSala);--COLLEGAMENTO NOME STANZA
+                htp.prn('<b> Room: </b>'); 
+                MODGUI1.Collegamento(''||varNomeStanza||'',gruppo2.gr3||'visualizzaSala?varIdSala='||varSala);  
+                htp.prn('<b> type of room: </b>'||varTipoSala); 
                 if (hasRole(idSessione, 'DBA') or hasRole(idSessione, 'GO')) and varEliminato = 0 then
                 modGUI1.collegamento('sposta',
                     gruppo2.gr2||'SpostaOpera?operaID='||operaID||'&salaID='||varSala||'&lingue='||lingue||'&livelli='||livelli,
@@ -910,9 +912,11 @@ LOOP
                 htp.prn('<h5><b>裸露: </b>✅</h5>');
                 htp.br;
                 htp.prn('<b>博物馆: </b>');
-                MODGUI1.Collegamento(''||varNomeMuseo||'','visualizzaMuseo?idSessione='||idSessione||'&idMuseo='||varMuseo);
+                MODGUI1.Collegamento(''||varNomeMuseo||'',gruppo2.gr4||'visualizzamusei?MuseoID='||varMuseo);  
                 htp.br;
-                htp.prn('<b>房间: </b>'||varNomeStanza||'<b> 大厅类型: </b>'||varTipoSala); --COLLEGAMENTO NOME STANZA
+                htp.prn('<b> 房间: </b>'); 
+                MODGUI1.Collegamento(''||varNomeStanza||'',gruppo2.gr3||'visualizzaSala?varIdSala='||varSala);  
+                htp.prn('<b> 大厅类型: </b>'||varTipoSala); 
                 if (hasRole(idSessione, 'DBA') or hasRole(idSessione, 'GO')) and varEliminato = 0 then
                 modGUI1.collegamento('sposta',
                     gruppo2.gr2||'SpostaOpera?operaID='||operaID||'&salaID='||varSala||'&lingue='||lingue||'&livelli='||livelli,
@@ -1464,9 +1468,8 @@ BEGIN
 
             ELSE
                     SELECT nome INTO var1 FROM MUSEI WHERE idMuseo=museoID;
-                    --htp.prn('<h4><b>'||var1||'</b></h4>');
                     MODGUI1.Collegamento('<h4><b>'||var1||'</b></h4>',
-                        gruppo2.gr2||'visualizzaMuseo?idMuseo='||museoID,
+                        gruppo2.gr4||'visualizzamusei?MuseoID='||museoID,
                         'w3-btn w3-round-xxlarge w3-white w3-border w3-hover-yellow');
                     htp.br;
                     htp.br;

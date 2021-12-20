@@ -94,7 +94,7 @@ CREATE OR REPLACE PACKAGE BODY packagevisite AS
         htp.prn(' / ');
         modgui1.collegamento(
                             nome_tipologia,
-                            'operazioniGruppo1.visualizzaTipologia?idTipologia=' || id_tipologia
+                            'gruppo1.VisualizzaDatiTitoloIng?tipologiaIngID=' || id_tipologia
         );
         htp.prn('</p></div>');
         htp.prn('</div>');
@@ -411,6 +411,26 @@ CREATE OR REPLACE PACKAGE BODY packagevisite AS
                             'Durata',
                             CASE
                                 WHEN order_by = 'duratavisita' THEN
+                                    1
+                                ELSE 0
+                            END
+        );
+
+        modgui1.selectoption(
+                            'datavisita',
+                            'Data',
+                            CASE
+                                WHEN order_by = 'datavisita' THEN
+                                    1
+                                ELSE 0
+                            END
+        );
+
+        modgui1.selectoption(
+                            'costototale',
+                            'Costo tipologia',
+                            CASE
+                                WHEN order_by = 'datavisita' THEN
                                     1
                                 ELSE 0
                             END

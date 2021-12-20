@@ -1,2 +1,8 @@
+# Latex auxiliary files
+*.aux
+*.toc
+*.out
+*.log
+*.gz
 
 .DS_Store

@@ -1260,14 +1260,14 @@ BEGIN
                     modGUI1.ApriDiv('class="w3-cell-row w3-border" style="witdh:100%"');
                         modGUI1.ApriDiv('class="w3-container w3-cell"');
                             htp.print('<b>DA:</b>'); --COLLEGAMENTO MUSEO
-                            MODGUI1.Collegamento(var1,gruppo2.gr2||'visualizzaMuseo?idMuseo='||proprietario);
+                            MODGUI1.Collegamento(var1,gruppo2.gr4||'visualizzausei?MuseoID='||proprietario);
                             
                             htp.br;htp.br;
                             htp.print('<b>DAL: </b>'||sal.dataarrivo);
                         modGUI1.ChiudiDiv;
                         modGUI1.ApriDiv('class="w3-container w3-cell"');
                             htp.print('<b> A:</b>'); --COLLEGAMENTO MUSEO
-                            MODGUI1.Collegamento(nomeMuseo,gruppo2.gr2||'visualizzaMuseo?idMuseo='||ricevente);
+                            MODGUI1.Collegamento(nomeMuseo,gruppo2.gr4||'visualizzamusei?MuseoID='||ricevente);
                            
                             htp.br;htp.br;
                             htp.print('<b> AL:</b>'||sal.datauscita);

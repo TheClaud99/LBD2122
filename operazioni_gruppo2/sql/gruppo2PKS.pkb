@@ -51,26 +51,31 @@ PROCEDURE InserisciOpera(
 PROCEDURE AggiungiAutore(
 
     operaID NUMBER DEFAULT 0,
-    lingue VARCHAR2 DEFAULT null
+    lingue VARCHAR2 DEFAULT null,
+    livelli VARCHAR2 DEFAULT NULL
 );
 PROCEDURE AggiuntaAutore(
 
     operaID NUMBER DEFAULT 0,
     autoreID NUMBER DEFAULT 0,
-    lingue VARCHAR2 default NULL
+    lingue VARCHAR2 default NULL,
+    livelli VARCHAR2 DEFAULT NULL
 );
 
 -- Rimuove un Autore dall'Opera indicata (pagina conferma)
 PROCEDURE RimuoviAutoreOpera(
 
     operaID NUMBER DEFAULT 0,
-    lingue VARCHAR2 DEFAULT null
+    lingue VARCHAR2 DEFAULT null,
+    livelli VARCHAR2 DEFAULT null
 );
 -- Rimuove un Autore dall'Opera indicata
 PROCEDURE RimozioneAutoreOpera(
 
     operaID NUMBER DEFAULT 0,
-    autoreID NUMBER DEFAULT 0
+    autoreID NUMBER DEFAULT 0,
+    lingue VARCHAR2 DEFAULT null,
+    livelli VARCHAR2 DEFAULT null
 );
 
 PROCEDURE EliminazioneOpera(

@@ -4,6 +4,21 @@ gr2 CONSTANT VARCHAR2(25) := 'gruppo2.';
 gr4 CONSTANT VARCHAR2(25) := 'operazionigruppo4.';
 gr3 CONSTANT VARCHAR2(25) := 'gruppo3.';
 
+-- Index by table con campi (IdOpera, titolo, IdAutore, Nome Autore, Cognome Autore)
+-- indicizzata da IdAutore dell'autore che ha collaborato all'opera
+TYPE collabRecord IS RECORD (
+    Opera Opere.IdOpera%TYPE, 
+    Titolo Opere.Titolo%TYPE,
+    collabID Autori.IdAutore%TYPE,
+    collabNome Autori.Nome%TYPE,
+    collabCognome Autori.Cognome%TYPE);
+TYPE collaborazioniCollection IS TABLE OF collabRecord
+INDEX BY PLS_INTEGER;
+emptyCollab collaborazioniCollection;
+
+FUNCTION listaCollaborazioni(authorID Autori.IdAutore%TYPE)
+RETURN collaborazioniCollection;
+
 /* OPERAZIONI SULLE OPERE */
 PROCEDURE coloreClassifica(posizione NUMBER DEFAULT 0);
 PROCEDURE SpostamentiOpera (

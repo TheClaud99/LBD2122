@@ -1091,6 +1091,7 @@ controllo NUMBER(3);
             INSERT INTO AUTORIOPERE VALUES
                 (autoreID,operaID);
             IF SQL%FOUND THEN
+                COMMIT;
                 if lingue is not null THEN
                     MODGUI1.RedirectEsito('Inserimento riuscito',
                     'Autore inserito correttamente',
@@ -1184,6 +1185,7 @@ controllo NUMBER(3);
         WHERE AUTORIOPERE.IdOpera=operaID AND AUTORIOPERE.IdAutore=autoreID;
 
     IF SQL%FOUND THEN
+        COMMIT;
         if lingue is not null THEN
             MODGUI1.RedirectEsito('Rimozione riuscita',
                 'Autore rimosso correttamente',
@@ -1975,6 +1977,37 @@ nomecompleto VARCHAR2(50);
     END IF;
 END selezioneAutoreStatistica;
 
+FUNCTION listaCollaborazioni(
+	authorID Autori.IdAutore%TYPE)
+RETURN collaborazioniCollection
+IS
+i PLS_INTEGER := 0;
+collabs collaborazioniCollection;
+a_collab collabRecord;
+BEGIN
+	-- Inizializzo a collezione vuota
+	collabs := emptyCollab;
+	-- Ottengo tutte le collaborazioni di authorID e le metto nella collezione
+	-- Ordinate per l'id del collaboratore
+	FOR rec IN (
+		SELECT OP.IdOpera Opera,
+			OP.Titolo Titolo,
+			A2.IdAutore IdCollab,
+			A2.Nome NomeCollab, 
+			A2.Cognome CognomeCollab
+    	FROM AutoriOpere AO JOIN AutoriOpere AO2 ON AO.IdOpera = AO2.IdOpera
+			JOIN Opere OP ON AO.IdOpera = OP.IdOpera
+			JOIN Autori A2 ON AO2.IdAutore = A2.IdAutore
+    	WHERE AO.IdAutore = authorID AND A2.IdAutore <> AO.IdAutore
+		ORDER BY A2.IdAutore)
+	LOOP
+		a_collab := rec;
+		collabs(i) := a_collab;
+		i := i + 1;
+	END LOOP;
+	return collabs;
+END listaCollaborazioni;
+
 Procedure StatisticheAutori(
     operazione NUMBER DEFAULT 0,
     authID NUMBER DEFAULT 0
@@ -1996,6 +2029,12 @@ CURSOR lista_opere (author NUMBER, museum NUMBER) IS
         JOIN Opere OP ON AO.IdOpera = OP.IdOpera
     WHERE AO.IdAutore = author AND OE.Museo = museum
     ORDER BY OP.titolo;
+
+i PLS_INTEGER := 0;
+tot_collab NUMBER(10);
+all_collabs collaborazioniCollection := emptyCollab;
+collab gruppo2.collabRecord;
+prevCollab gruppo2.collabRecord;
 BEGIN
 SELECT * INTO auth FROM autori WHERE authID=IDAUTORE;
     MODGUI1.ApriPagina('StatisticheAutori',idSessione);
@@ -2018,7 +2057,6 @@ SELECT * INTO auth FROM autori WHERE authID=IDAUTORE;
             ||'&caller=statisticheAutori'||'&callerParams=//operazione='||operazione||'//authID='||authID);
         htp.print('</b></h2>');
 
-            -- DA CONTROLLARE: visualizzare di seguito
             prevMuseo := -1;
             FOR op IN (SELECT IdOpera, Titolo, Anno, Museo
                 FROM OPERE JOIN AUTORIOPERE using (IdOpera)
@@ -2116,31 +2154,57 @@ SELECT * INTO auth FROM autori WHERE authID=IDAUTORE;
 
         --COLLABORAZIONI EFFETTUATE
         if operazione=2 THEN
-        modGUI1.ApriDiv('class="w3-container" style="width:100%"');
-        htp.print('<h2><b>Opere create in collaborazione</b></h2>');
-            FOR op IN (SELECT op1.IDOPERA, titolo, anno
-                FROM OPERE op1 WHERE
-                    op1.IDOPERA=(SELECT DISTINCT a1.idopera FROM AUTORIOPERE a1,AUTORIOPERE a2 WHERE
-                        (a1.idopera=a2.idopera) AND (a1.idautore<>a2.idautore)))
-            LOOP
+            -- Ottengo tutte le collaborazioni effettuate dall'autore authID
+            all_collabs := listaCollaborazioni(authID);
+            i := all_collabs.FIRST;
+            prevCollab := NULL;
+
+            modGUI1.ApriDiv('class="w3-container" style="width:100%"');
+            htp.print('<h2><b>Opere create in collaborazione da ');
+            modGUI1.Collegamento(auth.Nome||' '||auth.Cognome, 
+            gruppo2.gr2||'ModificaAutore?authorID='||auth.IdAutore||'&operazione=0'
+            ||'&caller=statisticheAutori'||'&callerParams=//operazione='||operazione||'//authID='||authID);
+            htp.prn(': '||all_collabs.COUNT||'</b></h2>');
+
+            WHILE i IS NOT NULL LOOP
+                collab := all_collabs(i);
+                i := all_collabs.NEXT(i);
+
+                IF (prevCollab.collabNome IS NULL OR prevCollab.collabNome != collab.collabNome) THEN
+                    modGUI1.ApriDiv('class="w3-row"');
+                    htp.prn('<h4><b>Opere in collaborazione con ');
+                    modGUI1.Collegamento(collab.collabNome||' '||collab.collabCognome, 
+                    gruppo2.gr2||'ModificaAutore?authorID='||collab.collabID||'&operazione=0'
+                    ||'&caller=statisticheAutori'||'&callerParams=//operazione='||operazione||'//authID='||authID);
+                    htp.prn('</b></h4>');
+                    modGUI1.ChiudiDiv;
+                END IF;
                 modGUI1.ApriDiv('class="w3-col l4 w3-padding-large w3-center"');
+
                     modGUI1.ApriDiv('class="w3-card-4" style="height:600px;"');
                     htp.prn('<img src="https://www.stateofmind.it/wp-content/uploads/2018/01/La-malattia-rappresentata-nelle-opere-darte-e-in-letteratura-680x382.jpg" alt="Alps" style="width:100%;">');
                             modGUI1.ApriDiv('class="w3-container w3-center"');
-                                htp.prn('<p>'|| op.titolo ||'</p>');
+                                htp.prn('<p>'|| collab.titolo ||'</p>');
                                 htp.br;
-                                htp.prn('<p>'|| op.anno ||'</p>');
-                                htp.prn('<button onclick="document.getElementById(''LinguaeLivelloOpera'||op.IDOPERA||''').style.display=''block''" class="w3-margin w3-button w3-black w3-hover-white">Visualizza</button>');
-                                gruppo2.linguaELivello(op.IDOPERA);
+                                --htp.prn('<p>'|| op.anno ||'</p>');
+                                htp.prn('<button onclick="document.getElementById(''LinguaeLivelloOpera'||collab.opera||''').style.display=''block''" class="w3-margin w3-button w3-black w3-hover-white">Visualizza</button>');
+                                gruppo2.linguaELivello(collab.opera);
                             modGUI1.ChiudiDiv;
                     modGUI1.ChiudiDiv;
                 modGUI1.ChiudiDiv;
+                prevCollab := collab;
             END LOOP;
         end IF;
     EXCEPTION
         WHEN OTHERS THEN
-            modGUI1.esitooperazione(pagetitle  => 'duh' /*IN VARCHAR2*/,
-                                    msg  => sqlerrm /*IN VARCHAR2*/);
+            modGUI1.esitooperazione(pagetitle  => 'Errore procedura',
+                                    msg  => '<p>'||DBMS_UTILITY.FORMAT_ERROR_BACKTRACE || ' - '||sqlerrm||'</p>',
+                                    nuovaop  => null,
+                                    nuovaopurl  => null,
+                                    parametrinuovaop  => null,
+                                    backtomenu  => 'Ritorna al menu autori',
+                                    backtomenuurl  => gruppo2.gr2||'menuAutori',
+                                    parametribacktomenu  => null);
 END;
 
 procedure selezioneMuseoAutoreStatistica(

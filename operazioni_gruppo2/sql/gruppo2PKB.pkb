@@ -28,7 +28,7 @@ procedure menuOpere is
     BEGIN
         htp.prn('<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css"> ');
         modGUI1.ApriPagina('Opere',idSessione);
-        modGUI1.header(idSessione);
+        modGUI1.Header;
 
         htp.br;htp.br;htp.br;htp.br;htp.br;
         modGUI1.ApriDiv('class="w3-center"');
@@ -93,7 +93,7 @@ idSessione NUMBER(5) := modgui1.get_id_sessione();
 BEGIN
     htp.prn('<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css"> ');
     modGUI1.ApriPagina('Opere', idSessione);
-    modGUI1.header(idSessione);
+    modGUI1.Header;
 
     htp.br;htp.br;htp.br;htp.br;htp.br;
     modGUI1.ApriDiv('class="w3-center"');
@@ -300,7 +300,7 @@ placeholderAnno VARCHAR2(255) := 'Anno realizzazione';
 placeholderPeriodo VARCHAR2(255) := 'Periodo di realizzazione';
 BEGIN
     modGUI1.ApriPagina('InserisciOpera',idSessione);
-    modGUI1.header(idSessione);
+    modGUI1.Header;
     htp.br;htp.br;htp.br;htp.br;htp.br;htp.br;
 
     htp.prn('<h1 align="center">Inserimento Opera</h1>');
@@ -356,7 +356,7 @@ var1 varchar2(40);
         HTP.HtmlClose;
     ELSE
         modGUI1.ApriPagina('Conferma',idSessione);
-        modGUI1.header(idSessione);
+        modGUI1.Header;
         htp.br;htp.br;htp.br;htp.br;htp.br;htp.br;
         htp.prn('<h1 align="center">CONFERMA DATI</h1>');
         modGUI1.ApriDiv('class="w3-modal-content w3-card-4 w3-animate-zoom" style="max-width:600px" ');
@@ -438,7 +438,7 @@ lingue VARCHAR2(30) DEFAULT null;
 livelli VARCHAR2(30) DEFAULT null;
 BEGIN
     modGUI1.ApriPagina('ModificaOpera',idSessione);
-        modGUI1.header(idSessione);
+        modGUI1.Header;
         htp.br;htp.br;htp.br;htp.br;htp.br;htp.br;
 
         htp.prn('<h1 align="center">Modifica Opera</h1>');
@@ -506,7 +506,7 @@ var1 varchar2(40);
         HTP.HtmlClose;
     ELSE
         modGUI1.ApriPagina('Conferma',idSessione);
-        modGUI1.header(idSessione);
+        modGUI1.Header;
         htp.br;htp.br;htp.br;htp.br;htp.br;htp.br;
 
         htp.prn('<h1 align="center">CONFERMA DATI</h1>');
@@ -608,7 +608,7 @@ BEGIN
     SELECT Titolo, Eliminato into var1, varEliminato FROM OPERE WHERE idOpera=operaID;
     
     modGUI1.apriPagina(var1);
-    modGUI1.header(idSessione);
+    modGUI1.Header;
     htp.br;htp.br;htp.br;htp.br;htp.br;htp.br;
 
     modGUI1.ApriDiv('class="w3-center"');
@@ -961,7 +961,7 @@ PROCEDURE SpostaOpera(
         NEsponibile_SELECTed := 1;
     end if;
         modGUI1.ApriPagina('SpostaOpera',idSessione);
-        modGUI1.header(idSessione);
+        modGUI1.Header;
         htp.br;htp.br;htp.br;htp.br;htp.br;htp.br;
 
         htp.prn('<h1 align="center">Sposta Opera</h1>');
@@ -1041,7 +1041,7 @@ idSessione NUMBER(5) := modgui1.get_id_sessione();
 nomecompleto VARCHAR2(50);
     BEGIN
     modGUI1.ApriPagina('Aggiungi autore', idSessione);
-    modGUI1.header(idSessione);
+    modGUI1.Header;
     htp.br;htp.br;htp.br;htp.br;
 
     htp.prn('<h1 align="center">Seleziona l''autore da aggiungere</h1>');
@@ -1137,7 +1137,7 @@ idSessione NUMBER(5) := modgui1.get_id_sessione();
 nomecompleto VARCHAR2(50);
     BEGIN
     modGUI1.ApriPagina('Rimuovi Autore', idSessione);
-    modGUI1.header(idSessione);
+    modGUI1.Header;
     htp.br;htp.br;htp.br;htp.br;
 
     htp.prn('<h1 align="center">Seleziona l''autore da rimuovere</h1>');
@@ -1313,7 +1313,7 @@ AnnoCorrente NUMBER:= TO_NUMBER(TO_CHAR(sysdate, 'YYYY'));
 
 BEGIN   
     MODGUI1.ApriPagina('StatisticheOpere',idSessione);
-    modGUI1.header(idSessione);
+    modGUI1.Header;
     htp.br;htp.br;htp.br;htp.br;htp.br;htp.br;
 
     modGUI1.ApriDiv('class="w3-center"');
@@ -1626,7 +1626,7 @@ BEGIN
     modGUI1.ApriPagina('Autori', idSessione);
     -- se idSessione è null allora viene passato a modGUI1.Header, 
     -- che non prende quindi il valore di default 0
-    modGUI1.header(idSessione);
+    modGUI1.Header;
     htp.br;htp.br;htp.br;htp.br;
      modGUI1.ApriDiv('class="w3-center"');
         htp.prn('<h1>Autori</h1>'); --TITOLO
@@ -1698,7 +1698,7 @@ BEGIN
     modGUI1.ApriPagina('Autori Eliminati', idSessione);
     -- se idSessione è null allora viene passato a modGUI1.Header, 
     -- che non prende quindi il valore di default 0
-    modGUI1.header(idSessione);
+    modGUI1.Header;
     htp.br;htp.br;htp.br;htp.br;
 
      modGUI1.ApriDiv('class="w3-center"');
@@ -1922,7 +1922,7 @@ idSessione NUMBER(5) := modgui1.get_id_sessione();
 nomecompleto VARCHAR2(50);
     BEGIN
     modGUI1.ApriPagina('Selezione statistica', idSessione);
-    modGUI1.header(idSessione);
+    modGUI1.Header;
     htp.br;htp.br;htp.br;htp.br;
 
     -- Salto selezione autore per statistica 4
@@ -2038,7 +2038,7 @@ prevCollab gruppo2.collabRecord;
 BEGIN
 SELECT * INTO auth FROM autori WHERE authID=IDAUTORE;
     MODGUI1.ApriPagina('StatisticheAutori',idSessione);
-        modGUI1.header(idSessione);
+        modGUI1.Header;
         htp.br;htp.br;htp.br;htp.br;htp.br;htp.br;
         modGUI1.ApriDiv('class="w3-center"');
             htp.prn('<h1><b>STATISTICHE AUTORE</b></h1>'); --TITOLO
@@ -2214,7 +2214,7 @@ procedure selezioneMuseoAutoreStatistica(
 idSessione NUMBER(5) := modgui1.get_id_sessione();
 BEGIN
 modGUI1.ApriPagina('Selezione statistica', idSessione);
-    modGUI1.header(idSessione);
+    modGUI1.Header;
     htp.br;htp.br;htp.br;htp.br;
 
     htp.prn('<h1 align="center">Seleziona il museo</h1>');
@@ -2267,7 +2267,7 @@ BEGIN
 
     -- Pagina statistiche autori
     MODGUI1.ApriPagina('Statistiche Autori',idSessione);
-    modGUI1.header(idSessione);
+    modGUI1.Header;
     htp.br;htp.br;htp.br;htp.br;htp.br;htp.br;
     modGUI1.ApriDiv('class="w3-center"');
         htp.prn('<h1><b>STATISTICHE AUTORE</b></h1>'); -- Titolo pagina (stat 3)
@@ -2381,7 +2381,7 @@ BEGIN
     
     -- Pagina di inserimento nuovo autore
     modGUI1.ApriPagina('Inserimento Autore', idSessione);
-    modGUI1.header(idSessione);
+    modGUI1.Header;
     htp.br;htp.br;htp.br;htp.br;
 
     htp.prn('<h1 align="center">Inserimento Autore</h1>');
@@ -2487,7 +2487,7 @@ BEGIN
 		-- Parametri OK: pulsante conferma per effettuare insert
         -- o pulsante Annulla per tornare alla procedura di inserimento
         modGUI1.ApriPagina('Conferma dati',idSessione);
-        modGUI1.header(idSessione);
+        modGUI1.Header;
         htp.br;htp.br;htp.br;htp.br;htp.br;htp.br;
         modGUI1.ApriDiv('class="w3-modal-content w3-card-4 w3-animate-zoom" style="max-width:600px" ');
             -- Div per visualizzazione dati immessi
@@ -2605,7 +2605,7 @@ BEGIN
         op_title := 'Modifica';
     END IF;
     modGUI1.ApriPagina(op_title||' Autore', idSessione);
-	modGUI1.header(idSessione);
+	modGUI1.Header;
 	htp.br;htp.br;htp.br;htp.br;htp.br;htp.br;
 
 	modGUI1.ApriDiv('class="w3-modal-content w3-card-4 w3-animate-zoom" style="max-width:600px" ');
@@ -2774,7 +2774,7 @@ English_SELECTed NUMBER(1) := 0;
 Chinese_SELECTed NUMBER(1) := 0;
 BEGIN
     modGUI1.ApriPagina('Inserimento Descrizione', idSessione);
-    modGUI1.header(idSessione);
+    modGUI1.Header;
     htp.br;htp.br;htp.br;htp.br;
     htp.prn('<h1 align="center">Inserimento Descrizione</h1>');
     modGUI1.ApriDiv('class="w3-modal-content w3-card-4 w3-animate-zoom" style="max-width:600px"');
@@ -2874,7 +2874,7 @@ BEGIN
     ELSE
         -- Parametri OK, pulsante conferma o annulla
         modGUI1.ApriPagina('Conferma Dati Descrizione', idSessione);
-        modGUI1.header(idSessione);
+        modGUI1.Header;
         htp.br;htp.br;htp.br;htp.br;htp.br;htp.br;
         htp.prn('<h1 align="center">Conferma Dati Descrizione</h1>');
         modGUI1.ApriDiv('class="w3-modal-content w3-card-4 w3-animate-zoom" style="max-width:600px"');
@@ -2968,7 +2968,7 @@ BEGIN
 SELECT * INTO DESCR FROM DESCRIZIONI WHERE IdDesc=idDescrizione;
 SELECT titolo into tit FROM opere WHERE Descr.opera=IDOPERA;
 modGUI1.ApriPagina('ModificaDescrizione',idSessione);
-        modGUI1.Header(idSessione);
+        modGUI1.Header;
         htp.br;htp.br;htp.br;htp.br;htp.br;htp.br;
         htp.prn('<h1 align="center">Modifica Descrizione</h1>');
         modGUI1.ApriDiv('class="w3-modal-content w3-card-4 w3-animate-zoom" style="max-width:600px"');
@@ -3128,7 +3128,7 @@ cursor lin is (SELECT LINGUA, count(lingua) as clin
                  
 BEGIN
     MODGUI1.ApriPagina('StatisticheDescrizioni',idSessione);
-        modGUI1.Header(idSessione);
+        modGUI1.Header;
         htp.br;htp.br;htp.br;htp.br;htp.br;htp.br;
         htp.prn('<h1 align="center">Statistiche descrizioni</h1>');
         modGUI1.ApriDiv('class="w3-modal-content w3-card-4 w3-animate-zoom" style="max-width:600px"');

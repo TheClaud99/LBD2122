@@ -7,7 +7,7 @@ procedure Home (idSessione varchar2 default 0) is
     htp.headOpen;
     htp.prn('<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css"> ');
     htp.headClose;
-    modGUI1.Header(idSessione);
+    modGUI1.Header;
     if (idSessione=1)
     then
         modGUI1.ApriDiv('style:"height:90%;"');
@@ -43,7 +43,7 @@ procedure Home (idSessione varchar2 default 0) is
 procedure MuseiHome (idSessione int default 0) is
     begin
         htp.prn('<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css"> ');
-        modGUI1.Header(idSessione);
+        modGUI1.Header;
         htp.br;htp.br;htp.br;htp.br;htp.br;htp.br;
         modGUI1.ApriDiv('class="w3-center"');
             htp.prn('<h1>Musei</h1>'); --TITOLO
@@ -87,7 +87,7 @@ procedure MuseiHome (idSessione int default 0) is
 procedure CampiEstiviHome (idSessione int default 0) is
     begin
         htp.prn('<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css"> ');
-        modGUI1.Header(idSessione);
+        modGUI1.Header;
         htp.br;htp.br;htp.br;htp.br;htp.br;htp.br;
         modGUI1.ApriDiv('class="w3-center"');
             htp.prn('<h1>Campi estivi</h1>'); --TITOLO
@@ -141,7 +141,7 @@ PROCEDURE Inserimento(
 ) IS
 BEGIN 
         modGUI1.ApriPagina('PROVA',idSessione);--DA MODIFICARE campo PROVA
-        modGUI1.Header(idSessione);
+        modGUI1.Header;
         htp.br;htp.br;htp.br;htp.br;htp.br;htp.br;
         htp.prn('<h1 align="center">PROVA</h1>');--DA MODIFICARE
         modGUI1.ApriDiv('class="w3-modal-content w3-card-4 w3-animate-zoom" style="max-width:600px"');
@@ -185,7 +185,7 @@ PROCEDURE Conferma(
 ) IS 
 BEGIN 
     modGUI1.ApriPagina('Conferma',idSessione);
-        modGUI1.Header(idSessione);
+        modGUI1.Header;
         htp.br;htp.br;htp.br;htp.br;htp.br;htp.br;
         htp.prn('<h1 align="center">CONFERMA DATI</h1>');--DA MODIFICARE
         modGUI1.ApriDiv('class="w3-modal-content w3-card-4 w3-animate-zoom" style="max-width:600px" ');

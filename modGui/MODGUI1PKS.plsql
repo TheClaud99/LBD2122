@@ -3,7 +3,7 @@ CREATE OR REPLACE PACKAGE modGUI1 as
 procedure erroreLogin;
 
 procedure ApriPagina(titolo varchar2 default 'Senza titolo', idSessione int default 0);
-procedure Header (idSessione int default 0);
+procedure Header;
 procedure BannerUtente (idSessione int default 0);
 /* Login & logout */
 procedure Login;

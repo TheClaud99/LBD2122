@@ -12,22 +12,23 @@ CREATE OR REPLACE PACKAGE BODY modGUI1 as
         htp.headClose;
     end ApriPagina;
 
-    procedure Header (idSessione int default 0) is /*Testata pagina che include tendina ☰ e banner utente */
-    begin
+    procedure Header as /*Testata pagina che include tendina ☰ e banner utente */
+    idSessione NUMBER(5) := modGUI1.get_id_sessione();
+    begin     
         modGUI1.ApriDiv('class="w3-dropdown w3-bar w3-top w3-black w3-large" style="height:90px;"');
             htp.prn('<button onclick="myFunction()" class="w3-button w3-hover-white w3-black w3-xxxlarge"><h1>☰</h1></button>');
             modGUI1.ApriDiv('id="Demo" class="w3-dropdown-content w3-bar-block w3-black w3-sidebar" style="width:20%;position:fixed;z-index:-1;"');
-                if (idSessione!=0)
+                if (idSessione = 0)
                 then
                     modGUI1.Collegamento('HOME','Home?idSessione='|| idSessione,'w3-bar-item w3-button');
                     modGUI1.Collegamento('Musei','MuseiHome?idSessione='|| idSessione,'w3-bar-item w3-button');
                     modGUI1.Collegamento('Campi Estivi','CampiEstiviHome?idSessione='|| idSessione,'w3-bar-item w3-button');
-                    -- !FIXME: punta a radice.Home, quindi se radice != /apex/utente/webpages non riporta alla home
+                else
                     modGUI1.ApriForm('RimozioneSessione', 'formLogOut', 'w3-container', 1);
-                        htp.FormHidden('idSessione', modGUI1.get_id_sessione());
+                        htp.FormHidden('idSessione',idSessione);
                         htp.prn('<button class="w3-button w3-block w3-red w3-section w3-padding">LOG OUT</button>');
                     modGUI1.ChiudiForm;
-                ELSE
+        
                     modGUI1.Collegamento('HOME','Home','w3-bar-item w3-button');
                     --GRUPPO 1--
                     modGUI1.ApriDiv('class="w3-bar-item w3-button" onclick="myAccFunc(''DemoAcc1'')"');
@@ -248,7 +249,7 @@ CREATE OR REPLACE PACKAGE BODY modGUI1 as
     procedure erroreLogin IS
     BEGIN 
         modGUI1.ApriPagina('erroreLogin');
-        --modGUI1.Header;
+        modGUI1.Header;
         htp.br;htp.br;htp.br;htp.br;htp.br;htp.br;
         --DA MODIFICARE
         modGUI1.ApriDiv('class="w3-modal-content w3-card-4 w3-animate-zoom w3-display-center" style="max-width:600px" ');
@@ -555,11 +556,7 @@ CREATE OR REPLACE PACKAGE BODY modGUI1 as
         paramOP := REPLACE(parametrinuovaOp,'//','&');
         paramBTM := REPLACE(parametribackToMenu,'//','&');
             modGUI1.ApriPagina(pageTitle, idSessione);
-            if idSessione IS NULL then
-                modGUI1.Header;
-            else
-                modGUI1.Header(idSessione);
-            end if;
+            modGUI1.header;
             htp.br;htp.br;htp.br;htp.br;htp.br;htp.br;
                 modGUI1.ApriDiv('class="w3-modal-content w3-card-4 w3-animate-zoom" style="max-width:450px"');
                     modGUI1.ApriDiv('class="w3-center"');

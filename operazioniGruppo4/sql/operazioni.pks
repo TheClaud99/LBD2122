@@ -255,19 +255,28 @@ procedure CancellaTariffeCampiEstivi
 procedure form1tariffe
 (
    campoEstivo in TARIFFECAMPIESTIVI.CampoEstivo%type,
-   anno in number
+   Data1 in varchar2,
+   Data2 in VARCHAR2
 );
-procedure preferenzaTariffa;
+procedure preferenzaTariffa
+(
+   campoEstivo in TARIFFECAMPIESTIVI.CampoEstivo%type
+);
 
-procedure monitoraTariffeCampiEstivi_tariffeAnno
+procedure monitoratariffeAnno
 (
    campoEstivo in TARIFFECAMPIESTIVI.CampoEstivo%type,
-    anno in number
+   Data1 in varchar2,
+   Data2 in varchar2
 );
 
 procedure MonitoraTariffeCampiEstivi_tariffeCampo
 (
     campoEstivo in TARIFFECAMPIESTIVI.CampoEstivo%type
+);
+procedure Utentipagamenti
+(
+   pagamentoid in PagamentiCampiEstivi.idpagamento%type
 );
 
 end operazioniGruppo4;

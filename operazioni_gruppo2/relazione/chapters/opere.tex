@@ -36,7 +36,7 @@
 	\item \textbf{Parametri}:
 	\begin{enumerate}
 		\item \textbf{Titolo}: in VARCHAR2
-		\item \textbf{Anno}: in DATE
+		\item \textbf{Anno}: in VARCHAR2
 		\item \textbf{FinePeriodo}: in VARCHAR2, \textbf{opzionale}, fine del periodo di realizzazione 
 		\item \textbf{IdMusei}: in NUMBER
 	\end{enumerate}
@@ -45,6 +45,7 @@
 	\begin{itemize}
 	%\item L'Opera con i dati inseriti è già presente nel database
 		\item Parametri obbligatori con valore nullo (solo se chiamata a ConfermaDatiOpera senza passare da InserisciOpera)
+		\item Parametri newAnno e newFineperiodo presentano caratteri non numerici
 	\end{itemize}
 	\item \textbf{Usa}: Opere, Musei, AppartieneA
 	\item \textbf{Modifica}: Opere
@@ -73,7 +74,7 @@
 		\item \textbf{OperaID}: in NUMBER
 		\item \textbf{newTitolo}: in VARCHAR2
 		\item \textbf{newAnno}: in VARCHAR2
-		\item \textbf{newFineperiodo}: in NUMBER, opzionale
+		\item \textbf{newFineperiodo}: in VARCHAR2, opzionale
 		\item \textbf{newIdMusei}: in NUMBER
 	\end{enumerate}
 	\item \textbf{Risultato}: Modifica l'Opera specificata se esiste nella base di dati, errore altrimenti (la base di dati rimane inalterata)
@@ -81,6 +82,7 @@
 	\begin{itemize}
 		\item L'Opera con OperaID non è presente nel database
 		\item Parametri obbligatori con valore nullo
+		\item Parametri newAnno e newFineperiodo presentano caratteri non numerici
 	\end{itemize}
 	\item \textbf{Usa}: Opere, Musei
 	\item \textbf{Modifica}: Opere

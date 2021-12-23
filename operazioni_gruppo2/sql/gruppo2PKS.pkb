@@ -133,15 +133,15 @@ PROCEDURE UpdateOpera(
 	operaID NUMBER DEFAULT 0,
 	newTitolo VARCHAR2 DEFAULT 'Sconosciuto',
 	newAnno VARCHAR2 DEFAULT 'Sconosciuto',
-	newFineperiodo NUMBER DEFAULT NULL,
+	newFineperiodo VARCHAR2 DEFAULT 'Sconosciuto',
 	newIDmusei NUMBER DEFAULT 0
 );
 
 PROCEDURE InserisciDatiOpera(
 
     titolo VARCHAR2 DEFAULT 'Sconosciuto',
-    anno NUMBER DEFAULT NULL,
-    fineperiodo NUMBER DEFAULT NULL,
+    anno VARCHAR2 DEFAULT 'Sconosciuto',
+    fineperiodo VARCHAR2 DEFAULT 'Sconosciuto',
     idmusei NUMBER DEFAULT NULL
 );
 PROCEDURE VisualizzaOpera (

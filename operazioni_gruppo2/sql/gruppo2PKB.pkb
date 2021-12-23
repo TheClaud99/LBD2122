@@ -1,5 +1,3 @@
-SET DEFINE OFF;
-
 CREATE OR REPLACE PACKAGE BODY gruppo2 AS
 
 /*
@@ -139,7 +137,7 @@ idSessione NUMBER(5) := modgui1.get_id_sessione();
 op Opere%ROWTYPE;
 BEGIN
     SELECT * INTO op from opere where idOpera=operaID;
-    UPDATE opere SET eliminato=0 WHERE idOpera=operaID;
+    UPDATE opere SET eliminato=0 WHERE idOpera=operaID; 
     modGUI1.RedirectEsito('Ripristino riuscito', 
             'L''opera '||op.titolo||' è stato ripristinata', 
             'Torna al menu opere eliminate', gruppo2.gr2||'menuOpereEliminate', null,
@@ -392,23 +390,29 @@ var1 varchar2(40);
             HTP.FORMHIDDEN('fineperiodo', fineperiodo);
             HTP.FORMHIDDEN('idmusei', idmusei);
             MODGUI1.InputSubmit('Annulla');
-            MODGUI1.ChiudiForm;
-            modGUI1.ChiudiDiv;
+            MODGUI1.ChiudiForm; 
+            modGUI1.ChiudiDiv;   
         modGUI1.ChiudiDiv;
     END IF;
     EXCEPTION WHEN OTHERS THEN
-        dbms_output.put_line('Error: '||sqlerrm);
+        MODGUI1.RedirectEsito('Errore sconosciuto', null,
+        'Riprova',gruppo2.gr2||'inserisciOpera',null,
+        'Torna alle opere',gruppo2.gr2||'menuOpere',null);
 END;
 
 
 PROCEDURE InserisciDatiOpera(
     titolo VARCHAR2 DEFAULT 'Sconosciuto',
-    anno NUMBER DEFAULT NULL,
-    fineperiodo NUMBER DEFAULT NULL,
+    anno VARCHAR2 DEFAULT 'Sconosciuto',
+    fineperiodo VARCHAR2 DEFAULT 'Sconosciuto',
     idmusei NUMBER DEFAULT NULL
 )IS
+varAnno NUMBER(5);
+varFinePeriodo NUMBER(5);
 idSessione NUMBER(5) := modgui1.get_id_sessione();
 BEGIN
+    varAnno := TO_NUMBER(anno);
+    varFinePeriodo := TO_NUMBER(fineperiodo);
     INSERT INTO Opere VALUES (IdOperaSeq.NEXTVAL,titolo,anno,fineperiodo,idmusei, 1,0);
     IF SQL%FOUND THEN
     -- faccio il commit dello statement precedente
@@ -449,7 +453,7 @@ BEGIN
                 modGUI1.ApriForm(gruppo2.gr2||'ConfermaUpdateOpera',NULL,'w3-container');
                     htp.FORMHIDDEN('operaID', operaID);
                     modGUI1.Label('Titolo*');
-                    modGUI1.Inputtext('titolo', titoloOpera,1, titoloOpera);
+                    modGUI1.Inputtext('titolo', titoloOpera, 1, titoloOpera);
                     htp.br;
                     SELECT anno,fineperiodo INTO age,periodo FROM OPERE WHERE idOpera=operaId;
                     modGUI1.Label('Anno*');
@@ -547,26 +551,30 @@ var1 varchar2(40);
     END IF;
     EXCEPTION WHEN OTHERS THEN
         -- TODO: fix here
-        dbms_output.put_line('Error: '||sqlerrm);
+        dbms_output.put_line('Error: '||sqlerrm); 
 END;
 
 PROCEDURE UpdateOpera(
 	operaID NUMBER DEFAULT 0,
 	newTitolo VARCHAR2 DEFAULT 'Sconosciuto',
 	newAnno VARCHAR2 DEFAULT 'Sconosciuto',
-	newFineperiodo NUMBER DEFAULT NULL,
+	newFineperiodo VARCHAR2 DEFAULT 'Sconosciuto',
 	newIDmusei NUMBER DEFAULT 0
 ) IS
+varNewAnno NUMBER(5);
+varNewFinePeriodo NUMBER(5);
 idSessione NUMBER(5) := modgui1.get_id_sessione();
 BEGIN
-    IF (NewFineperiodo is NULL) or (newFineperiodo>newAnno) THEN
+    varNewAnno := TO_NUMBER(newAnno);
+    varNewFinePeriodo := TO_NUMBER(newFineperiodo);
+    IF (NewFineperiodo is NULL) or (newFineperiodo > newAnno) THEN 
 	UPDATE Opere SET
 		titolo=newTitolo,
-		anno=newAnno,
-		fineperiodo=newFineperiodo,
+		anno=varNewAnno,
+		fineperiodo=varNewFinePeriodo,
 		Museo=newIDmusei
 	WHERE IdOpera=operaID;
-    MODGUI1.RedirectEsito('Update eseguito correttamente', null,
+    MODGUI1.RedirectEsito('Update eseguito correttamente', null,  
         null, null, null,
         'Torna alle opere',gruppo2.gr2||'menuOpere',null);
     ELSE
@@ -577,6 +585,13 @@ BEGIN
                 'operaID='||operaID||'//titoloOpera='||newTitolo,
                 'Torna al menù',gruppo2.gr2||'menuOpere');
     END IF;
+    EXCEPTION WHEN OTHERS THEN
+        MODGUI1.RedirectEsito('Update fallito',
+                'Errore: parametri non ammessi',
+                'Torna all''update',
+                gruppo2.gr2||'ModificaOpera?', 
+                'operaID='||operaID||'//titoloOpera='||newTitolo,
+                'Torna al menù',gruppo2.gr2||'menuOpere'); 
 END;
 
 procedure VisualizzaOpera (

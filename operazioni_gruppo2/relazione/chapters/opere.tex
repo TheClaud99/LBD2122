@@ -1,9 +1,4 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%
-% Operazioni sulle Opere  %
-%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\section{Operazioni sulle Opere}
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %     Visualizza Opera    %
 %%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Visualizzazione}
@@ -36,7 +31,7 @@
 	\item \textbf{Parametri}:
 	\begin{enumerate}
 		\item \textbf{Titolo}: in VARCHAR2
-		\item \textbf{Anno}: in DATE
+		\item \textbf{Anno}: in VARCHAR2
 		\item \textbf{FinePeriodo}: in VARCHAR2, \textbf{opzionale}, fine del periodo di realizzazione 
 		\item \textbf{IdMusei}: in NUMBER
 	\end{enumerate}
@@ -45,6 +40,7 @@
 	\begin{itemize}
 	%\item L'Opera con i dati inseriti è già presente nel database
 		\item Parametri obbligatori con valore nullo (solo se chiamata a ConfermaDatiOpera senza passare da InserisciOpera)
+		\item Parametri newAnno e newFineperiodo presentano caratteri non numerici
 	\end{itemize}
 	\item \textbf{Usa}: Opere, Musei, AppartieneA
 	\item \textbf{Modifica}: Opere
@@ -73,7 +69,7 @@
 		\item \textbf{OperaID}: in NUMBER
 		\item \textbf{newTitolo}: in VARCHAR2
 		\item \textbf{newAnno}: in VARCHAR2
-		\item \textbf{newFineperiodo}: in NUMBER, opzionale
+		\item \textbf{newFineperiodo}: in VARCHAR2, opzionale
 		\item \textbf{newIdMusei}: in NUMBER
 	\end{enumerate}
 	\item \textbf{Risultato}: Modifica l'Opera specificata se esiste nella base di dati, errore altrimenti (la base di dati rimane inalterata)
@@ -81,6 +77,7 @@
 	\begin{itemize}
 		\item L'Opera con OperaID non è presente nel database
 		\item Parametri obbligatori con valore nullo
+		\item Parametri newAnno e newFineperiodo presentano caratteri non numerici
 	\end{itemize}
 	\item \textbf{Usa}: Opere, Musei
 	\item \textbf{Modifica}: Opere
@@ -273,7 +270,7 @@
 	\begin{enumerate}
 		\item \textbf{museoID}: in NUMBER
 	\end{enumerate}
-	\item \textbf{Risultato}: Mostra il nome delle prime tre opere, se museoID \neq 0 relative a quel museo altrimenti tra tutti i musei, con il maggior numero di autori e il numero di autori dell'opera
+	\item \textbf{Risultato}: Mostra il nome delle prime tre opere, se museoID $\neq 0$ relative a quel museo altrimenti tra tutti i musei, con il maggior numero di autori e il numero di autori dell'opera
 	\item \textbf{Errori}: nessuno
 	\item \textbf{Usa}: Opere, AutoriOpere, Musei
 	\item \textbf{Modifica}: niente
@@ -292,7 +289,7 @@
 	\begin{enumerate}
 		\item \textbf{museoID}: in NUMBER
 	\end{enumerate}
-	\item \textbf{Risultato}: Mostra il nome delle prime tre opere, se museoID \neq 0 relative a quel museo altrimenti tra tutti i musei, non spostate da più tempo e per quanti giorni non sono state spostate
+	\item \textbf{Risultato}: Mostra il nome delle prime tre opere, se museoID $\neq 0$ relative a quel museo altrimenti tra tutti i musei, non spostate da più tempo e per quanti giorni non sono state spostate
 	\item \textbf{Errori}: nessuno
 	\item \textbf{Usa}: Opere, saleOpere, Musei
 	\item \textbf{Modifica}: niente
@@ -311,13 +308,13 @@
 	\begin{enumerate}
 		\item \textbf{museoID}: in NUMBER
 	\end{enumerate}
-	\item \textbf{Risultato}: Mostra il nome delle prime tre opere, se museoID \neq 0 relative a quel museo altrimenti tra tutti i musei, esposte da più tempo e per quanti giorni sono state esposte
+	\item \textbf{Risultato}: Mostra il nome delle prime tre opere, se museoID $\neq 0$ relative a quel museo altrimenti tra tutti i musei, esposte da più tempo e per quanti giorni sono state esposte
 	\item \textbf{Errori}: nessuno
 	\item \textbf{Usa}: Opere, saleOpere, Musei
 	\item \textbf{Modifica}: niente
 	\item \textbf{Precondizioni}:
 	\begin{itemize}
-		\item |opere| \ge 3
+		\item $|opere| \ge 3$ 
 	\end{itemize}
 	\item \textbf{Postcondizioni}: nessuna
 \end{itemize}
@@ -331,7 +328,7 @@
 	\begin{enumerate}
 		\item \textbf{museoID}: in NUMBER
 	\end{enumerate}
-	\item \textbf{Risultato}: Mostra il nome delle prime tre opere, se museoID \neq 0 relative a quel museo altrimenti tra tutti i musei, più antiche e l'età, in anni, dell'opera
+	\item \textbf{Risultato}: Mostra il nome delle prime tre opere, se museoID $\neq 0$ relative a quel museo altrimenti tra tutti i musei, più antiche e l'età, in anni, dell'opera
 	\item \textbf{Errori}: nessuno
 	\item \textbf{Usa}: Opere, Musei
 	\item \textbf{Modifica}: niente

@@ -1,3 +1,5 @@
+SET DEFINE OFF;
+
 CREATE OR REPLACE PACKAGE BODY gruppo2 AS
 
 /*
@@ -2081,7 +2083,10 @@ SELECT * INTO auth FROM autori WHERE authID=IDAUTORE;
                 IF prevMuseo != op.Museo THEN
                     modGUI1.ApriDiv('class="w3-row"');
                     SELECT * INTO MuseoProprietario FROM Musei WHERE IdMuseo = op.Museo;
-                    htp.prn('<b><h4>Opere di proprietà di '||MuseoProprietario.Nome||'</b></h4>');
+                    htp.prn('<b><h4>Opere di proprietà di ');
+                    modGUI1.Collegamento(MuseoProprietario.Nome, 
+                                gruppo2.gr4||'visualizzaMusei?MuseoID='||MuseoProprietario.IdMuseo);
+                    htp.prn('</b></h4>');
                     modGUI1.ChiudiDiv;
                     prevMuseo := op.Museo;
                 END IF;
@@ -2692,17 +2697,19 @@ BEGIN
 			htp.br; htp.br;
 		END IF;
 
-        modGUI1.ApriDiv('class="w3-center"');
-        modGUI1.ApriForm(gruppo2.gr2||'StatisticheAutori');
-            htp.br;
-            modGUI1.SelectOpen('operazione', 'operazione');
-            modGUi1.SelectOption(0, 'Opere realizzate');
-            modGUi1.SelectOption(1, 'Musei con opere esposte');
-            modGUi1.SelectOption(2, 'Collaborazioni effettuate');
-            modGUI1.SelectClose;
-        HTP.FORMHIDDEN('authID', this_autore.IdAutore);
-        htp.prn('<button class="w3-margin w3-button w3-black w3-hover-white">Seleziona</button>');
-		modGUI1.ChiudiDiv;
+        IF operazione = 0 THEN
+            modGUI1.ApriDiv('class="w3-center"');
+            modGUI1.ApriForm(gruppo2.gr2||'StatisticheAutori');
+                htp.br;
+                modGUI1.SelectOpen('operazione', 'operazione');
+                modGUi1.SelectOption(0, 'Opere realizzate');
+                modGUi1.SelectOption(1, 'Musei con opere esposte');
+                modGUi1.SelectOption(2, 'Collaborazioni effettuate');
+                modGUI1.SelectClose;
+            HTP.FORMHIDDEN('authID', this_autore.IdAutore);
+            htp.prn('<button class="w3-margin w3-button w3-black w3-hover-white">Seleziona</button>');
+            modGUI1.ChiudiDiv;
+        END IF;
 
         -- Link per ritorno a procedura statistica dalla quale è stato chiamato
         IF caller is not null THEN

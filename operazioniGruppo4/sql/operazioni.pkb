@@ -6,7 +6,7 @@ Create or replace PACKAGE body operazioniGruppo4 as
  * - Inserimento ✅
  * - Modifica ✅
  * - Visualizzazione ✅ 
- * - Cancellazione (rimozione) ❌
+ * - Cancellazione (rimozione) ❌(da non fare)
  * OPERAZIONI STATISTICHE E MONITORAGGIO
  * - Sale presenti ✅
  * - Opere presenti nel Museo ✅
@@ -20,10 +20,10 @@ o entrambi i casi) ✅
 
 /*
  * OPERAZIONI SUI CAMPI ESTIVI
- * - Inserimento ❌ da modificare
- * - Modifica ❌ da modificare
+ * - Inserimento ✅ da modificare
+ * - Modifica ✅ da modificare
  * - Visualizzazione ✅ 
- * - Cancellazione (rimozione) ❌
+ * - Cancellazione (rimozione) ❌ da aggiustare
  * OPERAZIONI STATISTICHE E MONITORAGGIO
  * - Numero iscritti ✅
  * - Utenti iscritti al campo Estivo ✅
@@ -62,8 +62,7 @@ o entrambi i casi) ✅
 
 procedure menutariffe
 (
-   idCampo IN number default 0,
-   idsessione IN number default 0
+   idCampo IN number default 0
 )
 is 
 
@@ -75,12 +74,15 @@ begin
    htp.br;htp.br;htp.br;htp.br;htp.br;
    htp.prn('<h1 Align="center"> Tariffe Campi Estivi</h1>');
     MODGUI1.APRIDIV('class="w3-col l4 w3-padding-large w3-left"');
-   htp.prn('<h1 Align="center">Inserimento</h1>');
    MODGUI1.APRIDIV('class="w3-center"');
    modGUI1.Collegamento('inserisci Tariffa',
                             'operazioniGruppo4.inserisciTariffeCampiEstivi?prezzo=&etaMinima=&etaMassima=&campoEstivo=',
                             'w3-black w3-round w3-margin w3-button');
    MODGUI1.ChiudiDiv();
+   MODGUI1.ChiudiDiv();
+
+   MODGUI1.APRIDIV('class="w3-col l4 w3-padding-large w3-center"');
+   modGUI1.Collegamento('campi estivi','operazioniGruppo4.menucampiestivi','w3-btn w3-round-xxlarge w3-black ');
    MODGUI1.ChiudiDiv();
 
    MODGUI1.APRIDIV('class="w3-col l4 w3-padding-large w3-right"');
@@ -139,9 +141,6 @@ begin
    end;
 
 procedure menucampiestivi
-(
-   idsessione IN number default 0
-)
    is
    begin
    htp.prn('<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css"> ');
@@ -153,7 +152,7 @@ procedure menucampiestivi
    htp.prn('<h1 Align="center">Inserimento</h1>');
    MODGUI1.APRIDIV('class="w3-center"');
    modGUI1.Collegamento('inserisci Campo Estivo',
-                            'operazioniGruppo4.inseriscicampiestivi?newNome=&newMuseo=&newStato=&newDatainizio=&newDataConclusione=',
+                            OperazioniGruppo4.gr4 ||'inseriscicampiestivi?newNome=&newMuseo=&newDatainizio=&newDataConclusione=',
                             'w3-black w3-round w3-margin w3-button');
    MODGUI1.ChiudiDiv();
    MODGUI1.ChiudiDiv();
@@ -161,7 +160,7 @@ procedure menucampiestivi
    htp.prn('<h1 Align="center">Statistiche</h1>');
     MODGUI1.APRIDIV('class="w3-center"');
    modGUI1.Collegamento('Statistiche',
-                            'operazioniGruppo4.form1campiestivi?idsessione=&CampoestivoId=&NameCampoestivo=',
+                            OperazioniGruppo4.gr4 || 'form1campiestivi?&CampoestivoId=&NameCampoestivo=',
                             'w3-black w3-round w3-margin w3-button');
    
    MODGUI1.ChiudiDiv();
@@ -193,31 +192,34 @@ procedure menucampiestivi
                   HTP.TableRowClose;
     
                   HTP.TableClose;
-                modGUI1.ChiudiDiv;      
+               modGUI1.ChiudiDiv;      
                modGUI1.Collegamento('Visualizza',
-                            'operazioniGruppo4.visualizzacampiestivi?campiestiviId='||campo.IdCampiEstivi,
+                             OperazioniGruppo4.gr4 ||'visualizzacampiestivi?campiestiviId='||campo.IdCampiEstivi,
                             'w3-green w3-margin w3-button');
+               MODGUI1.COLLEGAMENTO('Modifica',OperazioniGruppo4.gr4 ||'modificacampiestivi?idcampo='||campo.IDCAMPIESTIVI ||'&newNome=' ||campo.Nome ||'&newDatainizio='||campo.DataInizio||'&newDataConclusione='||campo.DataConclusione,'w3-red w3-round w3-margin w3-button');
+               htp.prn('<button onclick="document.getElementById(''Elimcampo'||campo.IdCampiEstivi||''').style.display=''block''" class="w3-margin w3-button w3-black w3-hover-white">Elimina</button>');
+               OperazioniGruppo4.eliminacampo(campo.IdCampiEstivi);
+               htp.prn('<h1 Align="center" style="font-size:170%;">Tariffe-Pagamenti</h1>');
                modGUI1.Collegamento('tariffe',
-               'operazioniGruppo4.menutariffe?idCampo='||campo.IdCampiEstivi||'&idsessione='||idsessione,
-               'w3-green w3-margin w3-button');
-
+                              OperazioniGruppo4.gr4 ||'menutariffe?idCampo='||campo.IdCampiEstivi,
+                              'w3-red w3-margin w3-button');
                modGUI1.Collegamento('storico pagamenti',
-                            'operazioniGruppo4.form1tariffe?campoEstivo='||campo.IdCampiEstivi||'&Data1=&Data2=',
+                             OperazioniGruppo4.gr4 ||'form1tariffe?campoEstivo='||campo.IdCampiEstivi||'&Data1=&Data2=',
                             'w3-black w3-round w3-margin w3-button');
+              
 
                    
                 modgui1.ChiudiDiv;
             modGUI1.ChiudiDiv;
         modGUI1.ChiudiDiv;
     END LOOP;
-    modGUI1.chiudiDiv;
+    modGUI1.chiudiDiv; 
    end;
    /*Funzione che genera il form d'inserimento*/
 procedure inseriscicampiestivi
 (
    newNome in CAMPIESTIVI.Nome%TYPE default null,
    newMuseo in Musei.Nome%TYPE,
-   newStato in CAMPIESTIVI.Stato%TYPE default null, 
    newDatainizio in VARCHAR2 default null,
    newDataConclusione in VARCHAR2 default null
 )
@@ -232,36 +234,26 @@ BEGIN
    htp.br;htp.br;htp.br;htp.br;htp.br;htp.br;  
    htp.prn('<h1 align="center">Inserimento Campi Estivi</h1>');
    modGUI1.ApriDiv('class="w3-modal-content w3-card-4" style="max-width:600px"');
-   modGUI1.Collegamento('M','operazioniGruppo4.menucampiestivi?idsessione=1','w3-btn  w3-black w3-display-topright ');
+   modGUI1.Collegamento('M','operazioniGruppo4.menucampiestivi','w3-btn  w3-black w3-display-topright ');
    modGUI1.ApriForm(operazioniGruppo4.gr4||'confermacampiestivi','invia','w3-container');
    MODGUI1.LABEL('Nome');
    modgui1.INPUTTEXT('newNome','Nome',1,newNome);
    htp.br;  
-    MODGUI1.LABEL('Nome Museo');
+   MODGUI1.LABEL('Nome Museo');
    MODGUI1.SelectOpen('newMuseo',newMuseo);
    FOR Mus_cur IN cur LOOP
     MODGUI1.SelectOption(Mus_cur.NOME,Mus_cur.NOME);
   END LOOP;
   MODGUI1.SelectClose;
    htp.br;  
-   MODGUI1.LABEL('Stato');
-   MODGUI1.SelectOpen('newStato');
-
-   modGUI1.SelectOption('increazione','increazione');
-   modGUI1.SelectOption('sospeso','sospeso');
-   modGUI1.SelectOption('incorso','incorso');
-   modGUI1.SelectOption('terminato','terminato');
-   MODGUI1.SelectClose;
-   htp.br;
    MODGUI1.LABEL('Data Inizio');
-   modGUI1.InputDate('newDatainizio','newDatainizio',1,newDatainizio);
+   modGUI1.InputDate('newDatainizio','newDatainizio',0,newDatainizio);
    htp.br;
    MODGUI1.LABEL('DataConclusione');
-    modGUI1.InputDate('newDataConclusione','newDataConclusione',0,newDataConclusione);
-    htp.br;
-    htp.br;
+   modGUI1.InputDate('newDataConclusione','newDataConclusione',0,newDataConclusione);
+   htp.br;
+   htp.br;
    modgui1.INPUTSUBMIT('Invia');
-
    modgui1.ChiudiForm;
    modgui1.ChiudiDiv;
    htp.bodyClose; 
@@ -272,7 +264,6 @@ procedure confermacampiestivi
 (
    newNome in CAMPIESTIVI.Nome%TYPE default null,
    newMuseo in Musei.Nome%TYPE,
-   newStato in CAMPIESTIVI.Stato%TYPE default null, 
    newDatainizio in VARCHAR2 default null,
    newDataConclusione in VARCHAR2 default null
 )
@@ -288,12 +279,11 @@ BEGIN
    htp.br;htp.br;htp.br;htp.br;htp.br;
    htp.prn('<h1 align="center">Inserimento Campi Estivi</h1>');
    modGUI1.ApriDiv('class="w3-modal-content w3-card-4" style="max-width:600px"');
-   if (newNome is null) or (newMuseo is null) or (newStato is null)
+   if (newNome is null) or (newMuseo is null) 
       then MODGUI1.LABEL('Parametri inseriti in maniera errata');
       MODGUI1.ApriForm(operazioniGruppo4.gr4||'inseriscicampiestivi');
       HTP.FORMHIDDEN('newNome', newNome);
       HTP.FORMHIDDEN('newMuseo',  newMuseo);
-      HTP.FORMHIDDEN('newStato', newStato);
       HTP.FORMHIDDEN('newDatainizio',newDatainizio);
       HTP.FORMHIDDEN('newDataConclusione',newDataConclusione);
       MODGUI1.InputSubmit('indietro');
@@ -306,7 +296,7 @@ BEGIN
         htp.tablerowclose;
         htp.tablerowopen;
         htp.tabledata('Stato: ',CATTRIBUTES  =>'style="font-weight:bold"');
-        htp.tabledata(newStato);
+        htp.tabledata('increazione');
         htp.tablerowclose;
         htp.tablerowopen;
         htp.tabledata('Data inizio: ',CATTRIBUTES  =>'style="font-weight:bold"');
@@ -320,11 +310,10 @@ BEGIN
         htp.tabledata('Museo: ',CATTRIBUTES  =>'style="font-weight:bold"');
         htp.tabledata(newMuseo);
         htp.tablerowclose;
-
+         htp.tableclose;
       MODGUI1.ApriForm(operazioniGruppo4.gr4||'controllacampiestivi');
       HTP.FORMHIDDEN('newNome', newNome);
       HTP.FORMHIDDEN('newMuseo',  newMuseo);
-      HTP.FORMHIDDEN('newStato', newStato);
       HTP.FORMHIDDEN('newDatainizio',newDatainizio);
       HTP.FORMHIDDEN('newDataConclusione',newDataConclusione);
       MODGUI1.InputSubmit('Conferma');
@@ -332,7 +321,6 @@ BEGIN
       MODGUI1.ApriForm(operazioniGruppo4.gr4||'inseriscicampiestivi');
       HTP.FORMHIDDEN('newNome', newNome);
       HTP.FORMHIDDEN('newMuseo',  newMuseo);
-      HTP.FORMHIDDEN('newStato', newStato);
       HTP.FORMHIDDEN('newDatainizio',newDatainizio);
       HTP.FORMHIDDEN('newDataConclusione',newDataConclusione);
       MODGUI1.InputSubmit('Annulla');
@@ -351,78 +339,26 @@ procedure controllacampiestivi
 (
    newNome in CAMPIESTIVI.Nome%TYPE default null,
    newMuseo in Musei.Nome%TYPE,
-   newStato in CAMPIESTIVI.Stato%TYPE default null, 
    newDatainizio in VARCHAR2 default null,
    newDataConclusione in VARCHAR2 default null
 )
 is
    newidMuseo CAMPIESTIVI.MUSEO%TYPE default null;
-   countmuseo NUMBER;
-   countinserimenti NUMBER;
+   newStato VARCHAR2(50) :='increazione';
    v_dateini Date:= TO_DATE(newDatainizio default NULL on conversion error, 'YYYY-MM-DD');
    v_datefin Date:= TO_DATE(newDataConclusione default NULL on conversion error, 'YYYY-MM-DD');
 BEGIN
+   select IDMUSEO
+   into newidMuseo
+   from MUSEI
+   where Musei.NOME=newNome;
    htp.htmlOpen;
-   modgui1.APRIPAGINA('Viusalizza Campi Estivi');
+   modgui1.APRIPAGINA('Campi Estivi');
    modgui1.HEADER();
    htp.bodyopen();
-   htp.br;htp.br;htp.br;htp.br;htp.br;htp.br;
-   Select count(*)
-   into countmuseo
-   from Musei
-   where Nome=newMuseo;
-      /* aggiungere controllo sulla data e sui not null*/
-   
-    modGUI1.ApriDiv('class="w3-modal-content w3-card-4" style="max-width:600px"');
-   if countmuseo = 0
-      then 
-      MODGUI1.LABEL('Il Museo inserito è inesistente');
-     MODGUI1.ApriForm(operazioniGruppo4.gr4||'inseriscicampiestivi');
-      HTP.FORMHIDDEN('newNome', newNome);
-      HTP.FORMHIDDEN('newMuseo',  newMuseo);
-      HTP.FORMHIDDEN('newStato', newStato);
-      HTP.FORMHIDDEN('newDatainizio',newDatainizio);
-      HTP.FORMHIDDEN('newDataConclusione',newDataConclusione);
-      MODGUI1.InputSubmit('Reinserisci');
-
-   else 
-      Select IdMuseo
-      into newidMuseo
-      from Musei
-      where Nome=newMuseo;
-      
-      Select count(*)
-      into countinserimenti
-      from CAMPIESTIVI
-      where newidMuseo=Museo and  newNome=Nome;
-      
-      if countinserimenti > 0
-      then
-         MODGUI1.LABEL('Il Campo inserito è già presente');
-         MODGUI1.ApriForm(operazioniGruppo4.gr4||'inseriscicampiestivi');
-         HTP.FORMHIDDEN('newNome', newNome);
-         HTP.FORMHIDDEN('newMuseo',  newMuseo);
-         HTP.FORMHIDDEN('newStato', newStato);
-         HTP.FORMHIDDEN('newDatainizio',newDatainizio);
-         HTP.FORMHIDDEN('newDataConclusione',newDataConclusione);
-         MODGUI1.InputSubmit('Reinserisci');
-      else
-         insert into CAMPIESTIVI VALUES (IDCAMPIESTIVISEQ.NEXTVAL,newStato,newNome,v_dateini,v_datefin,newidMuseo,0);
-         htp.prn('<TABLE ALIGN=Center> <TR> <TD  ALIGN=Center> <b>Nome</b></TD><TD  ALIGN=Center> <b>IdMuseo</b> </TD> <TD  ALIGN=Center> <b>Stato</b> </TD> <TD  ALIGN=Center> <b>Datainizio</b> </TD> <TD  ALIGN=Center> <b>DataConclusione</b> </TD> </TR>');
-         for CAMPOESTIVO in (select * from CAMPIESTIVI)
-         LOOP
-            htp.prn('<TR> <TD>'||CAMPOESTIVO.nome);
-            htp.prn('</TD> <TD>'||CAMPOESTIVO.MUSEO);
-            htp.prn('</TD> <TD>'||CAMPOESTIVO.STATO);
-            htp.prn('</TD> <TD>'||CAMPOESTIVO.DATAINIZIO);
-            htp.prn('</TD> <TD>'||CAMPOESTIVO.DATACONCLUSIONE);
-            htp.prn('</TD> </TR>');
-         end LOOP;
-         htp.prn('</TABLE>');
-      end if;
-   end if;
-         
-   MODGUI1.ChiudiDiv;
+    htp.br;htp.br;htp.br;htp.br;htp.br;htp.br;
+     insert into CAMPIESTIVI VALUES (IDCAMPIESTIVISEQ.NEXTVAL,newStato,newNome,v_dateini,v_datefin,newidMuseo,0);
+   MODGUI1.RedirectEsito('Inserimento completato',newNome,'Inserisci un nuovo campo estivo',operazioniGruppo4.gr4||'inseriscicampiestivi?','//newNome='||newNome||'//newMuseo='||newMuseo||'//newDatainizio='||newDataInizio||'//newDataConclusione='||newDataConclusione,'Torna al menu','operazioniGruppo4.menucampiestivi',null);
    htp.bodyclose();
    htp.htmlClose();
 END controllacampiestivi;
@@ -465,11 +401,177 @@ BEGIN
         htp.tabledata('Museo: ',CATTRIBUTES  =>'style="font-weight:bold"');
         htp.tabledata(campo.Museo);
         htp.tablerowclose;
+      htp.tableclose;
 
-
+   modGUI1.Collegamento('menù','operazioniGruppo4.menucampiestivi','w3-btn w3-round-xxlarge w3-black ');
    modgui1.ChiudiDiv();
 
 END visualizzacampiestivi;
+
+procedure modificacampiestivi
+(
+   idcampo in CAMPIESTIVI.IDCAMPIESTIVI%TYPE default null,
+   newNome in CAMPIESTIVI.Nome%TYPE default null,
+   newDatainizio in VARCHAR2 default null,
+   newDataConclusione in VARCHAR2 default null
+)
+is
+begin 
+   htp.htmlOpen;
+   modGUI1.ApriPagina();
+   modGUI1.Header();
+   htp.bodyOpen;
+   htp.br;htp.br;htp.br;htp.br;htp.br;htp.br;  
+   htp.prn('<h1 align="center">Modifica Campi Estivi</h1>');
+   modGUI1.ApriDiv('class="w3-modal-content w3-card-4" style="max-width:600px"');
+   modGUI1.Collegamento('M','operazioniGruppo4.menucampiestivi','w3-btn  w3-black w3-display-topright ');
+   modGUI1.ApriForm(operazioniGruppo4.gr4||'confermamodificacampo','invia','w3-container');
+   htp.FORMHIDDEN('idcampo',idcampo);
+   MODGUI1.LABEL('Nome');
+   modgui1.INPUTTEXT('newNome','Nome',1,newNome);
+   htp.br;  
+   MODGUI1.LABEL('Data Inizio');
+   modGUI1.InputDate('newDatainizio','newDatainizio',1,newDatainizio);
+   htp.br;
+   MODGUI1.LABEL('DataConclusione');
+   modGUI1.InputDate('newDataConclusione','newDataConclusione',0,newDataConclusione);
+   htp.br;
+   htp.br;
+   modgui1.INPUTSUBMIT('modifica');
+   modgui1.ChiudiForm;
+   modgui1.ChiudiDiv;
+   htp.bodyClose; 
+   htp.htmlClose;
+
+end;
+procedure confermamodificacampo
+(
+   idcampo in CAMPIESTIVI.IDCAMPIESTIVI%TYPE default null,
+   newNome in CAMPIESTIVI.Nome%TYPE default null,
+   newDatainizio in VARCHAR2 default null,
+   newDataConclusione in VARCHAR2 default null
+)
+is
+   newidMuseo CAMPIESTIVI.MUSEO%TYPE;
+   v_dateini Date:= TO_DATE(newDatainizio default NULL on conversion error, 'YYYY-MM-DD');
+   v_datefin Date:= TO_DATE(newDataConclusione default NULL on conversion error, 'YYYY-MM-DD');
+BEGIN
+   htp.htmlOpen;
+   modgui1.APRIPAGINA('Conferma Campi Estivi');
+   modgui1.HEADER();
+   htp.bodyopen();
+   htp.br;htp.br;htp.br;htp.br;htp.br;
+   htp.prn('<h1 align="center">Modifica Campo Estivo</h1>');
+   modGUI1.ApriDiv('class="w3-modal-content w3-card-4" style="max-width:600px"');
+   if (newNome is null) 
+      then MODGUI1.LABEL('Parametri inseriti in maniera errata');
+      MODGUI1.ApriForm(operazioniGruppo4.gr4||'modificacampiestivi');
+      HTP.FORMHIDDEN('newNome', newNome);
+      HTP.FORMHIDDEN('newDatainizio',newDatainizio);
+      HTP.FORMHIDDEN('newDataConclusione',newDataConclusione);
+      MODGUI1.InputSubmit('indietro');
+      MODGUI1.ChiudiForm;
+   else
+      htp.tableopen(CALIGN =>'CENTER');
+        htp.tablerowopen;
+        htp.tabledata('Nome: ',CATTRIBUTES  =>'style="font-weight:bold"');
+        htp.tabledata(newNome);
+        htp.tablerowclose;
+        htp.tablerowopen;
+        htp.tabledata('Data inizio: ',CATTRIBUTES  =>'style="font-weight:bold"');
+        htp.tabledata(newDatainizio);
+        htp.tablerowclose;
+        htp.tablerowopen;
+        htp.tabledata('Data Conclusione: ',CATTRIBUTES  =>'style="font-weight:bold"');
+        htp.tabledata(newDataConclusione);
+        htp.tablerowclose;
+         htp.tableclose;
+      MODGUI1.ApriForm(operazioniGruppo4.gr4||'updatecampi');
+      HTP.FORMHIDDEN('idcampo',idcampo);
+      HTP.FORMHIDDEN('newNome', newNome);
+      HTP.FORMHIDDEN('newDatainizio',newDatainizio);
+      HTP.FORMHIDDEN('newDataConclusione',newDataConclusione);
+      MODGUI1.InputSubmit('Conferma');
+      MODGUI1.ChiudiForm;
+      MODGUI1.ApriForm(operazioniGruppo4.gr4||'modificacampiestivi');
+      HTP.FORMHIDDEN('idcampo',idcampo);
+      HTP.FORMHIDDEN('newNome', newNome);
+      HTP.FORMHIDDEN('newDatainizio',newDatainizio);
+      HTP.FORMHIDDEN('newDataConclusione',newDataConclusione);
+      MODGUI1.InputSubmit('Annulla');
+      MODGUI1.ChiudiForm;
+      MODGUI1.ChiudiDiv;
+     
+   end if;
+   htp.br;
+
+   htp.bodyclose();
+   htp.htmlClose();
+end;
+procedure updatecampi
+(
+   idcampo in CAMPIESTIVI.IDCAMPIESTIVI%TYPE default null,
+   newNome in CAMPIESTIVI.Nome%TYPE default null,
+   newDatainizio in VARCHAR2 default null,
+   newDataConclusione in VARCHAR2 default null
+)
+is
+v_dateini Date:= TO_DATE(newDatainizio default NULL on conversion error, 'YYYY-MM-DD');
+v_datefin Date:= TO_DATE(newDataConclusione default NULL on conversion error, 'YYYY-MM-DD');
+begin
+MODGUI1.ApriPagina('campo');
+MODGUI1.HEADER();
+htp.br;htp.br;htp.br;htp.br;htp.br;htp.br;
+UPDATE CAMPIESTIVI SET
+		Nome=newNome,
+      DataInizio=v_dateini,
+		DataConclusione=v_datefin
+	WHERE idcampo=idcampiestivi;
+MODGUI1.RedirectEsito('Modifica riuscita','Campo Estivo modificato correttamente',null,null,null,'Torna al menu dei campiestivi','operazioniGruppo4.menucampiestivi',null);
+
+end updatecampi;
+
+procedure eliminacampo
+(
+   idcampo in CAMPIESTIVI.IDCAMPIESTIVI%TYPE 
+)
+is 
+var1 VARCHAR2(100);
+idSessione NUMBER(5) := modgui1.get_id_sessione();
+BEGIN
+    modGUI1.ApriDiv('id="Elimcampo'||idcampo||'" class="w3-modal"');
+        modGUI1.ApriDiv('class="w3-modal-content w3-card-4 w3-animate-zoom" style="max-width:600px"');
+            modGUI1.ApriDiv('class="w3-center"');
+                htp.br;
+                htp.prn('<span onclick="document.getElementById(''Elimcampo'||idcampo||''').style.display=''none''" class="w3-button w3-xlarge w3-red w3-display-topright" title="Close Modal">X</span>');
+            htp.print('<h1><b>Confermi?</b></h1>');
+            modGUI1.ChiudiDiv;
+                    modGUI1.ApriDiv('class="w3-section"');
+                        htp.br;
+                        SELECT Nome INTO var1 FROM CAMPIESTIVI WHERE IDCAMPIESTIVI=idcampo;
+                        htp.prn('stai per rimuovere: '||var1);
+                        modGUI1.Collegamento('Conferma',
+                        Operazionigruppo4.gr4||'rimuovicampo?idcampo='||idcampo,
+                        'w3-button w3-block w3-green w3-section w3-padding');
+                        htp.prn('<span onclick="document.getElementById(''Elimcampo'||idcampo||''').style.display=''none''" class="w3-button w3-block w3-red w3-section w3-padding" title="Close Modal">Annulla</span>');
+                    modGUI1.ChiudiDiv;
+                modGUI1.ChiudiForm;
+        modGUI1.ChiudiDiv;
+    modGUI1.ChiudiDiv;
+end;
+procedure rimuovicampo
+(
+   idcampo in CAMPIESTIVI.IDCAMPIESTIVI%TYPE 
+)
+IS
+BEGIN
+update campiestivi set
+   ELIMINATO=1
+where IDCAMPIESTIVI=idcampo;
+MODGUI1.RedirectEsito('Eliminazione riuscita','Campo Estivo eliminato correttamente',null,null,null,'Torna al menu dei campiestivi','operazioniGruppo4.menucampiestivi',null);
+
+END;
+
 
 /*--------------------------------------------------------------MUSEI-----------------------------------------*/
 
@@ -652,7 +754,6 @@ BEGIN
 END controllamusei;
 procedure visualizzamusei
 (
-   idsessione IN number default 0,
    MuseoId IN MUSEI.IdMuseo%TYPE
 )
 is
@@ -687,7 +788,6 @@ BEGIN
 END visualizzamusei;
 procedure modificamusei
 (
-   idsessione IN number default 0,
     MuseoId IN MUSEI.IdMuseo%TYPE,
    newNome in Musei.Nome%TYPE default null,
    newIndirizzo in MUSEI.INDIRIZZO%TYPE default null
@@ -797,7 +897,6 @@ end updatemusei;
 /*----------statistiche musei----*/
 procedure form1monitoraggio
 (
-   idsessione IN number default 0,
    MuseoId IN MUSEI.IdMuseo%TYPE,
    NameMuseo IN MUSEI.NOME%TYPE
 )
@@ -890,7 +989,6 @@ end form2monitoraggio;
 /*-----------------------------------------*/
 procedure salepresenti
 (
-  idsessione IN number default 0,
    MuseoId IN  Musei.IdMuseo%TYPE
 )
 is 
@@ -909,7 +1007,7 @@ htp.prn('<h1 align="center">Sale Museo</h1>');
 MODGUI1.APRIDIV('class="w3-center"');
 modGUI1.Collegamento('menù','operazioniGruppo4.menumusei','w3-btn w3-round-xxlarge w3-black ');
 htp.print('&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;');
-modGUI1.Collegamento('statistiche','operazioniGruppo4.form1monitoraggio?idsessione='||idsessione||'&MuseoId='||MuseoId||'&NameMuseo=','w3-btn w3-round-xxlarge w3-black ');
+modGUI1.Collegamento('statistiche','operazioniGruppo4.form1monitoraggio?&MuseoId='||MuseoId||'&NameMuseo=','w3-btn w3-round-xxlarge w3-black ');
 MODGUI1.ChiudiDiv;
 modgui1.apridiv('class="w3-modal-content w3-card-4 w3-animate-zoom" style="max-width:600px; margin-top:110px"');
 HTP.TABLEOPEN(CALIGN  => 'center',CATTRIBUTES =>'class="w3-table w3-striped"' );
@@ -941,7 +1039,6 @@ END salepresenti;
 /*OPERE PRESENTI NEL MUSEO*/
 procedure operepresentimuseo
 (
-   idsessione IN number default 0,
    MuseoId IN  Musei.IdMuseo%TYPE
 )
 /*problema*/
@@ -961,7 +1058,7 @@ htp.prn('<h1 align="center">Opere Museo</h1>');
 MODGUI1.APRIDIV('class="w3-center"');
 modGUI1.Collegamento('menù','operazioniGruppo4.menumusei','w3-btn w3-round-xxlarge w3-black ');
 htp.print('&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;');
-modGUI1.Collegamento('statistiche','operazioniGruppo4.form1monitoraggio?idsessione='||idsessione||'&MuseoId='||MuseoId||'&NameMuseo=','w3-btn w3-round-xxlarge w3-black ');
+modGUI1.Collegamento('statistiche','operazioniGruppo4.form1monitoraggio?&MuseoId='||MuseoId||'&NameMuseo=','w3-btn w3-round-xxlarge w3-black ');
 MODGUI1.ChiudiDiv;
 
 modgui1.apridiv('class="w3-modal-content w3-card-4 w3-animate-zoom" style="max-width:600px; margin-top:110px"');
@@ -987,7 +1084,6 @@ END operepresentimuseo;
 
 procedure opereprestate
 (
-   idsessione IN number default 0,
    MuseoId IN MUSEI.IdMuseo%TYPE
 )
 /*problema*/
@@ -1008,7 +1104,7 @@ htp.prn('<h1 align="center">Opere Museo</h1>');
 MODGUI1.APRIDIV('class="w3-center"');
 modGUI1.Collegamento('menù','operazioniGruppo4.menumusei','w3-btn w3-round-xxlarge w3-black ');
 htp.print('&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;');
-modGUI1.Collegamento('statistiche','operazioniGruppo4.form1monitoraggio?idsessione='||idsessione||'&MuseoId='||MuseoId||'&NameMuseo=','w3-btn w3-round-xxlarge w3-black ');
+modGUI1.Collegamento('statistiche','operazioniGruppo4.form1monitoraggio?&MuseoId='||MuseoId||'&NameMuseo=','w3-btn w3-round-xxlarge w3-black ');
 MODGUI1.ChiudiDiv;
 
 modgui1.apridiv('class="w3-modal-content w3-card-4 w3-animate-zoom" style="max-width:600px; margin-top:110px"');
@@ -1035,7 +1131,6 @@ END opereprestate;
 /*scelta statistica*/
 procedure visitatoriunici
 (
-   idsessione IN number default 0,
    MuseoId IN MUSEI.IdMuseo%TYPE,
    Data1 VARCHAR2,
    Data2 VARCHAR2
@@ -1063,7 +1158,7 @@ htp.prn('<h1 align="center">visitatori Museo</h1>');
 MODGUI1.APRIDIV('class="w3-center"');
 modGUI1.Collegamento('menù','operazioniGruppo4.menumusei','w3-btn w3-round-xxlarge w3-black ');
 htp.print('&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;');
-modGUI1.Collegamento('statistiche','operazioniGruppo4.form2monitoraggio?idsessione='||idsessione||'&MuseoId='||MuseoId||'&NameMuseo=','w3-btn w3-round-xxlarge w3-black ');
+modGUI1.Collegamento('statistiche','operazioniGruppo4.form2monitoraggio?&MuseoId='||MuseoId||'&NameMuseo=','w3-btn w3-round-xxlarge w3-black ');
 MODGUI1.ChiudiDiv;
 htp.prn('<p align="center"><b>numero visitatori museo periodo ' || Data1 ||'--'|| Data2 ||':</b> ' || nvisitatori ||'</p>');
 modgui1.apridiv('class="w3-modal-content w3-card-4 w3-animate-zoom" style="max-width:1600px; margin-top:110px"');
@@ -1097,7 +1192,6 @@ end visitatoriunici;
 
 procedure visitatorimedi 
 (
-   idsessione IN number default 0,
    MuseoId IN MUSEI.IdMuseo%TYPE,
    Data1 VARCHAR2,
    Data2 VARCHAR2
@@ -1129,14 +1223,13 @@ htp.br;
 MODGUI1.APRIDIV('class="w3-center"');
 modGUI1.Collegamento('menù','operazioniGruppo4.menumusei','w3-btn w3-round-xxlarge w3-black ');
 htp.print('&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;');
-modGUI1.Collegamento('statistiche','operazioniGruppo4.form2monitoraggio?idsessione='||idsessione||'&MuseoId='||MuseoId||'&NameMuseo=','w3-btn w3-round-xxlarge w3-black ');
+modGUI1.Collegamento('statistiche','operazioniGruppo4.form2monitoraggio?&MuseoId='||MuseoId||'&NameMuseo=','w3-btn w3-round-xxlarge w3-black ');
 MODGUI1.ChiudiDiv;
 htp.prn('<p align="center"><b>numero dei visitatori medi nel periodo ' || Data1 ||'--'|| Data2 ||':</b> ' || mvisitatori ||'</p>');
 
 end; 
 procedure introitimuseo
 (
-   idsessione IN number default 0,
    MuseoId IN Musei.IdMuseo%TYPE
 )
 is 
@@ -1165,7 +1258,7 @@ htp.prn('<h1 align="center">Introiti Museo </h1>');
 MODGUI1.APRIDIV('class="w3-center"');
 modGUI1.Collegamento('menù','operazioniGruppo4.menumusei','w3-btn w3-round-xxlarge w3-black ');
 htp.print('&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;');
-modGUI1.Collegamento('statistiche','operazioniGruppo4.form1monitoraggio?idsessione='||idsessione||'&MuseoId='||MuseoId||'&NameMuseo=','w3-btn w3-round-xxlarge w3-black ');
+modGUI1.Collegamento('statistiche','operazioniGruppo4.form1monitoraggio?&MuseoId='||MuseoId||'&NameMuseo=','w3-btn w3-round-xxlarge w3-black ');
 MODGUI1.ChiudiDiv;
 
 htp.br;
@@ -1193,19 +1286,18 @@ end introitimuseo;
 
 procedure controllastatistica
 (
-   idsessione IN number default 0,
    MuseoId IN MUSEI.IdMuseo%TYPE,
    scelta in number
 )
 is begin
 if scelta=2
-   then operepresentimuseo(idsessione,MuseoId);
+   then operepresentimuseo(MuseoId);
 else if scelta=1
-   then salepresenti(idsessione,MuseoId);
+   then salepresenti(MuseoId);
    else if scelta=3
-   then opereprestate(idsessione,MuseoId);
+   then opereprestate(MuseoId);
    else if scelta=4
-   then introitimuseo(idsessione,MuseoId);
+   then introitimuseo(MuseoId);
    end if;
    end if;
 end if;
@@ -1215,7 +1307,6 @@ end controllastatistica;
 
 procedure controllastatistica2
 (
-   idsessione IN number default 0,
    MuseoId IN MUSEI.IdMuseo%TYPE,
    scelta in number,
    Data1 VARCHAR2,
@@ -1225,9 +1316,9 @@ is
 
 begin
 if scelta=5
-   then visitatoriunici(idsessione,MuseoId,Data1,Data2);
+   then visitatoriunici(MuseoId,Data1,Data2);
 else if scelta=6
-   then visitatorimedi(idsessione,MuseoId,Data1,Data2);
+   then visitatorimedi(MuseoId,Data1,Data2);
 end if;
   end if;
 end controllastatistica2;
@@ -1235,7 +1326,6 @@ end controllastatistica2;
 /*---------------STATISTICHE CAMPI ESTIVI-------------------------------*/
 procedure form1campiestivi
 (
-   idsessione IN number default 0,
    CampoestivoId IN CAMPIESTIVI.IDCAMPIESTIVI%TYPE,
    NameCampoestivo IN CAMPIESTIVI.NOME%TYPE
 )
@@ -1253,7 +1343,7 @@ BEGIN
 
   htp.prn('<h1 align="center">Statistiche  campi estivi</h1>');
   MODGUI1.apridiv('class="w3-modal-content w3-card-4" style="max-width:600px; margin-top:110px"');
-  modGUI1.Collegamento('M',operazioniGruppo4.gr4||'menucampiestivi?idsessione='||idsessione,'w3-btn  w3-black w3-display-topright ');
+  modGUI1.Collegamento('M',operazioniGruppo4.gr4||'menucampiestivi','w3-btn  w3-black w3-display-topright ');
   modGUI1.ApriForm(operazioniGruppo4.gr4||'controllastatisticacampo','invia','w3-container'); 
   MODGUI1.LABEL('Nome del Campo estivo');
   MODGUI1.SelectOpen('CampoestivoId',NameCampoestivo);
@@ -1286,11 +1376,11 @@ procedure controllastatisticacampo
 is 
 begin
 if scelta=1
-   then utentiiscritti(0,CampoestivoId);
+   then utentiiscritti(CampoestivoId);
 else if scelta=2
-   then tariffecampi(0,CampoestivoId);
+   then tariffecampi(CampoestivoId);
 else if scelta=3
-   then etamediatariffe(0,CampoestivoId);
+   then etamediatariffe(CampoestivoId);
    end if;
    end if;
   end if;
@@ -1298,7 +1388,6 @@ end controllastatisticacampo;
 
 procedure utentiiscritti
 (
-   sessionID IN number default 0,
    CampoestivoId IN CAMPIESTIVI.IDCAMPIESTIVI%TYPE
 )
 
@@ -1325,7 +1414,10 @@ htp.prn('<h1 align="center">Utenti Campo estivo </h1>');
 htp.br;htp.br;
 htp.prn('<p align="center"><b>numero iscritti al camo estivo:</b> ' || nutenti ||'</p>');
 MODGUI1.APRIDIV('class="w3-center"');
-modGUI1.Collegamento('menù','operazioniGruppo4.menucampiestivi?idsessione='||sessionID,'w3-btn w3-round-xxlarge w3-black ');
+modGUI1.Collegamento('menù','operazioniGruppo4.menucampiestivi','w3-btn w3-round-xxlarge w3-black ');
+htp.print('&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;');
+modGUI1.Collegamento('statistiche','operazioniGruppo4.form1campiestivi?&CampoestivoId=&NameCampoestivo=','w3-btn w3-round-xxlarge w3-black ');
+
 MODGUI1.chiudidiv;
 modgui1.apridiv('class="w3-modal-content w3-card-4 w3-animate-zoom" style="max-width:1400px; margin-top:110px"');
 
@@ -1359,7 +1451,6 @@ END utentiiscritti;
 
 procedure tariffecampi
 (
-   sessionID IN number default 0,
    CampoestivoId IN CAMPIESTIVI.IDCAMPIESTIVI%TYPE
 )
 IS
@@ -1374,7 +1465,10 @@ MODGUI1.HEADER();
 htp.br;htp.br;htp.br;htp.br;
 htp.prn('<h1 align="center">Tariffe Campo estivo </h1>');
 MODGUI1.APRIDIV('class="w3-center"');
-modGUI1.Collegamento('menù','operazioniGruppo4.menucampiestivi?idsessione='||sessionID,'w3-btn w3-round-xxlarge w3-black ');
+modGUI1.Collegamento('menù','operazioniGruppo4.menucampiestivi','w3-btn w3-round-xxlarge w3-black ');
+htp.print('&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;');
+modGUI1.Collegamento('statistiche','operazioniGruppo4.form1campiestivi?&CampoestivoId=&NameCampoestivo=','w3-btn w3-round-xxlarge w3-black ');
+
 MODGUI1.CHIUDIdiv;
 modgui1.apridiv('class="w3-modal-content w3-card-4 w3-animate-zoom" style="max-width:600px; margin-top:110px"');
 
@@ -1400,8 +1494,8 @@ modGUI1.ChiudiDiv();
 htp.bodyClose;
 end tariffecampi;
 
-procedure etamediatariffe(
-   sessionID IN number default 0,
+procedure etamediatariffe
+(
    CampoestivoId IN CAMPIESTIVI.IDCAMPIESTIVI%TYPE
 )IS
 Cursor tarif_cursor IS
@@ -1416,7 +1510,10 @@ begin
 htp.br;htp.br;htp.br;htp.br;
 htp.prn('<h1 align="center">Tariffe Campo estivo </h1>');
 MODGUI1.APRIDIV('class="w3-center"');
-modGUI1.Collegamento('menù','operazioniGruppo4.menucampiestivi?idsessione='||sessionID,'w3-btn w3-round-xxlarge w3-black ');
+modGUI1.Collegamento('menù','operazioniGruppo4.menucampiestivi','w3-btn w3-round-xxlarge w3-black ');
+htp.print('&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;');
+modGUI1.Collegamento('statistiche','operazioniGruppo4.form1campiestivi?&CampoestivoId=&NameCampoestivo=','w3-btn w3-round-xxlarge w3-black ');
+
 MODGUI1.CHIUDIdiv;
 modgui1.apridiv('class="w3-modal-content w3-card-4 w3-animate-zoom" style="max-width:600px; margin-top:110px"');
  
@@ -1437,7 +1534,8 @@ HTP.TableClose;
 modGUI1.ChiudiDiv();
 htp.bodyClose;
 end etamediatariffe;
-
+/*Inserisci pagamento campi estivi*/
+/****************************************************************/
 procedure InserisciPagamentoCampiEstivi(
     dataPagamento in varchar2 default NULL,
     tariffa in PAGAMENTICAMPIESTIVI.Tariffa%type default 0, 
@@ -1677,7 +1775,7 @@ begin
     where  PAGAMENTICAMPIESTIVI.Tariffa = idtariffa;
     htp.br;htp.br;htp.br;htp.br;htp.br;htp.br;
     htp.prn('<h1 align="center">Pagamenti campi estivi</h1>');
-
+   /*modGUI1.Collegamento('campi estivi','operazioniGruppo4.menuctariffe','w3-btn w3-round-xxlarge w3-black ');*/
    
     htp.prn('<p align="center"><b>numero di pagamenti: </b>'||pagamentiTariffa||'</p>');
     modGUI1.ApriDiv('class="w3-modal-content w3-card-4" style="max-width:600px"');
@@ -1706,7 +1804,7 @@ begin
     htp.htmlclose;
   
 end;
-/*TARIFFE CAMPI ESTIVI---------------------------------------------------------*/
+/*-------------------TARIFFE CAMPI ESTIVI---------------------------------------------------------*/
 procedure InserisciTariffeCampiEstivi
 (
     prezzo in TARIFFECAMPIESTIVI.Prezzo%type default 0,
@@ -1739,7 +1837,7 @@ begin
                 modgui1.inputtext('etaMassima', 'etaMassima', 0, etaMassima);
                 htp.br;
                 modgui1.label('Campo Estivo');
-                modgui1.selectopen('idCampoEstivo');
+                modgui1.selectopen('CampoEstivo');
                 for campoEstivo in
                     (select IdCampiEstivi, nome from campiestivi)
                 loop
@@ -2111,7 +2209,7 @@ begin
       HTP.TableData('Indirizzo',CATTRIBUTES  =>'style="font-weight:bold; text-align:center"');
       HTP.tableRowClose;
       for utente in (
-        select distinct Nome,Cognome,DataNascita, Indirizzo 
+        select  Nome,Cognome,DataNascita, Indirizzo 
         from UTENTIPAGAMENTI,UTENTI
         where UTENTIPAGAMENTI.IDPAGAMENTO=pagamentoid AND UTENTIPAGAMENTI.IDUTENTE=UTENTI.IDUTENTE
     )

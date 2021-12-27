@@ -483,8 +483,8 @@ CREATE OR REPLACE PACKAGE BODY packagevisite AS
         is_abbonamento    IN  NUMBER DEFAULT NULL
     ) IS
 
-        lv_where      VARCHAR2(255);
-        v_base_query  VARCHAR2(2000) := 'with binds as (
+        lv_where                  VARCHAR2(255);
+        v_base_query              VARCHAR2(2000) := 'with binds as (
           select :bind1 as data_visita_from,
           :bind2 as data_visita_to,
           :bind3 as id_utente,
@@ -492,11 +492,12 @@ CREATE OR REPLACE PACKAGE BODY packagevisite AS
             from dual)
         SELECT COUNT(view_visite.idvisita), AVG(DurataVisita) FROM view_visite, binds b
         WHERE 1=1 ';
-        counter       NUMBER(20);
-        media_durata  NUMBER(
+        counter                   NUMBER(20);
+        media_durata              NUMBER(
                            20,
                            2
         );
+        utente_max_durata_visita  utenti%rowtype;
     BEGIN
         IF data_visita_from IS NOT NULL THEN
             lv_where := lv_where || ' AND datavisita >= b.data_visita_from';
@@ -529,6 +530,15 @@ CREATE OR REPLACE PACKAGE BODY packagevisite AS
                             'YYYY-MM-DD"T"HH24:MI'
                      ), id_utente, id_museo;
 
+        SELECT
+            utenti.*
+        INTO utente_max_durata_visita
+        FROM
+            utenti
+            JOIN visite ON utenti.idutente = visite.visitatore;
+        WHERE
+        GROUP BY UTENTI.IDUTENTE
+
         modgui1.apridiv('id="modal_statistiche" class="w3-modal"');
         modgui1.apridiv('class="w3-modal-content w3-card-4 w3-animate-zoom" style="max-width:600px"');
         modgui1.apridiv('class="w3-center"');
@@ -555,6 +565,13 @@ CREATE OR REPLACE PACKAGE BODY packagevisite AS
         htp.prn('<div class="w3-margin">'
                 || media_durata
                 || 'h</div>');
+        htp.prn('</div>');
+        htp.prn('</div>');
+        htp.prn('<h3>Utente con durata visita più lunga</h3>')
+        htp.prn('<div class="w3-col s8 w3-center">');
+        htp.prn('<div class="w3-margin">');
+        
+        htp.prn('</div>');
         htp.prn('</div>');
         htp.prn('</div>');
         modgui1.chiudidiv;

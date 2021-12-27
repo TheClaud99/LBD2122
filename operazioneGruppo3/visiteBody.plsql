@@ -530,7 +530,7 @@ CREATE OR REPLACE PACKAGE BODY packagevisite AS
         modgui1.apridiv('class="w3-modal-content w3-card-4 w3-animate-zoom" style="max-width:600px"');
         modgui1.apridiv('class="w3-center"');
         htp.prn('<span onclick="document.getElementById(''modal_statistiche'').style.display=''none''" class="w3-button w3-xlarge w3-red w3-display-topright" title="Close Modal">X</span>');
-        htp.print('<h1>Seleziona l''operazione</h1>');
+        htp.print('<h1>Statistiche</h1>');
         modgui1.chiudidiv;
         htp.prn('<div class"w3-container w3-margin">');
         htp.prn('<div class="w3-row">');

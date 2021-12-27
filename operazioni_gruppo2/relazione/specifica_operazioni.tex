@@ -1,0 +1,77 @@
+\documentclass[a4paper,11pt]{article}
+
+%%%%%%%% CREATE DOCUMENT STRUCTURE %%%%%%%%
+%% Language and font encodings
+\usepackage[italian]{babel}
+\usepackage[utf8x]{inputenc}
+\usepackage[T1]{fontenc}
+
+%% Sets page size and margins
+\usepackage[a4paper,top=3cm,bottom=2cm,left=2cm,right=2cm,marginparwidth=1.75cm]{geometry}
+
+%% Useful packages
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amsfonts} % for /mathbb and similar math symbols
+\usepackage{graphicx}
+\usepackage[colorlinks=true, allcolors=blue]{hyperref}
+\usepackage{caption}
+\usepackage{subcaption}
+\usepackage{float}
+\usepackage{titling}
+\usepackage{blindtext}
+\usepackage[square,sort,comma,numbers]{natbib}
+\usepackage{xcolor}
+
+\newcommand{\HRule}{\rule{\linewidth}{0.5mm}} 	% horizontal line and its thickness
+
+
+%%%%%%%% DOCUMENT %%%%%%%%
+\begin{document}
+
+%%%% Title Page
+\begin{titlepage}
+\center
+% Some logo, optional
+\includegraphics[width=0.6\textwidth]{img/unipi-logo.png}\\[1cm]
+
+% University
+\textsc{\LARGE Università di Pisa, Dipartimento di Informatica}\\[1cm]
+
+% Document info
+\textsc{\Large Laboratorio di Basi di dati - A.A. 2021-2022}\\[0.2cm]
+\textsc{\large Docente: Giovanna Rosone}\\[1cm]
+
+% Assignment title (enclosed between horizontal lines
+\HRule \\[0.8cm]
+{ \huge \bfseries Specifica delle operazioni}\\[0.7cm]
+\HRule \\[2cm]
+
+% Author and date
+\Huge \emph{Gruppo 2}\\[0.5cm]
+\large Francesco Nicolò\\Roberto Puggioni\\Jacopo Raffi\\Nicola Vetrini\\[1.5cm]
+{\large \today}\\[5cm]
+
+\vfill
+\end{titlepage}
+
+\clearpage
+\tableofcontents
+\clearpage
+
+\section{Introduzione}
+Una breve introduzione + divisione del lavoro. \\
+Per ogni procedura ho messo le procedure del nostro pacchetto che sono coinvolte, senza
+considerare quelle di modGUI per brevità
+
+% Ogni capitolo incluso di seguito include la specifica delle operazioni relative all
+% corrispondente classe dello schema logico
+\include{chapters/opere.tex}
+\clearpage
+
+\include{chapters/autori.tex}
+\clearpage
+
+\include{chapters/descrizioni.tex}
+
+\end{document}

@@ -20,6 +20,7 @@
 -- GRUPPO 3
 @operazioneGruppo3/visite.plsql
 @operazioneGruppo3/visiteBody.plsql
+@operazioneGruppo3/view_visite.plsql
 
 -- GRUPPO 2
 @operazioni_gruppo2/sql/gruppo2PKS.pkb

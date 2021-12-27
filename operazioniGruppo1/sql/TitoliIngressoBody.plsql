@@ -438,7 +438,7 @@ BEGIN
 	select durata into durataabbonamento from TIPOLOGIEINGRESSO where IDTIPOLOGIAING=idtipologiaselezionata;
 	
 	emissdate:=to_date(dataemissionechar,'YYYY/MM/DD');
-	temp2:=emissdate+durataabbonamento;
+	temp2:=emissdate+3;
 	scadenzaabb:=to_char(temp2, 'YYYY/MM/DD');
 	select count(*) into temp1 from Biglietti where idtipologiaselezionata= biglietti.IDTIPOLOGIAING;
 	
@@ -950,18 +950,15 @@ PROCEDURE abbonamenti_in_scadenza
 IS
 	idSessione NUMBER(5) := modgui1.get_id_sessione();
 	quant number(10):= null;
-	meseattuale varchar2(4):= to_char(01);
+	meseattuale varchar2(4):= to_char(sysdate, 'MM');
 	giornoattuale varchar2(4):= to_char(sysdate, 'DD');
-	annoattuale varchar2(4):= to_char(2022);
+	annoattuale varchar2(4):= to_char(sysdate, 'YYYY');
 BEGIN
 
-	select distinct count(*) into quant
+	select count(*) into quant
 					from titoliingresso 
-					join TIPOLOGIEINGRESSO on TITOLIINGRESSO.TIPOLOGIA=TIPOLOGIEINGRESSO.IDTIPOLOGIAING
-					join utenti on titoliingresso.ACQUIRENTE=utenti.IDUTENTE
-					join tipologieingressomusei on tipologieingresso.IDTIPOLOGIAING= tipologieingressomusei.IDTIPOLOGIAING
-					join musei on tipologieingressomusei.IDMUSEO= musei.IDMUSEO
-					join abbonamenti on TIPOLOGIEINGRESSO.IDTIPOLOGIAING=ABBONAMENTI.IDTIPOLOGIAING
+					inner join TIPOLOGIEINGRESSO on TITOLIINGRESSO.TIPOLOGIA=TIPOLOGIEINGRESSO.IDTIPOLOGIAING
+					inner join abbonamenti on TIPOLOGIEINGRESSO.IDTIPOLOGIAING=ABBONAMENTI.IDTIPOLOGIAING
 					where to_char(TITOLIINGRESSO.scadenza,'MM')=meseattuale AND to_char(TITOLIINGRESSO.scadenza,'DD')>=giornoattuale and to_char(TITOLIINGRESSO.scadenza,'YYYY')=annoattuale;
 
 	modgui1.apripagina('Visualizzazione Statistica');

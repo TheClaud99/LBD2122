@@ -25,28 +25,6 @@
 
 \newcommand{\HRule}{\rule{\linewidth}{0.5mm}} 	% horizontal line and its thickness
 
-% Functions defined by two cases
-\newcommand{\twopartdef}[4]
-    {
-        \left\{
-            \begin{array}{ll}
-                #1 & \mbox{if } #2 \\
-                #3 & \mbox{if } #4
-            \end{array}
-        \right.
-    }
-% Functions defined by three cases
-\newcommand{\threepartdef}[6]
-{
-    \left\{
-	\begin{array}{lll}
-	    	#1 & \mbox{if } #2 \\
-		#3 & \mbox{if } #4 \\
-		#5 & \mbox{if } #6
-	\end{array}
-    \right.
-}
-
 
 %%%%%%%% DOCUMENT %%%%%%%%
 \begin{document}
@@ -75,11 +53,11 @@
 {\large \today}\\[5cm]
 
 \vfill
-a\end{titlepage}
+\end{titlepage}
 
-\newpage
+\clearpage
 \tableofcontents
-\newpage
+\clearpage
 
 \section{Introduzione}
 Una breve introduzione + divisione del lavoro. \\
@@ -89,10 +67,10 @@ considerare quelle di modGUI per brevità
 % Ogni capitolo incluso di seguito include la specifica delle operazioni relative all
 % corrispondente classe dello schema logico
 \include{chapters/opere.tex}
-\newpage
+\clearpage
 
 \include{chapters/autori.tex}
-\newpage
+\clearpage
 
 \include{chapters/descrizioni.tex}
 

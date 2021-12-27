@@ -1,8 +1,23 @@
 CREATE OR REPLACE PACKAGE gruppo2 AS
 
 gr2 CONSTANT VARCHAR2(25) := 'gruppo2.';
-gr4 CONSTANT VARCHAR2(25) := 'gruppo4.';
+gr4 CONSTANT VARCHAR2(25) := 'operazionigruppo4.';
 gr3 CONSTANT VARCHAR2(25) := 'gruppo3.';
+
+-- Index by table con campi (IdOpera, titolo, IdAutore, Nome Autore, Cognome Autore)
+-- indicizzata da IdAutore dell'autore che ha collaborato all'opera
+TYPE collabRecord IS RECORD (
+    Opera Opere.IdOpera%TYPE, 
+    Titolo Opere.Titolo%TYPE,
+    collabID Autori.IdAutore%TYPE,
+    collabNome Autori.Nome%TYPE,
+    collabCognome Autori.Cognome%TYPE);
+TYPE collaborazioniCollection IS TABLE OF collabRecord
+INDEX BY PLS_INTEGER;
+emptyCollab collaborazioniCollection;
+
+FUNCTION listaCollaborazioni(authorID Autori.IdAutore%TYPE)
+RETURN collaborazioniCollection;
 
 /* OPERAZIONI SULLE OPERE */
 PROCEDURE coloreClassifica(posizione NUMBER DEFAULT 0);
@@ -51,26 +66,31 @@ PROCEDURE InserisciOpera(
 PROCEDURE AggiungiAutore(
 
     operaID NUMBER DEFAULT 0,
-    lingue VARCHAR2 DEFAULT null
+    lingue VARCHAR2 DEFAULT null,
+    livelli VARCHAR2 DEFAULT NULL
 );
 PROCEDURE AggiuntaAutore(
 
     operaID NUMBER DEFAULT 0,
     autoreID NUMBER DEFAULT 0,
-    lingue VARCHAR2 default NULL
+    lingue VARCHAR2 default NULL,
+    livelli VARCHAR2 DEFAULT NULL
 );
 
 -- Rimuove un Autore dall'Opera indicata (pagina conferma)
 PROCEDURE RimuoviAutoreOpera(
 
     operaID NUMBER DEFAULT 0,
-    lingue VARCHAR2 DEFAULT null
+    lingue VARCHAR2 DEFAULT null,
+    livelli VARCHAR2 DEFAULT null
 );
 -- Rimuove un Autore dall'Opera indicata
 PROCEDURE RimozioneAutoreOpera(
 
     operaID NUMBER DEFAULT 0,
-    autoreID NUMBER DEFAULT 0
+    autoreID NUMBER DEFAULT 0,
+    lingue VARCHAR2 DEFAULT null,
+    livelli VARCHAR2 DEFAULT null
 );
 
 PROCEDURE EliminazioneOpera(
@@ -113,15 +133,15 @@ PROCEDURE UpdateOpera(
 	operaID NUMBER DEFAULT 0,
 	newTitolo VARCHAR2 DEFAULT 'Sconosciuto',
 	newAnno VARCHAR2 DEFAULT 'Sconosciuto',
-	newFineperiodo NUMBER DEFAULT NULL,
+	newFineperiodo VARCHAR2 DEFAULT 'Sconosciuto',
 	newIDmusei NUMBER DEFAULT 0
 );
 
 PROCEDURE InserisciDatiOpera(
 
     titolo VARCHAR2 DEFAULT 'Sconosciuto',
-    anno NUMBER DEFAULT NULL,
-    fineperiodo NUMBER DEFAULT NULL,
+    anno VARCHAR2 DEFAULT 'Sconosciuto',
+    fineperiodo VARCHAR2 DEFAULT 'Sconosciuto',
     idmusei NUMBER DEFAULT NULL
 );
 PROCEDURE VisualizzaOpera (

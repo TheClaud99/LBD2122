@@ -1,6 +1,3 @@
-%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% Operazioni sulle Opere  %
-%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Operazioni sulle Opere}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -17,7 +14,6 @@
 		\item \textbf{livelli}: in VARCHAR2, il livello delle descrizioni da visualizzare
 	\end{enumerate}
 	\item \textbf{Risultato}: Visualizza l'Opera richiesta e le descrizioni presenti
-	\item \textbf{Errori}: l'Opera con operaID specificato non è presente nel database
 	\item \textbf{Usa}: Opere, AutoriOpere, Descrizioni, SaleOpere, Stanze, Sale, Musei, Autori
 	\item \textbf{Modifica}: nessuna
 	\item \textbf{Precondizioni}:
@@ -37,7 +33,7 @@
 	\item \textbf{Parametri}:
 	\begin{enumerate}
 		\item \textbf{Titolo}: in VARCHAR2
-		\item \textbf{Anno}: in DATE
+		\item \textbf{Anno}: in VARCHAR2
 		\item \textbf{FinePeriodo}: in VARCHAR2, \textbf{opzionale}, fine del periodo di realizzazione 
 		\item \textbf{IdMusei}: in NUMBER
 	\end{enumerate}
@@ -46,6 +42,7 @@
 	\begin{itemize}
 	%\item L'Opera con i dati inseriti è già presente nel database
 		\item Parametri obbligatori con valore nullo (solo se chiamata a ConfermaDatiOpera senza passare da InserisciOpera)
+		\item Parametri newAnno e newFineperiodo presentano caratteri non numerici
 	\end{itemize}
 	\item \textbf{Usa}: Opere, Musei, AppartieneA
 	\item \textbf{Modifica}: Opere
@@ -74,7 +71,7 @@
 		\item \textbf{OperaID}: in NUMBER
 		\item \textbf{newTitolo}: in VARCHAR2
 		\item \textbf{newAnno}: in VARCHAR2
-		\item \textbf{newFineperiodo}: in NUMBER, opzionale
+		\item \textbf{newFineperiodo}: in VARCHAR2, opzionale
 		\item \textbf{newIdMusei}: in NUMBER
 	\end{enumerate}
 	\item \textbf{Risultato}: Modifica l'Opera specificata se esiste nella base di dati, errore altrimenti (la base di dati rimane inalterata)
@@ -82,6 +79,7 @@
 	\begin{itemize}
 		\item L'Opera con OperaID non è presente nel database
 		\item Parametri obbligatori con valore nullo
+		\item Parametri newAnno e newFineperiodo presentano caratteri non numerici
 	\end{itemize}
 	\item \textbf{Usa}: Opere, Musei
 	\item \textbf{Modifica}: Opere
@@ -176,6 +174,7 @@
 %  Aggiunta Autore Opera  %
 %%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Si intende l'aggiunta di un autore già esistente nella base di dati
+\subsection{Aggiunta Autore Opera}
 \label{AggiuntaAutore}
 \begin{itemize}
 	\item \textbf{Procedure coinvolte}: AggiungiAutore
@@ -208,8 +207,8 @@
 	\end{itemize}
 \end{itemize}
 
-\label{RimozioneAutoreOpera}
 \subsection{Rimozione Autore Opera}
+\label{RimozioneAutoreOpera}
 \begin{itemize}
 	\item \textbf{Procedure coinvolte}: RimozioneAutoreOpera, RimuoviAutoreOpera
 	\item \textbf{Obiettivo}: Rimuove un Autore da un'Opera, se entrambe le entità sono presenti nella base di dati ed è presente l'associazione tra autore ed opera
@@ -244,11 +243,101 @@
 \subsection{Statistiche e monitoraggio}
 
 \subsubsection{Storico prestiti dell’Opera}
+\begin{itemize}
+    \item \textbf{Procedure Coinvolte}: SpostamentiOpera
+    \item \textbf{Obiettivo}: Mostrare lo storico dei prestiti di una determinata opera
+    \item \textbf{Parametri}:
+	\begin{enumerate}
+		\item \textbf{OperaID}: in NUMBER
+	\end{enumerate}
+	\item \textbf{Risultato}: Mostra il proprietario, il destinatario e il periodo del prestito
+	\item \textbf{Usa}: Musei, SaleOpere, Opere, Stanze
+	\item \textbf{Modifica}: niente
+	\item \textbf{Precondizioni}:
+	\begin{itemize}
+		\item $\exists x \in Opere : x.IdOpera = OperaID$
+		\item $\exists y \in SaleOpera : y.opera = operaID$
+		\item $\exists z \in SaleOpere : \exists w \in Stanze : z.idStanza = w.sala \land w.Opera = OperaID$
+	\end{itemize}
+	\item \textbf{Postcondizioni}: nessuna
+\end{itemize}
 \subsubsection{Autori dell’Opera}
 \subsubsection{Tipo Sala in cui si trova l’Opera}
 \subsubsection{Descrizioni dell’Opera}
+
 \subsubsection{Lista Opere ordinate per numero di Autori in ordine decrescente}
+\begin{itemize}
+	\item \textbf{Procedure coinvolte}: statisticheOpere
+	\item \textbf{Obiettivo}: Mostra le opere con il maggior numero di autori
+	\item \textbf{Parametri}:
+	\begin{enumerate}
+		\item \textbf{museoID}: in NUMBER
+	\end{enumerate}
+	\item \textbf{Risultato}: Mostra il nome delle prime tre opere, se museoID $\neq 0$ relative a quel museo altrimenti tra tutti i musei, con il maggior numero di autori e il numero di autori dell'opera
+	\item \textbf{Errori}: nessuno
+	\item \textbf{Usa}: Opere, AutoriOpere, Musei
+	\item \textbf{Modifica}: niente
+	\item \textbf{Precondizioni}:
+	\begin{itemize}
+		\item $|opere| \ge 3$
+	\end{itemize}
+	\item \textbf{Postcondizioni}: nessuna
+\end{itemize}
+
 \subsubsection{Opere non spostata da più tempo (le tre più vecchie)}
+\begin{itemize}
+	\item \textbf{Procedure coinvolte}: statisticheOpere
+	\item \textbf{Obiettivo}: Mostra le opere non spostate da più tempo
+	\item \textbf{Parametri}:
+	\begin{enumerate}
+		\item \textbf{museoID}: in NUMBER
+	\end{enumerate}
+	\item \textbf{Risultato}: Mostra il nome delle prime tre opere, se museoID $\neq 0$ relative a quel museo altrimenti tra tutti i musei, non spostate da più tempo e per quanti giorni non sono state spostate
+	\item \textbf{Errori}: nessuno
+	\item \textbf{Usa}: Opere, saleOpere, Musei
+	\item \textbf{Modifica}: niente
+	\item \textbf{Precondizioni}:
+	\begin{itemize}
+		\item $|opere| \ge 3$
+	\end{itemize}
+	\item \textbf{Postcondizioni}: nessuna
+\end{itemize}
+
 \subsubsection{Opere esposte per più tempo (le tre più vecchie)}
+\begin{itemize}
+	\item \textbf{Procedure coinvolte}: statisticheOpere
+	\item \textbf{Obiettivo}: Mostra le opere esposte per più tempo
+	\item \textbf{Parametri}:
+	\begin{enumerate}
+		\item \textbf{museoID}: in NUMBER
+	\end{enumerate}
+	\item \textbf{Risultato}: Mostra il nome delle prime tre opere, se museoID $\neq 0$ relative a quel museo altrimenti tra tutti i musei, esposte da più tempo e per quanti giorni sono state esposte
+	\item \textbf{Errori}: nessuno
+	\item \textbf{Usa}: Opere, saleOpere, Musei
+	\item \textbf{Modifica}: niente
+	\item \textbf{Precondizioni}:
+	\begin{itemize}
+		\item $|opere| \ge 3$ 
+	\end{itemize}
+	\item \textbf{Postcondizioni}: nessuna
+\end{itemize}
 \subsubsection{Età media delle opere}
+
 \subsubsection{Ordinamento per anno di realizzazione (le tre più vecchie)}
+\begin{itemize}
+	\item \textbf{Procedure coinvolte}: statisticheOpere
+	\item \textbf{Obiettivo}: Mostra le opere più antiche
+	\item \textbf{Parametri}:
+	\begin{enumerate}
+		\item \textbf{museoID}: in NUMBER
+	\end{enumerate}
+	\item \textbf{Risultato}: Mostra il nome delle prime tre opere, se museoID $\neq 0$ relative a quel museo altrimenti tra tutti i musei, più antiche e l'età, in anni, dell'opera
+	\item \textbf{Errori}: nessuno
+	\item \textbf{Usa}: Opere, Musei
+	\item \textbf{Modifica}: niente
+	\item \textbf{Precondizioni}:
+	\begin{itemize}
+		\item $|opere| \ge 3$
+	\end{itemize}
+	\item \textbf{Postcondizioni}: nessuna
+\end{itemize}

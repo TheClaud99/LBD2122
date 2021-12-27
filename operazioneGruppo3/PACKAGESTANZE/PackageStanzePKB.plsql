@@ -15,11 +15,17 @@ CREATE OR REPLACE PACKAGE BODY PackageStanze as
         htp.br;htp.br;htp.br;htp.br;
         modGUI1.ApriDiv('class="w3-center"');
             htp.prn('<h1>Sale</h1>'); --TITOLO
-            if (MODGUI1.get_id_sessione=1)
-            then 
+            if (MODGUI1.get_id_sessione=1) 
+            THEN
                 modGUI1.Collegamento('Aggiungi','packagestanze.formSala','w3-btn w3-round-xxlarge w3-black w3-margin-right'); /*bottone che rimanda alla procedura inserimento solo se la sessione è 1*/
-                modGUI1.Collegamento('Cestino','packagestanze.visualizzaSale?Deleted=1','w3-btn w3-round-xxlarge w3-red');
-            END if;
+                IF (Deleted!=1)THEN
+                    modGUI1.Collegamento('Cestino','packagestanze.visualizzaSale?Deleted=1','w3-btn w3-round-xxlarge w3-red w3-margin-right');
+                END IF;
+
+                IF (Sort!=0 OR Deleted!=0 OR Search!=NULL) THEN 
+                    MODGUI1.Collegamento('Indietro','Packagestanze.visualizzaSale','w3-btn w3-green w3-round-xxlarge w3-margin-right');
+                END IF;
+            END IF;
         modGUI1.ChiudiDiv;
 
         --FORM RICERCA-----------------------
@@ -185,6 +191,7 @@ CREATE OR REPLACE PACKAGE BODY PackageStanze as
                             modGUI1.Label('Numero Opere: ');
                             modGUI1.InputNumber('idnOpere','nOpereform',NULL,varSalaOpere);
                             htp.br;
+                            modGUI1.Collegamento('Annulla','PackageStanze.visualizzaSale','w3-red w3-button w3-margin w3-left');
                             modGUI1.InputReset;
                             if (modifica=0)
                             then
@@ -216,6 +223,7 @@ CREATE OR REPLACE PACKAGE BODY PackageStanze as
         modGUI1.APRIPAGINA('Sala '||varIdSala);
         modGUI1.HEADER;
         htp.br;htp.br;htp.br;htp.br;htp.br;
+        MODGUI1.Collegamento('<i class="fa fa-caret-left"></i> Torna alle sale','PackageStanze.visualizzaSale','w3-button w3-round-xlarge w3-margin-left w3-black w3-left');
         SELECT nome INTO varNomeMuseo FROM MUSEI WHERE (MUSEI.IDMUSEO=varMuseo);
         modGUI1.ApriDiv('class="w3-light-grey w3-container" style="margin:auto;width:60%;"');
             htp.prn('<img src="https://www.23bassi.com/wp-content/uploads/2019/03/vuota-web.jpg" alt="Alps" class="w3-third w3-margin">');
@@ -265,6 +273,8 @@ CREATE OR REPLACE PACKAGE BODY PackageStanze as
                         MODGUI1.APRIELEMENTOTABELLA;
                             htp.prn('<p><b>Anno</b></p>');
                         MODGUI1.CHIUDIELEMENTOTABELLA;
+                        MODGUI1.APRIELEMENTOTABELLA;
+                        MODGUI1.CHIUDIELEMENTOTABELLA;
                     MODGUI1.CHIUDIRIGATABELLA;
                     FOR varOpere IN (SELECT * FROM OPERE INNER JOIN SALEOPERE ON SALEOPERE.opera=OPERE.idopera WHERE SALEOPERE.SALA=varIdSala ORDER BY OPERE.titolo) LOOP
                     MODGUI1.APRIRIGATABELLA('w3-hover-grey');
@@ -273,6 +283,9 @@ CREATE OR REPLACE PACKAGE BODY PackageStanze as
                         MODGUI1.CHIUDIELEMENTOTABELLA;
                         MODGUI1.APRIELEMENTOTABELLA;
                             htp.prn('<p>'||varOpere.Anno||'</p>');
+                        MODGUI1.CHIUDIELEMENTOTABELLA;
+                        MODGUI1.APRIELEMENTOTABELLA;
+                            MODGUI1.Collegamento('Visualizza','Boh','w3-button w3-black w3-right');
                         MODGUI1.CHIUDIELEMENTOTABELLA;
                     MODGUI1.CHIUDIRIGATABELLA;
                     END LOOP;
@@ -389,23 +402,89 @@ CREATE OR REPLACE PACKAGE BODY PackageStanze as
 
     ---AMBIENTI DI SERVIZIO---
     
-    PROCEDURE visualizzaAmbientiServizio is 
+    PROCEDURE visualizzaAmbientiServizio(
+        Sort IN int default 0,
+        Deleted IN int default 0,
+        Search IN VARCHAR2 default NULL
+    ) is 
+
     museosel musei.nome%TYPE;
     BEGIN
         modGUI1.ApriPagina('Ambienti di servizio');
         modGUI1.Header;
         htp.br;htp.br;htp.br;htp.br;
         modGUI1.ApriDiv('class="w3-center"');
-            htp.prn('<h1>Ambienti di servizio</h1>'); --TITOLO
-            if (MODGUI1.get_id_sessione=1)
-            then
-                modGUI1.Collegamento('Aggiungi','packagestanze.formAmbienteServizio','w3-btn w3-round-xxlarge w3-black'); /*bottone che rimanda alla procedura inserimento solo se la sessione è 1*/
-            END if;
+        htp.prn('<h1>Ambienti di servizio</h1>'); --TITOLO
+            if (MODGUI1.get_id_sessione=1) 
+            THEN
+                modGUI1.Collegamento('Aggiungi','packagestanze.formAmbienteServizio','w3-btn w3-round-xxlarge w3-black w3-margin-right'); /*bottone che rimanda alla procedura inserimento solo se la sessione è 1*/
+                IF (Deleted!=1)THEN
+                    modGUI1.Collegamento('Cestino','packagestanze.visualizzaAmbientiServizio?Deleted=1','w3-btn w3-round-xxlarge w3-red w3-margin-right');
+                END IF;
+
+                IF (Sort!=0 OR Deleted!=0 OR Search!=NULL) THEN 
+                    MODGUI1.Collegamento('Indietro','Packagestanze.visualizzaAmbientiServizio','w3-btn w3-green w3-round-xxlarge w3-margin-right');
+                END IF;
+            END IF;
         modGUI1.ChiudiDiv;
-        htp.br;
+
+        --FORM RICERCA-----------------------
+        modGUI1.ApriDiv('class="w3-container w3-left w3-margin-left"');
+            modGUI1.ApriForm('PackageStanze.visualizzaAmbientiServizio',NULL,'" style="display:inline;');
+                modGUI1.INPUTTEXT('Search','Ricerca...',0,NULL,1000);
+                htp.prn('<input type="submit" value="🔎︎" class="w3-round-xxlarge" style="margin-left:2px;height:35px;display:inline;">');
+                htp.FORMHIDDEN('Deleted',Deleted);
+            modGUI1.ChiudiForm;
+        modGUI1.ChiudiDiv;
+
+        --FORM ORINDAMENTO-------------------
+        modGUI1.APRITABELLA('w3-margin-right w3-right"');
+            modGUI1.APRIRIGATABELLA;
+                modgui1.APRIELEMENTOTABELLA;
+                    modGUI1.LABEL('Ordina per:');
+                modgui1.chiudiElementoTabella;
+                modgui1.APRIELEMENTOTABELLA;
+                    modGUI1.ApriForm('PackageStanze.visualizzaAmbientiServizio',NULL,'" style="display:inline;');
+                        HTP.FORMHIDDEN('Deleted',Deleted);
+                        HTP.FORMHIDDEN('Search',Search);
+                        modGUI1.SELECTOPEN('Sort');
+                            modGUI1.SELECTOPTION(1,'Nome');
+                            modGUI1.SELECTOPTION(2,'Museo');
+                            modGUI1.SELECTOPTION(3,'Dimensione');
+                            modGUI1.SELECTOPTION(4,'Tipo');
+                        modGUI1.SELECTCLOSE;
+                modgui1.chiudiElementoTabella;
+                modgui1.APRIELEMENTOTABELLA;
+                        htp.prn('<input type="submit" class="w3-button w3-round w3-black" value="VAI" style="display:inline;">');
+                    modGUI1.ChiudiForm;
+                modgui1.chiudiElementoTabella;
+            modgui1.chiudiRigaTabella;
+        modGUI1.chiudiTabella;
+        ----------------------------------
         modGUI1.ApriDiv('class="w3-row w3-container"');
         --INIZIO LOOP DELLA VISUALIZZAZIONE
-            FOR AmbS IN (SELECT * FROM ambientidiservizio NATURAL JOIN stanze ORDER BY idstanza) LOOP
+            FOR AmbS IN (SELECT idstanza,
+                                tipoambiente,
+                                nome,
+                                dimensione,
+                                museo,
+                                STANZE.eliminato
+                FROM AMBIENTIDISERVIZIO INNER JOIN STANZE USING (idstanza)
+                --VISUALIZZAZIONE ELIMINATI
+                WHERE STANZE.Eliminato =
+                    CASE
+                        WHEN Deleted=1 THEN 1
+                        ELSE 0
+                    END
+                AND upper(STANZE.nome) LIKE '%'||upper(Search)||'%'
+                --ORDINAMENTI
+                ORDER BY 
+                        (CASE WHEN Sort<>1 AND Sort<>2 AND Sort<>3 AND Sort<>4 then idstanza end),
+                        (CASE WHEN Sort=1 then nome end),
+                        (CASE WHEN Sort=2 then museo end),
+                        (CASE WHEN Sort=3 then dimensione end),
+                        (CASE WHEN Sort=4 then tipoambiente end)
+            )LOOP
                 modGUI1.ApriDiv('class="w3-col l4 w3-padding-large w3-center"');
                     modGUI1.ApriDiv('class="w3-card-4"');
                     htp.prn('<img src="https://cdn.pixabay.com/photo/2016/10/22/15/32/water-1761027__480.jpg" alt="Alps" style="width:100%">');
@@ -421,8 +500,12 @@ CREATE OR REPLACE PACKAGE BODY PackageStanze as
                             modGUI1.ChiudiDiv;
                             
                             if(MODGUI1.get_id_sessione=1) then --Bottoni visualizzati in base alla sessione 
-                                modGUI1.Collegamento('Modifica','packagestanze.formAmbienteServizio?modifica=1&varASMuseo='||AmbS.museo||'&varASNome='||AmbS.nome||'&varASDimensione='||AmbS.dimensione||'&varASTipo='||AmbS.tipoambiente,'w3-button w3-green');
-                                modGUI1.Collegamento('Rimuovi','packagestanze.rimuoviAmbienteServizio?idAS='||AmbS.idstanza, 'w3-button w3-red w3-margin');
+                                modGUI1.Collegamento('Modifica','packagestanze.formAmbienteServizio?modifica=1&varIdStanza='||AmbS.idstanza||'&varASMuseo='||AmbS.museo||'&varASNome='||AmbS.nome||'&varASDimensione='||AmbS.dimensione||'&varASTipo='||AmbS.tipoambiente,'w3-button w3-green');
+                                IF (AmbS.eliminato=0) THEN
+                                    modGUI1.Collegamento('Rimuovi','packagestanze.rimuoviAmbienteServizio?varIdStanza='||AmbS.idstanza,'w3-button w3-red w3-margin');
+                                ELSE
+                                    modGUI1.Collegamento('Ripristina','packagestanze.ripristinaAmbienteServizio?varIdStanza='||AmbS.idstanza,'w3-button w3-yellow w3-margin');
+                                END IF;
                             END if;
 
                     modGUI1.ChiudiDiv;
@@ -436,6 +519,7 @@ CREATE OR REPLACE PACKAGE BODY PackageStanze as
 
     PROCEDURE formAmbienteServizio (
         modifica IN NUMBER default 0,
+        varIdStanza IN NUMBER default NULL,
         varASMuseo IN NUMBER default NULL,
         varASNome VARCHAR2 default NULL,
         varASDimensione NUMBER default NULL,
@@ -473,20 +557,22 @@ CREATE OR REPLACE PACKAGE BODY PackageStanze as
                             modGUI1.SelectClose;
                             htp.br;
                             modGUI1.Label('Nome ambiente di servizio:');
-                            modGUI1.InputText('nomeSala',NULL,NULL,varASNome);
+                            modGUI1.InputText('nomeAmbS',NULL,NULL,varASNome);
                             htp.br;
-                            modGUI1.Label('Dimensione sala:');
-                            modGUI1.InputNumber('idDimSala','dimSala',NULL,varASDimensione);
+                            modGUI1.Label('Dimensione ambiente:');
+                            modGUI1.InputNumber('idDimAmbS','dimAmbS',NULL,varASDimensione);
                             htp.br;
                             ----CAMPI AMBIENTE SERVIZIO----
                             modGUI1.Label('Tipo Ambiente:');
-                            modGUI1.InputText('tipoAmbienteform',NULL,NULL,varASTipo);
+                            modGUI1.InputText('tipoAmbS',NULL,NULL,varASTipo);
                             htp.br;
+                            modGUI1.Collegamento('Annulla','PackageStanze.VisualizzaAmbientiServizio','w3-button w3-left w3-red w3-margin');
                             modGUI1.InputReset;
                             if (modifica=0)
                             then
                                 modGUI1.InputSubmit('Aggiungi');
                             else
+                                htp.FORMHIDDEN('varIdStanza',varIdStanza);
                                 modGUI1.InputSubmit('Modifica');
                             END if;
 
@@ -530,7 +616,73 @@ CREATE OR REPLACE PACKAGE BODY PackageStanze as
             tipoAmbienteForm,
             0
         );
-        htp.prn('DONE');
+        
+        MODGUI1.REDIRECTESITO('Inserimento effettuato',
+                              'L''inserimento è stata effettuata correttamente',
+                              'Torna a visualizzare gli ambienti di servizio',
+                              'PackageStanze.visualizzaAmbientiServizio',
+                              NULL);
     END;
 
+    PROCEDURE modificaAmbienteServizio (
+        varIdStanza IN NUMBER,
+        selectmusei IN musei.idmuseo%TYPE,
+        nomeAmbS       IN  VARCHAR2,
+        dimAmbS            IN  NUMBER,
+        tipoAmbS        IN  VARCHAR2
+    ) IS
+    BEGIN
+        
+        UPDATE STANZE
+        SET
+        nome=nomeAmbS,
+        dimensione=DimAmbS,
+        museo=selectmusei
+        WHERE idstanza=varIdStanza;
+
+        UPDATE AMBIENTIDISERVIZIO
+        SET
+        tipoambiente=tipoAmbS
+        WHERE
+        idstanza=varIdStanza;
+        MODGUI1.REDIRECTESITO('Modifica effettuata',
+                              'La modifica è stata effettuata correttamente',
+                              'Torna a visualizzare gli ambienti di servizio',
+                              'PackageStanze.visualizzaAmbientiServizio',
+                              NULL);
+    END;
+
+    PROCEDURE rimuoviAmbienteServizio (
+        varIdStanza IN NUMBER
+    ) IS
+    BEGIN
+        
+        UPDATE STANZE
+        SET
+        eliminato=1
+        WHERE idstanza=varIdStanza;
+
+        MODGUI1.REDIRECTESITO('Eliminazione effettuata',
+                              'L''eliminazione è stata effettuata correttamente',
+                              'Torna a visualizzare gli ambienti di servizio',
+                              'PackageStanze.visualizzaAmbientiServizio',
+                              NULL);
+    END;
+
+    PROCEDURE ripristinaAmbienteServizio (
+        varIdStanza IN NUMBER
+    ) IS
+    BEGIN
+        
+        UPDATE STANZE
+        SET
+        eliminato=0
+        WHERE idstanza=varIdStanza;
+
+        MODGUI1.REDIRECTESITO('Ripristino effettuato',
+                              'Il ripristino è stato effettuato correttamente',
+                              'Torna a visualizzare gli ambienti di servizio',
+                              'PackageStanze.visualizzaAmbientiServizio',
+                              NULL);
+    END;
 END PackageStanze;

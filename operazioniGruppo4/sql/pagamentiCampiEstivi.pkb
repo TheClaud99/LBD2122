@@ -155,7 +155,12 @@ begin
     htp.br;htp.br;htp.br;htp.br;htp.br;htp.br;
     if found > 0 then
         modgui1.apridiv('class="w3-center"');
-            htp.tableopen;
+            htp.tableopen(CALIGN  => 'center',CATTRIBUTES =>'class="w3-table w3-striped"');
+            htp.tablerowopen;
+            htp.TableData('Data',CATTRIBUTES  =>'style="font-weight:bold; text-align:center"');
+            htp.TableData('Tariffa',CATTRIBUTES  =>'style="font-weight:bold; text-align:center"');
+            htp.TableData('Acquirente',CATTRIBUTES  =>'style="font-weight:bold; text-align:center"');
+            htp.tablerowclose;
             for pagamento in (
                 select DataPagamento, Tariffa, Acquirente 
                 from PAGAMENTICAMPIESTIVI
@@ -163,9 +168,9 @@ begin
             )
             loop
             htp.tablerowopen;
-            htp.tabledata(pagamento.DataPagamento);
-            htp.tabledata(pagamento.Tariffa);
-            htp.tabledata(pagamento.Acquirente);
+            htp.tabledata(pagamento.DataPagamento, 'center');
+            htp.tabledata(pagamento.Tariffa, 'center');
+            htp.tabledata(pagamento.Acquirente, 'center');
             htp.tablerowclose;
             end loop
             htp.tableclose;
@@ -180,12 +185,6 @@ begin
   
 end;
 
-procedure CancellaPagamentoCampiEstivi(
-    idPagamento in PAGAMENTICAMPIESTIVI.IdPagamento%type
-) is 
-begin
-  
-end;
 
 procedure MonitoraggioPeriodoPagamentoCampiEstivi(
     dataInizio in PAGAMENTICAMPIESTIVI.DataPagamento%type default NULL,
@@ -199,7 +198,15 @@ begin
     htp.br;htp.br;htp.br;htp.br;htp.br;htp.br;
     modGUI1.ApriDiv('class="w3-modal-content w3-card-4" style="max-width:600px"');
 
-    htp.tableopen;
+
+    htp.tableopen(CALIGN  => 'center',CATTRIBUTES =>'class="w3-table w3-striped"');
+    htp.tablerowopen;
+    htp.TableData('ID',CATTRIBUTES  =>'style="font-weight:bold; text-align:center"');
+    htp.TableData('Data',CATTRIBUTES  =>'style="font-weight:bold; text-align:center"');
+    htp.TableData('Tariffa',CATTRIBUTES  =>'style="font-weight:bold; text-align:center"');
+    htp.TableData('Acquirente',CATTRIBUTES  =>'style="font-weight:bold; text-align:center"');
+    htp.tablerowclose;
+
     for pagamento in (
         select IdPagamento, DataPagamento, Tariffa, Acquirente 
         from PAGAMENTICAMPIESTIVI
@@ -207,10 +214,10 @@ begin
     )
     loop
         htp.tablerowopen;
-        htp.tabledata(pagamento.IdPagamento);
-        htp.tabledata(pagamento.DataPagamento);
-        htp.tabledata(pagamento.Tariffa);
-        htp.tabledata(pagamento.Acquirente);
+        htp.tabledata(pagamento.IdPagamento, 'center');
+        htp.tabledata(pagamento.DataPagamento, 'center');
+        htp.tabledata(pagamento.Tariffa, 'center');
+        htp.tabledata(pagamento.Acquirente, 'center');
         htp.tablerowclose;
     end loop;
 

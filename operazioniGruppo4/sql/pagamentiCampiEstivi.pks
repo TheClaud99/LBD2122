@@ -22,10 +22,6 @@ procedure VisualizzaPagamentoCampiEstivi(
     idPagamento in PAGAMENTICAMPIESTIVI.IdPagamento%type
 );
 
-procedure CancellaPagamentoCampiEstivi(
-    idPagamento in PAGAMENTICAMPIESTIVI.IdPagamento%type
-);
-
 procedure MonitoraggioPeriodoPagamentoCampiEstivi(
     dataInizio in PAGAMENTICAMPIESTIVI.DataPagamento%type default NULL,
     dataFine in PAGAMENTICAMPIESTIVI.DataPagamento%type default NULL

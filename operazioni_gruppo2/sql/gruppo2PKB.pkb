@@ -1724,14 +1724,15 @@ BEGIN
             htp.prn('<button onclick="document.getElementById(''11'').style.display=''block''" class="w3-btn w3-round-xxlarge w3-black">Statistiche</button>');
         END IF;
 
-        gruppo2.selezioneOpStatAut;
 
-        filtraAutori;
     modGUI1.ChiudiDiv;
+    
+    gruppo2.selezioneOpStatAut;
+    filtraAutori;
 
     htp.br;
     modGUI1.ApriDiv('class="w3-row w3-container"');
-
+    -- Banner ordinamento corrente
     modGUI1.ApriDiv('class="w3-padding-large w3-center"');
     htp.prn('<h4>'||orderBy||' &#8645;</h4>');
     modGUI1.ChiudiDiv;
@@ -1779,17 +1780,32 @@ BEGIN
     modGUI1.chiudiDiv;
 END menuAutori;
 
-PROCEDURE menuAutoriEliminati is
+PROCEDURE menuAutoriEliminati(
+    orderBy varchar2 default 'Cognome',
+    nameFilter varchar2 default '',
+    surnameFilter varchar2 default '',
+    nationFilter varchar2 default ''
+) is
 idSessione NUMBER(5) := modgui1.get_id_sessione();
+CURSOR listaAutori(param VARCHAR2) IS
+    SELECT * 
+    FROM Autori 
+    WHERE Eliminato=0 
+        AND UPPER(Nome) LIKE '%'||UPPER(nameFilter)||'%'
+        AND UPPER(cognome) LIKE '%'||UPPER(surnameFilter)||'%'
+        AND nazionalita LIKE '%'||nationFilter||'%'
+    ORDER BY decode(param, 'Cognome', Cognome,'Nome', Nome, 'DataNascita', DataNascita, 'DataMorte', DataMorte, Cognome) ASC;
 BEGIN
     modGUI1.ApriPagina('Autori Eliminati', idSessione);
-    -- se idSessione è null allora viene passato a modGUI1.Header, 
-    -- che non prende quindi il valore di default 0
     modGUI1.Header;
     htp.br;htp.br;htp.br;htp.br;
 
-     modGUI1.ApriDiv('class="w3-center"');
+    modGUI1.ApriDiv('class="w3-center"');
         htp.prn('<h1>Autori eliminati</h1>');
+        -- Filtro visualizzazione
+        htp.prn('<button onclick="document.getElementById(''filtraAuth'').style.display=''block''"'
+            ||' class="w3-btn w3-round-xxlarge w3-black">Filtra</button>');
+        htp.br;htp.br;
         if hasRole(idSessione, 'DBA') or hasRole(idSessione, 'SU') or hasRole(idSessione, 'GO')
         then
             modGUI1.Collegamento('Torna al menu autori', 
@@ -1797,12 +1813,19 @@ BEGIN
                 'w3-button w3-black w3-round-xxlarge');
             htp.print('&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;');
         end if;
-        modGUI1.ChiudiDiv;
+    modGUI1.ChiudiDiv;
+
+    filtraAutori;
+
     htp.br;
     modGUI1.ApriDiv('class="w3-row w3-container"');
+    -- Banner ordinamento corrente
+    modGUI1.ApriDiv('class="w3-padding-large w3-center"');
+    htp.prn('<h4>'||orderBy||' &#8645;</h4>');
+    modGUI1.ChiudiDiv;
     --Visualizzazione TUTTI GLI AUTORI *temporanea*
     -- Filtro: mostrati soltanto autori eliminati (al DBA e SU)
-    FOR autore IN (SELECT * FROM Autori WHERE Eliminato=1 ORDER BY COGNOME)
+    FOR autore IN listaAutori(orderBy)
     LOOP
         modGUI1.ApriDiv('class="w3-col l4 w3-padding-large w3-center"');
             modGUI1.ApriDiv('class="w3-card-4"');

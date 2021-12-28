@@ -161,7 +161,12 @@ PROCEDURE menuAutori(
     surnameFilter varchar2 default '',
     nationFilter varchar2 default ''
 );
-PROCEDURE menuAutoriEliminati;
+PROCEDURE menuAutoriEliminati (
+    orderBy varchar2 default 'Cognome',
+    nameFilter varchar2 default '',
+    surnameFilter varchar2 default '',
+    nationFilter varchar2 default ''
+);
 
 PROCEDURE selezioneOpStatAut;
 

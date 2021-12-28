@@ -2,7 +2,7 @@ CREATE OR REPLACE PACKAGE gruppo2 AS
 
 gr2 CONSTANT VARCHAR2(25) := 'gruppo2.';
 gr4 CONSTANT VARCHAR2(25) := 'operazionigruppo4.';
-gr3 CONSTANT VARCHAR2(25) := 'gruppo3.';
+gr3 CONSTANT VARCHAR2(25) := 'operazionigruppo3.';
 
 -- Index by table con campi (IdOpera, titolo, IdAutore, Nome Autore, Cognome Autore)
 -- indicizzata da IdAutore dell'autore che ha collaborato all'opera
@@ -155,7 +155,12 @@ PROCEDURE linguaELivello(
     operaID NUMBER default 0
 );
 /* OPERAZIONI SUGLI AUTORI */
-PROCEDURE menuAutori;
+PROCEDURE menuAutori(
+    orderBy varchar2 default 'Cognome',
+    nameFilter varchar2 default '',
+    surnameFilter varchar2 default '',
+    nationFilter varchar2 default ''
+);
 PROCEDURE menuAutoriEliminati;
 
 PROCEDURE selezioneOpStatAut;

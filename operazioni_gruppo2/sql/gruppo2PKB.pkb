@@ -1636,17 +1636,79 @@ procedure coloreClassifica(posizione NUMBER DEFAULT 0)IS
  * - Autori in vita le cui Opere sono esposte in un Museo scelto ✅
  */
 
+PROCEDURE filtraAutori IS
+BEGIN
+    modGUI1.ApriDiv('id="filtraAuth" class="w3-modal"');
+        modGUI1.ApriDiv('class="w3-modal-content w3-card-4 w3-animate-zoom" style="max-width:600px"');
+            modGUI1.ApriDiv('class="w3-center"');
+                htp.prn('<span onclick="document.getElementById(''filtraAuth'').style.display=''none''" '
+                    ||'class="w3-button w3-xlarge w3-red w3-display-topright" title="Close Modal">X</span>');
+            modGUI1.ChiudiDiv;
+
+            modGUI1.apriForm(gruppo2.gr2||'menuAutori');
+            -- Ordinamento autori
+            -- FIXME: datanascita e datamorte non funzionano
+            modGUI1.label('Ordina per: ');
+            modGUI1.selectOpen('orderBy');
+            modGUI1.selectoption('Cognome','Cognome',0);
+            modGUI1.selectoption('Nome','Nome',0);
+            modGUI1.selectoption('DataNascita','Data nascita (decrescente)',0);
+            modGUI1.selectoption('DataMorte','Data morte (decrescente)',0);
+            modGUI1.SelectClose;
+            htp.br;
+            modGUI1.label('Nome contiene: ');
+            modGUI1.inputtext('nameFilter', 'Filtra per nome...', 0);
+            htp.br;
+            modGUI1.label('Cognome contiene: ');
+            modGUI1.inputtext('surnameFilter', 'Filtra per cognome...', 0);
+            htp.br;
+            modGUI1.label('Nazionalit&agrave;: ');
+            modGUI1.selectOpen('nationFilter');
+            modGUI1.emptyselectoption(1);
+            FOR nation IN (SELECT DISTINCT Nazionalita FROM Autori ORDER BY nazionalita ASC)
+            LOOP
+                modGUI1.SelectOption(nation.Nazionalita, nation.Nazionalita, 0);
+            END LOOP;
+            modGUI1.SelectClose;
+
+            modGUI1.inputSubmit('Applica');
+            htp.prn('<span onclick="document.getElementById(''filtraAuth'').style.display=''none''" '
+                    ||'class="w3-button w3-block w3-black w3-section w3-padding" title="Close Modal">Annulla</span>');
+            modGUI1.ChiudiForm;
+
+        modGUI1.ChiudiDiv;
+    modGUI1.ChiudiDiv;
+END;
+
 --procedura per la visualizzazione del menu Autori
-PROCEDURE menuAutori is
+PROCEDURE menuAutori(
+    orderBy varchar2 default 'Cognome',
+    nameFilter varchar2 default '',
+    surnameFilter varchar2 default '',
+    nationFilter varchar2 default ''
+) is
 idSessione NUMBER(5) := modgui1.get_id_sessione();
+CURSOR listaAutori(param VARCHAR2) IS
+    SELECT * 
+    FROM Autori 
+    WHERE Eliminato=0 
+        AND UPPER(Nome) LIKE '%'||UPPER(nameFilter)||'%'
+        AND UPPER(cognome) LIKE '%'||UPPER(surnameFilter)||'%'
+        AND nazionalita LIKE '%'||nationFilter||'%'
+    ORDER BY decode(param, 'Cognome', Cognome,'Nome', Nome, 'DataNascita', DataNascita, 'DataMorte', DataMorte, Cognome) ASC;
 BEGIN
     modGUI1.ApriPagina('Autori', idSessione);
     -- se idSessione è null allora viene passato a modGUI1.Header, 
     -- che non prende quindi il valore di default 0
     modGUI1.Header;
     htp.br;htp.br;htp.br;htp.br;
-     modGUI1.ApriDiv('class="w3-center"');
+    modGUI1.ApriDiv('class="w3-center"');
         htp.prn('<h1>Autori</h1>'); --TITOLO
+        -- Filtro visualizzazione
+        htp.prn('<button onclick="document.getElementById(''filtraAuth'').style.display=''block''"'
+            ||' class="w3-btn w3-round-xxlarge w3-black">Filtra</button>');
+        htp.br;htp.br;
+        -- Altri bottoni con privilegi
         if hasRole(idSessione, 'DBA') or hasRole(idSessione, 'SU') or hasRole(idSessione, 'GO')
         then
             modGUI1.Collegamento('Inserisci',
@@ -1661,13 +1723,21 @@ BEGIN
         IF hasRole(idSessione, 'DBA') OR hasRole(idSessione, 'SU') THEN
             htp.prn('<button onclick="document.getElementById(''11'').style.display=''block''" class="w3-btn w3-round-xxlarge w3-black">Statistiche</button>');
         END IF;
-        modGUI1.ChiudiDiv;
-            gruppo2.selezioneOpStatAut;
+
+        gruppo2.selezioneOpStatAut;
+
+        filtraAutori;
+    modGUI1.ChiudiDiv;
+
     htp.br;
     modGUI1.ApriDiv('class="w3-row w3-container"');
+
+    modGUI1.ApriDiv('class="w3-padding-large w3-center"');
+    htp.prn('<h4>'||orderBy||' &#8645;</h4>');
+    modGUI1.ChiudiDiv;
     --Visualizzazione TUTTI GLI AUTORI *temporanea*
     -- Filtro: autori non eliminati
-    FOR autore IN (SELECT * FROM Autori WHERE Eliminato=0 ORDER BY COGNOME)
+    FOR autore IN listaAutori(orderBy)
     LOOP
         modGUI1.ApriDiv('class="w3-col l4 w3-padding-large w3-center"');
             modGUI1.ApriDiv('class="w3-card-4"');
@@ -1929,7 +1999,7 @@ idSessione NUMBER(5) := modgui1.get_id_sessione();
                         modGUI1.ChiudiDiv;
                     modGUI1.ChiudiForm;
             modGUI1.ChiudiDiv;
-        modGUI1.ChiudiDiv;
+    modGUI1.ChiudiDiv;
 END selezioneOpStatAut;
 
 procedure selezioneAutoreStatistica(

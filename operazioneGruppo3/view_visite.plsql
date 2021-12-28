@@ -16,3 +16,15 @@ CREATE OR REPLACE VIEW view_visite AS
         JOIN tipologieingresso ON titoliingresso.tipologia = tipologieingresso.idtipologiaing;
         -- JOIN biglietti ON biglietti.idtipologiaing = tipologieingresso.idtipologiaing
         -- JOIN abbonamenti ON abbonamenti.idtipologiaing = tipologieingresso.idtipologiaing;
+
+CREATE OR REPLACE VIEW view_utenti_durata_visite AS
+    SELECT
+        utenti.idutente,
+        utenti.nome,
+        SUM(visite.duratavisita) AS durata_totale
+    FROM
+        utenti
+        JOIN visite ON utenti.idutente = visite.visitatore
+    GROUP BY
+        utenti.idutente,
+        utenti.nome;

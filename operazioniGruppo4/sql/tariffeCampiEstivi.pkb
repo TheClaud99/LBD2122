@@ -32,9 +32,14 @@ begin
                 modgui1.inputtext('etaMassima', 'etaMassima', 0, etaMassima);
                 htp.br;
                 modgui1.label('Campo Estivo');
-                modgui1.selectopen('idCampoEstivo');
+                modgui1.selectopen('campoEstivo');
                 for campoEstivo in
-                    (select IdCampiEstivi, nome from campiestivi)
+                    (select IdCampiEstivi, nome from campiestivi where IdCampiEstivi = campoEstivo)
+                loop
+                    modgui1.selectoption(campoEstivo.IdCampiEstivi, campoEstivo.nome);
+                end loop;
+                for campoEstivo in
+                    (select IdCampiEstivi, nome from campiestivi where IdCampiEstivi <> campoEstivo)
                 loop
                     modgui1.selectoption(campoEstivo.IdCampiEstivi, campoEstivo.nome);
                 end loop;
@@ -178,7 +183,6 @@ begin
     from TARIFFECAMPIESTIVI
     where TARIFFECAMPIESTIVI.IdTariffa = idTariffa;
 
-    htp.br;htp.br;htp.br;htp.br;htp.br;htp.br;
     if found > 0 then
         modgui1.apridiv('class="w3-center"');
             htp.tableopen(CALIGN  => 'center',CATTRIBUTES =>'class="w3-table w3-striped"');
@@ -217,16 +221,90 @@ end;
 
 procedure ModificaTariffeCampiEstivi
 (
-    sessionID in number, 
-    idTariffa in TARIFFECAMPIESTIVI.IdTariffa%type, 
-    prezzo in TARIFFECAMPIESTIVI.Prezzo%type default 0,
-    etaMinima in TARIFFECAMPIESTIVI.Etaminima%type default 0,
-    etaMassima in TARIFFECAMPIESTIVI.Etamassima%type default 0,
-    campoEstivo in TARIFFECAMPIESTIVI.CampoEstivo%type default 0
+    up_idTariffa in TARIFFECAMPIESTIVI.IdTariffa%type
 ) is 
+    idSessione number(5) := modgui1.get_id_sessione();
+    tariffa TariffecampiEstivi%rowtype;
 begin
-    htp.htmlopen;
-    htp.htmlclose;
+    select * into tariffa from tariffecampiestivi where idtariffa = up_idTariffa;
+    modgui1.apripagina('Modifica Tariffa CampiEstivi', idSessione);
+    modgui1.header;
+    htp.br;htp.br;htp.br;htp.br;htp.br;htp.br;
+    modgui1.apridiv('class="w3-modal-content w3-card-4 w3-animate-zoom" style="max-width:600px" ');
+        modgui1.apridiv('class="w3-section"');
+            modgui1.collegamento('X',operazioniGruppo4.gr4||operazioniGruppo4.menu_ce,' w3-btn w3-large w3-red w3-display-topright');
+            htp.br;
+            htp.header(2, 'Tariffa', 'center');
+            modgui1.aprifrom(operazioniGruppo4.gr4||'AggiornaTariffeCampiEstivi');
+                htp.formhidden('up_idTariffa', tariffa.idtariffa);
+                modgui1.label('Prezzo');
+                modgui1.inputtext('prezzo', 'up_prezzo', 0, tariffa.prezzo);
+                htp.br;
+                modgui1.label('Eta minima');
+                modgui1.inputtext('etaMinima', 'up_etaMinima', 0, tariffa.etaMinima);
+                htp.br;
+                modgui1.label('Eta massima');
+                modgui1.inputtext('etaMassima', 'up_etaMassima', 0, tariffa.etaMassima);
+                htp.br;
+                modgui1.label('Campo Estivo');
+                modgui1.selectopen('up_campoEstivo');
+                for campoEstivo in
+                    (select IdCampiEstivi, nome from campiestivi where IdCampiEstivi = tariffa.campoEstivo)
+                loop
+                    modgui1.selectoption(campoEstivo.IdCampiEstivi, campoEstivo.nome);
+                end loop;
+                for campoEstivo in
+                    (select IdCampiEstivi, nome from campiestivi where IdCampiEstivi <> tariffa.ampoEstivo)
+                loop
+                    modgui1.selectoption(campoEstivo.IdCampiEstivi, campoEstivo.nome);
+                end loop;
+                modgui1.selectclose;
+                htp.br;
+                modgui1.inputsubmit('Aggiorna');
+            modgui1.chiudiform;
+        modgui1.chiudidiv;
+    modgui1.chiudidiv;
+end;
+
+procedure AggiornaTariffeCampiEstivi
+(
+    up_idTariffa number default 0, 
+    up_prezzo in TARIFFECAMPIESTIVI.Prezzo%type default 0,
+    up_etaMinima in TARIFFECAMPIESTIVI.Etaminima%type default 0,
+    up_etaMassima in TARIFFECAMPIESTIVI.Etamassima%type default 0,
+    up_campoEstivo in TARIFFECAMPIESTIVI.CampoEstivo%type default 0 
+)
+is
+    idSessione number(5) := modgui1.get_id_sessione();
+begin
+    if etaminima > Etamassima
+    or prezzo < 0
+    or etaminima < 0
+    or campoFound is null
+    or campoFound = 0
+    then
+        modgui1.redirectesito('Parametri invalidi', 
+        'Errore: paramtri aggiornamento tariffa campi estivi non validi', 
+        'Torna alla modifica', operazioniGruppo4.gr4||'ModificaTariffeCampiEstivi', 
+        'up_idTariffa='||idTariffa, 
+        'Torna al menu', operazioniGruppo4.gr4||operazioniGruppo4.menu_ce);
+    end if;
+
+    update tariffecampiestivi set
+        prezzo = up_prezzo, 
+        etaminima = up_etaMinima, 
+        etamassima = up_etaMassima, 
+        campoestivo = up_campoEstivo
+    where idtariffa = up_idTariffa;
+    commit;
+    modgui1.redirectesito('Aggiornamento riuscito', null, null, null, null, 
+        'Torna al menu', operazioniGruppo4.gr4||operazioniGruppo4.menu_ce);
+    exception when others then
+        modgui1.redirectesito('Aggiornamento fallito', 
+        'Errore: sconosciuto', 
+        'Torna alla modifica', operazioniGruppo4.gr4||'ModificaTariffeCampiEstivi', 
+        'up_idTariffa='||idTariffa, 
+        'Torna al menu', operazioniGruppo4.gr4||operazioniGruppo4.menu_ce);
 end;
 
 procedure CancellaTariffeCampiEstivi
@@ -241,9 +319,12 @@ end;
 
 procedure MonitoraTariffeCampiEstivi_preferenzaTariffa
 (
-    sessionID in number
+    campoEstivo in tariffecampiestivi.campoestivo%type default 0
 ) is 
+    found number := 0;
 begin
+    /*tariffa piu gettonata per ogni campoEstivo*/
+
     htp.htmlopen;
     modgui1.apripagina();
     modgui1.header();
@@ -251,25 +332,53 @@ begin
     htp.br;htp.br;htp.br;htp.br;htp.br;htp.br;
     modgui1.apridiv('class="w3-modal-content w3-card-4" style="max-width:600px"');
 
-    htp.tableopen;
-    for tariffa in (
-        select Tariffa, count(*) as conto
-        from PAGAMENTICAMPIESTIVI
-        group by Tariffa
-        having count(*) = (
-            select max(subconto) from (
-                select count(*) as subconto
-                from PAGAMENTICAMPIESTIVI
-                group by Tariffa
+    htp.tableopen(CALIGN  => 'center',CATTRIBUTES =>'class="w3-table w3-striped"');
+    htp.tablerowopen;
+    htp.TableData('Tariffa',CATTRIBUTES  =>'style="font-weight:bold; text-align:center"');
+    htp.TableData('Count',CATTRIBUTES  =>'style="font-weight:bold; text-align:center"');
+    htp.tablerowclose;
+
+    if campoEstivo = 0 then /*campo estivo non specificato*/
+        for tariffa in (
+            select Tariffa, count(*) as conto
+            from PAGAMENTICAMPIESTIVI
+            group by Tariffa
+            having count(*) = (
+                select max(subconto) from (
+                    select count(*) as subconto
+                    from PAGAMENTICAMPIESTIVI
+                    group by Tariffa
+                )
             )
         )
-    )
-    loop
-        htp.tablerowopen;
-        htp.tabledata(tariffa.Tariffa);
-        htp.tabledata(tariffa.conto);
-        htp.tablerowclose;
-    end loop;
+        loop
+            htp.tablerowopen;
+            htp.tabledata(tariffa.Tariffa, 'center');
+            htp.tabledata(tariffa.conto, 'center');
+            htp.tablerowclose;
+        end loop;
+    else /*campo estivo specificato*/
+        for tariffa in (
+            select Tariffa, count(*) as conto
+            from PAGAMENTICAMPIESTIVI join tariffecampiestivi 
+                on pagamentiTariffa.tariffa = tariffecampiestivi.idTariffa
+            where tariffecampiestivi.campoestivo = campoEstivo
+            group by Tariffa
+            having count(*) = (
+                select max(subconto) from (
+                    select count(*) as subconto
+                    from PAGAMENTICAMPIESTIVI
+                    group by Tariffa
+                )
+            )
+        )
+        loop
+            htp.tablerowopen;
+            htp.tabledata(tariffa.Tariffa, 'center');
+            htp.tabledata(tariffa.conto, 'center');
+            htp.tablerowclose;
+        end loop;
+    end if;
 
     modgui1.chiudidiv;
     htp.tableclose;
@@ -278,9 +387,8 @@ begin
 
 end;
 
-procedure monitoraTariffeCampiEstivi_tariffeAnno
+procedure MonitoraTariffeCampiEstivi_tariffeAnno
 (
-    sessionID in number,
     anno in number
 ) is
 begin
@@ -290,7 +398,11 @@ begin
     htp.bodyopen;
     modgui1.apridiv('class="w3-modal-content w3-card-4" style="max-width:600px"');
 
-    htp.tableopen;
+    htp.tableopen(CALIGN  => 'center',CATTRIBUTES =>'class="w3-table w3-striped"');
+    htp.tablerowopen;
+    htp.TableData('Tariffa',CATTRIBUTES  =>'style="font-weight:bold; text-align:center"');
+    htp.TableData('Data',CATTRIBUTES  =>'style="font-weight:bold; text-align:center"');
+    htp.tablerowclose;
     for tariffa in (
         select TARIFFA, DATAPAGAMENTO
         from PAGAMENTICAMPIESTIVI
@@ -298,8 +410,8 @@ begin
     )
     loop
         htp.tablerowopen;
-        htp.tabledata(tariffa.Tariffa);
-        htp.tabledata(tariffa.DataPagamento);
+        htp.tabledata(tariffa.Tariffa, 'center');
+        htp.tabledata(tariffa.DataPagamento, 'center');
         htp.tablerowclose;
     end loop;
 
@@ -310,7 +422,6 @@ end;
 
 procedure MonitoraTariffeCampiEstivi_tariffeCampo
 (
-    sessionID in number, 
     campoEstivo in TARIFFECAMPIESTIVI.CampoEstivo%type
 ) is 
 begin

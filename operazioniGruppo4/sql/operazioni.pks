@@ -1,5 +1,6 @@
 create or replace package operazioniGruppo4 as
 
+gr2 CONSTANT VARCHAR2(25) := 'gruppo2.';
 gr4 CONSTANT VARCHAR2(25) := 'operazioniGruppo4.';
 menu_m CONSTANT VARCHAR2(25) := 'menumusei';
 menu_ce CONSTANT VARCHAR2(25) := 'menucampiestivi';
@@ -181,6 +182,10 @@ procedure tariffecampi
 procedure etamediatariffe
 (
    CampoestivoId IN CAMPIESTIVI.IDCAMPIESTIVI%TYPE
+);
+procedure introiticampi
+(
+   CampoestivoId in CAMPIESTIVI.IDCAMPIESTIVI%TYPE
 );
 
 procedure InserisciPagamentoCampiEstivi(

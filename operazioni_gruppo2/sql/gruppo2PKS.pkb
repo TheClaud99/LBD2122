@@ -7,7 +7,7 @@ gr3 CONSTANT VARCHAR2(25) := 'operazionigruppo3.';
 -- Index by table con campi (IdOpera, titolo, IdAutore, Nome Autore, Cognome Autore)
 -- indicizzata da IdAutore dell'autore che ha collaborato all'opera
 TYPE collabRecord IS RECORD (
-    Opera Opere.IdOpera%TYPE, 
+    Opera Opere.IdOpera%TYPE,
     Titolo Opere.Titolo%TYPE,
     collabID Autori.IdAutore%TYPE,
     collabNome Autori.Nome%TYPE,
@@ -199,7 +199,9 @@ PROCEDURE InserisciAutore(
     authSurname VARCHAR2 DEFAULT NULL,
     dataNascita VARCHAR2 DEFAULT NULL,
     dataMorte VARCHAR2 DEFAULT NULL,
-    nation VARCHAR2 DEFAULT NULL
+    nation VARCHAR2 DEFAULT NULL,
+    caller VARCHAR2 DEFAULT NULL,
+    callerParams VARCHAR2 DEFAULT ''
 );
 
 PROCEDURE ConfermaDatiAutore(
@@ -208,7 +210,9 @@ PROCEDURE ConfermaDatiAutore(
     authSurname VARCHAR2 DEFAULT 'Sconosciuto',
     dataNascita varchar2 DEFAULT NULL,
     dataMorte varchar2 DEFAULT NULL,
-    nation VARCHAR2 DEFAULT 'Sconosciuta'
+    nation VARCHAR2 DEFAULT 'Sconosciuta',
+    caller VARCHAR2 DEFAULT NULL,
+    callerParams VARCHAR2 DEFAULT ''
 );
 
 PROCEDURE InserisciDatiAutore(
@@ -237,7 +241,8 @@ PROCEDURE UpdateAutore(
 	newSurname VARCHAR2 DEFAULT 'Sconosciuto',
 	newBirth VARCHAR2 DEFAULT NULL,
 	newDeath VARCHAR2 DEFAULT NULL,
-	newNation VARCHAR2 DEFAULT 'Sconosciuta'
+	newNation VARCHAR2 DEFAULT 'Sconosciuta',
+    callerParams VARCHAR2 DEFAULT ''
 );
 
 procedure ripristinaAutore(
@@ -246,7 +251,6 @@ procedure ripristinaAutore(
 );
 
 PROCEDURE EliminazioneAutore(
-
     authorID NUMBER default 0
 );
 

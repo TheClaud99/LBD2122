@@ -4,6 +4,7 @@ gr2 CONSTANT VARCHAR2(25) := 'gruppo2.';
 gr4 CONSTANT VARCHAR2(25) := 'operazioniGruppo4.';
 menu_m CONSTANT VARCHAR2(25) := 'menumusei';
 menu_ce CONSTANT VARCHAR2(25) := 'menucampiestivi';
+menu_t CONSTANT VARCHAR2(25):='menutariffe';
 
 /*OPERAZIONI CAMPIESTIVI*/
 procedure menucampiestivi;
@@ -201,7 +202,7 @@ procedure ConfermaPagamentoCampiEstivi(
 );
 
 procedure ControllaPagamentoCampiEstivi(
-    dataPagamento in PAGAMENTICAMPIESTIVI.DataPagamento%type, 
+    dataPagamento in varchar2 default NULL,
     tariffa in PAGAMENTICAMPIESTIVI.Tariffa%type, 
     acquirente in PAGAMENTICAMPIESTIVI.Acquirente%type
 );
@@ -251,6 +252,21 @@ procedure VisualizzaTariffeCampiEstivi
 (
     Tariffa in TARIFFECAMPIESTIVI.IdTariffa%type
 );
+
+procedure ModificaTariffeCampiEstivi
+(
+    up_idTariffa in TARIFFECAMPIESTIVI.IdTariffa%type
+);
+
+procedure AggiornaTariffeCampiEstivi
+(
+    up_idTariffa number default 0, 
+    up_prezzo in TARIFFECAMPIESTIVI.Prezzo%type default 0,
+    up_etaMinima in TARIFFECAMPIESTIVI.Etaminima%type default 0,
+    up_etaMassima in TARIFFECAMPIESTIVI.Etamassima%type default 0,
+    up_campoEstivo in TARIFFECAMPIESTIVI.CampoEstivo%type default 0
+);
+
 procedure form1tariffe
 (
    campoEstivo in TARIFFECAMPIESTIVI.CampoEstivo%type,

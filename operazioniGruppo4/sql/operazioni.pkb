@@ -119,12 +119,15 @@ begin
                   HTP.TableRowClose;
     
                   HTP.TableClose;
-                modGUI1.ChiudiDiv;      
+               modGUI1.ChiudiDiv;      
                
-                modGUI1.ApriDiv('class="w3-center"');
-                 modGUI1.Collegamento('Visualizza Tariffa',
+               modGUI1.ApriDiv('class="w3-center"');
+               modGUI1.Collegamento('Visualizza',
                             'operazioniGruppo4.VisualizzaTariffeCampiEstivi?Tariffa='||tariffa.idTariffa,
                             'w3-green w3-margin w3-button');
+               modGUI1.Collegamento('Modifica',
+                            'operazioniGruppo4.ModificaTariffeCampiEstivi?up_idTariffa='||tariffa.idTariffa,
+                            'w3-red w3-margin w3-button');
                    htp.prn('<h1 Align="center" style="font-size:170%;">Pagamenti</h1>');
                      modGUI1.Collegamento('inserisci pagamento',
                             'operazioniGruppo4.InserisciPagamentoCampiEstivi?datapagamento=&tariffa='||tariffa.IdTariffa||'&acquirente=',
@@ -148,7 +151,7 @@ procedure menucampiestivi
    modGUI1.ApriPagina('Campi Estivi');
    modGUI1.Header();
    htp.br;htp.br;htp.br;htp.br;htp.br;
-   htp.prn('<h1 Align="center" style="font-size:100px">Campi Estivi</h1>');
+   htp.prn('<h1 Align="center" style="font-size:60px">Campi Estivi</h1>');
    if hasRole(sessionid,'DBA') or hasRole(sessionid,'GCE')
    then
       MODGUI1.APRIDIV('class="w3-col l4 w3-padding-large w3-left"');
@@ -1030,7 +1033,9 @@ loop
 end loop;
 HTP.TableClose;
 modGUI1.ChiudiDiv();
+htp.br;htp.br;
 MODGUI1.APRIDIV('class="w3-center"');
+htp.br;htp.br;
 modGUI1.Collegamento('menù','operazioniGruppo4.menumusei','w3-btn w3-round-xxlarge w3-black ');
 htp.print('&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;');
 modGUI1.Collegamento('statistiche','operazioniGruppo4.form1monitoraggio?&MuseoId='||MuseoId||'&NameMuseo=','w3-btn w3-round-xxlarge w3-black ');
@@ -1045,7 +1050,7 @@ procedure operepresentimuseo
 /*problema*/
 IS
   CURSOR oper_cursor IS
-  Select DISTINCT Opere.Titolo,Opere.Anno,Opere.FinePeriodo
+  Select DISTINCT Opere.idopera,Opere.Titolo,Opere.Anno,Opere.FinePeriodo
   FROM OPERE,STANZE,SALEOPERE
   WHERE STANZE.MUSEO=MuseoId AND STANZE.IdStanza=SALEOPERE.Sala AND  OPERE.IdOpera=SALEOPERE.Opera AND SALEOPERE.DataUscita IS NULL;
   val_ope oper_cursor%Rowtype;
@@ -1068,6 +1073,7 @@ HTP.TABLEOPEN(CALIGN  => 'center',CATTRIBUTES =>'class="w3-table w3-striped"' );
       HTP.TableData('Titolo opera',CATTRIBUTES  =>'style="font-weight:bold"');
       HTP.TableData('Anno opera',CATTRIBUTES  =>'style="font-weight:bold"');
       HTP.TableData('Periodo opera',CATTRIBUTES  =>'style="font-weight:bold"');
+      HTP.TableData('info',CATTRIBUTES  =>'style="font-weight:bold"');
       /* inserire il tipo stanza*/
       HTP.TableRowClose;
 FOR val_ope in oper_cursor
@@ -1076,10 +1082,20 @@ loop
     HTP.TableData(val_ope.Titolo);
     HTP.TableData(val_ope.Anno ,'center');
     HTP.TableData(val_ope.FinePeriodo,'center');
+    htp.tabledata('<button onclick="document.getElementById(''LinguaeLivelloOpera'||val_ope.IdOpera||''').style.display=''block''" class="w3-margin w3-button w3-black w3-hover-white">Dettagli</button>');
+    gruppo2.linguaELivello(val_ope.IdOpera);
     HTP.TableRowClose;
     
 end loop; 
+   htp.tableclose;
 modGUI1.ChiudiDiv();
+htp.br;htp.br;
+MODGUI1.APRIDIV('class="w3-center"');
+modGUI1.Collegamento('menù','operazioniGruppo4.menumusei','w3-btn w3-round-xxlarge w3-black ');
+htp.print('&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;');
+modGUI1.Collegamento('statistiche','operazioniGruppo4.form1monitoraggio?&MuseoId='||MuseoId||'&NameMuseo=','w3-btn w3-round-xxlarge w3-black ');
+MODGUI1.ChiudiDiv;
+
 htp.bodyClose;
 END operepresentimuseo;
 
@@ -1090,7 +1106,7 @@ procedure opereprestate
 /*problema*/
 is 
 CURSOR oper_cursor IS
-Select  DISTINCT Opere.Titolo,Opere.Anno,Opere.FinePeriodo
+Select  DISTINCT IdOpera,Opere.Titolo,Opere.Anno,Opere.FinePeriodo
 FROM STANZE,OPERE,SALEOPERE
 WHERE  STANZE.MUSEO=MuseoId AND STANZE.IdStanza=SALEOPERE.Sala AND  OPERE.IdOpera=SALEOPERE.Opera AND OPERE.Museo<>MuseoId  AND SALEOPERE.DataUscita IS NULL;
 val_ope oper_cursor%Rowtype;
@@ -1114,6 +1130,7 @@ HTP.TABLEOPEN(CALIGN  => 'center',CATTRIBUTES =>'class="w3-table w3-striped"' );
       HTP.TableData('Titolo opera',CATTRIBUTES  =>'style="font-weight:bold"');
       HTP.TableData('Anno opera',CATTRIBUTES  =>'style="font-weight:bold"');
       HTP.TableData('Periodo opera',CATTRIBUTES  =>'style="font-weight:bold"');
+      HTP.TableData('info',CATTRIBUTES  =>'style="font-weight:bold"');
       /* inserire il tipo stanza*/
       HTP.TableRowClose;
 FOR val_ope in oper_cursor
@@ -1122,11 +1139,14 @@ loop
     HTP.TableData(val_ope.Titolo);
     HTP.TableData(val_ope.Anno ,'center');
     HTP.TableData(val_ope.FinePeriodo,'center');
+    htp.tabledata('<button onclick="document.getElementById(''LinguaeLivelloOpera'||val_ope.IdOpera||''').style.display=''block''" class="w3-margin w3-button w3-black w3-hover-white">Dettagli</button>');
+    gruppo2.linguaELivello(val_ope.IdOpera);
     HTP.TableRowClose;
     
 end loop;
 HTP.TableClose;
 modGUI1.ChiudiDiv();
+htp.br;htp.br;
 MODGUI1.APRIDIV('class="w3-center"');
 modGUI1.Collegamento('menù','operazioniGruppo4.menumusei','w3-btn w3-round-xxlarge w3-black ');
 htp.print('&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;');
@@ -1570,15 +1590,15 @@ procedure etamediatariffe
 (
    CampoestivoId IN CAMPIESTIVI.IDCAMPIESTIVI%TYPE
 )IS
-Cursor tarif_cursor IS
-    Select tce.IDTARIFFA, trunc(avg(etam.eta),0) as etamedia
-    from vistaetamedia etam, tariffecampiestivi tce
-    WHERE CampoestivoId = tce.campoestivo AND tce.idtariffa = etam.idtariffa
-    group by tce.IDTARIFFA;
-    val_tarif tarif_cursor%RowType;
+   etamedia number(5);
 begin
-    MODGUI1.ApriPagina('Eta Media Tariffe Campi Estivi');
-    MODGUI1.HEADER();
+
+Select trunc(avg(etam.eta),0) 
+into etamedia
+from vistaetamedia etam;
+
+MODGUI1.ApriPagina('Eta Media Tariffe Campi Estivi');
+MODGUI1.HEADER();
 htp.br;htp.br;htp.br;htp.br;
 htp.prn('<h1 align="center">Tariffe Campo estivo </h1>');
 MODGUI1.APRIDIV('class="w3-center"');
@@ -1587,24 +1607,7 @@ htp.print('&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;');
 modGUI1.Collegamento('statistiche','operazioniGruppo4.form1campiestivi?&CampoestivoId=&NameCampoestivo=','w3-btn w3-round-xxlarge w3-black ');
 
 MODGUI1.CHIUDIdiv;
-modgui1.apridiv('class="w3-modal-content w3-card-4 w3-animate-zoom" style="max-width:600px; margin-top:110px"');
- 
-HTP.TABLEOPEN(CALIGN  => 'center',CATTRIBUTES =>'class="w3-table w3-striped"' );
-      HTP.TableRowOpen;
-      HTP.TableData('id tariffa',CATTRIBUTES  =>'style="font-weight:bold"');
-      HTP.TableData('Età Media',CATTRIBUTES  =>'style="font-weight:bold"');
-      HTP.TableRowClose;
- 
-FOR val_tarif in tarif_cursor
-loop
-   HTP.TableRowOpen;
-   HTP.TableData(val_tarif.IDTARIFFA,'center');
-   HTP.TableData(val_tarif.etamedia,'center');  
-   HTP.TableRowClose;
-end loop;
-HTP.TableClose;
-modGUI1.ChiudiDiv();
-htp.bodyClose;
+htp.prn('<p align="center"><b> età media visitatori :</b>' ||etamedia || '</p>');
 end etamediatariffe;
 
 procedure introiticampi
@@ -1649,7 +1652,7 @@ end;
 procedure InserisciPagamentoCampiEstivi(
     dataPagamento in varchar2 default NULL,
     tariffa in PAGAMENTICAMPIESTIVI.Tariffa%type default 0, 
-    acquirente in PAGAMENTICAMPIESTIVI.acquirente%type default 0 
+    acquirente in PAGAMENTICAMPIESTIVI.Acquirente%type default 0 
 ) is
 idSessione number(5) := modgui1.get_id_sessione();
 begin
@@ -1669,10 +1672,11 @@ begin
                 modgui1.label('Data Pagamento');
                 modgui1.InputDate('dataPagamento', 'dataPagamento', 1, dataPagamento);
                 htp.br;
+                htp.formhidden('tariffa',tariffa);
+                modgui1.selectopen('Acquirente');
                 modgui1.label('Acquirente');
-               modgui1.selectopen('Acquirente');
                 for utente in 
-                    (select * from UTENTI)
+                    (select NOME,UTENTI.IDUTENTE from UTENTICAMPIESTIVI,UTENTI WHERE UTENTICAMPIESTIVI.IDUTENTE=UTENTI.IDUTENTE)
                 loop
                     modgui1.selectoption(utente.IDUTENTE, utente.NOME);
                 end loop;
@@ -1691,10 +1695,9 @@ end InserisciPagamentoCampiEstivi;
 procedure ConfermaPagamentoCampiEstivi(
     dataPagamento in varchar2 default NULL,
     tariffa in PAGAMENTICAMPIESTIVI.Tariffa%type default 0, 
-    acquirente in PAGAMENTICAMPIESTIVI.acquirente%type default 0
+    acquirente in PAGAMENTICAMPIESTIVI.Acquirente%type default 0
 ) is 
     idSessione number(5) := modgui1.get_id_sessione();
-    dataPagamento_date Date := TO_DATE(dataPagamento default NULL on conversion error, 'YYYY-MM-DD');
     newIdPagamento PAGAMENTICAMPIESTIVI.IdPagamento%type;
 begin
     if tariffa = 0
@@ -1731,13 +1734,13 @@ begin
                 htp.br;
             modgui1.chiudidiv;
 
-            modgui1.apriform(operazioniGruppo4.gr4||'ControllaPagamentoCampiEstivi', null, 'w3-container');
+            modgui1.apriform(operazioniGruppo4.gr4||'ControllaPagamentoCampiEstivi');
             htp.formhidden('dataPagamento', dataPagamento);
             htp.formhidden('tariffa', tariffa);
             htp.formhidden('acquirente', acquirente);
             modgui1.inputsubmit('Conferma');
             modgui1.chiudiform;
-            modgui1.apriform(operazioniGruppo4.gr4||'InserisciPagamentoCampiEstivi', null, 'w3-container');
+            modgui1.apriform(operazioniGruppo4.gr4||'InserisciPagamentoCampiEstivi');
             htp.formhidden('dataPagamento', dataPagamento);
             htp.formhidden('tariffa', tariffa);
             htp.formhidden('acquirente', acquirente);
@@ -1750,11 +1753,11 @@ begin
 end ConfermaPagamentoCampiEstivi;
         
 procedure ControllaPagamentoCampiEstivi(
-    dataPagamento in PAGAMENTICAMPIESTIVI.DataPagamento%type, 
+    dataPagamento in varchar2 default NULL, 
     tariffa in PAGAMENTICAMPIESTIVI.Tariffa%type, 
     acquirente in PAGAMENTICAMPIESTIVI.Acquirente%type
 ) is 
-    idSessione number(5) := modgui1.get_id_sessione();
+     idSessione number(5) := modgui1.get_id_sessione();
     dataPagamento_date date := TO_DATE(dataPagamento, 'YYYY-MM-DD');
     type errorsTable is table of varchar2(32);
     errors errorsTable;
@@ -1772,6 +1775,7 @@ begin
         modgui1.redirectesito('Inserimento non riuscito', null,
         'Riprova',operazioniGruppo4.gr4||'InserisciPagamentoCampiEstivi',null,
         'Torna ai campi estivi',operazioniGruppo4.gr4||operazioniGruppo4.menu_ce,null);
+ 
 end ControllaPagamentoCampiEstivi;
 
 procedure VisualizzaPagamentoCampiEstivi(
@@ -2025,14 +2029,14 @@ begin
             modgui1.apriform(operazioniGruppo4.gr4||'ControllaTariffeCampiEstivi');
             htp.formhidden('prezzo', prezzo);
             htp.formhidden('etaMinima', etaMinima);
-            htp.formhidden('acquirente', etaMassima);
+            htp.formhidden('etaMassima', etaMassima);
             htp.formhidden('campoEstivo', campoEstivo);
             modgui1.inputsubmit('Conferma');
             modgui1.chiudiform;
             modgui1.apriform(operazioniGruppo4.gr4||'InserisciTariffeCampiEstivi');
             htp.formhidden('prezzo', prezzo);
             htp.formhidden('etaMinima', etaMinima);
-            htp.formhidden('acquirente', etaMassima);
+            htp.formhidden('etaMassima', etaMassima);
             htp.formhidden('campoEstivo', campoEstivo);
             modgui1.inputsubmit('Annulla');
             modgui1.chiudiform;
@@ -2114,29 +2118,94 @@ begin
     
 end;
 
-/*procedure ModificaTariffeCampiEstivi
+procedure ModificaTariffeCampiEstivi
 (
-    sessionID in number, 
-    idTariffa in TARIFFECAMPIESTIVI.IdTariffa%type, 
-    prezzo in TARIFFECAMPIESTIVI.Prezzo%type default 0,
-    etaMinima in TARIFFECAMPIESTIVI.Etaminima%type default 0,
-    etaMassima in TARIFFECAMPIESTIVI.Etamassima%type default 0,
-    campoEstivo in TARIFFECAMPIESTIVI.CampoEstivo%type default 0
+    up_idTariffa in TARIFFECAMPIESTIVI.IdTariffa%type
 ) is 
+    idSessione number(5) := modgui1.get_id_sessione();
+    tariffa TariffecampiEstivi%rowtype;
 begin
-    htp.htmlopen;
-    htp.htmlclose;
+    select * into tariffa from tariffecampiestivi where idtariffa = up_idTariffa;
+    modgui1.apripagina('Modifica Tariffa CampiEstivi', idSessione);
+    modgui1.header;
+    htp.br;htp.br;htp.br;htp.br;htp.br;htp.br;
+    modgui1.apridiv('class="w3-modal-content w3-card-4 w3-animate-zoom" style="max-width:600px" ');
+        modgui1.apridiv('class="w3-section"');
+            modgui1.collegamento('X',operazioniGruppo4.gr4||operazioniGruppo4.menu_ce,' w3-btn w3-large w3-red w3-display-topright');
+            htp.br;
+            htp.header(2, 'Tariffa', 'center');
+             modgui1.apriform(operazioniGruppo4.gr4||'AggiornaTariffeCampiEstivi');
+                htp.formhidden('up_idTariffa', tariffa.idtariffa);
+                modgui1.label('Prezzo');
+                modgui1.inputtext('up_prezzo', 'up_prezzo', 0, tariffa.prezzo);
+                htp.br;
+                modgui1.label('Eta minima');
+                modgui1.inputtext('up_etaMinima', 'up_etaMinima', 0, tariffa.etaMinima);
+                htp.br;
+                modgui1.label('Eta massima');
+                modgui1.inputtext('up_etaMassima', 'up_etaMassima', 0, tariffa.etaMassima);
+                htp.br;
+                modgui1.label('Campo Estivo');
+                modgui1.selectopen('up_campoEstivo');
+                for campoEstivo in
+                    (select IdCampiEstivi, nome from campiestivi where IdCampiEstivi = tariffa.campoEstivo)
+                loop
+                    modgui1.selectoption(campoEstivo.IdCampiEstivi, campoEstivo.nome);
+                end loop;
+                for campoEstivo in
+                    (select IdCampiEstivi, nome from campiestivi where IdCampiEstivi <> tariffa.campoEstivo)
+                loop
+                    modgui1.selectoption(campoEstivo.IdCampiEstivi, campoEstivo.nome);
+                end loop;
+                modgui1.selectclose;
+                htp.br;
+                modgui1.inputsubmit('Aggiorna');
+            modgui1.chiudiform;
+        modgui1.chiudidiv;
+    modgui1.chiudidiv;
 end;
 
-procedure CancellaTariffeCampiEstivi
+procedure AggiornaTariffeCampiEstivi
 (
-    sessionID in number, 
-    idTariffa in TARIFFECAMPIESTIVI.IdTariffa%type
-) is
+    up_idTariffa number default 0, 
+    up_prezzo in TARIFFECAMPIESTIVI.Prezzo%type default 0,
+    up_etaMinima in TARIFFECAMPIESTIVI.Etaminima%type default 0,
+    up_etaMassima in TARIFFECAMPIESTIVI.Etamassima%type default 0,
+    up_campoEstivo in TARIFFECAMPIESTIVI.CampoEstivo%type default 0 
+)
+is
+    idSessione number(5) := modgui1.get_id_sessione();
 begin
-    htp.htmlopen;
-    htp.htmlclose;
-end;*/
+    if up_etaminima > up_etamassima
+    or up_prezzo < 0
+    or up_etaminima < 0
+    or up_campoEstivo is null
+    or up_campoEstivo = 0
+    then
+        modgui1.redirectesito('Parametri invalidi', 
+        'Errore: paramtri aggiornamento tariffa campi estivi non validi', 
+        'Torna alla modifica', operazioniGruppo4.gr4||'ModificaTariffeCampiEstivi', 
+        'up_idTariffa='|| up_idTariffa, 
+        'Torna al menu', operazioniGruppo4.gr4||operazioniGruppo4.menu_ce);
+    end if;
+
+    update tariffecampiestivi set
+        prezzo = up_prezzo, 
+        etaminima = up_etaMinima, 
+        etamassima = up_etaMassima, 
+        campoestivo = up_campoEstivo
+    where idtariffa = up_idTariffa;
+    commit;
+    modgui1.redirectesito('Aggiornamento riuscito', null, null, null, null, 
+        'Torna al menu', operazioniGruppo4.gr4||operazioniGruppo4.menu_ce);
+    exception when others then
+        modgui1.redirectesito('Aggiornamento fallito', 
+        'Errore: sconosciuto', 
+        'Torna alla modifica', operazioniGruppo4.gr4||'ModificaTariffeCampiEstivi', 
+        'up_idTariffa='|| up_idTariffa, 
+        'Torna al menu', operazioniGruppo4.gr4||operazioniGruppo4.menu_ce);
+end;
+
 procedure form1tariffe
 (
    campoEstivo in TARIFFECAMPIESTIVI.CampoEstivo%type,
@@ -2183,35 +2252,69 @@ procedure preferenzaTariffa
    campoEstivo in TARIFFECAMPIESTIVI.CampoEstivo%type
 )
  is 
+   found number := 0;
 begin
-    modgui1.apripagina('Monitora');
+    /*tariffa piu gettonata per ogni campoEstivo*/
+    htp.htmlopen;
+    modgui1.apripagina();
     modgui1.header();
     htp.bodyopen;
-    htp.br;htp.br;htp.br;htp.br;htp.br;
+    htp.br;htp.br;htp.br;htp.br;htp.br;htp.br;
     modgui1.apridiv('class="w3-modal-content w3-card-4" style="max-width:600px"');
 
-   htp.tableopen;
-    for tariffa in (
-        select Tariffa, count(*) as conto
-        from PAGAMENTICAMPIESTIVI,TARIFFECAMPIESTIVI,CAMPIESTIVI
-        where PAGAMENTICAMPIESTIVI.tariffa=TariffecampiEstivi.IdTariffa AND TariffecampiEstivi.CAMPOESTIVO=campoEstivo
-        group by Tariffa
-        having count(*) = (
-            select max(subconto) from (
-                select count(*) as subconto
-                from PAGAMENTICAMPIESTIVI
-                group by Tariffa
+    htp.tableopen(CALIGN  => 'center',CATTRIBUTES =>'class="w3-table w3-striped"');
+    htp.tablerowopen;
+    htp.TableData('Tariffa',CATTRIBUTES  =>'style="font-weight:bold; text-align:center"');
+    htp.TableData('Count',CATTRIBUTES  =>'style="font-weight:bold; text-align:center"');
+    htp.tablerowclose;
+
+    if campoEstivo = 0 then /*campo estivo non specificato*/
+        for tariffa in (
+            select Tariffa, count(*) as conto
+            from PAGAMENTICAMPIESTIVI
+            group by Tariffa
+            having count(*) = (
+                select max(subconto) from (
+                    select count(*) as subconto
+                    from PAGAMENTICAMPIESTIVI
+                    group by Tariffa
+                )
             )
         )
-    )
-    loop
-        htp.tablerowopen;
-        htp.tabledata(tariffa.Tariffa);
-        htp.tabledata(tariffa.conto);
-        htp.tablerowclose;
-    end loop;
+        loop
+            htp.tablerowopen;
+            htp.tabledata(tariffa.Tariffa, 'center');
+            htp.tabledata(tariffa.conto, 'center');
+            htp.tablerowclose;
+        end loop;
+    else /*campo estivo specificato*/
+        for tariffa in (
+            select Tariffa, count(*) as conto
+            from PAGAMENTICAMPIESTIVI join tariffecampiestivi 
+                on PAGAMENTICAMPIESTIVI.tariffa = tariffecampiestivi.idTariffa
+            where tariffecampiestivi.campoestivo = campoEstivo
+            group by Tariffa
+            having count(*) = (
+                select max(subconto) from (
+                    select count(*) as subconto
+                    from PAGAMENTICAMPIESTIVI
+                    group by Tariffa
+                )
+            )
+        )
+        loop
+            htp.tablerowopen;
+            htp.tabledata(tariffa.Tariffa, 'center');
+            htp.tabledata(tariffa.conto, 'center');
+            htp.tablerowclose;
+        end loop;
+    end if;
 
+    modgui1.chiudidiv;
     htp.tableclose;
+    htp.bodyclose;
+    htp.htmlclose;
+
 
 end;
 

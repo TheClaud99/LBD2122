@@ -9,23 +9,24 @@ CREATE OR REPLACE PACKAGE BODY PackageStanze as
         Search IN VARCHAR2 default NULL
     ) is 
     museosel musei.nome%TYPE;
+    idSessione NUMBER(5) := modGUI1.get_id_sessione();
     BEGIN
         modGUI1.ApriPagina('Sale');
         modGUI1.Header;
         htp.br;htp.br;htp.br;htp.br;
         modGUI1.ApriDiv('class="w3-center"');
             htp.prn('<h1>Sale</h1>'); --TITOLO
-            if (MODGUI1.get_id_sessione=1) 
-            THEN
+            IF (hasRole(idSessione, 'DBA') OR hasRole(idSessione, 'SU')) THEN
                 modGUI1.Collegamento('Aggiungi','packagestanze.formSala','w3-btn w3-round-xxlarge w3-black w3-margin-right'); /*bottone che rimanda alla procedura inserimento solo se la sessione è 1*/
                 IF (Deleted!=1)THEN
                     modGUI1.Collegamento('Cestino','packagestanze.visualizzaSale?Deleted=1','w3-btn w3-round-xxlarge w3-red w3-margin-right');
                 END IF;
-
-                IF (Sort!=0 OR Deleted!=0 OR Search!=NULL) THEN 
-                    MODGUI1.Collegamento('Indietro','Packagestanze.visualizzaSale','w3-btn w3-green w3-round-xxlarge w3-margin-right');
-                END IF;
             END IF;
+            
+            IF (Sort!=0 OR Deleted!=0 OR Search!=NULL) THEN 
+                MODGUI1.Collegamento('Indietro','Packagestanze.visualizzaSale','w3-btn w3-green w3-round-xxlarge w3-margin-right');
+            END IF;
+        
         modGUI1.ChiudiDiv;
 
         --FORM RICERCA-----------------------
@@ -112,14 +113,18 @@ CREATE OR REPLACE PACKAGE BODY PackageStanze as
                             --FINE DESCRIZIONI
                             modGUI1.ChiudiDiv;
                             
-                            IF(MODGUI1.get_id_sessione=1) THEN --Bottoni visualizzati in base alla sessione 
-                                modGUI1.Collegamento('Modifica','packagestanze.formSala?modifica=1&varIdStanza='||sala.idstanza||'&varSalaMuseo='||sala.museo||'&varSalaNome='||sala.nome||'&varSalaDimensione='||sala.dimensione||'&varSalaTipo='||sala.tiposala||'&varSalaOpere='||sala.numopere,'w3-button w3-green');
-                                IF (sala.eliminato=0)THEN
-                                    modGUI1.Collegamento('Rimuovi','packagestanze.rimuoviSala?varIdStanza='||sala.idstanza,'w3-button w3-red w3-margin');
-                                ELSE
-                                    modGUI1.Collegamento('Ripristina','packagestanze.ripristinaSala?varIdStanza='||sala.idstanza,'w3-button w3-yellow w3-margin');
-                                END IF;
+                            IF (hasRole(idSessione, 'DBA') OR hasRole(idSessione, 'SU') OR hasRole(idSessione, 'GM') ) THEN --Bottoni visualizzati in base alla sessione 
+                                modGUI1.Collegamento('Modifica','packagestanze.formSala?modifica=1&varIdStanza='||sala.idstanza||'&varSalaMuseo='||sala.museo||'&varSalaNome='||sala.nome||'&varSalaDimensione='||sala.dimensione||'&varSalaTipo='||sala.tiposala||'&varSalaOpere='||sala.numopere,'w3-button w3-green w3-margin');
                             END IF;
+                                IF (sala.eliminato=0)THEN
+                                    IF (hasRole(idSessione, 'DBA') OR hasRole(idSessione, 'SU') ) THEN
+                                        modGUI1.Collegamento('Rimuovi','packagestanze.rimuoviSala?varIdStanza='||sala.idstanza,'w3-button w3-red w3-margin');
+                                    END IF;
+                                ELSE
+                                    IF (hasRole(idSessione, 'DBA') OR hasRole(idSessione, 'SU') ) THEN
+                                       modGUI1.Collegamento('Ripristina','packagestanze.ripristinaSala?varIdStanza='||sala.idstanza,'w3-button w3-yellow w3-margin');
+                                    END IF;
+                                END IF;
 
                     modGUI1.ChiudiDiv;
                 modGUI1.ChiudiDiv;
@@ -409,23 +414,24 @@ CREATE OR REPLACE PACKAGE BODY PackageStanze as
     ) is 
 
     museosel musei.nome%TYPE;
+    idSessione NUMBER(5) := modGUI1.get_id_sessione();
     BEGIN
         modGUI1.ApriPagina('Ambienti di servizio');
         modGUI1.Header;
         htp.br;htp.br;htp.br;htp.br;
         modGUI1.ApriDiv('class="w3-center"');
         htp.prn('<h1>Ambienti di servizio</h1>'); --TITOLO
-            if (MODGUI1.get_id_sessione=1) 
-            THEN
+            IF (hasRole(idSessione, 'DBA') OR hasRole(idSessione, 'SU') ) THEN
                 modGUI1.Collegamento('Aggiungi','packagestanze.formAmbienteServizio','w3-btn w3-round-xxlarge w3-black w3-margin-right'); /*bottone che rimanda alla procedura inserimento solo se la sessione è 1*/
                 IF (Deleted!=1)THEN
                     modGUI1.Collegamento('Cestino','packagestanze.visualizzaAmbientiServizio?Deleted=1','w3-btn w3-round-xxlarge w3-red w3-margin-right');
                 END IF;
-
-                IF (Sort!=0 OR Deleted!=0 OR Search!=NULL) THEN 
-                    MODGUI1.Collegamento('Indietro','Packagestanze.visualizzaAmbientiServizio','w3-btn w3-green w3-round-xxlarge w3-margin-right');
-                END IF;
             END IF;
+            
+            IF (Sort!=0 OR Deleted!=0 OR Search!=NULL) THEN 
+                MODGUI1.Collegamento('Indietro','Packagestanze.visualizzaAmbientiServizio','w3-btn w3-green w3-round-xxlarge w3-margin-right');
+            END IF;
+            
         modGUI1.ChiudiDiv;
 
         --FORM RICERCA-----------------------
@@ -499,14 +505,19 @@ CREATE OR REPLACE PACKAGE BODY PackageStanze as
                             --FINE DESCRIZIONI
                             modGUI1.ChiudiDiv;
                             
-                            if(MODGUI1.get_id_sessione=1) then --Bottoni visualizzati in base alla sessione 
-                                modGUI1.Collegamento('Modifica','packagestanze.formAmbienteServizio?modifica=1&varIdStanza='||AmbS.idstanza||'&varASMuseo='||AmbS.museo||'&varASNome='||AmbS.nome||'&varASDimensione='||AmbS.dimensione||'&varASTipo='||AmbS.tipoambiente,'w3-button w3-green');
-                                IF (AmbS.eliminato=0) THEN
+                            IF (hasRole(idSessione, 'DBA') OR hasRole(idSessione, 'SU') OR hasRole(idSessione, 'GM')) THEN --Bottoni visualizzati in base alla sessione 
+                                modGUI1.Collegamento('Modifica','packagestanze.formAmbienteServizio?modifica=1&varIdStanza='||AmbS.idstanza||'&varASMuseo='||AmbS.museo||'&varASNome='||AmbS.nome||'&varASDimensione='||AmbS.dimensione||'&varASTipo='||AmbS.tipoambiente,'w3-button w3-green w3-margin');
+                            END IF;
+                            
+                            IF (AmbS.eliminato=0) THEN
+                                IF (hasRole(idSessione, 'DBA') OR hasRole(idSessione, 'SU') ) THEN
                                     modGUI1.Collegamento('Rimuovi','packagestanze.rimuoviAmbienteServizio?varIdStanza='||AmbS.idstanza,'w3-button w3-red w3-margin');
-                                ELSE
+                                END IF;
+                            ELSE
+                                IF (hasRole(idSessione, 'DBA') OR hasRole(idSessione, 'SU') ) THEN
                                     modGUI1.Collegamento('Ripristina','packagestanze.ripristinaAmbienteServizio?varIdStanza='||AmbS.idstanza,'w3-button w3-yellow w3-margin');
                                 END IF;
-                            END if;
+                            END IF;
 
                     modGUI1.ChiudiDiv;
                 modGUI1.ChiudiDiv;
@@ -583,9 +594,9 @@ CREATE OR REPLACE PACKAGE BODY PackageStanze as
 
     PROCEDURE inserisciAmbienteServizio (
         selectMusei IN musei.idmuseo%TYPE,
-        nomeSala       IN  VARCHAR2,
-        dimSala            IN  NUMBER,
-        tipoAmbienteForm   IN VARCHAR2
+        nomeAmbS       IN  VARCHAR2,
+        dimAmbS            IN  NUMBER,
+        tipoAmbS   IN VARCHAR2
     ) IS
         idstanzacreata sale.idstanza%TYPE;
     
@@ -602,8 +613,8 @@ CREATE OR REPLACE PACKAGE BODY PackageStanze as
             eliminato
         ) VALUES (
             idstanzacreata,
-            nomeSala,
-            dimSala,
+            nomeAmbS,
+            dimAmbS,
             selectMusei,
             0
         );
@@ -613,7 +624,7 @@ CREATE OR REPLACE PACKAGE BODY PackageStanze as
             eliminato    
         ) VALUES (
             idstanzacreata,
-            tipoAmbienteForm,
+            tipoAmbS,
             0
         );
         

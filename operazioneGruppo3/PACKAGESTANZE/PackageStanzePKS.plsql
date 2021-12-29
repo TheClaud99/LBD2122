@@ -54,10 +54,10 @@ PROCEDURE ripristinaSala (
     );
 PROCEDURE inserisciAmbienteServizio (
         selectMusei IN musei.idmuseo%TYPE,
-        nomeSala       IN  VARCHAR2,
-        dimSala            IN  NUMBER,
-        tipoAmbienteForm   IN VARCHAR2
-    );    
+        nomeAmbS       IN  VARCHAR2,
+        dimAmbS            IN  NUMBER,
+        tipoAmbS   IN VARCHAR2
+    );  
 PROCEDURE modificaAmbienteServizio (
         varIdStanza IN NUMBER,
         selectmusei IN musei.idmuseo%TYPE,

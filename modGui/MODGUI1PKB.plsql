@@ -24,11 +24,7 @@ CREATE OR REPLACE PACKAGE BODY modGUI1 as
                     modGUI1.Collegamento('Musei','MuseiHome?idSessione='|| idSessione,'w3-bar-item w3-button');
                     modGUI1.Collegamento('Campi Estivi','CampiEstiviHome?idSessione='|| idSessione,'w3-bar-item w3-button');
                 else
-                    modGUI1.ApriForm('RimozioneSessione', 'formLogOut', 'w3-container', 1);
-                        htp.FormHidden('idSessione',idSessione);
-                        htp.prn('<button class="w3-button w3-block w3-red w3-section w3-padding">LOG OUT</button>');
-                    modGUI1.ChiudiForm;
-        
+
                     modGUI1.Collegamento('HOME','Home','w3-bar-item w3-button');
                     --GRUPPO 1--
                     modGUI1.ApriDiv('class="w3-bar-item w3-button" onclick="myAccFunc(''DemoAcc1'')"');
@@ -65,6 +61,12 @@ CREATE OR REPLACE PACKAGE BODY modGUI1 as
                         modGUI1.Collegamento('Link','link','w3-bar-item w3-button');
                         modGUI1.Collegamento('Link','link','w3-bar-item w3-button');
                     modGUI1.ChiudiDiv;
+                    
+                    --LOGOUT--
+                    modGUI1.ApriForm('RimozioneSessione', 'formLogOut', 'w3-container', 1);
+                        htp.FormHidden('idSessione',idSessione);
+                        htp.prn('<button class="w3-button w3-block w3-red w3-section w3-padding">LOG OUT</button>');
+                    modGUI1.ChiudiForm;
                     
                 end if;
             modGUI1.ChiudiDiv;

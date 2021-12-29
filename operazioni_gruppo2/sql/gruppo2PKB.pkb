@@ -248,7 +248,6 @@ BEGIN
     END IF;
 end RimozioneOpera;
 
- 
 --procedura popup
 procedure linguaELivello(
     operaID NUMBER default 0
@@ -1715,7 +1714,8 @@ BEGIN
         if hasRole(idSessione, 'DBA') or hasRole(idSessione, 'SU') or hasRole(idSessione, 'GO')
         then
             modGUI1.Collegamento('Inserisci',
-                gruppo2.gr2||'InserisciAutore',
+                gruppo2.gr2||'InserisciAutore?caller=menuAutori&callerParams=//orderBy='
+                    ||orderBy||'//nameFilter='||nameFilter||'//surnameFilter='||surnameFilter||'//nationFilter='||nationFilter,
                 'w3-btn w3-round-xxlarge w3-black');
             htp.print('&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;');
             modGUI1.Collegamento('Menu Autori Eliminati', 
@@ -1743,9 +1743,8 @@ BEGIN
     -- Filtro: autori non eliminati
     OPEN listaAutori_cursor FOR variable_select||orderBy USING nameFilter, surnameFilter, nationFilter;
     LOOP
-        FETCH listaAutori_cursor INTO autore;
+    FETCH listaAutori_cursor INTO autore;
         EXIT WHEN listaAutori_cursor%NOTFOUND;
-
         modGUI1.ApriDiv('class="w3-col l4 w3-padding-large w3-center"');
             modGUI1.ApriDiv('class="w3-card-4"');
                 htp.prn('<img src="http://www.visitoslo.com/contentassets/3932b41a7b684b40a28d3195191265fe/edvard-munch-nasjonalbiblioteket.jpg" alt="Alps" style="width:100%;">');
@@ -1767,13 +1766,15 @@ BEGIN
                 modGUI1.ChiudiDiv;
                 if not (HASROLE(idSessione, 'GM') or HASROLE(idSessione, 'GCE')) THEN
                 modGUI1.Collegamento('Visualizza',
-                    gruppo2.gr2||'ModificaAutore?authorID='||autore.IdAutore||'&operazione=0&caller=menuAutori',
+                    gruppo2.gr2||'ModificaAutore?authorID='||autore.IdAutore||'&operazione=0&caller=menuAutori&callerParams=//orderBy='
+                    ||orderBy||'//nameFilter='||nameFilter||'//surnameFilter='||surnameFilter||'//nationFilter='||nationFilter,
                     'w3-black w3-margin w3-button');
                 END IF;
                 IF hasRole(idSessione, 'DBA')  or hasRole(idSessione, 'GO') THEN
                     -- parametro modifica messo a true: possibile fare editing dell'autore
                     modGUI1.Collegamento('Modifica',
-                        gruppo2.gr2||'ModificaAutore?authorID='||autore.IdAutore||'&operazione=1&caller=menuAutori',
+                        gruppo2.gr2||'ModificaAutore?authorID='||autore.IdAutore||'&operazione=1&caller=menuAutori&callerParams=//orderBy='
+                        ||orderBy||'//nameFilter='||nameFilter||'//surnameFilter='||surnameFilter||'//nationFilter='||nationFilter,
                         'w3-green w3-margin w3-button');
                     -- Setta ad eliminato un autore
                     htp.prn('<button onclick="document.getElementById(''ElimAutore'||autore.IdAutore
@@ -1836,9 +1837,8 @@ BEGIN
     -- Filtro: mostrati soltanto autori eliminati (al DBA e SU)
     OPEN listaAutori_cursor FOR variable_select||orderBy USING nameFilter, surnameFilter, nationFilter;
     LOOP
-        FETCH listaAutori_cursor INTO autore;
+    FETCH listaAutori_cursor INTO autore;
         EXIT WHEN listaAutori_cursor%NOTFOUND;
-
         modGUI1.ApriDiv('class="w3-col l4 w3-padding-large w3-center"');
             modGUI1.ApriDiv('class="w3-card-4"');
                 htp.prn('<img src="http://www.visitoslo.com/contentassets/3932b41a7b684b40a28d3195191265fe/edvard-munch-nasjonalbiblioteket.jpg" alt="Alps" style="width:100%;">');
@@ -2485,18 +2485,21 @@ END statisticheMuseoAutori;
 
 
 -- Procedura per l'inserimento di nuovi Autori nella base di dati
--- I parametri (a parte idSessione) sono usati per effettuare il riempimento automatico del form
+-- I parametri sono usati per effettuare il riempimento automatico del form e il possibile ritorno al menù
 PROCEDURE InserisciAutore(
     authName VARCHAR2 DEFAULT NULL,
     authSurname VARCHAR2 DEFAULT NULL,
-    dataNascita VARCHAR2 DEFAULT NULL,
+    dataNascita VARCHAR2 DEFAULT NULL, 
     dataMorte VARCHAR2 DEFAULT NULL,
-    nation VARCHAR2 DEFAULT NULL
+    nation VARCHAR2 DEFAULT NULL,
+    caller VARCHAR2 DEFAULT NULL,
+    callerParams VARCHAR2 DEFAULT ''
 ) IS
 idSessione NUMBER(5) := modgui1.get_id_sessione();
 placeholderNome VARCHAR2(255) := 'Inserisci il nome...';
 placeholderCognome VARCHAR2(255) := 'Inserisci il cognome...';
 placeholderNazionalita VARCHAR2(255) := 'Inserisci nazionalità...';
+params VARCHAR2(255);
 BEGIN
     -- script disabilita campo data
     htp.script('function disable_date(name) {
@@ -2518,6 +2521,8 @@ BEGIN
                 'w3-btn w3-large w3-red w3-display-topright');
             -- Form per mandare dati alla procedura di conferma
             modGUI1.ApriForm(gruppo2.gr2||'ConfermaDatiAutore');
+            HTP.FORMHIDDEN('caller', caller);
+            HTP.FORMHIDDEN('callerParams', callerParams);
             htp.br;
             modGUI1.Label('Nome*');
             modGUI1.InputText('authName', placeholderNome, 1, authName);
@@ -2543,6 +2548,14 @@ BEGIN
             htp.br;
             modGUI1.InputSubmit('Aggiungi');
             modGUI1.ChiudiForm;
+
+            IF caller is not null THEN
+            params := REPLACE(callerParams,'//','&');
+                MODGUI1.collegamento('Annulla',
+                gruppo2.gr2||caller||'?'||params,
+                'w3-button w3-block w3-black w3-section w3-padding');
+            END IF;
+                
         modGUI1.ChiudiDiv;
     modGUI1.ChiudiDiv;
 END;
@@ -2553,19 +2566,23 @@ PROCEDURE ConfermaDatiAutore(
     authSurname VARCHAR2 DEFAULT 'Sconosciuto',
     dataNascita VARCHAR2 DEFAULT NULL,
     dataMorte VARCHAR2 DEFAULT NULL,
-    nation VARCHAR2 DEFAULT 'Sconosciuta'
+    nation VARCHAR2 DEFAULT 'Sconosciuta',
+    caller VARCHAR2 DEFAULT NULL,
+    callerParams VARCHAR2 DEFAULT ''
 ) IS
 idSessione NUMBER(5) := modgui1.get_id_sessione();
 numAutori NUMBER := 0;
 birth DATE := to_date(dataNascita, 'YYYY-MM-DD');
 death DATE := to_date(dataMorte, 'YYYY-MM-DD');
+params VARCHAR2(255);
 BEGIN
     -- Controllo autorizzazione
     IF NOT(hasRole(idSessione, 'GO') OR hasRole(idSessione, 'SU') OR hasRole(idSessione, 'DBA')) THEN
         modGUI1.RedirectEsito('Inserimento fallito',
             'Errore: Operazione non autorizzata (controlla di essere loggato)',
             'Torna all''inserimento',gruppo2.gr2||'InserisciAutore', 
-            '//authName='||authName||'//authSurname='||authSurname||'//dataNascita='||dataNascita||'//dataMorte='||dataMorte||'//nation='||nation,
+            '//authName='||authName||'//authSurname='||authSurname||'//dataNascita='||dataNascita||
+            '//dataMorte='||dataMorte||'//nation='||nation,
             'Torna al menù',gruppo2.gr2||'menuAutori');
     END IF;
     -- controllo parametri
@@ -2647,11 +2664,15 @@ BEGIN
             MODGUI1.ChiudiForm;
             -- Form nascosto per ritorno ad InserisciAutore con form precompilato
             MODGUI1.ApriForm(gruppo2.gr2||'InserisciAutore');
+            params := REPLACE(callerParams,'%2F%2F','//');
+            params := REPLACE(params,'%3D','=');
             HTP.FORMHIDDEN('authName', authName);
             HTP.FORMHIDDEN('authSurname', authSurname);
             HTP.FORMHIDDEN('dataNascita', dataNascita);
             HTP.FORMHIDDEN('dataMorte', dataMorte);
             HTP.FORMHIDDEN('nation', nation);
+            HTP.FORMHIDDEN('caller', caller);
+            HTP.FORMHIDDEN('callerParams', params);
             MODGUI1.InputSubmit('Annulla');
             MODGUI1.ChiudiDiv;
         modGUI1.ChiudiDiv;
@@ -2748,6 +2769,7 @@ BEGIN
 		-- caso modifica
 		IF operazione = 1 THEN
             modGUI1.ApriForm(gruppo2.gr2||'UpdateAutore');
+                HTP.FORMHIDDEN('callerParams', callerParams);
                 htp.formhidden('authID', this_autore.IdAutore);
                 modGUI1.Label('Nome:');
 				modGUI1.InputText('newName', this_autore.Nome, 1, this_autore.Nome);
@@ -2839,10 +2861,12 @@ PROCEDURE UpdateAutore(
 	newSurname VARCHAR2 DEFAULT 'Sconosciuto',
 	newBirth VARCHAR2 DEFAULT NULL,
 	newDeath VARCHAR2 DEFAULT NULL,
-	newNation VARCHAR2 DEFAULT 'Sconosciuta'
+	newNation VARCHAR2 DEFAULT 'Sconosciuta',
+    callerParams VARCHAR2 DEFAULT ''
 ) IS
 idSessione NUMBER(5) := modgui1.get_id_sessione();
 Errore_data EXCEPTION;
+params VARCHAR2(255);
 BEGIN
     IF TO_DATE(newBirth, 'YYYY-MM-DD') > TO_DATE(newDeath, 'YYYY-MM-DD') THEN
 		RAISE Errore_data;
@@ -2856,7 +2880,9 @@ BEGIN
 	WHERE IdAutore=authID;
 
     commit;
-    modGUI1.RedirectEsito('Aggiornamento riuscito', null,null,null, null,'Torna al menù',gruppo2.gr2||'menuAutori');
+    params := REPLACE(callerParams,'//','&');
+    modGUI1.RedirectEsito('Aggiornamento riuscito', null,null,null, null,'Torna al menù',gruppo2.gr2||
+    'menuAutori&callerParams='||params);
 
     EXCEPTION
 		WHEN Errore_data THEN

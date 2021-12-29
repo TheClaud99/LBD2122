@@ -2028,6 +2028,7 @@ idSessione NUMBER(5) := modgui1.get_id_sessione();
                         htp.br; htp.print('&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;');
                         MODGUI1.InputRadioButton('Autori in vita le cui Opere sono esposte in un Museo', 'operazione',4);
                         htp.br; htp.print('&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;');
+                        MODGUI1.InputRadioButton('Autori pi&ugrave; prolifici', 'operazione', 5);
                         htp.print('</h4>');
                         htp.br;
                         htp.prn('<button class="w3-button w3-block w3-black w3-section w3-padding" type="submit">Seleziona</button>');
@@ -2050,8 +2051,11 @@ nomecompleto VARCHAR2(50);
     -- Salto selezione autore per statistica 4
     IF operazione = 4 THEN
         gruppo2.selezioneMuseoAutoreStatistica(operazione, 0);
-    ELSE
+    -- Salto alla statistica 5 (classifica autori più prolifici)
+    ELSIF operazione = 5 THEN
+        gruppo2.classificaAutori;
 
+    ELSE
     htp.prn('<h1 align="center">Seleziona l''autore</h1>');
     modGUI1.ApriDiv('class="w3-modal-content w3-card-4 w3-animate-zoom" style="max-width:700px"');
         modGUI1.ApriDiv('class="w3-section"');
@@ -2754,6 +2758,9 @@ BEGIN
 	modGUI1.Header;
 	htp.br;htp.br;htp.br;htp.br;htp.br;htp.br;
 
+    params := REPLACE(callerParams,'//','%2F%2F');
+    params := REPLACE(params,'=', '%3D');
+
 	modGUI1.ApriDiv('class="w3-modal-content w3-card-4 w3-animate-zoom" style="max-width:600px" ');
 		modGUI1.ApriDiv('class="w3-section"');
         IF caller = 'visualizzaOpera' THEN
@@ -2766,10 +2773,11 @@ BEGIN
         modGUI1.Collegamento('X',gruppo2.gr2||menuRitorno,' w3-btn w3-large w3-red w3-display-topright');
         htp.br;
 		htp.header(2, 'Dettagli Autore', 'center');
+
 		-- caso modifica
 		IF operazione = 1 THEN
             modGUI1.ApriForm(gruppo2.gr2||'UpdateAutore');
-                HTP.FORMHIDDEN('callerParams', callerParams);
+                HTP.FORMHIDDEN('callerParams', params);
                 htp.formhidden('authID', this_autore.IdAutore);
                 modGUI1.Label('Nome:');
 				modGUI1.InputText('newName', this_autore.Nome, 1, this_autore.Nome);
@@ -2840,7 +2848,7 @@ BEGIN
 
         -- Link per ritorno a procedura statistica dalla quale è stato chiamato
         IF caller is not null THEN
-            params := REPLACE(callerParams,'//','&');
+            --params := REPLACE(callerParams,'//','&');
             IF params IS NULL THEN
                 MODGUI1.collegamento('Annulla',
                 gruppo2.gr2||caller,
@@ -2880,23 +2888,74 @@ BEGIN
 	WHERE IdAutore=authID;
 
     commit;
-    params := REPLACE(callerParams,'//','&');
-    modGUI1.RedirectEsito('Aggiornamento riuscito', null,null,null, null,'Torna al menù',gruppo2.gr2||
-    'menuAutori&callerParams='||params);
+    params := REPLACE(callerParams,'%2F%2F', '//');
+    params := REPLACE(params, '%3D', '=');
+    modGUI1.RedirectEsito('Aggiornamento riuscito', null,null,null, null,
+        'Torna al menù',gruppo2.gr2||'menuAutori?', params);
 
     EXCEPTION
 		WHEN Errore_data THEN
             modGUI1.RedirectEsito('Aggiornamento fallito',
-             'Errore: data di nascita postuma alla data di morte',
+             'Errore: data di nascita postuma alla data di morte'||params,
              'Torna alla modifica',gruppo2.gr2||'ModificaAutore?', 
-             'authorID='||authID||'//operazione=1','Torna al menù',gruppo2.gr2||'menuAutori');
+             'authorID='||authID||'//operazione=1//caller='''||params,
+             'Torna al menù',gruppo2.gr2||'menuAutori?', params);
             ROLLBACK;
         WHEN OTHERS THEN
             modGUI1.RedirectEsito('Aggiornamento fallito',
-             'Errore: controlla i parametri immessi',
+             'Errore: controlla i parametri immessi'||params,
              'Torna alla modifica',gruppo2.gr2||'ModificaAutore?', 
-             'authorID='||authID||'//operazione=1','Torna al menù',gruppo2.gr2||'menuAutori');
+             'authorID='||authID||'//operazione=1//caller='''||params,
+             'Torna al menù',gruppo2.gr2||'menuAutori?', params);
 END;
+
+PROCEDURE classificaAutori AS    
+posizione int;
+autore Autori%ROWTYPE;
+
+CURSOR contaOpere_cursor IS 
+    select IdAutore,count(*) opere
+    from AutoriOpere 
+    group by IdAutore
+    order by count(*) desc;
+autoreNumOpere contaOpere_cursor%ROWTYPE;
+idSessione Sessioni.loginid%TYPE := modGUI1.get_id_sessione();
+BEGIN
+    MODGUI1.ApriPagina('Classifica Autori',idSessione);
+    modGUI1.Header;
+    htp.br;htp.br;htp.br;htp.br;htp.br;htp.br;
+
+    modGUI1.ApriDiv('class="w3-center"');
+        htp.prn('<h1><b>Autori pi&ugrave; prolifici</b></h1>');
+        modGUI1.Collegamento('Torna al menu',
+                gruppo2.gr2||'menuAutori','w3-black w3-margin w3-button');
+        htp.br;htp.br;
+
+        OPEN contaOpere_cursor;
+        posizione := 1;
+        LOOP
+            EXIT WHEN contaOpere_cursor%NOTFOUND OR posizione > 3;
+            FETCH contaOpere_cursor INTO autoreNumOpere;
+
+            SELECT * INTO autore FROM Autori WHERE IdAutore = autoreNumOpere.IdAutore;
+
+            modGUI1.ApriDiv('class="w3-col l4 w3-padding-large w3-center"');
+                coloreClassifica(posizione);
+                    modGUI1.ApriDiv('class="w3-card-4"');
+                    htp.prn('<img src="http://www.visitoslo.com/contentassets/3932b41a7b684b40a28d3195191265fe/edvard-munch-nasjonalbiblioteket.jpg" alt="Alps" style="width:100%">');
+                        modGUI1.ApriDiv('class="w3-container w3-center"');
+                        MODGUI1.collegamento('<h4><b>'||autore.Nome||' '||autore.Cognome,
+                            gruppo2.gr2||'ModificaAutore?authorID='||autore.IdAutore||'&operazione=0');
+                        htp.prn(' ha realizzato '||autoreNumOpere.opere||' opere</b></h4>');
+                        modGUI1.ChiudiDiv;
+                    modGUI1.ChiudiDiv;
+                modGUI1.ChiudiDiv;
+
+            posizione := posizione + 1;
+        END LOOP;
+        CLOSE contaOpere_cursor;
+    modGUI1.ChiudiDiv;
+END classificaAutori;
 
 /*
  * OPERAZIONI SULLE DESCRIZIONI

@@ -270,6 +270,8 @@ PROCEDURE DeleteAutore(
     authorID NUMBER default 0
 );
 
+PROCEDURE classificaAutori;
+
 /* OPERAZIONI SULLE DESCRIZIONI  */
 
 PROCEDURE InserisciDescrizione(

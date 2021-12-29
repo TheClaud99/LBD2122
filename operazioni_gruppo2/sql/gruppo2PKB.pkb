@@ -1652,8 +1652,8 @@ BEGIN
             modGUI1.selectOpen('orderBy');
             modGUI1.selectoption('Cognome','Cognome',0);
             modGUI1.selectoption('Nome','Nome',0);
-            modGUI1.selectoption('DataNascita','Data nascita (decrescente)',0);
-            modGUI1.selectoption('DataMorte','Data morte (decrescente)',0);
+            modGUI1.selectoption('DataNascita','Data nascita (crescente)',0);
+            modGUI1.selectoption('DataMorte','Data morte (crescente)',0);
             modGUI1.SelectClose;
             htp.br;
             modGUI1.label('Nome contiene: ');
@@ -1688,14 +1688,17 @@ PROCEDURE menuAutori(
     nationFilter varchar2 default ''
 ) is
 idSessione NUMBER(5) := modgui1.get_id_sessione();
-CURSOR listaAutori(param VARCHAR2) IS
-    SELECT * 
-    FROM Autori 
+TYPE cursoreAutori_T IS REF CURSOR;
+listaAutori_cursor cursoreAutori_T;
+variable_select varchar2(512) := 
+    'SELECT *
+    FROM Autori
     WHERE Eliminato=0 
-        AND UPPER(Nome) LIKE '%'||UPPER(nameFilter)||'%'
-        AND UPPER(cognome) LIKE '%'||UPPER(surnameFilter)||'%'
-        AND nazionalita LIKE '%'||nationFilter||'%'
-    ORDER BY decode(param, 'Cognome', Cognome,'Nome', Nome, 'DataNascita', DataNascita, 'DataMorte', DataMorte, Cognome) ASC;
+        AND UPPER(Nome) LIKE ''%''||UPPER(:1)||''%''
+        AND UPPER(cognome) LIKE ''%''||UPPER(:2)||''%''
+        AND UPPER(nazionalita) LIKE ''%''||UPPER(:3)||''%''
+    ORDER BY ';
+autore Autori%ROWTYPE;
 BEGIN
     modGUI1.ApriPagina('Autori', idSessione);
     -- se idSessione è null allora viene passato a modGUI1.Header, 
@@ -1738,8 +1741,11 @@ BEGIN
     modGUI1.ChiudiDiv;
     --Visualizzazione TUTTI GLI AUTORI *temporanea*
     -- Filtro: autori non eliminati
-    FOR autore IN listaAutori(orderBy)
+    OPEN listaAutori_cursor FOR variable_select||orderBy USING nameFilter, surnameFilter, nationFilter;
     LOOP
+        FETCH listaAutori_cursor INTO autore;
+        EXIT WHEN listaAutori_cursor%NOTFOUND;
+
         modGUI1.ApriDiv('class="w3-col l4 w3-padding-large w3-center"');
             modGUI1.ApriDiv('class="w3-card-4"');
                 htp.prn('<img src="http://www.visitoslo.com/contentassets/3932b41a7b684b40a28d3195191265fe/edvard-munch-nasjonalbiblioteket.jpg" alt="Alps" style="width:100%;">');
@@ -1787,14 +1793,17 @@ PROCEDURE menuAutoriEliminati(
     nationFilter varchar2 default ''
 ) is
 idSessione NUMBER(5) := modgui1.get_id_sessione();
-CURSOR listaAutori(param VARCHAR2) IS
-    SELECT * 
-    FROM Autori 
-    WHERE Eliminato=0 
-        AND UPPER(Nome) LIKE '%'||UPPER(nameFilter)||'%'
-        AND UPPER(cognome) LIKE '%'||UPPER(surnameFilter)||'%'
-        AND nazionalita LIKE '%'||nationFilter||'%'
-    ORDER BY decode(param, 'Cognome', Cognome,'Nome', Nome, 'DataNascita', DataNascita, 'DataMorte', DataMorte, Cognome) ASC;
+TYPE cursoreAutori_T IS REF CURSOR;
+listaAutori_cursor cursoreAutori_T;
+variable_select varchar2(512) := 
+    'SELECT *
+    FROM Autori
+    WHERE Eliminato=1 
+        AND UPPER(Nome) LIKE ''%''||UPPER(:1)||''%''
+        AND UPPER(cognome) LIKE ''%''||UPPER(:2)||''%''
+        AND UPPER(nazionalita) LIKE ''%''||UPPER(:3)||''%''
+    ORDER BY ';
+autore Autori%ROWTYPE;
 BEGIN
     modGUI1.ApriPagina('Autori Eliminati', idSessione);
     modGUI1.Header;
@@ -1825,8 +1834,11 @@ BEGIN
     modGUI1.ChiudiDiv;
     --Visualizzazione TUTTI GLI AUTORI *temporanea*
     -- Filtro: mostrati soltanto autori eliminati (al DBA e SU)
-    FOR autore IN listaAutori(orderBy)
+    OPEN listaAutori_cursor FOR variable_select||orderBy USING nameFilter, surnameFilter, nationFilter;
     LOOP
+        FETCH listaAutori_cursor INTO autore;
+        EXIT WHEN listaAutori_cursor%NOTFOUND;
+
         modGUI1.ApriDiv('class="w3-col l4 w3-padding-large w3-center"');
             modGUI1.ApriDiv('class="w3-card-4"');
                 htp.prn('<img src="http://www.visitoslo.com/contentassets/3932b41a7b684b40a28d3195191265fe/edvard-munch-nasjonalbiblioteket.jpg" alt="Alps" style="width:100%;">');

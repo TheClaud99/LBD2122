@@ -2746,6 +2746,7 @@ op_title VARCHAR2(25);
 eta NUMBER(20);
 -- Gli eventuali parametri della procedura chiamante
 params VARCHAR2(255);
+paramsMenu VARCHAR2(255);
 menuRitorno VARCHAR2(255);
 BEGIN
     SELECT * INTO this_autore FROM Autori WHERE IdAutore = authorID;
@@ -2777,6 +2778,7 @@ BEGIN
 		-- caso modifica
 		IF operazione = 1 THEN
             modGUI1.ApriForm(gruppo2.gr2||'UpdateAutore');
+                HTP.FORMHIDDEN('caller', caller);
                 HTP.FORMHIDDEN('callerParams', params);
                 htp.formhidden('authID', this_autore.IdAutore);
                 modGUI1.Label('Nome:');
@@ -2848,14 +2850,15 @@ BEGIN
 
         -- Link per ritorno a procedura statistica dalla quale è stato chiamato
         IF caller is not null THEN
-            --params := REPLACE(callerParams,'//','&');
             IF params IS NULL THEN
                 MODGUI1.collegamento('Annulla',
                 gruppo2.gr2||caller,
                 'w3-button w3-block w3-black w3-section w3-padding');
             ELSE
+                paramsMenu := REPLACE(callerParams,'§§','//');
+                paramsMenu := REPLACE(paramsMenu,'//','&');
                 MODGUI1.collegamento('Annulla',
-                gruppo2.gr2||caller||'?'||params,
+                gruppo2.gr2||caller||'?'||paramsMenu,
                 'w3-button w3-block w3-black w3-section w3-padding');
             END IF;
         END IF; 
@@ -2870,6 +2873,7 @@ PROCEDURE UpdateAutore(
 	newBirth VARCHAR2 DEFAULT NULL,
 	newDeath VARCHAR2 DEFAULT NULL,
 	newNation VARCHAR2 DEFAULT 'Sconosciuta',
+    caller VARCHAR2 DEFAULT NULL,
     callerParams VARCHAR2 DEFAULT ''
 ) IS
 idSessione NUMBER(5) := modgui1.get_id_sessione();
@@ -2895,11 +2899,14 @@ BEGIN
 
     EXCEPTION
 		WHEN Errore_data THEN
+        params := REPLACE(callerParams,'%2F%2F', '//');
+        params := REPLACE(params, '%3D', '=');
+        params := REPLACE(params,'//', '§§');
             modGUI1.RedirectEsito('Aggiornamento fallito',
-             'Errore: data di nascita postuma alla data di morte'||params,
+             'Errore: data di nascita postuma alla data di morte',
              'Torna alla modifica',gruppo2.gr2||'ModificaAutore?', 
-             'authorID='||authID||'//operazione=1//caller='''||params,
-             'Torna al menù',gruppo2.gr2||'menuAutori?', params);
+             'authorID='||authID||'//operazione=1//caller='||caller||'//callerParams='||params,
+             'Torna al menù',gruppo2.gr2||'menuAutori?', callerParams);
             ROLLBACK;
         WHEN OTHERS THEN
             modGUI1.RedirectEsito('Aggiornamento fallito',

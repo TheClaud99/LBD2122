@@ -2909,11 +2909,14 @@ BEGIN
              'Torna al menù',gruppo2.gr2||'menuAutori?', callerParams);
             ROLLBACK;
         WHEN OTHERS THEN
+            params := REPLACE(callerParams,'%2F%2F', '//');
+            params := REPLACE(params, '%3D', '=');
+            params := REPLACE(params,'//', '§§');
             modGUI1.RedirectEsito('Aggiornamento fallito',
-             'Errore: controlla i parametri immessi'||params,
+             'Errore: controlla i parametri immessi',
              'Torna alla modifica',gruppo2.gr2||'ModificaAutore?', 
-             'authorID='||authID||'//operazione=1//caller='''||params,
-             'Torna al menù',gruppo2.gr2||'menuAutori?', params);
+             'authorID='||authID||'//operazione=1//caller='||caller||'//callerParams='||params,
+             'Torna al menù',gruppo2.gr2||'menuAutori?', callerParams);
 END;
 
 PROCEDURE classificaAutori AS    

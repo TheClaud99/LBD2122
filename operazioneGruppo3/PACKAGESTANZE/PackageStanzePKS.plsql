@@ -21,7 +21,9 @@ PROCEDURE formSala (
         varSalaOpere NUMBER default NULL
         );
 PROCEDURE visualizzaSala(
-        varIdSala in NUMBER
+        varIdSala in NUMBER,
+        DataInizio in VARCHAR2 DEFAULT '1990-01-01',
+        DataFine in VARCHAR2 DEFAULT '2030-12-31'
         );
 PROCEDURE inserisciSala (
         selectMusei IN musei.idmuseo%TYPE,

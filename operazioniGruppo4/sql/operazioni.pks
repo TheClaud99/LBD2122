@@ -221,7 +221,7 @@ procedure MonitoraggioPeriodoPagamentoCampiEstivi(
 );
 
 procedure PagamentoCampiEstivi(
-    idtariffa in PAGAMENTICAMPIESTIVI.Tariffa%type default 0
+   tariffaid in PAGAMENTICAMPIESTIVI.Tariffa%type default 0
 );
 /*tariffe campi estivi*/
 procedure InserisciTariffeCampiEstivi
@@ -275,7 +275,7 @@ procedure form1tariffe
 );
 procedure preferenzaTariffa
 (
-   campoEstivo in TARIFFECAMPIESTIVI.CampoEstivo%type
+   campoid in TARIFFECAMPIESTIVI.CampoEstivo%type
 );
 
 procedure monitoratariffeAnno

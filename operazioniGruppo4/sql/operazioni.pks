@@ -2,6 +2,7 @@ create or replace package operazioniGruppo4 as
 
 gr2 CONSTANT VARCHAR2(25) := 'gruppo2.';
 gr4 CONSTANT VARCHAR2(25) := 'operazioniGruppo4.';
+packstanze  CONSTANT VARCHAR2(25) :='PackageStanze.';
 menu_m CONSTANT VARCHAR2(25) := 'menumusei';
 menu_ce CONSTANT VARCHAR2(25) := 'menucampiestivi';
 menu_t CONSTANT VARCHAR2(25):='menutariffe';
@@ -214,8 +215,9 @@ procedure VisualizzaPagamentoCampiEstivi(
 procedure CancellaPagamentoCampiEstivi(
     idPagamento in PAGAMENTICAMPIESTIVI.IdPagamento%type
 );
-
-procedure MonitoraggioPeriodoPagamentoCampiEstivi(
+/*non utlizzata*/
+procedure MonitoraggioPeriodoPagamentoCampiEstivi
+(
     dataInizio in PAGAMENTICAMPIESTIVI.DataPagamento%type default NULL,
     dataFine in PAGAMENTICAMPIESTIVI.DataPagamento%type default NULL
 );
@@ -283,11 +285,6 @@ procedure monitoratariffeAnno
    campoEstivo in TARIFFECAMPIESTIVI.CampoEstivo%type,
    Data1 in varchar2,
    Data2 in varchar2
-);
-
-procedure MonitoraTariffeCampiEstivi_tariffeCampo
-(
-    campoEstivo in TARIFFECAMPIESTIVI.CampoEstivo%type
 );
 procedure Utentipagamenti
 (

@@ -76,31 +76,37 @@ PROCEDURE EliminaUtente(
 	utenteID NUMBER
 );
 
-PROCEDURE ListaUtenti;
+PROCEDURE ListaUtenti(
+	pcognome VARCHAR2 DEFAULT NULL
+);
 
 procedure etaMediaUtenti;
 
 procedure sommaTitoli(
 	dataInizioFun VARCHAR2 DEFAULT NULL,
 	dataFineFun VARCHAR2 DEFAULT NULL,
-	utenteID NUMBER DEFAULT 0
+	utenteID NUMBER DEFAULT 0,
+	museoID NUMBER DEFAULT 0
 );
 
 procedure mediaCostoTitoli(
 	dataInizioFun VARCHAR2 DEFAULT NULL,
 	dataFineFun VARCHAR2 DEFAULT NULL,
-	utenteID NUMBER DEFAULT 0
+	utenteID NUMBER DEFAULT 0,
+	museoID NUMBER DEFAULT 0
 );
 
 procedure NumeroVisiteMusei(
 	dataInizioFun VARCHAR2 DEFAULT NULL,
 	dataFineFun VARCHAR2 DEFAULT NULL,
-	utenteID NUMBER DEFAULT 0
+	utenteID NUMBER DEFAULT 0,
+	museoID NUMBER DEFAULT 0
 );
 
 procedure NumeroMedioTitoli(
 	dataInizioFun VARCHAR2 DEFAULT NULL,
-	dataFineFun VARCHAR2 DEFAULT NULL
+	dataFineFun VARCHAR2 DEFAULT NULL,
+	museoID NUMBER DEFAULT 0
 );
 
 procedure StatisticheUtenti;

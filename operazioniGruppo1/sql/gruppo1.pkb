@@ -11,35 +11,10 @@ CREATE OR REPLACE PACKAGE BODY gruppo1 AS
  * OPERAZIONI STATISTICHE E MONITORAGGIO
  * - Numero Musei visitati in un arco temporale scelto ✅
  * - Numero Titoli d’Ingresso  acquistati in un arco temporale scelto ✅
- * - Numero medio Titoli d’Ingresso acquistati in un arco temporale scelto ❌
+ * - Numero medio Titoli d’Ingresso acquistati in un arco temporale scelto ✅
  * - Età media utenti ✅
  * - Spesa media di un visitatore in un arco temporale scelto ✅
  */
-
-
-/*
- *  OPERAZIONI SULLE TIPOLOGIE DI INGRESSO
- * - Inserimento ❌
- * - Modifica ❌
- * - Visualizzazione ❌
- * - Cancellazione (rimozione) ❌
- * OPERAZIONI STATISTICHE E MONITORAGGIO
- * - Tipologia più scelta in un arco temporale scelto ❌
- * - Lista Tipologie in ordine di prezzo crescente ❌
-*/
-
-/*
- *  OPERAZIONI SUI TITOLI DI INGRESSO
- * - Modifica ❌
- * - Cancellazione❌
- * - Visualizzazione ❌
- * - Acquisto abbonamento museale ❌
- * - Acquisto biglietto ❌
- * OPERAZIONI STATISTICHE E MONITORAGGIO
- * - Numero Titoli d’Ingresso emessi in un arco temporale scelto ❌
- * - Numero Titoli d’Ingresso emessi da un Museo in un arco temporale scelto ❌
- * - Abbonamenti in scadenza nel mese corrente ❌
-*/
 
 --Procedura per inserimento Utente
 PROCEDURE InserisciUtente(
@@ -130,7 +105,7 @@ BEGIN
 	else
 		MODGUI1.InputCheckboxOnClick('Utente campi estivi', 'utenteCampiEstivi', 'check2()', 'utentecampiestivi');
 		MODGUI1.ApriDiv('style="margin-left: 2%; margin-right: 2%; display: none" id="second"');
-	end if;
+	end if; 
 	HTP.BR;
 	if utenteAssistenza = 'on' then
 		MODGUI1.InputCheckbox('Richiede assistenza', 'utenteAssistenza', 1);
@@ -331,6 +306,7 @@ BEGIN
 		dbms_output.put_line('Error: '||sqlerrm);
 END;
 
+--inserimento utente nel db
 PROCEDURE InserisciDatiUtente (
 	nome VARCHAR2 DEFAULT NULL,
 	cognome VARCHAR2 DEFAULT NULL,
@@ -431,7 +407,7 @@ procedure EsitoPositivoUtenti
  is
 	idSessione NUMBER(5) := modgui1.get_id_sessione();
     begin
-        modGUI1.ApriPagina('EsitoPositivoUtenti',idSessione);
+        modGUI1.ApriPagina('Esito positivo',idSessione);
         if idSessione IS NULL then
             modGUI1.Header(0);
 		else
@@ -452,7 +428,7 @@ procedure EsitoNegativoUtenti
  is
 	idSessione NUMBER(5) := modgui1.get_id_sessione();
     begin
-        modGUI1.ApriPagina('EsitoPositivoUtenti',idSessione);
+        modGUI1.ApriPagina('Esito negativo',idSessione);
         if idSessione IS NULL then
             modGUI1.Header(0);
 		else
@@ -668,7 +644,7 @@ BEGIN
 	IF SQL%FOUND
 	THEN
 
-		MODGUI1.ApriPagina('Profile utente', idSessione);
+		MODGUI1.ApriPagina('Modifica utente', idSessione);
 		HTP.BodyOpen;
 		if idSessione IS NULL then
             modGUI1.Header(0);
@@ -945,6 +921,7 @@ BEGIN
 
 	/*delete from UTENTIMUSEO where IDUTENTE=utenteID;
 	delete from UTENTICAMPIESTIVI where IDUTENTE=utenteID;*/
+
 	update UTENTI 
 	set ELIMINATO = 1
 	where IDUTENTE=utenteID;
@@ -1022,7 +999,7 @@ is
 		select AVG(to_number((EXTRACT(YEAR FROM dataNascita)))) into tempMedia from utenti;
 		res := to_number((EXTRACT(YEAR FROM SYSDATE()))) - tempMedia;
 
-		modGUI1.ApriPagina('EsitoPositivoUtenti',idSessione);
+		modGUI1.ApriPagina('Statistiche utenti',idSessione);
          if idSessione IS NULL then
             modGUI1.Header(0);
 		else
@@ -1683,223 +1660,5 @@ begin
 		HTP.HtmlClose;
 end;
 
--------------------------------------------------------------TODO DA TESTARE
-/*
-PROCEDURE inserisciNewsLetter (
-    idSessione NUMBER DEFAULT 0
-) IS
-BEGIN
-	MODGUI1.ApriPagina('Inserimento newsletter', 0);
-
-	HTP.BodyOpen;
-	MODGUI1.Header(); --da capire come combinarlo con il resto
-	HTP.header(1,'Inserisci una nuova newsletter', 'center');
-	MODGUI1.ApriDiv('style="margin-left: 2%; margin-right: 2%;"');
-
-	MODGUI1.ApriForm('inserisci_newsletter');
-	HTP.FORMHIDDEN('idSessione',0);
-
-	MODGUI1.Label('Nome*');
-	MODGUI1.InputText('nome', 'Nome newsletter', 1);
-	HTP.BR;
-	MODGUI1.ChiudiDiv;
-
-	MODGUI1.InputSubmit('Inserisci');
-	MODGUI1.ChiudiForm;
-
-	MODGUI1.ChiudiDiv;
-
-END;
-
-PROCEDURE inserisci_newsletter (
-    idSessione NUMBER DEFAULT 0
-	nome varchar2(25) not null
-) IS
-BEGIN
-	MODGUI1.ApriPagina('Inserimento utenti', 0);
-
-	insert into NEWSLETTER
-    values (IdNewsSeq.NEXTVAL, nome);
-
-	HTP.BodyOpen;
-	MODGUI1.Header(); --da capire come combinarlo con il resto
-	HTP.header(1,'Newsletter inserita', 'center');
-	MODGUI1.ApriDiv('style="margin-left: 2%; margin-right: 2%;"');
-
-	MODGUI1.ApriForm('inseriscinewsletter');
-	HTP.FORMHIDDEN('idSessione',0);
-
-	MODGUI1.Label('Nome');
-	MODGUI1.label(nome);
-	MODGUI1.ChiudiDiv;
-
-	MODGUI1.InputSubmit('Continuare?');
-	MODGUI1.ChiudiForm;
-
-	MODGUI1.ChiudiDiv;
-
-END;
-
-
-
-
--------------------------------------------------------------FINE TODO */
-
-
-PROCEDURE statisticheNewsLetter (
-	newsletterID NUMBER DEFAULT -1
-) IS
-	id_sessione NUMBER(10) := NULL;
-	temp NUMBER(10) := 0;
-	nomeNew VARCHAR2(100) := '';
-	numeroVisitatori NUMBER(10) := 0;
-	etaMediaIscritti NUMBER(10) := 0;
-
-
-	--utente
-	U_NOME UTENTI.NOME%TYPE :='';
-	U_COGNOME UTENTI.COGNOME%TYPE :='';
-	U_NASCITA UTENTI.DATANASCITA%TYPE :='';
-	U_EMAIL UTENTI.EMAIL%TYPE :='';
-	U_INDIRIZZO UTENTI.INDIRIZZO%TYPE :='';
-	U_RECAPITO UTENTI.RECAPITOTELEFONICO%TYPE :='';
-
-    newsletterInesistente EXCEPTION;
-	idSessioneExecption EXCEPTION;
-BEGIN
-
-	id_sessione := modgui1.get_id_sessione;
-	if id_sessione = 0
-	THEN
-		RAISE idSessioneExecption;
-	end if;
-
-	if newsletterID = -1
-	THEN
-		RAISE newsletterInesistente;
-	end if;
-
-	SELECT count(*) into temp FROM NEWSLETTER where NEWSLETTER.IDNEWS = newsletterID;
-
-	if temp = 0
-	THEN
-		RAISE newsletterInesistente;
-	end if;
-
-	SELECT NOME into nomeNew FROM NEWSLETTER WHERE NEWSLETTER.IDNEWS = newsletterID;
-	SELECT count(*) into numeroVisitatori from UTENTI where IdUtente IN (select VISITATORE from VISITE) AND IDUTENTE IN (SELECT IDUTENTE FROM NEWSLETTERUTENTI WHERE IDNEWS = newsletterID);
-
-	SELECT avg(age) into etaMediaIscritti FROM (SELECT MONTHS_BETWEEN(sysdate, UTENTI.DATANASCITA) / 12 age FROM UTENTI WHERE UTENTI.IDUTENTE IN (SELECT NEWSLETTERUTENTI.IDUTENTE FROM NEWSLETTERUTENTI WHERE NEWSLETTERUTENTI.IDNEWS = newsletterID));
-
-
-	MODGUI1.ApriPagina('Statistiche');
-	modgui1.header();
-	modgui1.apridiv('style="margin-top: 110px;text-align:center;"');
-	htp.prn(CONCAT('<h1> statistiche per newsletter </h1>', nomeNew));
-	htp.br();
-	modgui1.Label('Numero visitatori: ');
-	modgui1.Label(TO_CHAR(numeroVisitatori));
-	htp.br();
-	modgui1.Label('Età media iscritti: ');
-	modgui1.Label(TO_CHAR(etaMediaIscritti));
-	htp.br();
-
-	--hdaidhiaodh
-	modgui1.Label('Titoli di ingresso degli iscritti alla newsletter:');
-	--per ogni utente che è iscitto alla newsletter
-	--mostrare TUTTI i titoli di ingresso che ha acquistato
-
-	SELECT MAX(numb) INTO temp FROM (SELECT count(*) numb FROM TITOLIINGRESSO GROUP BY TITOLIINGRESSO.ACQUIRENTE);
-
-	htp.prn('<table style="width:100%" border="2">');
-	htp.prn('<tr>');
-		htp.prn('<th> utente </th>');
-		for k in 0..temp
-		LOOP
-			htp.prn(CONCAT(CONCAT('<th> acquisto ', k + 1), '</th>'));
-		END LOOP;
-	htp.prn('</tr>');
-	for id_utente in (	SELECT NEWSLETTERUTENTI.IDUTENTE
-						FROM NEWSLETTERUTENTI
-						WHERE NEWSLETTERUTENTI.IDNEWS = newsletterID
-								AND NEWSLETTERUTENTI.IDUTENTE IN (	SELECT TITOLIINGRESSO.ACQUIRENTE
-																	FROM TITOLIINGRESSO))
-	LOOP
-		--id_utente.IDUTENTE tiene id dell'utente
-		htp.prn('<tr>');
-		htp.prn('<td>');
-		--primo printare i dati dell'utente.
-		SELECT UTENTI.NOME, UTENTI.COGNOME, UTENTI.DATANASCITA, UTENTI.INDIRIZZO, UTENTI.EMAIL, UTENTI.RECAPITOTELEFONICO
-			INTO U_NOME, U_COGNOME, U_NASCITA, U_INDIRIZZO, U_EMAIL, U_RECAPITO
-			FROM UTENTI
-			WHERE UTENTI.IDUTENTE = id_utente.IDUTENTE;
-
-		htp.prn(TO_CHAR(U_NOME));
-		htp.prn(TO_CHAR(U_COGNOME));
-		htp.br;
-		htp.prn(TO_CHAR(U_NASCITA, 'YYYY-MM-DD'));
-		htp.br;
-		htp.prn(TO_CHAR(U_INDIRIZZO));
-		htp.br;
-		htp.prn(TO_CHAR(U_EMAIL));
-		htp.br;
-		htp.prn(TO_CHAR(U_RECAPITO));
-		htp.prn('</td>');
-
-		FOR titolo IN (
-			SELECT *
-			FROM TITOLIINGRESSO
-			WHERE TITOLIINGRESSO.ACQUIRENTE = id_utente.IDUTENTE
-		)
-		LOOP
-		htp.prn('<td>');
-		htp.prn(CONCAT('ID: ', TO_CHAR(titolo.IDTITOLOING)));
-		htp.br;
-		htp.prn(CONCAT('EMISSIONE: ', TO_CHAR(titolo.EMISSIONE, 'YYYY-MM-DD HH24:MI')));
-		htp.br;
-		htp.prn(CONCAT('SCADENZA: ', TO_CHAR(titolo.SCADENZA, 'YYYY-MM-DD')));
-		htp.br;
-		htp.prn(CONCAT('TIPOLOGIA: ', TO_CHAR(titolo.TIPOLOGIA)));
-		htp.br;
-
-		htp.prn('</td>');
-		END LOOP;
-
-		htp.prn('</tr>');
-
-	END LOOP;
-	htp.prn('</table>');
-	----dshaheoh
-	MODGUI1.chiudiDiv;
-	htp.bodyclose;
-	htp.htmlclose;
-	
-	EXCEPTION
-	when newsletterInesistente THEN
-		MODGUI1.ApriPagina('Errore', id_sessione);
-		MODGUI1.Header();
-		HTP.BodyOpen;
-
-		MODGUI1.ApriDiv;
-		MODGUI1.LABEL('newsletter inesistente');
-		MODGUI1.collegamento('visualizza newsletter', 'visualizzaNewsletter');
-		MODGUI1.ChiudiDiv;
-
-		HTP.BodyClose;
-		HTP.HtmlClose;
-	WHEN idSessioneExecption THEN
-		MODGUI1.ApriPagina('Errore', id_sessione);
-		MODGUI1.Header();
-		HTP.BodyOpen;
-
-		MODGUI1.ApriDiv;
-		MODGUI1.LABEL('idSessione non settato o corretto');
-		MODGUI1.collegamento('visualizza newsletter', 'visualizzaNewsletter');
-		MODGUI1.ChiudiDiv;
-
-		HTP.BodyClose;
-		HTP.HtmlClose;
-	
-END;
 END GRUPPO1;
 

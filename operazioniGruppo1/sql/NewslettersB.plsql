@@ -17,8 +17,8 @@ CREATE OR REPLACE PACKAGE BODY Newsletters AS
 			RAISE sessionIdExecption;
 		end if;
 
-		MODGUI1.ApriPagina('Newsletter', id_sessione);
-		modgui1.header(id_sessione);
+		MODGUI1.ApriPagina('Newsletter');
+		modgui1.header();
 		modgui1.apridiv('style="margin-top: 110px"');
         modgui1.apridiv('class="w3-center"');
         htp.prn('<h1>Newsletter</h1>');
@@ -107,7 +107,7 @@ CREATE OR REPLACE PACKAGE BODY Newsletters AS
 		EXCEPTION
 		WHEN sessionIdExecption THEN
 		MODGUI1.ApriPagina('Errore SessionID', id_sessione);
-		MODGUI1.Header(id_sessione);
+		MODGUI1.Header();
 		HTP.BodyOpen;
 
 		modgui1.apridiv('style="margin-top: 110px"');
@@ -142,7 +142,7 @@ CREATE OR REPLACE PACKAGE BODY Newsletters AS
 
 		MODGUI1.ApriPagina('Iscrizione newsletter', id_sessione);
 		HTP.BodyOpen;
-		MODGUI1.Header(id_sessione);
+		MODGUI1.Header();
 		modgui1.apridiv('style="margin-top: 110px"');
 		modgui1.ApriDivCard;
 		modgui1.apridiv('class="w3-container w3-center"');
@@ -188,7 +188,7 @@ CREATE OR REPLACE PACKAGE BODY Newsletters AS
 
 		MODGUI1.ApriPagina('Disiscrizione newsletter', id_sessione);
 		HTP.BodyOpen;
-		MODGUI1.Header(id_sessione);
+		MODGUI1.Header();
 		modgui1.apridiv('style="margin-top: 110px"');
 		modgui1.ApriDivCard;
 		modgui1.apridiv('class="w3-container w3-center"');
@@ -258,7 +258,7 @@ CREATE OR REPLACE PACKAGE BODY Newsletters AS
 											GROUP BY NEWSLETTERUTENTI.IDUTENTE);
 
 		MODGUI1.ApriPagina('Statistiche',id_sessione);
-		modgui1.header(id_sessione);
+		modgui1.header();
 		modgui1.apridiv('style="margin-top: 110px;text-align:center;"');
 		modgui1.apridivcard;
 		modgui1.collegamento(
@@ -407,7 +407,7 @@ CREATE OR REPLACE PACKAGE BODY Newsletters AS
 		EXCEPTION
 		when newsletterInesistente THEN
 			MODGUI1.ApriPagina('Errore newsletter', id_sessione);
-			MODGUI1.Header(id_sessione);
+			MODGUI1.Header();
 			HTP.BodyOpen;
 
 			MODGUI1.ApriDiv;
@@ -419,7 +419,7 @@ CREATE OR REPLACE PACKAGE BODY Newsletters AS
 			HTP.HtmlClose;
 		WHEN sessionIdExecption THEN
 			MODGUI1.ApriPagina('Errore SessionID', id_sessione);
-			MODGUI1.Header(id_sessione);
+			MODGUI1.Header();
 			HTP.BodyOpen;
 
 			MODGUI1.ApriDiv;
@@ -457,7 +457,7 @@ CREATE OR REPLACE PACKAGE BODY Newsletters AS
 			MODGUI1.ApriPagina('Titoli Ingresso iscritti', id_sessione);
 
 			HTP.BodyOpen;
-			MODGUI1.Header(id_sessione);
+			MODGUI1.Header();
 
 			modgui1.apridiv('style="margin-top: 110px;text-align:center;"');
 			MODGUI1.COLLEGAMENTO('Torna a statistiche',
@@ -536,7 +536,7 @@ CREATE OR REPLACE PACKAGE BODY Newsletters AS
 				EXCEPTION
 				WHEN sessionIdExecption THEN
 				MODGUI1.ApriPagina('Errore SessionID', id_sessione);
-				MODGUI1.Header(id_sessione);
+				MODGUI1.Header();
 				HTP.BodyOpen;
 
 				MODGUI1.ApriDiv;
@@ -563,7 +563,7 @@ CREATE OR REPLACE PACKAGE BODY Newsletters AS
 		MODGUI1.ApriPagina('Inserimento newsletter', id_sessione);
 
 		HTP.BodyOpen;
-		MODGUI1.Header(id_sessione);
+		MODGUI1.Header();
 		modgui1.apridiv('style="margin-top: 110px"');
 		modgui1.ApriDivCard;
 		modgui1.collegamento(
@@ -605,7 +605,7 @@ CREATE OR REPLACE PACKAGE BODY Newsletters AS
 
 	MODGUI1.ApriPagina('Inserimento newsletter', id_sessione);
 	HTP.BodyOpen;
-	MODGUI1.Header(id_sessione);
+	MODGUI1.Header();
 	modgui1.apridiv('style="margin-top: 110px"');
 	modgui1.ApriDivCard;
 	modgui1.collegamento(
@@ -663,7 +663,7 @@ CREATE OR REPLACE PACKAGE BODY Newsletters AS
 
 		MODGUI1.ApriPagina('Rimozione newsletter', id_sessione);
 		HTP.BodyOpen;
-		MODGUI1.Header(id_sessione);
+		MODGUI1.Header();
 		modgui1.apridiv('style="margin-top: 110px"');
 		modgui1.apridiv('class="w3-container w3-center"');
 		modgui1.ApriDivCard;
@@ -702,7 +702,7 @@ CREATE OR REPLACE PACKAGE BODY Newsletters AS
 
 		MODGUI1.ApriPagina('Rimozione newsletter', id_sessione);
 		HTP.BodyOpen;
-		MODGUI1.Header(id_sessione);
+		MODGUI1.Header();
 		modgui1.apridiv('style="margin-top: 110px"');
 		modgui1.apridiv('class="w3-container w3-center"');
 		modgui1.ApriDivCard;

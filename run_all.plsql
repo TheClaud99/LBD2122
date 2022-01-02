@@ -22,24 +22,39 @@
 @operazioneGruppo3/visiteBody.plsql
 @operazioneGruppo3/view_visite.plsql
 
--- GRUPPO 2
-@operazioni_gruppo2/sql/gruppo2PKS.pkb
-@operazioni_gruppo2/sql/gruppo2PKB.pkb
+
 
 -- GRUPPO 1
 @operazioniGruppo1/sql/gruppo1.pks
 @operazioniGruppo1/sql/gruppo1.pkb
-@operazioniGruppo1/sql/FabioB.plsql
-@operazioniGruppo1/sql/FabioBB.plsql
+@operazioniGruppo1/sql/Newsletters.plsql
+@operazioniGruppo1/sql/NewslettersB.plsql
 @operazioniGruppo1/sql/TitoliIngresso.plsql
 @operazioniGruppo1/sql/TitoliIngressoBody.plsql
 @operazioniGruppo1/sql/view_titoli.plsql
 
+grant execute on modgui1 to anonymous;
+grant execute on modgui1 to public;
+grant execute on webpages to anonymous;
+grant execute on webpages to public;
+grant execute on packageacquistatitoli to anonymous;
+grant execute on packageacquistatitoli to public;
+grant execute on newsletters to anonymous;
+grant execute on newsletters to public;
+grant execute on gruppo1 to anonymous;
+grant execute on gruppo1 to public;
+grant execute on gruppo2 to anonymous;
+grant execute on gruppo2 to public;
+grant execute on packagevisite to anonymous;
+grant execute on packagevisite to public;
+grant execute on operazionigruppo3 to anonymous;
+grant execute on operazionigruppo3 to public;
+grant execute on operazionigruppo4 to anonymous;
+grant execute on operazionigruppo4 to public;
+grant execute on tariffeCampiEstiviOperazioni to anonymous;
+grant execute on tariffeCampiEstiviOperazioni to public;
+/*
+grant execute on PagamentiCampiEstivi to anonymous;
+grant execute on PagamentiCampiEstivi to public;
+*/
 
--- GRUPPO 4
-@operazioniGruppo4/sql/operazioni.pks
-@operazioniGruppo4/sql/operazioni.pkb
-@operazioniGruppo4/sql/pagamentiCampiEstivi.pks
-@operazioniGruppo4/sql/pagamentiCampiEstivi.pkb
-@operazioniGruppo4/sql/tariffeCampiEstivi.pks
-@operazioniGruppo4/sql/tariffeCampiEstivi.pkb

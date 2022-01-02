@@ -2,9 +2,6 @@ SET DEFINE OFF;
 
 CREATE OR REPLACE PACKAGE BODY testFB AS
 
-
---        modgui1.apridiv('id="modal_filtri" class="w3-modal"');
--- htp.prn('<span onclick="document.getElementById(''modal_filtri'').style.display=''none''" class="w3-button w3-xlarge w3-red w3-display-topright" title="Close Modal">X</span>');
 	PROCEDURE visualizzaNewsletters
 	IS
 		id_sessione NUMBER(10) := NULL;

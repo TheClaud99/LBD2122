@@ -569,7 +569,9 @@ CREATE OR REPLACE PACKAGE BODY modGUI1 as
                     if nuovaOp IS NOT NULL OR nuovaOpURL IS NOT NULL then
                         MODGUI1.collegamento(nuovaOp, nuovaOpURL||paramOP,'w3-button w3-block w3-black w3-section w3-padding');
                     end if;
+                    if backToMenu IS NOT NULL OR backToMenuURL IS NOT NULL then
                         MODGUI1.collegamento(backToMenu, backToMenuURL||paramBTM,'w3-button w3-block w3-black w3-section w3-padding');
+                    end if;
                     modGUI1.ChiudiDiv;
                 modGUI1.ChiudiDiv;
     end EsitoOperazione;

@@ -212,10 +212,6 @@ procedure ControllaPagamentoCampiEstivi(
     acquirente in PAGAMENTICAMPIESTIVI.Acquirente%type
 );
 
-procedure VisualizzaPagamentoCampiEstivi(
-    idPagamento in PAGAMENTICAMPIESTIVI.IdPagamento%type
-);
-
 procedure PagamentoCampiEstivi(
    tariffaid in PAGAMENTICAMPIESTIVI.Tariffa%type default 0
 );

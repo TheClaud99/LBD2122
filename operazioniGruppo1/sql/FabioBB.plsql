@@ -510,7 +510,6 @@ CREATE OR REPLACE PACKAGE BODY testFB AS
 
 	END;
 
-<<<<<<< HEAD
 	PROCEDURE rimuoviNewsletter (
 		newsletterID NUMBER DEFAULT -1
 	) IS
@@ -532,8 +531,10 @@ CREATE OR REPLACE PACKAGE BODY testFB AS
 		modgui1.LABEL('Nome: ' || newsletterName);
 		htp.br;
 		MODGUI1.COLLEGAMENTO('Torna a visualizza',
-							 'testfb.rimuoviNewsletter?newsletterID=' || TO_CHAR(newsletterID),
+							 'testFB.visualizzaNewsletters',
 							 'w3-btn w3-round-xxlarge w3-black');
+
+		UPDATE NEWSLETTER SET NEWSLETTER.ELIMINATO = 1 WHERE NEWSLETTER.IDNEWS = newsletterID;
 		MODGUI1.ChiudiDiv;
 		MODGUI1.ChiudiDiv;
 		MODGUI1.ChiudiDiv;
@@ -564,10 +565,10 @@ CREATE OR REPLACE PACKAGE BODY testFB AS
 		modgui1.LABEL('Nome: ' || newsletterName);
 		htp.br;
 		MODGUI1.COLLEGAMENTO('Annulla',
-							 'testfb.visualizzaNewsletters',
+							 'testFB.visualizzaNewsletters',
 							 'w3-btn w3-round-xxlarge w3-red');
 		MODGUI1.COLLEGAMENTO('Conferma',
-							 'testfb.rimuoviNewsletter?newsletterID=' || TO_CHAR(newsletterID),
+							 'testFB.rimuoviNewsletter?newsletterID=' || TO_CHAR(newsletterID),
 							 'w3-btn w3-round-xxlarge w3-green');
 		MODGUI1.ChiudiDiv;
 		MODGUI1.ChiudiDiv;

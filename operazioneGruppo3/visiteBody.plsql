@@ -22,29 +22,34 @@ CREATE OR REPLACE PACKAGE BODY packagevisite AS
         oravisita            IN  VARCHAR2,
         duratavisita         IN  NUMBER,
         idutenteselezionato  IN  utenti.idutente%TYPE,
-        idtitoloselezionato  IN  titoliingresso.idtitoloing%TYPE
+        idtitoloselezionato  IN  titoliingresso.idtitoloing%TYPE,
+        id_museo             IN  musei.idmuseo%TYPE DEFAULT NULL
     ) IS
 
         nomeutente      utenti.nome%TYPE;
         cognomeutente   utenti.cognome%TYPE;
         nome_tipologia  tipologieingresso.nome%TYPE;
+        id_tipologia    tipologieingresso.nome%TYPE;
+        nome_museo      musei.nome%TYPE;
     BEGIN
-        modgui1.apridiv('style="margin-left: 2%; margin-right: 2%;"');
-        htp.tableopen;
-        htp.tablerowopen;
-        htp.tabledata('Data visita: ');
-        htp.tabledata(datavisitachar);
-        htp.tablerowclose;
-        htp.tablerowopen;
-        htp.tabledata('Ora visita: ');
-        htp.tabledata(oravisita);
-        htp.tablerowclose;
-        htp.tablerowopen;
-        htp.tabledata('Durata visita: ');
-        htp.tabledata(duratavisita);
-        htp.tablerowclose;
-        htp.tablerowopen;
-        htp.tabledata('Utente: ');
+        htp.prn('<div class="w3-row">');
+        htp.prn('<div class="w3-col s3 w3-center"><p>Data visita:</p></div>');
+        htp.prn('<div class="w3-col s9 w3-center"><p>'
+                || datavisitachar
+                || '</p></div>');
+        htp.prn('</div>');
+        htp.prn('<div class="w3-row">');
+        htp.prn('<div class="w3-col s3 w3-center"><p>Ora visita:</p></div>');
+        htp.prn('<div class="w3-col s9 w3-center"><p>'
+                || oravisita
+                || '</p></div>');
+        htp.prn('</div>');
+        htp.prn('<div class="w3-row">');
+        htp.prn('<div class="w3-col s3 w3-center"><p>Durata visita:</p></div>');
+        htp.prn('<div class="w3-col s9 w3-center"><p>'
+                || duratavisita
+                || '</p></div>');
+        htp.prn('</div>');
         SELECT
             nome,
             cognome
@@ -56,28 +61,156 @@ CREATE OR REPLACE PACKAGE BODY packagevisite AS
         WHERE
             idutente = idutenteselezionato;
 
-        htp.tabledata(nomeutente
-                      || ' '
-                      || cognomeutente);
-        htp.tablerowclose;
-        htp.tablerowopen;
-        htp.tabledata('Tipologia ingresso: ');
+        htp.prn('<div class="w3-row">');
+        htp.prn('<div class="w3-col s3 w3-center"><p>Utente:</p></div>');
+        htp.prn('<div class="w3-col s9 w3-center"><p>');
+        modgui1.collegamento(
+                            nomeutente
+                            || ' '
+                            || cognomeutente,
+                            'gruppo1.VisualizzaUtente?utenteID=' || idutenteselezionato
+        );
+        htp.prn('</p></div>');
+        htp.prn('</div>');
         SELECT
-            nome
-        INTO nome_tipologia
+            nome,
+            idtipologiaing
+        INTO
+            nome_tipologia,
+            id_tipologia
         FROM
             titoliingresso
             JOIN tipologieingresso ON tipologieingresso.idtipologiaing = titoliingresso.tipologia
         WHERE
             idtitoloing = idtitoloselezionato;
 
-        htp.tabledata(nome_tipologia);
-        htp.tablerowclose;
-        htp.tableclose;
-        modgui1.chiudidiv;
+        htp.prn('<div class="w3-row">');
+        htp.prn('<div class="w3-col s3 w3-center"><p>Titolo / Tipologia ingresso:</p></div>');
+        htp.prn('<div class="w3-col s9 w3-center"><p>');
+        modgui1.collegamento(
+                            idtitoloselezionato,
+                            'packageAcquistaTitoli.visualizzatitoloing?varidtitoloing=' || idtitoloselezionato
+        );
+        htp.prn(' / ');
+        modgui1.collegamento(
+                            nome_tipologia,
+                            'gruppo1.VisualizzaDatiTitoloIng?tipologiaIngID=' || id_tipologia
+        );
+        htp.prn('</p></div>');
+        htp.prn('</div>');
+        IF id_museo IS NOT NULL THEN
+            SELECT
+                nome
+            INTO nome_museo
+            FROM
+                musei
+            WHERE
+                idmuseo = id_museo;
+
+            htp.prn('<div class="w3-row">');
+            htp.prn('<div class="w3-col s3 w3-center"><p>Museo:</p></div>');
+            htp.prn('<div class="w3-col s9 w3-center"><p>');
+            modgui1.collegamento(
+                                nome_museo,
+                                'operazioniGruppo4.visualizzaMusei?idMuseo=' || id_museo
+            );
+            htp.prn('</p></div>');
+            htp.prn('</div>');
+        END IF;
+
     EXCEPTION
         WHEN OTHERS THEN
             dbms_output.put_line('Error: ' || sqlerrm);
+    END;
+
+    PROCEDURE select_utente (
+        nome                 VARCHAR2 DEFAULT 'id_utente',
+        id                   VARCHAR2 DEFAULT 'id_utente',
+        idutenteselezionato  IN utenti.idutente%TYPE DEFAULT NULL
+    ) IS
+    BEGIN
+        modgui1.selectopen(
+                          nome,
+                          id
+        );
+        modgui1.emptyselectoption(
+                                 CASE
+                                     WHEN idutenteselezionato IS NULL THEN
+                                         1
+                                     ELSE 0
+                                 END
+        );
+        FOR utente IN (
+            SELECT
+                utenti.*
+            FROM
+                utentimuseo
+                JOIN utenti ON utentimuseo.idutente = utenti.idutente
+            ORDER BY
+                nome
+        ) LOOP
+            IF utente.idutente = idutenteselezionato THEN
+                modgui1.selectoption(
+                                    utente.idutente,
+                                    utente.nome
+                                    || ' '
+                                    || utente.cognome,
+                                    1
+                );
+
+            ELSE
+                modgui1.selectoption(
+                                    utente.idutente,
+                                    utente.nome
+                                    || ' '
+                                    || utente.cognome,
+                                    0
+                );
+            END IF;
+        END LOOP;
+
+        modgui1.selectclose();
+    END;
+
+    PROCEDURE select_museo (
+        nome      VARCHAR2 DEFAULT 'id_museo',
+        id        VARCHAR2 DEFAULT 'id_museo',
+        id_museo  IN utenti.idutente%TYPE DEFAULT NULL
+    ) IS
+    BEGIN
+        modgui1.selectopen(
+                          nome,
+                          id
+        );
+        modgui1.emptyselectoption(
+                                 CASE
+                                     WHEN id_museo IS NULL THEN
+                                         1
+                                     ELSE 0
+                                 END
+        );
+        FOR museo IN (
+            SELECT
+                *
+            FROM
+                musei
+        ) LOOP
+            IF museo.idmuseo = id_museo THEN
+                modgui1.selectoption(
+                                    museo.idmuseo,
+                                    museo.nome,
+                                    1
+                );
+            ELSE
+                modgui1.selectoption(
+                                    museo.idmuseo,
+                                    museo.nome,
+                                    0
+                );
+            END IF;
+        END LOOP;
+
+        modgui1.selectclose();
     END;
 
     PROCEDURE visualizzavisita (
@@ -88,11 +221,8 @@ CREATE OR REPLACE PACKAGE BODY packagevisite AS
     ) IS
         visita visite%rowtype;
     BEGIN
-        modgui1.apripagina(
-                          'Visualizza visita',
-                          modgui1.get_id_sessione
-        );
-        modgui1.header(modgui1.get_id_sessione);
+        modgui1.apripagina('Visualizza visita');
+        modgui1.header;
         modgui1.apridiv('style="margin-top: 110px"');
         BEGIN
             SELECT
@@ -117,6 +247,7 @@ CREATE OR REPLACE PACKAGE BODY packagevisite AS
                                 'packageVisite.visualizza_visite',
                                 ' w3-btn w3-large w3-red w3-display-topright'
             );
+            htp.prn('<div class="w3-container">');
             tabella_dati_visita(
                                to_char(
                                       visita.datavisita,
@@ -146,6 +277,7 @@ CREATE OR REPLACE PACKAGE BODY packagevisite AS
                 modgui1.chiudiform;
             END IF;
 
+            htp.prn('</div>');
             modgui1.chiudidiv();
         EXCEPTION
             WHEN no_data_found THEN
@@ -161,38 +293,405 @@ CREATE OR REPLACE PACKAGE BODY packagevisite AS
         </html>');
     END;
 
-    PROCEDURE visualizza_visite IS
-        id_sessione NUMBER(10) := NULL;
+    PROCEDURE modal_filtri_visite (
+        data_visita_from  IN  VARCHAR2 DEFAULT NULL,
+        data_visita_to    IN  VARCHAR2 DEFAULT NULL,
+        id_utente         IN  NUMBER DEFAULT NULL,
+        id_museo          IN  NUMBER DEFAULT NULL,
+        is_biglietto      IN  NUMBER DEFAULT NULL,
+        is_abbonamento    IN  NUMBER DEFAULT NULL,
+        order_by          IN  VARCHAR2 DEFAULT 'IdVisita',
+        sort_method       IN  VARCHAR2 DEFAULT 'ASC'
+    ) IS
     BEGIN
-        id_sessione := modgui1.get_id_sessione;
-        modgui1.apripagina(
-                          'Visite',
-                          id_sessione
+        modgui1.apridiv('id="modal_filtri" class="w3-modal"');
+        modgui1.apridiv('class="w3-modal-content w3-card-4 w3-animate-zoom" style="max-width:600px"');
+        modgui1.apridiv('class="w3-center"');
+        htp.br;
+        htp.prn('<span onclick="document.getElementById(''modal_filtri'').style.display=''none''" class="w3-button w3-xlarge w3-red w3-display-topright" title="Close Modal">X</span>');
+        htp.print('<h1>Filtri</h1>');
+        modgui1.chiudidiv;
+        modgui1.apriform(
+                        'packageVisite.visualizza_visite',
+                        'seleziona statistica',
+                        'w3-container w3-margin'
         );
-        modgui1.header(id_sessione);
+        htp.prn('<div class="w3-row">');
+        htp.prn('
+        <div class="w3-col s6 w3-padding-small">
+            <label for="data_visita_from">Da:</label>
+            <input class="w3-input w3-border w3-round-xlarge" type="datetime-local" id="data_visita_from" name="data_visita_from" value="'
+                || data_visita_from
+                || '">
+        </div>');
+        htp.prn('
+        <div class="w3-col s6 w3-padding-small">
+            <label for="data_visita_to">A:</label>
+            <input class="w3-input w3-border w3-round-xlarge" type="datetime-local" id="data_visita_to" name="data_visita_to" value="'
+                || data_visita_to
+                || '">
+        </div>');
+        htp.prn('</div>');
+        htp.prn('<div class="w3-row">');
+        htp.prn('<div class="w3-col s4 w3-center">');
+        htp.prn('<div class="w3-margin">Utente: </div>');
+        htp.prn('</div>');
+        htp.prn('<div class="w3-col s8 w3-center">');
+        select_utente(
+                     'id_utente',
+                     'id_utente',
+                     id_utente
+        );
+        htp.prn('</div>');
+        htp.prn('</div>');
+        htp.prn('<div class="w3-row">');
+        htp.prn('<div class="w3-col s4 w3-center">');
+        htp.prn('<div class="w3-margin">Museo: </div>');
+        htp.prn('</div>');
+        htp.prn('<div class="w3-col s8 w3-center">');
+        select_museo(
+                    'id_museo',
+                    'id_museo',
+                    id_museo
+        );
+        htp.prn('</div>');
+        htp.prn('</div>');
+        htp.prn('<div class="w3-row">');
+        htp.prn('<div class="w3-col s4 w3-center">');
+        htp.prn('<div class="w3-margin">È un abbonamento: </div>');
+        htp.prn('</div>');
+        htp.prn('<div class="w3-col s8 w3-center">');
+        modgui1.inputcheckbox(
+                             '',
+                             'is_abbonamento',
+                             is_abbonamento,
+                             0,
+                             1
+        );
+        htp.prn('</div>');
+        htp.prn('</div>');
+        htp.prn('<div class="w3-row">');
+        htp.prn('<div class="w3-col s4 w3-center">');
+        htp.prn('<div class="w3-margin">È un biglietto: </div>');
+        htp.prn('</div>');
+        htp.prn('<div class="w3-col s8 w3-center">');
+        modgui1.inputcheckbox(
+                             '',
+                             'is_biglietto',
+                             is_biglietto,
+                             0,
+                             1
+        );
+        htp.prn('</div>');
+        htp.prn('</div>');
+        htp.prn('<div class="w3-row">');
+        htp.prn('<div class="w3-col w3-padding s4 w3-center">');
+        htp.prn('<div class="w3-margin">Ordina per: </div>');
+        htp.prn('</div>');
+        htp.prn('<div class="w3-col w3-padding s5 w3-center">');
+        modgui1.selectopen(
+                          'order_by',
+                          'order_by'
+        );
+        modgui1.selectoption(
+                            'IdVisita',
+                            'Identificativo',
+                            CASE
+                                WHEN order_by = 'Identificativo' THEN
+                                    1
+                                ELSE 0
+                            END
+        );
+
+        modgui1.selectoption(
+                            'duratavisita',
+                            'Durata',
+                            CASE
+                                WHEN order_by = 'duratavisita' THEN
+                                    1
+                                ELSE 0
+                            END
+        );
+
+        modgui1.selectoption(
+                            'datavisita',
+                            'Data',
+                            CASE
+                                WHEN order_by = 'datavisita' THEN
+                                    1
+                                ELSE 0
+                            END
+        );
+
+        modgui1.selectoption(
+                            'costototale',
+                            'Costo tipologia',
+                            CASE
+                                WHEN order_by = 'datavisita' THEN
+                                    1
+                                ELSE 0
+                            END
+        );
+
+        modgui1.selectclose();
+        htp.prn('</div>');
+        htp.prn('<div class="w3-col w3-padding s3 w3-center">');
+        modgui1.selectopen(
+                          'sort_method',
+                          'sort_method'
+        );
+        modgui1.selectoption(
+                            'ASC',
+                            'Crescente',
+                            CASE
+                                WHEN sort_method = 'ASC' THEN
+                                    1
+                                ELSE 0
+                            END
+        );
+
+        modgui1.selectoption(
+                            'DESC',
+                            'Decrescente',
+                            CASE
+                                WHEN sort_method = 'DESC' THEN
+                                    1
+                                ELSE 0
+                            END
+        );
+
+        modgui1.selectclose();
+        htp.prn('</div>');
+        htp.prn('</div>');
+        modgui1.inputreset;
+        htp.prn('<button class="w3-button w3-block w3-black w3-section w3-padding" type="submit">Applica</button>');
+        modgui1.chiudidiv;
+        modgui1.chiudiform;
+        modgui1.chiudidiv;
+        modgui1.chiudidiv;
+    END;
+
+    PROCEDURE modal_statistiche_visite (
+        data_visita_from  IN  VARCHAR2 DEFAULT NULL,
+        data_visita_to    IN  VARCHAR2 DEFAULT NULL,
+        id_utente         IN  NUMBER DEFAULT NULL,
+        id_museo          IN  NUMBER DEFAULT NULL,
+        is_biglietto      IN  NUMBER DEFAULT NULL,
+        is_abbonamento    IN  NUMBER DEFAULT NULL
+    ) IS
+
+        lv_where                  VARCHAR2(255);
+        v_base_query              VARCHAR2(2000) := 'with binds as (
+          select :bind1 as data_visita_from,
+          :bind2 as data_visita_to,
+          :bind3 as id_utente,
+          :bind4 as id_museo
+            from dual)
+        SELECT COUNT(view_visite.idvisita), AVG(DurataVisita) FROM view_visite, binds b
+        WHERE 1=1 ';
+        counter                   NUMBER(20);
+        media_durata              NUMBER(
+                           20,
+                           2
+        );
+        utente_max_durata_visita  utenti%rowtype;
+    BEGIN
+        IF data_visita_from IS NOT NULL THEN
+            lv_where := lv_where || ' AND datavisita >= b.data_visita_from';
+        END IF;
+        IF data_visita_to IS NOT NULL THEN
+            lv_where := lv_where || ' AND datavisita <= b.data_visita_to';
+        END IF;
+        IF id_utente IS NOT NULL THEN
+            lv_where := lv_where || ' AND idutente = b.id_utente';
+        END IF;
+        IF id_museo IS NOT NULL THEN
+            lv_where := lv_where || ' AND idmuseo = b.id_museo';
+        END IF;
+        IF is_biglietto = 1 THEN
+            lv_where := lv_where || ' AND EXISTS(SELECT * FROM biglietti WHERE biglietti.IdTipologiaIng=view_visite.IdTipologiaIng)';
+        END IF;
+        IF is_abbonamento = 1 THEN
+            lv_where := lv_where || ' AND EXISTS(SELECT * FROM abbonamenti WHERE abbonamenti.IdTipologiaIng=view_visite.IdTipologiaIng)';
+        END IF;
+        v_base_query := v_base_query || lv_where;
+        EXECUTE IMMEDIATE v_base_query
+        INTO
+            counter,
+            media_durata
+            USING to_date(
+                         data_visita_from,
+                         'YYYY-MM-DD"T"HH24:MI'
+                  ), to_date(
+                            data_visita_to,
+                            'YYYY-MM-DD"T"HH24:MI'
+                     ), id_utente, id_museo;
+
+        SELECT
+            utenti.*
+        INTO utente_max_durata_visita
+        FROM
+            utenti
+            JOIN visite ON utenti.idutente = visite.visitatore;
+        WHERE
+        GROUP BY UTENTI.IDUTENTE
+
+        modgui1.apridiv('id="modal_statistiche" class="w3-modal"');
+        modgui1.apridiv('class="w3-modal-content w3-card-4 w3-animate-zoom" style="max-width:600px"');
+        modgui1.apridiv('class="w3-center"');
+        htp.prn('<span onclick="document.getElementById(''modal_statistiche'').style.display=''none''" class="w3-button w3-xlarge w3-red w3-display-topright" title="Close Modal">X</span>');
+        htp.print('<h1>Statistiche</h1>');
+        modgui1.chiudidiv;
+        htp.prn('<div class"w3-container w3-margin">');
+        htp.prn('<div class="w3-row">');
+        htp.prn('<div class="w3-col s4 w3-center">');
+        htp.prn('<div class="w3-margin">Numero visite: </div>');
+        htp.prn('</div>');
+        htp.prn('<div class="w3-col s8 w3-center">');
+        htp.prn('<div class="w3-margin">'
+                || counter
+                || '</div>');
+        htp.prn('</div>');
+        htp.prn('</div>');
+        htp.prn('<div class"w3-container w3-margin">');
+        htp.prn('<div class="w3-row">');
+        htp.prn('<div class="w3-col s4 w3-center">');
+        htp.prn('<div class="w3-margin">Durata media visite: </div>');
+        htp.prn('</div>');
+        htp.prn('<div class="w3-col s8 w3-center">');
+        htp.prn('<div class="w3-margin">'
+                || media_durata
+                || 'h</div>');
+        htp.prn('</div>');
+        htp.prn('</div>');
+        htp.prn('<h3>Utente con durata visita più lunga</h3>')
+        htp.prn('<div class="w3-col s8 w3-center">');
+        htp.prn('<div class="w3-margin">');
+        
+        htp.prn('</div>');
+        htp.prn('</div>');
+        htp.prn('</div>');
+        modgui1.chiudidiv;
+        modgui1.chiudidiv;
+        modgui1.chiudidiv;
+    END;
+
+    FUNCTION build_query (
+        data_visita_from  IN  VARCHAR2 DEFAULT NULL,
+        data_visita_to    IN  VARCHAR2 DEFAULT NULL,
+        id_utente         IN  NUMBER DEFAULT NULL,
+        id_museo          IN  NUMBER DEFAULT NULL,
+        is_biglietto      IN  NUMBER DEFAULT NULL,
+        is_abbonamento    IN  NUMBER DEFAULT NULL,
+        order_by          IN  VARCHAR2 DEFAULT 'IdVisita',
+        sort_method       IN  VARCHAR2 DEFAULT 'ASC'
+    ) RETURN VARCHAR2 IS
+        lv_where      VARCHAR2(255);
+        v_base_query  VARCHAR2(2000) := 'with binds as (
+          select :bind1 as data_visita_from,
+          :bind2 as data_visita_to,
+          :bind3 as id_utente,
+          :bind4 as id_museo
+            from dual)
+       SELECT view_visite.* FROM view_visite, binds b
+       WHERE 1=1 ';
+    BEGIN
+        IF data_visita_from IS NOT NULL THEN
+            lv_where := lv_where || ' AND datavisita >= b.data_visita_from';
+        END IF;
+        IF data_visita_to IS NOT NULL THEN
+            lv_where := lv_where || ' AND datavisita <= b.data_visita_to';
+        END IF;
+        IF id_utente IS NOT NULL THEN
+            lv_where := lv_where || ' AND idutente = b.id_utente';
+        END IF;
+        IF id_museo IS NOT NULL THEN
+            lv_where := lv_where || ' AND idmuseo = b.id_museo';
+        END IF;
+        IF is_biglietto = 1 THEN
+            lv_where := lv_where || ' AND EXISTS(SELECT * FROM biglietti WHERE biglietti.IdTipologiaIng=view_visite.IdTipologiaIng)';
+        END IF;
+        IF is_abbonamento = 1 THEN
+            lv_where := lv_where || ' AND EXISTS(SELECT * FROM abbonamenti WHERE abbonamenti.IdTipologiaIng=view_visite.IdTipologiaIng)';
+        END IF;
+        v_base_query := v_base_query
+                        || lv_where
+                        || ' ORDER BY '
+                        || order_by
+                        || ' '
+                        || sort_method;
+
+        RETURN v_base_query;
+    END;
+
+    PROCEDURE visualizza_visite (
+        data_visita_from  IN  VARCHAR2 DEFAULT NULL,
+        data_visita_to    IN  VARCHAR2 DEFAULT NULL,
+        id_utente         IN  NUMBER DEFAULT NULL,
+        id_museo          IN  NUMBER DEFAULT NULL,
+        is_biglietto      IN  NUMBER DEFAULT NULL,
+        is_abbonamento    IN  NUMBER DEFAULT NULL,
+        order_by          IN  VARCHAR2 DEFAULT 'IdVisita',
+        sort_method       IN  VARCHAR2 DEFAULT 'ASC'
+    ) IS
+
+        id_sessione      NUMBER(10) := modgui1.get_id_sessione;
+        lv_sql           VARCHAR2(2000);
+        v_visite_cursor  SYS_REFCURSOR;
+        visita           view_visite%rowtype;
+    BEGIN
+        lv_sql := build_query(
+                             data_visita_from,
+                             data_visita_to,
+                             id_utente,
+                             id_museo,
+                             is_biglietto,
+                             is_abbonamento,
+                             order_by,
+                             sort_method
+                  );
+
+        OPEN v_visite_cursor FOR lv_sql
+            USING to_date(
+                         data_visita_from,
+                         'YYYY-MM-DD"T"HH24:MI'
+                  ), to_date(
+                            data_visita_to,
+                            'YYYY-MM-DD"T"HH24:MI'
+                     ), id_utente, id_museo;
+
+        modgui1.apripagina('Visite');
+        modgui1.header;
         modgui1.apridiv('style="margin-top: 110px"');
         modgui1.apridiv('class="w3-center"');
         htp.prn('<h1>Visite</h1>');
-        IF ( id_sessione = 1 ) THEN
+        IF hasrole(
+                  id_sessione,
+                  'AB'
+           ) OR hasrole(
+                       id_sessione,
+                       'SU'
+                ) OR hasrole(
+                            id_sessione,
+                            'DBA'
+                     ) THEN
             modgui1.collegamento(
                                 'Aggiungi',
                                 'PackageVisite.pagina_inserisci_visita',
-                                'w3-btn w3-round-xxlarge w3-black'
+                                'w3-btn w3-round-xxlarge w3-black w3-margin'
             ); /*bottone che rimanda alla procedura inserimento solo se la sessione è 1*/
+
+            htp.prn('<button onclick="document.getElementById(''modal_statistiche'').style.display=''block''" class="w3-btn w3-round-xxlarge w3-black w3-margin">Statistiche</button>');
+            htp.prn('<button onclick="document.getElementById(''modal_filtri'').style.display=''block''" class="w3-btn w3-round-xxlarge w3-black w3-margin">Filtri</button>');
         END IF;
 
         modgui1.chiudidiv;
         htp.br;
         modgui1.apridiv('class="w3-row w3-container"');
-        --INIZIO LOOP DELLA VISUALIZZAZIONE
-        FOR visita IN (
-            SELECT
-                *
-            FROM
-                visite
-            ORDER BY
-                idvisita DESC
-        ) LOOP
+        -- INIZIO LOOP DELLA VISUALIZZAZIONE
+        LOOP
+            FETCH v_visite_cursor INTO visita;
+            EXIT WHEN v_visite_cursor%notfound;
             modgui1.apridiv('class="w3-col l4 w3-padding-large w3-center"');
             modgui1.apridiv('class="w3-card-4"');
             htp.prn('<img src="https://cdn.pixabay.com/photo/2016/10/22/15/32/water-1761027__480.jpg" alt="Alps" style="width:100%">');
@@ -212,10 +711,11 @@ CREATE OR REPLACE PACKAGE BODY packagevisite AS
                                ),
                                visita.duratavisita,
                                visita.visitatore,
-                               visita.titoloingresso
+                               visita.titoloingresso,
+                               visita.idmuseo
             );
 
-            modgui1.chiudidiv;
+            htp.prn('<div class="w3-row">');
             modgui1.collegamento(
                                 'Visualizza',
                                 'packagevisite.visualizzavisita?idvisitaselezionata='
@@ -226,16 +726,16 @@ CREATE OR REPLACE PACKAGE BODY packagevisite AS
                                 'w3-button w3-margin w3-black'
             );
 
-            IF ( hasrole(
-                        id_sessione,
-                        'AB'
-                 ) OR hasrole(
-                             id_sessione,
-                             'SU'
-                      ) OR hasrole(
-                                  id_sessione,
-                                  'DBA'
-                           ) ) THEN
+            IF hasrole(
+                      id_sessione,
+                      'AB'
+               ) OR hasrole(
+                           id_sessione,
+                           'SU'
+                    ) OR hasrole(
+                                id_sessione,
+                                'DBA'
+                         ) THEN
                 modgui1.collegamento(
                                     'Modifica',
                                     'packagevisite.pagina_modifica_visita?carica_default=1&idvisitaselezionata=' || visita.idvisita,
@@ -248,12 +748,34 @@ CREATE OR REPLACE PACKAGE BODY packagevisite AS
                 );
             END IF;
 
+            htp.prn('</div>');
+            modgui1.chiudidiv;
             modgui1.chiudidiv;
             modgui1.chiudidiv;
         END LOOP;
 
+        CLOSE v_visite_cursor;
         modgui1.chiudidiv();
         modgui1.chiudidiv();
+        modal_filtri_visite(
+                           data_visita_from,
+                           data_visita_to,
+                           id_utente,
+                           id_museo,
+                           is_biglietto,
+                           is_abbonamento,
+                           order_by,
+                           sort_method
+        );
+
+        modal_statistiche_visite(
+                                data_visita_from,
+                                data_visita_to,
+                                id_utente,
+                                id_museo,
+                                is_biglietto,
+                                is_abbonamento
+        );
         htp.prn('</body>
         </html>');
     END;
@@ -289,7 +811,8 @@ CREATE OR REPLACE PACKAGE BODY packagevisite AS
         visualizzavisita(
                         idvisitacreata,
                         'Visita creata',
-                        'PackageVisite.visualizza_visite'
+                        'PackageVisite.visualizza_visite',
+                        'Torna ad home'
         );
     END;
 
@@ -331,11 +854,8 @@ CREATE OR REPLACE PACKAGE BODY packagevisite AS
         WHERE
             idvisita = idvisitaselezionata;
 
-        modgui1.apripagina(
-                          'Elimina visita',
-                          modgui1.get_id_sessione
-        );
-        modgui1.header(modgui1.get_id_sessione);
+        modgui1.apripagina('Elimina visita');
+        modgui1.header;
         modgui1.apridiv('style="margin-top: 110px"');
         htp.header(
                   2,
@@ -367,6 +887,11 @@ CREATE OR REPLACE PACKAGE BODY packagevisite AS
         tipologia      tipologieingresso%rowtype;
     BEGIN
         modgui1.apridivcard();
+        modgui1.collegamento(
+                            'X',
+                            'packageVisite.visualizza_visite',
+                            ' w3-btn w3-large w3-red w3-display-topright'
+        );
         modgui1.apriform(
                         action,
                         'formCreaVisita',
@@ -398,57 +923,11 @@ CREATE OR REPLACE PACKAGE BODY packagevisite AS
         );
         htp.br;
         modgui1.label('Utente');
-        modgui1.selectopen(
-                          'idUtenteSelezionato',
-                          'utente-selezionato'
+        select_utente(
+                     'idUtenteSelezionato',
+                     'utente-selezionato',
+                     idutenteselezionato
         );
-        FOR utente IN (
-            SELECT
-                idutente
-            FROM
-                utentimuseo
-        ) LOOP
-            SELECT
-                idutente,
-                nome,
-                cognome
-            INTO
-                varidutente,
-                nomeutente,
-                cognomeutente
-            FROM
-                utenti
-            WHERE
-                idutente = utente.idutente;
-
-            IF utente.idutente = idutenteselezionato THEN
-                modgui1.selectoption(
-                                    varidutente,
-                                    nomeutente
-                                    || ' '
-                                    || cognomeutente,
-                                    1
-                );
-            ELSE
-                modgui1.selectoption(
-                                    varidutente,
-                                    nomeutente
-                                    || ' '
-                                    || cognomeutente,
-                                    0
-                );
-            END IF;
-
-        END LOOP;
-
-        modgui1.emptyselectoption(
-                                 CASE
-                                     WHEN idutenteselezionato IS NULL THEN
-                                         1
-                                     ELSE 0
-                                 END
-        );
-        modgui1.selectclose();
         htp.br;
         modgui1.label('Titolo di ingresso');
         modgui1.selectopen(
@@ -510,6 +989,7 @@ CREATE OR REPLACE PACKAGE BODY packagevisite AS
     ) IS
     BEGIN
         modgui1.apridivcard();
+        htp.prn('<div class="w3-container">');
         tabella_dati_visita(
                            datavisitachar,
                            oravisita,
@@ -542,6 +1022,7 @@ CREATE OR REPLACE PACKAGE BODY packagevisite AS
         htp.prn('<input id="button_annulla" type="submit" class="w3-button w3-block w3-black w3-section w3-padding" value="Annulla">');
         modgui1.chiudiform;
         modgui1.chiudidiv();
+        modgui1.chiudidiv();
         htp.prn('<script>
             let button_annulla = document.getElementById("button_annulla");
             button_annulla.onclick = function goBack() {
@@ -568,11 +1049,8 @@ CREATE OR REPLACE PACKAGE BODY packagevisite AS
     ) IS
         visita visite%rowtype;
     BEGIN
-        modgui1.apripagina(
-                          'Modifica visita',
-                          modgui1.get_id_sessione
-        );
-        modgui1.header(modgui1.get_id_sessione);
+        modgui1.apripagina('Modifica visita');
+        modgui1.header;
         modgui1.apridiv('style="margin-top: 110px"');
         htp.prn('<h1>Modifica visita</h1>');
         IF convalida IS NULL THEN
@@ -662,11 +1140,8 @@ CREATE OR REPLACE PACKAGE BODY packagevisite AS
         convalida            IN  NUMBER DEFAULT NULL
     ) IS
     BEGIN
-        modgui1.apripagina(
-                          'Inserisci nuova visita',
-                          modgui1.get_id_sessione
-        );
-        modgui1.header(modgui1.get_id_sessione);
+        modgui1.apripagina('Inserisci nuova visita');
+        modgui1.header;
         modgui1.apridiv('style="margin-top: 110px"');
         htp.prn('<h1>Inserimento visita</h1>');
         IF convalida IS NULL THEN

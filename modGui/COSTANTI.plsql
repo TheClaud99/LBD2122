@@ -1,3 +1,5 @@
+SET DEFINE OFF;
+
 CREATE OR REPLACE PACKAGE costanti AS
     radice CONSTANT VARCHAR2(50) := '/apex/SPICCOLI.WebPages.'; -- Da sostituire (includere il punto) LINK per pagine esterne (WebPages)
 	radice2 CONSTANT VARCHAR2(50) := '/apex/SPICCOLI.MODGUI1.'; -- Link del ModGUI1

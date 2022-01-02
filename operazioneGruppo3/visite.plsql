@@ -51,6 +51,15 @@ CREATE OR REPLACE PACKAGE packagevisite AS
         button_text          IN  VARCHAR2 DEFAULT NULL
     );
 
-    PROCEDURE visualizza_visite;
+    PROCEDURE visualizza_visite (
+        data_visita_from  IN  VARCHAR2 DEFAULT NULL,
+        data_visita_to    IN  VARCHAR2 DEFAULT NULL,
+        id_utente         IN  NUMBER DEFAULT NULL,
+        id_museo          IN  NUMBER DEFAULT NULL,
+        is_biglietto      IN  NUMBER DEFAULT NULL,
+        is_abbonamento    IN  NUMBER DEFAULT NULL,
+        order_by          IN  VARCHAR2 DEFAULT 'IdVisita',
+        sort_method       IN  VARCHAR2 DEFAULT 'ASC'
+    );
 
 END packagevisite;

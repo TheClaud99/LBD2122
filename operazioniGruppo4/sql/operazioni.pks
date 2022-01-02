@@ -1,24 +1,30 @@
 create or replace package operazioniGruppo4 as
 
+gr2 CONSTANT VARCHAR2(25) := 'gruppo2.';
+gr4 CONSTANT VARCHAR2(25) := 'operazioniGruppo4.';
+packstanze  CONSTANT VARCHAR2(25) :='PackageStanze.';
+menu_m CONSTANT VARCHAR2(25) := 'menumusei';
+menu_ce CONSTANT VARCHAR2(25) := 'menucampiestivi';
+menu_t CONSTANT VARCHAR2(25):='menutariffe';
+
 /*OPERAZIONI CAMPIESTIVI*/
 procedure menucampiestivi;
-procedure menumusei
+procedure menumusei;
+procedure menutariffe
 (
-   idsessione IN number default 0
+   idCampo IN number default 0
 );
 procedure inseriscicampiestivi
 (
    newNome in CAMPIESTIVI.Nome%TYPE default null,
    newMuseo in Musei.Nome%TYPE,
-   newStato in CAMPIESTIVI.Stato%TYPE default null, 
    newDatainizio in VARCHAR2 default null,
    newDataConclusione in VARCHAR2 default null
 );
 procedure confermacampiestivi
 (
    newNome in CAMPIESTIVI.Nome%TYPE default null,
-   newMuseo in Musei.Nome%TYPE,
-   newStato in CAMPIESTIVI.Stato%TYPE default null, 
+   newMuseo in Musei.Nome%TYPE, 
    newDatainizio in VARCHAR2 default null,
    newDataConclusione in VARCHAR2 default null
 );
@@ -26,9 +32,37 @@ procedure controllacampiestivi
 (
    newNome in CAMPIESTIVI.Nome%TYPE default null,
    newMuseo in Musei.Nome%TYPE,
-   newStato in CAMPIESTIVI.Stato%TYPE default null, 
    newDatainizio in VARCHAR2 default null,
    newDataConclusione in VARCHAR2 default null
+);
+procedure modificacampiestivi
+(
+   idcampo in CAMPIESTIVI.IDCAMPIESTIVI%TYPE default null, 
+   newNome in CAMPIESTIVI.Nome%TYPE default null,
+   newDatainizio in VARCHAR2 default null,
+   newDataConclusione in VARCHAR2 default null
+);
+procedure confermamodificacampo
+(
+   idcampo in CAMPIESTIVI.IDCAMPIESTIVI%TYPE default null,
+   newNome in CAMPIESTIVI.Nome%TYPE default null,
+   newDatainizio in VARCHAR2 default null,
+   newDataConclusione in VARCHAR2 default null
+);
+procedure updatecampi
+(
+   idcampo in CAMPIESTIVI.IDCAMPIESTIVI%TYPE default null,
+   newNome in CAMPIESTIVI.Nome%TYPE default null,
+   newDatainizio in VARCHAR2 default null,
+   newDataConclusione in VARCHAR2 default null
+);
+procedure eliminacampo
+(
+   idcampo in CAMPIESTIVI.IDCAMPIESTIVI%TYPE 
+);
+procedure rimuovicampo
+(
+   idcampo in CAMPIESTIVI.IDCAMPIESTIVI%TYPE 
 );
 procedure visualizzacampiestivi
 (
@@ -37,7 +71,6 @@ procedure visualizzacampiestivi
 /*OPERAZIONI MUSEO*/
 procedure inseriscimuseo
 ( 
-   idsessione IN number default 0,
    newNome in Musei.Nome%TYPE default null,
    newIndirizzo in MUSEI.INDIRIZZO%TYPE default null
 );
@@ -53,7 +86,6 @@ procedure controllamusei
 );
 procedure visualizzamusei
 (
-   idsessione IN number default 0,
    MuseoId IN MUSEI.IdMuseo%TYPE
 );
 procedure modificamusei 
@@ -77,13 +109,11 @@ procedure updatemusei
 /*STATISTICHE MUSEO*/
 procedure controllastatistica
 (
-   idsessione IN number default 0,
    MuseoId IN MUSEI.IdMuseo%TYPE,
    scelta in number
 );
 procedure controllastatistica2
 (
-   idsessione IN number default 0,
    MuseoId IN MUSEI.IdMuseo%TYPE,
    scelta in number,
    Data1 varchar2,
@@ -91,7 +121,6 @@ procedure controllastatistica2
 );
 procedure form1monitoraggio
 (
-   idsessione IN number default 0,
    MuseoId IN MUSEI.IdMuseo%TYPE,
    NameMuseo IN MUSEI.NOME%TYPE
 );
@@ -106,44 +135,38 @@ procedure form2monitoraggio
 
 procedure salepresenti
 (
-   idsessione IN number default 0,
    MuseoId IN  Musei.IdMuseo%TYPE
 );
 procedure operepresentimuseo
 (
-   idsessione IN number default 0,
    MuseoId IN  Musei.IdMuseo%TYPE
 );
 procedure opereprestate
 (
-   idsessione IN number default 0,
    MuseoId IN Musei.IdMuseo%TYPE
 );
 procedure introitimuseo
 (
-   idsessione IN number default 0,
    MuseoId IN Musei.IdMuseo%TYPE
 );
 procedure visitatoriunici
 (
-    idsessione IN number default 0,
    MuseoId IN MUSEI.IdMuseo%TYPE,
    Data1 VARCHAR2,
    Data2 VARCHAR2
 );
 procedure visitatorimedi 
 (
-  idsessione IN number default 0,
    MuseoId IN MUSEI.IdMuseo%TYPE,
    Data1 VARCHAR2,
    Data2 VARCHAR2
 );
+
 /*---------statistiche CAMPI ESTIVI-----------*/
 procedure form1campiestivi
 (
    CampoestivoId IN CAMPIESTIVI.IDCAMPIESTIVI%TYPE,
-   NameCampoestivo IN CAMPIESTIVI.NOME%TYPE,
-   SessionId In NUMBER default 0
+   NameCampoestivo IN CAMPIESTIVI.NOME%TYPE
 );
 procedure controllastatisticacampo
 (
@@ -152,16 +175,120 @@ procedure controllastatisticacampo
 );
 procedure utentiiscritti
 (
-   sessionID IN number default 0,
    CampoestivoId IN CAMPIESTIVI.IDCAMPIESTIVI%TYPE
 );
 procedure tariffecampi
 (
-   sessionID IN number default 0,
    CampoestivoId IN CAMPIESTIVI.IDCAMPIESTIVI%TYPE
 );
-/*procedure etamediatariffe(
-   sessionID IN number default 0,
+procedure etamediatariffe
+(
    CampoestivoId IN CAMPIESTIVI.IDCAMPIESTIVI%TYPE
-);*/
+);
+procedure introiticampi
+(
+   CampoestivoId in CAMPIESTIVI.IDCAMPIESTIVI%TYPE
+);
+
+procedure InserisciPagamentoCampiEstivi(
+    dataPagamento in varchar2 default NULL,
+    tariffa in PAGAMENTICAMPIESTIVI.Tariffa%type default 0, 
+    acquirente in PAGAMENTICAMPIESTIVI.Acquirente%type default 0 
+);
+
+procedure ConfermaPagamentoCampiEstivi(
+    dataPagamento in varchar2 default NULL,
+    tariffa in PAGAMENTICAMPIESTIVI.Tariffa%type default 0, 
+    acquirente in PAGAMENTICAMPIESTIVI.Acquirente%type default 0
+);
+
+procedure ControllaPagamentoCampiEstivi(
+    dataPagamento in varchar2 default NULL,
+    tariffa in PAGAMENTICAMPIESTIVI.Tariffa%type, 
+    acquirente in PAGAMENTICAMPIESTIVI.Acquirente%type
+);
+
+procedure VisualizzaPagamentoCampiEstivi(
+    idPagamento in PAGAMENTICAMPIESTIVI.IdPagamento%type
+);
+
+procedure CancellaPagamentoCampiEstivi(
+    idPagamento in PAGAMENTICAMPIESTIVI.IdPagamento%type
+);
+/*non utlizzata*/
+procedure MonitoraggioPeriodoPagamentoCampiEstivi
+(
+    dataInizio in PAGAMENTICAMPIESTIVI.DataPagamento%type default NULL,
+    dataFine in PAGAMENTICAMPIESTIVI.DataPagamento%type default NULL
+);
+
+procedure PagamentoCampiEstivi(
+   tariffaid in PAGAMENTICAMPIESTIVI.Tariffa%type default 0
+);
+/*tariffe campi estivi*/
+procedure InserisciTariffeCampiEstivi
+(
+    prezzo in TARIFFECAMPIESTIVI.Prezzo%type default 0,
+    etaMinima in TARIFFECAMPIESTIVI.Etaminima%type default 0,
+    etaMassima in TARIFFECAMPIESTIVI.Etamassima%type default 0,
+    campoEstivo in TARIFFECAMPIESTIVI.CampoEstivo%type default 0
+);
+
+procedure ConfermaTariffeCampiEstivi
+(
+    prezzo in TARIFFECAMPIESTIVI.Prezzo%type default 0,
+    etaMinima in TARIFFECAMPIESTIVI.Etaminima%type default 0,
+    etaMassima in TARIFFECAMPIESTIVI.Etamassima%type default 0,
+    campoEstivo in TARIFFECAMPIESTIVI.CampoEstivo%type default 0
+);
+
+procedure ControllaTariffeCampiEstivi
+(
+    prezzo in TARIFFECAMPIESTIVI.Prezzo%type default 0,
+    etaMinima in TARIFFECAMPIESTIVI.Etaminima%type default 0,
+    etaMassima in TARIFFECAMPIESTIVI.Etamassima%type default 0,
+    campoEstivo in TARIFFECAMPIESTIVI.CampoEstivo%type default 0
+);
+
+procedure VisualizzaTariffeCampiEstivi
+(
+    Tariffa in TARIFFECAMPIESTIVI.IdTariffa%type
+);
+
+procedure ModificaTariffeCampiEstivi
+(
+    up_idTariffa in TARIFFECAMPIESTIVI.IdTariffa%type
+);
+
+procedure AggiornaTariffeCampiEstivi
+(
+    up_idTariffa number default 0, 
+    up_prezzo in TARIFFECAMPIESTIVI.Prezzo%type default 0,
+    up_etaMinima in TARIFFECAMPIESTIVI.Etaminima%type default 0,
+    up_etaMassima in TARIFFECAMPIESTIVI.Etamassima%type default 0,
+    up_campoEstivo in TARIFFECAMPIESTIVI.CampoEstivo%type default 0
+);
+
+procedure form1tariffe
+(
+   campoEstivo in TARIFFECAMPIESTIVI.CampoEstivo%type,
+   Data1 in varchar2,
+   Data2 in VARCHAR2
+);
+procedure preferenzaTariffa
+(
+   campoid in TARIFFECAMPIESTIVI.CampoEstivo%type
+);
+
+procedure monitoratariffeAnno
+(
+   campoEstivo in TARIFFECAMPIESTIVI.CampoEstivo%type,
+   Data1 in varchar2,
+   Data2 in varchar2
+);
+procedure Utentipagamenti
+(
+   pagamentoid in PagamentiCampiEstivi.idpagamento%type
+);
+
 end operazioniGruppo4;

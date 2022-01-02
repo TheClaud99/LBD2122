@@ -6,28 +6,68 @@ CREATE OR REPLACE PACKAGE BODY modGUI1 as
         htp.htmlOpen;
         htp.headOpen;
         htp.prn('<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css"> ');
+        htp.prn('<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">');
         htp.print('<script> ' || Costanti.jscript || ' </script>');
         htp.title(titolo);
         htp.headClose;
     end ApriPagina;
 
-    procedure Header (idSessione int default 0) is /*Testata pagina che include tendina ☰ e banner utente */
-    begin
+    procedure Header as /*Testata pagina che include tendina ☰ e banner utente */
+    idSessione NUMBER(5) := modGUI1.get_id_sessione();
+    begin     
         modGUI1.ApriDiv('class="w3-dropdown w3-bar w3-top w3-black w3-large" style="height:90px;"');
             htp.prn('<button onclick="myFunction()" class="w3-button w3-hover-white w3-black w3-xxxlarge"><h1>☰</h1></button>');
             modGUI1.ApriDiv('id="Demo" class="w3-dropdown-content w3-bar-block w3-black w3-sidebar" style="width:20%;position:fixed;z-index:-1;"');
-                if (idSessione!=0)
+                if (idSessione = 0)
                 then
                     modGUI1.Collegamento('HOME','Home?idSessione='|| idSessione,'w3-bar-item w3-button');
                     modGUI1.Collegamento('Musei','MuseiHome?idSessione='|| idSessione,'w3-bar-item w3-button');
                     modGUI1.Collegamento('Campi Estivi','CampiEstiviHome?idSessione='|| idSessione,'w3-bar-item w3-button');
-                    -- !FIXME: punta a radice.Home, quindi se radice != /apex/utente/webpages non riporta alla home
+                else
+
+                    modGUI1.Collegamento('HOME','Home','w3-bar-item w3-button');
+                    --GRUPPO 1--
+                    modGUI1.ApriDiv('class="w3-bar-item w3-button" onclick="myAccFunc(''DemoAcc1'')"');
+                        htp.prn('GRUPPO 1 <i class="fa fa-caret-down"></i>');
+                    modGUI1.ChiudiDiv;
+                    modGUI1.ApriDiv('id="DemoAcc1" class="w3-hide w3-white w3-card-4"');
+                        modGUI1.Collegamento('Link','link','w3-bar-item w3-button');
+                        modGUI1.Collegamento('Link','link','w3-bar-item w3-button');
+                    modGUI1.ChiudiDiv;
+
+                    --GRUPPO 2--
+                    modGUI1.ApriDiv('class="w3-bar-item w3-button" onclick="myAccFunc(''DemoAcc2'')"');
+                        htp.prn('GRUPPO 2 <i class="fa fa-caret-down"></i>');
+                    modGUI1.ChiudiDiv;
+                    modGUI1.ApriDiv('id="DemoAcc2" class="w3-hide w3-white w3-card-4"');
+                        modGUI1.Collegamento('Link','link','w3-bar-item w3-button');
+                        modGUI1.Collegamento('Link','link','w3-bar-item w3-button');
+                    modGUI1.ChiudiDiv;
+
+                    --GRUPPO 3--
+                    modGUI1.ApriDiv('class="w3-bar-item w3-button" onclick="myAccFunc(''DemoAcc3'')"');
+                        htp.prn('GRUPPO 3 <i class="fa fa-caret-down"></i>');
+                    modGUI1.ChiudiDiv;
+                    modGUI1.ApriDiv('id="DemoAcc3" class="w3-hide w3-white w3-card-4"');
+                        modGUI1.Collegamento('Link','link','w3-bar-item w3-button');
+                        modGUI1.Collegamento('Link','link','w3-bar-item w3-button');
+                    modGUI1.ChiudiDiv;
+
+                    --GRUPPO 4--
+                    modGUI1.ApriDiv('class="w3-bar-item w3-button" onclick="myAccFunc(''DemoAcc4'')"');
+                        htp.prn('GRUPPO 4 <i class="fa fa-caret-down"></i>');
+                    modGUI1.ChiudiDiv;
+                    modGUI1.ApriDiv('id="DemoAcc4" class="w3-hide w3-white w3-card-4"');
+                        modGUI1.Collegamento('Link','link','w3-bar-item w3-button');
+                        modGUI1.Collegamento('Link','link','w3-bar-item w3-button');
+                    modGUI1.ChiudiDiv;
+                    
+                    --LOGOUT--
                     modGUI1.ApriForm('RimozioneSessione', 'formLogOut', 'w3-container', 1);
-                        htp.FormHidden('idSessione', modGUI1.get_id_sessione());
+                        htp.FormHidden('idSessione',idSessione);
                         htp.prn('<button class="w3-button w3-block w3-red w3-section w3-padding">LOG OUT</button>');
                     modGUI1.ChiudiForm;
-                ELSE
-                    modGUI1.Collegamento('HOME','Home','w3-bar-item w3-button');
+                    
                 end if;
             modGUI1.ChiudiDiv;
             modGUI1.BannerUtente(idSessione);
@@ -42,6 +82,18 @@ CREATE OR REPLACE PACKAGE BODY modGUI1 as
                         x.className = x.className.replace(" w3-show", "");
                     }
                 }
+
+                function myAccFunc(id) {
+                    var x = document.getElementById(id);
+                    if (x.className.indexOf("w3-show") == -1) {
+                        x.className += " w3-show";
+                        x.previousElementSibling.className += " w3-grey";
+                    } else { 
+                        x.className = x.className.replace(" w3-show", "");
+                        x.previousElementSibling.className = 
+                        x.previousElementSibling.className.replace(" w3-grey", "");
+                    }
+                }
             </script>
         ');
         EXCEPTION
@@ -54,10 +106,11 @@ CREATE OR REPLACE PACKAGE BODY modGUI1 as
  
 
     procedure BannerUtente (idSessione int default 0)is /*Banner Log-In o utente */
+    sessionID Sessioni.LoginID%TYPE := modgui1.get_id_sessione();
     nome varchar2(50) default 'Sconosciuto';
     impiego varchar(50) default 'Sconosciuto';
     begin
-        if (idSessione = 0) then
+        if (sessionID = 0) then
             modGUI1.ApriDiv('class="w3-container w3-right w3-large"');
                 htp.prn('
                     <button onclick="document.getElementById(''id01'').style.display=''block''" class="w3-margin w3-button w3-black w3-hover-white w3-large">LOG IN</button>
@@ -66,7 +119,7 @@ CREATE OR REPLACE PACKAGE BODY modGUI1 as
             modGUI1.Login;
         else
             modGUI1.ApriDiv('class="w3-right w3-padding"  style="max-height:80px; width:400px; margin-top:5px;"');
-                SELECT Username,Ruolo INTO nome,impiego FROM UtentiLogin WHERE idUtenteLogin=idSessione;
+                SELECT Username,Ruolo INTO nome,impiego FROM UtentiLogin WHERE idUtenteLogin=sessionID;
                 modGUI1.ApriDiv('class="w3-threequarter" style="text-align:right;"');
                     htp.prn(nome);
                     htp.br;
@@ -75,8 +128,6 @@ CREATE OR REPLACE PACKAGE BODY modGUI1 as
                 modGUI1.ApriDiv('class="w3-quarter w3-right w3-dropdown-hover"');
                     htp.prn('<img src="https://www.sologossip.it/wp-content/uploads/2020/12/clementino-sologossip.jpg" style="margin-left:6px; width:60px; height:60px;">');
                     modGUI1.ApriDiv('class="w3-dropdown-content" style="background-color:transparent;position:fixed;z-index:1;"');
-                        -- !FIXME: punta a radice.Home, quindi se radice != /apex/utente/webpages non riporta alla home
-                        --modGUI1.Collegamento('LOG OUT','Home','w3-button w3-red w3-small"');
                         modGUI1.ApriForm('RimozioneSessione', 'formLogOut', 'w3-container', 1);
                             htp.FormHidden('idSessione', modGUI1.get_id_sessione());
                             htp.prn('<button class="w3-button w3-red w3-small">LOG OUT</button>');
@@ -121,7 +172,6 @@ CREATE OR REPLACE PACKAGE BODY modGUI1 as
     PROCEDURE set_cookie (idSessione IN UTENTILOGIN.idUtenteLogin%TYPE, url VARCHAR2 DEFAULT '') IS
     actualURL VARCHAR(1024);
     begin
-        -- htp.prn('<h1>'||idSessione||'</h1>');
         owa_util.mime_header('text/html', FALSE);
         owa_cookie.send(
             name=>'SESSION_ID',
@@ -129,7 +179,7 @@ CREATE OR REPLACE PACKAGE BODY modGUI1 as
             expires => sysdate + 365); 
 
         -- Set the cookie and redirect to another page
-        owa_util.redirect_url(url ||'?idSessione=' || idSessione);
+        owa_util.redirect_url(url);
 
         owa_util.http_header_close;
     exception
@@ -201,7 +251,7 @@ CREATE OR REPLACE PACKAGE BODY modGUI1 as
     procedure erroreLogin IS
     BEGIN 
         modGUI1.ApriPagina('erroreLogin');
-        --modGUI1.Header;
+        modGUI1.Header;
         htp.br;htp.br;htp.br;htp.br;htp.br;htp.br;
         --DA MODIFICARE
         modGUI1.ApriDiv('class="w3-modal-content w3-card-4 w3-animate-zoom w3-display-center" style="max-width:600px" ');
@@ -347,7 +397,7 @@ CREATE OR REPLACE PACKAGE BODY modGUI1 as
 
     procedure EmptySelectOption(selected int default 0) is
     begin
-        htp.prn('<option hidden disabled value ');
+        htp.prn('<option value ');
         if (selected=1)
         then
             htp.prn('selected>');
@@ -378,12 +428,12 @@ CREATE OR REPLACE PACKAGE BODY modGUI1 as
             htp.prn(' required');
         end if;
         htp.prn('> ');
-        htp.prn(testo);
+        htp.prn('<label>' || testo || '<label>');
     end InputRadioButton;
 
-    procedure InputCheckbox (testo varchar2, nome varchar2, checked int default 0, disabled int default 0) is
+    procedure InputCheckbox (testo varchar2, nome varchar2, checked int default 0, disabled int default 0, val varchar2 default 'on') is
     begin
-        htp.print('<input class="w3-check" type="checkbox" style="color:black;margin:10px;" name="'|| nome ||'"');
+        htp.print('<input class="w3-check" type="checkbox" style="color:black;margin:10px;" value="' || val || '" name="'|| nome ||'"');
         if (checked=1)
         then
             htp.prn(' checked');
@@ -508,11 +558,7 @@ CREATE OR REPLACE PACKAGE BODY modGUI1 as
         paramOP := REPLACE(parametrinuovaOp,'//','&');
         paramBTM := REPLACE(parametribackToMenu,'//','&');
             modGUI1.ApriPagina(pageTitle, idSessione);
-            if idSessione IS NULL then
-                modGUI1.Header;
-            else
-                modGUI1.Header(idSessione);
-            end if;
+            modGUI1.header;
             htp.br;htp.br;htp.br;htp.br;htp.br;htp.br;
                 modGUI1.ApriDiv('class="w3-modal-content w3-card-4 w3-animate-zoom" style="max-width:450px"');
                     modGUI1.ApriDiv('class="w3-center"');

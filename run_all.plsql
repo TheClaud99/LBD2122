@@ -29,6 +29,8 @@
 -- GRUPPO 1
 @operazioniGruppo1/sql/gruppo1.pks
 @operazioniGruppo1/sql/gruppo1.pkb
+@operazioniGruppo1/sql/FabioB.plsql
+@operazioniGruppo1/sql/FabioBB.plsql
 @operazioniGruppo1/sql/TitoliIngresso.plsql
 @operazioniGruppo1/sql/TitoliIngressoBody.plsql
 

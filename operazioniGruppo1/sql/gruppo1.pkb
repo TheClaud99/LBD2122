@@ -136,7 +136,7 @@ BEGIN
 		into varidutente, nomeutente, cognomeutente
 		from utenti
 		where idutente=utente.idutente;
-		if utenteTutore = varidutente then 
+		if utenteTutore = varidutente then
 			MODGUI1.SelectOption(varidutente, ''|| nomeutente ||' '||cognomeutente||'', 1);
 		else
 			MODGUI1.SelectOption(varidutente, ''|| nomeutente ||' '||cognomeutente||'', 0);
@@ -220,7 +220,7 @@ BEGIN
 					}
 				}
 			}
-			
+
         </script>');
 
 	HTP.BodyClose;
@@ -291,7 +291,7 @@ BEGIN
 			select nome, cognome
 			into nomeutente, cognomeutente
 			from utenti
-			where idutente=utenteTutore;               
+			where idutente=utenteTutore;
 			HTP.TableRowOpen;
 			HTP.TableData('Tutore: ');
 			HTP.TableData(nomeutente||' '||cognomeutente);
@@ -446,14 +446,14 @@ BEGIN
 	THEN
 		-- faccio il commit dello statement precedente
 		commit;
-		modGUI1.RedirectEsito('Successo', 
-            'L''utente '||nome||' '||cognome||' è stato inserito correttamente', 
+		modGUI1.RedirectEsito('Successo',
+            'L''utente '||nome||' '||cognome||' è stato inserito correttamente',
             'Inserisci un nuovo utente', 'InserisciUtente', null,
             'Torna al menu utenti', 'ListaUtenti', null);
 
 	ELSE
-		modGUI1.RedirectEsito('Errore', 
-            'L''utente '||nome||' '||cognome||' non è stato inserito', 
+		modGUI1.RedirectEsito('Errore',
+            'L''utente '||nome||' '||cognome||' non è stato inserito',
             'Riprova', 'InserisciUtente', null,
             'Torna al menu utenti', 'ListaUtenti', null);
 
@@ -461,13 +461,13 @@ BEGIN
 
     EXCEPTION
       when EmailPresente then
-       modGUI1.RedirectEsito('Errore', 
-            'Email non valida', 
+       modGUI1.RedirectEsito('Errore',
+            'Email non valida',
             'Riprova', 'InserisciUtente', null,
             'Torna al menu utenti', 'ListaUtenti', null);
     when TelefonoPresente then
-       modGUI1.RedirectEsito('Errore', 
-            'Recapito telefonico non valido', 
+       modGUI1.RedirectEsito('Errore',
+            'Recapito telefonico non valido',
             'Riprova', 'InserisciUtente', null,
             'Torna al menu utenti', 'ListaUtenti', null);
 END;
@@ -561,17 +561,17 @@ BEGIN
 	select count(*) into temp3 from TUTORI
 	where IDTUTELATO = utenteID;
 
-	
+
 	if temp3 > 0 THEN
 		select idtutore into idTutoreUtente from TUTORI
 		where IDTUTELATO = utenteID;
-		
+
 		select nome, cognome into NomeTutore, CognomeTutore from UTENTI
 		where idutente = idTutoreUtente;
-		
+
 	end if;
-	
-	
+
+
 	IF SQL%FOUND
 	THEN
 
@@ -594,13 +594,13 @@ BEGIN
 		HTP.tablerowopen;
 		HTP.tabledata('Data nascita: '||DataNascitaUtente);
 		HTP.tablerowclose;
-		
+
 		if temp3 > 0 then
 			HTP.tablerowopen;
 			HTP.tabledata('Tutore: '||NomeTutore|| ' '||CognomeTutore);
 			HTP.tablerowclose;
 		end if;
-		
+
 		HTP.tablerowopen;
 		HTP.tabledata('Indirizzo: '||IndirizzoUtente);
 		HTP.tablerowopen;
@@ -649,8 +649,8 @@ BEGIN
 		HTP.BodyClose;
 		HTP.HtmlClose;
 	ELSE
-		modGUI1.RedirectEsito('Errore', 
-            'Impossibile visualizzare l''utente selezionato', 
+		modGUI1.RedirectEsito('Errore',
+            'Impossibile visualizzare l''utente selezionato',
             'Riprova', 'VisualizzaUtente?utenteID='||utenteID, null,
             'Torna al menu utenti', 'ListaUtenti', null);
 	END IF;
@@ -683,7 +683,7 @@ BEGIN
 	into NomeUtente, CognomeUtente, DataNascitaUtente, IndirizzoUtente, EmailUtente, RecapitoTelefonicoUtente
 	from UTENTI
 	where IDUTENTE = utenteID;
-	
+
 	select count(*) into temp from UTENTIMUSEO
 	where utenteID = UTENTIMUSEO.idutente;
 
@@ -703,12 +703,12 @@ BEGIN
 	select count(*) into temp3 from TUTORI
 	where IDTUTELATO = utenteID;
 
-	
+
 	if temp3 > 0 THEN
 		select idtutore into idTutoreUtente from TUTORI
 		where IDTUTELATO = utenteID;
 	end if;
-	
+
 
 	IF SQL%FOUND
 	THEN
@@ -742,7 +742,7 @@ BEGIN
 			into varidTutore, NomeTutore, CognomeTutore
 			from utenti
 			where idutente=utente.idutente;
-			if idTutoreUtente = varidTutore then 
+			if idTutoreUtente = varidTutore then
 				MODGUI1.SelectOption(varidTutore, ''|| NomeTutore ||' '||CognomeTutore||'', 1);
 			else
 				MODGUI1.SelectOption(varidTutore, ''|| NomeTutore ||' '||CognomeTutore||'', 0);
@@ -834,8 +834,8 @@ BEGIN
 		HTP.BodyClose;
 		HTP.HtmlClose;
 	ELSE
-		modGUI1.RedirectEsito('Errore', 
-            'Impossibile visualizzare l''utente selezionato', 
+		modGUI1.RedirectEsito('Errore',
+            'Impossibile visualizzare l''utente selezionato',
             'Riprova', 'ModificaUtente?utenteID='||utenteID, null,
             'Torna al menu utenti', 'ListaUtenti', null);
 	END IF;
@@ -965,16 +965,16 @@ BEGIN
 			values (utenteTutoreNew, utenteID);
 		end if;
 	end if;
-	 
+
 	IF SQL%FOUND THEN
 		commit;
-		modGUI1.RedirectEsito('Successo', 
-            'L''utente '||nomeNew||' '||cognomeNew||' è stato modificato correttamente', 
+		modGUI1.RedirectEsito('Successo',
+            'L''utente '||nomeNew||' '||cognomeNew||' è stato modificato correttamente',
             'Visualizza utente', 'VisualizzaUtente?utenteID='||utenteID, null,
             'Torna al menu utenti', 'ListaUtenti', null);
 	ELSE
-		modGUI1.RedirectEsito('Errore', 
-            'L''utente non è stato modificato', 
+		modGUI1.RedirectEsito('Errore',
+            'L''utente non è stato modificato',
             'Riprova', 'ModificaUtente?utenteID='||utenteID, null,
             'Torna al menu utenti', 'ListaUtenti', null);
 	END IF;
@@ -990,7 +990,7 @@ BEGIN
 
 	/*delete from UTENTIMUSEO where IDUTENTE=utenteID;
 	delete from UTENTICAMPIESTIVI where IDUTENTE=utenteID;*/
-	update UTENTI 
+	update UTENTI
 	set ELIMINATO = 1
 	where IDUTENTE=utenteID;
 
@@ -1347,7 +1347,7 @@ is
 			from visite
 			join titoliingresso on IDTITOLOING = TITOLOINGRESSO
 			where datavisita > dataInizio and datavisita < dataFine and MUSEO = museoID;
-		else 
+		else
 			select COUNT(*)
 			into res
 			from visite
@@ -1438,7 +1438,7 @@ is
 		into res
 		from utenti;
 
-		if museoID = 0 then 
+		if museoID = 0 then
 			select COUNT(*)
 			into res2
 			from titoliingresso
@@ -1721,226 +1721,6 @@ begin
 		HTP.HtmlClose;
 end;
 
--------------------------------------------------------------TODO DA TESTARE
-/*
-PROCEDURE inserisciNewsLetter (
-    idSessione NUMBER DEFAULT 0
-) IS
-BEGIN
-	MODGUI1.ApriPagina('Inserimento newsletter', 0);
-
-	HTP.BodyOpen;
-	MODGUI1.Header(); --da capire come combinarlo con il resto
-	HTP.header(1,'Inserisci una nuova newsletter', 'center');
-	MODGUI1.ApriDiv('style="margin-left: 2%; margin-right: 2%;"');
-
-	MODGUI1.ApriForm('inserisci_newsletter');
-	HTP.FORMHIDDEN('idSessione',0);
-
-	MODGUI1.Label('Nome*');
-	MODGUI1.InputText('nome', 'Nome newsletter', 1);
-	HTP.BR;
-	MODGUI1.ChiudiDiv;
-
-	MODGUI1.InputSubmit('Inserisci');
-	MODGUI1.ChiudiForm;
-
-	MODGUI1.ChiudiDiv;
-
-END;
-
-PROCEDURE inserisci_newsletter (
-    idSessione NUMBER DEFAULT 0
-	nome varchar2(25) not null
-) IS
-BEGIN
-	MODGUI1.ApriPagina('Inserimento utenti', 0);
-
-	insert into NEWSLETTER
-    values (IdNewsSeq.NEXTVAL, nome);
-
-	HTP.BodyOpen;
-	MODGUI1.Header(); --da capire come combinarlo con il resto
-	HTP.header(1,'Newsletter inserita', 'center');
-	MODGUI1.ApriDiv('style="margin-left: 2%; margin-right: 2%;"');
-
-	MODGUI1.ApriForm('inseriscinewsletter');
-	HTP.FORMHIDDEN('idSessione',0);
-
-	MODGUI1.Label('Nome');
-	MODGUI1.label(nome);
-	MODGUI1.ChiudiDiv;
-
-	MODGUI1.InputSubmit('Continuare?');
-	MODGUI1.ChiudiForm;
-
-	MODGUI1.ChiudiDiv;
-
-END;
-
-
-
-
--------------------------------------------------------------FINE TODO */
-
-
-PROCEDURE statisticheNewsLetter (
-	newsletterID NUMBER DEFAULT -1
-) IS
-	id_sessione NUMBER(10) := NULL;
-	temp NUMBER(10) := 0;
-	nomeNew VARCHAR2(100) := '';
-	numeroVisitatori NUMBER(10) := 0;
-	etaMediaIscritti NUMBER(10) := 0;
-
-
-	--utente
-	U_NOME UTENTI.NOME%TYPE :='';
-	U_COGNOME UTENTI.COGNOME%TYPE :='';
-	U_NASCITA UTENTI.DATANASCITA%TYPE :='';
-	U_EMAIL UTENTI.EMAIL%TYPE :='';
-	U_INDIRIZZO UTENTI.INDIRIZZO%TYPE :='';
-	U_RECAPITO UTENTI.RECAPITOTELEFONICO%TYPE :='';
-
-    newsletterInesistente EXCEPTION;
-	idSessioneExecption EXCEPTION;
-BEGIN
-
-	id_sessione := modgui1.get_id_sessione;
-	if id_sessione = 0
-	THEN
-		RAISE idSessioneExecption;
-	end if;
-
-	if newsletterID = -1
-	THEN
-		RAISE newsletterInesistente;
-	end if;
-
-	SELECT count(*) into temp FROM NEWSLETTER where NEWSLETTER.IDNEWS = newsletterID;
-
-	if temp = 0
-	THEN
-		RAISE newsletterInesistente;
-	end if;
-
-	SELECT NOME into nomeNew FROM NEWSLETTER WHERE NEWSLETTER.IDNEWS = newsletterID;
-	SELECT count(*) into numeroVisitatori from UTENTI where IdUtente IN (select VISITATORE from VISITE) AND IDUTENTE IN (SELECT IDUTENTE FROM NEWSLETTERUTENTI WHERE IDNEWS = newsletterID);
-
-	SELECT avg(age) into etaMediaIscritti FROM (SELECT MONTHS_BETWEEN(sysdate, UTENTI.DATANASCITA) / 12 age FROM UTENTI WHERE UTENTI.IDUTENTE IN (SELECT NEWSLETTERUTENTI.IDUTENTE FROM NEWSLETTERUTENTI WHERE NEWSLETTERUTENTI.IDNEWS = newsletterID));
-
-
-	MODGUI1.ApriPagina('Statistiche');
-	modgui1.header();
-	modgui1.apridiv('style="margin-top: 110px;text-align:center;"');
-	htp.prn(CONCAT('<h1> statistiche per newsletter </h1>', nomeNew));
-	htp.br();
-	modgui1.Label('Numero visitatori: ');
-	modgui1.Label(TO_CHAR(numeroVisitatori));
-	htp.br();
-	modgui1.Label('Età media iscritti: ');
-	modgui1.Label(TO_CHAR(etaMediaIscritti));
-	htp.br();
-
-	--hdaidhiaodh
-	modgui1.Label('Titoli di ingresso degli iscritti alla newsletter:');
-	--per ogni utente che è iscitto alla newsletter
-	--mostrare TUTTI i titoli di ingresso che ha acquistato
-
-	SELECT MAX(numb) INTO temp FROM (SELECT count(*) numb FROM TITOLIINGRESSO GROUP BY TITOLIINGRESSO.ACQUIRENTE);
-
-	htp.prn('<table style="width:100%" border="2">');
-	htp.prn('<tr>');
-		htp.prn('<th> utente </th>');
-		for k in 0..temp
-		LOOP
-			htp.prn(CONCAT(CONCAT('<th> acquisto ', k + 1), '</th>'));
-		END LOOP;
-	htp.prn('</tr>');
-	for id_utente in (	SELECT NEWSLETTERUTENTI.IDUTENTE
-						FROM NEWSLETTERUTENTI
-						WHERE NEWSLETTERUTENTI.IDNEWS = newsletterID
-								AND NEWSLETTERUTENTI.IDUTENTE IN (	SELECT TITOLIINGRESSO.ACQUIRENTE
-																	FROM TITOLIINGRESSO))
-	LOOP
-		--id_utente.IDUTENTE tiene id dell'utente
-		htp.prn('<tr>');
-		htp.prn('<td>');
-		--primo printare i dati dell'utente.
-		SELECT UTENTI.NOME, UTENTI.COGNOME, UTENTI.DATANASCITA, UTENTI.INDIRIZZO, UTENTI.EMAIL, UTENTI.RECAPITOTELEFONICO
-			INTO U_NOME, U_COGNOME, U_NASCITA, U_INDIRIZZO, U_EMAIL, U_RECAPITO
-			FROM UTENTI
-			WHERE UTENTI.IDUTENTE = id_utente.IDUTENTE;
-
-		htp.prn(TO_CHAR(U_NOME));
-		htp.prn(TO_CHAR(U_COGNOME));
-		htp.br;
-		htp.prn(TO_CHAR(U_NASCITA, 'YYYY-MM-DD'));
-		htp.br;
-		htp.prn(TO_CHAR(U_INDIRIZZO));
-		htp.br;
-		htp.prn(TO_CHAR(U_EMAIL));
-		htp.br;
-		htp.prn(TO_CHAR(U_RECAPITO));
-		htp.prn('</td>');
-
-		FOR titolo IN (
-			SELECT *
-			FROM TITOLIINGRESSO
-			WHERE TITOLIINGRESSO.ACQUIRENTE = id_utente.IDUTENTE
-		)
-		LOOP
-		htp.prn('<td>');
-		htp.prn(CONCAT('ID: ', TO_CHAR(titolo.IDTITOLOING)));
-		htp.br;
-		htp.prn(CONCAT('EMISSIONE: ', TO_CHAR(titolo.EMISSIONE, 'YYYY-MM-DD HH24:MI')));
-		htp.br;
-		htp.prn(CONCAT('SCADENZA: ', TO_CHAR(titolo.SCADENZA, 'YYYY-MM-DD')));
-		htp.br;
-		htp.prn(CONCAT('TIPOLOGIA: ', TO_CHAR(titolo.TIPOLOGIA)));
-		htp.br;
-
-		htp.prn('</td>');
-		END LOOP;
-
-		htp.prn('</tr>');
-
-	END LOOP;
-	htp.prn('</table>');
-	----dshaheoh
-	MODGUI1.chiudiDiv;
-	htp.bodyclose;
-	htp.htmlclose;
-	
-	EXCEPTION
-	when newsletterInesistente THEN
-		MODGUI1.ApriPagina('Errore', id_sessione);
-		MODGUI1.Header();
-		HTP.BodyOpen;
-
-		MODGUI1.ApriDiv;
-		MODGUI1.LABEL('newsletter inesistente');
-		MODGUI1.collegamento('visualizza newsletter', 'visualizzaNewsletter');
-		MODGUI1.ChiudiDiv;
-
-		HTP.BodyClose;
-		HTP.HtmlClose;
-	WHEN idSessioneExecption THEN
-		MODGUI1.ApriPagina('Errore', id_sessione);
-		MODGUI1.Header();
-		HTP.BodyOpen;
-
-		MODGUI1.ApriDiv;
-		MODGUI1.LABEL('idSessione non settato o corretto');
-		MODGUI1.collegamento('visualizza newsletter', 'visualizzaNewsletter');
-		MODGUI1.ChiudiDiv;
-
-		HTP.BodyClose;
-		HTP.HtmlClose;
-	
-END;
-END GRUPPO1;
-
 
 			'InserisciUtente?nome='||nome||'&cognome='||cognome||'&dataNascita='||dataNascita||'&indirizzo='||indirizzo||'&email='||email||'&telefono='||telefono||'&utenteMuseo='||utenteMuseo||'&utenteDonatore='||utenteDonatore||'&utenteCampiEstivi='||utenteCampiEstivi||'&utenteAssistenza='||utenteAssistenza||'&utenteTutore='||utenteTutore,
 			'w3-button w3-block w3-black w3-section w3-padding'
@@ -2023,14 +1803,14 @@ BEGIN
 	THEN
 		-- faccio il commit dello statement precedente
 		commit;
-		modGUI1.RedirectEsito('Successo', 
-            'L''utente '||nome||' '||cognome||' è stato inserito correttamente', 
+		modGUI1.RedirectEsito('Successo',
+            'L''utente '||nome||' '||cognome||' è stato inserito correttamente',
             'Inserisci un nuovo utente', 'InserisciUtente', null,
             'Torna al menu utenti', 'ListaUtenti', null);
 
 	ELSE
-		modGUI1.RedirectEsito('Errore', 
-            'L''utente '||nome||' '||cognome||' non è stato inserito', 
+		modGUI1.RedirectEsito('Errore',
+            'L''utente '||nome||' '||cognome||' non è stato inserito',
             'Riprova', 'InserisciUtente', null,
             'Torna al menu utenti', 'ListaUtenti', null);
 
@@ -2038,13 +1818,13 @@ BEGIN
 
     EXCEPTION
       when EmailPresente then
-       modGUI1.RedirectEsito('Errore', 
-            'Email non valida', 
+       modGUI1.RedirectEsito('Errore',
+            'Email non valida',
             'Riprova', 'InserisciUtente', null,
             'Torna al menu utenti', 'ListaUtenti', null);
     when TelefonoPresente then
-       modGUI1.RedirectEsito('Errore', 
-            'Recapito telefonico non valido', 
+       modGUI1.RedirectEsito('Errore',
+            'Recapito telefonico non valido',
             'Riprova', 'InserisciUtente', null,
             'Torna al menu utenti', 'ListaUtenti', null);
 END;
@@ -2138,17 +1918,17 @@ BEGIN
 	select count(*) into temp3 from TUTORI
 	where IDTUTELATO = utenteID;
 
-	
+
 	if temp3 > 0 THEN
 		select idtutore into idTutoreUtente from TUTORI
 		where IDTUTELATO = utenteID;
-		
+
 		select nome, cognome into NomeTutore, CognomeTutore from UTENTI
 		where idutente = idTutoreUtente;
-		
+
 	end if;
-	
-	
+
+
 	IF SQL%FOUND
 	THEN
 
@@ -2171,13 +1951,13 @@ BEGIN
 		HTP.tablerowopen;
 		HTP.tabledata('Data nascita: '||DataNascitaUtente);
 		HTP.tablerowclose;
-		
+
 		if temp3 > 0 then
 			HTP.tablerowopen;
 			HTP.tabledata('Tutore: '||NomeTutore|| ' '||CognomeTutore);
 			HTP.tablerowclose;
 		end if;
-		
+
 		HTP.tablerowopen;
 		HTP.tabledata('Indirizzo: '||IndirizzoUtente);
 		HTP.tablerowopen;
@@ -2226,8 +2006,8 @@ BEGIN
 		HTP.BodyClose;
 		HTP.HtmlClose;
 	ELSE
-		modGUI1.RedirectEsito('Errore', 
-            'Impossibile visualizzare l''utente selezionato', 
+		modGUI1.RedirectEsito('Errore',
+            'Impossibile visualizzare l''utente selezionato',
             'Riprova', 'VisualizzaUtente?utenteID='||utenteID, null,
             'Torna al menu utenti', 'ListaUtenti', null);
 	END IF;
@@ -2260,7 +2040,7 @@ BEGIN
 	into NomeUtente, CognomeUtente, DataNascitaUtente, IndirizzoUtente, EmailUtente, RecapitoTelefonicoUtente
 	from UTENTI
 	where IDUTENTE = utenteID;
-	
+
 	select count(*) into temp from UTENTIMUSEO
 	where utenteID = UTENTIMUSEO.idutente;
 
@@ -2280,12 +2060,12 @@ BEGIN
 	select count(*) into temp3 from TUTORI
 	where IDTUTELATO = utenteID;
 
-	
+
 	if temp3 > 0 THEN
 		select idtutore into idTutoreUtente from TUTORI
 		where IDTUTELATO = utenteID;
 	end if;
-	
+
 
 	IF SQL%FOUND
 	THEN
@@ -2319,7 +2099,7 @@ BEGIN
 			into varidTutore, NomeTutore, CognomeTutore
 			from utenti
 			where idutente=utente.idutente;
-			if idTutoreUtente = varidTutore then 
+			if idTutoreUtente = varidTutore then
 				MODGUI1.SelectOption(varidTutore, ''|| NomeTutore ||' '||CognomeTutore||'', 1);
 			else
 				MODGUI1.SelectOption(varidTutore, ''|| NomeTutore ||' '||CognomeTutore||'', 0);
@@ -2411,8 +2191,8 @@ BEGIN
 		HTP.BodyClose;
 		HTP.HtmlClose;
 	ELSE
-		modGUI1.RedirectEsito('Errore', 
-            'Impossibile visualizzare l''utente selezionato', 
+		modGUI1.RedirectEsito('Errore',
+            'Impossibile visualizzare l''utente selezionato',
             'Riprova', 'ModificaUtente?utenteID='||utenteID, null,
             'Torna al menu utenti', 'ListaUtenti', null);
 	END IF;
@@ -2542,16 +2322,16 @@ BEGIN
 			values (utenteTutoreNew, utenteID);
 		end if;
 	end if;
-	 
+
 	IF SQL%FOUND THEN
 		commit;
-		modGUI1.RedirectEsito('Successo', 
-            'L''utente '||nomeNew||' '||cognomeNew||' è stato modificato correttamente', 
+		modGUI1.RedirectEsito('Successo',
+            'L''utente '||nomeNew||' '||cognomeNew||' è stato modificato correttamente',
             'Visualizza utente', 'VisualizzaUtente?utenteID='||utenteID, null,
             'Torna al menu utenti', 'ListaUtenti', null);
 	ELSE
-		modGUI1.RedirectEsito('Errore', 
-            'L''utente non è stato modificato', 
+		modGUI1.RedirectEsito('Errore',
+            'L''utente non è stato modificato',
             'Riprova', 'ModificaUtente?utenteID='||utenteID, null,
             'Torna al menu utenti', 'ListaUtenti', null);
 	END IF;
@@ -2567,7 +2347,7 @@ BEGIN
 
 	delete from UTENTIMUSEO where IDUTENTE=utenteID;
 	delete from UTENTICAMPIESTIVI where IDUTENTE=utenteID;
-	update UTENTI 
+	update UTENTI
 	set ELIMINATO = 1
 	where IDUTENTE=utenteID;
 
@@ -2905,7 +2685,7 @@ begin
 							loop
 								select idmuseo, nome
 								into varidmuseo, nomemuseo
-								from musei	
+								from musei
 								where idmuseo=museo.idmuseo;
 								MODGUI1.SelectOption(varidmuseo, ''|| nomemuseo ||'', 0);
 							end loop;
@@ -3218,7 +2998,7 @@ BEGIN
 	MODGUI1.chiudiDiv;
 	htp.bodyclose;
 	htp.htmlclose;
-	
+
 	EXCEPTION
 	when newsletterInesistente THEN
 		MODGUI1.ApriPagina('Errore', id_sessione);
@@ -3244,7 +3024,7 @@ BEGIN
 
 		HTP.BodyClose;
 		HTP.HtmlClose;
-	
+
 END;
 END GRUPPO1;
 

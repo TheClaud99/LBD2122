@@ -1,6 +1,6 @@
 SET DEFINE OFF;
 
-CREATE OR REPLACE PACKAGE BODY testFB AS
+CREATE OR REPLACE PACKAGE BODY Newsletters AS
 
 	PROCEDURE visualizzaNewsletters
 	IS
@@ -17,8 +17,8 @@ CREATE OR REPLACE PACKAGE BODY testFB AS
 			RAISE sessionIdExecption;
 		end if;
 
-		MODGUI1.ApriPagina('Newsletter', id_sessione);
-		modgui1.header(id_sessione);
+		MODGUI1.ApriPagina('Newsletter');
+		modgui1.header();
 		modgui1.apridiv('style="margin-top: 110px"');
         modgui1.apridiv('class="w3-center"');
         htp.prn('<h1>Newsletter</h1>');
@@ -29,7 +29,7 @@ CREATE OR REPLACE PACKAGE BODY testFB AS
 		THEN
 			modgui1.collegamento(
                                 'Aggiungi',
-                                'testFB.inserisciNewsLetter',
+                                'Newsletters.inserisciNewsLetter',
                                 'w3-btn w3-round-xxlarge w3-green');
 		END IF;
         modgui1.chiudidiv;
@@ -64,7 +64,7 @@ CREATE OR REPLACE PACKAGE BODY testFB AS
 					--utente selezionato non è iscritto alla newsletter
 					modgui1.collegamento(
 										'Iscriviti',
-										'testFB.iscrivitiNewsletter?newsletterid=' || TO_CHAR(newsletter.IDNEWS) || '&clientid=' || TO_CHAR(id_client),
+										'Newsletters.iscrivitiNewsletter?newsletterid=' || TO_CHAR(newsletter.IDNEWS) || '&clientid=' || TO_CHAR(id_client),
 										'w3-btn w3-round-xxlarge w3-green'
 					);
 				end if;
@@ -74,7 +74,7 @@ CREATE OR REPLACE PACKAGE BODY testFB AS
 					--utente selezionato non è iscritto alla newsletter
 					modgui1.collegamento(
 										'Disiscriviti',
-										'testFB.disiscrivitiNewsletter?newsletterid=' || TO_CHAR(newsletter.IDNEWS) || '&clientid=' || TO_CHAR(id_client),
+										'Newsletters.disiscrivitiNewsletter?newsletterid=' || TO_CHAR(newsletter.IDNEWS) || '&clientid=' || TO_CHAR(id_client),
 										'w3-btn w3-round-xxlarge w3-red'
 					);
 				end if;
@@ -84,12 +84,12 @@ CREATE OR REPLACE PACKAGE BODY testFB AS
 			THEN
 				modgui1.collegamento(
 									'Elimina',
-									'testfb.confermaRimozioneNewsletter?newsletterID=' || TO_CHAR(newsletter.IDNEWS),
+									'Newsletters.confermaRimozioneNewsletter?newsletterID=' || TO_CHAR(newsletter.IDNEWS),
 									'w3-btn w3-round-xxlarge w3-red'
 				);
 				modgui1.collegamento(
 									'Statistiche',
-									'testFB.statisticheNewsLetter?newsletterID=' || TO_CHAR(newsletter.IDNEWS),
+									'Newsletters.statisticheNewsLetter?newsletterID=' || TO_CHAR(newsletter.IDNEWS),
 									'w3-btn w3-round-xxlarge w3-black'
 				);
 			END IF;
@@ -107,7 +107,7 @@ CREATE OR REPLACE PACKAGE BODY testFB AS
 		EXCEPTION
 		WHEN sessionIdExecption THEN
 		MODGUI1.ApriPagina('Errore SessionID', id_sessione);
-		MODGUI1.Header(id_sessione);
+		MODGUI1.Header();
 		HTP.BodyOpen;
 
 		modgui1.apridiv('style="margin-top: 110px"');
@@ -142,13 +142,13 @@ CREATE OR REPLACE PACKAGE BODY testFB AS
 
 		MODGUI1.ApriPagina('Iscrizione newsletter', id_sessione);
 		HTP.BodyOpen;
-		MODGUI1.Header(id_sessione);
+		MODGUI1.Header();
 		modgui1.apridiv('style="margin-top: 110px"');
 		modgui1.ApriDivCard;
 		modgui1.apridiv('class="w3-container w3-center"');
 		modgui1.collegamento(
                             'X',
-                            'testFB.visualizzaNewsletters',
+                            'Newsletters.visualizzaNewsletters',
                             ' w3-btn w3-large w3-red w3-display-topright'
         );
 		HTP.header(1,'Sei stato inserito nella newsletter', 'center');
@@ -158,7 +158,7 @@ CREATE OR REPLACE PACKAGE BODY testFB AS
 		htp.br;
 		modgui1.collegamento(
 					'Visualizza Newsletter',
-					'testFB.visualizzaNewsletters',
+					'Newsletters.visualizzaNewsletters',
 					'w3-btn w3-round-xxlarge w3-black'
 		);
 
@@ -188,13 +188,13 @@ CREATE OR REPLACE PACKAGE BODY testFB AS
 
 		MODGUI1.ApriPagina('Disiscrizione newsletter', id_sessione);
 		HTP.BodyOpen;
-		MODGUI1.Header(id_sessione);
+		MODGUI1.Header();
 		modgui1.apridiv('style="margin-top: 110px"');
 		modgui1.ApriDivCard;
 		modgui1.apridiv('class="w3-container w3-center"');
 		modgui1.collegamento(
                             'X',
-                            'testFB.visualizzaNewsletters',
+                            'Newsletters.visualizzaNewsletters',
                             ' w3-btn w3-large w3-red w3-display-topright'
         );
 		HTP.header(1,'Sei stato rimosso dalla newsletter', 'center');
@@ -204,7 +204,7 @@ CREATE OR REPLACE PACKAGE BODY testFB AS
 		htp.br;
 		modgui1.collegamento(
 					'Visualizza Newsletter',
-					'testFB.visualizzaNewsletters',
+					'Newsletters.visualizzaNewsletters',
 					'w3-btn w3-round-xxlarge w3-black'
 		);
 
@@ -258,12 +258,12 @@ CREATE OR REPLACE PACKAGE BODY testFB AS
 											GROUP BY NEWSLETTERUTENTI.IDUTENTE);
 
 		MODGUI1.ApriPagina('Statistiche',id_sessione);
-		modgui1.header(id_sessione);
+		modgui1.header();
 		modgui1.apridiv('style="margin-top: 110px;text-align:center;"');
 		modgui1.apridivcard;
 		modgui1.collegamento(
                             'X',
-                            'testFB.visualizzaNewsletters',
+                            'Newsletters.visualizzaNewsletters',
                             ' w3-btn w3-large w3-red w3-display-topright'
         );
 		htp.prn(CONCAT('<h1> statistiche per newsletter </h1>', nomeNew));
@@ -394,7 +394,7 @@ CREATE OR REPLACE PACKAGE BODY testFB AS
 
 		htp.br;
 		MODGUI1.COLLEGAMENTO('Visualizza titoli ingresso per iscritti',
-							'testFB.titoliIngIscritti?newsletterID=' || TO_CHAR(newsletterID),
+							'Newsletters.titoliIngIscritti?newsletterID=' || TO_CHAR(newsletterID),
 							'w3-btn w3-round-xxlarge w3-green');
 		htp.br;
 
@@ -407,7 +407,7 @@ CREATE OR REPLACE PACKAGE BODY testFB AS
 		EXCEPTION
 		when newsletterInesistente THEN
 			MODGUI1.ApriPagina('Errore newsletter', id_sessione);
-			MODGUI1.Header(id_sessione);
+			MODGUI1.Header();
 			HTP.BodyOpen;
 
 			MODGUI1.ApriDiv;
@@ -419,7 +419,7 @@ CREATE OR REPLACE PACKAGE BODY testFB AS
 			HTP.HtmlClose;
 		WHEN sessionIdExecption THEN
 			MODGUI1.ApriPagina('Errore SessionID', id_sessione);
-			MODGUI1.Header(id_sessione);
+			MODGUI1.Header();
 			HTP.BodyOpen;
 
 			MODGUI1.ApriDiv;
@@ -457,11 +457,11 @@ CREATE OR REPLACE PACKAGE BODY testFB AS
 			MODGUI1.ApriPagina('Titoli Ingresso iscritti', id_sessione);
 
 			HTP.BodyOpen;
-			MODGUI1.Header(id_sessione);
+			MODGUI1.Header();
 
 			modgui1.apridiv('style="margin-top: 110px;text-align:center;"');
 			MODGUI1.COLLEGAMENTO('Torna a statistiche',
-							'testFB.statisticheNewsLetter?newsletterID=' || TO_CHAR(newsletterID),
+							'Newsletters.statisticheNewsLetter?newsletterID=' || TO_CHAR(newsletterID),
 							'w3-btn w3-round-xxlarge w3-green');
 			htp.br;
 			modgui1.Label('Titoli di ingresso degli iscritti alla newsletter:');
@@ -536,7 +536,7 @@ CREATE OR REPLACE PACKAGE BODY testFB AS
 				EXCEPTION
 				WHEN sessionIdExecption THEN
 				MODGUI1.ApriPagina('Errore SessionID', id_sessione);
-				MODGUI1.Header(id_sessione);
+				MODGUI1.Header();
 				HTP.BodyOpen;
 
 				MODGUI1.ApriDiv;
@@ -563,17 +563,17 @@ CREATE OR REPLACE PACKAGE BODY testFB AS
 		MODGUI1.ApriPagina('Inserimento newsletter', id_sessione);
 
 		HTP.BodyOpen;
-		MODGUI1.Header(id_sessione);
+		MODGUI1.Header();
 		modgui1.apridiv('style="margin-top: 110px"');
 		modgui1.ApriDivCard;
 		modgui1.collegamento(
                             'X',
-                            'testFB.visualizzaNewsletters',
+                            'Newsletters.visualizzaNewsletters',
                             ' w3-btn w3-large w3-red w3-display-topright'
         );
 		HTP.header(1,'Inserisci una nuova newsletter', 'center');
 
-		MODGUI1.ApriForm('testfb.inserisci_newsletter');
+		MODGUI1.ApriForm('Newsletters.inserisci_newsletter');
 
 		MODGUI1.Label('Nome*');
 		MODGUI1.InputText('nome', 'Nome newsletter', 1);
@@ -605,24 +605,24 @@ CREATE OR REPLACE PACKAGE BODY testFB AS
 
 	MODGUI1.ApriPagina('Inserimento newsletter', id_sessione);
 	HTP.BodyOpen;
-	MODGUI1.Header(id_sessione);
+	MODGUI1.Header();
 	modgui1.apridiv('style="margin-top: 110px"');
 	modgui1.ApriDivCard;
 	modgui1.collegamento(
                             'X',
-                            'testFB.visualizzaNewsletters',
+                            'Newsletters.visualizzaNewsletters',
                             ' w3-btn w3-large w3-red w3-display-topright'
         );
 	if checked = 0 then
 		HTP.header(1,'Conferma Newsletter', 'center');
-		MODGUI1.ApriForm('testfb.inserisci_newsletter');
+		MODGUI1.ApriForm('Newsletters.inserisci_newsletter');
 		HTP.FORMHIDDEN('checked',1);
 		HTP.FORMHIDDEN('nome',nome);
 	END IF;
 
 	if checked = 1 THEN
 		HTP.header(1,'Newsletter inserita', 'center');
-		MODGUI1.ApriForm('testfb.visualizzaNewsletters');
+		MODGUI1.ApriForm('Newsletters.visualizzaNewsletters');
 	END IF;
 
 	MODGUI1.Label('Nome');
@@ -663,13 +663,13 @@ CREATE OR REPLACE PACKAGE BODY testFB AS
 
 		MODGUI1.ApriPagina('Rimozione newsletter', id_sessione);
 		HTP.BodyOpen;
-		MODGUI1.Header(id_sessione);
+		MODGUI1.Header();
 		modgui1.apridiv('style="margin-top: 110px"');
 		modgui1.apridiv('class="w3-container w3-center"');
 		modgui1.ApriDivCard;
 		modgui1.collegamento(
                             'X',
-                            'testFB.visualizzaNewsletters',
+                            'Newsletters.visualizzaNewsletters',
                             ' w3-btn w3-large w3-red w3-display-topright'
         );
 		HTP.header(1,'Newsletter rimossa', 'center');
@@ -677,7 +677,7 @@ CREATE OR REPLACE PACKAGE BODY testFB AS
 		modgui1.LABEL('Nome: ' || newsletterName);
 		htp.br;
 		MODGUI1.COLLEGAMENTO('Torna a visualizza',
-							 'testFB.visualizzaNewsletters',
+							 'Newsletters.visualizzaNewsletters',
 							 'w3-btn w3-round-xxlarge w3-black');
 
 		UPDATE NEWSLETTER SET NEWSLETTER.ELIMINATO = 1 WHERE NEWSLETTER.IDNEWS = newsletterID;
@@ -702,13 +702,13 @@ CREATE OR REPLACE PACKAGE BODY testFB AS
 
 		MODGUI1.ApriPagina('Rimozione newsletter', id_sessione);
 		HTP.BodyOpen;
-		MODGUI1.Header(id_sessione);
+		MODGUI1.Header();
 		modgui1.apridiv('style="margin-top: 110px"');
 		modgui1.apridiv('class="w3-container w3-center"');
 		modgui1.ApriDivCard;
 		modgui1.collegamento(
                             'X',
-                            'testFB.visualizzaNewsletters',
+                            'Newsletters.visualizzaNewsletters',
                             ' w3-btn w3-large w3-red w3-display-topright'
         );
 		HTP.header(1,'Rimuovere newsletter?', 'center');
@@ -716,10 +716,10 @@ CREATE OR REPLACE PACKAGE BODY testFB AS
 		modgui1.LABEL('Nome: ' || newsletterName);
 		htp.br;
 		MODGUI1.COLLEGAMENTO('Annulla',
-							 'testFB.visualizzaNewsletters',
+							 'Newsletters.visualizzaNewsletters',
 							 'w3-btn w3-round-xxlarge w3-red');
 		MODGUI1.COLLEGAMENTO('Conferma',
-							 'testFB.rimuoviNewsletter?newsletterID=' || TO_CHAR(newsletterID),
+							 'Newsletters.rimuoviNewsletter?newsletterID=' || TO_CHAR(newsletterID),
 							 'w3-btn w3-round-xxlarge w3-green');
 		MODGUI1.ChiudiDiv;
 		MODGUI1.ChiudiDiv;
@@ -727,5 +727,5 @@ CREATE OR REPLACE PACKAGE BODY testFB AS
 
 	END;
 
-END testFB;
+END Newsletters;
 

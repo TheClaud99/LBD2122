@@ -50,7 +50,14 @@ PROCEDURE SpostamentoOpera(
     lingue VARCHAR2 default NULL,
     livelli VARCHAR2 DEFAULT 'Sconosciuto'
 );
-PROCEDURE menuOpere ;
+PROCEDURE menuOpere (
+    orderBy varchar2 default 'Titolo',
+    nameFilter varchar2 default '',
+    MuseoFilter int default 0,
+    AutoriFilter int default 0,
+    AnnoFilterInizio int default 0,
+    AnnoFilterFine int default 3000
+);
 procedure menuOpereEliminate ;
 PROCEDURE selezioneMuseo;
 PROCEDURE StatisticheOpere(
@@ -154,6 +161,9 @@ PROCEDURE linguaELivello(
 
     operaID NUMBER default 0
 );
+
+PROCEDURE filtraOpere;
+
 /* OPERAZIONI SUGLI AUTORI */
 PROCEDURE menuAutori(
     orderBy varchar2 default 'Cognome',
@@ -235,13 +245,13 @@ PROCEDURE ModificaAutore(
 );
 
 PROCEDURE UpdateAutore(
-
 	authID NUMBER DEFAULT 0,
 	newName VARCHAR2 DEFAULT 'Sconosciuto',
 	newSurname VARCHAR2 DEFAULT 'Sconosciuto',
 	newBirth VARCHAR2 DEFAULT NULL,
 	newDeath VARCHAR2 DEFAULT NULL,
 	newNation VARCHAR2 DEFAULT 'Sconosciuta',
+    caller VARCHAR2 DEFAULT NULL,
     callerParams VARCHAR2 DEFAULT ''
 );
 

@@ -1,7 +1,6 @@
 SET DEFINE OFF;
 
 CREATE OR REPLACE PACKAGE BODY gruppo2 AS
-
 /*
  * OPERAZIONI SULLE OPERE
  * - Inserimento ✅
@@ -21,11 +20,23 @@ CREATE OR REPLACE PACKAGE BODY gruppo2 AS
  * - Opere esposte per più tempo (le tre più vecchie)✅
  * - Età media delle opere ✅ 
  * - Ordinamento per anno di realizzazione (le tre più vecchie) ✅ 
- */
-
-procedure menuOpere is
+ */ 
+ 
+procedure menuOpere(
+    orderBy varchar2 default 'Titolo',
+    nameFilter varchar2 default '',
+    MuseoFilter int default 0,
+    AutoriFilter int default 0,
+    AnnoFilterInizio int default 0,
+    AnnoFilterFine int default 3000
+    )IS 
+    var1 varchar2 (40) := orderby;
     idSessione NUMBER(5) := modgui1.get_id_sessione();
+    Inizio NUMBER(5) := AnnoFIlterInizio;
+    Fine NUMBER (5) := AnnoFIlterFine;
+    Temp NUMBER (5);
     BEGIN
+
         htp.prn('<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css"> ');
         modGUI1.ApriPagina('Opere',idSessione);
         modGUI1.Header;
@@ -40,24 +51,56 @@ procedure menuOpere is
             modGUI1.Collegamento('Inserisci descrizione',gruppo2.gr2||'InserisciDescrizione','w3-btn w3-round-xxlarge w3-black');
             htp.print('&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;');
             modGUI1.Collegamento('Opere Eliminate',gruppo2.gr2||'menuOpereEliminate','w3-btn w3-round-xxlarge w3-black');
+
             htp.print('&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;');
-            htp.br;htp.br;
             htp.prn('<button onclick="document.getElementById(''11'').style.display=''block''"'
                 ||' class="w3-btn w3-round-xxlarge w3-black">Statistiche Opere</button>');
             htp.print('&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;');
         end if;
+ 
         IF hasRole(idSessione, 'DBA') or hasRole(idSessione, 'GO') or hasRole(idSessione, 'SU') THEN
             modGUI1.Collegamento('Statistiche Descrizioni',
                 gruppo2.gr2||'statisticheDescrizioni',
                 'w3-btn w3-round-xxlarge w3-black');
+                htp.print('&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;');
+            htp.prn('<button onclick="document.getElementById(''filtraOpere'').style.display=''block''"'
+            ||' class="w3-btn w3-round-xxlarge w3-black">Filtra</button>');
+            modGUI1.ApriDiv('class="w3-right"');
+            modGUI1.Collegamento('Rimuovi filtri',gruppo2.gr2||'menuOpere','w3-btn w3-round-xxlarge w3-red');
+            htp.print('&nbsp;&nbsp;');
+            modGUI1.ChiudiDiv;
         END IF;
         modGUI1.ChiudiDiv;
         --Fuori dal div per evitare centraggio bottoni nel popup
+        gruppo2.filtraOpere;
         gruppo2.selezioneMuseo;
         
+        IF AnnoFilterFine < AnnoFilterInizio THEN
+            Temp:=Inizio;
+            Inizio:=Fine;
+            Fine:=Temp;
+        END IF;
+
         --Visualizzazione TUTTE LE OPERE *temporanea*
+
         modGUI1.ApriDiv('class="w3-row w3-container"');
-        FOR opera IN (SELECT * FROM Opere WHERE Eliminato = 0 ORDER BY Titolo)
+        FOR opera IN (
+            SELECT DISTINCT Opere.* FROM Opere, AutoriOpere
+            WHERE   Eliminato = 0 
+                    AND museo = 
+                        (case when museoFilter=0 then museo else museoFilter end)
+                    AND AutoriOpere.idAutore=
+                        (case when autoriFilter=0 then AutoriOpere.idAutore else autoriFilter end)
+                    AND AutoriOpere.idOpera = opere.idopera
+
+                    AND UPPER(Titolo) LIKE '%'||UPPER(nameFilter)||'%'
+
+                    AND Opere.Anno BETWEEN Inizio AND Fine
+
+            ORDER BY
+            case when orderby= 'Titolo' then Titolo end asc,
+            case when orderby= 'Anno' then Anno end asc
+            )
         LOOP
             modGUI1.ApriDiv('class="w3-col l4 w3-padding-large w3-center"');
                 modGUI1.ApriDiv('class="w3-card-4" style="height:600px;"');
@@ -1257,8 +1300,8 @@ BEGIN
                         SELECT nome INTO nomeMuseo FROM musei WHERE idmuseo = ricevente;
 
                     htp.prn('<label><b>Prestito N.'||k||'</b></label>');
-                    modGUI1.ApriDiv('class="w3-cell-row w3-border" style="witdh:100%"');
-                        modGUI1.ApriDiv('class="w3-container w3-cell"');
+                    modGUI1.ApriDiv('class="w3-cell-row w3-border" style="width:100%"');
+                        modGUI1.ApriDiv('class="w3-container w3-cell" style="width:50%" ');
                             htp.print('<b>DA:</b>'); --COLLEGAMENTO MUSEO
                             MODGUI1.Collegamento(var1,gruppo2.gr4||'visualizzausei?MuseoID='||proprietario);
                             
@@ -1621,6 +1664,68 @@ procedure coloreClassifica(posizione NUMBER DEFAULT 0)IS
         END IF;
     END;
 
+
+PROCEDURE filtraOpere IS
+BEGIN
+    modGUI1.ApriDiv('id="filtraOpere" class="w3-modal"');
+        modGUI1.ApriDiv('class="w3-modal-content w3-cell-row w3-animate-zoom" style="max-width:700px"');
+            modGUI1.ApriDiv('class="w3-center"');
+                htp.prn('<span onclick="document.getElementById(''filtraOpere'').style.display=''none''" '
+                    ||'class="w3-button w3-xlarge w3-red w3-display-topright" title="Close Modal">X</span>');
+            modGUI1.ChiudiDiv;
+            modGUI1.apriForm(gruppo2.gr2||'menuOpere');
+            -- Ordinamento opere
+            modGUI1.ApriDiv('class="w3-container w3-cell w3-left" style="width:50%" ');
+                htp.br;
+                modGUI1.label('Ordina per: ');
+                htp.br;htp.br;htp.br;    
+                modGUI1.label('Nome contiene: ');
+                htp.br;htp.br;htp.br;
+                modGUI1.label('Filtra per museo proprietario: ');
+                htp.br;htp.br;htp.br;
+                modGUI1.label('Filtra per autore: ');
+                htp.br;htp.br;
+                modGUI1.label('Dal: ');
+                modGUI1.inputNumber(NULL,'AnnoFilterInizio',1,0);
+            --TODO anno decrescente
+            modGUI1.SelectClose;
+            modGUI1.ChiudiDiv;
+            modGUI1.ApriDiv('class="w3-container w3-cell" style="width:50%" ');
+                modGUI1.selectOpen('orderBy');
+                modGUI1.selectoption('Titolo','Titolo',0);
+                modGUI1.selectoption('Anno','Anno (crescente)',0);
+                modGUI1.SelectClose;
+                htp.br;
+                modGUI1.inputtext('nameFilter', 'Filtra per nome...', 0);
+                htp.br;
+                modGUI1.selectOpen('museoFilter');
+                modGUI1.selectOption(0,'-- select an option -- ',0);
+                FOR varMuseo IN (SELECT DISTINCT idMuseo,nome FROM Musei)
+                LOOP
+                    modGUI1.SelectOption(varMuseo.idMuseo, varMuseo.nome, 0);
+                END LOOP;
+                modGUI1.SelectClose;
+                htp.br;
+                modGUI1.selectOpen('AutoriFilter');
+                modGUI1.selectOption(0,'-- select an option -- ',0);
+                FOR varAutore IN (SELECT DISTINCT idAutore,nome,cognome FROM Autori)
+                LOOP
+                    modGUI1.SelectOption(varAutore.idAutore, varAutore.nome||' '|| varAutore.cognome, 0);
+                END LOOP;
+                modGUI1.SelectClose;
+                htp.br;
+                modGUI1.label('Al: ');
+                modGUI1.inputNumber(NULL,'AnnoFilterFine',1,2022);
+            modGUI1.ChiudiDiv;
+            modGUI1.inputSubmit('Applica');
+            htp.prn('<span onclick="document.getElementById(''filtraOpere'').style.display=''none''" '
+                    ||'class="w3-button w3-block w3-black w3-section w3-padding" title="Close Modal">Annulla</span>');
+            modGUI1.ChiudiForm;
+
+        modGUI1.ChiudiDiv;
+    modGUI1.ChiudiDiv;
+END;
+
 /*
  * OPERAZIONI SUGLI AUTORI
  * - Inserimento ✅
@@ -1635,7 +1740,10 @@ procedure coloreClassifica(posizione NUMBER DEFAULT 0)IS
  * - Autori in vita le cui Opere sono esposte in un Museo scelto ✅
  */
 
-PROCEDURE filtraAutori IS
+PROCEDURE filtraAutori(
+    caller VARCHAR2 DEFAULT 'menuAutori'
+)
+ IS
 BEGIN
     modGUI1.ApriDiv('id="filtraAuth" class="w3-modal"');
         modGUI1.ApriDiv('class="w3-modal-content w3-card-4 w3-animate-zoom" style="max-width:600px"');
@@ -1644,9 +1752,8 @@ BEGIN
                     ||'class="w3-button w3-xlarge w3-red w3-display-topright" title="Close Modal">X</span>');
             modGUI1.ChiudiDiv;
 
-            modGUI1.apriForm(gruppo2.gr2||'menuAutori');
+            modGUI1.apriForm(gruppo2.gr2||caller);
             -- Ordinamento autori
-            -- FIXME: datanascita e datamorte non funzionano
             modGUI1.label('Ordina per: ');
             modGUI1.selectOpen('orderBy');
             modGUI1.selectoption('Cognome','Cognome',0);
@@ -1731,7 +1838,7 @@ BEGIN
     modGUI1.ChiudiDiv;
     
     gruppo2.selezioneOpStatAut;
-    filtraAutori;
+    filtraAutori('menuAutori');
 
     htp.br;
     modGUI1.ApriDiv('class="w3-row w3-container"');
@@ -1825,7 +1932,7 @@ BEGIN
         end if;
     modGUI1.ChiudiDiv;
 
-    filtraAutori;
+    filtraAutori('menuAutoriEliminati');
 
     htp.br;
     modGUI1.ApriDiv('class="w3-row w3-container"');
@@ -2735,7 +2842,7 @@ END;
 --  0: Visualizzazione
 --  1: Modifica
 PROCEDURE ModificaAutore(
-	authorID NUMBER DEFAULT 0,
+ authorID NUMBER DEFAULT 0,
     operazione NUMBER DEFAULT 0,
     caller VARCHAR2 DEFAULT NULL,
     callerParams VARCHAR2 DEFAULT ''
@@ -2745,7 +2852,6 @@ this_autore Autori%ROWTYPE;
 op_title VARCHAR2(25);
 eta NUMBER(20);
 -- Gli eventuali parametri della procedura chiamante
-params VARCHAR2(255);
 paramsMenu VARCHAR2(255);
 menuRitorno VARCHAR2(255);
 BEGIN
@@ -2756,117 +2862,111 @@ BEGIN
         op_title := 'Modifica';
     END IF;
     modGUI1.ApriPagina(op_title||' Autore', idSessione);
-	modGUI1.Header;
-	htp.br;htp.br;htp.br;htp.br;htp.br;htp.br;
+    modGUI1.Header;
+    htp.br;htp.br;htp.br;htp.br;htp.br;htp.br;
 
-    params := REPLACE(callerParams,'//','%2F%2F');
-    params := REPLACE(params,'=', '%3D');
+    modGUI1.ApriDiv('class="w3-modal-content w3-card-4 w3-animate-zoom" style="max-width:600px" ');
+        modGUI1.ApriDiv('class="w3-section"');
+            IF caller = 'visualizzaOpera' THEN
+                menuRitorno := 'menuOpere';
+            ELSIF caller = 'menuAutoriEliminati' THEN
+                menuRitorno := 'menuAutoriEliminati';
+            ELSE
+                menuRitorno := 'menuAutori';
+            END IF;
+            modGUI1.Collegamento('X',gruppo2.gr2||menuRitorno,' w3-btn w3-large w3-red w3-display-topright');
+         htp.br;
+    htp.header(2, 'Dettagli Autore', 'center');
 
-	modGUI1.ApriDiv('class="w3-modal-content w3-card-4 w3-animate-zoom" style="max-width:600px" ');
-		modGUI1.ApriDiv('class="w3-section"');
-        IF caller = 'visualizzaOpera' THEN
-            menuRitorno := 'menuOpere';
-        ELSIF caller = 'menuAutoriEliminati' THEN
-            menuRitorno := 'menuAutoriEliminati';
-        ELSE
-            menuRitorno := 'menuAutori';
-        END IF;
-        modGUI1.Collegamento('X',gruppo2.gr2||menuRitorno,' w3-btn w3-large w3-red w3-display-topright');
-        htp.br;
-		htp.header(2, 'Dettagli Autore', 'center');
-
-		-- caso modifica
-		IF operazione = 1 THEN
-            modGUI1.ApriForm(gruppo2.gr2||'UpdateAutore');
-                HTP.FORMHIDDEN('caller', caller);
-                HTP.FORMHIDDEN('callerParams', params);
-                htp.formhidden('authID', this_autore.IdAutore);
-                modGUI1.Label('Nome:');
-				modGUI1.InputText('newName', this_autore.Nome, 1, this_autore.Nome);
-                htp.br;
-                modGUI1.Label('Cognome:');
-				modGUI1.InputText('newSurname', this_autore.Cognome, 1, this_autore.Cognome);
-                htp.br;
-                modGUI1.Label('Data nascita:');
-				modGUI1.InputDate('dataNascita', 'newBirth', 0, TO_CHAR(this_autore.DataNascita, 'YYYY-MM-DD'));
-                htp.br;
-                modGUI1.Label('Data morte:');
-				modGUI1.InputDate('dataMorte', 'newDeath', 0, TO_CHAR(this_autore.DataMorte, 'YYYY-MM-DD'));
-                htp.br;
-                modGUI1.Label('Nazionalità:');
-				modGUI1.InputText('newNation', this_autore.Nazionalita, 1, this_autore.Nazionalita);
-                htp.br;
-				modGUI1.InputSubmit('Conferma');
-			modGUI1.ChiudiForm;
-		-- caso visualizza: label + valore
-		ELSE
-			modGUI1.Label('Nome:');
-			htp.prn(this_autore.Nome);
-			htp.br;
-			modGUI1.Label('Cognome:');
-			htp.prn(this_autore.Cognome);
-			htp.br;
-			modGUI1.Label('Data nascita:');
-			IF this_autore.DataNascita IS NOT NULL THEN
-				htp.prn(TO_CHAR(this_autore.DataNascita, 'DD/MM/YYYY'));
-			ELSE
-				htp.prn('Sconosciuta');
-			END IF;
-			htp.br;
-			modGUI1.Label('Data morte:');
-			IF this_autore.DataMorte IS NOT NULL THEN
-				htp.prn(TO_CHAR(this_autore.DataMorte, 'DD/MM/YYYY'));
-			ELSE
-				htp.prn('Sconosciuta');
-			END IF;
+    -- caso modifica
+    IF operazione = 1 THEN
+        modGUI1.ApriForm(gruppo2.gr2||'UpdateAutore');
+            HTP.FORMHIDDEN('caller', caller);
+            htp.formhidden('authID', this_autore.IdAutore);
+            modGUI1.Label('Nome:');
+            modGUI1.InputText('newName', this_autore.Nome, 1, this_autore.Nome);
             htp.br;
-            -- Label età
-            modGUI1.Label('Et&agrave;:');
-            IF this_autore.DataNascita IS NOT NULL AND this_autore.DataMorte IS NOT NULL THEN
-                eta := (this_autore.dataMorte - this_autore.DataNascita) / 365;
-                htp.print(TO_CHAR(eta)||' anni');
-            ELSE
-                htp.print('Sconosciuta');
-            END IF;
-			htp.br;
-			modGUI1.Label('Nazionalità:');
-			htp.prn(this_autore.Nazionalita);
-			htp.br; htp.br;
-		END IF;
-
-        IF operazione = 0 THEN
-            modGUI1.ApriDiv('class="w3-center"');
-            modGUI1.ApriForm(gruppo2.gr2||'StatisticheAutori');
-                htp.br;
-                modGUI1.SelectOpen('operazione', 'operazione');
-                modGUi1.SelectOption(0, 'Opere realizzate');
-                modGUi1.SelectOption(1, 'Musei con opere esposte');
-                modGUi1.SelectOption(2, 'Collaborazioni effettuate');
-                modGUI1.SelectClose;
-            HTP.FORMHIDDEN('authID', this_autore.IdAutore);
-            htp.prn('<button class="w3-margin w3-button w3-black w3-hover-white">Seleziona</button>');
-            modGUI1.ChiudiDiv;
+            modGUI1.Label('Cognome:');
+            modGUI1.InputText('newSurname', this_autore.Cognome, 1, this_autore.Cognome);
+            htp.br;
+            modGUI1.Label('Data nascita:');
+            modGUI1.InputDate('dataNascita', 'newBirth', 0, TO_CHAR(this_autore.DataNascita, 'YYYY-MM-DD'));
+            htp.br;
+            modGUI1.Label('Data morte:');
+            modGUI1.InputDate('dataMorte', 'newDeath', 0, TO_CHAR(this_autore.DataMorte, 'YYYY-MM-DD'));
+            htp.br;
+            modGUI1.Label('Nazionalità:');
+            modGUI1.InputText('newNation', this_autore.Nazionalita, 1, this_autore.Nazionalita);
+            htp.br;
+            modGUI1.InputSubmit('Conferma');
+        modGUI1.ChiudiForm;
+    -- caso visualizza: label + valore
+    ELSE
+        modGUI1.Label('Nome:');
+        htp.prn(this_autore.Nome);
+        htp.br;
+        modGUI1.Label('Cognome:');
+        htp.prn(this_autore.Cognome);
+        htp.br;
+        modGUI1.Label('Data nascita:');
+        IF this_autore.DataNascita IS NOT NULL THEN
+            htp.prn(TO_CHAR(this_autore.DataNascita, 'DD/MM/YYYY'));
+        ELSE
+            htp.prn('Sconosciuta');
         END IF;
+        htp.br;
+        modGUI1.Label('Data morte:');
+        IF this_autore.DataMorte IS NOT NULL THEN
+            htp.prn(TO_CHAR(this_autore.DataMorte, 'DD/MM/YYYY'));
+        ELSE
+            htp.prn('Sconosciuta');
+    END IF;
 
-        -- Link per ritorno a procedura statistica dalla quale è stato chiamato
-        IF caller is not null THEN
-            IF params IS NULL THEN
-                MODGUI1.collegamento('Annulla',
-                gruppo2.gr2||caller,
-                'w3-button w3-block w3-black w3-section w3-padding');
-            ELSE
-                paramsMenu := REPLACE(callerParams,'§§','//');
-                paramsMenu := REPLACE(paramsMenu,'//','&');
-                MODGUI1.collegamento('Annulla',
-                gruppo2.gr2||caller||'?'||paramsMenu,
-                'w3-button w3-block w3-black w3-section w3-padding');
-            END IF;
-        END IF; 
-		modGUI1.ChiudiDiv;
-	modGUI1.ChiudiDiv;
+    htp.br;
+    -- Label età
+    modGUI1.Label('Et&agrave;:');
+    IF this_autore.DataNascita IS NOT NULL AND this_autore.DataMorte IS NOT NULL THEN
+        eta := (this_autore.dataMorte - this_autore.DataNascita) / 365;
+        htp.print(TO_CHAR(eta)||' anni');
+    ELSE
+        htp.print('Sconosciuta');
+    END IF;
+    htp.br;
+    modGUI1.Label('Nazionalità:');
+    htp.prn(this_autore.Nazionalita);
+    htp.br; htp.br;
+  END IF;
+    IF operazione = 0 THEN
+        modGUI1.ApriDiv('class="w3-center"');
+        modGUI1.ApriForm(gruppo2.gr2||'StatisticheAutori');
+            htp.br;
+            modGUI1.SelectOpen('operazione', 'operazione');
+            modGUi1.SelectOption(0, 'Opere realizzate');
+            modGUi1.SelectOption(1, 'Musei con opere esposte');
+            modGUi1.SelectOption(2, 'Collaborazioni effettuate');
+            modGUI1.SelectClose;
+        HTP.FORMHIDDEN('authID', this_autore.IdAutore);
+        htp.prn('<button class="w3-margin w3-button w3-black w3-hover-white">Seleziona</button>');
+        modGUI1.ChiudiDiv;
+    END IF;
+    -- Link per ritorno a procedura statistica dalla quale è stato chiamato
+    IF caller is not null THEN
+        IF callerParams IS NULL THEN
+            MODGUI1.collegamento('Annulla',
+            gruppo2.gr2||caller,
+            'w3-button w3-block w3-black w3-section w3-padding');
+        ELSE
+            paramsMenu := REPLACE(callerParams,'//','&');
+            MODGUI1.collegamento('Annulla',
+            gruppo2.gr2||caller||'?'||paramsMenu,
+            'w3-button w3-block w3-black w3-section w3-padding');
+        END IF;
+    END IF; 
+  modGUI1.ChiudiDiv;
+ modGUI1.ChiudiDiv;
 END ModificaAutore;
 
-PROCEDURE UpdateAutore(
+PROCEDURE UpdateAutore( 
 	authID NUMBER DEFAULT 0,
 	newName VARCHAR2 DEFAULT 'Sconosciuto',
 	newSurname VARCHAR2 DEFAULT 'Sconosciuto',
@@ -2955,7 +3055,7 @@ BEGIN
                     htp.prn('<img src="http://www.visitoslo.com/contentassets/3932b41a7b684b40a28d3195191265fe/edvard-munch-nasjonalbiblioteket.jpg" alt="Alps" style="width:100%">');
                         modGUI1.ApriDiv('class="w3-container w3-center"');
                         MODGUI1.collegamento('<h4><b>'||autore.Nome||' '||autore.Cognome,
-                            gruppo2.gr2||'ModificaAutore?authorID='||autore.IdAutore||'&operazione=0');
+                            gruppo2.gr2||'ModificaAutore?authorID='||autore.IdAutore||'&operazione=0&caller=selezioneAutoreStatistica&callerParams=operazione=5');
                         htp.prn(' ha realizzato '||autoreNumOpere.opere||' opere</b></h4>');
                         modGUI1.ChiudiDiv;
                     modGUI1.ChiudiDiv;
@@ -3348,7 +3448,7 @@ cursor lin is (SELECT LINGUA, count(lingua) as clin
                         GROUP by LINGUA
                     )));
                  
-BEGIN
+BEGIN 
     MODGUI1.ApriPagina('StatisticheDescrizioni',idSessione);
         modGUI1.Header;
         htp.br;htp.br;htp.br;htp.br;htp.br;htp.br;

@@ -58,8 +58,8 @@ CREATE OR REPLACE PACKAGE BODY modGUI1 as
                         htp.prn('GRUPPO 4 <i class="fa fa-caret-down"></i>');
                     modGUI1.ChiudiDiv;
                     modGUI1.ApriDiv('id="DemoAcc4" class="w3-hide w3-white w3-card-4"');
-                        modGUI1.Collegamento('Link','link','w3-bar-item w3-button');
-                        modGUI1.Collegamento('Link','link','w3-bar-item w3-button');
+                        modGUI1.Collegamento('Menù Musei','operazioniGruppo4.menumusei','w3-bar-item w3-button');
+                        modGUI1.Collegamento('Menù Campi Estivi','operazioniGruppo4.menucampiestivi','w3-bar-item w3-button');
                     modGUI1.ChiudiDiv;
                     
                     --LOGOUT--

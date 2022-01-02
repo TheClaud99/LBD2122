@@ -31,8 +31,8 @@ CREATE OR REPLACE PACKAGE BODY modGUI1 as
                         htp.prn('GRUPPO 1 <i class="fa fa-caret-down"></i>');
                     modGUI1.ChiudiDiv;
                     modGUI1.ApriDiv('id="DemoAcc1" class="w3-hide w3-white w3-card-4"');
-                        modGUI1.Collegamento('Link','link','w3-bar-item w3-button');
-                        modGUI1.Collegamento('Link','link','w3-bar-item w3-button');
+                        modGUI1.Collegamento('Titoli d''ingresso','packageacquistatitoli.titolihome','w3-bar-item w3-button');
+                        modGUI1.Collegamento('Newsletter','newsletters.visualizzaNewsletters','w3-bar-item w3-button');
                     modGUI1.ChiudiDiv;
 
                     --GRUPPO 2--
@@ -59,8 +59,8 @@ CREATE OR REPLACE PACKAGE BODY modGUI1 as
                         htp.prn('GRUPPO 4 <i class="fa fa-caret-down"></i>');
                     modGUI1.ChiudiDiv;
                     modGUI1.ApriDiv('id="DemoAcc4" class="w3-hide w3-white w3-card-4"');
-                        modGUI1.Collegamento('Link','link','w3-bar-item w3-button');
-                        modGUI1.Collegamento('Link','link','w3-bar-item w3-button');
+                        modGUI1.Collegamento('Menù Musei','operazioniGruppo4.menumusei','w3-bar-item w3-button');
+                        modGUI1.Collegamento('Menù Campi Estivi','operazioniGruppo4.menucampiestivi','w3-bar-item w3-button');
                     modGUI1.ChiudiDiv;
                     
                     --LOGOUT--
@@ -570,7 +570,9 @@ CREATE OR REPLACE PACKAGE BODY modGUI1 as
                     if nuovaOp IS NOT NULL OR nuovaOpURL IS NOT NULL then
                         MODGUI1.collegamento(nuovaOp, nuovaOpURL||paramOP,'w3-button w3-block w3-black w3-section w3-padding');
                     end if;
+                    if backToMenu IS NOT NULL OR backToMenuURL IS NOT NULL then
                         MODGUI1.collegamento(backToMenu, backToMenuURL||paramBTM,'w3-button w3-block w3-black w3-section w3-padding');
+                    end if;
                     modGUI1.ChiudiDiv;
                 modGUI1.ChiudiDiv;
     end EsitoOperazione;

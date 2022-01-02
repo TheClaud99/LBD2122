@@ -12,4 +12,4 @@ CREATE OR REPLACE VIEW view_titoli AS
 				from titoliingresso 
 				join TIPOLOGIEINGRESSO on TITOLIINGRESSO.TIPOLOGIA=TIPOLOGIEINGRESSO.IDTIPOLOGIAING
 				join utenti on titoliingresso.ACQUIRENTE=utenti.IDUTENTE
-				join musei on titoloingresso.MUSEO= musei.IDMUSEO
+				join musei on titoliingresso.MUSEO= musei.IDMUSEO

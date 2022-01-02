@@ -2,9 +2,6 @@ SET DEFINE OFF;
 
 CREATE OR REPLACE PACKAGE BODY testFB AS
 
-
---        modgui1.apridiv('id="modal_filtri" class="w3-modal"');
--- htp.prn('<span onclick="document.getElementById(''modal_filtri'').style.display=''none''" class="w3-button w3-xlarge w3-red w3-display-topright" title="Close Modal">X</span>');
 	PROCEDURE visualizzaNewsletters
 	IS
 		id_sessione NUMBER(10) := NULL;
@@ -33,8 +30,7 @@ CREATE OR REPLACE PACKAGE BODY testFB AS
 			modgui1.collegamento(
                                 'Aggiungi',
                                 'testFB.inserisciNewsLetter',
-                                'w3-btn w3-round-xxlarge w3-green'
-            );
+                                'w3-btn w3-round-xxlarge w3-green');
 		END IF;
         modgui1.chiudidiv;
         htp.br;
@@ -54,8 +50,6 @@ CREATE OR REPLACE PACKAGE BODY testFB AS
 			htp.prn(to_char(newsletter.IDNEWS));
 			htp.br;
 			htp.prn(to_char(newsletter.NOME));
-			htp.br;
-			htp.prn(to_char(newsletter.ELIMINATO));
 			htp.br;
 			htp.br;
 
@@ -90,7 +84,7 @@ CREATE OR REPLACE PACKAGE BODY testFB AS
 			THEN
 				modgui1.collegamento(
 									'Elimina',
-									'PackageVisite.....',
+									'testfb.confermaRimozioneNewsletter?newsletterID=' || TO_CHAR(newsletter.IDNEWS),
 									'w3-btn w3-round-xxlarge w3-red'
 				);
 				modgui1.collegamento(
@@ -99,6 +93,7 @@ CREATE OR REPLACE PACKAGE BODY testFB AS
 									'w3-btn w3-round-xxlarge w3-black'
 				);
 			END IF;
+			htp.br;
 			htp.br;
 			modgui1.chiudidiv;
             modgui1.chiudidiv;
@@ -151,6 +146,11 @@ CREATE OR REPLACE PACKAGE BODY testFB AS
 		modgui1.apridiv('style="margin-top: 110px"');
 		modgui1.ApriDivCard;
 		modgui1.apridiv('class="w3-container w3-center"');
+		modgui1.collegamento(
+                            'X',
+                            'testFB.visualizzaNewsletters',
+                            ' w3-btn w3-large w3-red w3-display-topright'
+        );
 		HTP.header(1,'Sei stato inserito nella newsletter', 'center');
 		htp.br;
 		HTP.prn('<h1> ' || newslettername || '</h1>');
@@ -192,6 +192,11 @@ CREATE OR REPLACE PACKAGE BODY testFB AS
 		modgui1.apridiv('style="margin-top: 110px"');
 		modgui1.ApriDivCard;
 		modgui1.apridiv('class="w3-container w3-center"');
+		modgui1.collegamento(
+                            'X',
+                            'testFB.visualizzaNewsletters',
+                            ' w3-btn w3-large w3-red w3-display-topright'
+        );
 		HTP.header(1,'Sei stato rimosso dalla newsletter', 'center');
 		htp.br;
 		HTP.prn('<h1> ' || newslettername || '</h1>');
@@ -218,15 +223,6 @@ CREATE OR REPLACE PACKAGE BODY testFB AS
 		numeroVisitatori NUMBER(10) := 0;
 		etaMediaIscritti NUMBER(10) := 0;
 
-
-		--utente
-		U_NOME UTENTI.NOME%TYPE :='';
-		U_COGNOME UTENTI.COGNOME%TYPE :='';
-		U_NASCITA UTENTI.DATANASCITA%TYPE :='';
-		U_EMAIL UTENTI.EMAIL%TYPE :='';
-		U_INDIRIZZO UTENTI.INDIRIZZO%TYPE :='';
-		U_RECAPITO UTENTI.RECAPITOTELEFONICO%TYPE :='';
-
 		newsletterInesistente EXCEPTION;
 		sessionIdExecption EXCEPTION;
 	BEGIN
@@ -250,9 +246,9 @@ CREATE OR REPLACE PACKAGE BODY testFB AS
 		end if;
 
 		SELECT NOME into nomeNew FROM NEWSLETTER WHERE NEWSLETTER.IDNEWS = newsletterID;
-		SELECT count(*) into numeroVisitatori from UTENTI where IdUtente IN (select VISITATORE from VISITE) AND IDUTENTE IN (SELECT IDUTENTE FROM NEWSLETTERUTENTI WHERE IDNEWS = newsletterID);
+		SELECT count(*) into numeroVisitatori from UTENTI where IdUtente IN (select VISITATORE from VISITE) AND IDUTENTE IN (SELECT IDUTENTE FROM NEWSLETTERUTENTI WHERE IDNEWS = newsletterID) AND UTENTI.ELIMINATO = 0;
 
-		SELECT avg(age) into etaMediaIscritti FROM (SELECT MONTHS_BETWEEN(sysdate, UTENTI.DATANASCITA) / 12 age FROM UTENTI WHERE UTENTI.IDUTENTE IN (SELECT NEWSLETTERUTENTI.IDUTENTE FROM NEWSLETTERUTENTI WHERE NEWSLETTERUTENTI.IDNEWS = newsletterID));
+		SELECT avg(age) into etaMediaIscritti FROM (SELECT MONTHS_BETWEEN(sysdate, UTENTI.DATANASCITA) / 12 age FROM UTENTI WHERE UTENTI.IDUTENTE IN (SELECT NEWSLETTERUTENTI.IDUTENTE FROM NEWSLETTERUTENTI WHERE NEWSLETTERUTENTI.IDNEWS = newsletterID) AND UTENTI.ELIMINATO = 0);
 
 		SELECT avg(count) into temp  from ( SELECT NEWSLETTERUTENTI.IDUTENTE, count(*) as count
 											FROM NEWSLETTERUTENTI
@@ -264,6 +260,12 @@ CREATE OR REPLACE PACKAGE BODY testFB AS
 		MODGUI1.ApriPagina('Statistiche',id_sessione);
 		modgui1.header(id_sessione);
 		modgui1.apridiv('style="margin-top: 110px;text-align:center;"');
+		modgui1.apridivcard;
+		modgui1.collegamento(
+                            'X',
+                            'testFB.visualizzaNewsletters',
+                            ' w3-btn w3-large w3-red w3-display-topright'
+        );
 		htp.prn(CONCAT('<h1> statistiche per newsletter </h1>', nomeNew));
 		htp.br();
 		modgui1.Label('Numero visitatori: ');
@@ -295,7 +297,7 @@ CREATE OR REPLACE PACKAGE BODY testFB AS
 				htp.prn('<th> email </th>');
 			htp.prn('</tr>');
 
-			for utente in ( SELECT * from UTENTI where IdUtente IN (select VISITATORE from VISITE) AND IDUTENTE IN (SELECT IDUTENTE FROM NEWSLETTERUTENTI WHERE IDNEWS = newsletterID))
+			for utente in ( SELECT * from UTENTI where IdUtente IN (select VISITATORE from VISITE) AND IDUTENTE IN (SELECT IDUTENTE FROM NEWSLETTERUTENTI WHERE IDNEWS = newsletterID) AND UTENTI.ELIMINATO = 0)
 			LOOP
 				htp.prn('<tr>');
 				htp.prn('<td>' );
@@ -314,78 +316,90 @@ CREATE OR REPLACE PACKAGE BODY testFB AS
 		modgui1.chiudiDiv;
 		--modal chiuso.
 
-
-
-		--TODO-aggiungere altre funzioni tipo: numero medio degli acquisti per utenti iscritti alla newsletter, l'utente con più acquisti etc...
-
-
-		modgui1.Label('Titoli di ingresso degli iscritti alla newsletter:');
-		--per ogni utente che è iscitto alla newsletter
-		--mostrare TUTTI i titoli di ingresso che ha acquistato
-
-		SELECT MAX(numb) INTO temp FROM (SELECT count(*) numb FROM TITOLIINGRESSO GROUP BY TITOLIINGRESSO.ACQUIRENTE);
-
-		htp.prn('<table style="width:100%" border="2">');
-		htp.prn('<tr>');
-			htp.prn('<th> utente </th>');
-			for k in 0..temp
-			LOOP
-				htp.prn(CONCAT(CONCAT('<th> acquisto ', k + 1), '</th>'));
-			END LOOP;
-		htp.prn('</tr>');
-		for id_utente in (	SELECT NEWSLETTERUTENTI.IDUTENTE
-							FROM NEWSLETTERUTENTI
-							WHERE NEWSLETTERUTENTI.IDNEWS = newsletterID
-									AND NEWSLETTERUTENTI.IDUTENTE IN (	SELECT TITOLIINGRESSO.ACQUIRENTE
-																		FROM TITOLIINGRESSO))
-		LOOP
-			--id_utente.IDUTENTE tiene id dell'utente
-			htp.prn('<tr>');
-			htp.prn('<td>');
-			SELECT UTENTI.NOME, UTENTI.COGNOME, UTENTI.DATANASCITA, UTENTI.INDIRIZZO, UTENTI.EMAIL, UTENTI.RECAPITOTELEFONICO
-				INTO U_NOME, U_COGNOME, U_NASCITA, U_INDIRIZZO, U_EMAIL, U_RECAPITO
-				FROM UTENTI
-				WHERE UTENTI.IDUTENTE = id_utente.IDUTENTE;
-
-			MODGUI1.COLLEGAMENTO(TO_CHAR(U_NOME) || ' ' ||TO_CHAR(U_COGNOME),
-								'gruppo1.VisualizzaUtente?utenteID=' || TO_CHAR(id_utente.IDUTENTE));
-			htp.br;
-			htp.prn(TO_CHAR(U_NASCITA, 'YYYY-MM-DD'));
-			htp.br;
-			htp.prn(TO_CHAR(U_INDIRIZZO));
-			htp.br;
-			htp.prn(TO_CHAR(U_EMAIL));
-			htp.br;
-			htp.prn(TO_CHAR(U_RECAPITO));
-			htp.prn('</td>');
-
-			FOR titolo IN (
-				SELECT *
+		SELECT max(count)
+		INTO temp
+		FROM NEWSLETTERUTENTI
+		JOIN (	SELECT TITOLIINGRESSO.ACQUIRENTE as acquirente, count(*) as count
 				FROM TITOLIINGRESSO
-				WHERE TITOLIINGRESSO.ACQUIRENTE = id_utente.IDUTENTE
-			)
-			LOOP
-			htp.prn('<td>');
-			htp.prn('ID:');
-			modgui1.COLLEGAMENTO(TO_CHAR(titolo.IDTITOLOING), 'packageAcquistaTitoli.visualizzatitoloing?varidtitoloing=' || TO_CHAR(titolo.IDTITOLOING));
-			htp.br;
-			htp.prn(CONCAT('EMISSIONE: ', TO_CHAR(titolo.EMISSIONE, 'YYYY-MM-DD HH24:MI')));
-			htp.br;
-			htp.prn(CONCAT('SCADENZA: ', TO_CHAR(titolo.SCADENZA, 'YYYY-MM-DD')));
-			htp.br;
-			--TODO collegamento con tipologia
-			htp.prn(CONCAT('TIPOLOGIA: ', TO_CHAR(titolo.TIPOLOGIA)));
-			htp.br;
+				GROUP BY TITOLIINGRESSO.ACQUIRENTE) ON NEWSLETTERUTENTI.IDUTENTE = acquirente
+		WHERE NEWSLETTERUTENTI.IDNEWS = newsletterID;
+		modgui1.Label('Numero massimo di acquisti da iscritti: ');
+		modgui1.Label(TO_CHAR(temp));
+		htp.br();
 
-			htp.prn('</td>');
-			END LOOP;
+		SELECT COUNT(*)
+		INTO temp
+		FROM (	SELECT NEWSLETTERUTENTI.IDUTENTE
+				FROM NEWSLETTERUTENTI
+				JOIN (SELECT TITOLIINGRESSO.ACQUIRENTE as acquirente, count(*) as count
+					FROM TITOLIINGRESSO
+					GROUP BY TITOLIINGRESSO.ACQUIRENTE)
+					ON NEWSLETTERUTENTI.IDUTENTE = acquirente
+				WHERE NEWSLETTERUTENTI.IDNEWS = newsletterID
+					AND count = (SELECT max(count1)
+								FROM (	SELECT TITOLIINGRESSO.ACQUIRENTE as acquirente, count(*) as count1
+										FROM TITOLIINGRESSO
+										GROUP BY TITOLIINGRESSO.ACQUIRENTE)));
+		modgui1.Label('iscritti con numero massimo di acquisti: ');
+		htp.prn('<span onclick="document.getElementById(''modal_filtri2'').style.display=''block''"  title="Close Modal" style="text-decoration: underline;">' || TO_CHAR(temp) || '</span>');
+		htp.br();
 
+		--modal per vedere gli utenti
+		modgui1.apridiv('id="modal_filtri2" class="w3-modal"');
+			modgui1.apridiv('class="w3-modal-content w3-card-4 w3-animate-zoom" style="max-width:600px"');
+			modgui1.apridiv('class="w3-center"');
+			htp.br;
+			htp.prn('<span onclick="document.getElementById(''modal_filtri2'').style.display=''none''" class="w3-button w3-small w3-red w3-display-topright" title="Close Modal">X</span>');
+
+			htp.br;
+			htp.prn('<table style="width:100%" border="2">');
+			htp.prn('<tr>');
+				htp.prn('<th> id utente </th>');
+				htp.prn('<th> nome </th>');
+				htp.prn('<th> cognome </th>');
+				htp.prn('<th> data nascita </th>');
+				htp.prn('<th> indirizzo </th>');
+				htp.prn('<th> email </th>');
 			htp.prn('</tr>');
 
-		END LOOP;
-		htp.prn('</table>');
+			for utente in ( SELECT * from UTENTI where IdUtente IN ( 	SELECT NEWSLETTERUTENTI.IDUTENTE
+																		FROM NEWSLETTERUTENTI
+																		JOIN (SELECT TITOLIINGRESSO.ACQUIRENTE as acquirente, count(*) as count
+																			FROM TITOLIINGRESSO
+																			GROUP BY TITOLIINGRESSO.ACQUIRENTE)
+																			ON NEWSLETTERUTENTI.IDUTENTE = acquirente
+																		WHERE NEWSLETTERUTENTI.IDNEWS = newsletterID
+																			AND count = (SELECT max(count1)
+																						FROM (	SELECT TITOLIINGRESSO.ACQUIRENTE as acquirente, count(*) as count1
+																								FROM TITOLIINGRESSO
+																								GROUP BY TITOLIINGRESSO.ACQUIRENTE)))
+													AND UTENTI.ELIMINATO = 0)
+			LOOP
+				htp.prn('<tr>');
+				htp.prn('<td>' );
+				modgui1.COLLEGAMENTO(TO_CHAR(utente.IDUTENTE), 'gruppo1.VisualizzaUtente?utenteID=' || TO_CHAR(utente.IDUTENTE));
+				htp.prn('</td>');
+				htp.prn('<td>' || TO_CHAR(utente.NOME) || '</td>');
+				htp.prn('<td>' || TO_CHAR(utente.COGNOME) || '</td>');
+				htp.prn('<td>' || TO_CHAR(utente.DATANASCITA, 'YYYY-MM-DD') || '</td>');
+				htp.prn('<td>' || TO_CHAR(utente.INDIRIZZO) || '</td>');
+				htp.prn('<td>' || TO_CHAR(utente.EMAIL) || '</td>');
+				htp.prn('</tr>');
+			END LOOP;
+			htp.prn('</table>');
+			MODGUI1.chiudiDiv;
+			MODGUI1.chiudiDiv;
+		modgui1.chiudiDiv;
+		--modal chiuso.
+
+		htp.br;
+		MODGUI1.COLLEGAMENTO('Visualizza titoli ingresso per iscritti',
+							'testFB.titoliIngIscritti?newsletterID=' || TO_CHAR(newsletterID),
+							'w3-btn w3-round-xxlarge w3-green');
+		htp.br;
 
 
+		MODGUI1.chiudiDiv;
 		MODGUI1.chiudiDiv;
 		htp.bodyclose;
 		htp.htmlclose;
@@ -418,6 +432,123 @@ CREATE OR REPLACE PACKAGE BODY testFB AS
 	END;
 
 
+	PROCEDURE titoliIngIscritti (
+		newsletterID NUMBER DEFAULT -1
+	) IS
+			id_sessione NUMBER(10) := NULL;
+			temp NUMBER(10) := NULL;
+			sessionIdExecption EXCEPTION;
+
+
+			--utente
+			U_NOME UTENTI.NOME%TYPE :='';
+			U_COGNOME UTENTI.COGNOME%TYPE :='';
+			U_NASCITA UTENTI.DATANASCITA%TYPE :='';
+			U_EMAIL UTENTI.EMAIL%TYPE :='';
+			U_INDIRIZZO UTENTI.INDIRIZZO%TYPE :='';
+			U_RECAPITO UTENTI.RECAPITOTELEFONICO%TYPE :='';
+		BEGIN
+			id_sessione := modgui1.get_id_sessione;
+			if id_sessione = 0
+			THEN
+				RAISE sessionIdExecption;
+			end if;
+
+			MODGUI1.ApriPagina('Titoli Ingresso iscritti', id_sessione);
+
+			HTP.BodyOpen;
+			MODGUI1.Header(id_sessione);
+
+			modgui1.apridiv('style="margin-top: 110px;text-align:center;"');
+			MODGUI1.COLLEGAMENTO('Torna a statistiche',
+							'testFB.statisticheNewsLetter?newsletterID=' || TO_CHAR(newsletterID),
+							'w3-btn w3-round-xxlarge w3-green');
+			htp.br;
+			modgui1.Label('Titoli di ingresso degli iscritti alla newsletter:');
+			--per ogni utente che è iscitto alla newsletter
+			--mostrare TUTTI i titoli di ingresso che ha acquistato
+
+			SELECT MAX(numb) INTO temp FROM (SELECT count(*) numb FROM TITOLIINGRESSO GROUP BY TITOLIINGRESSO.ACQUIRENTE);
+
+			htp.prn('<table style="width:100%" border="2">');
+			htp.prn('<tr>');
+				htp.prn('<th> utente </th>');
+				for k in 0..temp
+				LOOP
+					htp.prn('<th> acquisto ' || TO_CHAR(k + 1) || '</th>');
+				END LOOP;
+				htp.prn('</tr>');
+				for id_utente in (	SELECT NEWSLETTERUTENTI.IDUTENTE
+									FROM NEWSLETTERUTENTI
+									WHERE NEWSLETTERUTENTI.IDNEWS = newsletterID
+											AND NEWSLETTERUTENTI.IDUTENTE IN (	SELECT TITOLIINGRESSO.ACQUIRENTE
+																				FROM TITOLIINGRESSO))
+				LOOP
+					--id_utente.IDUTENTE tiene id dell'utente
+					htp.prn('<tr>');
+					htp.prn('<td>');
+					SELECT UTENTI.NOME, UTENTI.COGNOME, UTENTI.DATANASCITA, UTENTI.INDIRIZZO, UTENTI.EMAIL, UTENTI.RECAPITOTELEFONICO
+						INTO U_NOME, U_COGNOME, U_NASCITA, U_INDIRIZZO, U_EMAIL, U_RECAPITO
+						FROM UTENTI
+						WHERE UTENTI.IDUTENTE = id_utente.IDUTENTE;
+
+					MODGUI1.COLLEGAMENTO(TO_CHAR(U_NOME) || ' ' ||TO_CHAR(U_COGNOME),
+										'gruppo1.VisualizzaUtente?utenteID=' || TO_CHAR(id_utente.IDUTENTE));
+					htp.br;
+					htp.prn(TO_CHAR(U_NASCITA, 'YYYY-MM-DD'));
+					htp.br;
+					htp.prn(TO_CHAR(U_INDIRIZZO));
+					htp.br;
+					htp.prn(TO_CHAR(U_EMAIL));
+					htp.br;
+					htp.prn(TO_CHAR(U_RECAPITO));
+					htp.prn('</td>');
+
+					FOR titolo IN (
+						SELECT *
+						FROM TITOLIINGRESSO
+						WHERE TITOLIINGRESSO.ACQUIRENTE = id_utente.IDUTENTE
+					)
+					LOOP
+					htp.prn('<td>');
+					htp.prn('ID:');
+					modgui1.COLLEGAMENTO(TO_CHAR(titolo.IDTITOLOING), 'packageAcquistaTitoli.visualizzatitoloing?varidtitoloing=' || TO_CHAR(titolo.IDTITOLOING));
+					htp.br;
+					htp.prn(CONCAT('EMISSIONE: ', TO_CHAR(titolo.EMISSIONE, 'YYYY-MM-DD HH24:MI')));
+					htp.br;
+					htp.prn(CONCAT('SCADENZA: ', TO_CHAR(titolo.SCADENZA, 'YYYY-MM-DD')));
+					htp.br;
+					--TODO collegamento con tipologia
+					htp.prn(CONCAT('TIPOLOGIA: ', TO_CHAR(titolo.TIPOLOGIA)));
+					htp.br;
+
+					htp.prn('</td>');
+					END LOOP;
+
+					htp.prn('</tr>');
+
+				END LOOP;
+				htp.prn('</table>');
+
+				modgui1.chiudidiv;
+				htp.bodyclose;
+				htp.htmlclose;
+				EXCEPTION
+				WHEN sessionIdExecption THEN
+				MODGUI1.ApriPagina('Errore SessionID', id_sessione);
+				MODGUI1.Header(id_sessione);
+				HTP.BodyOpen;
+
+				MODGUI1.ApriDiv;
+				MODGUI1.LABEL('idSessione non settato o corretto');
+				MODGUI1.collegamento('visualizza newsletter', 'visualizzaNewsletter');
+				MODGUI1.ChiudiDiv;
+
+				HTP.BodyClose;
+				HTP.HtmlClose;
+
+			END;
+
 	PROCEDURE inserisciNewsLetter
 		IS
 			id_sessione NUMBER(10) := NULL;
@@ -435,6 +566,11 @@ CREATE OR REPLACE PACKAGE BODY testFB AS
 		MODGUI1.Header(id_sessione);
 		modgui1.apridiv('style="margin-top: 110px"');
 		modgui1.ApriDivCard;
+		modgui1.collegamento(
+                            'X',
+                            'testFB.visualizzaNewsletters',
+                            ' w3-btn w3-large w3-red w3-display-topright'
+        );
 		HTP.header(1,'Inserisci una nuova newsletter', 'center');
 
 		MODGUI1.ApriForm('testfb.inserisci_newsletter');
@@ -472,6 +608,11 @@ CREATE OR REPLACE PACKAGE BODY testFB AS
 	MODGUI1.Header(id_sessione);
 	modgui1.apridiv('style="margin-top: 110px"');
 	modgui1.ApriDivCard;
+	modgui1.collegamento(
+                            'X',
+                            'testFB.visualizzaNewsletters',
+                            ' w3-btn w3-large w3-red w3-display-topright'
+        );
 	if checked = 0 then
 		HTP.header(1,'Conferma Newsletter', 'center');
 		MODGUI1.ApriForm('testfb.inserisci_newsletter');
@@ -510,4 +651,81 @@ CREATE OR REPLACE PACKAGE BODY testFB AS
 
 	END;
 
+	PROCEDURE rimuoviNewsletter (
+		newsletterID NUMBER DEFAULT -1
+	) IS
+		id_sessione NUMBER(10) := NULL;
+		newsletterName VARCHAR2(50) := NULL;
+	BEGIN
+		id_sessione := MODGUI1.GET_ID_SESSIONE;
+
+		SELECT NOME INTO newsletterName FROM NEWSLETTER WHERE NEWSLETTER.IDNEWS = newsletterID;
+
+		MODGUI1.ApriPagina('Rimozione newsletter', id_sessione);
+		HTP.BodyOpen;
+		MODGUI1.Header(id_sessione);
+		modgui1.apridiv('style="margin-top: 110px"');
+		modgui1.apridiv('class="w3-container w3-center"');
+		modgui1.ApriDivCard;
+		modgui1.collegamento(
+                            'X',
+                            'testFB.visualizzaNewsletters',
+                            ' w3-btn w3-large w3-red w3-display-topright'
+        );
+		HTP.header(1,'Newsletter rimossa', 'center');
+		htp.br;
+		modgui1.LABEL('Nome: ' || newsletterName);
+		htp.br;
+		MODGUI1.COLLEGAMENTO('Torna a visualizza',
+							 'testFB.visualizzaNewsletters',
+							 'w3-btn w3-round-xxlarge w3-black');
+
+		UPDATE NEWSLETTER SET NEWSLETTER.ELIMINATO = 1 WHERE NEWSLETTER.IDNEWS = newsletterID;
+		MODGUI1.ChiudiDiv;
+		MODGUI1.ChiudiDiv;
+		MODGUI1.ChiudiDiv;
+
+
+
+	END;
+
+
+	PROCEDURE confermaRimozioneNewsletter (
+		newsletterID NUMBER DEFAULT -1
+	) IS
+		id_sessione NUMBER(10) := NULL;
+		newsletterName VARCHAR2(50) := NULL;
+	BEGIN
+		id_sessione := MODGUI1.GET_ID_SESSIONE;
+
+		SELECT NOME INTO newsletterName FROM NEWSLETTER WHERE NEWSLETTER.IDNEWS = newsletterID;
+
+		MODGUI1.ApriPagina('Rimozione newsletter', id_sessione);
+		HTP.BodyOpen;
+		MODGUI1.Header(id_sessione);
+		modgui1.apridiv('style="margin-top: 110px"');
+		modgui1.apridiv('class="w3-container w3-center"');
+		modgui1.ApriDivCard;
+		modgui1.collegamento(
+                            'X',
+                            'testFB.visualizzaNewsletters',
+                            ' w3-btn w3-large w3-red w3-display-topright'
+        );
+		HTP.header(1,'Rimuovere newsletter?', 'center');
+		htp.br;
+		modgui1.LABEL('Nome: ' || newsletterName);
+		htp.br;
+		MODGUI1.COLLEGAMENTO('Annulla',
+							 'testFB.visualizzaNewsletters',
+							 'w3-btn w3-round-xxlarge w3-red');
+		MODGUI1.COLLEGAMENTO('Conferma',
+							 'testFB.rimuoviNewsletter?newsletterID=' || TO_CHAR(newsletterID),
+							 'w3-btn w3-round-xxlarge w3-green');
+		MODGUI1.ChiudiDiv;
+		MODGUI1.ChiudiDiv;
+		MODGUI1.ChiudiDiv;
+
+	END;
+
 END testFB;
+

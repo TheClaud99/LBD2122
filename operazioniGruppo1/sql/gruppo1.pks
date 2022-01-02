@@ -111,20 +111,6 @@ procedure NumeroMedioTitoli(
 
 procedure StatisticheUtenti;
 
---TODO DA TESTARE
-/*
-PROCEDURE inserisciNewsLetter (
-    idSessione NUMBER DEFAULT 0
-);
 
-PROCEDURE inserisci_newsletter (
-    idSessione NUMBER DEFAULT 0,
-	nome varchar2(25) not null
-);
-*/
-
-PROCEDURE statisticheNewsLetter (
-	newsletterID NUMBER DEFAULT -1
-);
 
 END gruppo1;

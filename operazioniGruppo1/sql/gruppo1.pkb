@@ -1092,6 +1092,9 @@ is
 						htp.print(x.mnome);
 						modgui1.chiudiElementoTabella;
 						modgui1.apriElementoTabella;
+						modgui1.collegamento('Visualizza', 'visualizzamusei?MuseoID='||x.museo, 'w3-button w3-black');
+						modgui1.chiudiElementoTabella;
+						modgui1.apriElementoTabella;
 						htp.print(x.ctitoli);
 						modgui1.chiudiElementoTabella;
 						modgui1.chiudiRigaTabella;
@@ -1108,6 +1111,9 @@ is
 						modgui1.apriRigaTabella;
 						modgui1.apriElementoTabella;
 						htp.print(x.mnome);
+						modgui1.chiudiElementoTabella;
+						modgui1.apriElementoTabella;
+						modgui1.collegamento('Visualizza', 'visualizzamusei?MuseoID='||x.museo, 'w3-button w3-black');
 						modgui1.chiudiElementoTabella;
 						modgui1.apriElementoTabella;
 						htp.print(x.ctitoli);
@@ -1136,10 +1142,10 @@ is
 	dataInizio DATE := TO_DATE(dataInizioFun default NULL on conversion error, 'YYYY-MM-DD');
 	dataFine DATE := TO_DATE(dataFineFun default NULL on conversion error, 'YYYY-MM-DD');
 	tempMedia NUMBER := 0;
-	res NUMBER(6) := 0;
+	res DEC(6, 2) := 0;
 	idSessione NUMBER(5) := modgui1.get_id_sessione();
 	cursor musei_c is (
-				select museo, musei.nome as mnome, AVG(COSTOTOTALE) as mtitoli
+				select museo, musei.nome as mnome, CAST(AVG(COSTOTOTALE) as DECIMAL(10,2)) as mtitoli
 				from tipologieingresso
 				join titoliingresso on idtipologiaing = tipologia
 				join musei on IDMUSEO = museo
@@ -1147,7 +1153,7 @@ is
 				group by museo, musei.nome
 			);
 	cursor musei_cu is (
-				select museo, musei.nome as mnome, AVG(COSTOTOTALE) as mtitoli
+				select museo, musei.nome as mnome, CAST(AVG(COSTOTOTALE) as DECIMAL(10,2)) as mtitoli
 				from tipologieingresso
 				join titoliingresso on idtipologiaing = tipologia
 				join musei on IDMUSEO = museo
@@ -1206,6 +1212,9 @@ is
 						htp.print(x.mnome);
 						modgui1.chiudiElementoTabella;
 						modgui1.apriElementoTabella;
+						modgui1.collegamento('Visualizza', 'visualizzamusei?MuseoID='||x.museo, 'w3-button w3-black');
+						modgui1.chiudiElementoTabella;
+						modgui1.apriElementoTabella;
 						htp.print(x.mtitoli);
 						modgui1.chiudiElementoTabella;
 						modgui1.chiudiRigaTabella;
@@ -1222,6 +1231,9 @@ is
 						modgui1.apriRigaTabella;
 						modgui1.apriElementoTabella;
 						htp.print(x.mnome);
+						modgui1.chiudiElementoTabella;
+						modgui1.apriElementoTabella;
+						modgui1.collegamento('Visualizza', 'visualizzamusei?MuseoID='||x.museo, 'w3-button w3-black');
 						modgui1.chiudiElementoTabella;
 						modgui1.apriElementoTabella;
 						htp.print(x.mtitoli);
@@ -1318,6 +1330,9 @@ is
 						htp.print(x.mnome);
 						modgui1.chiudiElementoTabella;
 						modgui1.apriElementoTabella;
+						modgui1.collegamento('Visualizza', 'visualizzamusei?MuseoID='||x.museo, 'w3-button w3-black');
+						modgui1.chiudiElementoTabella;
+						modgui1.apriElementoTabella;
 						htp.print(x.cvisite);
 						modgui1.chiudiElementoTabella;
 						modgui1.chiudiRigaTabella;
@@ -1334,6 +1349,9 @@ is
 						modgui1.apriRigaTabella;
 						modgui1.apriElementoTabella;
 						htp.print(x.mnome);
+						modgui1.chiudiElementoTabella;
+						modgui1.apriElementoTabella;
+						modgui1.collegamento('Visualizza', 'visualizzamusei?MuseoID='||x.museo, 'w3-button w3-black');
 						modgui1.chiudiElementoTabella;
 						modgui1.apriElementoTabella;
 						htp.print(x.cvisite);
@@ -1363,6 +1381,7 @@ is
 	tempMedia NUMBER := 0;
 	res NUMBER(6) := 0;
 	res2 NUMBER(6) := 0;
+	res3 DEC(6, 2) := 0;
 	idSessione NUMBER(5) := modgui1.get_id_sessione();
 	cursor musei_c is (
 				select MUSEO, musei.nome as mnome, COUNT(*) as cvisite
@@ -1389,6 +1408,7 @@ is
 			where emissione > dataInizio and emissione < dataFine and museoID = MUSEO;
 		end if;
 
+		res3 := res2/res;
 
 		modGUI1.ApriPagina('Statistiche utenti',idSessione);
         if idSessione IS NULL then
@@ -1401,7 +1421,7 @@ is
                 modGUI1.ApriDiv('class="w3-center"');
                 htp.print('<h1>Operazione eseguita correttamente </h1>');
 				if res > 0 then
-					htp.print('<h3>Il risultato è '||res2/res||'</h3>');
+					htp.print('<h3>Il risultato è '||res3||'</h3>');
 					if museoID = 0 then
 						modgui1.apriTabella('w3-table w3-striped w3-centered');
 						modgui1.apriRigaTabella;
@@ -1410,12 +1430,16 @@ is
 						modgui1.chiudiRigaTabella;
 						for x in musei_c
 						LOOP
+						res3 := x.cvisite/res; 
 						modgui1.apriRigaTabella;
 						modgui1.apriElementoTabella;
 						htp.print(x.mnome);
 						modgui1.chiudiElementoTabella;
 						modgui1.apriElementoTabella;
-						htp.print(x.cvisite/res);
+						modgui1.collegamento('Visualizza', 'visualizzamusei?MuseoID='||x.museo, 'w3-button w3-black');
+						modgui1.chiudiElementoTabella;
+						modgui1.apriElementoTabella;
+						htp.print(res3);
 						modgui1.chiudiElementoTabella;
 						modgui1.chiudiRigaTabella;
 						end LOOP;
@@ -1513,7 +1537,7 @@ begin
 					modgui1.chiudiElementoTabella;
 					modgui1.apriElementoTabella;
 						modgui1.apridiv('class="w3-padding-24"');
-						modgui1.elementoTabella('Numero Titoli d’Ingresso acquistati');
+						modgui1.elementoTabella('Numero titoli di ingresso acquistati');
 						modgui1.chiudiDiv;
 					modgui1.chiudiElementoTabella;
 					modgui1.apriElementoTabella;
@@ -1559,7 +1583,7 @@ begin
 					modgui1.chiudiElementoTabella;
 					modgui1.apriElementoTabella;
 						modgui1.apridiv('class="w3-padding-24"');
-						modgui1.elementoTabella('Costo medio Titoli d’Ingresso acquistati');
+						modgui1.elementoTabella('Costo medio titoli di ingresso acquistati');
 						modgui1.chiudiDiv;
 					modgui1.chiudiElementoTabella;
 					modgui1.apriElementoTabella;
@@ -1642,7 +1666,7 @@ begin
 					modgui1.chiudiElementoTabella;
 					modgui1.apriElementoTabella;
 						modgui1.apridiv('class="w3-padding-24"');
-						modgui1.elementoTabella('Numero medio visite musei');
+						modgui1.elementoTabella('Numero medio titoli di ingresso acquistati');
 						modgui1.chiudiDiv;
 					modgui1.chiudiElementoTabella;
 					modgui1.apriElementoTabella;

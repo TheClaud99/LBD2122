@@ -572,7 +572,9 @@ CREATE OR REPLACE PACKAGE BODY packagevisite AS
             htp.prn('<div class"w3-container w3-margin">');
             htp.prn('<div class="w3-row">');
             htp.prn('<div class="w3-col s4 w3-center">');
-            htp.prn('<div class="w3-margin">' || utente.nome || '</div>');
+            htp.prn('<div class="w3-margin">'
+                    || utente.nome
+                    || '</div>');
             htp.prn('</div>');
             htp.prn('<div class="w3-col s8 w3-center">');
             htp.prn('<div class="w3-margin">'
@@ -651,7 +653,11 @@ CREATE OR REPLACE PACKAGE BODY packagevisite AS
         lv_sql           VARCHAR2(2000);
         v_visite_cursor  SYS_REFCURSOR;
         visita           view_visite%rowtype;
+        sessionidexecption EXCEPTION;
     BEGIN
+        IF id_sessione = 0 THEN
+            RAISE sessionidexecption;
+        END IF;
         lv_sql := build_query(
                              data_visita_from,
                              data_visita_to,
@@ -790,6 +796,17 @@ CREATE OR REPLACE PACKAGE BODY packagevisite AS
         );
         htp.prn('</body>
         </html>');
+    EXCEPTION
+        WHEN sessionidexecption THEN
+            modgui1.esitooperazione(
+                                   pagetitle            => 'Non sei loggato',
+                                   msg                  => 'Devi essere loggato per accedere a questa pagina',
+                                   nuovaop              => 'Torna alla home',
+                                   nuovaopurl           => 'webpages.Home',
+                                   parametrinuovaop     => NULL /*IN VARCHAR2*/,
+                                   backtomenu           => NULL /*IN VARCHAR2*/,
+                                   backtomenuurl        => NULL /*IN VARCHAR2*/,
+                                   parametribacktomenu  => NULL /*IN VARCHAR2*/);
     END;
 
     PROCEDURE inseriscivisita (

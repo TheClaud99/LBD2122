@@ -404,8 +404,14 @@ FUNCTION build_query (
 		titolo view_titoli%rowtype;
     BEGIN
 
-		SELECT IDCLIENTE INTO idclientelogged FROM UTENTILOGIN WHERE UTENTILOGIN.IDUTENTELOGIN = idSessione;
 		
+		MODGUI1.APRIPAGINA('Titoli d''ingresso');
+        modGUI1.Header();
+        modgui1.apridiv('style="margin-top: 110px"');
+		if(idsessione = 0) THEN
+			htp.prn('<h1 align=center>Nessun utente loggato.</h1>');
+		else
+		SELECT IDCLIENTE INTO idclientelogged FROM UTENTILOGIN WHERE UTENTILOGIN.IDUTENTELOGIN = idSessione;
 		lv_sql := build_query(
 							datefrom,
 							dateto,
@@ -428,9 +434,7 @@ FUNCTION build_query (
                             'YYYY-MM-DD"T"HH24:MI'
                      ), id_utente, id_museo, id_tipologia, idclientelogged;
 		
-		MODGUI1.APRIPAGINA('Titoli d''ingresso');
-        modGUI1.Header();
-        modgui1.apridiv('style="margin-top: 110px"');
+		
         modGUI1.ApriDiv('class="w3-center"');
 
             htp.prn('<h1>Titoli d''ingresso </h1>'); --TITOLO
@@ -550,8 +554,10 @@ FUNCTION build_query (
                            sort_method
         );
         modGUI1.chiudiDiv;
+	end if;
 	htp.bodyclose;
 	htp.htmlclose;
+	
 end;
 
 --VISUALIZZAZIONE

@@ -31,8 +31,8 @@ CREATE OR REPLACE PACKAGE BODY modGUI1 as
                         htp.prn('GRUPPO 1 <i class="fa fa-caret-down"></i>');
                     modGUI1.ChiudiDiv;
                     modGUI1.ApriDiv('id="DemoAcc1" class="w3-hide w3-white w3-card-4"');
-                        modGUI1.Collegamento('Link','link','w3-bar-item w3-button');
-                        modGUI1.Collegamento('Link','link','w3-bar-item w3-button');
+                        modGUI1.Collegamento('Titoli d''ingresso','packageacquistatitoli.titolihome','w3-bar-item w3-button');
+                        modGUI1.Collegamento('Newsletter','testfb.visualizzanewsletter','w3-bar-item w3-button');
                     modGUI1.ChiudiDiv;
 
                     --GRUPPO 2--

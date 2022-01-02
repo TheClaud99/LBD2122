@@ -94,7 +94,7 @@ CREATE OR REPLACE PACKAGE BODY testFB AS
 			THEN
 				modgui1.collegamento(
 									'Elimina',
-									'PackageVisite.....',
+									'testfb.confermaRimozioneNewsletter?newsletterID=' || TO_CHAR(newsletter.IDNEWS),
 									'w3-btn w3-round-xxlarge w3-red'
 				);
 				modgui1.collegamento(
@@ -458,6 +458,70 @@ CREATE OR REPLACE PACKAGE BODY testFB AS
 	END IF;
 
 	MODGUI1.ChiudiDiv;
+
+	END;
+
+	PROCEDURE rimuoviNewsletter (
+		newsletterID NUMBER DEFAULT -1
+	) IS
+		id_sessione NUMBER(10) := NULL;
+		newsletterName VARCHAR2(50) := NULL;
+	BEGIN
+		id_sessione := MODGUI1.GET_ID_SESSIONE;
+
+		SELECT NOME INTO newsletterName FROM NEWSLETTER WHERE NEWSLETTER.IDNEWS = newsletterID;
+
+		MODGUI1.ApriPagina('Rimozione newsletter', id_sessione);
+		HTP.BodyOpen;
+		MODGUI1.Header(id_sessione);
+		modgui1.apridiv('style="margin-top: 110px"');
+		modgui1.apridiv('class="w3-container w3-center"');
+		modgui1.ApriDivCard;
+		HTP.header(1,'Newsletter rimossa', 'center');
+		htp.br;
+		modgui1.LABEL('Nome: ' || newsletterName);
+		htp.br;
+		MODGUI1.COLLEGAMENTO('Torna a visualizza',
+							 'testfb.rimuoviNewsletter?newsletterID=' || TO_CHAR(newsletterID),
+							 'w3-btn w3-round-xxlarge w3-black');
+		MODGUI1.ChiudiDiv;
+		MODGUI1.ChiudiDiv;
+		MODGUI1.ChiudiDiv;
+
+
+
+	END;
+
+
+	PROCEDURE confermaRimozioneNewsletter (
+		newsletterID NUMBER DEFAULT -1
+	) IS
+		id_sessione NUMBER(10) := NULL;
+		newsletterName VARCHAR2(50) := NULL;
+	BEGIN
+		id_sessione := MODGUI1.GET_ID_SESSIONE;
+
+		SELECT NOME INTO newsletterName FROM NEWSLETTER WHERE NEWSLETTER.IDNEWS = newsletterID;
+
+		MODGUI1.ApriPagina('Rimozione newsletter', id_sessione);
+		HTP.BodyOpen;
+		MODGUI1.Header(id_sessione);
+		modgui1.apridiv('style="margin-top: 110px"');
+		modgui1.apridiv('class="w3-container w3-center"');
+		modgui1.ApriDivCard;
+		HTP.header(1,'Rimuovere newsletter?', 'center');
+		htp.br;
+		modgui1.LABEL('Nome: ' || newsletterName);
+		htp.br;
+		MODGUI1.COLLEGAMENTO('Annulla',
+							 'testfb.visualizzaNewsletters',
+							 'w3-btn w3-round-xxlarge w3-red');
+		MODGUI1.COLLEGAMENTO('Conferma',
+							 'testfb.rimuoviNewsletter?newsletterID=' || TO_CHAR(newsletterID),
+							 'w3-btn w3-round-xxlarge w3-green');
+		MODGUI1.ChiudiDiv;
+		MODGUI1.ChiudiDiv;
+		MODGUI1.ChiudiDiv;
 
 	END;
 

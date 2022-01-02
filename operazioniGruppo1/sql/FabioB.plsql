@@ -27,4 +27,12 @@ CREATE OR REPLACE PACKAGE testFB AS
 		checked number default 0
 	);
 
+	PROCEDURE rimuoviNewsletter (
+		newsletterID NUMBER DEFAULT -1
+	);
+
+	PROCEDURE confermaRimozioneNewsletter (
+		newsletterID NUMBER DEFAULT -1
+	);
+
 END testFB;

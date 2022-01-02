@@ -1269,9 +1269,19 @@ is
    WHERE TITOLIINGRESSO.MUSEO=MuseoId AND  VISITE.TITOLOINGRESSO= TITOLIINGRESSO.IDTITOLOING AND  VISITE.VISITATORE=UTENTIMUSEO.IDUTENTE AND UTENTIMUSEO.IDUTENTE=UTENTI.IDUTENTE AND VISITE.DATAVISITA>dateini AND VISITE.DATAVISITA<datefin;
    val_vis vis_cursor%Rowtype;
    nvisitatori number;
-   ngiorni number:=datefin-dateini;
+   ngiorni number;
    mvisitatori number;
 BEGIN
+   /*ngiorni query*/
+   select count(*)
+   into ngiorni
+   from (
+      select distinct DATAVISITA
+      from VISITE
+      where DATAVISITA > dateini 
+         and DATAVISITA < datefin
+   );
+
    Select  count(*)
    into nvisitatori
    FROM TITOLIINGRESSO,VISITE,UTENTIMUSEO,UTENTI

@@ -7,9 +7,9 @@ CREATE OR REPLACE VIEW view_titoli AS
                     scadenza as datascadenza, 
                     emissione as dataemissione,
 					titoliingresso.acquirente as idutente,
-					musei.idmuseo as museo
+					musei.idmuseo as museo,
 					musei.nome as nomemuseo
 				from titoliingresso 
 				join TIPOLOGIEINGRESSO on TITOLIINGRESSO.TIPOLOGIA=TIPOLOGIEINGRESSO.IDTIPOLOGIAING
 				join utenti on titoliingresso.ACQUIRENTE=utenti.IDUTENTE
-				join musei on titoloingresso.MUSEO= musei.IDMUSEO
+				join musei on titoliingresso.MUSEO= musei.IDMUSEO

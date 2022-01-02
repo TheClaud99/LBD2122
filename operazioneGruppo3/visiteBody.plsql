@@ -527,15 +527,6 @@ CREATE OR REPLACE PACKAGE BODY packagevisite AS
                             'YYYY-MM-DD"T"HH24:MI'
                      ), id_utente, id_museo;
 
-        SELECT
-            utenti.*
-        INTO utente_max_durata_visita
-        FROM
-            utenti
-            JOIN visite ON utenti.idutente = visite.visitatore;
-        WHERE
-        GROUP BY UTENTI.IDUTENTE
-
         modgui1.apridiv('id="modal_statistiche" class="w3-modal"');
         modgui1.apridiv('class="w3-modal-content w3-card-4 w3-animate-zoom" style="max-width:600px"');
         modgui1.apridiv('class="w3-center"');
@@ -564,12 +555,33 @@ CREATE OR REPLACE PACKAGE BODY packagevisite AS
                 || 'h</div>');
         htp.prn('</div>');
         htp.prn('</div>');
-        htp.prn('<h3>Utente con durata visita più lunga</h3>')
-        htp.prn('<div class="w3-col s8 w3-center">');
-        htp.prn('<div class="w3-margin">');
-        
-        htp.prn('</div>');
-        htp.prn('</div>');
+        htp.prn('<h3 align="center">Utente con durata visita più lunga</h3>');
+        FOR utente IN (
+            SELECT
+                *
+            FROM
+                view_utenti_durata_visite
+            WHERE
+                durata_totale = (
+                    SELECT
+                        MAX(durata_totale)
+                    FROM
+                        view_utenti_durata_visite
+                )
+        ) LOOP
+            htp.prn('<div class"w3-container w3-margin">');
+            htp.prn('<div class="w3-row">');
+            htp.prn('<div class="w3-col s4 w3-center">');
+            htp.prn('<div class="w3-margin">' || utente.nome || '</div>');
+            htp.prn('</div>');
+            htp.prn('<div class="w3-col s8 w3-center">');
+            htp.prn('<div class="w3-margin">'
+                    || utente.durata_totale
+                    || 'h</div>');
+            htp.prn('</div>');
+            htp.prn('</div>');
+        END LOOP;
+
         htp.prn('</div>');
         modgui1.chiudidiv;
         modgui1.chiudidiv;

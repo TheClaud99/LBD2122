@@ -33,6 +33,8 @@
 @operazioniGruppo1/sql/FabioBB.plsql
 @operazioniGruppo1/sql/TitoliIngresso.plsql
 @operazioniGruppo1/sql/TitoliIngressoBody.plsql
+@operazioniGruppo1/sql/view_titoli.plsql
+
 
 -- GRUPPO 4
 @operazioniGruppo4/sql/operazioni.pks

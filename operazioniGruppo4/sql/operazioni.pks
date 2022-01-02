@@ -8,11 +8,15 @@ menu_ce CONSTANT VARCHAR2(25) := 'menucampiestivi';
 menu_t CONSTANT VARCHAR2(25):='menutariffe';
 
 /*OPERAZIONI CAMPIESTIVI*/
-procedure menucampiestivi;
+procedure menucampiestivi
+(
+   searchmuseo In MUSEI.IDMUSEO%TYPE default NULL
+);
 procedure menumusei;
 procedure menutariffe
 (
-   idCampo IN number default 0
+   idCampo IN number default 0,
+   ordine IN number default 0
 );
 procedure inseriscicampiestivi
 (
@@ -208,20 +212,6 @@ procedure ControllaPagamentoCampiEstivi(
     acquirente in PAGAMENTICAMPIESTIVI.Acquirente%type
 );
 
-procedure VisualizzaPagamentoCampiEstivi(
-    idPagamento in PAGAMENTICAMPIESTIVI.IdPagamento%type
-);
-
-procedure CancellaPagamentoCampiEstivi(
-    idPagamento in PAGAMENTICAMPIESTIVI.IdPagamento%type
-);
-/*non utlizzata*/
-procedure MonitoraggioPeriodoPagamentoCampiEstivi
-(
-    dataInizio in PAGAMENTICAMPIESTIVI.DataPagamento%type default NULL,
-    dataFine in PAGAMENTICAMPIESTIVI.DataPagamento%type default NULL
-);
-
 procedure PagamentoCampiEstivi(
    tariffaid in PAGAMENTICAMPIESTIVI.Tariffa%type default 0
 );
@@ -259,7 +249,14 @@ procedure ModificaTariffeCampiEstivi
 (
     up_idTariffa in TARIFFECAMPIESTIVI.IdTariffa%type
 );
-
+procedure eliminatariffa
+(
+   Tariffaid in TARIFFECAMPIESTIVI.IdTariffa%type
+);
+procedure rimuovitariffa
+(
+   Tariffaid in TARIFFECAMPIESTIVI.IdTariffa%type
+);
 procedure AggiornaTariffeCampiEstivi
 (
     up_idTariffa number default 0, 

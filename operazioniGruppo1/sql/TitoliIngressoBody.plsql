@@ -13,44 +13,449 @@ CREATE OR REPLACE PACKAGE BODY packageAcquistaTitoli AS
  * - Abbonamenti in scadenza nel mese corrente ❌
  */
 
- --VISUALIZZAZIONE
- PROCEDURE TitoliHome
+PROCEDURE select_utente (
+        nome                 VARCHAR2 DEFAULT 'id_utente',
+        id                   VARCHAR2 DEFAULT 'id_utente',
+        idutenteselezionato  IN utenti.idutente%TYPE DEFAULT NULL
+    ) IS
+    BEGIN
+        modgui1.selectopen(
+                          nome,
+                          id
+        );
+        modgui1.emptyselectoption(
+                                 CASE
+                                     WHEN idutenteselezionato IS NULL THEN
+                                         1
+                                     ELSE 0
+                                 END
+        );
+        FOR utente IN (
+            SELECT
+                utenti.*
+            FROM
+                utentimuseo
+                JOIN utenti ON utentimuseo.idutente = utenti.idutente
+            ORDER BY
+                nome
+        ) LOOP
+            IF utente.idutente = idutenteselezionato THEN
+                modgui1.selectoption(
+                                    utente.idutente,
+                                    utente.nome
+                                    || ' '
+                                    || utente.cognome,
+                                    1
+                );
+
+            ELSE
+                modgui1.selectoption(
+                                    utente.idutente,
+                                    utente.nome
+                                    || ' '
+                                    || utente.cognome,
+                                    0
+                );
+            END IF;
+        END LOOP;
+
+        modgui1.selectclose();
+    END;
+
+    PROCEDURE select_museo (
+        nome      VARCHAR2 DEFAULT 'id_museo',
+        id        VARCHAR2 DEFAULT 'id_museo',
+        id_museo  IN utenti.idutente%TYPE DEFAULT NULL
+    ) IS
+    BEGIN
+        modgui1.selectopen(
+                          nome,
+                          id
+        );
+        modgui1.emptyselectoption(
+                                 CASE
+                                     WHEN id_museo IS NULL THEN
+                                         1
+                                     ELSE 0
+                                 END
+        );
+        FOR museo IN (
+            SELECT
+                *
+            FROM
+                musei
+        ) LOOP
+            IF museo.idmuseo = id_museo THEN
+                modgui1.selectoption(
+                                    museo.idmuseo,
+                                    museo.nome,
+                                    1
+                );
+            ELSE
+                modgui1.selectoption(
+                                    museo.idmuseo,
+                                    museo.nome,
+                                    0
+                );
+            END IF;
+        END LOOP;
+
+        modgui1.selectclose();
+    END;
+
+PROCEDURE select_tipologia (
+        nome      VARCHAR2 DEFAULT 'id_tipologia',
+        id        VARCHAR2 DEFAULT 'id_tipologia',
+        id_tipologia  IN utenti.idutente%TYPE DEFAULT NULL
+    ) IS
+    BEGIN
+        modgui1.selectopen(
+                          nome,
+                          id
+        );
+        modgui1.emptyselectoption(
+                                 CASE
+                                     WHEN id_tipologia IS NULL THEN
+                                         1
+                                     ELSE 0
+                                 END
+        );
+        FOR tipologia IN (
+            SELECT
+                *
+            FROM
+                TIPOLOGIEINGRESSO
+        ) LOOP
+            IF tipologia.idtipologiaing = id_tipologia THEN
+                modgui1.selectoption(
+                                    tipologia.idtipologiaing,
+                                    tipologia.nome,
+                                    1
+                );
+            ELSE
+                modgui1.selectoption(
+                                    tipologia.idtipologiaing,
+                                    tipologia.nome,
+                                    0
+                );
+            END IF;
+        END LOOP;
+
+        modgui1.selectclose();
+    END;
+
+PROCEDURE modal_filtri_titoli (
+        datefrom  IN  VARCHAR2 DEFAULT NULL,
+        dateto    IN  VARCHAR2 DEFAULT NULL,
+        id_utente         IN  NUMBER DEFAULT NULL,
+        id_museo          IN  NUMBER DEFAULT NULL,
+		id_tipologia	  IN  NUMBER DEFAULT NULL,
+        is_biglietto      IN  NUMBER DEFAULT NULL,
+        is_abbonamento    IN  NUMBER DEFAULT NULL,
+        order_by          IN  VARCHAR2 DEFAULT 'IDTITOLO',
+        sort_method       IN  VARCHAR2 DEFAULT 'ASC'
+    ) IS
+    BEGIN
+        modgui1.apridiv('id="modal_filtri" class="w3-modal"');
+        modgui1.apridiv('class="w3-modal-content w3-card-4 w3-animate-zoom" style="max-width:600px"');
+        modgui1.apridiv('class="w3-center"');
+        htp.br;
+        htp.prn('<span onclick="document.getElementById(''modal_filtri'').style.display=''none''" class="w3-button w3-xlarge w3-red w3-display-topright" title="Close Modal">X</span>');
+        htp.print('<h1>Filtri</h1>');
+        modgui1.chiudidiv;
+        modgui1.apriform(
+                        'packageacquistatitoli.titolihome',
+                        'seleziona filtri',
+                        'w3-container w3-margin'
+        );
+        htp.prn('<div class="w3-row">');
+        htp.prn('
+        <div class="w3-col s6 w3-padding-small">
+            <label for="datefrom">Da:</label>
+            <input class="w3-input w3-border w3-round-xlarge" type="datetime-local" id="datefrom" name="datefrom" value="'
+                || datefrom
+                || '">
+        </div>');
+        htp.prn('
+        <div class="w3-col s6 w3-padding-small">
+            <label for="dateto">A:</label>
+            <input class="w3-input w3-border w3-round-xlarge" type="datetime-local" id="dateto" name="dateto" value="'
+                || dateto
+                || '">
+        </div>');
+        htp.prn('</div>');
+        htp.prn('<div class="w3-row">');
+        htp.prn('<div class="w3-col s4 w3-center">');
+        htp.prn('<div class="w3-margin">Utente: </div>');
+        htp.prn('</div>');
+        htp.prn('<div class="w3-col s8 w3-center">');
+        select_utente('id_utente', 'id_utente', id_utente);
+        htp.prn('</div>');
+        htp.prn('</div>');
+        htp.prn('<div class="w3-row">');
+        htp.prn('<div class="w3-col s4 w3-center">');
+        htp.prn('<div class="w3-margin">Museo: </div>');
+        htp.prn('</div>');
+        htp.prn('<div class="w3-col s8 w3-center">');
+        select_museo('id_museo','id_museo', id_museo);
+        htp.prn('</div>');
+        htp.prn('</div>');
+		htp.prn('<div class="w3-row">');
+        htp.prn('<div class="w3-col s4 w3-center">');
+        htp.prn('<div class="w3-margin">Tipologia d''ingresso: </div>');
+        htp.prn('</div>');
+        htp.prn('<div class="w3-col s8 w3-center">');
+        select_tipologia('id_tipologia','id_tipologia', id_tipologia);
+        htp.prn('</div>');
+        htp.prn('</div>');
+        htp.prn('<div class="w3-row">');
+        htp.prn('<div class="w3-col s4 w3-center">');
+        htp.prn('<div class="w3-margin">È un abbonamento: </div>');
+        htp.prn('</div>');
+        htp.prn('<div class="w3-col s8 w3-center">');
+        modgui1.inputcheckbox(
+                             '',
+                             'is_abbonamento',
+                             is_abbonamento,
+                             0,
+                             1
+        );
+        htp.prn('</div>');
+        htp.prn('</div>');
+        htp.prn('<div class="w3-row">');
+        htp.prn('<div class="w3-col s4 w3-center">');
+        htp.prn('<div class="w3-margin">È un biglietto: </div>');
+        htp.prn('</div>');
+        htp.prn('<div class="w3-col s8 w3-center">');
+        modgui1.inputcheckbox(
+                             '',
+                             'is_biglietto',
+                             is_biglietto,
+                             0,
+                             1
+        );
+        htp.prn('</div>');
+        htp.prn('</div>');
+        htp.prn('<div class="w3-row">');
+        htp.prn('<div class="w3-col w3-padding s4 w3-center">');
+        htp.prn('<div class="w3-margin">Ordina per: </div>');
+        htp.prn('</div>');
+        htp.prn('<div class="w3-col w3-padding s5 w3-center">');
+        modgui1.selectopen(
+                          'order_by',
+                          'order_by'
+        );
+        modgui1.selectoption(
+                            'IdUtente',
+                            'Titolare',
+                            CASE
+                                WHEN order_by = 'Titolare' THEN
+                                    1
+                                ELSE 0
+                            END
+        );
+
+        modgui1.selectoption(
+                            'idtipologia',
+                            'Tipologia d''ingresso',
+                            CASE
+                                WHEN order_by = 'Tipologia d''ingresso' THEN
+                                    1
+                                ELSE 0
+                            END
+        );
+
+        modgui1.selectoption(
+                            'dataemissione',
+                            'Data emissione',
+                            CASE
+                                WHEN order_by = 'Data emissione' THEN
+                                    1
+                                ELSE 0
+                            END
+        );
+
+        modgui1.selectoption(
+                            'museo',
+                            'Museo',
+                            CASE
+                                WHEN order_by = 'Museo' THEN
+                                    1
+                                ELSE 0
+                            END
+        );
+
+        modgui1.selectclose();
+        htp.prn('</div>');
+        htp.prn('<div class="w3-col w3-padding s3 w3-center">');
+        modgui1.selectopen(
+                          'sort_method',
+                          'sort_method'
+        );
+        modgui1.selectoption(
+                            'ASC',
+                            'Crescente',
+                            CASE
+                                WHEN sort_method = 'ASC' THEN
+                                    1
+                                ELSE 0
+                            END
+        );
+
+        modgui1.selectoption(
+                            'DESC',
+                            'Decrescente',
+                            CASE
+                                WHEN sort_method = 'DESC' THEN
+                                    1
+                                ELSE 0
+                            END
+        );
+
+        modgui1.selectclose();
+        htp.prn('</div>');
+        htp.prn('</div>');
+        modgui1.inputreset;
+        htp.prn('<button class="w3-button w3-block w3-black w3-section w3-padding" type="submit">Applica</button>');
+        modgui1.chiudidiv;
+        modgui1.chiudiform;
+        modgui1.chiudidiv;
+        modgui1.chiudidiv;
+    END;
+
+FUNCTION build_query (
+        datefrom  IN  VARCHAR2 DEFAULT NULL,
+        dateto    IN  VARCHAR2 DEFAULT NULL,
+        id_utente         IN  NUMBER DEFAULT NULL,
+        id_museo          IN  NUMBER DEFAULT NULL,
+		id_tipologia	  IN  NUMBER DEFAULT NULL,
+        is_biglietto      IN  NUMBER DEFAULT NULL,
+        is_abbonamento    IN  NUMBER DEFAULT NULL,
+        order_by          IN  VARCHAR2 DEFAULT 'IDTITOLO',
+        sort_method       IN  VARCHAR2 DEFAULT 'ASC',
+		idclientelogged IN utentilogin.IDCLIENTE%type DEFAULT NULL
+    ) RETURN VARCHAR2 IS
+        lv_where      VARCHAR2(500);
+        v_base_query  VARCHAR2(2000) := 'with binds as (
+          select :bind1 as datefrom,
+          :bind2 as dateto,
+          :bind3 as id_utente,
+          :bind4 as id_museo,
+		  :bind5 as id_tipologia,
+		  :bind6 as idclientelogged
+            from dual)
+       select view_titoli.* from view_titoli,
+				binds b
+       WHERE 1=1 ';
+    BEGIN
+        IF datefrom IS NOT NULL THEN
+            lv_where := lv_where || ' AND dataemissione >= b.datefrom';
+        END IF;
+        IF dateto IS NOT NULL THEN
+            lv_where := lv_where || ' AND dataemissione <= b.dateto';
+        END IF;
+		IF idclientelogged is not null then 
+			lv_where := lv_where || ' AND idutente = b.idclientelogged';
+		end if;
+		IF id_tipologia IS NOT NULL THEN
+			lv_where := lv_where || ' AND idtipologia = b.id_tipologia';
+		END IF;
+        IF id_utente IS NOT NULL THEN
+            lv_where := lv_where || ' AND idutente = b.id_utente';
+        END IF;
+        IF id_museo IS NOT NULL THEN
+            lv_where := lv_where || ' AND museo = b.id_museo';
+        END IF;
+        IF is_biglietto = 1 THEN
+            lv_where := lv_where || ' AND EXISTS(SELECT * FROM biglietti WHERE biglietti.IdTipologiaIng=view_titoli.idtipologia)';
+        END IF;
+        IF is_abbonamento = 1 THEN
+            lv_where := lv_where || ' AND EXISTS(SELECT * FROM abbonamenti WHERE abbonamenti.IdTipologiaIng=view_titoli.idtipologia)';
+        END IF;
+        v_base_query := v_base_query
+                        || lv_where
+                        || ' ORDER BY '
+                        || order_by
+                        || ' '
+                        || sort_method;
+
+        RETURN v_base_query;
+    END;
+
+ --PAGINA INIZIALE TITOLI D'INGRESSO
+ PROCEDURE TitoliHome(
+	datefrom varchar2 default null,
+	dateto varchar2 default null,
+	id_utente number default null,
+	id_museo number default null,
+	id_tipologia number default null,
+	is_abbonamento number default null,
+	is_biglietto number default null,
+	order_by varchar2 default 'IDTITOLO',
+	sort_method varchar2 default 'ASC'
+ )
  	is
 		idSessione NUMBER(5) := modgui1.get_id_sessione();
-		idcliente NUMBER(10) := NULL;
-		temp number(1) := 0;
+		idclientelogged utentilogin.IDCLIENTE%type := NULL;
+		temp number(1) := 0; --indica se il titolo sia un biglietto oppure un abbonamento
+
+		lv_sql varchar2(3000);
+		v_titoli_cursor SYS_REFCURSOR;
+		titolo view_titoli%rowtype;
     BEGIN
+
+		
 		MODGUI1.APRIPAGINA('Titoli d''ingresso');
-        htp.prn('<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css"> ');
-        modGUI1.Header(idSessione);
-        htp.br;htp.br;htp.br;htp.br;htp.br;htp.br;
+        modGUI1.Header();
+        modgui1.apridiv('style="margin-top: 110px"');
+		if(idsessione = 0) THEN
+			htp.prn('<h1 align=center>Nessun utente loggato.</h1>');
+		else
+		SELECT IDCLIENTE INTO idclientelogged FROM UTENTILOGIN WHERE UTENTILOGIN.IDUTENTELOGIN = idSessione;
+		lv_sql := build_query(
+							datefrom,
+							dateto,
+							id_utente,
+							id_museo,
+							id_tipologia,
+							is_biglietto,
+							is_abbonamento,
+							order_by,
+							sort_method,
+							idclientelogged
+		);
+		
+		OPEN v_titoli_cursor FOR lv_sql
+            USING to_date(
+                         datefrom,
+                         'YYYY-MM-DD"T"HH24:MI'
+                  ), to_date(
+                            dateto,
+                            'YYYY-MM-DD"T"HH24:MI'
+                     ), id_utente, id_museo, id_tipologia, idclientelogged;
+		
+		
         modGUI1.ApriDiv('class="w3-center"');
+
             htp.prn('<h1>Titoli d''ingresso </h1>'); --TITOLO
 
             modGUI1.Collegamento('Acquista biglietto','packageAcquistaTitoli.pagina_acquista_biglietto', 'w3-btn w3-round-xxlarge w3-black w3-margin');
-			modGUI1.Collegamento('Acquista abbonamento','packageAcquistaTitoli.pagina_acquista_abbonamento','w3-btn w3-round-xxlarge w3-black w3-margin'); /*bottone che rimanda alla procedura inserimento solo se la sessione è 1*/
+			modGUI1.Collegamento('Acquista abbonamento','packageAcquistaTitoli.pagina_acquista_abbonamento','w3-btn w3-round-xxlarge w3-black w3-margin');
 			IF hasrole(idSessione,'AB')
 								OR hasrole(idSessione,'SU')
 								OR hasrole(idSessione,'DBA')
 			THEN
 				htp.br;
 				modGUI1.Collegamento('Abbonamenti in scadenza questo mese','packageAcquistaTitoli.abbonamenti_in_scadenza','w3-btn w3-round-xxlarge w3-black w3-margin');
+				htp.prn('<button onclick="document.getElementById(''modal_filtri'').style.display=''block''" class="w3-btn w3-round-xxlarge w3-black w3-margin">Filtri</button>');
 			end if;
         modGUI1.ChiudiDiv;
         htp.br;
-        modGUI1.ApriDiv('class="w3-row w3-container"');
-        --INIZIO LOOP DELLA VISUALIZZAZIONE
-            FOR k IN (select titoliingresso.idtitoloing as idtitolo, tipologieingresso.nome as nometipologia,
-							 utenti.nome as nomeutente, utenti.cognome as cognomeutente, to_char(scadenza, 'DD/MON/YYYY') as datascadenza, to_char(emissione, 'DD/MON/YYYY') as dataemissione
-						from titoliingresso 
-						join TIPOLOGIEINGRESSO on TITOLIINGRESSO.TIPOLOGIA=TIPOLOGIEINGRESSO.IDTIPOLOGIAING
-						join utenti on titoliingresso.ACQUIRENTE=utenti.IDUTENTE
-						join tipologieingressomusei on tipologieingresso.IDTIPOLOGIAING= tipologieingressomusei.IDTIPOLOGIAING
-						join musei on tipologieingressomusei.IDMUSEO= musei.IDMUSEO
-						order by IDTITOLOING
-			)
-			LOOP
-                modGUI1.ApriDiv('class="w3-col l4 w3-padding-large w3-center"');
+		
+		LOOP
+            FETCH v_titoli_cursor INTO titolo;
+            EXIT WHEN v_titoli_cursor%notfound;
+			modGUI1.ApriDiv('class="w3-col l4 w3-padding-large w3-center"');
                     modGUI1.ApriDiv('class="w3-card-4"');
                             modGUI1.ApriDiv('class="w3-container w3-center"');
 							
@@ -58,7 +463,7 @@ CREATE OR REPLACE PACKAGE BODY packageAcquistaTitoli AS
 								select count(*) into temp
 								from titoliingresso join tipologieingresso on TITOLIINGRESSO.TIPOLOGIA=TIPOLOGIEINGRESSO.IDTIPOLOGIAING
 								join abbonamenti on abbonamenti.idtipologiaing=tipologieingresso.IDTIPOLOGIAING
-								where titoliingresso.IDTITOLOING=k.idtitolo;
+								where titoliingresso.IDTITOLOING=titolo.idtitolo;
 								if (temp>0) then
 								htp.header(
                       						3,
@@ -73,33 +478,39 @@ CREATE OR REPLACE PACKAGE BODY packageAcquistaTitoli AS
 								htp.prn('<div class="w3-row">');
         						htp.prn('<div class="w3-col s3 w3-center"><p>Titolo d''ingresso:</p></div>');
 								htp.prn('<div class="w3-col s9 w3-center"><b>'
-                				|| k.idtitolo
+                				|| titolo.idtitolo
                 				|| '</b></div>');
         						htp.prn('</div>');
 
 								htp.prn('<div class="w3-row">');
         						htp.prn('<div class="w3-col s3 w3-center"><p>Titolare:</p></div>');
 								htp.prn('<div class="w3-col s9 w3-center"><p>'
-                				||k.nomeutente || ' ' || k.cognomeutente|| '</p></div>');
+                				||titolo.nomeutente || ' ' || titolo.cognomeutente|| '</p></div>');
         						htp.prn('</div>');
 
 								htp.prn('<div class="w3-row">');
         						htp.prn('<div class="w3-col s3 w3-center"><p>Tipologia:</p></div>');
 								htp.prn('<div class="w3-col s9 w3-center"><p>'
-                				|| k.nometipologia || '</p></div>');
+                				|| titolo.nometipologia || '</p></div>');
         						htp.prn('</div>');
 
 								htp.prn('<div class="w3-row">');
-        						htp.prn('<div class="w3-col s3 w3-center"><p>Data di emissione:</p></div>');
+        						htp.prn('<div class="w3-col s3 w3-center"><p>Museo:</p></div>');
 								htp.prn('<div class="w3-col s9 w3-center"><p>'
-                				|| k.dataemissione
+                				|| titolo.nomemuseo || '</p></div>');
+        						htp.prn('</div>');
+
+								htp.prn('<div class="w3-row">');
+        						htp.prn('<div class="w3-col s3 w3-center"><p>Data d''emissione:</p></div>');
+								htp.prn('<div class="w3-col s9 w3-center"><p>'
+                				|| to_char(titolo.dataemissione, 'DD/MON/YYYY')
                 				|| '</p></div>');
         						htp.prn('</div>');
 
 								htp.prn('<div class="w3-row">');
         						htp.prn('<div class="w3-col s3 w3-center"><p>Data di scadenza:</p></div>');
 								htp.prn('<div class="w3-col s9 w3-center"><p>'
-                				|| k.datascadenza
+                				|| to_char(titolo.datascadenza, 'DD/MON/YYYY')
                 				|| '</p></div>');
         						htp.prn('</div>');
                             --FINE DESCRIZIONI
@@ -108,7 +519,7 @@ CREATE OR REPLACE PACKAGE BODY packageAcquistaTitoli AS
 							htp.prn('<div class="w3-row">');
             				MODGUI1.Collegamento(
 								'Visualizza',
-								'packageAcquistaTitoli.visualizzatitoloing?varidtitoloing='||k.idtitolo,
+								'packageAcquistaTitoli.visualizzatitoloing?varidtitoloing='||titolo.idtitolo,
 								'w3-button w3-margin w3-black');
 							
 							--utente autorizzato
@@ -118,19 +529,38 @@ CREATE OR REPLACE PACKAGE BODY packageAcquistaTitoli AS
 							THEN
                				 modgui1.collegamento(
 								'Modifica titolare',
-								'packageAcquistaTitoli.pagina_modifica_titolo?varidtitoloing='||k.idtitolo,
+								'packageAcquistaTitoli.pagina_modifica_titolo?varidtitoloing='||titolo.idtitolo,
 								'w3-button w3-margin w3-green');
 							END IF;
 							htp.prn('</div>');
                     modGUI1.ChiudiDiv;
                 modGUI1.ChiudiDiv;
+				
             END LOOP;
-        --FINE LOOP
+		
+		CLOSE v_titoli_cursor;
+        modgui1.chiudidiv();
+        modgui1.chiudidiv();
+    
+		modal_filtri_titoli(
+                           datefrom,
+                           dateto,
+                           id_utente,
+                           id_museo,
+						   id_tipologia,
+                           is_biglietto,
+                           is_abbonamento,
+                           order_by,
+                           sort_method
+        );
         modGUI1.chiudiDiv;
+	end if;
 	htp.bodyclose;
 	htp.htmlclose;
+	
 end;
 
+--VISUALIZZAZIONE
 PROCEDURE visualizzatitoloing(
 	varidtitoloing titoliingresso.IDTITOLOING%type
 )is
@@ -155,7 +585,7 @@ BEGIN
 	where TITOLIINGRESSO.idtitoloing= varidtitoloing;
 	
 	MODGUI1.APRIPAGINA('Visualizza titolo d''ingresso');
-		modgui1.header(idSessione);
+		modgui1.header();
 		modgui1.apridiv('style="margin-top: 110px"');
 
 		MODGUI1.ApriDivcard();
@@ -210,12 +640,16 @@ BEGIN
             );
         htp.prn('</p></div>');
         htp.prn('</div>');
-		HTP.TableOpen;
-		HTP.TableRowOpen;
-		HTP.TableData('Tipologia di ingresso: ');
-		HTP.TableData(nometipologia);
-		HTP.TableRowClose;
-		HTP.TableClose;
+		--tipologia d'ingresso
+		htp.prn('<div class="w3-row">');
+        htp.prn('<div class="w3-col s3 w3-center"><p>Tipologia d''ingresso:</p></div>');
+        htp.prn('<div class="w3-col s9 w3-center"><p>');
+        modgui1.collegamento(
+                                nometipologia,
+                                'gruppo1.VisualizzaDatiTitoloIng?tipologiaIngID=' || varidtipologia
+            );
+        htp.prn('</p></div>');
+        htp.prn('</div>');
 		modGUI1.Collegamento('X',
                 'packageAcquistaTitoli.titolihome',
                 'w3-btn w3-large w3-red w3-display-topright');
@@ -229,9 +663,6 @@ BEGIN
 		htp.bodyclose();
 	htp.HtmlClose();
 END;
-
-
-
 
 
 PROCEDURE pagina_modifica_titolo(
@@ -259,7 +690,7 @@ BEGIN
 	join TIPOLOGIEINGRESSO on tipologieingresso.IDTIPOLOGIAING=titoliingresso.TIPOLOGIA
 	where TITOLIINGRESSO.IDTITOLOING=varidtitoloing;
 	modgui1.apripagina('Pagina modifica');
-	modgui1.header(idSessione);
+	modgui1.header();
 	modgui1.apridiv('style="margin-top: 110px"');
 	htp.prn('<h1 align="center"> Modifica titolare </h1>');
 
@@ -361,7 +792,7 @@ PROCEDURE confermamodificatitolo(
 	ELSE
 		MODGUI1.APRIPAGINA('Pagina Conferma');
 		HTP.BodyOpen;
-		modgui1.header(idSessione);
+		modgui1.header();
 		modgui1.apridiv('style="margin-top: 110px"');
 		htp.prn('<h2 align="center"> Conferma immissione dati </h2>');
 		modgui1.apridiv('class="w3-modal-content w3-card-4 w3-animate-zoom" style="max-width:600px"');
@@ -584,7 +1015,7 @@ PROCEDURE pagina_acquista_abbonamento(
 	idSessione NUMBER(5) := modgui1.get_id_sessione();
 BEGIN
 	modgui1.apripagina('Pagina acquisto abbonamento');
-	modgui1.header(idSessione);
+	modgui1.header();
 	modgui1.apridiv('style="margin-top: 110px"');
 	htp.prn('<h1 align="center"> Acquisto abbonamento </h1>');
 
@@ -750,7 +1181,7 @@ BEGIN
     	ELSE
 		MODGUI1.APRIPAGINA('Pagina Conferma');
 		HTP.BodyOpen;
-		modgui1.header(idSessione);
+		modgui1.header();
 		htp.prn('<h2 align="center"> Conferma immissione dati </h2>');
 		MODGUI1.ApriDivcard();
 		HTP.header(3, 'Nuovo Biglietto', 'center');
@@ -808,7 +1239,7 @@ BEGIN
     	ELSE
 		MODGUI1.APRIPAGINA('Pagina Conferma');
 		HTP.BodyOpen;
-		modgui1.header(idSessione);
+		modgui1.header();
 		htp.prn('<h2 align="center"> Conferma immissione dati </h2>');
 		MODGUI1.ApriDivcard();
 		HTP.header(3, 'Nuovo Abbonamento', 'center');
@@ -872,7 +1303,7 @@ PROCEDURE pagina_acquista_biglietto(
 	idSessione NUMBER(5) := modgui1.get_id_sessione();
 BEGIN
 	modgui1.apripagina('Pagina acquisto biglietto');
-	modgui1.header(idSessione);
+	modgui1.header();
 	modgui1.apridiv('style="margin-top: 110px"');
 	htp.prn('<h1 align="center"> Acquisto biglietto </h1>');
 
@@ -905,7 +1336,7 @@ BEGIN
 	if datainizio is null or datafine is NULL or iniziop > finep
 	then 
 		modgui1.apripagina('Pagina errore');
-		modgui1.header(idSessione);
+		modgui1.header();
 		modgui1.apridiv('style="margin-top: 110px"');
 		htp.prn('<h1> Errore </h1>');
 		htp.br();
@@ -962,20 +1393,23 @@ BEGIN
 					where to_char(TITOLIINGRESSO.scadenza,'MM')=meseattuale AND to_char(TITOLIINGRESSO.scadenza,'DD')>=giornoattuale and to_char(TITOLIINGRESSO.scadenza,'YYYY')=annoattuale;
 
 	modgui1.apripagina('Visualizzazione Statistica');
-	modgui1.header(idsessione);
+	modgui1.header();
 	modgui1.apridiv('style="margin-top: 110px"');
 	htp.prn('<h1 align="center">Abbonamenti in scadenza questo mese</h1>');
-	htp.prn('<p p align="center"> Sono presenti <b> '||quant|| '</b> abbonamenti in scadenza entro la fine del mese </p>');
 
-	FOR k IN (select distinct titoliingresso.idtitoloing as idtitolo, tipologieingresso.nome as nometipologia,
-							 utenti.nome as nomeutente, utenti.cognome as cognomeutente
+	htp.prn('<p p align="center"> Sono presenti <b> '||quant|| '</b> abbonamenti in scadenza entro la fine del mese </p>');
+	modGUI1.ApriDiv('class="w3-center"');
+    modGUI1.ApriDiv('class="w3-row w3-container"');
+
+	FOR k IN (select distinct titoliingresso.idtitoloing as idtitolo, musei.nome as nomemuseo, tipologieingresso.nome as nometipologia,
+							 utenti.nome as nomeutente, utenti.cognome as cognomeutente, musei.IDMUSEO as idmuseo, TITOLIINGRESSO.EMISSIONE as emiss, SCADENZA as scad
 						from titoliingresso 
 						join TIPOLOGIEINGRESSO on TITOLIINGRESSO.TIPOLOGIA=TIPOLOGIEINGRESSO.IDTIPOLOGIAING
 						join utenti on titoliingresso.ACQUIRENTE=utenti.IDUTENTE
 						join tipologieingressomusei on tipologieingresso.IDTIPOLOGIAING= tipologieingressomusei.IDTIPOLOGIAING
-						join musei on tipologieingressomusei.IDMUSEO= musei.IDMUSEO
+						join musei on TITOLIINGRESSo.MUSEO= musei.IDMUSEO
 						join abbonamenti on TIPOLOGIEINGRESSO.IDTIPOLOGIAING=ABBONAMENTI.IDTIPOLOGIAING
-						where to_char(TITOLIINGRESSO.scadenza,'MM')=meseattuale AND to_char(TITOLIINGRESSO.scadenza,'DD')>=giornoattuale AND to_char(TITOLIINGRESSO.scadenza,'YYYY')=annoattuale
+						where to_char(TITOLIINGRESSO.scadenza,'MM')=meseattuale AND to_char(TITOLIINGRESSO.scadenza,'DD')>=giornoattuale and to_char(TITOLIINGRESSO.scadenza,'YYYY')=annoattuale
 						order by IDTITOLOING
 		)
 	LOOP
@@ -983,9 +1417,12 @@ BEGIN
                     modGUI1.ApriDiv('class="w3-card-4"');
                             modGUI1.ApriDiv('class="w3-container w3-center"');
                             --INIZIO DESCRIZIONI
-                                htp.prn('<p>Titolo d''ingresso <b>'||k.idtitolo||'</b> </p>');
-								htp.prn('<p>'||k.nomeutente || ' ' || k.cognomeutente||' </p>');
+                                htp.prn('<p>Titolo d''ingresso: <b>'||k.idtitolo||'</b> </p>');
+								htp.prn('<p>Titolare: '||k.nomeutente || ' ' || k.cognomeutente||' </p>');
+								htp.prn('<p>Museo: '|| k.nomemuseo ||'</p>');
                                 htp.prn('<p>'|| k.nometipologia ||'</p>');
+								htp.prn('<p>Scadenza: '||to_char(k.scad, 'DD/MON/YYYY')||' </p>');
+		
                             --FINE DESCRIZIONI
                             modGUI1.ChiudiDiv;
                             
@@ -996,9 +1433,18 @@ BEGIN
                     modGUI1.ChiudiDiv;
                 modGUI1.ChiudiDiv;
     END LOOP;
+	modGUI1.ChiudiDiv;
+	modGUI1.ChiudiDiv;
+	modGUI1.ApriDiv('class="w3-center"');
+	MODGUI1.Collegamento(
+								'Torna alla visualizzazione dei titoli d''ingresso',
+								'packageAcquistaTitoli.titiolihome',
+								'w3-button w3-margin w3-black');
+	modGUI1.ChiudiDiv;
 	htp.BodyClose;
 	htp.HtmlClose;
 	
+
 
 
 END;

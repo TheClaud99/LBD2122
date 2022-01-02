@@ -1649,7 +1649,7 @@ begin
 						modgui1.selectopen('museoID', 'idmuseiSommaTitoli');
 						MODGUI1.SelectOption(0, 'Tutti i musei', 0);
 						for museo in (select idmuseo from musei)
-						loop
+						loop 
 							select idmuseo, nome
 							into varidmuseo, nomemuseo
 							from musei

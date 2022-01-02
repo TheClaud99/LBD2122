@@ -1,8 +1,5 @@
 CREATE OR REPLACE PACKAGE Newsletters AS
 
-	root constant VARCHAR2(125) := 'http://131.114.73.203:8080/apex/';
-	user constant VARCHAR2(25) := 'fbocci.';
-
 	PROCEDURE visualizzaNewsletters;
 
 

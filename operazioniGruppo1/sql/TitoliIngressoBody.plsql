@@ -398,6 +398,7 @@ FUNCTION build_query (
 		idSessione NUMBER(5) := modgui1.get_id_sessione();
 		idclientelogged utentilogin.IDCLIENTE%type := NULL;
 		temp number(1) := 0; --indica se il titolo sia un biglietto oppure un abbonamento
+		
 
 		lv_sql varchar2(3000);
 		v_titoli_cursor SYS_REFCURSOR;
@@ -445,16 +446,16 @@ FUNCTION build_query (
 								OR hasrole(idSessione,'SU')
 								OR hasrole(idSessione,'DBA')
 			THEN
-				htp.br;
 				modGUI1.Collegamento('Abbonamenti in scadenza questo mese','packageAcquistaTitoli.abbonamenti_in_scadenza','w3-btn w3-round-xxlarge w3-black w3-margin');
+				htp.br;
 				htp.prn('<button onclick="document.getElementById(''modal_filtri'').style.display=''block''" class="w3-btn w3-round-xxlarge w3-black w3-margin">Filtri</button>');
 			end if;
-        modGUI1.ChiudiDiv;
-        htp.br;
+		modgui1.chiudidiv;
 		
 		LOOP
             FETCH v_titoli_cursor INTO titolo;
             EXIT WHEN v_titoli_cursor%notfound;
+			
 			modGUI1.ApriDiv('class="w3-col l4 w3-padding-large w3-center"');
                     modGUI1.ApriDiv('class="w3-card-4"');
                             modGUI1.ApriDiv('class="w3-container w3-center"');

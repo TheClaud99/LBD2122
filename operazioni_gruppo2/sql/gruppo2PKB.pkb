@@ -3372,11 +3372,11 @@ IF descrid is null or newopera is null THEN
 
     commit;
     modGUI1.RedirectEsito('Aggiornamento riuscito', null,null, null, null,
-        'Torna all''opera',gruppo2.gr2||'VisualizzaOpera?','operaID='||newopera||'//lingue='||newlingua);
+         'Torna all''opera',gruppo2.gr2||'VisualizzaOpera?','operaID='||newopera||'//lingue='||newlingua||'//livelli='||newlivello);
     EXCEPTION
 		WHEN Errore_data THEN
             modGUI1.RedirectEsito('Aggiornamento fallito', null,null, null, null,
-                'Torna all''opera',gruppo2.gr2||'VisualizzaOpera?','operaID='||newopera||'//lingue='||newlingua);
+                 'Torna all''opera',gruppo2.gr2||'VisualizzaOpera?','operaID='||newopera||'//lingue='||newlingua||'//livelli='||newlivello);
             ROLLBACK;
 END;
 

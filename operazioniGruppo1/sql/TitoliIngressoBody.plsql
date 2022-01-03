@@ -824,6 +824,9 @@ PROCEDURE confermamodificatitolo(
 		HTP.TableData(to_char(datascadenza, 'DD-MON-YYYY HH24:MI'));
 		HTP.TableRowClose;
 		HTP.TableClose;
+		modgui1.APRIFORM('packageacquistatitoli.modificatitolo');
+		htp.formhidden('varidtitoloing', varidtitoloing);
+		htp.formhidden('idutenteselezionato', idutenteselezionato);
 		modgui1.InputSubmit('Conferma');
 		modgui1.collegamento(
                         'Annulla',
@@ -838,6 +841,19 @@ PROCEDURE confermamodificatitolo(
 
 END;
 
+procedure modificatitolo(
+	varidtitoloing TITOLIINGRESSO.IDTITOLOING%type,
+	idutenteselezionato utenti.idutente%type
+)is
+BEGIN
+
+	update TITOLIINGRESSO
+	set titoliingresso.acquirente=idutenteselezionato
+	where titoliingresso.idtitoloing=varidtitoloing;
+
+	visualizzatitoloing(varidtitoloing);
+END;
+
 PROCEDURE acquistatitolo(
 	dataEmissionechar IN VARCHAR2,
 	oraemissionechar in varchar2,
@@ -848,12 +864,12 @@ PROCEDURE acquistatitolo(
 	idSessione NUMBER(5) := modgui1.get_id_sessione();
 
 	varidtitoloing titoliingresso.IDTITOLOING%type;
-	scad date; --contiene data di scadenza in formato inseribile nel db
+	dataScadenza date; --contiene data di scadenza in formato inseribile nel db
 	temp1 number(2); --flag che ci dice se abbiamo a che fare con un biglietto o un abbonamento
 	temp2 date; 
 	temp3 number(1); --flag che ci dice se l'utente e' gia presente nella tabella UTENTIMUSEO
 	durataabbonamento tipologieingresso.durata%type; --contiene la durata dell'abbonamento
-	datetime date; --contiene concatenati data e ora nel formato inseribile nel db
+	dataEmissione date; --contiene concatenati data e ora nel formato inseribile nel db
 	scadenzaabb varchar2(10);
 	emissdate date; --contiene data emissione in formato data
 
@@ -861,7 +877,7 @@ BEGIN
 	modgui1.apridiv('style="margin-top: 110px"');
 	varidtitoloing := idtitoloingseq.nextval;
 	
-	datetime:=to_date(
+	dataEmissione:=to_date(
                 oraemissionechar 
                 || ' '
                 || dataemissionechar, 'HH24:MI YYYY/MM/DD'
@@ -870,15 +886,15 @@ BEGIN
 	select durata into durataabbonamento from TIPOLOGIEINGRESSO where IDTIPOLOGIAING=idtipologiaselezionata;
 	
 	emissdate:=to_date(dataemissionechar,'YYYY/MM/DD');
-	temp2:=emissdate+3;
+	temp2:=emissdate+durataabbonamento;
 	scadenzaabb:=to_char(temp2, 'YYYY/MM/DD');
 	select count(*) into temp1 from Biglietti where idtipologiaselezionata= biglietti.IDTIPOLOGIAING;
 	
 	if(temp1>0)
 	then
-		scad:= to_date('23:59 ' ||dataemissionechar, 'HH24:MI YYYY/MM/DD');
+		dataScadenza:= to_date('23:59 ' ||dataemissionechar, 'HH24:MI YYYY/MM/DD');
 	ELSE
-		scad:= to_date('23:59 ' ||scadenzaabb, 'HH24:MI YYYY/MM/DD');
+		dataScadenza:= to_date('23:59 ' ||scadenzaabb, 'HH24:MI YYYY/MM/DD');
 	end if;
 	
 	INSERT INTO TITOLIINGRESSO(
@@ -890,8 +906,8 @@ BEGIN
 		Museo
 	) VALUES (
 		varidtitoloing,
-		datetime,
-		scad,
+		dataEmissione,
+		dataScadenza,
 		idutenteselezionato,
 		idtipologiaselezionata,
 		idmuseoselezionato

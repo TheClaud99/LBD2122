@@ -3386,6 +3386,7 @@ procedure EliminazioneDescrizione(
 idSessione NUMBER(5) := modgui1.get_id_sessione();
 dLingua DESCRIZIONI.Lingua%TYPE;
 dLivello DESCRIZIONI.Livello%TYPE;
+titoloOpera Opere.Titolo%TYPE;
 BEGIN
     modGUI1.ApriDiv('id="ElimDescrizione'||idDescrizione||'" class="w3-modal"');
         modGUI1.ApriDiv('class="w3-modal-content w3-card-4 w3-animate-zoom" style="max-width:600px"');
@@ -3394,10 +3395,19 @@ BEGIN
                 htp.prn('<span onclick="document.getElementById(''ElimDescrizione'||idDescrizione||''').style.display=''none''" class="w3-button w3-xlarge w3-red w3-display-topright" title="Close Modal">X</span>');
             htp.print('<h1><b>Confermi?</b></h1>');
             modGUI1.ChiudiDiv;
-                    modGUI1.ApriDiv('class="w3-section"');
+                    modGUI1.ApriDiv('class="w3-center"');
+                        SELECT Lingua,Livello,Titolo INTO dLingua,dLivello,titoloOpera
+                        FROM DESCRIZIONI JOIN Opere ON IdOpera=Opera 
+                        WHERE IDDESC=idDescrizione;
+
+                        htp.prn('<h3><b>'||titoloOpera||'</b></h3>');
                         htp.br;
-                        SELECT Lingua,Livello INTO dLingua,dLivello FROM DESCRIZIONI WHERE IDDESC=idDescrizione;
-                        htp.prn('stai per rimuovere: '||dLingua||' '||dLivello);
+                        htp.prn('<h4>Stai per rimuovere la descrizione</h4>');
+                        htp.br;
+                        htp.prn('Livello: '||dLivello);
+                        htp.br;
+                        htp.prn('Lingua: '||dLingua);
+
                         modGUI1.Collegamento('Conferma',
                         gruppo2.gr2||'RimozioneDescrizione?idDescrizione='||idDescrizione,
                         'w3-button w3-block w3-green w3-section w3-padding');

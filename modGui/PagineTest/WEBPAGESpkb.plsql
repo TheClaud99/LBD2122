@@ -1,22 +1,23 @@
 CREATE OR REPLACE PACKAGE BODY WebPages as
 
 --SCHERMATA PRINCIPALE
-procedure Home (idSessione varchar2 default 0) is
+procedure Home  is
+    idSessione NUMBER(5) := modgui1.get_id_sessione();
     begin
     htp.htmlOpen;
     htp.headOpen;
     htp.prn('<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css"> ');
     htp.headClose;
     modGUI1.Header;
-    if (idSessione=1)
+    if (idSessione!=0)
     then
         modGUI1.ApriDiv('style:"height:90%;"');
             modGUI1.ApriDiv;
                 htp.prn('
-                    <a href="'||Costanti.server || Costanti.radice||'MuseiHome?idSessione='|| idSessione ||'">
+                    <a href="'||Costanti.server || Costanti.radice||'webpages.MuseiHome">
                     <img src="https://www.artribune.com/wp-content/uploads/2020/06/Museo-del-Prado-sala-24.jpg" style="width:50%; height:100%;" class="w3-opacity w3-hover-opacity-off w3-left">
                     </a>
-                    <a href="'||Costanti.server || Costanti.radice||'CampiestiviHome?idSessione='|| idSessione ||'">
+                    <a href="'||Costanti.server || Costanti.radice||'webpages.CampiestiviHome">
                     <img src="https://www.baritoday.it/~media/horizontal-hi/70029796349612/sc18nature-walk-2.jpg" style="width:50%; height:100%;" class="w3-opacity w3-hover-opacity-off w3-right">
                     </a>
                 ');
@@ -40,7 +41,8 @@ procedure Home (idSessione varchar2 default 0) is
 
 
 --MENU GENERICO VISUALIZZAZIONE MUSEI E TASTO AGGIUNTA
-procedure MuseiHome (idSessione int default 0) is
+procedure MuseiHome is
+    idSessione NUMBER(5) := modgui1.get_id_sessione();
     begin
         htp.prn('<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css"> ');
         modGUI1.Header;
@@ -48,11 +50,6 @@ procedure MuseiHome (idSessione int default 0) is
         modGUI1.ApriDiv('class="w3-center"');
             htp.prn('<h1>Musei</h1>'); --TITOLO
 
-        if (idSessione=1)
-        then
-            modGUI1.Collegamento('Aggiungi','inserimento','w3-btn w3-round-xxlarge w3-black'); /*bottone che rimanda alla procedura inserimento solo se la sessione è 1*/
-        end if;
- 
         modGUI1.ChiudiDiv;
         htp.br;
         modGUI1.ApriDiv('class="w3-row w3-container"');
@@ -68,7 +65,7 @@ procedure MuseiHome (idSessione int default 0) is
                             --FINE DESCRIZIONI
                             modGUI1.ChiudiDiv;
                             
-                            if(idSessione=1) then --Bottoni visualizzati in base alla sessione 
+                            if(idSessione!=0) then --Bottoni visualizzati in base alla sessione 
                                modGUI1.Bottone('w3-black','Visualizza');
                                modGUI1.Bottone('w3-green','Modifica');
                                modGUI1.Bottone('w3-red','Rimuovi');
@@ -84,18 +81,14 @@ procedure MuseiHome (idSessione int default 0) is
     end MuseiHome;
 
 --MENU VISUALIZZAZIONE CAMPI ESTIVI E TASTO AGGIUNTA
-procedure CampiEstiviHome (idSessione int default 0) is
+procedure CampiEstiviHome is
+    idSessione NUMBER(5) := modgui1.get_id_sessione();
     begin
         htp.prn('<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css"> ');
         modGUI1.Header;
         htp.br;htp.br;htp.br;htp.br;htp.br;htp.br;
         modGUI1.ApriDiv('class="w3-center"');
             htp.prn('<h1>Campi estivi</h1>'); --TITOLO
-
-        if (idSessione=1)
-        then
-            modGUI1.Collegamento('Aggiungi','inserimento','w3-btn w3-round-xxlarge w3-black'); /*bottone che rimanda alla procedura inserimento*/
-        end if;
         modGUI1.ChiudiDiv;
         htp.br;
         modGUI1.ApriDiv('class="w3-container" style="width:100%"');
@@ -115,7 +108,7 @@ procedure CampiEstiviHome (idSessione int default 0) is
                     modGUI1.ChiudiDiv;
                     modGUI1.ApriDiv('class="w3-container w3-cell w3-cell-middle"');
 
-                        if(idSessione=1) then --Bottoni visualizzati in base alla sessione 
+                        if(idSessione!=0) then --Bottoni visualizzati in base alla sessione 
                                         modGUI1.Bottone('w3-black','Visualizza');
                                         htp.br;
                                         modGUI1.Bottone('w3-green','Modifica');
@@ -136,10 +129,10 @@ procedure CampiEstiviHome (idSessione int default 0) is
 
 
 --PROCEDURA PER INSERIMENTO
-PROCEDURE Inserimento(
-    idSessione NUMBER DEFAULT 0
-) IS
-BEGIN 
+PROCEDURE Inserimento IS
+idSessione NUMBER(5) := modgui1.get_id_sessione();
+    BEGIN 
+       
         modGUI1.ApriPagina('PROVA',idSessione);--DA MODIFICARE campo PROVA
         modGUI1.Header;
         htp.br;htp.br;htp.br;htp.br;htp.br;htp.br;
@@ -171,11 +164,10 @@ BEGIN
         modGUI1.ChiudiDiv;
 END Inserimento;
 
-
+ 
 
 --PAGINA PER CONFERMARE
 PROCEDURE Conferma(
-    idSessione NUMBER DEFAULT 0,
     --LISTA VARIABILI PASSATE
     nome VARCHAR2 DEFAULT 'Sconosciuto',
     cognome VARCHAR2 DEFAULT 'Sconosciuto',
@@ -183,6 +175,7 @@ PROCEDURE Conferma(
     dataMorte VARCHAR2 DEFAULT NULL,
     nazionalita VARCHAR2 DEFAULT 'Sconosciuta'
 ) IS 
+idSessione NUMBER(5) := modgui1.get_id_sessione();
 BEGIN 
     modGUI1.ApriPagina('Conferma',idSessione);
         modGUI1.Header;

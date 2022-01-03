@@ -368,7 +368,7 @@ Create Table VISITEVARCHI
 (
    IdVisita number(5) not null REFERENCES VISITE(IdVisita) ON DELETE CASCADE,
    IdVarco number(5) not null REFERENCES VARCHI(IdVarchi),
-   DirezioneInversa number(1) default 0 check (Direzione in (0,1)) not null, -- 0 falso, 1 vero 
+   DirezioneInversa number(1) default 0 check (DirezioneInversa in (0,1)) not null, -- 0 falso, 1 vero 
    AttraversamentoVarco timestamp not null,
    Primary key(IdVisita,IdVarco,AttraversamentoVarco)
    /* TODO

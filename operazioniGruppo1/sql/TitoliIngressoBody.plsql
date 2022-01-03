@@ -824,6 +824,7 @@ PROCEDURE confermamodificatitolo(
 		HTP.TableData(to_char(datascadenza, 'DD-MON-YYYY HH24:MI'));
 		HTP.TableRowClose;
 		HTP.TableClose;
+
 		modgui1.APRIFORM('packageacquistatitoli.modificatitolo');
 		htp.formhidden('varidtitoloing', varidtitoloing);
 		htp.formhidden('idutenteselezionato', idutenteselezionato);
@@ -833,6 +834,7 @@ PROCEDURE confermamodificatitolo(
                         'packageAcquistaTitoli.pagina_modifica_titolo?varidtitoloing='||varidtitoloing||'',
                         'w3-button w3-block w3-red w3-section w3-padding'
                 		);
+						
 		modgui1.chiudidiv();
 		modgui1.chiudidiv();
 		HTP.BodyClose;

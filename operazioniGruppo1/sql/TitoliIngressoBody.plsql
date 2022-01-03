@@ -504,14 +504,14 @@ FUNCTION build_query (
 								htp.prn('<div class="w3-row">');
         						htp.prn('<div class="w3-col s3 w3-center"><p>Data d''emissione:</p></div>');
 								htp.prn('<div class="w3-col s9 w3-center"><p>'
-                				|| to_char(titolo.dataemissione, 'DD/MON/YYYY')
+                				|| to_char(titolo.dataemissione, 'DD/MON/YYYY HH24:MI')
                 				|| '</p></div>');
         						htp.prn('</div>');
 
 								htp.prn('<div class="w3-row">');
         						htp.prn('<div class="w3-col s3 w3-center"><p>Data di scadenza:</p></div>');
 								htp.prn('<div class="w3-col s9 w3-center"><p>'
-                				|| to_char(titolo.datascadenza, 'DD/MON/YYYY')
+                				|| to_char(titolo.datascadenza, 'DD/MON/YYYY HH24:MI')
                 				|| '</p></div>');
         						htp.prn('</div>');
                             --FINE DESCRIZIONI

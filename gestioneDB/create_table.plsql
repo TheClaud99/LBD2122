@@ -337,8 +337,8 @@ Create Table VARCHI
    IdVarchi number(5) primary key,
    Nome varchar2(25) not null,
    Sensore number(7) not null,
-   Stanza1 number(5) not null REFERENCES STANZE(IdStanza),
-   Stanza2 number(5) not null REFERENCES STANZE(IdStanza),
+   Stanza1 number(5) not null REFERENCES STANZE(IdStanza), -- da
+   Stanza2 number(5) not null REFERENCES STANZE(IdStanza), -- a
    Eliminato number(1) default 0 check (Eliminato in (0,1)) not null
 
    --TODO
@@ -368,7 +368,8 @@ Create Table VISITEVARCHI
 (
    IdVisita number(5) not null REFERENCES VISITE(IdVisita) ON DELETE CASCADE,
    IdVarco number(5) not null REFERENCES VARCHI(IdVarchi),
-   AttraversamentoVarco  timestamp not null,
+   DirezioneInversa number(1) default 0 check (Direzione in (0,1)) not null, -- 0 falso, 1 vero 
+   AttraversamentoVarco timestamp not null,
    Primary key(IdVisita,IdVarco,AttraversamentoVarco)
    /* TODO
    • AttraversamentoVarco < SYSTIMESTAMP 

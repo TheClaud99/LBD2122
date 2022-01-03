@@ -1,7 +1,6 @@
 -- CREAZIONE TABELLE
 @gestioneDB/delete_data.plsql
 @gestioneDB/create_table.plsql
---@modGUI/Login/login_sessioni.plsql
 @modGui/Login/trigger_utenti.plsql
 @modGui/Login/hasRole.plsql
 
@@ -13,6 +12,8 @@
 ----------------
 
 -- MODGUI
+@modGui/PagineTest/WEBPAGESpks.plsql
+@modGui/PagineTest/WEBPAGESpkb.plsql
 @modGui/COSTANTI.plsql
 @modGui/MODGUI1PKS.plsql
 @modGui/MODGUI1PKB.plsql
@@ -22,7 +23,10 @@
 @operazioneGruppo3/visiteBody.plsql
 @operazioneGruppo3/view_visite.plsql
 
-
+-- GRUPPO 2
+@operazioni_gruppo2/sql/vistaOpereEsposte.plsql
+@operazioni_gruppo2/sql/gruppo2PKS.pkb
+@operazioni_gruppo2/sql/gruppo2PKB.pkb
 
 -- GRUPPO 1
 @operazioniGruppo1/sql/gruppo1.pks
@@ -32,6 +36,15 @@
 @operazioniGruppo1/sql/TitoliIngresso.plsql
 @operazioniGruppo1/sql/TitoliIngressoBody.plsql
 @operazioniGruppo1/sql/view_titoli.plsql
+
+-- GRUPPO 4
+@operazioniGruppo4/sql/visitaetamedia.sql
+@operazioniGruppo4/sql/operazioni.pks
+@operazioniGruppo4/sql/operazioni.pkb
+@operazioniGruppo4/sql/pagamentiCampiEstivi.pks
+@operazioniGruppo4/sql/pagamentiCampiEstivi.pkb
+@operazioniGruppo4/sql/tariffeCampiEstivi.pks
+@operazioniGruppo4/sql/tariffeCampiEstivi.pkb
 
 grant execute on modgui1 to anonymous;
 grant execute on modgui1 to public;

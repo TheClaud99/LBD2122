@@ -1,11 +1,10 @@
 CREATE OR REPLACE PACKAGE WebPages as
 
-procedure Home (idSessione varchar2 default 0);
-procedure MuseiHome (idSessione int default 0);
-procedure CampiEstiviHome (idSessione int default 0);
-PROCEDURE Inserimento(idSessione NUMBER DEFAULT 0);
+procedure Home;
+procedure MuseiHome;
+procedure CampiEstiviHome;
+PROCEDURE Inserimento;
 PROCEDURE Conferma(
-    idSessione NUMBER DEFAULT 0,
     nome VARCHAR2 DEFAULT 'Sconosciuto',
     cognome VARCHAR2 DEFAULT 'Sconosciuto',
     dataNascita VARCHAR2 DEFAULT NULL,

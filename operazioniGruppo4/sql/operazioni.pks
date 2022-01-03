@@ -131,6 +131,7 @@ procedure updatemusei
    newIndirizzo in MUSEI.INDIRIZZO%TYPE default null
 );
 /*STATISTICHE MUSEO*/
+
 /*procedura che manda in esecuzione l'operazione specificata*/
 procedure controllastatistica
 (
@@ -151,7 +152,7 @@ procedure form1monitoraggio
    MuseoId IN MUSEI.IdMuseo%TYPE,
    NameMuseo IN MUSEI.NOME%TYPE
 );
-/*form per la scelta della statistica*/
+/*form per la scelta della statistica sui visitatori*/
 procedure form2monitoraggio
 (
    MuseoId IN MUSEI.IdMuseo%TYPE,
@@ -213,7 +214,7 @@ procedure utentiiscritti
 (
    CampoestivoId IN CAMPIESTIVI.IDCAMPIESTIVI%TYPE
 );
-/*restituisce le tariffe riferite a il campo estivo specificato*/
+/*restituisce le tariffe riferite al campo estivo specificato*/
 procedure tariffecampi
 (
    CampoestivoId IN CAMPIESTIVI.IDCAMPIESTIVI%TYPE
@@ -258,7 +259,8 @@ procedure PagamentoCampiEstivi
    tariffaid in PAGAMENTICAMPIESTIVI.Tariffa%type default 0
 );
 
-/*tariffe campi estivi*/
+/*TARIFFE CAMPI ESTIVI*/
+
 /*form per l'inserimento di una nuova tariffa riferita ad una certo campo estivo*/
 procedure InserisciTariffeCampiEstivi
 (
@@ -267,6 +269,7 @@ procedure InserisciTariffeCampiEstivi
     etaMassima in TARIFFECAMPIESTIVI.Etamassima%type default 0,
     campoEstivo in TARIFFECAMPIESTIVI.CampoEstivo%type default 0
 );
+
 /*procedura che chiede la conferma di inserimento della tariffa*/
 procedure ConfermaTariffeCampiEstivi
 (
@@ -275,6 +278,7 @@ procedure ConfermaTariffeCampiEstivi
     etaMassima in TARIFFECAMPIESTIVI.Etamassima%type default 0,
     campoEstivo in TARIFFECAMPIESTIVI.CampoEstivo%type default 0
 );
+
 /*procedura che inserisce la  tariffa*/
 procedure ControllaTariffeCampiEstivi
 (
@@ -283,11 +287,13 @@ procedure ControllaTariffeCampiEstivi
     etaMassima in TARIFFECAMPIESTIVI.Etamassima%type default 0,
     campoEstivo in TARIFFECAMPIESTIVI.CampoEstivo%type default 0
 );
+
 /*Procedura che mostra le informazioni relative ad una tariffa*/
 procedure VisualizzaTariffeCampiEstivi
 (
    Tariffa in TARIFFECAMPIESTIVI.IdTariffa%type
 );
+
 /*form per la modifica della tariffa specificata*/
 procedure ModificaTariffeCampiEstivi
 (
@@ -300,7 +306,7 @@ procedure eliminatariffa
    Tariffaid in TARIFFECAMPIESTIVI.IdTariffa%type
 );
 
-/*rimuove la tariffa dal DB*/
+/*rimuove la tariffa settando ELIMINATO=1*/
 procedure rimuovitariffa
 (
    Tariffaid in TARIFFECAMPIESTIVI.IdTariffa%type

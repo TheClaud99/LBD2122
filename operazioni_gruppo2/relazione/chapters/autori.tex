@@ -180,9 +180,9 @@
 
 
 \subsection{Statistiche e monitoraggio}
-La scelta dell'operazione di statistica o monitoraggio avviene tramite dei radiobutton in un popup raggiungibile dal menu autori.
-
-A seconda della statistica scelta verranno presentati dei form per la selezione di un museo e/o di un autore su cui effettuare la statistica.
+La scelta dell'operazione di statistica o monitoraggio avviene tramite dei radiobutton in un popup raggiungibile dal menu autori.\\
+A seconda della statistica scelta verranno presentati dei form per la selezione di un museo e/o di un autore su cui effettuare la statistica.\\
+Il parametro passato dal radiobutton è operazione, con valori tra 0 e 5, che identifica nelle procedure chiamate la particolare statistica
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %       Opere realizzate dall'Autore (in qualunque museo)       %
@@ -259,7 +259,7 @@ A seconda della statistica scelta verranno presentati dei form per la selezione 
 	è possibile che la stessa opera compaia più di una volta nella lista, sotto autori
 	diversi
 \end{itemize}
-%\includegraphics[width=\textwidth]{img/statAutori-0.png}\\[1cm]
+\includegraphics[width=\textwidth]{img/statAutori-1.png}\\[1cm]
 
 \subsubsection{Opere dell’Autore presenti in un Museo scelto}
 \begin{itemize}
@@ -312,4 +312,21 @@ A seconda della statistica scelta verranno presentati dei form per la selezione 
 	\item \textbf{Note}: Il parametro authID appare nell'URL nella pagina di 
 	visualizzazione, ma soltanto con il valore di default: in realtà viene ignorato nella 
 	logica dell'operazione
+\end{itemize}
+
+\subsubsection{Autori più prolifici (primi tre)}
+\begin{itemize}
+	\item \textbf{Procedure coinvolte}: SelezioneOpStatAut,SelezioneAutoreStatistica, classificaAutori
+	\item \textbf{Obiettivo}: Visualizza i tre autori che hanno il maggior numero di opere
+	all'interno della base di dati
+	\item \textbf{Parametri}:
+	\begin{enumerate}
+		\item \textbf{operazione}: in number, in questo caso operazione=5
+	\end{enumerate}
+	\item \textbf{Risultato}: la lista dei tre autori che hanno realizzato più opere nella base di dati
+	\item \textbf{Errori}: nessuno
+	\item \textbf{Usa}: AutoriOpere, Autori
+	\item \textbf{Modifica}: nessuno
+	\item \textbf{Precondizioni}: nessuna
+	\item \textbf{Postcondizioni}: nessuna
 \end{itemize}

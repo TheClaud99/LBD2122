@@ -1,14 +1,12 @@
-SET DEFINE OFF;
-
 CREATE OR REPLACE PACKAGE BODY gruppo2 AS
 /*
  * OPERAZIONI SULLE OPERE
  * - Inserimento ✅
  * - Modifica ✅
- * - Visualizzazione ✅ 
+ * - Visualizzazione ✅  
  * - Cancellazione (rimozione) ✅
  * - Spostamento ✅
- * - Aggiunta Autore ✅
+ * - Aggiunta Autore ✅ 
  * - Rimozione Autore ✅
  * OPERAZIONI STATISTICHE E MONITORAGGIO
  * - Storico prestiti dell’Opera ✅
@@ -22,7 +20,7 @@ CREATE OR REPLACE PACKAGE BODY gruppo2 AS
  * - Ordinamento per anno di realizzazione (le tre più vecchie) ✅ 
  */ 
  
-procedure menuOpere(
+procedure menuOpere( 
     orderBy varchar2 default 'Titolo',
     nameFilter varchar2 default '',
     MuseoFilter int default 0,
@@ -84,14 +82,13 @@ procedure menuOpere(
         --Visualizzazione TUTTE LE OPERE *temporanea*
 
         modGUI1.ApriDiv('class="w3-row w3-container"');
-        FOR opera IN (
-            SELECT DISTINCT Opere.* FROM Opere, AutoriOpere
+        FOR opera IN ( 
+            SELECT DISTINCT Opere.* FROM Opere, AutoriOpere  
             WHERE   Eliminato = 0 
                     AND museo = 
                         (case when museoFilter=0 then museo else museoFilter end)
                     AND AutoriOpere.idAutore=
                         (case when autoriFilter=0 then AutoriOpere.idAutore else autoriFilter end)
-                    AND AutoriOpere.idOpera = opere.idopera
 
                     AND UPPER(Titolo) LIKE '%'||UPPER(nameFilter)||'%'
 
@@ -611,7 +608,7 @@ idSessione NUMBER(5) := modgui1.get_id_sessione();
 BEGIN
     varNewAnno := TO_NUMBER(newAnno);
     varNewFinePeriodo := TO_NUMBER(newFineperiodo);
-    IF (NewFineperiodo is NULL) or (newFineperiodo > newAnno) THEN 
+    IF (NewFineperiodo is NULL) or (varNewFinePeriodo > varNewAnno) THEN 
 	UPDATE Opere SET
 		titolo=newTitolo,
 		anno=varNewAnno,
@@ -1401,7 +1398,7 @@ BEGIN
                                 modGUI1.ApriDiv('class="w3-container w3-center"');
                                 --INIZIO DESCRIZIONI
                                     htp.prn('<b>Titolo: </b>');
-                                    htp.prn('<button onclick="document.getElementById(''LinguaeLivelloOpera'||var.Opera||''').style.display=''block''" class="w3-margin w3-btn w3-border">'|| varOpera ||'</button>');
+                                    htp.prn('<button onclick="document.getElementById(''LinguaeLivelloOpera'||var.Opera||''').style.display=''block''" class="w3-margin w3-btn w3-border">'|| SUBSTR(varOpera,0,35)||'<br>'|| SUBSTR(varOpera,36,70)  ||'</button>');
                                     gruppo2.linguaELivello(var.Opera);
                                     p:=var.datauscita-var.dataarrivo;
                                     htp.prn('<p><b>Esposta per </b>'||p||' giorni</p>');
@@ -1417,7 +1414,9 @@ BEGIN
 
                 k:=1;
                 --OPERE DA PIÙ TEMPO NON SPOSTATE
+                modGUI1.apriDIV('class=w3-container');
                 htp.print('<h2><b>Opere non spostate da più tempo: </b></h2>');
+                modGUI1.chiudiDIV;
                 modGUI1.ApriDiv('class="w3-container" style="width:100%"');
                 --INIZIO LOOP DELLA VISUALIZZAZIONE
                     FOR var in (SELECT * FROM   (SELECT dataarrivo, opera, sala FROM saleopere, stanze 
@@ -1434,7 +1433,7 @@ BEGIN
                                     modGUI1.ApriDiv('class="w3-container w3-center" style="height:150px;"');
                                     --INIZIO DESCRIZIONI
                                         htp.prn('<b>Titolo: </b>');
-                                        htp.prn('<button onclick="document.getElementById(''LinguaeLivelloOpera'||var.Opera||''').style.display=''block''" class="w3-margin w3-btn w3-border">'|| varOpera ||'</button>');
+                                        htp.prn('<button onclick="document.getElementById(''LinguaeLivelloOpera'||var.Opera||''').style.display=''block''" class="w3-margin w3-btn w3-border">'|| SUBSTR(varOpera,0,35)||'<br>'|| SUBSTR(varOpera,36,70)  ||'</button>');
                                         gruppo2.linguaELivello(var.Opera);
                                         htp.prn('<p><b>Esposta dal :</b>'||var.dataarrivo||'</p>');
                                     --FINE DESCRIZIONI
@@ -1451,8 +1450,10 @@ BEGIN
                 SELECT AVG(anno) into avgYear FROM OPERE;
 
                 p:=annoCorrente-avgYear;
+                modGUI1.apriDIV('class=w3-container');
                 htp.print('<h2><b>Opere più antiche: </b></h2>');
                 htp.print('<h5><b>Età media opere:</b>'||p||' anni</h5>');
+                modGUI1.chiudiDIV;
                 modGUI1.ApriDiv('class="w3-container" style="width:100%"');    
                 FOR var in  (SELECT * FROM (SELECT idOpera FROM OPERE ORDER BY anno)WHERE ROWNUM <=3)
                 LOOP
@@ -1464,7 +1465,7 @@ BEGIN
                             modGUI1.ApriDiv('class="w3-container w3-center"');
                                 --INIZIO DESCRIZIONI
                                 htp.prn('<b>Titolo: </b>');
-                                htp.prn('<button onclick="document.getElementById(''LinguaeLivelloOpera'||var.idOpera||''').style.display=''block''" class="w3-margin w3-btn w3-border">'|| varOpera ||'</button>');
+                                htp.prn('<button onclick="document.getElementById(''LinguaeLivelloOpera'||var.idOpera||''').style.display=''block''" class="w3-margin w3-btn w3-border">'|| SUBSTR(varOpera,0,35)||'<br>'|| SUBSTR(varOpera,36,70)  ||'</button>');
                                 gruppo2.linguaELivello(var.idOpera);
                                 htp.prn('<p><b>Anno realizzazione </b>'||years||' D.C</p>');
                                 p:=annoCorrente-years;
@@ -1479,8 +1480,9 @@ BEGIN
                 htp.br;
 
                 k:=1;
-
+                modGUI1.apriDIV('class=w3-container');
                 htp.print('<h2><b>Opere con più autori: </b></h2>');
+                modGUI1.chiudiDIV;
                 modGUI1.ApriDiv('class="w3-container" style="width:100%"');    
                 FOR var in  (SELECT * FROM (SELECT Autoriopere.idOpera, count(*) AS numAutori FROM AUTORIOPERE, OPERE
                                     WHERE Autoriopere.idOpera=opere.idopera
@@ -1496,7 +1498,7 @@ BEGIN
                             modGUI1.ApriDiv('class="w3-container w3-center"');
                                 --INIZIO DESCRIZIONI
                                 htp.prn('<b>Titolo: </b>');
-                                htp.prn('<button onclick="document.getElementById(''LinguaeLivelloOpera'||var.idOpera||''').style.display=''block''" class="w3-margin w3-btn w3-border">'|| varOpera ||'</button>');
+                                htp.prn('<button onclick="document.getElementById(''LinguaeLivelloOpera'||var.idOpera||''').style.display=''block''" class="w3-margin w3-btn w3-border">'|| SUBSTR(varOpera,0,35)||'<br>'|| SUBSTR(varOpera,36,70)  ||'</button>');
                                 gruppo2.linguaELivello(var.idOpera);
                                 htp.prn('<p><b>N. autori </b>'||var.numAutori||'</p>');
                                 --FINE DESCRIZIONI
@@ -1505,7 +1507,7 @@ BEGIN
                     modGUI1.ChiudiDiv;
                         k:=k+1;
                 END LOOP;
-
+                 modGUI1.ChiudiDiv;
         ELSE
                 SELECT nome INTO var1 FROM MUSEI WHERE idMuseo=museoID;
                 MODGUI1.Collegamento('<h4><b>'||var1||'</b></h4>',
@@ -1536,7 +1538,7 @@ BEGIN
                                 modGUI1.ApriDiv('class="w3-container w3-center"');
                                 --INIZIO DESCRIZIONI
                                     htp.prn('<b>Titolo: </b>');
-                                    htp.prn('<button onclick="document.getElementById(''LinguaeLivelloOpera'||var.Opera||''').style.display=''block''" class="w3-margin w3-btn w3-border">'|| varOpera ||'</button>');
+                                    htp.prn('<button onclick="document.getElementById(''LinguaeLivelloOpera'||var.Opera||''').style.display=''block''" class="w3-margin w3-btn w3-border">'|| SUBSTR(varOpera,0,35)||'<br>'|| SUBSTR(varOpera,36,70)  ||'</button>');
                                     gruppo2.linguaELivello(var.Opera);
                                     p:=var.datauscita-var.dataarrivo;
                                     htp.prn('<p><b>Esposta per </b>'||p||' giorni</p>');
@@ -1549,10 +1551,13 @@ BEGIN
                 
                 htp.br;
                 htp.br;
+                htp.br;
 
                 k:=1;
                 --OPERE DA PIÙ TEMPO NON SPOSTATE
+                modGUI1.apriDIV('class=w3-container');
                 htp.print('<h2><b>Opere non spostate da più tempo: </b></h2>');
+                modGUI1.chiudiDIV;
                 modGUI1.ApriDiv('class="w3-container" style="width:100%"');
                 --INIZIO LOOP DELLA VISUALIZZAZIONE
                     FOR var in (SELECT * FROM   (SELECT dataarrivo, opera, sala FROM saleopere, stanze 
@@ -1569,10 +1574,10 @@ BEGIN
                                     modGUI1.ApriDiv('class="w3-container w3-center" style="height:150px;"');
                                     --INIZIO DESCRIZIONI
                                         htp.prn('<b>Titolo: </b>');
-                                        htp.prn('<button onclick="document.getElementById(''LinguaeLivelloOpera'||var.Opera||''').style.display=''block''" class="w3-margin w3-btn w3-border">'|| varOpera ||'</button>');
+                                        htp.prn('<button onclick="document.getElementById(''LinguaeLivelloOpera'||var.Opera||''').style.display=''block''" class="w3-margin w3-btn w3-border">'|| SUBSTR(varOpera,0,35)||'<br>'|| SUBSTR(varOpera,36,70)  ||'</button>');
                                         gruppo2.linguaELivello(var.Opera);
                                         htp.prn('<p><b>Esposta dal :</b>'||var.dataarrivo||'</p>');
-                                    --FINE DESCRIZIONI
+                                    --FINE DESCRIZIONI  
                                     modGUI1.ChiudiDiv;
                             modGUI1.ChiudiDiv;
                         modGUI1.ChiudiDiv;
@@ -1587,8 +1592,10 @@ BEGIN
                 WHERE museo=museoID;
 
                 p:=annoCorrente-avgYear;
+                modGUI1.apriDIV('class=w3-container');
                 htp.print('<h2><b>Opere più antiche: </b></h2>');
                 htp.print('<h5><b>Età media opere:</b>'||p||' anni</h5>');
+                modGUI1.chiudiDIV;
                 modGUI1.ApriDiv('class="w3-container" style="width:100%"');    
                 FOR var in  (SELECT * FROM (SELECT idOpera FROM OPERE
                                                 WHERE museo=museoID
@@ -1603,7 +1610,7 @@ BEGIN
                             modGUI1.ApriDiv('class="w3-container w3-center"');
                                 --INIZIO DESCRIZIONI
                                 htp.prn('<b>Titolo: </b>');
-                                htp.prn('<button onclick="document.getElementById(''LinguaeLivelloOpera'||var.idOpera||''').style.display=''block''" class="w3-margin w3-btn w3-border">'|| varOpera ||'</button>');
+                                htp.prn('<button onclick="document.getElementById(''LinguaeLivelloOpera'||var.idOpera||''').style.display=''block''" class="w3-margin w3-btn w3-border">'|| SUBSTR(varOpera,0,35)||'<br>'|| SUBSTR(varOpera,36,70)  ||'</button>');
                                 gruppo2.linguaELivello(var.idOpera);
                                 htp.prn('<p><b>Anno realizzazione </b>'||years||' D.C.</p>');
                                 p:=annoCorrente-years;
@@ -1619,7 +1626,9 @@ BEGIN
 
                 k:=1;
 
+                modGUI1.apriDIV('class=w3-container');
                 htp.print('<h2><b>Opere con più autori: </b></h2>');
+                modGUI1.chiudiDIV;
                 modGUI1.ApriDiv('class="w3-container" style="width:100%"');    
                 FOR var in  (SELECT * FROM (SELECT Autoriopere.idOpera, count(*) AS numAutori FROM AUTORIOPERE, OPERE
                                     WHERE Autoriopere.idOpera=opere.idopera AND opere.museo=museoID
@@ -1635,7 +1644,7 @@ BEGIN
                             modGUI1.ApriDiv('class="w3-container w3-center"');
                                 --INIZIO DESCRIZIONI
                                 htp.prn('<b>Titolo: </b>');
-                                htp.prn('<button onclick="document.getElementById(''LinguaeLivelloOpera'||var.idOpera||''').style.display=''block''" class="w3-margin w3-btn w3-border">'|| varOpera ||'</button>');
+                                htp.prn('<button onclick="document.getElementById(''LinguaeLivelloOpera'||var.idOpera||''').style.display=''block''" class="w3-margin w3-btn w3-border">'|| SUBSTR(varOpera,0,35)||'<br>'|| SUBSTR(varOpera,36,70)  ||'</button>');
                                 gruppo2.linguaELivello(var.idOpera);
                                 htp.prn('<p><b>N. autori </b>'||var.numAutori||'</p>');
                                 --FINE DESCRIZIONI
@@ -1723,9 +1732,8 @@ BEGIN
             modGUI1.ChiudiForm;
 
         modGUI1.ChiudiDiv;
-    modGUI1.ChiudiDiv;
+    modGUI1.ChiudiDiv; 
 END;
-
 /*
  * OPERAZIONI SUGLI AUTORI
  * - Inserimento ✅

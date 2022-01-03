@@ -103,7 +103,7 @@ procedure menuOpere(
                 modGUI1.ApriDiv('class="w3-card-4" style="height:600px;"');
                 htp.prn('<img src="https://www.stateofmind.it/wp-content/uploads/2018/01/La-malattia-rappresentata-nelle-opere-darte-e-in-letteratura-680x382.jpg" alt="Alps" style="width:100%;">');
                         modGUI1.ApriDiv('class="w3-container w3-center"');
-                            htp.prn('<p><b>Titolo: </b>'|| opera.titolo ||'</p>');
+                            htp.prn('<p><b>Titolo: </b>' || SUBSTR(opera.titolo,0,60)||'<br>'|| SUBSTR(opera.titolo,61,100)  ||'</p>');
                             htp.br;
                             htp.prn('<p><b>Anno: </b>'|| opera.anno ||'</p>');
                         modGUI1.ChiudiDiv;
@@ -151,7 +151,7 @@ BEGIN
                 modGUI1.ApriDiv('class="w3-card-4" style="height:600px;"');
                 htp.prn('<img src="https://www.stateofmind.it/wp-content/uploads/2018/01/La-malattia-rappresentata-nelle-opere-darte-e-in-letteratura-680x382.jpg" alt="Alps" style="width:100%;">');
                         modGUI1.ApriDiv('class="w3-container w3-center"');
-                            htp.prn('<p><b>Titolo: </b>'|| opera.titolo ||'</p>');
+                            htp.prn('<p><b>Titolo: </b>' || SUBSTR(opera.titolo,0,60)||'<br>'|| SUBSTR(opera.titolo,61,100)  ||'</p>');
                             htp.br;
                             htp.prn('<p><b>Anno: </b>'|| opera.anno ||'</p>');
                         modGUI1.ChiudiDiv;

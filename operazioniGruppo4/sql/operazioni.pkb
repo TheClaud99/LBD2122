@@ -1277,9 +1277,10 @@ BEGIN
    into ngiorni
    from (
       select distinct DATAVISITA
-      from VISITE
+      from VISITE join TITOLIINGRESSO on VISITE.titoloingresso = TITOLIINGRESSO.idtioloing
       where DATAVISITA > dateini 
          and DATAVISITA < datefin
+         and TITOLIINGRESSO.museo = MuseoId
    );
 
    Select  count(*)
@@ -1381,8 +1382,8 @@ BEGIN
          loop
             HTP.TableRowOpen;
             HTP.TableData(abb_cur.Nome,'center');
-            HTP.TableData(abb_cur.Emissione,'center');
-            HTP.TableData(abb_cur.Scadenza ,'center');
+            HTP.TableData(TO_CHAR(abb_cur.Emissione, 'DD Month YYYY'),'center');
+            HTP.TableData(TO_CHAR(abb_cur.Scadenza, 'DD Month YYYY') ,'center');
             HTP.TableData(abb_cur.Costototale || '€','center'); 
             HTP.TableRowClose;
          end loop;

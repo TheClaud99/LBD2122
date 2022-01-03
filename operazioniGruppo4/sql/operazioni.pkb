@@ -6,7 +6,7 @@ Create or replace PACKAGE body operazioniGruppo4 as
  * - Inserimento ✅
  * - Modifica ✅
  * - Visualizzazione ✅ 
- * - Cancellazione (rimozione) ❌(da non fare)
+ * - Cancellazione (rimozione) (da non fare)
  * OPERAZIONI STATISTICHE E MONITORAGGIO
  * - Sale presenti ✅
  * - Opere presenti nel Museo ✅
@@ -51,7 +51,7 @@ o entrambi i casi) ✅
  * - Inserimento ✅
  * - Modifica ✅
  * - Visualizzazione ✅ 
- * - Cancellazione (rimozione) ❌
+ * - Cancellazione ✅ 
  * OPERAZIONI STATISTICHE E MONITORAGGIO
  * - Preferenza Tariffa per ogni campo estivo ✅
  * - Lista Tariffe relative ad un Campo Estivo scelto in ordine di prezzocrescente ✅
@@ -80,14 +80,14 @@ BEGIN
    htp.prn('<h1 Align="center"> Tariffe </h1>');
    htp.prn('<p style="font-size:25px; text-align:center" ><b>'||nomecampo||'</b></p>');
   
-      modGUI1.APRIDIV('class="w3-col l4 w3-padding-large w3-left"');
-      modGUI1.APRIDIV('class="w3-center"');
-      if hasrole(sessionid,'DBA') or hasrole(sessionid,'GCE')
-      then
-         modGUI1.Collegamento('inserisci Tariffa',operazioniGruppo4.gr4||'inserisciTariffeCampiEstivi?prezzo=&etaMinima=&etaMassima=&campoEstivo='||idCampo,'w3-black w3-round w3-margin w3-button');
-      end if;
-      modGUI1.ChiudiDiv();
-      modGUI1.ChiudiDiv();
+   modGUI1.APRIDIV('class="w3-col l4 w3-padding-large w3-left"');
+   modGUI1.APRIDIV('class="w3-center"');
+   if hasrole(sessionid,'DBA') or hasrole(sessionid,'GCE')
+   then
+      modGUI1.Collegamento('inserisci Tariffa',operazioniGruppo4.gr4||'inserisciTariffeCampiEstivi?prezzo=&etaMinima=&etaMassima=&campoEstivo='||idCampo,'w3-black w3-round w3-margin w3-button');
+   end if;
+   modGUI1.ChiudiDiv();
+   modGUI1.ChiudiDiv();
 
 
    modGUI1.APRIDIV('class="w3-col l4 w3-padding-large w3-center"');
@@ -197,7 +197,7 @@ BEGIN
          modGUI1.SelectOption(Mus_cur.IDMUSEO,Mus_cur.NOME);
       END LOOP;
       modgui1.selectclose;
-       htp.print('&nbsp;&nbsp;&nbsp;');
+      htp.print('&nbsp;&nbsp;&nbsp;');
          htp.prn('<input type="submit" class="w3-button w3-round w3-black" value="filtra" style="display:inline;">');
          htp.print('&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;');
          modGUI1.Collegamento('reset',operazioniGruppo4.gr4||operazioniGruppo4.menu_ce,'w3-btn  w3-black ');
@@ -266,7 +266,8 @@ BEGIN
    END LOOP;
    modGUI1.chiudiDiv; 
 end;
-   /*Funzione che genera il form d'inserimento*/
+
+
 procedure inseriscicampiestivi
 (
    newNome in CAMPIESTIVI.Nome%TYPE default null,
@@ -325,7 +326,7 @@ is
    v_datefin Date:= TO_DATE(newDataConclusione default NULL on conversion error, 'YYYY-MM-DD');
 BEGIN
    htp.htmlOpen;
-   modGUI1.APRIPAGINA('conferma Campi Estivi');
+   modGUI1.APRIPAGINA('Conferma Campi Estivi');
    modGUI1.HEADER();
    htp.bodyopen();
    htp.br;htp.br;htp.br;htp.br;htp.br;
@@ -482,7 +483,7 @@ procedure modificacampiestivi
 is
 BEGIN 
    htp.htmlOpen;
-   modGUI1.ApriPagina();
+   modGUI1.ApriPagina('Modifica Campo');
    modGUI1.Header();
    htp.bodyOpen;
    htp.br;htp.br;htp.br;htp.br;htp.br;htp.br;  
@@ -501,9 +502,9 @@ BEGIN
    modGUI1.InputDate('newDataConclusione','newDataConclusione',0,newDataConclusione);
    htp.br;
    htp.br;
-    modGUI1.INPUTSUBMIT('modifica');
-    modGUI1.ChiudiForm;
-    modGUI1.ChiudiDiv;
+   modGUI1.INPUTSUBMIT('modifica');
+   modGUI1.ChiudiForm;
+   modGUI1.ChiudiDiv;
    htp.bodyClose; 
    htp.htmlClose;
 
@@ -517,15 +518,9 @@ procedure confermamodificacampo
    newDataConclusione in VARCHAR2 default null
 )
 is
-   
    v_dateini Date:= TO_DATE(newDatainizio default NULL on conversion error, 'YYYY-MM-DD');
    v_datefin Date:= TO_DATE(newDataConclusione default NULL on conversion error, 'YYYY-MM-DD');
-   campocontrol CAMPIESTIVI%rowtype;
 BEGIN
-   SELECT *
-   into campocontrol
-   FROM CAMPIESTIVI
-   WHERE IdCampiEstivi=idcampo;
 
    htp.htmlOpen;
    modGUI1.APRIPAGINA('Conferma Campi Estivi');
@@ -592,7 +587,7 @@ is
 v_dateini Date:= TO_DATE(newDatainizio default NULL on conversion error, 'YYYY-MM-DD');
 v_datefin Date:= TO_DATE(newDataConclusione default NULL on conversion error, 'YYYY-MM-DD');
 BEGIN
-   modGUI1.ApriPagina('campo');
+   modGUI1.ApriPagina('Update campo');
    modGUI1.HEADER();
    htp.br;htp.br;htp.br;htp.br;htp.br;htp.br;
    UPDATE CAMPIESTIVI SET
@@ -656,7 +651,7 @@ is
    sessionid NUMBER(10):=modGUI1.get_id_sessione();
 BEGIN
    htp.prn('<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css"> ');
-   modGUI1.ApriPagina('MUSEI');
+   modGUI1.ApriPagina('Musei');
    modGUI1.Header();
    htp.br;htp.br;htp.br;htp.br;htp.br;
    htp.prn('<h1 Align="center" style="font-size:50px">Musei</h1>');
@@ -788,7 +783,7 @@ is
 
 BEGIN
    htp.htmlOpen;
-   modGUI1.APRIPAGINA('Conferma Museo');
+   modGUI1.APRIPAGINA('Controlla Museo');
    modGUI1.HEADER();
    htp.bodyOpen;
    htp.br;htp.br;htp.br;htp.br;htp.br;htp.br;
@@ -818,7 +813,7 @@ BEGIN
    from MUSEI
    where  MuseoId=MUSEI.IDMUSEO;
 
-   modGUI1.apripagina();
+   modGUI1.apripagina('Visualizza museo');
    modGUI1.header();
    htp.br;htp.br;htp.br;htp.br;htp.br;
    htp.prn('<h1 align="center">Museo</h1>');
@@ -940,7 +935,7 @@ procedure updatemusei
 is
 
 BEGIN
-   modGUI1.ApriPagina('museo');
+   modGUI1.ApriPagina(' Update museo');
    modGUI1.HEADER();
    htp.br;htp.br;htp.br;htp.br;htp.br;htp.br;
    UPDATE MUSEI SET
@@ -961,7 +956,7 @@ CURSOR cur IS Select MUSEI.IDMUSEO, MUSEI.NOME
 MusId_cur cur%Rowtype; 
 BEGIN
    htp.htmlOpen;
-   modGUI1.ApriPagina('Statistiche sale museo');
+   modGUI1.ApriPagina('Statistiche museo');
    modGUI1.HEADER();
    htp.BODYOPEN();
    htp.br;htp.br;htp.br;htp.br;htp.br;htp.br;
@@ -1119,18 +1114,18 @@ BEGIN
    modGUI1.apridiv('class="w3-modal-content w3-card-4 w3-animate-zoom" style="max-width:600px; margin-top:110px"');
    HTP.TABLEOPEN(CALIGN  => 'center',CATTRIBUTES =>'class="w3-table w3-striped"' );
          HTP.TableRowOpen;
-         HTP.TableData('Titolo opera',CATTRIBUTES  =>'style="font-weight:bold"');
-         HTP.TableData('Anno opera',CATTRIBUTES  =>'style="font-weight:bold"');
-         HTP.TableData('Periodo opera',CATTRIBUTES  =>'style="font-weight:bold"');
+         HTP.TableData('Titolo opera',CATTRIBUTES  =>'style="font-weight:bold; text-align:center"');
+         HTP.TableData('Anno opera',CATTRIBUTES  =>'style="font-weight:bold; text-align:center"');
+         HTP.TableData('Periodo opera',CATTRIBUTES  =>'style="font-weight:bold; text-align:center"');
          HTP.TableData('info',CATTRIBUTES  =>'style="font-weight:bold"');
          /* inserire il tipo stanza*/
          HTP.TableRowClose;
    FOR val_ope in oper_cursor
    loop
       HTP.TableRowOpen;
-      HTP.TableData(val_ope.Titolo);
-      HTP.TableData(val_ope.Anno ,'center');
-      HTP.TableData(val_ope.FinePeriodo,'center');
+      HTP.TableData(val_ope.Titolo,CATTRIBUTES  =>'style="text-align:center"');
+      HTP.TableData(val_ope.Anno ,CATTRIBUTES  =>'style="text-align:center"');
+      HTP.TableData(val_ope.FinePeriodo,CATTRIBUTES  =>'style="text-align:center"');
       htp.tabledata('<button onclick="document.getElementById(''LinguaeLivelloOpera'||val_ope.IdOpera||''').style.display=''block''" class="w3-margin w3-button w3-black w3-hover-white">Dettagli</button>');
       gruppo2.linguaELivello(val_ope.IdOpera);
       HTP.TableRowClose;
@@ -1160,7 +1155,7 @@ is
 
 BEGIN
 /*controllo sull'ID*/
-   modGUI1.ApriPagina('Visualizzazione opere museo');
+   modGUI1.ApriPagina('Visualizzazione opere prestate museo');
    modGUI1.HEADER();
    htp.br;htp.br;htp.br;htp.br;
    htp.prn('<h1 align="center">Opere Museo</h1>');
@@ -1172,18 +1167,18 @@ BEGIN
    modGUI1.apridiv('class="w3-modal-content w3-card-4 w3-animate-zoom" style="max-width:600px; margin-top:110px"');
    HTP.TABLEOPEN(CALIGN  => 'center',CATTRIBUTES =>'class="w3-table w3-striped"' );
       HTP.TableRowOpen;
-      HTP.TableData('Titolo opera',CATTRIBUTES  =>'style="font-weight:bold"');
-      HTP.TableData('Anno opera',CATTRIBUTES  =>'style="font-weight:bold"');
-      HTP.TableData('Periodo opera',CATTRIBUTES  =>'style="font-weight:bold"');
-      HTP.TableData('info',CATTRIBUTES  =>'style="font-weight:bold"');
+      HTP.TableData('Titolo opera',CATTRIBUTES  =>'style="font-weight:bold; text-align:center"');
+      HTP.TableData('Anno opera',CATTRIBUTES  =>'style="font-weight:bold; text-align:center"');
+      HTP.TableData('Periodo opera',CATTRIBUTES  =>'style="font-weight:bold; text-align:center"');
+      HTP.TableData('info',CATTRIBUTES  =>'style="font-weight:bold; text-align:center"');
       /* inserire il tipo stanza*/
       HTP.TableRowClose;
    FOR val_ope in oper_cursor
    loop
       HTP.TableRowOpen;
-      HTP.TableData(val_ope.Titolo);
-      HTP.TableData(val_ope.Anno ,'center');
-      HTP.TableData(val_ope.FinePeriodo,'center');
+      HTP.TableData(val_ope.Titolo,CATTRIBUTES  =>'style="text-align:center"');
+      HTP.TableData(val_ope.Anno ,CATTRIBUTES  =>'style="text-align:center"');
+      HTP.TableData(val_ope.FinePeriodo,CATTRIBUTES  =>'style="text-align:center"');
       htp.tabledata('<button onclick="document.getElementById(''LinguaeLivelloOpera'||val_ope.IdOpera||''').style.display=''block''" class="w3-margin w3-button w3-black w3-hover-white">Dettagli</button>');
       gruppo2.linguaELivello(val_ope.IdOpera);
       HTP.TableRowClose;    
@@ -1232,17 +1227,17 @@ BEGIN
    htp.prn('<p align="center"><b>numero visitatori museo periodo ' || Data1 ||'--'|| Data2 ||':</b> ' || nvisitatori ||'</p>');
    modGUI1.apridiv('class="w3-modal-content w3-card-4 w3-animate-zoom" style="max-width:1600px; margin-top:110px"');
    HTP.TABLEOPEN(CALIGN  => 'center',CATTRIBUTES =>'class="w3-table w3-striped"' );
-         HTP.TableRowOpen;
-         HTP.TableData('Nome',CATTRIBUTES  =>'style="font-weight:bold; text-align:center"');
-         HTP.TableData('Cognome',CATTRIBUTES  =>'style="font-weight:bold; text-align:center"');
-         HTP.TableData('Indirizzo',CATTRIBUTES  =>'style="font-weight:bold; text-align:center"');
-         HTP.TableData('Email',CATTRIBUTES  =>'style="font-weight:bold; text-align:center"');
-         HTP.TableData('Data di Nascita',CATTRIBUTES  =>'style="font-weight:bold; text-align:center"');
-         HTP.TableRowClose;
+      HTP.TableRowOpen;
+      HTP.TableData('Nome',CATTRIBUTES  =>'style="font-weight:bold; text-align:center"');
+      HTP.TableData('Cognome',CATTRIBUTES  =>'style="font-weight:bold; text-align:center"');
+      HTP.TableData('Indirizzo',CATTRIBUTES  =>'style="font-weight:bold; text-align:center"');
+      HTP.TableData('Email',CATTRIBUTES  =>'style="font-weight:bold; text-align:center"');
+      HTP.TableData('Data di Nascita',CATTRIBUTES  =>'style="font-weight:bold; text-align:center"');
+      HTP.TableRowClose;
    FOR val_vis in vis_cursor
    loop
       HTP.TableRowOpen;
-      HTP.TableData(val_vis.Nome);
+      HTP.TableData(val_vis.Nome, CATTRIBUTES  =>'style="text-align:center"');
       HTP.TableData(val_vis.Cognome ,CATTRIBUTES  =>'style="text-align:center"');
       HTP.TableData(val_vis.Indirizzo,CATTRIBUTES  =>'style="text-align:center"');
       HTP.TableData(val_vis.Email,CATTRIBUTES  =>'style="text-align:center"');
@@ -1717,7 +1712,7 @@ BEGIN
    from TARIFFECAMPIESTIVI
    where TARIFFECAMPIESTIVI.IDTARIFFA=tariffa;
 
-   modGUI1.ApriPagina('Inserimento pagamento campo estivo', 0);
+   modGUI1.ApriPagina('Inserimento pagamento campo estivo');
    modGUI1.header();
    htp.br;htp.br;htp.br;htp.br;htp.br;htp.br;
    htp.prn('<h1 align="center">Inserimento Pagamento Campo Estivo</h1>');
@@ -1764,7 +1759,7 @@ BEGIN
     or dataPagamento is null
     or acquirente = 0
     then
-      modGUI1.apripagina('Pagina errore', 0);
+      modGUI1.apripagina('Pagina errore');
       htp.bodyopen;
       modGUI1.apridiv;
       htp.print('Uno dei parametri immessi non valido');

@@ -184,7 +184,7 @@ CREATE OR REPLACE PACKAGE BODY PackageStanze as
                             modGUI1.InputText('nomeSala',NULL,NULL,varSalaNome);
                             htp.br;
                             modGUI1.Label('Dimensione sala:');
-                            modGUI1.InputNumber('idDimSala','dimSala',NULL,varSalaDimensione);
+                            modGUI1.InputNumber('idDimSala" min="1" max="99999','dimSala',NULL,varSalaDimensione);
                             htp.br;
                             ----CAMPI SALA----
                             modGUI1.Label('Tipo sala:');
@@ -198,7 +198,7 @@ CREATE OR REPLACE PACKAGE BODY PackageStanze as
                             END if;
                             htp.br;
                             modGUI1.Label('Numero Opere: ');
-                            modGUI1.InputNumber('idnOpere','nOpereform',NULL,varSalaOpere);
+                            modGUI1.InputNumber('idnOpere" min="1" max="99999','nOpereform',NULL,varSalaOpere);
                             htp.br;
                             modGUI1.Collegamento('Annulla','PackageStanze.visualizzaSale','w3-red w3-button w3-margin w3-left');
                             modGUI1.InputReset;
@@ -225,10 +225,13 @@ CREATE OR REPLACE PACKAGE BODY PackageStanze as
         varMuseo MUSEI.IDMUSEO%TYPE;
         varTiposala NUMBER;
         varNumopere NUMBER;
+        varIdMuseo MUSEI.IDMUSEO%TYPE;
         varNomeMuseo MUSEI.NOME%TYPE;
         varCountOpere NUMBER;
         varNumVisite NUMBER;
         varVisitatoriUnici NUMBER;
+    contatoreClassifica NUMBER(1) := 1;
+    idSessione NUMBER(5) := modGUI1.get_id_sessione();
     BEGIN
         SELECT nome,dimensione,museo,tiposala,numopere INTO varNome,varDimensione,varMuseo,varTiposala,varNumopere 
             FROM Stanze NATURAL JOIN Sale 
@@ -238,94 +241,112 @@ CREATE OR REPLACE PACKAGE BODY PackageStanze as
         modGUI1.HEADER;
         htp.br;htp.br;htp.br;htp.br;htp.br;
         MODGUI1.Collegamento('<i class="fa fa-caret-left"></i> Torna alle sale','PackageStanze.visualizzaSale','w3-button w3-round-xlarge w3-margin-left w3-black w3-left');
-        SELECT nome INTO varNomeMuseo 
+        SELECT idmuseo,nome INTO varIdMuseo,varNomeMuseo 
             FROM MUSEI 
         WHERE (MUSEI.IDMUSEO=varMuseo);
 
         modGUI1.ApriDiv('class="w3-light-grey w3-container" style="margin:auto;width:60%;"');
             htp.prn('<img src="https://www.23bassi.com/wp-content/uploads/2019/03/vuota-web.jpg" alt="Alps" class="w3-third w3-margin">');
             MODGUI1.ApriDiv('class="twothird w3-margin w3-center"');
-                htp.prn('<p><b>Museo: </b>'|| varNomeMuseo ||'</p>');
-                                htp.prn('<h2><b>'|| varNome ||'</b></h2>');
-                                IF (varTipoSala=0)
-                                THEN
-                                    htp.prn('<h4>Sala ordinaria</h4>');
-                                ELSE
-                                    htp.prn('<h4>Sala speciale</h4>');
-                                END IF;
-                                htp.prn('<p>Dim: '|| varDimensione || 'mq</p>');
-                                htp.prn('<p>Max opere: '|| varNumopere ||'</p>');  
+                htp.prn('<p><b>Museo: </b>');
+                modGUI1.COLLEGAMENTO(varNomeMuseo,'operazioniGruppo4.visualizzaMusei?idMuseo='||varIdMuseo);
+                htp.prn('</p>');
+                htp.prn('<h2><b>'|| varNome ||'</b></h2>');
+                IF (varTipoSala=0)
+                THEN
+                    htp.prn('<h4>Sala ordinaria</h4>');
+                ELSE
+                    htp.prn('<h4>Sala speciale</h4>');
+                END IF;
+                htp.prn('<p>Dim: '|| varDimensione || 'mq</p>');
+                htp.prn('<p>Max opere: '|| varNumopere ||'</p>');  
             MODGUI1.ChiudiDiv;
             MODGUI1.ApriDiv('class="w3-container"');
+            IF (hasRole(idSessione, 'DBA') OR hasRole(idSessione, 'SU') OR hasRole(idSessione, 'GM')) THEN
             --STATISTICHE------------------------------
-            htp.prn('<h3>Statistiche</h3>');
-            --VISITE IN SALA
-            SELECT COUNT(*) INTO varNumVisite 
-                FROM VISITE INNER JOIN VISITEVARCHI USING (idvisita) 
-                INNER JOIN VARCHI ON (VISITEVARCHI.idvarco=VARCHI.idvarchi)
-            WHERE 
-                (stanza1=varIdSala OR stanza2=varIdSala);
+                htp.prn('<h3>Statistiche</h3>');
+                --VISITE IN SALA
+                SELECT COUNT(*) INTO varNumVisite 
+                    FROM VISITE INNER JOIN VISITEVARCHI USING (idvisita) 
+                    INNER JOIN VARCHI ON (VISITEVARCHI.idvarco=VARCHI.idvarchi)
+                WHERE 
+                    (stanza1=varIdSala AND direzioneinversa=1) OR (stanza2=varIdSala AND direzioneinversa=0);
 
-            htp.prn('Visite in sala: <b>'||varNumVisite||'</b>');
-            
-            --VISITATORI UNICI IN SALA IN PERIODO DI TEMPO SPECIFICATO
-            SELECT COUNT (DISTINCT visitatore) into varVisitatoriUnici 
-                FROM VISITE INNER JOIN VISITEVARCHI USING (idvisita)
-                INNER JOIN VARCHI ON (VISITEVARCHI.idvarco=VARCHI.idvarchi)
-            WHERE 
-                (stanza1=varIdSala OR stanza2=varIdSala)
-            AND 
-                DATAVISITA BETWEEN to_date(DataInizio,'YYYY-MM-DD') AND to_date(DataFine,'YYYY-MM-DD');
-            
-            MODGUI1.ApriDiv;
-                htp.prn('Visitatori unici dal ');
-                MODGUI1.ApriForm('PackageStanze.visualizzaSala',NULL, '" style="display:inline;');
-                    HTP.FORMHIDDEN('varIdSala',varIdSala);
-                    MODGUI1.INPUTDATE('DataInizio','DataInizio',NULL,DataInizio);
-                    HTP.prn(' al ');
-                    MODGUI1.INPUTDATE('DataFine','DataFine',NULL,DataFine);
-                    htp.prn(': <details style="display:inline;">');
-                    htp.prn('<summary><b>'||varVisitatoriUnici||'  </b></summary>');
-                    modGUI1.APRITABELLA('w3-margin-right w3-right"');
-                    FOR visunici IN (
-                        SELECT DISTINCT visitatore,utenti.nome,cognome,datavisita 
-                            FROM UTENTI INNER JOIN VISITE ON (idutente=visitatore) 
-                            INNER JOIN VISITEVARCHI USING (idvisita) 
-                            INNER JOIN VARCHI ON (VISITEVARCHI.idvarco=VARCHI.idvarchi)
-                        WHERE 
-                            (stanza1=varIdSala OR stanza2=varIdSala)
-                        AND 
-                            DATAVISITA BETWEEN to_date(DataInizio,'YYYY-MM-DD') AND to_date(DataFine,'YYYY-MM-DD')
-                        ORDER BY 
-                            DATAVISITA desc
-                    )LOOP
+                htp.prn('Visite in sala: <b>'||varNumVisite||'</b>');
+                
+                --VISITATORI UNICI IN SALA IN PERIODO DI TEMPO SPECIFICATO
+                SELECT COUNT (DISTINCT visitatore) into varVisitatoriUnici 
+                    FROM VISITE INNER JOIN VISITEVARCHI USING (idvisita)
+                    INNER JOIN VARCHI ON (VISITEVARCHI.idvarco=VARCHI.idvarchi)
+                WHERE 
+                    (stanza1=varIdSala AND direzioneinversa=1) OR (stanza2=varIdSala AND direzioneinversa=0)
+                AND 
+                    DATAVISITA BETWEEN to_date(DataInizio,'YYYY-MM-DD') AND to_date(DataFine,'YYYY-MM-DD');
+                
+                MODGUI1.ApriDiv;
+                    htp.prn('Visitatori unici dal ');
+                    MODGUI1.ApriForm('PackageStanze.visualizzaSala',NULL, '" style="display:inline;');
+                        HTP.FORMHIDDEN('varIdSala',varIdSala);
+                        MODGUI1.INPUTDATE('DataInizio','DataInizio',NULL,DataInizio);
+                        HTP.prn(' al ');
+                        MODGUI1.INPUTDATE('DataFine','DataFine',NULL,DataFine);
+                        htp.prn(': <details style="display:inline;">');
+                        htp.prn('<summary><b>'||varVisitatoriUnici||'  </b></summary>');
+                        modGUI1.APRITABELLA('w3-margin-right w3-right"');
+                        FOR visunici IN (
+                            SELECT DISTINCT idvisita,visitatore,utenti.nome,cognome,datavisita 
+                                FROM UTENTI INNER JOIN VISITE ON (idutente=visitatore) 
+                                INNER JOIN VISITEVARCHI USING (idvisita) 
+                                INNER JOIN VARCHI ON (VISITEVARCHI.idvarco=VARCHI.idvarchi)
+                            WHERE 
+                                (stanza1=varIdSala AND direzioneinversa=1) OR (stanza2=varIdSala AND direzioneinversa=0)
+                            AND 
+                                DATAVISITA BETWEEN to_date(DataInizio,'YYYY-MM-DD') AND to_date(DataFine,'YYYY-MM-DD')
+                            ORDER BY 
+                                DATAVISITA desc
+                        )LOOP
+                            modGUI1.APRIRIGATABELLA;
+                                modgui1.APRIELEMENTOTABELLA;
+                                    modGUI1.Collegamento(visunici.nome||' '||visunici.cognome,'gruppo1.VisualizzaUtente?utenteID='||visunici.visitatore);--LINK ESTERNO
+                                modgui1.chiudiElementoTabella;
+                                modgui1.APRIELEMENTOTABELLA;
+                                    modGUI1.Collegamento(to_char(visunici.datavisita,'DD-MM-YY'),'packagevisite.visualizzavisita?idvisitaselezionata='||visunici.idvisita||'&action=packageVisite.visualizza_visite&button_text=Vai+alle+visite');--LINK ESTERNO
+                                modgui1.chiudiElementoTabella;
+                            modgui1.chiudiRigaTabella;
+                        END LOOP;
+                        
+                        modGUI1.chiudiTabella;
+                        htp.prn('</details>    ');
+                        
+                        
+                        htp.prn('<input type="submit" value="Modifica data" class="w3-round-xxlarge" style="display:inline;">');
+                    MODGUI1.ChiudiForm;
+                MODGUI1.ChiudiDiv; 
+                --TOP 5 VISITATORI
+                htp.prn('Top 5 visitatori: ');
+                modGUI1.APRITABELLA('" style="display:inline;');
+                    FOR varUtente IN ( 
+                        SELECT DISTINCT idutente, utenti.nome, utenti.cognome, COUNT(idvisita) as numvisite 
+                            FROM UTENTI INNER JOIN VISITE ON (idutente=visitatore)
+                            INNER JOIN VISITEVARCHI USING (idvisita)
+                            INNER JOIN VARCHI ON (idvarchi=idvarco)
+                        WHERE (stanza1=varIdSala AND direzioneinversa=1) OR (stanza2=varIdSala AND direzioneinversa=0)
+                        GROUP BY idutente, utenti.nome, utenti.cognome
+                        ORDER BY numvisite, utenti.cognome
+                        FETCH first 5 rows only
+                    )LOOP   
                         modGUI1.APRIRIGATABELLA;
                             modgui1.APRIELEMENTOTABELLA;
-                                htp.prn(visunici.nome);
+                                htp.prn('<b>'||contatoreClassifica||'.</b>');
+                                contatoreClassifica := contatoreClassifica + 1;
                             modgui1.chiudiElementoTabella;
                             modgui1.APRIELEMENTOTABELLA;
-                                htp.prn(visunici.cognome);
-                            modgui1.chiudiElementoTabella;
-                            modgui1.APRIELEMENTOTABELLA;
-                                htp.prn(to_char(visunici.datavisita,'DD-MM-YY'));
+                                modGUI1.Collegamento(varUtente.nome||' '||varUtente.cognome,'gruppo1.VisualizzaUtente?utenteID='||varUtente.idutente);--LINK ESTERNO
                             modgui1.chiudiElementoTabella;
                         modgui1.chiudiRigaTabella;
                     END LOOP;
-                    
-                    modGUI1.chiudiTabella;
-                    htp.prn('</details>    ');
-                    
-                    
-                    htp.prn('<input type="submit" value="Modifica data" class="w3-round-xxlarge" style="display:inline;">');
-                MODGUI1.ChiudiForm;
-            MODGUI1.ChiudiDiv; 
-            htp.br;
-
-            /*
-            Numero medio visitatori in un arco temporale scelto
-            Media permanenza in una sala*/
-            
-
+                modGUI1.chiudiTabella;                
+            END IF;
             --OPERE------------------------------------
             SELECT COUNT(*) INTO varCountOpere FROM OPERE INNER JOIN SALEOPERE ON SALEOPERE.opera=OPERE.idopera WHERE SALEOPERE.SALA=varIdSala;--Opere presenti nella Sala
             htp.prn('<h3>Opere: '||varCountOpere||'</h3>');
@@ -349,7 +370,7 @@ CREATE OR REPLACE PACKAGE BODY PackageStanze as
                             htp.prn('<p>'||varOpere.Anno||'</p>');
                         MODGUI1.CHIUDIELEMENTOTABELLA;
                         MODGUI1.APRIELEMENTOTABELLA;
-                            MODGUI1.Collegamento('Visualizza','Boh','w3-button w3-black w3-right');
+                            MODGUI1.Collegamento('Visualizza','Boh','w3-button w3-black w3-right');--LINK ESTERNO
                         MODGUI1.CHIUDIELEMENTOTABELLA;
                     MODGUI1.CHIUDIRIGATABELLA;
                     END LOOP;
@@ -471,7 +492,7 @@ CREATE OR REPLACE PACKAGE BODY PackageStanze as
         Deleted IN int default 0,
         Search IN VARCHAR2 default NULL
     ) is 
-
+    idmuseosel musei.idmuseo%TYPE;
     museosel musei.nome%TYPE;
     idSessione NUMBER(5) := modGUI1.get_id_sessione();
     BEGIN
@@ -555,8 +576,10 @@ CREATE OR REPLACE PACKAGE BODY PackageStanze as
                     htp.prn('<img src="https://cdn.pixabay.com/photo/2016/10/22/15/32/water-1761027__480.jpg" alt="Alps" style="width:100%">');
                             modGUI1.ApriDiv('class="w3-container w3-center"');
                             --INIZIO DESCRIZIONI
-                                SELECT nome INTO museosel FROM MUSEI WHERE (musei.idmuseo=AmbS.museo);
-                                htp.prn('<p><b>Museo: </b>'|| museosel ||'</p>');
+                                SELECT idmuseo,nome INTO idmuseosel,museosel FROM MUSEI WHERE (musei.idmuseo=AmbS.museo);
+                                htp.prn('<p><b>Museo: </b>');
+                                modGUI1.Collegamento(museosel,'operazioniGruppo4.visualizzaMusei?idMuseo='||idmuseosel);--LINK ESTERNO
+                                htp.prn('</p>');
                                 htp.prn('<h2><b>'|| AmbS.nome||'</b></h2>');
                                 htp.prn('<h4>'|| AmbS.tipoambiente||'</h4>');
                                 htp.prn('<p>Dim: '||AmbS.dimensione || 'mq</p>');
@@ -630,7 +653,7 @@ CREATE OR REPLACE PACKAGE BODY PackageStanze as
                             modGUI1.InputText('nomeAmbS',NULL,NULL,varASNome);
                             htp.br;
                             modGUI1.Label('Dimensione ambiente:');
-                            modGUI1.InputNumber('idDimAmbS','dimAmbS',NULL,varASDimensione);
+                            modGUI1.InputNumber('idDimAmbS" min="1" max="99999','dimAmbS',NULL,varASDimensione);
                             htp.br;
                             ----CAMPI AMBIENTE SERVIZIO----
                             modGUI1.Label('Tipo Ambiente:');

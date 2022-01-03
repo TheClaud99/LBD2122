@@ -19,9 +19,9 @@
 @modGui/MODGUI1PKB.plsql
 
 -- GRUPPO 3
+@operazioneGruppo3/view_visite.plsql
 @operazioneGruppo3/visite.plsql
 @operazioneGruppo3/visiteBody.plsql
-@operazioneGruppo3/view_visite.plsql
 
 -- GRUPPO 2
 @operazioni_gruppo2/sql/vistaOpereEsposte.plsql
@@ -29,13 +29,13 @@
 @operazioni_gruppo2/sql/gruppo2PKB.pkb
 
 -- GRUPPO 1
+@operazioniGruppo1/sql/view_titoli.plsql
 @operazioniGruppo1/sql/gruppo1.pks
 @operazioniGruppo1/sql/gruppo1.pkb
 @operazioniGruppo1/sql/Newsletters.plsql
 @operazioniGruppo1/sql/NewslettersB.plsql
 @operazioniGruppo1/sql/TitoliIngresso.plsql
 @operazioniGruppo1/sql/TitoliIngressoBody.plsql
-@operazioniGruppo1/sql/view_titoli.plsql
 
 -- GRUPPO 4
 @operazioniGruppo4/sql/visitaetamedia.sql

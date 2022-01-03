@@ -76,6 +76,11 @@ procedure confermamodificatitolo(
 	idutenteselezionato utenti.idutente%type
 );
 
+procedure modificatitolo(
+	varidtitoloing TITOLIINGRESSO.IDTITOLOING%type,
+	idutenteselezionato utenti.idutente%type
+);
+
 PROCEDURE formacquistaabbonamento(
 	dataEmissionechar IN VARCHAR2,
 	oraemissionechar IN VARCHAR2,

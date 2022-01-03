@@ -1,3 +1,4 @@
+set define off;
 CREATE OR REPLACE PACKAGE BODY gruppo1 AS
 
 /*
@@ -39,11 +40,8 @@ BEGIN
     MODGUI1.ApriPagina('Inserimento utenti', idSessione);
 
 	HTP.BodyOpen;
-	if idSessione IS NULL then
-            modGUI1.Header(0);
-    else
-            modGUI1.Header(idSessione);
-    end if;
+    modGUI1.Header();
+
 	HTP.header(1,'Inserisci un nuovo utente', 'center');
 	modgui1.apridiv('class="w3-modal-content w3-card-4 w3-animate-zoom w3-padding-large" style="max-width:600px; margin-top:110px"');
 	HTP.header(2, 'Inserisci utente');
@@ -187,11 +185,7 @@ BEGIN
 		-- uno dei parametri con vincoli ha valori non validi
 		MODGUI1.APRIPAGINA('Pagina errore', 0);
 		HTP.BodyOpen;
-		if idSessione IS NULL then
-            modGUI1.Header(0);
-		else
-				modGUI1.Header(idSessione);
-		end if;
+        modGUI1.Header();
 		MODGUI1.ApriDiv;
 		HTP.PRINT('Uno dei parametri immessi non valido');
 		MODGUI1.ChiudiDiv;
@@ -201,9 +195,9 @@ BEGIN
 		MODGUI1.APRIPAGINA('Conferma dati utenti', idSessione);
 		HTP.BodyOpen;
 		if idSessione IS NULL then
-            modGUI1.Header(0);
+            modGUI1.Header();
 		else
-				modGUI1.Header(idSessione);
+				modGUI1.Header();
 		end if;
 		modgui1.apridiv('class="w3-modal-content w3-card-4 w3-animate-zoom w3-padding-large" style="max-width:600px; margin-top:110px"');
 		HTP.header(2, 'Conferma dati utente');
@@ -408,11 +402,7 @@ procedure EsitoPositivoUtenti
 	idSessione NUMBER(5) := modgui1.get_id_sessione();
     begin
         modGUI1.ApriPagina('Esito positivo',idSessione);
-        if idSessione IS NULL then
-            modGUI1.Header(0);
-		else
-				modGUI1.Header(idSessione);
-		end if;
+        modGUI1.Header();
         htp.br;htp.br;htp.br;htp.br;htp.br;htp.br;
             modGUI1.ApriDiv('class="w3-modal-content w3-card-4 w3-animate-zoom w3-padding-large" style="max-width:450px"');
                 modGUI1.ApriDiv('class="w3-center"');
@@ -429,11 +419,7 @@ procedure EsitoNegativoUtenti
 	idSessione NUMBER(5) := modgui1.get_id_sessione();
     begin
         modGUI1.ApriPagina('Esito negativo',idSessione);
-        if idSessione IS NULL then
-            modGUI1.Header(0);
-		else
-				modGUI1.Header(idSessione);
-		end if;
+        modGUI1.Header();
         htp.br;htp.br;htp.br;htp.br;htp.br;htp.br;
             modGUI1.ApriDiv('class="w3-modal-content w3-card-4 w3-animate-zoom w3-padding-large" style="max-width:450px"');
                 modGUI1.ApriDiv('class="w3-center"');
@@ -508,11 +494,7 @@ BEGIN
 
 		MODGUI1.ApriPagina('Profile utente', idSessione);
 		HTP.BodyOpen;
-		if idSessione IS NULL then
-            modGUI1.Header(0);
-		else
-				modGUI1.Header(idSessione);
-		end if;
+		modGUI1.Header();
 		modgui1.apridiv('class="w3-modal-content w3-card-4 w3-animate-zoom w3-padding-large" style="max-width:600px; margin-top:110px"');
 		HTP.header(2, 'Profilo utente');
 		HTP.tableopen;
@@ -646,11 +628,7 @@ BEGIN
 
 		MODGUI1.ApriPagina('Modifica utente', idSessione);
 		HTP.BodyOpen;
-		if idSessione IS NULL then
-            modGUI1.Header(0);
-		else
-				modGUI1.Header(idSessione);
-		end if;
+		modGUI1.Header();
 		modgui1.apridiv('class="w3-modal-content w3-card-4 w3-animate-zoom w3-padding-large" style="max-width:600px; margin-top:110px"');
 		HTP.header(2, 'Modifica utente');
 		MODGUI1.ApriForm('ModificaDatiUtente');
@@ -942,11 +920,7 @@ is
 idSessione NUMBER(5) := modgui1.get_id_sessione();
 begin
         modGUI1.ApriPagina('Lista utenti',idSessione);
-        if idSessione IS NULL then
-            modGUI1.Header(0);
-		else
-				modGUI1.Header(idSessione);
-		end if;
+        modGUI1.Header();
 		modGUI1.ApriDiv('class="w3-center" style="margin-top:110px;"');
         htp.prn('<h1>Lista utenti</h1>');
 		if hasRole(idSessione, 'DBA') or hasRole(idSessione, 'SU')
@@ -1000,11 +974,7 @@ is
 		res := to_number((EXTRACT(YEAR FROM SYSDATE()))) - tempMedia;
 
 		modGUI1.ApriPagina('Statistiche utenti',idSessione);
-         if idSessione IS NULL then
-            modGUI1.Header(0);
-		else
-				modGUI1.Header(idSessione);
-		end if;
+        modGUI1.Header();
         htp.br;htp.br;htp.br;htp.br;htp.br;htp.br;
             modGUI1.ApriDiv('class="w3-modal-content w3-card-4 w3-animate-zoom w3-padding-large" style="max-width:450px"');
                 modGUI1.ApriDiv('class="w3-center"');
@@ -1068,11 +1038,7 @@ is
 		end if;
 
 		modGUI1.ApriPagina('Statistiche utenti',idSessione);
-         if idSessione IS NULL then
-            modGUI1.Header(0);
-		else
-				modGUI1.Header(idSessione);
-		end if;
+        modGUI1.Header();
         htp.br;htp.br;htp.br;htp.br;htp.br;htp.br;
             modGUI1.ApriDiv('class="w3-modal-content w3-card-4 w3-animate-zoom w3-padding-large" style="max-width:450px"');
                 modGUI1.ApriDiv('class="w3-center"');
@@ -1188,11 +1154,7 @@ is
 		end if;
 
 		modGUI1.ApriPagina('Statistiche utenti',idSessione);
-         if idSessione IS NULL then
-            modGUI1.Header(0);
-		else
-				modGUI1.Header(idSessione);
-		end if;
+        modGUI1.Header();
         htp.br;htp.br;htp.br;htp.br;htp.br;htp.br;
             modGUI1.ApriDiv('class="w3-modal-content w3-card-4 w3-animate-zoom w3-padding-large" style="max-width:450px"');
                 modGUI1.ApriDiv('class="w3-center"');
@@ -1306,11 +1268,7 @@ is
 		end if;
 
 		modGUI1.ApriPagina('Statistiche utenti',idSessione);
-        if idSessione IS NULL then
-            modGUI1.Header(0);
-		else
-				modGUI1.Header(idSessione);
-		end if;
+        modGUI1.Header();
         htp.br;htp.br;htp.br;htp.br;htp.br;htp.br;
             modGUI1.ApriDiv('class="w3-modal-content w3-card-4 w3-animate-zoom w3-padding-large" style="max-width:450px"');
                 modGUI1.ApriDiv('class="w3-center"');
@@ -1411,11 +1369,7 @@ is
 		res3 := res2/res;
 
 		modGUI1.ApriPagina('Statistiche utenti',idSessione);
-        if idSessione IS NULL then
-            modGUI1.Header(0);
-		else
-				modGUI1.Header(idSessione);
-		end if;
+        modGUI1.Header();
         htp.br;htp.br;htp.br;htp.br;htp.br;htp.br;
             modGUI1.ApriDiv('class="w3-modal-content w3-card-4 w3-animate-zoom w3-padding-large" style="max-width:450px"');
                 modGUI1.ApriDiv('class="w3-center"');
@@ -1467,11 +1421,7 @@ is
 begin
 		MODGUI1.ApriPagina('Statistiche utente', idSessione);
 			HTP.BodyOpen;
-			if idSessione IS NULL then
-            modGUI1.Header(0);
-		else
-				modGUI1.Header(idSessione);
-		end if;
+			modGUI1.Header();
 			modgui1.apridiv('class="w3-modal-content w3-card-4 w3-animate-zoom" style="margin-top:110px"');
 			htp.print('<h1 class="w3-center">Statistiche</h1>');
 			htp.br;htp.br;

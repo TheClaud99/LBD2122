@@ -183,14 +183,10 @@ BEGIN
     OR email IS NULL
 	THEN
 		-- uno dei parametri con vincoli ha valori non validi
-		MODGUI1.APRIPAGINA('Pagina errore', 0);
-		HTP.BodyOpen;
-        modGUI1.Header();
-		MODGUI1.ApriDiv;
-		HTP.PRINT('Uno dei parametri immessi non valido');
-		MODGUI1.ChiudiDiv;
-		HTP.BodyClose;
-		HTP.HtmlClose;
+		modGUI1.RedirectEsito('Errore', 
+            'Uno dei parametri inseriti non è valido', 
+            'Inserisci un nuovo utente', 'InserisciUtente', null,
+            'Torna al menu utenti', 'ListaUtenti', null);
 	ELSE
 		MODGUI1.APRIPAGINA('Conferma dati utenti', idSessione);
 		HTP.BodyOpen;
@@ -390,8 +386,8 @@ BEGIN
             'Email non valida', 
             'Riprova', 'InserisciUtente', null,
             'Torna al menu utenti', 'ListaUtenti', null);
-    when TelefonoPresente then
-       modGUI1.RedirectEsito('Errore', 
+      when TelefonoPresente then
+      	modGUI1.RedirectEsito('Errore', 
             'Recapito telefonico non valido', 
             'Riprova', 'InserisciUtente', null,
             'Torna al menu utenti', 'ListaUtenti', null);
@@ -775,8 +771,22 @@ PROCEDURE ModificaDatiUtente (
 	EmailUtente UTENTI.Email%TYPE;
 	RecapitoTelefonicoUtente UTENTI.RecapitoTelefonico%TYPE;
 	idSessione NUMBER(5) := modgui1.get_id_sessione();
+    ErroreGenerico EXCEPTION;
+
+
 
 BEGIN
+
+	IF nomeNew IS NULL
+	OR cognomeNew IS NULL
+	OR (dataNascitaNew IS NOT NULL
+		AND to_date(dataNascitaNew, 'YYYY-MM-DD') > sysdate)
+	OR indirizzoNew IS NULL
+    OR utenteEmailNew IS NULL
+	THEN
+		-- uno dei parametri con vincoli ha valori non validi
+		RAISE ErroreGenerico;
+	end if;
 
 	select email into EmailUtente from UTENTI where utenteID = UTENTI.IDutente;
 
@@ -887,6 +897,23 @@ BEGIN
             'Riprova', 'ModificaUtente?utenteID='||utenteID, null,
             'Torna al menu utenti', 'ListaUtenti', null);
 	END IF;
+
+	EXCEPTION
+      when EmailPresente then
+       modGUI1.RedirectEsito('Errore', 
+            'Email non valida', 
+            'Riprova', 'InserisciUtente', null,
+            'Torna al menu utenti', 'ListaUtenti', null);
+      when TelefonoPresente then
+      	modGUI1.RedirectEsito('Errore', 
+            'Recapito telefonico non valido', 
+            'Riprova', 'InserisciUtente', null,
+            'Torna al menu utenti', 'ListaUtenti', null);
+	   when ErroreGenerico then
+	   	modGUI1.RedirectEsito('Errore', 
+            'Uno dei parametri inseriti non è valido', 
+            'Riprova', 'ModificaUtente?utenteID='||utenteID, null,
+            'Torna al menu utenti', 'ListaUtenti', null);
 
 
 END;

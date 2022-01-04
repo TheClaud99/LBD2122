@@ -151,7 +151,7 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Rimozione}
 \begin{itemize}
-	\item \textbf{Operazione}: RimozioneAutore, DeleteAutore
+	\item \textbf{Procedure coinvolte}: RimozioneAutore, DeleteAutore
 	\item \textbf{Obiettivo}: Rimuove un Autore dal database, se presente
 	\item \textbf{Parametri}:
 	\begin{enumerate}
@@ -177,6 +177,36 @@
 	\end{itemize}
 \end{itemize}
 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%    Filtraggio degli autori   %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Filtraggio e ordinamento}
+\begin{itemize}
+	\item \textbf{Procedure coinvolte}: menuAutori (o menuAutoriEliminati), filtraAutori
+	\item \textbf{Obiettivo}: Ordina in modo crescente e filtra gli autori visualizzati nel menu, secondo alcuni parametri elencati di seguito
+	\item \textbf{Parametri}:
+	\begin{enumerate}
+		\item \textbf{orderBy}: in VARCHAR2 default 'Cognome', Attributo di Autori sul quale effettuare l'ordinamento
+		\item \textbf{nameFilter}: in VARCHAR2 default '', stringa che deve essere contenuta nel Nome degli autori visualizzati
+		\item \textbf{surnameFilter}: in VARCHAR2 default '', stringa che deve essere contenuta nel Cognome degli Autori visualizzati
+		\item \textbf{nationFilter}: in VARCHAR2 default '', stringa che deve essere contenuta nella nazionalità degli autori visualizzati
+	\end{enumerate}
+	\item \textbf{Risultato}: Visualizza nel menuAutori (o menuAutoriEliminati) soltanto gli autori i cui attributi soddisfano i filtri applicati, ordinati per l'attributo specificato dal parametro orderBy
+	\item \textbf{Errori}: nessuno, ma potrebbe non essere visualizzato alcun autore
+	\item \textbf{Usa}: Autori (per select nazionalità)
+	\item \textbf{Modifica}: nessuna
+	\item \textbf{Precondizioni}: nessuna
+	\item \textbf{Postcondizioni}: Gli autori visualizzati sono soltanto quelli
+	i cui attributi contengono le stringhe specificate dai corrispondenti filtri, e sono ordinati sull'attributo specificato da orderBy
+	\item \textbf{Note}:
+	\begin{itemize}
+		\item Il filtraggio viene resettato ogni volta che si apre il popup dal pulsante 'Filtra' in alto
+		\item La scelta della nazionalità non è un campo di testo libero, ma è possibile scegliere soltanto una tra le nazionalità presenti nella base di dati
+		\item Nel filtraggio per data di nascita [morte] gli autori con data di nascita [morte] sconosciuta sono ordinati dopo tutti gli altri con data di nascita [morte] nota
+		\item I pattern specificati in nameFilter o surnameFilter sono da interpretare come stringhe che possono occorrere in un punto qualsiasi del nome o cognome dell'autore
+		\item La query per la visualizzazione è generata dinamicamente da menuAutori: filtraAutori setta soltanto i parametri che saranno sostituiti nella query (SQL dinamico con REF CURSOR)
+	\end{itemize}
+\end{itemize}
 
 \subsection{Statistiche e monitoraggio}
 La scelta dell'operazione di statistica o monitoraggio avviene tramite dei radiobutton in un popup raggiungibile dal menu autori.

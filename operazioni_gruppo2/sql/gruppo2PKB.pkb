@@ -53,16 +53,21 @@ procedure menuOpere(
             modGUI1.Collegamento('Opere Eliminate',gruppo2.gr2||'menuOpereEliminate','w3-btn w3-round-xxlarge w3-black');
 
             htp.print('&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;');
-            htp.prn('<button onclick="document.getElementById(''11'').style.display=''block''"'
-                ||' class="w3-btn w3-round-xxlarge w3-black">Statistiche Opere</button>');
-            htp.print('&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;');
+           
         end if;
  
         IF hasRole(idSessione, 'DBA') or hasRole(idSessione, 'GO') or hasRole(idSessione, 'SU') THEN
-            modGUI1.Collegamento('Statistiche Descrizioni',
-                gruppo2.gr2||'statisticheDescrizioni',
-                'w3-btn w3-round-xxlarge w3-black');
-                htp.print('&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;');
+		modGUI1.ApriDIV('class="w3-dropdown-hover"');
+                    htp.prn('<button class="w3-button w3-black w3-center w3-round-xxlarge">Statistiche</button>');
+                    htp.print('&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;');
+                    modGUI1.ApriDIV('class="w3-dropdown-content w3-bar-block w3-left"');
+
+                            htp.prn('<button onclick="document.getElementById(''11'').style.display=''block''"' ||' class="w3-bar-item w3-btn w3-black w3-border">Opere</button>');
+                            
+                            modGUI1.Collegamento('Descrizioni',gruppo2.gr2||'statisticheDescrizioni','w3-bar-item w3-btn w3-black w3-border');
+
+                    modGUI1.chiudiDIV;   
+                modGUI1.chiudiDIV;	
             htp.prn('<button onclick="document.getElementById(''filtraOpere'').style.display=''block''"'
             ||' class="w3-btn w3-round-xxlarge w3-black">Filtra &#8981;</button>');
             modGUI1.ApriDiv('class="w3-right"');
@@ -1700,7 +1705,7 @@ BEGIN
                 modGUI1.label('Filtra per autore: ');
                 htp.br;htp.br;
                 modGUI1.label('Dal: ');
-                modGUI1.inputNumber(NULL,'AnnoFilterInizio',1,0);
+                modGUI1.inputNumber('idAnnoInizio" min="-9999" max="9999"','AnnoFilterInizio',1,0);
             --TODO anno decrescente
             modGUI1.SelectClose;
             modGUI1.ChiudiDiv;
@@ -1729,7 +1734,7 @@ BEGIN
                 modGUI1.SelectClose;
                 htp.br;
                 modGUI1.label('Al: ');
-                modGUI1.inputNumber(NULL,'AnnoFilterFine',1,2022);
+                modGUI1.inputNumber('idAnnoFine" min="-9999" max="9999"','AnnoFilterFine',1,2022);
             modGUI1.ChiudiDiv;
             modGUI1.inputSubmit('Applica');
             htp.prn('<span onclick="document.getElementById(''filtraOpere'').style.display=''none''" '

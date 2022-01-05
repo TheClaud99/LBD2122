@@ -370,7 +370,11 @@ CREATE OR REPLACE PACKAGE BODY PackageStanze as
                             htp.prn('<p>'||varOpere.Anno||'</p>');
                         MODGUI1.CHIUDIELEMENTOTABELLA;
                         MODGUI1.APRIELEMENTOTABELLA;
-                            MODGUI1.Collegamento('Visualizza','Boh','w3-button w3-black w3-right');--LINK ESTERNO
+                            modGUI1.ApriDiv('class="w3-center"');
+                                htp.prn('<button onclick="document.getElementById(''LinguaeLivelloOpera'|| varOpere.idOpera||''').style.display=''block''" class="w3-button w3-black">Visualizza</button>');
+                                gruppo2.linguaELivello(varOpere.idOpera);
+                            modGUI1.ChiudiDiv;
+                            --LINK ESTERNO
                         MODGUI1.CHIUDIELEMENTOTABELLA;
                     MODGUI1.CHIUDIRIGATABELLA;
                     END LOOP;
@@ -419,6 +423,13 @@ CREATE OR REPLACE PACKAGE BODY PackageStanze as
                               'Torna a visualizzare le sale',
                               'PackageStanze.visualizzaSale',
                               NULL);
+        EXCEPTION WHEN OTHERS THEN
+        MODGUI1.REDIRECTESITO('ERRORE: Inserimento non riuscito',
+                              'L''inserimento non è andato a buon fine',
+                              'Torna a visualizzare le sale',
+                              'PackageStanze.visualizzaSale',
+                              NULL);
+
     END;
 
     PROCEDURE modificaSala (
@@ -449,6 +460,12 @@ CREATE OR REPLACE PACKAGE BODY PackageStanze as
                               'Torna a visualizzare le sale',
                               'PackageStanze.visualizzaSale',
                               NULL);
+        EXCEPTION WHEN OTHERS THEN
+        MODGUI1.REDIRECTESITO('ERRORE: Modifica non riuscita',
+                              'La modifica non è andata a buon fine',
+                              'Torna a visualizzare le sale',
+                              'PackageStanze.visualizzaSale',
+                              NULL);
     END;
 
     PROCEDURE rimuoviSala (
@@ -466,6 +483,12 @@ CREATE OR REPLACE PACKAGE BODY PackageStanze as
                               'Torna a visualizzare le sale',
                               'PackageStanze.visualizzaSale',
                               NULL);
+        EXCEPTION WHEN OTHERS THEN
+        MODGUI1.REDIRECTESITO('ERRORE: Eliminazione non riuscita',
+                              'L'' eliminazione non è andata a buon fine',
+                              'Torna a visualizzare le sale',
+                              'PackageStanze.visualizzaSale',
+                              NULL);
     END;
 
     PROCEDURE ripristinaSala (
@@ -480,6 +503,12 @@ CREATE OR REPLACE PACKAGE BODY PackageStanze as
 
         MODGUI1.REDIRECTESITO('Ripristino effettuato',
                               'Il ripristino è stato effettuato correttamente',
+                              'Torna a visualizzare le sale',
+                              'PackageStanze.visualizzaSale',
+                              NULL);
+        EXCEPTION WHEN OTHERS THEN
+        MODGUI1.REDIRECTESITO('ERRORE: Ripristino non riuscito',
+                              'Il ripristino non è andato a buon fine',
                               'Torna a visualizzare le sale',
                               'PackageStanze.visualizzaSale',
                               NULL);
@@ -715,6 +744,12 @@ CREATE OR REPLACE PACKAGE BODY PackageStanze as
                               'Torna a visualizzare gli ambienti di servizio',
                               'PackageStanze.visualizzaAmbientiServizio',
                               NULL);
+        EXCEPTION WHEN OTHERS THEN
+        MODGUI1.REDIRECTESITO('ERRORE: Inserimento non riuscito',
+                              'L'' inserimento non è andato a buon fine',
+                              'Torna a visualizzare gli ambienti di servizio',
+                              'PackageStanze.visualizzaAmbientiServizio',
+                              NULL);
     END;
 
     PROCEDURE modificaAmbienteServizio (
@@ -743,6 +778,12 @@ CREATE OR REPLACE PACKAGE BODY PackageStanze as
                               'Torna a visualizzare gli ambienti di servizio',
                               'PackageStanze.visualizzaAmbientiServizio',
                               NULL);
+        EXCEPTION WHEN OTHERS THEN
+        MODGUI1.REDIRECTESITO('ERRORE: Modifica non riuscita',
+                              'La modifica non è andata a buon fine',
+                              'Torna a visualizzare gli ambienti di servizio',
+                              'PackageStanze.visualizzaAmbientiServizio',
+                              NULL);
     END;
 
     PROCEDURE rimuoviAmbienteServizio (
@@ -760,6 +801,12 @@ CREATE OR REPLACE PACKAGE BODY PackageStanze as
                               'Torna a visualizzare gli ambienti di servizio',
                               'PackageStanze.visualizzaAmbientiServizio',
                               NULL);
+        EXCEPTION WHEN OTHERS THEN
+        MODGUI1.REDIRECTESITO('ERRORE: Eliminazione non riuscita',
+                              'L'' eliminazione non è andata a buon fine',
+                              'Torna a visualizzare gli ambienti di servizio',
+                              'PackageStanze.visualizzaAmbientiServizio',
+                              NULL);
     END;
 
     PROCEDURE ripristinaAmbienteServizio (
@@ -774,6 +821,12 @@ CREATE OR REPLACE PACKAGE BODY PackageStanze as
 
         MODGUI1.REDIRECTESITO('Ripristino effettuato',
                               'Il ripristino è stato effettuato correttamente',
+                              'Torna a visualizzare gli ambienti di servizio',
+                              'PackageStanze.visualizzaAmbientiServizio',
+                              NULL);
+        EXCEPTION WHEN OTHERS THEN
+        MODGUI1.REDIRECTESITO('ERRORE: Ripristino non riuscito',
+                              'Il ripristino non è andato a buon fine',
                               'Torna a visualizzare gli ambienti di servizio',
                               'PackageStanze.visualizzaAmbientiServizio',
                               NULL);

@@ -442,9 +442,8 @@ FUNCTION build_query (
 
             modGUI1.Collegamento('Acquista biglietto','packageAcquistaTitoli.pagina_acquista_biglietto', 'w3-btn w3-round-xxlarge w3-black w3-margin');
 			modGUI1.Collegamento('Acquista abbonamento','packageAcquistaTitoli.pagina_acquista_abbonamento','w3-btn w3-round-xxlarge w3-black w3-margin');
-			IF hasrole(idSessione,'AB')
-								OR hasrole(idSessione,'SU')
-								OR hasrole(idSessione,'DBA')
+			IF (hasrole(idSessione,'GM')
+								OR hasrole(idSessione,'DBA'))
 			THEN
 				modGUI1.Collegamento('Abbonamenti in scadenza questo mese','packageAcquistaTitoli.abbonamenti_in_scadenza','w3-btn w3-round-xxlarge w3-black w3-margin');
 				htp.br;
@@ -525,7 +524,7 @@ FUNCTION build_query (
 							
 							--utente autorizzato
             				IF hasrole(idSessione,'AB')
-								OR hasrole(idSessione,'SU')
+								OR hasrole(idSessione,'GM')
 								OR hasrole(idSessione,'DBA')
 							THEN
                				 modgui1.collegamento(

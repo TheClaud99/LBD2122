@@ -11,7 +11,7 @@ CREATE OR REPLACE PACKAGE BODY gruppo1 AS
  * - Lista Tipologie in ordine di prezzo crescente ✅
 */
 
---Procedura che implementa la home
+--Procedura che implementa la home 
 PROCEDURE ListaTipologieIng
 is
 

@@ -136,6 +136,15 @@ CREATE OR REPLACE PACKAGE BODY modGUI1 as
                 modGUI1.ChiudiDiv;
             modGUI1.ChiudiDiv;
         end if;
+        EXCEPTION WHEN OTHERS THEN
+            modGUI1.esitooperazione(pagetitle  => 'Errore procedura',
+                                    msg  => '<p>'||DBMS_UTILITY.FORMAT_ERROR_BACKTRACE || ' - '||sqlerrm||'</p>',
+                                    nuovaop  => null,
+                                    nuovaopurl  => null,
+                                    parametrinuovaop  => null,
+                                    backtomenu  => 'Ritorna alla home',
+                                    backtomenuurl  => 'webpages.home',
+                                    parametribacktomenu  => null);
     end BannerUtente;
 
 
@@ -230,6 +239,15 @@ CREATE OR REPLACE PACKAGE BODY modGUI1 as
             END;
             set_cookie(vLogin, url);
         END IF;
+        EXCEPTION WHEN OTHERS THEN
+            modGUI1.esitooperazione(pagetitle  => 'Errore procedura',
+                                    msg  => '<p>'||DBMS_UTILITY.FORMAT_ERROR_BACKTRACE || ' - '||sqlerrm||'</p>',
+                                    nuovaop  => null,
+                                    nuovaopurl  => null,
+                                    parametrinuovaop  => null,
+                                    backtomenu  => 'Ritorna alla home',
+                                    backtomenuurl  => 'webpages.home',
+                                    parametribacktomenu  => null);
         EXCEPTION WHEN OTHERS THEN
             htp.prn('<script> window.location.href = "'||costanti.radice2||'erroreLogin"</script>');
     end;

@@ -32,6 +32,8 @@ CREATE OR REPLACE PACKAGE BODY modGUI1 as
                     modGUI1.ApriDiv('id="DemoAcc1" class="w3-hide w3-white w3-card-4"');
                         modGUI1.Collegamento('Titoli d''ingresso','packageacquistatitoli.titolihome','w3-bar-item w3-button');
                         modGUI1.Collegamento('Newsletter','newsletters.visualizzaNewsletters','w3-bar-item w3-button');
+                        modGUI1.Collegamento('Utenti','packageUtenti.ListaUtenti','w3-bar-item w3-button');
+                        modGUI1.Collegamento('Tipologie','gruppo1.ListaTipologieIng','w3-bar-item w3-button');
                     modGUI1.ChiudiDiv;
 
                     --GRUPPO 2--

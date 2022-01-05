@@ -382,6 +382,67 @@ FUNCTION build_query (
         RETURN v_base_query;
     END;
 
+function n_risultati(
+	    datefrom  IN  VARCHAR2 DEFAULT NULL,
+        dateto    IN  VARCHAR2 DEFAULT NULL,
+        id_utente         IN  NUMBER DEFAULT NULL,
+        id_museo          IN  NUMBER DEFAULT NULL,
+		id_tipologia	  IN  NUMBER DEFAULT NULL,
+        is_biglietto      IN  NUMBER DEFAULT NULL,
+        is_abbonamento    IN  NUMBER DEFAULT NULL,
+		idclientelogged IN utentilogin.IDCLIENTE%type DEFAULT NULL
+    )RETURN number IS
+        lv_where      VARCHAR2(500);
+        v_base_query  VARCHAR2(2000) := 'with binds as (
+          select :bind1 as datefrom,
+          :bind2 as dateto,
+          :bind3 as id_utente,
+          :bind4 as id_museo,
+		  :bind5 as id_tipologia,
+		  :bind6 as idclientelogged
+            from dual)
+       SELECT COUNT(view_titoli.idtitolo) FROM view_titoli, binds b
+        WHERE 1=1 ';
+		counter number(20);
+    BEGIN
+        IF datefrom IS NOT NULL THEN
+            lv_where := lv_where || ' AND dataemissione >= b.datefrom';
+        END IF;
+        IF dateto IS NOT NULL THEN
+            lv_where := lv_where || ' AND dataemissione <= b.dateto';
+        END IF;
+		IF idclientelogged is not null then 
+			lv_where := lv_where || ' AND idutente = b.idclientelogged';
+		end if;
+		IF id_tipologia IS NOT NULL THEN
+			lv_where := lv_where || ' AND idtipologia = b.id_tipologia';
+		END IF;
+        IF id_utente IS NOT NULL THEN
+            lv_where := lv_where || ' AND idutente = b.id_utente';
+        END IF;
+        IF id_museo IS NOT NULL THEN
+            lv_where := lv_where || ' AND museo = b.id_museo';
+        END IF;
+        IF is_biglietto = 1 THEN
+            lv_where := lv_where || ' AND EXISTS(SELECT * FROM biglietti WHERE biglietti.IdTipologiaIng=view_titoli.idtipologia)';
+        END IF;
+        IF is_abbonamento = 1 THEN
+            lv_where := lv_where || ' AND EXISTS(SELECT * FROM abbonamenti WHERE abbonamenti.IdTipologiaIng=view_titoli.idtipologia)';
+        END IF;
+		v_base_query := v_base_query || lv_where;
+		EXECUTE IMMEDIATE v_base_query
+        INTO
+            counter
+            USING to_date(
+                         datefrom,
+                         'YYYY-MM-DD"T"HH24:MI'
+                  ), to_date(
+                            dateto,
+                            'YYYY-MM-DD"T"HH24:MI'
+                     ), id_utente, id_museo, id_tipologia, idclientelogged;
+        RETURN counter;
+end;
+
  --PAGINA INIZIALE TITOLI D'INGRESSO
  PROCEDURE TitoliHome(
 	datefrom varchar2 default null,
@@ -398,7 +459,7 @@ FUNCTION build_query (
 		idSessione NUMBER(5) := modgui1.get_id_sessione();
 		idclientelogged utentilogin.IDCLIENTE%type := NULL;
 		temp number(1) := 0; --indica se il titolo sia un biglietto oppure un abbonamento
-		
+		num_risultati number(20) := null;
 
 		lv_sql varchar2(3000);
 		v_titoli_cursor SYS_REFCURSOR;
@@ -435,7 +496,8 @@ FUNCTION build_query (
                             'YYYY-MM-DD"T"HH24:MI'
                      ), id_utente, id_museo, id_tipologia, idclientelogged;
 		
-		
+		num_risultati := n_risultati(datefrom, dateto, id_utente, id_museo, id_tipologia, is_biglietto, is_abbonamento, idclientelogged);
+
         modGUI1.ApriDiv('class="w3-center"');
 
             htp.prn('<h1>Titoli d''ingresso </h1>'); --TITOLO
@@ -449,6 +511,7 @@ FUNCTION build_query (
 				htp.br;
 				htp.prn('<button onclick="document.getElementById(''modal_filtri'').style.display=''block''" class="w3-btn w3-round-xxlarge w3-black w3-margin">Filtri</button>');
 			end if;
+			htp.prn('<p align=right style="margin-right:30px; font-size:20px; margin-block-start:-35px; margin-block-end:15px"> Numero risultati: <b>'||num_risultati|| '</b></p>');
 		modgui1.chiudidiv;
 		
 		LOOP

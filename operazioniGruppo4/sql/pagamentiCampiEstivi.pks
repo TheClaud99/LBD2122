@@ -1,15 +1,15 @@
-create or replace package PagamentiCampiEstivi as
+create or replace package PagamentiCampiEstiviPkg as
 
 procedure InserisciPagamentoCampiEstivi(
     dataPagamento in varchar2 default NULL,
     tariffa in PAGAMENTICAMPIESTIVI.Tariffa%type default 0, 
-    acquirente in PAGAMENTICAMPIESTIVI.Aquirente%type default 0 
+    acquirente in PAGAMENTICAMPIESTIVI.Acquirente%type default 0 
 );
 
 procedure ConfermaPagamentoCampiEstivi(
     dataPagamento in varchar2 default NULL,
     tariffa in PAGAMENTICAMPIESTIVI.Tariffa%type default 0, 
-    acquirente in PAGAMENTICAMPIESTIVI.Aquirente%type default 0
+    acquirente in PAGAMENTICAMPIESTIVI.Acquirente%type default 0
 );
 
 procedure ControllaPagamentoCampiEstivi(
@@ -30,3 +30,5 @@ procedure MonitoraggioPeriodoPagamentoCampiEstivi(
 procedure MonitoraggioPagamentiTariffaPagamentoCampiEstivi(
     tariffa in PAGAMENTICAMPIESTIVI.Tariffa%type default 0
 );
+
+END;

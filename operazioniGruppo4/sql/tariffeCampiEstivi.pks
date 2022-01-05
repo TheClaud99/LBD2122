@@ -50,6 +50,7 @@ procedure CancellaTariffeCampiEstivi
 
 procedure MonitoraTariffeCampiEstivi_preferenzaTariffa
 (
+    campoEstivo in tariffecampiestivi.campoestivo%type default 0
 );
 
 procedure MonitoraTariffeCampiEstivi_tariffeAnno

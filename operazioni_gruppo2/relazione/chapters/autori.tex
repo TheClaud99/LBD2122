@@ -12,7 +12,6 @@
 	\item \textbf{Obiettivo}: Visualizza le informazioni relative ad un Autore presente nel database
 	\item \textbf{Parametri}:
 	\begin{enumerate}
-		\item \textbf{idSessione}: in (da definire)
 		\item \textbf{authorID}: in number
 		\item \textbf{operazione}: in number
 		\item \textbf{caller}: in varchar2 (nome della procedura chiamante, per redirect)
@@ -152,7 +151,7 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Rimozione}
 \begin{itemize}
-	\item \textbf{Operazione}: RimozioneAutore, DeleteAutore
+	\item \textbf{Procedure coinvolte}: RimozioneAutore, DeleteAutore
 	\item \textbf{Obiettivo}: Rimuove un Autore dal database, se presente
 	\item \textbf{Parametri}:
 	\begin{enumerate}
@@ -178,11 +177,43 @@
 	\end{itemize}
 \end{itemize}
 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%    Filtraggio degli autori   %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Filtraggio e ordinamento}
+\begin{itemize}
+	\item \textbf{Procedure coinvolte}: menuAutori (o menuAutoriEliminati), filtraAutori
+	\item \textbf{Obiettivo}: Ordina in modo crescente e filtra gli autori visualizzati nel menu, secondo alcuni parametri elencati di seguito
+	\item \textbf{Parametri}:
+	\begin{enumerate}
+		\item \textbf{orderBy}: in VARCHAR2 default 'Cognome', Attributo di Autori sul quale effettuare l'ordinamento
+		\item \textbf{nameFilter}: in VARCHAR2 default '', stringa che deve essere contenuta nel Nome degli autori visualizzati
+		\item \textbf{surnameFilter}: in VARCHAR2 default '', stringa che deve essere contenuta nel Cognome degli Autori visualizzati
+		\item \textbf{nationFilter}: in VARCHAR2 default '', stringa che deve essere contenuta nella nazionalità degli autori visualizzati
+	\end{enumerate}
+	\item \textbf{Risultato}: Visualizza nel menuAutori (o menuAutoriEliminati) soltanto gli autori i cui attributi soddisfano i filtri applicati, ordinati per l'attributo specificato dal parametro orderBy
+	\item \textbf{Errori}: nessuno, ma potrebbe non essere visualizzato alcun autore
+	\item \textbf{Usa}: Autori (per select nazionalità)
+	\item \textbf{Modifica}: nessuna
+	\item \textbf{Precondizioni}: nessuna
+	\item \textbf{Postcondizioni}: Gli autori visualizzati sono soltanto quelli
+	i cui attributi contengono le stringhe specificate dai corrispondenti filtri, e sono ordinati sull'attributo specificato da orderBy
+	\item \textbf{Note}:
+	\begin{itemize}
+		\item Il filtraggio viene resettato ogni volta che si apre il popup dal pulsante 'Filtra' in alto
+		\item La scelta della nazionalità non è un campo di testo libero, ma è possibile scegliere soltanto una tra le nazionalità presenti nella base di dati
+		\item Nel filtraggio per data di nascita [morte] gli autori con data di nascita [morte] sconosciuta sono ordinati dopo tutti gli altri con data di nascita [morte] nota
+		\item I pattern specificati in nameFilter o surnameFilter sono da interpretare come stringhe che possono occorrere in un punto qualsiasi del nome o cognome dell'autore
+		\item La query per la visualizzazione è generata dinamicamente da menuAutori: filtraAutori setta soltanto i parametri che saranno sostituiti nella query (SQL dinamico con REF CURSOR)
+	\end{itemize}
+\end{itemize}
 
 \subsection{Statistiche e monitoraggio}
-La scelta dell'operazione di statistica o monitoraggio avviene tramite dei radiobutton in un popup raggiungibile dal menu autori.\\
+La scelta dell'operazione di statistica o monitoraggio avviene tramite dei radiobutton in un popup raggiungibile dal menu autori.
+Le operazioni statistiche possono essere eseguite soltanto da utenti con il ruolo di DBA o SU, per il bottone per la scelta non è mostrato
+se l'utente non è loggato o non ha i privilegi necessari.\\
 A seconda della statistica scelta verranno presentati dei form per la selezione di un museo e/o di un autore su cui effettuare la statistica.\\
-Il parametro passato dal radiobutton è operazione, con valori tra 0 e 5, che identifica nelle procedure chiamate la particolare statistica
+Il parametro passato dal radiobutton è operazione, con valori tra 0 e 5, che identifica nelle procedure chiamate la particolare statistica.\\
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %       Opere realizzate dall'Autore (in qualunque museo)       %
@@ -208,6 +239,7 @@ Il parametro passato dal radiobutton è operazione, con valori tra 0 e 5, che id
 	\end{itemize}
 	\item \textbf{Postcondizioni}: nessuna
 \end{itemize}
+\includegraphics[width=\textwidth]{img/statAutori-0.png}\\[1cm]
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %             Musei con opere dell'autore esposte               %
@@ -233,7 +265,7 @@ Il parametro passato dal radiobutton è operazione, con valori tra 0 e 5, che id
 	\end{itemize}
 	\item \textbf{Postcondizioni}: nessuna
 \end{itemize}
-\includegraphics[width=\textwidth]{img/statAutori-0.png}\\[1cm]
+\includegraphics[width=\textwidth]{img/statAutori-1.png}\\[1cm]
 
 \subsubsection{Collaborazioni effettuate}
 \label{Collaborazioni}
@@ -259,7 +291,7 @@ Il parametro passato dal radiobutton è operazione, con valori tra 0 e 5, che id
 	è possibile che la stessa opera compaia più di una volta nella lista, sotto autori
 	diversi
 \end{itemize}
-\includegraphics[width=\textwidth]{img/statAutori-1.png}\\[1cm]
+\includegraphics[width=\textwidth]{img/statAutori-2.png}\\[1cm]
 
 \subsubsection{Opere dell’Autore presenti in un Museo scelto}
 \begin{itemize}
@@ -285,7 +317,7 @@ Il parametro passato dal radiobutton è operazione, con valori tra 0 e 5, che id
 	\end{itemize}
 	\item \textbf{Postcondizioni}: nessuna
 \end{itemize}
-%\includegraphics[width=\textwidth]{img/statAutori-0.png}\\[1cm]
+\includegraphics[width=\textwidth]{img/statAutori-3.png}\\[1cm]
 
 \subsubsection{Autori in vita le cui Opere sono esposte in un Museo scelto}
 \begin{itemize}
@@ -313,6 +345,7 @@ Il parametro passato dal radiobutton è operazione, con valori tra 0 e 5, che id
 	visualizzazione, ma soltanto con il valore di default: in realtà viene ignorato nella 
 	logica dell'operazione
 \end{itemize}
+\includegraphics[width=\textwidth]{img/statAutori-4.png}\\[1cm]
 
 \subsubsection{Autori più prolifici (primi tre)}
 \begin{itemize}

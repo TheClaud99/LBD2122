@@ -1,3 +1,5 @@
+SET DEFINE OFF;
+
 CREATE OR REPLACE PACKAGE BODY gruppo2 AS
 /*
  * OPERAZIONI SULLE OPERE
@@ -62,7 +64,7 @@ procedure menuOpere(
                 'w3-btn w3-round-xxlarge w3-black');
                 htp.print('&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;');
             htp.prn('<button onclick="document.getElementById(''filtraOpere'').style.display=''block''"'
-            ||' class="w3-btn w3-round-xxlarge w3-black">Filtra</button>');
+            ||' class="w3-btn w3-round-xxlarge w3-black">Filtra &#8981;</button>');
             modGUI1.ApriDiv('class="w3-right"');
             modGUI1.Collegamento('Rimuovi filtri',gruppo2.gr2||'menuOpere','w3-btn w3-round-xxlarge w3-red');
             htp.print('&nbsp;&nbsp;');
@@ -78,7 +80,10 @@ procedure menuOpere(
             Inizio:=Fine;
             Fine:=Temp;
         END IF;
-
+	
+	modGUI1.apriDIV('class="w3-container w3-center"');
+        htp.prn('<h4>'||orderBy||' &#8645; </h4>');
+        modGUI1.chiudiDIV;
         --Visualizzazione TUTTE LE OPERE *temporanea*
 
         modGUI1.ApriDiv('class="w3-row w3-container"');
@@ -1823,7 +1828,7 @@ BEGIN
         htp.prn('<h1>Autori</h1>'); --TITOLO
         -- Filtro visualizzazione
         htp.prn('<button onclick="document.getElementById(''filtraAuth'').style.display=''block''"'
-            ||' class="w3-btn w3-round-xxlarge w3-black">Filtra</button>');
+            ||' class="w3-btn w3-round-xxlarge w3-black">Filtra &#8981;</button>');
         htp.br;htp.br;
         -- Altri bottoni con privilegi
         if hasRole(idSessione, 'DBA') or hasRole(idSessione, 'SU') or hasRole(idSessione, 'GO')
@@ -1929,7 +1934,7 @@ BEGIN
         htp.prn('<h1>Autori eliminati</h1>');
         -- Filtro visualizzazione
         htp.prn('<button onclick="document.getElementById(''filtraAuth'').style.display=''block''"'
-            ||' class="w3-btn w3-round-xxlarge w3-black">Filtra</button>');
+            ||' class="w3-btn w3-round-xxlarge w3-black">Filtra &#8981;</button>');
         htp.br;htp.br;
         if hasRole(idSessione, 'DBA') or hasRole(idSessione, 'SU') or hasRole(idSessione, 'GO')
         then

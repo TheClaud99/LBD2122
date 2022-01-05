@@ -12,7 +12,6 @@
 	\item \textbf{Obiettivo}: Visualizza la Descrizione di un'Opera, dato il suo IdDescr
 	\item \textbf{Parametri}:
 	\begin{enumerate}
-		\item \textbf{idSessione}: in (da definire)
 		\item \textbf{DescrID}: in number(5)
 	\end{enumerate}
 	\item \textbf{Risultato}: Visualizza i dettagli della Descrizione richiesta, altrimenti restituisce errore
@@ -38,7 +37,6 @@
 	\item \textbf{Obiettivo}: Inserisce una nuova descrizione, associandola ad un'Opera
 	\item \textbf{Parametri}:
 	\begin{enumerate}
-		\item \textbf{idSessione}: in (da definire)
 		\item \textbf{lingua}: in varchar2(25)
 		\item \textbf{livello}: in varchar2(25)
 		\item \textbf{testodescr}: in CLOB
@@ -70,7 +68,6 @@
 	\item \textbf{Obiettivo}: Modifica la descrizione di un'opera (è possibile modificare anche l'opera a cui una descrizione è associata)
 	\item \textbf{Parametri}:
 	\begin{enumerate}
-		\item \textbf{idSessione}: in (da definire)
 		\item \textbf{descrID}: in number(5)
 		\item \textbf{newlang}: in varchar2(25) default null
 		\item \textbf{newlevel}: in varchar2(25) default null
@@ -108,7 +105,6 @@
 	\item \textbf{Obiettivo}: Rimuove una descrizione, se presente
 	\item \textbf{Parametri}:
 	\begin{enumerate}
-		\item \textbf{idSessione}: in (da definire)
 		\item \textbf{descrID}: in number(5)
 	\end{enumerate}
 	\item \textbf{Risultato}: Rimuove la descrizione dell'Opera, restituendo errore se la descrizione non è presente nel database

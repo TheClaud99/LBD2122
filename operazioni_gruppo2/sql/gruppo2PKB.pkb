@@ -1705,7 +1705,7 @@ BEGIN
                 modGUI1.label('Filtra per autore: ');
                 htp.br;htp.br;
                 modGUI1.label('Dal: ');
-                modGUI1.inputNumber(NULL,'AnnoFilterInizio',1,0);
+                modGUI1.inputNumber('idAnnoInizio" min="-9999" max="9999"','AnnoFilterInizio',1,0);
             --TODO anno decrescente
             modGUI1.SelectClose;
             modGUI1.ChiudiDiv;
@@ -1734,7 +1734,7 @@ BEGIN
                 modGUI1.SelectClose;
                 htp.br;
                 modGUI1.label('Al: ');
-                modGUI1.inputNumber(NULL,'AnnoFilterFine',1,2022);
+                modGUI1.inputNumber('idAnnoFine" min="-9999" max="9999"','AnnoFilterFine',1,2022);
             modGUI1.ChiudiDiv;
             modGUI1.inputSubmit('Applica');
             htp.prn('<span onclick="document.getElementById(''filtraOpere'').style.display=''none''" '

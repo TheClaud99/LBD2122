@@ -2,7 +2,7 @@ CREATE OR REPLACE PACKAGE gruppo2 AS
 
 gr2 CONSTANT VARCHAR2(25) := 'gruppo2.';
 gr4 CONSTANT VARCHAR2(25) := 'operazionigruppo4.';
-gr3 CONSTANT VARCHAR2(25) := 'operazionigruppo3.';
+gr3 CONSTANT VARCHAR2(25) := 'packagestanze.';
 
 -- Index by table con campi (IdOpera, titolo, IdAutore, Nome Autore, Cognome Autore)
 -- indicizzata da IdAutore dell'autore che ha collaborato all'opera

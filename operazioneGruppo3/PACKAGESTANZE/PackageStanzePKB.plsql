@@ -249,7 +249,7 @@ CREATE OR REPLACE PACKAGE BODY PackageStanze as
             htp.prn('<img src="https://www.23bassi.com/wp-content/uploads/2019/03/vuota-web.jpg" alt="Alps" class="w3-third w3-margin">');
             MODGUI1.ApriDiv('class="twothird w3-margin w3-center"');
                 htp.prn('<p><b>Museo: </b>');
-                modGUI1.COLLEGAMENTO(varNomeMuseo,'operazioniGruppo4.visualizzaMusei?idMuseo='||varIdMuseo);
+                modGUI1.COLLEGAMENTO(varNomeMuseo,'operazioniGruppo4.visualizzaMusei?museoId='||varIdMuseo);--LINK ESTERNO
                 htp.prn('</p>');
                 htp.prn('<h2><b>'|| varNome ||'</b></h2>');
                 IF (varTipoSala=0)
@@ -602,12 +602,12 @@ CREATE OR REPLACE PACKAGE BODY PackageStanze as
             )LOOP
                 modGUI1.ApriDiv('class="w3-col l4 w3-padding-large w3-center"');
                     modGUI1.ApriDiv('class="w3-card-4"');
-                    htp.prn('<img src="https://cdn.pixabay.com/photo/2016/10/22/15/32/water-1761027__480.jpg" alt="Alps" style="width:100%">');
+                    htp.prn('<img src="https://www.scattidigusto.it/wp-content/uploads/2014/05/Da-Giacomo_Arengario-960x639.jpg" alt="Alps" style="width:100%">');
                             modGUI1.ApriDiv('class="w3-container w3-center"');
                             --INIZIO DESCRIZIONI
                                 SELECT idmuseo,nome INTO idmuseosel,museosel FROM MUSEI WHERE (musei.idmuseo=AmbS.museo);
                                 htp.prn('<p><b>Museo: </b>');
-                                modGUI1.Collegamento(museosel,'operazioniGruppo4.visualizzaMusei?idMuseo='||idmuseosel);--LINK ESTERNO
+                                modGUI1.Collegamento(museosel,'operazioniGruppo4.visualizzaMusei?museoId='||idmuseosel);--LINK ESTERNO
                                 htp.prn('</p>');
                                 htp.prn('<h2><b>'|| AmbS.nome||'</b></h2>');
                                 htp.prn('<h4>'|| AmbS.tipoambiente||'</h4>');

@@ -1,9 +1,7 @@
 set define off;
-CREATE OR REPLACE PACKAGE BODY gruppo1 AS
+CREATE OR REPLACE PACKAGE BODY packageUtenti AS
 
 /*
- grant execute on gruppo1 to anonymous;
- *http://131.114.73.203:8080/apex/fgiannotti.gruppo1.InserisciUtente
  * OPERAZIONI SUGLI UTENTI
  * - Inserimento ✅
  * - Modifica ✅
@@ -392,40 +390,6 @@ BEGIN
             'Riprova', 'InserisciUtente', null,
             'Torna al menu utenti', 'ListaUtenti', null);
 END;
-
-procedure EsitoPositivoUtenti
- is
-	idSessione NUMBER(5) := modgui1.get_id_sessione();
-    begin
-        modGUI1.ApriPagina('Esito positivo',idSessione);
-        modGUI1.Header();
-        htp.br;htp.br;htp.br;htp.br;htp.br;htp.br;
-            modGUI1.ApriDiv('class="w3-modal-content w3-card-4 w3-animate-zoom w3-padding-large" style="max-width:450px"');
-                modGUI1.ApriDiv('class="w3-center"');
-                htp.print('<h1>Operazione eseguita correttamente </h1>');
-                MODGUI1.collegamento('Torna al menu','ListaUtenti','w3-button w3-block w3-black w3-section w3-padding');
-                modGUI1.ChiudiDiv;
-            modGUI1.ChiudiDiv;
-			HTP.BodyClose;
-		HTP.HtmlClose;
-end;
-
-procedure EsitoNegativoUtenti
- is
-	idSessione NUMBER(5) := modgui1.get_id_sessione();
-    begin
-        modGUI1.ApriPagina('Esito negativo',idSessione);
-        modGUI1.Header();
-        htp.br;htp.br;htp.br;htp.br;htp.br;htp.br;
-            modGUI1.ApriDiv('class="w3-modal-content w3-card-4 w3-animate-zoom w3-padding-large" style="max-width:450px"');
-                modGUI1.ApriDiv('class="w3-center"');
-                htp.print('<h1>Operazione NON eseguita</h1>');
-                MODGUI1.collegamento('Torna al menu','ListaUtenti?','w3-button w3-block w3-black w3-section w3-padding');
-                modGUI1.ChiudiDiv;
-            modGUI1.ChiudiDiv;
-			HTP.BodyClose;
-		HTP.HtmlClose;
-end;
 
 PROCEDURE VisualizzaUtente (
 	utenteID NUMBER
@@ -933,9 +897,15 @@ BEGIN
 
 	IF SQL%FOUND THEN
 		commit;
-		EsitoPositivoUtenti;
+		modGUI1.RedirectEsito('Successo', 
+            'L''utente è stato eliminato correttamente', 
+            null, null, null,
+            'Torna al menu utenti', 'ListaUtenti', null);
 	ELSE
-		EsitoNegativoUtenti;
+		modGUI1.RedirectEsito('Errore', 
+            'L''utente non è stato eliminato', 
+            'Riprova', 'VisualizzaUtente?utenteID='||utenteID, null,
+            'Torna al menu utenti', 'ListaUtenti', null);
 	END IF;
 
 END;
@@ -1661,5 +1631,5 @@ begin
 		HTP.HtmlClose;
 end;
 
-END GRUPPO1;
+END packageUtenti;
 

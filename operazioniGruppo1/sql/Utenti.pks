@@ -1,4 +1,4 @@
-CREATE OR REPLACE PACKAGE gruppo1 AS
+CREATE OR REPLACE PACKAGE packageUtenti AS
 
 procedure InserisciUtente(
 	nome VARCHAR2 DEFAULT NULL,
@@ -41,10 +41,6 @@ PROCEDURE InserisciDatiUtente (
 	utenteAssistenza VARCHAR2 DEFAULT NULL,
 	utenteTutore NUMBER DEFAULT 0
 );
-
-procedure EsitoPositivoUtenti;
-
-procedure EsitoNegativoUtenti;
 
 PROCEDURE VisualizzaUtente (
 	utenteID NUMBER
@@ -110,4 +106,4 @@ procedure StatisticheUtenti;
 
 
 
-END gruppo1;
+END packageUtenti;

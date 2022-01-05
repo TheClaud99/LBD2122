@@ -311,6 +311,8 @@ BEGIN
                 htp.prn('<span onclick="document.getElementById(''LinguaeLivelloOpera'||operaID||''').style.display=''none''" class="w3-button w3-xlarge w3-red w3-display-topright" title="Close Modal">X</span>');
             htp.print('<h1>Seleziona la lingua</h1>');
             modGUI1.ChiudiDiv;
+
+            modGUI1.apridiv('class="w3-center"');
                 modGUI1.ApriForm(gruppo2.gr2||'VisualizzaOpera','selezione lingue','w3-container');
                     -- aggiunto attributo id="hiddenOperaID" per script in statisticheAutori()
                     -- Nicola --
@@ -332,6 +334,7 @@ BEGIN
                         htp.prn('<button class="w3-button w3-block w3-black w3-section w3-padding" type="submit">Seleziona</button>');
                     modGUI1.ChiudiDiv;
                 modGUI1.ChiudiForm;
+                modGUI1.ChiudiDiv;
         modGUI1.ChiudiDiv;
     modGUI1.ChiudiDiv;
 end linguaELivello;

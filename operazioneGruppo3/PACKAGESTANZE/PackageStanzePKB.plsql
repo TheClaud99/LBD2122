@@ -370,7 +370,11 @@ CREATE OR REPLACE PACKAGE BODY PackageStanze as
                             htp.prn('<p>'||varOpere.Anno||'</p>');
                         MODGUI1.CHIUDIELEMENTOTABELLA;
                         MODGUI1.APRIELEMENTOTABELLA;
-                            MODGUI1.Collegamento('Visualizza','Boh','w3-button w3-black w3-right');--LINK ESTERNO
+                            modGUI1.ApriDiv('class="w3-center"');
+                                htp.prn('<button onclick="document.getElementById(''LinguaeLivelloOpera'|| varOpere.idOpera||''').style.display=''block''" class="w3-button w3-black">Visualizza</button>');
+                                gruppo2.linguaELivello(varOpere.idOpera);
+                            modGUI1.ChiudiDiv;
+                            --LINK ESTERNO
                         MODGUI1.CHIUDIELEMENTOTABELLA;
                     MODGUI1.CHIUDIRIGATABELLA;
                     END LOOP;

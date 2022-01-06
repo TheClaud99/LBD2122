@@ -1506,7 +1506,7 @@ BEGIN
 	modGUI1.ApriDiv('class="w3-center"');
 	MODGUI1.Collegamento(
 								'Torna alla visualizzazione dei titoli d''ingresso',
-								'packageAcquistaTitoli.titiolihome',
+								'packageAcquistaTitoli.titolihome',
 								'w3-button w3-margin w3-black');
 	modGUI1.ChiudiDiv;
 	htp.BodyClose;

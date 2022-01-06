@@ -399,13 +399,11 @@ var1 varchar2(40);
     OR idmusei IS NULL
     THEN
         -- uno dei parametri con vincoli ha valori non validi
-        MODGUI1.APRIPAGINA('Pagina errore', 0);
-        HTP.BodyOpen;
-        MODGUI1.ApriDiv;
-        HTP.PRINT('Uno dei parametri immessi non valido');
-        MODGUI1.ChiudiDiv;
-        HTP.BodyClose;
-        HTP.HtmlClose;
+	modGUI1.ApriPagina('Errore',idSessione);
+        modGUI1.Header;
+       	MODGUI1.RedirectEsito('Inserimento non riuscito', null,
+        'Riprova',gruppo2.gr2||'inserisciOpera',null,
+        'Torna alle opere',gruppo2.gr2||'menuOpere',null);
     ELSE
         modGUI1.ApriPagina('Conferma',idSessione);
         modGUI1.Header;
@@ -555,13 +553,11 @@ var1 varchar2(40);
     OR idmusei IS NULL
     THEN
         -- uno dei parametri con vincoli ha valori non validi
-        MODGUI1.APRIPAGINA('Pagina errore', 0);
-        HTP.BodyOpen;
-        MODGUI1.ApriDiv;
-        HTP.PRINT('Uno dei parametri immessi non valido');
-        MODGUI1.ChiudiDiv;
-        HTP.BodyClose;
-        HTP.HtmlClose;
+	modGUI1.ApriPagina('Errore',idSessione);
+        modGUI1.Header;
+        MODGUI1.RedirectEsito('Inserimento non riuscito', null,
+        'Riprova',gruppo2.gr2||'inserisciOpera',null,
+        'Torna alle opere',gruppo2.gr2||'menuOpere',null);
     ELSE
         modGUI1.ApriPagina('Conferma',idSessione);
         modGUI1.Header;

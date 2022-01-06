@@ -1006,14 +1006,21 @@ PROCEDURE formacquistaabbonamento(
 	nomeMuseo musei.Nome%TYPE;
 	varidtipologia tipologieingresso.idtipologiaing%TYPE;
 	nometiping VARCHAR(25);
+
+	idclientelogged utenti.idutente%type;
 BEGIN
+
 	modgui1.apridiv('class="w3-modal-content w3-card-4 w3-animate-zoom" style="max-width:600px"');
 	modgui1.apriform('packageAcquistaTitoli.pagina_acquista_abbonamento', 'formacquistaabbonamento', 'w3-container');
 	modgui1.apridiv('class="w3-section"');
 
+	IF hasrole(idSessione,'AB')
+		OR hasrole(idSessione,'GM')
+		OR hasrole(idSessione,'DBA')
+	THEN
 	modgui1.label('Utente*: ');
 	modgui1.selectopen('idutenteselezionato', 'utente-selezionato');
-	for utente in (select idutente from utenti)
+	for utente in (select idutente from utenti where utenti.ELIMINATO != 1)
 	loop
 		select idutente, nome, cognome
 		into varidutente, nomeutente, cognomeutente
@@ -1028,10 +1035,14 @@ BEGIN
 	end loop;
 	modgui1.selectclose();
 	htp.br;
+	ELSE
+	SELECT IDCLIENTE INTO idclientelogged FROM UTENTILOGIN WHERE UTENTILOGIN.IDUTENTELOGIN = idSessione;
+	htp.formhidden('idutenteselezionato', idclientelogged);
+	END IF;
 
 	modgui1.label('Museo*: ');
 	modgui1.selectopen('idmuseoselezionato', 'museo-selezionato');
-	for museo in (select idmuseo, nome from musei )
+	for museo in (select idmuseo, nome from musei where musei.ELIMINATO != 1)
 	loop
 		if museo.idmuseo=idmuseoselezionato
 		then modgui1.SelectOption(museo.idmuseo, museo.nome, 1);
@@ -1050,7 +1061,7 @@ BEGIN
         ON TIPOLOGIEINGRESSO.IDTIPOLOGIAING=TIPOLOGIEINGRESSOMUSEI.IDTIPOLOGIAING
 		join abbonamenti
 		on abbonamenti.IDTIPOLOGIAING = tipologieingresso.idtipologiaing
-		where IdMuseo=idmuseoselezionato
+		where IdMuseo=idmuseoselezionato and TIPOLOGIEINGRESSO.ELIMINATO != 1
 	)
 	LOOP
 		if idtipologiaselezionata= tipologia.idtipologiaing
@@ -1133,14 +1144,21 @@ PROCEDURE formacquistabiglietto(
 	nomeMuseo musei.Nome%TYPE;
 	varidtipologia tipologieingresso.idtipologiaing%TYPE;
 	nometiping VARCHAR(25);
+
+	idclientelogged utenti.idutente%type;
 BEGIN
+
 	modgui1.apridiv('class="w3-modal-content w3-card-4 w3-animate-zoom" style="max-width:600px"');
 	modgui1.apriform('packageAcquistaTitoli.pagina_acquista_biglietto', 'formacquistabiglietto', 'w3-container');
 	modgui1.apridiv('class="w3-section"');
 
+	IF hasrole(idSessione,'AB')
+		OR hasrole(idSessione,'GM')
+		OR hasrole(idSessione,'DBA')
+	THEN
 	modgui1.label('Utente*: ');
 	modgui1.selectopen('idutenteselezionato', 'utente-selezionato');
-	for utente in (select idutente from utenti)
+	for utente in (select idutente from utenti where eliminato != 1)
 	loop
 		select idutente, nome, cognome
 		into varidutente, nomeutente, cognomeutente
@@ -1155,10 +1173,14 @@ BEGIN
 	end loop;
 	modgui1.selectclose();
 	htp.br;
+	ELSE
+	SELECT IDCLIENTE INTO idclientelogged FROM UTENTILOGIN WHERE UTENTILOGIN.IDUTENTELOGIN = idSessione;
+	htp.formhidden('idutenteselezionato', idclientelogged);
+	END IF;
 
 	modgui1.label('Museo*: ');
 	modgui1.selectopen('idmuseoselezionato', 'museo-selezionato');
-	for museo in (select idmuseo, nome from musei )
+	for museo in (select idmuseo, nome from musei where eliminato != 1 )
 	loop
 		if museo.idmuseo=idmuseoselezionato
 		then modgui1.SelectOption(museo.idmuseo, museo.nome, 1);
@@ -1176,7 +1198,7 @@ BEGIN
         ON TIPOLOGIEINGRESSO.IDTIPOLOGIAING=TIPOLOGIEINGRESSOMUSEI.IDTIPOLOGIAING
 		join biglietti
 		on biglietti.IDTIPOLOGIAING = tipologieingresso.idtipologiaing
-		where IdMuseo=idmuseoselezionato
+		where IdMuseo=idmuseoselezionato and TIPOLOGIEINGRESSO.ELIMINATO != 1
 	)
 	LOOP
 		if idtipologiaselezionata= tipologia.idtipologiaing

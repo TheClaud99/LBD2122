@@ -25,7 +25,7 @@ begin
         htp.prn('<h1>Menù tipologie di ingresso</h1>');
 
 		if hasRole(idSessione, 'DBA') or hasRole(idSessione, 'AB') or hasRole(idSessione, 'GM') or hasRole(idSessione, 'GCE') then
-            modGUI1.Collegamento('Inserisci','InserisciTipologiaIng','w3-btn w3-round-xxlarge w3-black');
+            modGUI1.Collegamento('Inserisci',gruppo1.gr1||'InserisciTipologiaIng','w3-btn w3-round-xxlarge w3-black');
             htp.print('&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;');
             modGUI1.Collegamento('Statistiche',gruppo1.gr1||'StatisticheTipologieIng','w3-btn w3-round-xxlarge w3-black');
 		end if;

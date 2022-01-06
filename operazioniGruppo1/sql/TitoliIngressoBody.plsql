@@ -668,7 +668,7 @@ BEGIN
                             nomeutente
                             || ' '
                             || cognomeutente,
-                            'gruppo1.VisualizzaUtente?utenteID=' || varidutente
+                            'packageUtenti.VisualizzaUtente?utenteID=' || varidutente
         );
         htp.prn('</p></div>');
         htp.prn('</div>');

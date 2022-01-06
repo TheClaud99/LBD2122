@@ -1626,7 +1626,7 @@ begin
 
 			modgui1.chiudiTabella;
 
-			MODGUI1.collegamento('Torna al menu','packageUtenti.ListaUtenti?','w3-button w3-block w3-black w3-section w3-padding');
+			MODGUI1.collegamento('Torna al menu','packageUtenti.ListaUtenti','w3-button w3-block w3-black w3-section w3-padding');
 		HTP.BodyClose;
 		HTP.HtmlClose;
 end;

@@ -22,6 +22,8 @@
 @operazioneGruppo3/view_visite.plsql
 @operazioneGruppo3/visite.plsql
 @operazioneGruppo3/visiteBody.plsql
+@operazioneGruppo3/PACKAGESTANZE/PackageStanzePKS.plsql
+@operazioneGruppo3/PACKAGESTANZE/PackageStanzePKB.plsql
 
 -- GRUPPO 2
 @operazioni_gruppo2/sql/vistaOpereEsposte.plsql
@@ -30,21 +32,23 @@
 
 -- GRUPPO 1
 @operazioniGruppo1/sql/view_titoli.plsql
-@operazioniGruppo1/sql/gruppo1.pks
-@operazioniGruppo1/sql/gruppo1.pkb
+@operazioniGruppo1/sql/Utenti.pks
+@operazioniGruppo1/sql/Utenti.pkb
 @operazioniGruppo1/sql/Newsletters.plsql
 @operazioniGruppo1/sql/NewslettersB.plsql
 @operazioniGruppo1/sql/TitoliIngresso.plsql
 @operazioniGruppo1/sql/TitoliIngressoBody.plsql
+@operazioniGruppo1/sql/OperazioniTipologieIng.pks
+@operazioniGruppo1/sql/OperazioniTipologieIng.pkb
 
 -- GRUPPO 4
 @operazioniGruppo4/sql/visitaetamedia.sql
 @operazioniGruppo4/sql/operazioni.pks
 @operazioniGruppo4/sql/operazioni.pkb
-@operazioniGruppo4/sql/pagamentiCampiEstivi.pks
-@operazioniGruppo4/sql/pagamentiCampiEstivi.pkb
-@operazioniGruppo4/sql/tariffeCampiEstivi.pks
-@operazioniGruppo4/sql/tariffeCampiEstivi.pkb
+-- @operazioniGruppo4/sql/pagamentiCampiEstivi.pks
+-- @operazioniGruppo4/sql/pagamentiCampiEstivi.pkb
+-- @operazioniGruppo4/sql/tariffeCampiEstivi.pks
+-- @operazioniGruppo4/sql/tariffeCampiEstivi.pkb
 
 grant execute on modgui1 to anonymous;
 grant execute on modgui1 to public;
@@ -56,16 +60,18 @@ grant execute on newsletters to anonymous;
 grant execute on newsletters to public;
 grant execute on gruppo1 to anonymous;
 grant execute on gruppo1 to public;
+grant execute on packageutenti to anonymous;
+grant execute on packageutenti to public;
 grant execute on gruppo2 to anonymous;
 grant execute on gruppo2 to public;
 grant execute on packagevisite to anonymous;
 grant execute on packagevisite to public;
-grant execute on operazionigruppo3 to anonymous;
-grant execute on operazionigruppo3 to public;
+grant execute on packagestanze to anonymous;
+grant execute on packagestanze to public;
 grant execute on operazionigruppo4 to anonymous;
 grant execute on operazionigruppo4 to public;
-grant execute on tariffeCampiEstiviOperazioni to anonymous;
-grant execute on tariffeCampiEstiviOperazioni to public;
+-- grant execute on tariffeCampiEstiviOperazioni to anonymous;
+-- grant execute on tariffeCampiEstiviOperazioni to public;
 /*
 grant execute on PagamentiCampiEstivi to anonymous;
 grant execute on PagamentiCampiEstivi to public;

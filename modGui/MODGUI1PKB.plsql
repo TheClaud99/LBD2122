@@ -32,6 +32,8 @@ CREATE OR REPLACE PACKAGE BODY modGUI1 as
                     modGUI1.ApriDiv('id="DemoAcc1" class="w3-hide w3-white w3-card-4"');
                         modGUI1.Collegamento('Titoli d''ingresso','packageacquistatitoli.titolihome','w3-bar-item w3-button');
                         modGUI1.Collegamento('Newsletter','newsletters.visualizzaNewsletters','w3-bar-item w3-button');
+                        modGUI1.Collegamento('Utenti','packageUtenti.ListaUtenti','w3-bar-item w3-button');
+                        modGUI1.Collegamento('Tipologie','gruppo1.ListaTipologieIng','w3-bar-item w3-button');
                     modGUI1.ChiudiDiv;
 
                     --GRUPPO 2--
@@ -51,6 +53,8 @@ CREATE OR REPLACE PACKAGE BODY modGUI1 as
                         modGUI1.Collegamento('Ambienti di servizio','PackageStanze.visualizzaAmbientiServizio','w3-bar-item w3-button');
                         modGUI1.Collegamento('Sale','PackageStanze.visualizzaSale','w3-bar-item w3-button');
                         modGUI1.Collegamento('Visite','packagevisite.visualizza_visite','w3-bar-item w3-button');
+                        -- todo: aggiungere package varchi
+                        -- modGUI1.Collegamento('Varchi','packageVarchi.menuVarchi','w3-bar-item w3-button');
                     modGUI1.ChiudiDiv;
 
                     --GRUPPO 4--
@@ -136,6 +140,15 @@ CREATE OR REPLACE PACKAGE BODY modGUI1 as
                 modGUI1.ChiudiDiv;
             modGUI1.ChiudiDiv;
         end if;
+        EXCEPTION WHEN OTHERS THEN
+            modGUI1.esitooperazione(pagetitle  => 'Errore procedura',
+                                    msg  => '<p>'||DBMS_UTILITY.FORMAT_ERROR_BACKTRACE || ' - '||sqlerrm||'</p>',
+                                    nuovaop  => null,
+                                    nuovaopurl  => null,
+                                    parametrinuovaop  => null,
+                                    backtomenu  => 'Ritorna alla home',
+                                    backtomenuurl  => 'webpages.home',
+                                    parametribacktomenu  => null);
     end BannerUtente;
 
 
@@ -344,7 +357,7 @@ CREATE OR REPLACE PACKAGE BODY modGUI1 as
 
     procedure InputDate (id varchar2, nome varchar2, required int default 0, defaultValue varchar2 default '') is /*Input di tipo calendario*/
     begin
-        htp.prn('<input class="w3-border w3-margin-top w3-margin-bottom w3-round-xlarge" style="max-width:300px;" type="date" id="'|| id ||'" name="'|| nome ||'" value="" min="1900-01-01" max="2030-12-31"');
+        htp.prn('<input class="w3-border w3-margin-top w3-margin-bottom w3-round-xlarge" style="max-width:300px;" type="date" id="'|| id ||'" name="'|| nome ||'" value=""');
         if (required = 1)
         then
             htp.prn('required');

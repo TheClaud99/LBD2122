@@ -45,10 +45,10 @@
 @operazioniGruppo4/sql/visitaetamedia.sql
 @operazioniGruppo4/sql/operazioni.pks
 @operazioniGruppo4/sql/operazioni.pkb
-@operazioniGruppo4/sql/pagamentiCampiEstivi.pks
-@operazioniGruppo4/sql/pagamentiCampiEstivi.pkb
-@operazioniGruppo4/sql/tariffeCampiEstivi.pks
-@operazioniGruppo4/sql/tariffeCampiEstivi.pkb
+-- @operazioniGruppo4/sql/pagamentiCampiEstivi.pks
+-- @operazioniGruppo4/sql/pagamentiCampiEstivi.pkb
+-- @operazioniGruppo4/sql/tariffeCampiEstivi.pks
+-- @operazioniGruppo4/sql/tariffeCampiEstivi.pkb
 
 grant execute on modgui1 to anonymous;
 grant execute on modgui1 to public;
@@ -70,8 +70,8 @@ grant execute on packagestanze to anonymous;
 grant execute on packagestanze to public;
 grant execute on operazionigruppo4 to anonymous;
 grant execute on operazionigruppo4 to public;
-grant execute on tariffeCampiEstiviOperazioni to anonymous;
-grant execute on tariffeCampiEstiviOperazioni to public;
+-- grant execute on tariffeCampiEstiviOperazioni to anonymous;
+-- grant execute on tariffeCampiEstiviOperazioni to public;
 /*
 grant execute on PagamentiCampiEstivi to anonymous;
 grant execute on PagamentiCampiEstivi to public;

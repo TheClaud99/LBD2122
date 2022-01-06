@@ -552,7 +552,7 @@ CREATE OR REPLACE PACKAGE BODY packagevisite AS
         htp.prn('<div class="w3-col s8 w3-center">');
         htp.prn('<div class="w3-margin">'
                 || media_durata
-                || 'h</div>');
+                || 'm</div>');
         htp.prn('</div>');
         htp.prn('</div>');
         htp.prn('<h3 align="center">Utente con durata visita più lunga</h3>');
@@ -579,7 +579,7 @@ CREATE OR REPLACE PACKAGE BODY packagevisite AS
             htp.prn('<div class="w3-col s8 w3-center">');
             htp.prn('<div class="w3-margin">'
                     || utente.durata_totale
-                    || 'h</div>');
+                    || 'm</div>');
             htp.prn('</div>');
             htp.prn('</div>');
         END LOOP;
@@ -942,7 +942,7 @@ CREATE OR REPLACE PACKAGE BODY packagevisite AS
                          oravisita
         );
         htp.br;
-        modgui1.label('Durata della visita (h)');
+        modgui1.label('Durata della visita (m)');
         modgui1.inputnumber(
                            'DurataVisita',
                            'DurataVisita',

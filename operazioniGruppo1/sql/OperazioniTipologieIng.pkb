@@ -1,5 +1,4 @@
-SET DEFINE OFF;
-
+set define off;
 CREATE OR REPLACE PACKAGE BODY gruppo1 AS
 
 /*
@@ -13,7 +12,7 @@ CREATE OR REPLACE PACKAGE BODY gruppo1 AS
  * - Lista Tipologie in ordine di prezzo crescente ✅
 */
 
---Procedura che implementa la home 
+--Procedura che implementa la home
 PROCEDURE ListaTipologieIng
 is
 
@@ -25,9 +24,9 @@ begin
         htp.prn('<h1>Menù tipologie di ingresso</h1>');
 
 		if hasRole(idSessione, 'DBA') or hasRole(idSessione, 'AB') or hasRole(idSessione, 'GM') or hasRole(idSessione, 'GCE') then
-            modGUI1.Collegamento('Inserisci',gruppo1.gr1||'InserisciTipologiaIng','w3-btn w3-round-xxlarge w3-black');
+            modGUI1.Collegamento('Inserisci','gruppo1.InserisciTipologiaIng','w3-btn w3-round-xxlarge w3-black');
             htp.print('&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;');
-            modGUI1.Collegamento('Statistiche',gruppo1.gr1||'StatisticheTipologieIng','w3-btn w3-round-xxlarge w3-black');
+            modGUI1.Collegamento('Statistiche','gruppo1.StatisticheTipologieIng','w3-btn w3-round-xxlarge w3-black');
 		end if;
 
         modGUI1.ChiudiDiv;
@@ -41,16 +40,16 @@ begin
 							htp.br;
 						modGUI1.ChiudiDiv;
 						modGUI1.Collegamento('Visualizza',
-                            gruppo1.gr1||'VisualizzaDatiTitoloIng?tipologiaIngID='||tipologia.idTipologiaIng,
+                            'gruppo1.VisualizzaDatiTitoloIng?tipologiaIngID='||tipologia.idTipologiaIng,
                             'w3-btn w3-round-xxlarge w3-black');
 						htp.print('&nbsp;');	
                     if hasRole(idSessione, 'DBA') or hasRole(idSessione, 'AB') or hasRole(idSessione, 'GM') or hasRole(idSessione, 'GCE') then
 						modGUI1.Collegamento('Modifica',
-                            gruppo1.gr1||'ModificaDatiTitoloIng?tipologiaIngID='||tipologia.idTipologiaIng,
+                            'gruppo1.ModificaDatiTitoloIng?tipologiaIngID='||tipologia.idTipologiaIng,
                             'w3-btn w3-round-xxlarge w3-black');
 						htp.print('&nbsp;');	
                         modGUI1.Collegamento('Elimina',
-                            gruppo1.gr1||'CancellazioneTipologiaIng?tipologiaIngID='||tipologia.idTipologiaIng,
+                            'gruppo1.CancellazioneTipologiaIng?tipologiaIngID='||tipologia.idTipologiaIng,
                             'w3-btn w3-round-xxlarge w3-black',
 							'return confirm(''Sei sicuro di voler eliminare la tipologia '||tipologia.nome||'?'')'
 							);
@@ -76,7 +75,7 @@ BEGIN
 	HTP.header(1,'Inserisci una nuova tipologia di ingresso', 'center');
 	modgui1.apridiv('class="w3-modal-content w3-card-4 w3-animate-zoom w3-padding-large" style="max-width:600px; margin-top:110px"');
 	HTP.header(2, 'Inserisci tipologia di ingresso');
-	MODGUI1.ApriForm(gruppo1.gr1||'ConfermaTipologiaIng');
+	MODGUI1.ApriForm('gruppo1.ConfermaTipologiaIng');
 
 	MODGUI1.Label('Nome*');
 	MODGUI1.InputText('nome', 'Nome', 1);
@@ -108,8 +107,8 @@ BEGIN
 	MODGUI1.ChiudiDiv;
 	MODGUI1.InputSubmit('Inserisci');
 	MODGUI1.ChiudiForm;
-	MODGUI1.collegamento('Annulla',gruppo1.gr1||'ListaTipologieIng','w3-button w3-block w3-black w3-section w3-padding');
-	MODGUI1.collegamento('Torna al menu',gruppo1.gr1||'ListaTipologieIng','w3-button w3-block w3-black w3-section w3-padding');
+	MODGUI1.collegamento('Annulla','gruppo1.ListaTipologieIng','w3-button w3-block w3-black w3-section w3-padding');
+	MODGUI1.collegamento('Torna al menu','gruppo1.ListaTipologieIng','w3-button w3-block w3-black w3-section w3-padding');
 	MODGUI1.ChiudiDiv;
 
 	htp.print('<script type="text/javascript">
@@ -159,8 +158,8 @@ BEGIN
 		-- uno dei parametri con vincoli ha valori non validi
 		MODGUI1.EsitoOperazione('Errore', 
             'Uno dei parametri non è stato inserito correttamente', 
-            'Riprova', gruppo1.gr1||'InserisciTipologiaIng', null,
-            'Torna al menu delle tipologie', gruppo1.gr1||'ListaTipologieIng', null);
+            'Riprova', 'InserisciTipologiaIng', null,
+            'Torna al menu delle tipologie', 'ListaTipologieIng', null);
 	ELSE
 		MODGUI1.APRIPAGINA('Pagina OK', 0);
 		HTP.BodyOpen;
@@ -202,7 +201,7 @@ BEGIN
 			HTP.TableRowClose;
 		end if;
 
-        MODGUI1.ApriForm(gruppo1.gr1||'InserisciDatiTipologieIng');
+        MODGUI1.ApriForm('gruppo1.InserisciDatiTipologieIng');
 		HTP.FORMHIDDEN('Nome', nome);
 		HTP.FORMHIDDEN('CostoTotale', costoTotale);
 		HTP.FORMHIDDEN('LimiteSale', limiteSale);
@@ -215,7 +214,7 @@ BEGIN
 		end if;
 		MODGUI1.InputSubmit('Conferma');
 		MODGUI1.ChiudiForm;
-		MODGUI1.Collegamento('Annulla', gruppo1.gr1||'InserisciTipologiaIng', 'w3-button w3-block w3-black w3-section w3-padding');
+		MODGUI1.Collegamento('Annulla', 'gruppo1.InserisciTipologiaIng', 'w3-button w3-block w3-black w3-section w3-padding');
 		MODGUI1.ChiudiDiv;
 		HTP.BodyClose;
 		HTP.HtmlClose;
@@ -280,14 +279,14 @@ BEGIN
 		MODGUI1.EsitoOperazione('Successo', 
             'Tipologia di ingresso inserita correttamente', 
             null, '', null,
-            'Torna al menu delle tipologie', gruppo1.gr1||'ListaTipologieIng', null);
+            'Torna al menu delle tipologie', 'ListaTipologieIng', null);
 
 	ELSE
 
 		MODGUI1.EsitoOperazione('Errore', 
             'Tipologia ingresso non inserita', 
-            'Riprova', gruppo1.gr1||'InserisciTipologiaIng', null,
-            'Torna al menu delle tipologie', gruppo1.gr1||'ListaTipologieIng', null);
+            'Riprova', 'InserisciTipologiaIng', null,
+            'Torna al menu delle tipologie', 'ListaTipologieIng', null);
 
 	END IF;
 
@@ -363,18 +362,18 @@ BEGIN
 
 		HTP.tableClose;
 		if hasRole(idSessione, 'DBA') or hasRole(idSessione, 'AB') or hasRole(idSessione, 'GM') or hasRole(idSessione, 'GCE') then
-			MODGUI1.Collegamento('Modifica', gruppo1.gr1||'ModificaDatiTitoloIng?&tipologiaIngID=' || tipologiaIngID, 'w3-btn w3-round-xxlarge w3-black');
+			MODGUI1.Collegamento('Modifica', 'gruppo1.ModificaDatiTitoloIng?&tipologiaIngID=' || tipologiaIngID, 'w3-btn w3-round-xxlarge w3-black');
 			htp.print('&nbsp;');
 			if Eliminato = 0
 			then
 				MODGUI1.Collegamento('Elimina',
-					gruppo1.gr1||'CancellazioneTipologiaIng?&tipologiaIngID='||tipologiaIngID,
+					'gruppo1.CancellazioneTipologiaIng?&tipologiaIngID='||tipologiaIngID,
 					'w3-btn w3-round-xxlarge w3-black',
 					'return confirm(''Sei sicuro di voler eliminare il titolo di ingresso '||NomeTipologia||'?'')');
 			end if;		
 		end if;		
 
-		MODGUI1.collegamento('Torna al menu',gruppo1.gr1||'ListaTipologieIng','w3-button w3-block w3-black w3-section w3-padding');
+		MODGUI1.collegamento('Torna al menu','gruppo1.ListaTipologieIng','w3-button w3-block w3-black w3-section w3-padding');
 		MODGUI1.ChiudiDiv;
 		HTP.BodyClose;
 		HTP.HtmlClose;
@@ -384,7 +383,7 @@ BEGIN
 		MODGUI1.EsitoOperazione('Errore', 
             'Tipologia di ingresso non trovata', 
             null, '', null,
-            'Torna al menu delle tipologie', gruppo1.gr1||'ListaTipologieIng', null);
+            'Torna al menu delle tipologie', 'ListaTipologieIng', null);
 
 	END IF;
 END;
@@ -443,7 +442,7 @@ BEGIN
 		MODGUI1.Header;
 		MODGUI1.ApriDiv('class="w3-modal-content w3-card-4 w3-animate-zoom w3-padding-large" style="max-width:600px; margin-top:110px"');
 		HTP.header(2, 'Modifica tipologia di ingresso');
-		MODGUI1.ApriForm(gruppo1.gr1||'ConfermaModificaTipologiaIng');
+		MODGUI1.ApriForm('gruppo1.ConfermaModificaTipologiaIng');
 
 		HTP.FORMHIDDEN('IdTipologiaIng', tipologiaIngID);
 		HTP.FORMHIDDEN('tipo', tipo);
@@ -488,9 +487,9 @@ BEGIN
 		MODGUI1.InputSubmit('Salva');
 
 		if RipristinaEliminato > 0 then
-			MODGUI1.collegamento('Annulla',gruppo1.gr1||'VisualizzaTipologieEliminate','w3-button w3-block w3-black w3-section w3-padding');
+			MODGUI1.collegamento('Annulla','gruppo1.VisualizzaTipologieEliminate','w3-button w3-block w3-black w3-section w3-padding');
 		else	
-			MODGUI1.collegamento('Annulla',gruppo1.gr1||'ListaTipologieIng','w3-button w3-block w3-black w3-section w3-padding');
+			MODGUI1.collegamento('Annulla','gruppo1.ListaTipologieIng','w3-button w3-block w3-black w3-section w3-padding');
 		end if;
 
 		MODGUI1.ChiudiForm;
@@ -505,7 +504,7 @@ BEGIN
 		MODGUI1.EsitoOperazione('Errore', 
             'Tipologia di ingresso non trovata', 
             null, '', null,
-            'Torna al menu delle tipologie', gruppo1.gr1||'ListaTipologieIng', null);
+            'Torna al menu delle tipologie', 'ListaTipologieIng', null);
 
 	END IF;
 END;
@@ -539,7 +538,7 @@ BEGIN
 		MODGUI1.EsitoOperazione('Errore', 
             'Uno dei parametri non è stato inserito correttamente', 
             null, null, null,
-            'Torna al menu delle tipologie', gruppo1.gr1||'ListaTipologieIng', null);
+            'Torna al menu delle tipologie', 'ListaTipologieIng', null);
 
 	ELSE
 
@@ -590,7 +589,7 @@ BEGIN
 			HTP.TableRowClose;
 		end if;	
 
-        MODGUI1.ApriForm(gruppo1.gr1||'ModificaDatiTipologieIng');
+        MODGUI1.ApriForm('gruppo1.ModificaDatiTipologieIng');
 		HTP.FORMHIDDEN('IdTipologia', IdTipologiaIng);
 		HTP.FORMHIDDEN('nomeNew', nomeNew);
 		HTP.FORMHIDDEN('costoTotaleNew', costoTotaleNew);
@@ -607,7 +606,7 @@ BEGIN
 
 		MODGUI1.InputSubmit('Conferma');
 		MODGUI1.ChiudiForm;
-		MODGUI1.Collegamento('Annulla', gruppo1.gr1||'ModificaDatiTitoloIng?tipologiaIngID='||IdTipologiaIng,'w3-button w3-block w3-black w3-section w3-padding');
+		MODGUI1.Collegamento('Annulla', 'gruppo1.ModificaDatiTitoloIng?tipologiaIngID='||IdTipologiaIng,'w3-button w3-block w3-black w3-section w3-padding');
 		MODGUI1.ChiudiDiv;
 		HTP.BodyClose;
 		HTP.HtmlClose;
@@ -698,14 +697,14 @@ BEGIN
 		MODGUI1.EsitoOperazione('Successo', 
             'Tipologia di ingresso modificata correttamente', 
             null, null, null,
-            'Torna al menu delle tipologie', gruppo1.gr1||'ListaTipologieIng', null);
+            'Torna al menu delle tipologie', 'ListaTipologieIng', null);
 
 	ELSE
 
 		MODGUI1.EsitoOperazione('Errore', 
             'Tipologia di ingresso non modificata correttamente', 
             'Riprova', 'ModificaDatiTitoloIng', null,
-            'Torna al menu delle tipologie', gruppo1.gr1||'ListaTipologieIng', null);
+            'Torna al menu delle tipologie', 'ListaTipologieIng', null);
 
 	END IF;
 
@@ -753,14 +752,14 @@ BEGIN
 			MODGUI1.EsitoOperazione('Successo', 
             'Tipologia di ingresso eliminata correttamente', 
             null, '', null,
-            'Torna al menu delle tipologie', gruppo1.gr1||'ListaTipologieIng', null);
+            'Torna al menu delle tipologie', 'ListaTipologieIng', null);
 
 		else
 
 			MODGUI1.EsitoOperazione('Errore', 
             'Tipologia di ingresso non eliminata correttamente', 
             null, '', null,
-            'Torna al menu delle tipologie', gruppo1.gr1||'ListaTipologieIng', null);
+            'Torna al menu delle tipologie', 'ListaTipologieIng', null);
 
 		end if;
 
@@ -769,7 +768,7 @@ BEGIN
 		MODGUI1.EsitoOperazione('Errore', 
             'Tipologia di ingresso non trovata', 
             null, '', null,
-            'Torna al menu delle tipologie', gruppo1.gr1||'ListaTipologieIng', null);
+            'Torna al menu delle tipologie', 'ListaTipologieIng', null);
 
 	end if;
 		
@@ -841,13 +840,13 @@ is
 						modgui1.chiudiElementoTabella;
 						modgui1.apriElementoTabella;
 						modGUI1.Collegamento('Visualizza',
-                            gruppo1.gr1||'VisualizzaDatiTitoloIng?tipologiaIngID='||x.idTipologiaIng,
+                            'gruppo1.VisualizzaDatiTitoloIng?tipologiaIngID='||x.idTipologiaIng,
                             'w3-btn w3-round-xxlarge w3-black');
 						modgui1.chiudiElementoTabella;	
 						modgui1.chiudiRigaTabella;
 						end LOOP;
 				modgui1.chiudiTabella;		
-                MODGUI1.collegamento('Torna alle statistiche',gruppo1.gr1||'StatisticheTipologieIng','w3-button w3-block w3-black w3-section w3-padding');
+                MODGUI1.collegamento('Torna alle statistiche','gruppo1.StatisticheTipologieIng','w3-button w3-block w3-black w3-section w3-padding');
                 modGUI1.ChiudiDiv;
             modGUI1.ChiudiDiv;
 			HTP.BodyClose;
@@ -876,24 +875,24 @@ begin
 							htp.br;
 						modGUI1.ChiudiDiv;
 						modGUI1.Collegamento('Visualizza',
-                            gruppo1.gr1||'VisualizzaDatiTitoloIng?tipologiaIngID='||tipologia.idTipologiaIng,
+                            'gruppo1.VisualizzaDatiTitoloIng?tipologiaIngID='||tipologia.idTipologiaIng,
                             'w3-btn w3-round-xxlarge w3-black');
 						htp.print('&nbsp;');	
-                        --if hasRole(idSessione, 'DBA') or hasRole(idSessione, 'AB') or hasRole(idSessione, 'GM') or hasRole(idSessione, 'GCE') then
+                    if hasRole(idSessione, 'DBA') or hasRole(idSessione, 'AB') or hasRole(idSessione, 'GM') or hasRole(idSessione, 'GCE') then
 						modGUI1.Collegamento('Modifica',
-                            gruppo1.gr1||'ModificaDatiTitoloIng?tipologiaIngID='||tipologia.idTipologiaIng,
+                            'gruppo1.ModificaDatiTitoloIng?tipologiaIngID='||tipologia.idTipologiaIng,
                             'w3-btn w3-round-xxlarge w3-black');
 						htp.print('&nbsp;');
                         modGUI1.Collegamento('Elimina',
-                            gruppo1.gr1||'CancellazioneTipologiaIng?tipologiaIngID='||tipologia.idTipologiaIng,
+                            'gruppo1.CancellazioneTipologiaIng?tipologiaIngID='||tipologia.idTipologiaIng,
                             'w3-btn w3-round-xxlarge w3-black',
 							'return confirm(''Sei sicuro di voler eliminare la tipologia '||tipologia.nome||'?'')'
 							);
-                    	--end if;
+                    end if;
                 	modGUI1.ChiudiDiv;
                 modGUI1.ChiudiDiv;
         END LOOP;
-		MODGUI1.collegamento('Torna al menu','ListaTipologieIng','w3-button w3-block w3-black w3-section w3-padding');
+		MODGUI1.collegamento('Torna al menu','gruppo1.ListaTipologieIng','w3-button w3-block w3-black w3-section w3-padding');
         modGUI1.chiudiDiv;
       
 end;
@@ -919,18 +918,18 @@ begin
 							htp.br;
 						modGUI1.ChiudiDiv;
 						modGUI1.Collegamento('Visualizza',
-                            gruppo1.gr1||'VisualizzaDatiTitoloIng?tipologiaIngID='||tipologia.idTipologiaIng,
+                            'gruppo1.VisualizzaDatiTitoloIng?tipologiaIngID='||tipologia.idTipologiaIng,
                             'w3-btn w3-round-xxlarge w3-black');
 						htp.print('&nbsp;');	
-                        --if hasRole(idSessione, 'DBA') or hasRole(idSessione, 'AB') or hasRole(idSessione, 'GM') or hasRole(idSessione, 'GCE') then
+                        if hasRole(idSessione, 'DBA') or hasRole(idSessione, 'AB') or hasRole(idSessione, 'GM') or hasRole(idSessione, 'GCE') then
 						modGUI1.Collegamento('Modifica',
-                            gruppo1.gr1||'ModificaDatiTitoloIng?tipologiaIngID='||tipologia.idTipologiaIng,
+                            'gruppo1.ModificaDatiTitoloIng?tipologiaIngID='||tipologia.idTipologiaIng,
                             'w3-btn w3-round-xxlarge w3-black');
-                    	--end if;
+                    	end if;
                 	modGUI1.ChiudiDiv;
                 modGUI1.ChiudiDiv;
         END LOOP;
-		MODGUI1.collegamento('Torna al menu',gruppo1.gr1||'ListaTipologieIng','w3-button w3-block w3-black w3-section w3-padding');
+		MODGUI1.collegamento('Torna al menu','gruppo1.ListaTipologieIng','w3-button w3-block w3-black w3-section w3-padding');
         modGUI1.chiudiDiv;
       
 end;
@@ -960,7 +959,7 @@ begin
 				modgui1.chiudiRigaTabella;
 
 				modgui1.apriRigaTabella;
-					MODGUI1.ApriForm(gruppo1.gr1||'TipologiaPiuScelta');
+					MODGUI1.ApriForm('gruppo1.TipologiaPiuScelta');
 					modgui1.apriElementoTabella;
 						modgui1.apridiv('class="w3-padding-24"');
 						modgui1.elementoTabella('Tutte le tipologie');
@@ -984,7 +983,7 @@ begin
 				modgui1.chiudiRigaTabella;
 
 				modgui1.apriRigaTabella;
-					MODGUI1.ApriForm(gruppo1.gr1||'VisualizzaTipologieIngOrdine');
+					MODGUI1.ApriForm('gruppo1.VisualizzaTipologieIngOrdine');
 					modgui1.apriElementoTabella;
 						modgui1.apridiv('class="w3-padding-24"');
 						modgui1.elementoTabella('Tutte le tipologie');
@@ -1002,7 +1001,7 @@ begin
 				modgui1.chiudiRigaTabella;
 
 				modgui1.apriRigaTabella;
-					MODGUI1.ApriForm(gruppo1.gr1||'VisualizzaTipologieEliminate');
+					MODGUI1.ApriForm('gruppo1.VisualizzaTipologieEliminate');
 					modgui1.apriElementoTabella;
 						modgui1.apridiv('class="w3-padding-24"');
 						modgui1.elementoTabella('Tutte le tipologie');
@@ -1022,7 +1021,7 @@ begin
 
 
 			modgui1.chiudiTabella;
-			MODGUI1.collegamento('Torna al menu',gruppo1.gr1||'ListaTipologieIng','w3-button w3-block w3-black w3-section w3-padding');
+			MODGUI1.collegamento('Torna al menu','gruppo1.ListaTipologieIng','w3-button w3-block w3-black w3-section w3-padding');
 		HTP.BodyClose;
 		HTP.HtmlClose;
 end;

@@ -53,8 +53,7 @@ CREATE OR REPLACE PACKAGE BODY modGUI1 as
                         modGUI1.Collegamento('Ambienti di servizio','PackageStanze.visualizzaAmbientiServizio','w3-bar-item w3-button');
                         modGUI1.Collegamento('Sale','PackageStanze.visualizzaSale','w3-bar-item w3-button');
                         modGUI1.Collegamento('Visite','packagevisite.visualizza_visite','w3-bar-item w3-button');
-                        -- todo: aggiungere package varchi
-                        -- modGUI1.Collegamento('Varchi','packageVarchi.menuVarchi','w3-bar-item w3-button');
+                        modGUI1.Collegamento('Varchi','packageVarchi.menuVarchi','w3-bar-item w3-button');
                     modGUI1.ChiudiDiv;
 
                     --GRUPPO 4--

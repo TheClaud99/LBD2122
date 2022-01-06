@@ -211,7 +211,7 @@ Create Table UTENTILOGIN
 (
    IdUtenteLogin number(5) primary key,
    IdCliente NUMBER(5) DEFAULT NULL REFERENCES Utenti(IdUtente),
-   Username VARCHAR2(50) not null,
+   Username VARCHAR2(50) unique not null,
    Password VARCHAR2(50) not null,
    Ruolo VARCHAR2(10) DEFAULT 'U' not null,
    CHECK(Ruolo IN ('DBA', 'SU', 'AB', 'GM', 'GCE', 'GO', 'U'))

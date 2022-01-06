@@ -1,5 +1,4 @@
 SET DEFINE OFF;
-
 CREATE OR REPLACE PACKAGE BODY gruppo2 AS
 /*
  * OPERAZIONI SULLE OPERE
@@ -44,40 +43,38 @@ procedure menuOpere(
         htp.br;htp.br;htp.br;htp.br;htp.br;
         modGUI1.ApriDiv('class="w3-center"');
         htp.prn('<h1>Opere</h1>');
+        htp.br;
+        htp.print('&nbsp;');
+        htp.prn('<button onclick="document.getElementById(''filtraOpere'').style.display=''block''"'
+            ||' class="w3-btn w3-round-xxlarge w3-black">Filtra &#8981;</button>');
+        htp.br;
+        htp.br;
         if hasRole(idSessione, 'DBA') or hasRole(idSessione, 'GO') or hasRole(idSessione, 'SU')
         then
-            modGUI1.Collegamento('Inserisci opera',gruppo2.gr2||'InserisciOpera','w3-btn w3-round-xxlarge w3-black');
-            htp.print('&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;');
-            modGUI1.Collegamento('Inserisci descrizione',gruppo2.gr2||'InserisciDescrizione','w3-btn w3-round-xxlarge w3-black');
-            htp.print('&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;');
-            modGUI1.Collegamento('Opere Eliminate',gruppo2.gr2||'menuOpereEliminate','w3-btn w3-round-xxlarge w3-black');
-
-            htp.print('&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;');
-           
-        end if;
- 
-        IF hasRole(idSessione, 'DBA') or hasRole(idSessione, 'GO') or hasRole(idSessione, 'SU') THEN
-		modGUI1.ApriDIV('class="w3-dropdown-hover"');
+            modGUI1.ApriDiv('class="w3-center"');
+                modGUI1.Collegamento('Inserisci opera',gruppo2.gr2||'InserisciOpera','w3-btn w3-round-xxlarge w3-black');
+                htp.print('&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;');
+                modGUI1.Collegamento('Inserisci descrizione',gruppo2.gr2||'InserisciDescrizione','w3-btn w3-round-xxlarge w3-black');
+                htp.print('&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;');
+                modGUI1.Collegamento('Opere Eliminate',gruppo2.gr2||'menuOpereEliminate','w3-btn w3-round-xxlarge w3-black');
+                htp.print('&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;');
+                modGUI1.ApriDIV('class="w3-dropdown-hover"');
                     htp.prn('<button class="w3-button w3-black w3-center w3-round-xxlarge">Statistiche</button>');
                     htp.print('&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;');
                     modGUI1.ApriDIV('class="w3-dropdown-content w3-bar-block w3-left"');
-
-                            htp.prn('<button onclick="document.getElementById(''11'').style.display=''block''"' ||' class="w3-bar-item w3-btn w3-black w3-border">Opere</button>');
-                            
-                            modGUI1.Collegamento('Descrizioni',gruppo2.gr2||'statisticheDescrizioni','w3-bar-item w3-btn w3-black w3-border');
-
+                        htp.prn('<button onclick="document.getElementById(''11'').style.display=''block''"' ||' class="w3-bar-item w3-btn w3-black w3-border">Opere</button>');
+                        modGUI1.Collegamento('Descrizioni',gruppo2.gr2||'statisticheDescrizioni','w3-bar-item w3-btn w3-black w3-border');
                     modGUI1.chiudiDIV;   
                 modGUI1.chiudiDIV;
+            modGUI1.chiudiDIV;
 	END IF;
-            htp.prn('<button onclick="document.getElementById(''filtraOpere'').style.display=''block''"'
-            ||' class="w3-btn w3-round-xxlarge w3-black">Filtra &#8981;</button>');
             modGUI1.ApriDiv('class="w3-right"');
             modGUI1.Collegamento('Rimuovi filtri',gruppo2.gr2||'menuOpere','w3-btn w3-round-xxlarge w3-red');
             htp.print('&nbsp;&nbsp;');
             modGUI1.ChiudiDiv;
         modGUI1.ChiudiDiv;
         --Fuori dal div per evitare centraggio bottoni nel popup
-        gruppo2.filtraOpere;
+        gruppo2.filtraOpere(0);
         gruppo2.selezioneMuseo;
         
         IF AnnoFilterFine < AnnoFilterInizio THEN
@@ -92,7 +89,7 @@ procedure menuOpere(
         --Visualizzazione TUTTE LE OPERE *temporanea*
 
         modGUI1.ApriDiv('class="w3-row w3-container"');
-   IF (AutoriFilter=0) THEN
+    IF (AutoriFilter=0) THEN
     	FOR opera IN ( 
             SELECT DISTINCT Opere.* FROM Opere
             WHERE   Eliminato = 0 
@@ -181,8 +178,19 @@ procedure menuOpere(
 end menuOpere;
 
 
-procedure menuOpereEliminate is
-idSessione NUMBER(5) := modgui1.get_id_sessione();
+procedure menuOpereEliminate(
+    orderBy varchar2 default 'Titolo',
+    nameFilter varchar2 default '',
+    MuseoFilter int default 0,
+    AutoriFilter int default 0,
+    AnnoFilterInizio int default 0,
+    AnnoFilterFine int default 3000
+) is
+    var1 varchar2 (40) := orderby;
+    idSessione NUMBER(5) := modgui1.get_id_sessione();
+    Inizio NUMBER(5) := AnnoFIlterInizio;
+    Fine NUMBER (5) := AnnoFIlterFine;
+    Temp NUMBER (5);
 BEGIN
     htp.prn('<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css"> ');
     modGUI1.ApriPagina('Opere', idSessione);
@@ -191,14 +199,41 @@ BEGIN
     htp.br;htp.br;htp.br;htp.br;htp.br;
     modGUI1.ApriDiv('class="w3-center"');
     htp.prn('<h1>Opere Eliminate</h1>');
+    htp.prn('<button onclick="document.getElementById(''filtraOpere'').style.display=''block''"'
+            ||' class="w3-btn w3-round-xxlarge w3-black">Filtra &#8981;</button>');
+    htp.br;
+    gruppo2.filtraOpere(1);
+    htp.br;
     modGUI1.Collegamento('Torna al menù Opere',gruppo2.gr2||'menuOpere','w3-btn w3-round-xxlarge w3-black');
-    htp.print('&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;');
     modGUI1.ChiudiDiv;
         gruppo2.selezioneMuseo;
     htp.br;
+    modGUI1.ApriDiv('class="w3-right"');
+        modGUI1.Collegamento('Rimuovi filtri',gruppo2.gr2||'menuOpereEliminate','w3-btn w3-round-xxlarge w3-red');
+        htp.print('&nbsp;&nbsp;');
+    modGUI1.ChiudiDiv;
+    IF AnnoFilterFine < AnnoFilterInizio THEN
+            Temp:=Inizio;
+            Inizio:=Fine;
+            Fine:=Temp;
+        END IF;
     modGUI1.ApriDiv('class="w3-row w3-container"');
 --Visualizzazione TUTTE LE OPERE *temporanea*
-        FOR opera IN (SELECT * FROM Opere WHERE Eliminato = 1 ORDER BY Titolo)
+       IF (AutoriFilter=0) THEN
+    	FOR opera IN ( 
+            SELECT DISTINCT Opere.* FROM Opere
+            WHERE   Eliminato = 1
+                    AND museo = 
+                        (case when museoFilter=0 then museo else museoFilter end)
+
+                    AND UPPER(Titolo) LIKE '%'||UPPER(nameFilter)||'%'
+
+                    AND Opere.Anno BETWEEN Inizio AND Fine
+
+            ORDER BY
+            case when orderby= 'Titolo' then Titolo end asc,
+            case when orderby= 'Anno' then Anno end asc
+            )
         LOOP
             modGUI1.ApriDiv('class="w3-col l4 w3-padding-large w3-center"');
                 modGUI1.ApriDiv('class="w3-card-4" style="height:600px;"');
@@ -210,11 +245,13 @@ BEGIN
                         modGUI1.ChiudiDiv;
                     htp.prn('<button onclick="document.getElementById(''LinguaeLivelloOpera'||opera.idOpera||''').style.display=''block''" class="w3-margin w3-button w3-black w3-hover-white">Visualizza</button>');
                     gruppo2.linguaELivello(opera.idOpera);
-                    htp.print('&nbsp;');
-                    if hasRole(idSessione, 'DBA') or hasRole(idSessione, 'SU') then
+
+                    if hasRole(idSessione, 'DBA') or hasRole(idSessione, 'GO') or hasRole(idSessione, 'SU') then
+                    --bottone ripristina
+                    modGUI1.Collegamento('Ripristina',
+                        gruppo2.gr2||'RipristinaOpera?&operaID='||opera.IdOpera,
+                        'w3-green w3-margin w3-button');
                     --bottone elimina
-                    modGUI1.Collegamento('Ripristina',gruppo2.gr2||'ripristinaOpera?operaID='||opera.idOpera,'w3-btn w3-green');
-                    htp.print('&nbsp;');
                     htp.prn('<button onclick="document.getElementById(''ElimOperaDef'||opera.idOpera||''').style.display=''block''" class="w3-margin w3-button w3-red w3-hover-white">Elimina</button>');
                     gruppo2.EliminazioneDefinitivaOpera(opera.idOpera);
                     htp.br;
@@ -222,7 +259,51 @@ BEGIN
                 modGUI1.ChiudiDiv;
             modGUI1.ChiudiDiv;
         END LOOP;
-    modGUI1.chiudiDiv;
+    ELSE
+        FOR opera IN ( 
+            SELECT DISTINCT Opere.* FROM Opere, AutoriOpere
+            WHERE   Eliminato = 1 
+                    AND museo = 
+                        (case when museoFilter=0 then museo else museoFilter end)
+
+                    AND AutoriOpere.IdAutore= AutoriFilter
+            
+                    AND Opere.idOpera = AutoriOpere.idOpera
+
+                    AND UPPER(Titolo) LIKE '%'||UPPER(nameFilter)||'%'
+
+                    AND Opere.Anno BETWEEN Inizio AND Fine
+
+            ORDER BY
+            case when orderby= 'Titolo' then Titolo end asc,
+            case when orderby= 'Anno' then Anno end asc
+            )
+        LOOP
+            modGUI1.ApriDiv('class="w3-col l4 w3-padding-large w3-center"');
+                modGUI1.ApriDiv('class="w3-card-4" style="height:600px;"');
+                htp.prn('<img src="https://www.stateofmind.it/wp-content/uploads/2018/01/La-malattia-rappresentata-nelle-opere-darte-e-in-letteratura-680x382.jpg" alt="Alps" style="width:100%;">');
+                        modGUI1.ApriDiv('class="w3-container w3-center"');
+                            htp.prn('<p><b>Titolo: </b>' || SUBSTR(opera.titolo,0,60)||'<br>'|| SUBSTR(opera.titolo,61,100)  ||'</p>');
+                            htp.br;
+                            htp.prn('<p><b>Anno: </b>'|| opera.anno ||'</p>');
+                        modGUI1.ChiudiDiv;
+                    htp.prn('<button onclick="document.getElementById(''LinguaeLivelloOpera'||opera.idOpera||''').style.display=''block''" class="w3-margin w3-button w3-black w3-hover-white">Visualizza</button>');
+                    gruppo2.linguaELivello(opera.idOpera);
+
+                    if hasRole(idSessione, 'DBA') or hasRole(idSessione, 'GO') or hasRole(idSessione, 'SU') then
+                    --bottone ripristina
+                    modGUI1.Collegamento('Ripristina',
+                        gruppo2.gr2||'RipristinaOpera?&operaID='||opera.IdOpera,
+                        'w3-green w3-margin w3-button');
+                    --bottone elimina
+                    htp.prn('<button onclick="document.getElementById(''ElimOperaDef'||opera.idOpera||''').style.display=''block''" class="w3-margin w3-button w3-red w3-hover-white">Elimina</button>');
+                    gruppo2.EliminazioneDefinitivaOpera(opera.idOpera);
+                    htp.br;
+                end if;
+                modGUI1.ChiudiDiv;
+            modGUI1.ChiudiDiv;
+        END LOOP;
+    END IF;
 end menuOpereEliminate;
 
 procedure ripristinaOpera(
@@ -256,7 +337,7 @@ BEGIN
                     modGUI1.ApriDiv('class="w3-section"');
                         htp.br;
                         SELECT titolo INTO var1 FROM OPERE WHERE idOpera=operaId;
-                        htp.prn('stai per rimuovere: '||var1);
+                        htp.prn('Stai per rimuovere definitivamente: '||var1);
                         modGUI1.Collegamento('Conferma',
                         gruppo2.gr2||'RimozioneDefinitivaOpera?operaID='||operaID,
                         'w3-button w3-block w3-green w3-section w3-padding');
@@ -1757,7 +1838,9 @@ procedure coloreClassifica(posizione NUMBER DEFAULT 0)IS
     END;
 
 
-PROCEDURE filtraOpere IS
+PROCEDURE filtraOpere(
+    TipoMenu NUMBER default 0
+) IS
 BEGIN
     modGUI1.ApriDiv('id="filtraOpere" class="w3-modal"');
         modGUI1.ApriDiv('class="w3-modal-content w3-cell-row w3-animate-zoom" style="max-width:700px"');
@@ -1765,7 +1848,11 @@ BEGIN
                 htp.prn('<span onclick="document.getElementById(''filtraOpere'').style.display=''none''" '
                     ||'class="w3-button w3-xlarge w3-red w3-display-topright" title="Close Modal">X</span>');
             modGUI1.ChiudiDiv;
+            IF tipoMenu=0 THEN
             modGUI1.apriForm(gruppo2.gr2||'menuOpere');
+            ELSE
+            modGUI1.apriForm(gruppo2.gr2||'menuOpereEliminate');
+            END IF;
             -- Ordinamento opere
             modGUI1.ApriDiv('class="w3-container w3-cell w3-left" style="width:50%" ');
                 htp.br;
@@ -1813,7 +1900,6 @@ BEGIN
             htp.prn('<span onclick="document.getElementById(''filtraOpere'').style.display=''none''" '
                     ||'class="w3-button w3-block w3-black w3-section w3-padding" title="Close Modal">Annulla</span>');
             modGUI1.ChiudiForm;
-
         modGUI1.ChiudiDiv;
     modGUI1.ChiudiDiv; 
 END;
@@ -1911,19 +1997,23 @@ BEGIN
         -- Altri bottoni con privilegi
         if hasRole(idSessione, 'DBA') or hasRole(idSessione, 'SU') or hasRole(idSessione, 'GO')
         then
-            modGUI1.Collegamento('Inserisci',
-                gruppo2.gr2||'InserisciAutore?caller=menuAutori&callerParams=//orderBy='
-                    ||orderBy||'//nameFilter='||nameFilter||'//surnameFilter='||surnameFilter||'//nationFilter='||nationFilter,
-                'w3-btn w3-round-xxlarge w3-black');
-            htp.print('&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;');
-            modGUI1.Collegamento('Menu Autori Eliminati', 
-                gruppo2.gr2||'menuAutoriEliminati', 
-                'w3-button w3-black w3-round-xxlarge');
-            htp.print('&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;');
-            htp.prn('<button onclick="document.getElementById(''11'').style.display=''block''" class="w3-btn w3-round-xxlarge w3-black">Statistiche</button>');
+                modGUI1.ApriDiv('class="w3-center"');
+                    modGUI1.Collegamento('Inserisci',
+                        gruppo2.gr2||'InserisciAutore?caller=menuAutori&callerParams=//orderBy='
+                            ||orderBy||'//nameFilter='||nameFilter||'//surnameFilter='||surnameFilter||'//nationFilter='||nationFilter,
+                        'w3-btn w3-round-xxlarge w3-black');
+                    htp.print('&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;');
+                    modGUI1.Collegamento('Menu Autori Eliminati', 
+                        gruppo2.gr2||'menuAutoriEliminati', 
+                        'w3-button w3-black w3-round-xxlarge');
+                    htp.print('&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;');
+                    htp.prn('<button onclick="document.getElementById(''11'').style.display=''block''" class="w3-btn w3-round-xxlarge w3-black">Statistiche</button>');
+                modGUI1.chiudiDIV;
         END IF;
-
-
+                modGUI1.ApriDiv('class="w3-right"');
+                modGUI1.Collegamento('Rimuovi filtri',gruppo2.gr2||'menuAutori','w3-btn w3-round-xxlarge w3-red');
+                htp.print('&nbsp;&nbsp;');
+                modGUI1.ChiudiDiv;
     modGUI1.ChiudiDiv;
     
     gruppo2.selezioneOpStatAut;
@@ -2014,11 +2104,17 @@ BEGIN
         htp.br;htp.br;
         if hasRole(idSessione, 'DBA') or hasRole(idSessione, 'SU') or hasRole(idSessione, 'GO')
         then
+            --htp.print('&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;');
+            modGUI1.ApriDiv('class="w3-center"');
             modGUI1.Collegamento('Torna al menu autori', 
-                gruppo2.gr2||'menuAutori', 
+                gruppo2.gr2||'menuAutori',
                 'w3-button w3-black w3-round-xxlarge');
-            htp.print('&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;');
+            modGUI1.chiudiDIV;
         end if;
+        modGUI1.ApriDiv('class="w3-right"');
+            modGUI1.Collegamento('Rimuovi filtri',gruppo2.gr2||'menuAutoriEliminati','w3-btn w3-round-xxlarge w3-red');
+            htp.print('&nbsp;&nbsp;');
+        modGUI1.ChiudiDiv;
     modGUI1.ChiudiDiv;
 
     filtraAutori('menuAutoriEliminati');

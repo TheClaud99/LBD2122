@@ -932,6 +932,7 @@ PROCEDURE acquistatitolo(
 	temp1 number(2); --flag che ci dice se abbiamo a che fare con un biglietto o un abbonamento
 	temp2 date; 
 	temp3 number(1); --flag che ci dice se l'utente e' gia presente nella tabella UTENTIMUSEO
+	temp4 number(1):= null; --flag che ci dice se abbiamo effettivamente eseguito l'inserimento
 	durataabbonamento tipologieingresso.durata%type; --contiene la durata dell'abbonamento
 	dataEmissione date; --contiene concatenati data e ora nel formato inseribile nel db
 	scadenzaabb varchar2(10);
@@ -949,15 +950,16 @@ BEGIN
 	
 	select durata into durataabbonamento from TIPOLOGIEINGRESSO where IDTIPOLOGIAING=idtipologiaselezionata;
 	
-	emissdate:=to_date(dataemissionechar,'YYYY/MM/DD');
-	temp2:=emissdate+durataabbonamento;
-	scadenzaabb:=to_char(temp2, 'YYYY/MM/DD');
+	
 	select count(*) into temp1 from Biglietti where idtipologiaselezionata= biglietti.IDTIPOLOGIAING;
 	
 	if(temp1>0)
-	then
+	then --biglietto
 		dataScadenza:= to_date('23:59 ' ||dataemissionechar, 'HH24:MI YYYY/MM/DD');
-	ELSE
+	ELSE --abbonamento
+		emissdate:=to_date(dataemissionechar,'YYYY/MM/DD');
+		temp2:=emissdate+durataabbonamento;
+		scadenzaabb:=to_char(temp2, 'YYYY/MM/DD');
 		dataScadenza:= to_date('23:59 ' ||scadenzaabb, 'HH24:MI YYYY/MM/DD');
 	end if;
 	
@@ -985,7 +987,24 @@ BEGIN
 		values (idutenteselezionato, 0);
 	end if;
 
-	visualizzatitoloing(varidtitoloing); 
+	select count(*) into temp4 from titoliingresso where TITOLIINGRESSO.idtitoloing=varidtitoloing;
+
+	if(temp4 is null) then
+		IF(temp1>0)
+		then
+			modGUI1.RedirectEsito('Errore', 
+            	'Titolo d''ingresso non inserito correttamente.', 
+            	'Riprova', 'packageacquistatitoli.pagina_acquista_biglietto?','dataemissionechar='||dataemissionechar||'//oraemissionechar='||oraemissionechar||'//idmuseoselezionato='||idmuseoselezionato||'//idutenteselezionato='||idutenteselezionato||'//idtipologiaselezionata='||idtipologiaselezionata,
+            	'Torna al menu titoli d''ingresso', 'packageacquistatitoli.titolihome', null);
+		ELSE
+			modGUI1.RedirectEsito('Errore', 
+            	'Titolo d''ingresso non inserito correttamente.', 
+            	'Riprova', 'packageacquistatitoli.pagina_acquista_abbonamento?','dataemissionechar='||dataemissionechar||'//oraemissionechar='||oraemissionechar||'//idmuseoselezionato='||idmuseoselezionato||'//idutenteselezionato='||idutenteselezionato||'//idtipologiaselezionata='||idtipologiaselezionata,
+            	'Torna al menu titoli d''ingresso', 'packageacquistatitoli.titolihome', null);
+		end if;
+	ELSE
+		visualizzatitoloing(varidtitoloing);
+	end if;
 END;
 
 --ACQUISTO ABBONAMENTO

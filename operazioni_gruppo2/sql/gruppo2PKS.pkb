@@ -58,7 +58,14 @@ PROCEDURE menuOpere (
     AnnoFilterInizio int default 0,
     AnnoFilterFine int default 3000
 );
-procedure menuOpereEliminate ;
+procedure menuOpereEliminate(
+    orderBy varchar2 default 'Titolo',
+    nameFilter varchar2 default '',
+    MuseoFilter int default 0,
+    AutoriFilter int default 0,
+    AnnoFilterInizio int default 0,
+    AnnoFilterFine int default 3000
+) ;
 PROCEDURE selezioneMuseo;
 PROCEDURE StatisticheOpere(
 
@@ -166,7 +173,9 @@ PROCEDURE linguaELivello(
     operaID NUMBER default 0
 );
 
-PROCEDURE filtraOpere;
+PROCEDURE filtraOpere(
+    TipoMenu NUMBER default 0
+);
 
 /* OPERAZIONI SUGLI AUTORI */
 PROCEDURE menuAutori(

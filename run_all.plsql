@@ -24,6 +24,8 @@
 @operazioneGruppo3/visiteBody.plsql
 @operazioneGruppo3/PACKAGESTANZE/PackageStanzePKS.plsql
 @operazioneGruppo3/PACKAGESTANZE/PackageStanzePKB.plsql
+@operazioneGruppo3/PackageVarchi/PackageVarchi.pks
+@operazioneGruppo3/PackageVarchi/PackageVarchi.pkb
 
 -- GRUPPO 2
 @operazioni_gruppo2/sql/vistaOpereEsposte.plsql
@@ -68,6 +70,8 @@ grant execute on packagevisite to anonymous;
 grant execute on packagevisite to public;
 grant execute on packagestanze to anonymous;
 grant execute on packagestanze to public;
+grant execute on packagevarchi to anonymous;
+grant execute on packagevarchi to public;
 grant execute on operazionigruppo4 to anonymous;
 grant execute on operazionigruppo4 to public;
 -- grant execute on tariffeCampiEstiviOperazioni to anonymous;

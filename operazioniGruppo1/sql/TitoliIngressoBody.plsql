@@ -1273,7 +1273,7 @@ BEGIN
 	select nome into nomemuseo from musei where idmuseo=idmuseoselezionato;
 	select nome into nometipologia from tipologieingresso where idtipologiaing=idtipologiaselezionata;
 
-	if (flag>0)
+	if (flag>0) --caso biglietto
 	then
 		IF (dataEmissionechar is null) THEN
 		modGUI1.RedirectEsito('Errore', 
@@ -1332,7 +1332,7 @@ BEGIN
 		HTP.TableClose;
 		end if;
 
-	ELSE
+	ELSE --caso abbonamento
 		IF (dataEmissionechar is null) THEN
 		modGUI1.RedirectEsito('Errore', 
             'Data di emissione non selezionata', 
@@ -1391,6 +1391,7 @@ BEGIN
 		end if;
 
     end if;
+
 		modgui1.apriform('packageAcquistaTitoli.acquistatitolo');
 		htp.formhidden('dataemissionechar', dataemissionechar);
 		htp.formhidden('oraemissionechar', oraemissionechar);
@@ -1443,62 +1444,7 @@ BEGIN
 	HTP.HtmlClose;
 end;
 
-
--- Numero Titoli d’Ingresso emessi in un arco temporale scelto
-PROCEDURE statTitoliPerArcoTemp(
-	datainizio VARCHAR2 default null,
-	datafine VARCHAR2 default null
-)IS
-	idSessione NUMBER(5) := modgui1.get_id_sessione();
-
-	iniziop date:= to_date(datainizio, 'YYYY-MM-DD');
-	finep date:= to_date(datafine, 'YYYY-MM-DD');
-	statistica NUMBER(10) default 0;
-BEGIN
-	if datainizio is null or datafine is NULL or iniziop > finep
-	then 
-		modgui1.apripagina('Pagina errore');
-		modgui1.header();
-		modgui1.apridiv('style="margin-top: 110px"');
-		htp.prn('<h1> Errore </h1>');
-		htp.br();
-		htp.print('Arco temporale non valido.');
-    	modgui1.chiudidiv;
-    	htp.BodyClose;
-    	htp.HtmlClose;
-	ELSE
-		modgui1.apripagina('Visualizzazione Statistica');
-		modgui1.header();
-		modgui1.apridiv('style="margin-top: 110px"');
-		modgui1.apridivcard();
-		htp.prn('<h1> Statistica titoli ingresso </h1>');
-
-		SELECT count(*)
-		into statistica
-		from TITOLIINGRESSO
-		where iniziop <= titoliingresso.Emissione and titoliingresso.Emissione <= finep;
-
-		HTP.TableOpen;
-		HTP.TableRowOpen;
-		HTP.TableData('Data inizio periodo: ');
-		HTP.TableData(datainizio);
-		HTP.TableRowClose;
-		HTP.TableRowOpen;
-		htp.tabledata('Data fine periodo: ');
-		htp.tabledata(finep);
-		HTP.TableRowClose;
-		HTP.TableRowOpen;
-		HTP.TableData('Numero di titoli venduti durante l`arco temporale scelto: ');
-		HTP.TableData(statistica);
-		HTP.TableRowClose;
-		htp.TableClose;
-
-		htp.BodyClose;
-		htp.HtmlClose;
-	end if;
-
-END; 
-
+-- Abbonamenti in scadenza nel mese corrente
 PROCEDURE abbonamenti_in_scadenza
 IS
 	idSessione NUMBER(5) := modgui1.get_id_sessione();

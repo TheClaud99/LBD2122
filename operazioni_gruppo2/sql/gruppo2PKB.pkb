@@ -67,14 +67,14 @@ procedure menuOpere(
                             modGUI1.Collegamento('Descrizioni',gruppo2.gr2||'statisticheDescrizioni','w3-bar-item w3-btn w3-black w3-border');
 
                     modGUI1.chiudiDIV;   
-                modGUI1.chiudiDIV;	
+                modGUI1.chiudiDIV;
+	END IF;
             htp.prn('<button onclick="document.getElementById(''filtraOpere'').style.display=''block''"'
             ||' class="w3-btn w3-round-xxlarge w3-black">Filtra &#8981;</button>');
             modGUI1.ApriDiv('class="w3-right"');
             modGUI1.Collegamento('Rimuovi filtri',gruppo2.gr2||'menuOpere','w3-btn w3-round-xxlarge w3-red');
             htp.print('&nbsp;&nbsp;');
             modGUI1.ChiudiDiv;
-        END IF;
         modGUI1.ChiudiDiv;
         --Fuori dal div per evitare centraggio bottoni nel popup
         gruppo2.filtraOpere;
@@ -92,19 +92,16 @@ procedure menuOpere(
         --Visualizzazione TUTTE LE OPERE *temporanea*
 
         modGUI1.ApriDiv('class="w3-row w3-container"');
-        FOR opera IN ( 
-            SELECT DISTINCT O1.* FROM Opere O1 LEFT JOIN AutoriOpere ON O1.IdOpera = AutoriOpere.IdOpera
+   IF (AutoriFilter=0) THEN
+    	FOR opera IN ( 
+            SELECT DISTINCT Opere.* FROM Opere
             WHERE   Eliminato = 0 
                     AND museo = 
                         (case when museoFilter=0 then museo else museoFilter end)
-                    AND (
-                        AutoriOpere.idAutore=
-                            (case when autoriFilter=0 then AutoriOpere.idAutore else autoriFilter end)
-                        OR 0 = (select count(*) from Opere O2 where O2.IdOpera=O1.IdOpera))
 
                     AND UPPER(Titolo) LIKE '%'||UPPER(nameFilter)||'%'
 
-                    AND O1.Anno BETWEEN Inizio AND Fine
+                    AND Opere.Anno BETWEEN Inizio AND Fine
 
             ORDER BY
             case when orderby= 'Titolo' then Titolo end asc,
@@ -135,8 +132,52 @@ procedure menuOpere(
                 modGUI1.ChiudiDiv;
             modGUI1.ChiudiDiv;
         END LOOP;
+    ELSE
+        FOR opera IN ( 
+            SELECT DISTINCT Opere.* FROM Opere, AutoriOpere
+            WHERE   Eliminato = 0 
+                    AND museo = 
+                        (case when museoFilter=0 then museo else museoFilter end)
 
-        modGUI1.chiudiDiv;
+                    AND AutoriOpere.IdAutore= AutoriFilter
+            
+                    AND Opere.idOpera = AutoriOpere.idOpera
+
+                    AND UPPER(Titolo) LIKE '%'||UPPER(nameFilter)||'%'
+
+                    AND Opere.Anno BETWEEN Inizio AND Fine
+
+            ORDER BY
+            case when orderby= 'Titolo' then Titolo end asc,
+            case when orderby= 'Anno' then Anno end asc
+            )
+        LOOP
+            modGUI1.ApriDiv('class="w3-col l4 w3-padding-large w3-center"');
+                modGUI1.ApriDiv('class="w3-card-4" style="height:600px;"');
+                htp.prn('<img src="https://www.stateofmind.it/wp-content/uploads/2018/01/La-malattia-rappresentata-nelle-opere-darte-e-in-letteratura-680x382.jpg" alt="Alps" style="width:100%;">');
+                        modGUI1.ApriDiv('class="w3-container w3-center"');
+                            htp.prn('<p><b>Titolo: </b>' || SUBSTR(opera.titolo,0,60)||'<br>'|| SUBSTR(opera.titolo,61,100)  ||'</p>');
+                            htp.br;
+                            htp.prn('<p><b>Anno: </b>'|| opera.anno ||'</p>');
+                        modGUI1.ChiudiDiv;
+                    htp.prn('<button onclick="document.getElementById(''LinguaeLivelloOpera'||opera.idOpera||''').style.display=''block''" class="w3-margin w3-button w3-black w3-hover-white">Visualizza</button>');
+                    gruppo2.linguaELivello(opera.idOpera);
+
+                    if hasRole(idSessione, 'DBA') or hasRole(idSessione, 'GO') or hasRole(idSessione, 'SU') then
+                    --bottone modifica
+                    modGUI1.Collegamento('Modifica',
+                        gruppo2.gr2||'ModificaOpera?&operaID='||opera.IdOpera||'&titoloOpera='||opera.titolo,
+                        'w3-green w3-margin w3-button');
+                    --bottone elimina
+                    htp.prn('<button onclick="document.getElementById(''ElimOpera'||opera.idOpera||''').style.display=''block''" class="w3-margin w3-button w3-red w3-hover-white">Elimina</button>');
+                    gruppo2.EliminazioneOpera(opera.idOpera);
+                    htp.br;
+                end if;
+                modGUI1.ChiudiDiv;
+            modGUI1.ChiudiDiv;
+        END LOOP;
+    END IF;
+    modGUI1.chiudiDiv;
 end menuOpere;
 
 

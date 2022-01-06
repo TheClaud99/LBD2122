@@ -637,7 +637,6 @@ CREATE OR REPLACE PACKAGE BODY Newsletters AS
 	END IF;
 
 	MODGUI1.ChiudiDiv;
-	---copiare dal mano riga 527 VisiteBody
 
 
 	MODGUI1.ChiudiForm;

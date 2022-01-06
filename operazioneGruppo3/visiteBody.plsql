@@ -68,7 +68,7 @@ CREATE OR REPLACE PACKAGE BODY packagevisite AS
                             nomeutente
                             || ' '
                             || cognomeutente,
-                            'gruppo1.VisualizzaUtente?utenteID=' || idutenteselezionato
+                            'packageUtenti.VisualizzaUtente?utenteID=' || idutenteselezionato
         );
         htp.prn('</p></div>');
         htp.prn('</div>');

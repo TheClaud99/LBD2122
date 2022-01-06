@@ -301,7 +301,7 @@ CREATE OR REPLACE PACKAGE BODY Newsletters AS
 			LOOP
 				htp.prn('<tr>');
 				htp.prn('<td>' );
-				modgui1.COLLEGAMENTO(TO_CHAR(utente.IDUTENTE), 'gruppo1.VisualizzaUtente?utenteID=' || TO_CHAR(utente.IDUTENTE));
+				modgui1.COLLEGAMENTO(TO_CHAR(utente.IDUTENTE), 'packageUtenti.VisualizzaUtente?utenteID=' || TO_CHAR(utente.IDUTENTE));
 				htp.prn('</td>');
 				htp.prn('<td>' || TO_CHAR(utente.NOME) || '</td>');
 				htp.prn('<td>' || TO_CHAR(utente.COGNOME) || '</td>');
@@ -377,7 +377,7 @@ CREATE OR REPLACE PACKAGE BODY Newsletters AS
 			LOOP
 				htp.prn('<tr>');
 				htp.prn('<td>' );
-				modgui1.COLLEGAMENTO(TO_CHAR(utente.IDUTENTE), 'gruppo1.VisualizzaUtente?utenteID=' || TO_CHAR(utente.IDUTENTE));
+				modgui1.COLLEGAMENTO(TO_CHAR(utente.IDUTENTE), 'packageUtenti.VisualizzaUtente?utenteID=' || TO_CHAR(utente.IDUTENTE));
 				htp.prn('</td>');
 				htp.prn('<td>' || TO_CHAR(utente.NOME) || '</td>');
 				htp.prn('<td>' || TO_CHAR(utente.COGNOME) || '</td>');
@@ -493,7 +493,7 @@ CREATE OR REPLACE PACKAGE BODY Newsletters AS
 						WHERE UTENTI.IDUTENTE = id_utente.IDUTENTE;
 
 					MODGUI1.COLLEGAMENTO(TO_CHAR(U_NOME) || ' ' ||TO_CHAR(U_COGNOME),
-										'gruppo1.VisualizzaUtente?utenteID=' || TO_CHAR(id_utente.IDUTENTE));
+										'packageUtenti.VisualizzaUtente?utenteID=' || TO_CHAR(id_utente.IDUTENTE));
 					htp.br;
 					htp.prn(TO_CHAR(U_NASCITA, 'YYYY-MM-DD'));
 					htp.br;

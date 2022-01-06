@@ -307,7 +307,7 @@ CREATE OR REPLACE PACKAGE BODY PackageStanze as
                         )LOOP
                             modGUI1.APRIRIGATABELLA;
                                 modgui1.APRIELEMENTOTABELLA;
-                                    modGUI1.Collegamento(visunici.nome||' '||visunici.cognome,'gruppo1.VisualizzaUtente?utenteID='||visunici.visitatore);--LINK ESTERNO
+                                    modGUI1.Collegamento(visunici.nome||' '||visunici.cognome,'packageUtenti.VisualizzaUtente?utenteID='||visunici.visitatore);--LINK ESTERNO
                                 modgui1.chiudiElementoTabella;
                                 modgui1.APRIELEMENTOTABELLA;
                                     modGUI1.Collegamento(to_char(visunici.datavisita,'DD-MM-YY'),'packagevisite.visualizzavisita?idvisitaselezionata='||visunici.idvisita||'&action=packageVisite.visualizza_visite&button_text=Vai+alle+visite');--LINK ESTERNO
@@ -341,7 +341,7 @@ CREATE OR REPLACE PACKAGE BODY PackageStanze as
                                 contatoreClassifica := contatoreClassifica + 1;
                             modgui1.chiudiElementoTabella;
                             modgui1.APRIELEMENTOTABELLA;
-                                modGUI1.Collegamento(varUtente.nome||' '||varUtente.cognome,'gruppo1.VisualizzaUtente?utenteID='||varUtente.idutente);--LINK ESTERNO
+                                modGUI1.Collegamento(varUtente.nome||' '||varUtente.cognome,'packageUtenti.VisualizzaUtente?utenteID='||varUtente.idutente);--LINK ESTERNO
                             modgui1.chiudiElementoTabella;
                         modgui1.chiudiRigaTabella;
                     END LOOP;

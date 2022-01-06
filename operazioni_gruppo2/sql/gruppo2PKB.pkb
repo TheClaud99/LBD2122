@@ -1850,8 +1850,6 @@ BEGIN
                 gruppo2.gr2||'menuAutoriEliminati', 
                 'w3-button w3-black w3-round-xxlarge');
             htp.print('&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;');
-        end if;
-        IF hasRole(idSessione, 'DBA') OR hasRole(idSessione, 'SU') THEN
             htp.prn('<button onclick="document.getElementById(''11'').style.display=''block''" class="w3-btn w3-round-xxlarge w3-black">Statistiche</button>');
         END IF;
 

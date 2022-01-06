@@ -699,7 +699,7 @@ BEGIN
         htp.prn('<div class="w3-col s9 w3-center"><p>');
         modgui1.collegamento(
                                 nomemuseo,
-                                'operazioniGruppo4.visualizzaMusei?idMuseo=' || varidmuseo
+                                'operazioniGruppo4.visualizzaMusei?museoID=' || varidmuseo
             );
         htp.prn('</p></div>');
         htp.prn('</div>');

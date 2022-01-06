@@ -113,7 +113,7 @@ BEGIN
 
 	MODGUI1.InputSubmit('Inserisci');
 	MODGUI1.ChiudiForm;
-	MODGUI1.collegamento('Annulla','ListaUtenti','w3-button w3-block w3-black w3-section w3-padding');
+	MODGUI1.collegamento('Annulla','packageUtenti.ListaUtenti','w3-button w3-block w3-black w3-section w3-padding');
 	MODGUI1.ChiudiDiv;
 
 	htp.print('<script type="text/javascript">
@@ -182,17 +182,14 @@ BEGIN
 	THEN
 		-- uno dei parametri con vincoli ha valori non validi
 		modGUI1.RedirectEsito('Errore', 
-            'Uno dei parametri inseriti non è valido', 
-            'Inserisci un nuovo utente', 'InserisciUtente', null,
+            'Uno dei parametri inseriti non è valido',
+            'Inserisci un nuovo utente', 'packageUtenti.InserisciUtente', null,
             'Torna al menu utenti', 'packageUtenti.ListaUtenti', null);
 	ELSE
 		MODGUI1.APRIPAGINA('Conferma dati utenti', idSessione);
 		HTP.BodyOpen;
-		if idSessione IS NULL then
-            modGUI1.Header();
-		else
-				modGUI1.Header();
-		end if;
+		
+    	modGUI1.Header();
 		modgui1.apridiv('class="w3-modal-content w3-card-4 w3-animate-zoom w3-padding-large" style="max-width:600px; margin-top:110px"');
 		HTP.header(2, 'Conferma dati utente');
 
@@ -291,7 +288,10 @@ BEGIN
 		HTP.HtmlClose;
 	END IF;
 	EXCEPTION WHEN OTHERS THEN
-		dbms_output.put_line('Error: '||sqlerrm);
+		modGUI1.RedirectEsito('Errore', 
+            'Uno dei parametri inseriti non è valido', 
+            'Inserisci un nuovo utente', 'packageUtenti.InserisciUtente', null,
+            'Torna al menu utenti', 'packageUtenti.ListaUtenti', null);
 END;
 
 --inserimento utente nel db
@@ -903,7 +903,7 @@ BEGIN
             'Torna al menu utenti', 'packageUtenti.ListaUtenti', null);
 	ELSE
 		modGUI1.RedirectEsito('Errore', 
-            'L''utente non è stato eliminato', 
+            'L''utente non è stato eliminato',
             'Riprova', 'packageUtenti.VisualizzaUtente?utenteID='||utenteID, null,
             'Torna al menu utenti', 'packageUtenti.ListaUtenti', null);
 	END IF;
@@ -1626,7 +1626,7 @@ begin
 
 			modgui1.chiudiTabella;
 
-			MODGUI1.collegamento('Torna al menu','ListaUtenti?','w3-button w3-block w3-black w3-section w3-padding');
+			MODGUI1.collegamento('Torna al menu','packageUtenti.ListaUtenti?','w3-button w3-block w3-black w3-section w3-padding');
 		HTP.BodyClose;
 		HTP.HtmlClose;
 end;

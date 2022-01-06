@@ -44,7 +44,7 @@ procedure menuOpere(
         htp.br;htp.br;htp.br;htp.br;htp.br;
         modGUI1.ApriDiv('class="w3-center"');
         htp.prn('<h1>Opere</h1>');
-        if hasRole(idSessione, 'DBA') or hasRole(idSessione, 'GO')
+        if hasRole(idSessione, 'DBA') or hasRole(idSessione, 'GO') or hasRole(idSessione, 'SU')
         then
             modGUI1.Collegamento('Inserisci opera',gruppo2.gr2||'InserisciOpera','w3-btn w3-round-xxlarge w3-black');
             htp.print('&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;');
@@ -120,7 +120,7 @@ procedure menuOpere(
                     htp.prn('<button onclick="document.getElementById(''LinguaeLivelloOpera'||opera.idOpera||''').style.display=''block''" class="w3-margin w3-button w3-black w3-hover-white">Visualizza</button>');
                     gruppo2.linguaELivello(opera.idOpera);
 
-                    if hasRole(idSessione, 'DBA') or hasRole(idSessione, 'GO') then
+                    if hasRole(idSessione, 'DBA') or hasRole(idSessione, 'GO') or hasRole(idSessione, 'SU') then
                     --bottone modifica
                     modGUI1.Collegamento('Modifica',
                         gruppo2.gr2||'ModificaOpera?&operaID='||opera.IdOpera||'&titoloOpera='||opera.titolo,
@@ -682,7 +682,7 @@ BEGIN
 
     modGUI1.ApriDiv('class="w3-center"');
     htp.prn('<h1><b>'||var1||'</b></h1>'); --TITOLO
-    if (hasRole(idSessione, 'DBA') or hasRole(idSessione, 'GO')) and varEliminato = 0 then
+    if (hasRole(idSessione, 'DBA') or hasRole(idSessione, 'GO') or hasRole(idSessione, 'SU')) and varEliminato = 0 then
     modGUI1.Collegamento('Inserisci',
         gruppo2.gr2||'InserisciDescrizione?language='||lingue||'&d_level='||livelli||'&operaID='||OperaID,
         'w3-btn w3-round-xxlarge w3-black');
@@ -786,7 +786,7 @@ LOOP
                 if(lingue='Italian')
                 then
                 htp.prn('<h5><b>Esposta: </b>❌</h5>');
-                if (hasRole(idSessione, 'DBA') or hasRole(idSessione, 'GO')) and varEliminato = 0 then
+                if (hasRole(idSessione, 'DBA') or hasRole(idSessione, 'GO') or hasRole(idSessione, 'SU')) and varEliminato = 0 then
                 modGUI1.collegamento('sposta',
                     gruppo2.gr2||'SpostaOpera?operaID='||operaID||'&salaID='||varSala||'&lingue='||lingue||'&livelli='||livelli,
                     'w3-green w3-margin w3-button w3-small w3-round-xxlarge');
@@ -804,7 +804,7 @@ LOOP
                     
                     END LOOP;
                     
-                    if (hasRole(idSessione, 'DBA') or hasRole(idSessione, 'GO')) and varEliminato = 0 then
+                    if (hasRole(idSessione, 'DBA') or hasRole(idSessione, 'GO') or hasRole(idSessione, 'SU')) and varEliminato = 0 then
                     modGUI1.Collegamento('Aggiungi Autore',
                         gruppo2.gr2||'AggiungiAutore?operaID='||operaID||'&lingue='||lingue||'&livelli='||livelli,
                         'w3-yellow w3-margin w3-button w3-small w3-round-xxlarge');
@@ -817,7 +817,7 @@ LOOP
                 if(lingue='English')
                 then
                 htp.prn('<h5><b>Exposed: </b>❌</h5>');
-                if (hasRole(idSessione, 'DBA') or hasRole(idSessione, 'GO')) and varEliminato = 0 then
+                if (hasRole(idSessione, 'DBA') or hasRole(idSessione, 'GO') or hasRole(idSessione, 'SU')) and varEliminato = 0 then
                 modGUI1.collegamento('sposta',
                     gruppo2.gr2||'SpostaOpera?operaID='||operaID||'&salaID='||varSala||'&lingue='||lingue||'&livelli='||livelli,
                     'w3-green w3-margin w3-button w3-small w3-round-xxlarge');
@@ -835,7 +835,7 @@ LOOP
                     
                     END LOOP;
 
-                    if (hasRole(idSessione, 'DBA') or hasRole(idSessione, 'GO')) and varEliminato = 0 then
+                    if (hasRole(idSessione, 'DBA') or hasRole(idSessione, 'GO') or hasRole(idSessione, 'SU')) and varEliminato = 0 then
                     modGUI1.Collegamento('Aggiungi Autore',
                         gruppo2.gr2||'AggiungiAutore?operaID='||operaID||'&lingue='||lingue||'&livelli='||livelli,
                         'w3-yellow w3-margin w3-button w3-small w3-round-xxlarge');
@@ -848,7 +848,7 @@ LOOP
                 if(lingue='Chinese')
                 then
                 htp.prn('<h5><b>裸露: </b>❌</h5>');
-                if (hasRole(idSessione, 'DBA') or hasRole(idSessione, 'GO')) and varEliminato = 0 then
+                if (hasRole(idSessione, 'DBA') or hasRole(idSessione, 'GO') or hasRole(idSessione, 'SU')) and varEliminato = 0 then
                 modGUI1.collegamento('sposta',
                     gruppo2.gr2||'SpostaOpera?operaID='||operaID||'&salaID='||varSala||'&lingue='||lingue||'&livelli='||livelli,
                     'w3-green w3-margin w3-button w3-small w3-round-xxlarge');
@@ -865,7 +865,7 @@ LOOP
                     htp.prn(', ');
                     END LOOP;
 
-                    if (hasRole(idSessione, 'DBA') or hasRole(idSessione, 'GO')) and varEliminato = 0 then
+                    if (hasRole(idSessione, 'DBA') or hasRole(idSessione, 'GO') or hasRole(idSessione, 'SU')) and varEliminato = 0 then
                     modGUI1.Collegamento('Aggiungi Autore',
                         gruppo2.gr2||'AggiungiAutore?operaID='||operaID||'&lingue='||lingue||'&livelli='||livelli,
                         'w3-yellow w3-margin w3-button w3-small w3-round-xxlarge');
@@ -888,7 +888,7 @@ LOOP
                 htp.prn('<b> Sala: </b>'); 
                 MODGUI1.Collegamento(''||varNomeStanza||'',gruppo2.gr3||'visualizzaSala?varIdSala='||varSala);  
                 htp.prn('<b> tipo di sala: </b>'||varTipoSala); 
-                if (hasRole(idSessione, 'DBA') or hasRole(idSessione, 'GO')) and varEliminato = 0 then
+                if (hasRole(idSessione, 'DBA') or hasRole(idSessione, 'GO') or hasRole(idSessione, 'SU')) and varEliminato = 0 then
                 modGUI1.collegamento('sposta',
                     gruppo2.gr2||'SpostaOpera?operaID='||operaID||'&salaID='||varSala||'&lingue='||lingue||'&livelli='||livelli,
                     'w3-green w3-margin w3-button w3-small w3-round-xxlarge');
@@ -905,7 +905,7 @@ LOOP
                     htp.prn(', ');
                     END LOOP;
                     
-                    if (hasRole(idSessione, 'DBA') or hasRole(idSessione, 'GO')) and varEliminato = 0 then
+                    if (hasRole(idSessione, 'DBA') or hasRole(idSessione, 'GO') or hasRole(idSessione, 'SU')) and varEliminato = 0 then
                     modGUI1.Collegamento('Aggiungi Autore',
                         gruppo2.gr2||'AggiungiAutore?operaID='||operaID||'&lingue='||lingue||'&livelli='||livelli,
                         'w3-yellow w3-margin w3-button w3-small w3-round-xxlarge');
@@ -926,7 +926,7 @@ LOOP
                 htp.prn('<b> Room: </b>'); 
                 MODGUI1.Collegamento(''||varNomeStanza||'',gruppo2.gr3||'visualizzaSala?varIdSala='||varSala);  
                 htp.prn('<b> type of room: </b>'||varTipoSala); 
-                if (hasRole(idSessione, 'DBA') or hasRole(idSessione, 'GO')) and varEliminato = 0 then
+                if (hasRole(idSessione, 'DBA') or hasRole(idSessione, 'GO') or hasRole(idSessione, 'SU')) and varEliminato = 0 then
                 modGUI1.collegamento('sposta',
                     gruppo2.gr2||'SpostaOpera?operaID='||operaID||'&salaID='||varSala||'&lingue='||lingue||'&livelli='||livelli,
                     'w3-green w3-margin w3-button w3-small w3-round-xxlarge');
@@ -944,7 +944,7 @@ LOOP
                     
                     END LOOP;
                     
-                    if (hasRole(idSessione, 'DBA') or hasRole(idSessione, 'GO')) and varEliminato = 0 then
+                    if (hasRole(idSessione, 'DBA') or hasRole(idSessione, 'GO') or hasRole(idSessione, 'SU')) and varEliminato = 0 then
                     modGUI1.Collegamento('Aggiungi Autore',
                         gruppo2.gr2||'AggiungiAutore?operaID='||operaID||'&lingue='||lingue||'&livelli='||livelli,
                         'w3-yellow w3-margin w3-button w3-small w3-round-xxlarge');
@@ -965,7 +965,7 @@ LOOP
                 htp.prn('<b> 房间: </b>'); 
                 MODGUI1.Collegamento(''||varNomeStanza||'',gruppo2.gr3||'visualizzaSala?varIdSala='||varSala);  
                 htp.prn('<b> 大厅类型: </b>'||varTipoSala); 
-                if (hasRole(idSessione, 'DBA') or hasRole(idSessione, 'GO')) and varEliminato = 0 then
+                if (hasRole(idSessione, 'DBA') or hasRole(idSessione, 'GO') or hasRole(idSessione, 'SU')) and varEliminato = 0 then
                 modGUI1.collegamento('sposta',
                     gruppo2.gr2||'SpostaOpera?operaID='||operaID||'&salaID='||varSala||'&lingue='||lingue||'&livelli='||livelli,
                     'w3-green w3-margin w3-button w3-small w3-round-xxlarge');
@@ -982,7 +982,7 @@ LOOP
                     htp.prn(', ');
                     END LOOP;
 
-                    if (hasRole(idSessione, 'DBA') or hasRole(idSessione, 'GO')) and varEliminato = 0 then
+                    if (hasRole(idSessione, 'DBA') or hasRole(idSessione, 'GO') or hasRole(idSessione, 'SU')) and varEliminato = 0 then
                     modGUI1.Collegamento('Aggiungi Autore',
                         gruppo2.gr2||'AggiungiAutore?operaID='||operaID||'&lingue='||lingue||'&livelli='||livelli,
                         'w3-yellow w3-margin w3-button w3-small w3-round-xxlarge');
@@ -995,7 +995,7 @@ LOOP
 
             modGUI1.ChiudiDiv;
             modGUI1.ApriDiv('class="w3-container w3-cell w3-cell-middle"');
-            if (hasRole(idSessione, 'DBA') or hasRole(idSessione, 'GO')) and varEliminato = 0
+            if (hasRole(idSessione, 'DBA') or hasRole(idSessione, 'GO') or hasRole(idSessione, 'SU')) and varEliminato = 0
             then
                 modGUI1.collegamento('Modifica',
                     gruppo2.gr2||'ModificaDescrizione?idDescrizione='||des.idDesc,

@@ -74,7 +74,9 @@ PROCEDURE AggiungiAutore(
 
     operaID NUMBER DEFAULT 0,
     lingue VARCHAR2 DEFAULT null,
-    livelli VARCHAR2 DEFAULT NULL
+    livelli VARCHAR2 DEFAULT NULL,
+    caller VARCHAR2 DEFAULT NULL,
+    callerParams VARCHAR2 DEFAULT ''
 );
 PROCEDURE AggiuntaAutore(
 
@@ -89,7 +91,9 @@ PROCEDURE RimuoviAutoreOpera(
 
     operaID NUMBER DEFAULT 0,
     lingue VARCHAR2 DEFAULT null,
-    livelli VARCHAR2 DEFAULT null
+    livelli VARCHAR2 DEFAULT null,
+    caller VARCHAR2 DEFAULT NULL,
+    callerParams VARCHAR2 DEFAULT ''
 );
 -- Rimuove un Autore dall'Opera indicata
 PROCEDURE RimozioneAutoreOpera(

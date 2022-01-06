@@ -93,16 +93,18 @@ procedure menuOpere(
 
         modGUI1.ApriDiv('class="w3-row w3-container"');
         FOR opera IN ( 
-            SELECT DISTINCT Opere.* FROM Opere, AutoriOpere  
+            SELECT DISTINCT O1.* FROM Opere O1 LEFT JOIN AutoriOpere ON O1.IdOpera = AutoriOpere.IdOpera
             WHERE   Eliminato = 0 
                     AND museo = 
                         (case when museoFilter=0 then museo else museoFilter end)
-                    AND AutoriOpere.idAutore=
-                        (case when autoriFilter=0 then AutoriOpere.idAutore else autoriFilter end)
+                    AND (
+                        AutoriOpere.idAutore=
+                            (case when autoriFilter=0 then AutoriOpere.idAutore else autoriFilter end)
+                        OR 0 = (select count(*) from Opere O2 where O2.IdOpera=O1.IdOpera))
 
                     AND UPPER(Titolo) LIKE '%'||UPPER(nameFilter)||'%'
 
-                    AND Opere.Anno BETWEEN Inizio AND Fine
+                    AND O1.Anno BETWEEN Inizio AND Fine
 
             ORDER BY
             case when orderby= 'Titolo' then Titolo end asc,

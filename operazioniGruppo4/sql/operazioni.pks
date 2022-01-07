@@ -347,5 +347,7 @@ procedure Utentipagamenti
 (
    pagamentoid in PagamentiCampiEstivi.idpagamento%type
 );
-
+/*aggiornamento degli stati per ogni campoestivo*/
+PROCEDURE checkDataButton;
+PROCEDURE checkData;
 end operazioniGruppo4;

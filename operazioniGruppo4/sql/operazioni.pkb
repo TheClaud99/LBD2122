@@ -209,6 +209,7 @@ BEGIN
       modGUI1.APRIDIV('class="w3-col l4 w3-padding-large w3-right"');
       modGUI1.APRIDIV('class="w3-center"');
          modGUI1.Collegamento('Statistiche',OperazioniGruppo4.gr4 || 'form1campiestivi?&CampoestivoId=&NameCampoestivo=','w3-black w3-round w3-margin w3-button');
+         checkDataButton; 
       modGUI1.ChiudiDiv();
       modGUI1.ChiudiDiv();
    end if;
@@ -1093,7 +1094,7 @@ procedure operepresentimuseo
 (
    MuseoId IN  Musei.IdMuseo%TYPE
 )
-/*problema*/
+
 IS
   CURSOR oper_cursor IS
   Select DISTINCT Opere.idopera,Opere.Titolo,Opere.Anno,Opere.FinePeriodo
@@ -2521,5 +2522,53 @@ BEGIN
 
 
 end;
+/*BUTTON PER Aggiorane lo stato*/
+PROCEDURE checkData -- increazione -> incorso | incorso -> terminato
+    -- shoud be the same as CAMPIESTIVI.DataInizio%TYPE
+IS
+   v_dataCorrente  DATE;
+BEGIN
+    SELECT SYSTIMESTAMP -- SYSDATE is an alternative
+    INTO v_dataCorrente
+    FROM DUAL;
+
+    -- change campi that are increazione to incorso
+    -- if (datainizio < v_dataCorrente < dataconclusione)
+    UPDATE CAMPIESTIVI
+    SET stato = 'incorso'
+    WHERE 
+	   datainizio IS NOT NULL
+	  AND dataconclusione IS NOT NULL
+	  AND eliminato = 0
+	  AND datainizio <= v_dataCorrente
+	  AND dataconclusione >= v_dataCorrente;
+
+    UPDATE CAMPIESTIVI
+    SET stato = 'terminato'
+    WHERE 
+    	  datainizio IS NOT NULL
+	  AND dataconclusione IS NOT NULL
+	  AND eliminato = 0
+	  AND datainizio <= v_dataCorrente
+	  AND dataconclusione <= v_dataCorrente;
+END;
+
+
+PROCEDURE checkDataButton 
+IS
+BEGIN
+
+    modgui1.Bottone('w3-red', 'Controlla Date Campi Estivi', 'checkDate', 'checkDateFun(this);');
+    htp.prn('
+    <script>
+	var checkDateFun = async function(sel) {
+	    await fetch ("' || costanti.server || costanti.radice || OperazioniGruppo4.gr4||'checkData");
+	    sel.classList.toggle("w3-red");
+	    sel.classList.toggle("w3-gray");
+       location.reload();
+	}
+    </script>
+    ');
+END;
 end operazioniGruppo4;
 -- SET DEFINE ON;

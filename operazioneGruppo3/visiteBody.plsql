@@ -68,7 +68,7 @@ CREATE OR REPLACE PACKAGE BODY packagevisite AS
                             nomeutente
                             || ' '
                             || cognomeutente,
-                            'gruppo1.VisualizzaUtente?utenteID=' || idutenteselezionato
+                            'packageUtenti.VisualizzaUtente?utenteID=' || idutenteselezionato
         );
         htp.prn('</p></div>');
         htp.prn('</div>');
@@ -480,8 +480,9 @@ CREATE OR REPLACE PACKAGE BODY packagevisite AS
         is_abbonamento    IN  NUMBER DEFAULT NULL
     ) IS
 
-        lv_where                  VARCHAR2(255);
-        v_base_query              VARCHAR2(2000) := 'with binds as (
+        lv_where                   VARCHAR2(255);
+        lv_where_for_media_oraria  VARCHAR2(255);
+        v_base_query               VARCHAR2(2000) := 'with binds as (
           select :bind1 as data_visita_from,
           :bind2 as data_visita_to,
           :bind3 as id_utente,
@@ -489,12 +490,26 @@ CREATE OR REPLACE PACKAGE BODY packagevisite AS
             from dual)
         SELECT COUNT(view_visite.idvisita), AVG(DurataVisita) FROM view_visite, binds b
         WHERE 1=1 ';
-        counter                   NUMBER(20);
-        media_durata              NUMBER(
+        counter                    NUMBER(20);
+        utente_max_durata_visita   utenti%rowtype;
+        media_durata               NUMBER(
                            20,
                            2
         );
-        utente_max_durata_visita  utenti%rowtype;
+        media_oraria               NUMBER(
+                           20,
+                           2
+        );
+        hours                      NUMBER(30);
+        count_visite               NUMBER(30);
+        date_from                  DATE := to_date(
+                                 data_visita_from,
+                                 'YYYY-MM-DD"T"HH24:MI'
+                          );
+        date_to                    DATE := to_date(
+                               data_visita_to,
+                               'YYYY-MM-DD"T"HH24:MI'
+                        );
     BEGIN
         IF data_visita_from IS NOT NULL THEN
             lv_where := lv_where || ' AND datavisita >= b.data_visita_from';
@@ -504,29 +519,30 @@ CREATE OR REPLACE PACKAGE BODY packagevisite AS
         END IF;
         IF id_utente IS NOT NULL THEN
             lv_where := lv_where || ' AND idutente = b.id_utente';
+            lv_where_for_media_oraria := lv_where_for_media_oraria || ' AND idutente = b.id_utente';
         END IF;
+
         IF id_museo IS NOT NULL THEN
             lv_where := lv_where || ' AND idmuseo = b.id_museo';
+            lv_where_for_media_oraria := lv_where_for_media_oraria || ' AND idmuseo = b.id_museo';
         END IF;
+
         IF is_biglietto = 1 THEN
             lv_where := lv_where || ' AND EXISTS(SELECT * FROM biglietti WHERE biglietti.IdTipologiaIng=view_visite.IdTipologiaIng)';
+            lv_where_for_media_oraria := lv_where_for_media_oraria || ' AND EXISTS(SELECT * FROM biglietti WHERE biglietti.IdTipologiaIng=view_visite.IdTipologiaIng)';
         END IF;
+
         IF is_abbonamento = 1 THEN
             lv_where := lv_where || ' AND EXISTS(SELECT * FROM abbonamenti WHERE abbonamenti.IdTipologiaIng=view_visite.IdTipologiaIng)';
+            lv_where_for_media_oraria := lv_where_for_media_oraria || ' AND EXISTS(SELECT * FROM abbonamenti WHERE abbonamenti.IdTipologiaIng=view_visite.IdTipologiaIng)';
         END IF;
+
         v_base_query := v_base_query || lv_where;
         EXECUTE IMMEDIATE v_base_query
         INTO
             counter,
             media_durata
-            USING to_date(
-                         data_visita_from,
-                         'YYYY-MM-DD"T"HH24:MI'
-                  ), to_date(
-                            data_visita_to,
-                            'YYYY-MM-DD"T"HH24:MI'
-                     ), id_utente, id_museo;
-
+            USING date_from, date_to, id_utente, id_museo;
         modgui1.apridiv('id="modal_statistiche" class="w3-modal"');
         modgui1.apridiv('class="w3-modal-content w3-card-4 w3-animate-zoom" style="max-width:600px"');
         modgui1.apridiv('class="w3-center"');
@@ -552,9 +568,44 @@ CREATE OR REPLACE PACKAGE BODY packagevisite AS
         htp.prn('<div class="w3-col s8 w3-center">');
         htp.prn('<div class="w3-margin">'
                 || media_durata
-                || 'h</div>');
+                || 'm</div>');
         htp.prn('</div>');
         htp.prn('</div>');
+        IF
+            data_visita_to IS NOT NULL
+            AND data_visita_from IS NOT NULL
+        THEN
+            SELECT
+                ( date_to - date_from ) * 24
+            INTO hours
+            FROM
+                dual;
+
+            lv_where_for_media_oraria := lv_where_for_media_oraria || ' AND datavisita <= date_to AND datavisita + ( duratavisita / 1440 ) >= date_from';
+            EXECUTE IMMEDIATE 'with binds as (
+            select :bind1 as date_from,
+            :bind2 as date_to,
+            :bind3 as id_utente,
+            :bind4 as id_museo
+            from dual)
+            SELECT COUNT(view_visite.idvisita) FROM view_visite, binds b WHERE 1=1' ||
+            lv_where_for_media_oraria
+            INTO count_visite
+                USING date_from, date_to, id_utente, id_museo;
+            media_oraria := count_visite / hours;
+            htp.prn('<div class"w3-container w3-margin">');
+            htp.prn('<div class="w3-row">');
+            htp.prn('<div class="w3-col s4 w3-center">');
+            htp.prn('<div class="w3-margin">Media oraria degli utenti presenti:</div>');
+            htp.prn('</div>');
+            htp.prn('<div class="w3-col s8 w3-center">');
+            htp.prn('<div class="w3-margin">'
+                    || media_oraria
+                    || '</div>');
+            htp.prn('</div>');
+            htp.prn('</div>');
+        END IF;
+
         htp.prn('<h3 align="center">Utente con durata visita più lunga</h3>');
         FOR utente IN (
             SELECT
@@ -579,7 +630,7 @@ CREATE OR REPLACE PACKAGE BODY packagevisite AS
             htp.prn('<div class="w3-col s8 w3-center">');
             htp.prn('<div class="w3-margin">'
                     || utente.durata_totale
-                    || 'h</div>');
+                    || 'm</div>');
             htp.prn('</div>');
             htp.prn('</div>');
         END LOOP;
@@ -942,7 +993,7 @@ CREATE OR REPLACE PACKAGE BODY packagevisite AS
                          oravisita
         );
         htp.br;
-        modgui1.label('Durata della visita (h)');
+        modgui1.label('Durata della visita (m)');
         modgui1.inputnumber(
                            'DurataVisita',
                            'DurataVisita',

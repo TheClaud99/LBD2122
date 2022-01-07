@@ -10,11 +10,7 @@ procedure InserisciTariffeCampiEstivi
     idSessione number(5) := modgui1.get_id_sessione();
 begin
     modgui1.apripagina('Inserimento tariffa campo estivo');
-    if idSessione is null then
-        modgui1.header;
-    else
-        modgui1.header(idSessione);
-    end if;
+    modgui1.header;
     htp.br;htp.br;htp.br;htp.br;htp.br;htp.br;
 
     htp.prn('<h1 align="center">Inserimento Tariffa Campo Estivo</h1>');
@@ -33,15 +29,15 @@ begin
                 htp.br;
                 modgui1.label('Campo Estivo');
                 modgui1.selectopen('campoEstivo');
-                for campoEstivo in
+                for campoEstivoIter in
                     (select IdCampiEstivi, nome from campiestivi where IdCampiEstivi = campoEstivo)
                 loop
-                    modgui1.selectoption(campoEstivo.IdCampiEstivi, campoEstivo.nome);
+                    modgui1.selectoption(campoEstivoIter.IdCampiEstivi, campoEstivoIter.nome);
                 end loop;
-                for campoEstivo in
+                for campoEstivoIter in
                     (select IdCampiEstivi, nome from campiestivi where IdCampiEstivi <> campoEstivo)
                 loop
-                    modgui1.selectoption(campoEstivo.IdCampiEstivi, campoEstivo.nome);
+                    modgui1.selectoption(campoEstivoIter.IdCampiEstivi, campoEstivoIter.nome);
                 end loop;
                 modgui1.selectclose;
                 htp.br;
@@ -90,11 +86,7 @@ begin
         where CAMPIESTIVI.IDCAMPIESTIVI = campoEstivo;
 
         modgui1.apripagina('Conferma', idSessione);
-        if idSessione is null then
-            modgui1.header;
-        else
-            modgui1.header(idSessione);
-        end if;
+        modgui1.header;
         htp.br;htp.br;htp.br;htp.br;htp.br;htp.br;
         htp.prn('<h1 align="center">CONFERMA DATI</h1>');--DA MODIFICARE
         modgui1.apridiv('class="w3-modal-content w3-card-4 w3-animate-zoom" style="max-width:600px" ');
@@ -170,11 +162,7 @@ procedure VisualizzaTariffeCampiEstivi
     found integer := 0;
 begin
     htp.prn('<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css"> ');
-    if idSessione is null then
-        modgui1.header;
-    else
-        modgui1.header(idSessione);
-    end if;
+    modgui1.header;
     htp.br;htp.br;htp.br;htp.br;htp.br;htp.br;
     modgui1.apridiv('class="w3-center"');
 
@@ -210,7 +198,7 @@ begin
             htp.tableclose;
         modgui1.chiudidiv;
     else
-        modgui1.apripagina('Tariffa non trovata', sessionID);
+        modgui1.apripagina('Tariffa non trovata');
         htp.prn('Tariffa non trovata');
     end if;
 
@@ -235,7 +223,7 @@ begin
             modgui1.collegamento('X',operazioniGruppo4.gr4||operazioniGruppo4.menu_ce,' w3-btn w3-large w3-red w3-display-topright');
             htp.br;
             htp.header(2, 'Tariffa', 'center');
-            modgui1.aprifrom(operazioniGruppo4.gr4||'AggiornaTariffeCampiEstivi');
+            modgui1.apriform(operazioniGruppo4.gr4||'AggiornaTariffeCampiEstivi');
                 htp.formhidden('up_idTariffa', tariffa.idtariffa);
                 modgui1.label('Prezzo');
                 modgui1.inputtext('prezzo', 'up_prezzo', 0, tariffa.prezzo);
@@ -254,7 +242,7 @@ begin
                     modgui1.selectoption(campoEstivo.IdCampiEstivi, campoEstivo.nome);
                 end loop;
                 for campoEstivo in
-                    (select IdCampiEstivi, nome from campiestivi where IdCampiEstivi <> tariffa.ampoEstivo)
+                    (select IdCampiEstivi, nome from campiestivi where IdCampiEstivi <> tariffa.campoEstivo)
                 loop
                     modgui1.selectoption(campoEstivo.IdCampiEstivi, campoEstivo.nome);
                 end loop;
@@ -277,16 +265,16 @@ procedure AggiornaTariffeCampiEstivi
 is
     idSessione number(5) := modgui1.get_id_sessione();
 begin
-    if etaminima > Etamassima
-    or prezzo < 0
-    or etaminima < 0
-    or campoFound is null
-    or campoFound = 0
+    if up_etaMinima > up_etaMassima
+    or up_prezzo < 0
+    or up_etaMinima < 0
+    or up_campoEstivo is null
+    or up_campoEstivo = 0
     then
         modgui1.redirectesito('Parametri invalidi', 
         'Errore: paramtri aggiornamento tariffa campi estivi non validi', 
         'Torna alla modifica', operazioniGruppo4.gr4||'ModificaTariffeCampiEstivi', 
-        'up_idTariffa='||idTariffa, 
+        'up_idTariffa='||up_idTariffa, 
         'Torna al menu', operazioniGruppo4.gr4||operazioniGruppo4.menu_ce);
     end if;
 
@@ -303,13 +291,12 @@ begin
         modgui1.redirectesito('Aggiornamento fallito', 
         'Errore: sconosciuto', 
         'Torna alla modifica', operazioniGruppo4.gr4||'ModificaTariffeCampiEstivi', 
-        'up_idTariffa='||idTariffa, 
+        'up_idTariffa='||up_idTariffa, 
         'Torna al menu', operazioniGruppo4.gr4||operazioniGruppo4.menu_ce);
 end;
 
 procedure CancellaTariffeCampiEstivi
 (
-    sessionID in number, 
     idTariffa in TARIFFECAMPIESTIVI.IdTariffa%type
 ) is
 begin
@@ -361,7 +348,7 @@ begin
         for tariffa in (
             select Tariffa, count(*) as conto
             from PAGAMENTICAMPIESTIVI join tariffecampiestivi 
-                on pagamentiTariffa.tariffa = tariffecampiestivi.idTariffa
+                on PAGAMENTICAMPIESTIVI.tariffa = tariffecampiestivi.idTariffa
             where tariffecampiestivi.campoestivo = campoEstivo
             group by Tariffa
             having count(*) = (

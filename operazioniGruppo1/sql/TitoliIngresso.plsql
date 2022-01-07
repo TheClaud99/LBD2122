@@ -43,6 +43,17 @@ FUNCTION build_query (
 		idclientelogged IN utentilogin.IDCLIENTE%type DEFAULT NULL
 ) RETURN VARCHAR2;
 
+function n_risultati(
+	    datefrom  IN  VARCHAR2 DEFAULT NULL,
+        dateto    IN  VARCHAR2 DEFAULT NULL,
+        id_utente         IN  NUMBER DEFAULT NULL,
+        id_museo          IN  NUMBER DEFAULT NULL,
+		id_tipologia	  IN  NUMBER DEFAULT NULL,
+        is_biglietto      IN  NUMBER DEFAULT NULL,
+        is_abbonamento    IN  NUMBER DEFAULT NULL,
+		idclientelogged IN utentilogin.IDCLIENTE%type DEFAULT NULL
+    )RETURN number;
+
 PROCEDURE TitoliHome(
 	datefrom varchar2 default null,
 	dateto varchar2 default null,

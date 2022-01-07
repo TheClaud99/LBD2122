@@ -249,7 +249,7 @@ CREATE OR REPLACE PACKAGE BODY PackageStanze as
             htp.prn('<img src="https://www.23bassi.com/wp-content/uploads/2019/03/vuota-web.jpg" alt="Alps" class="w3-third w3-margin">');
             MODGUI1.ApriDiv('class="twothird w3-margin w3-center"');
                 htp.prn('<p><b>Museo: </b>');
-                modGUI1.COLLEGAMENTO(varNomeMuseo,'operazioniGruppo4.visualizzaMusei?idMuseo='||varIdMuseo);
+                modGUI1.COLLEGAMENTO(varNomeMuseo,'operazioniGruppo4.visualizzaMusei?museoId='||varIdMuseo);--LINK ESTERNO
                 htp.prn('</p>');
                 htp.prn('<h2><b>'|| varNome ||'</b></h2>');
                 IF (varTipoSala=0)
@@ -267,8 +267,8 @@ CREATE OR REPLACE PACKAGE BODY PackageStanze as
                 htp.prn('<h3>Statistiche</h3>');
                 --VISITE IN SALA
                 SELECT COUNT(*) INTO varNumVisite 
-                    FROM VISITE INNER JOIN VISITEVARCHI USING (idvisita) 
-                    INNER JOIN VARCHI ON (VISITEVARCHI.idvarco=VARCHI.idvarchi)
+                    FROM VISITE INNER JOIN ATTRAVERSAMENTO USING (idvisita) 
+                    INNER JOIN VARCHI ON (ATTRAVERSAMENTO.idvarco=VARCHI.idvarchi)
                 WHERE 
                     (stanza1=varIdSala AND direzioneinversa=1) OR (stanza2=varIdSala AND direzioneinversa=0);
 
@@ -276,8 +276,8 @@ CREATE OR REPLACE PACKAGE BODY PackageStanze as
                 
                 --VISITATORI UNICI IN SALA IN PERIODO DI TEMPO SPECIFICATO
                 SELECT COUNT (DISTINCT visitatore) into varVisitatoriUnici 
-                    FROM VISITE INNER JOIN VISITEVARCHI USING (idvisita)
-                    INNER JOIN VARCHI ON (VISITEVARCHI.idvarco=VARCHI.idvarchi)
+                    FROM VISITE INNER JOIN ATTRAVERSAMENTO USING (idvisita)
+                    INNER JOIN VARCHI ON (ATTRAVERSAMENTO.idvarco=VARCHI.idvarchi)
                 WHERE 
                     (stanza1=varIdSala AND direzioneinversa=1) OR (stanza2=varIdSala AND direzioneinversa=0)
                 AND 
@@ -296,8 +296,8 @@ CREATE OR REPLACE PACKAGE BODY PackageStanze as
                         FOR visunici IN (
                             SELECT DISTINCT idvisita,visitatore,utenti.nome,cognome,datavisita 
                                 FROM UTENTI INNER JOIN VISITE ON (idutente=visitatore) 
-                                INNER JOIN VISITEVARCHI USING (idvisita) 
-                                INNER JOIN VARCHI ON (VISITEVARCHI.idvarco=VARCHI.idvarchi)
+                                INNER JOIN ATTRAVERSAMENTO USING (idvisita) 
+                                INNER JOIN VARCHI ON (ATTRAVERSAMENTO.idvarco=VARCHI.idvarchi)
                             WHERE 
                                 (stanza1=varIdSala AND direzioneinversa=1) OR (stanza2=varIdSala AND direzioneinversa=0)
                             AND 
@@ -307,7 +307,7 @@ CREATE OR REPLACE PACKAGE BODY PackageStanze as
                         )LOOP
                             modGUI1.APRIRIGATABELLA;
                                 modgui1.APRIELEMENTOTABELLA;
-                                    modGUI1.Collegamento(visunici.nome||' '||visunici.cognome,'gruppo1.VisualizzaUtente?utenteID='||visunici.visitatore);--LINK ESTERNO
+                                    modGUI1.Collegamento(visunici.nome||' '||visunici.cognome,'packageUtenti.VisualizzaUtente?utenteID='||visunici.visitatore);--LINK ESTERNO
                                 modgui1.chiudiElementoTabella;
                                 modgui1.APRIELEMENTOTABELLA;
                                     modGUI1.Collegamento(to_char(visunici.datavisita,'DD-MM-YY'),'packagevisite.visualizzavisita?idvisitaselezionata='||visunici.idvisita||'&action=packageVisite.visualizza_visite&button_text=Vai+alle+visite');--LINK ESTERNO
@@ -328,7 +328,7 @@ CREATE OR REPLACE PACKAGE BODY PackageStanze as
                     FOR varUtente IN ( 
                         SELECT DISTINCT idutente, utenti.nome, utenti.cognome, COUNT(idvisita) as numvisite 
                             FROM UTENTI INNER JOIN VISITE ON (idutente=visitatore)
-                            INNER JOIN VISITEVARCHI USING (idvisita)
+                            INNER JOIN ATTRAVERSAMENTO USING (idvisita)
                             INNER JOIN VARCHI ON (idvarchi=idvarco)
                         WHERE (stanza1=varIdSala AND direzioneinversa=1) OR (stanza2=varIdSala AND direzioneinversa=0)
                         GROUP BY idutente, utenti.nome, utenti.cognome
@@ -341,7 +341,7 @@ CREATE OR REPLACE PACKAGE BODY PackageStanze as
                                 contatoreClassifica := contatoreClassifica + 1;
                             modgui1.chiudiElementoTabella;
                             modgui1.APRIELEMENTOTABELLA;
-                                modGUI1.Collegamento(varUtente.nome||' '||varUtente.cognome,'gruppo1.VisualizzaUtente?utenteID='||varUtente.idutente);--LINK ESTERNO
+                                modGUI1.Collegamento(varUtente.nome||' '||varUtente.cognome,'packageUtenti.VisualizzaUtente?utenteID='||varUtente.idutente);--LINK ESTERNO
                             modgui1.chiudiElementoTabella;
                         modgui1.chiudiRigaTabella;
                     END LOOP;
@@ -370,7 +370,11 @@ CREATE OR REPLACE PACKAGE BODY PackageStanze as
                             htp.prn('<p>'||varOpere.Anno||'</p>');
                         MODGUI1.CHIUDIELEMENTOTABELLA;
                         MODGUI1.APRIELEMENTOTABELLA;
-                            MODGUI1.Collegamento('Visualizza','Boh','w3-button w3-black w3-right');--LINK ESTERNO
+                            modGUI1.ApriDiv('class="w3-center"');
+                                htp.prn('<button onclick="document.getElementById(''LinguaeLivelloOpera'|| varOpere.idOpera||''').style.display=''block''" class="w3-button w3-black">Visualizza</button>');
+                                gruppo2.linguaELivello(varOpere.idOpera);
+                            modGUI1.ChiudiDiv;
+                            --LINK ESTERNO
                         MODGUI1.CHIUDIELEMENTOTABELLA;
                     MODGUI1.CHIUDIRIGATABELLA;
                     END LOOP;
@@ -419,6 +423,13 @@ CREATE OR REPLACE PACKAGE BODY PackageStanze as
                               'Torna a visualizzare le sale',
                               'PackageStanze.visualizzaSale',
                               NULL);
+        EXCEPTION WHEN OTHERS THEN
+        MODGUI1.REDIRECTESITO('ERRORE: Inserimento non riuscito',
+                              'L''inserimento non è andato a buon fine',
+                              'Torna a visualizzare le sale',
+                              'PackageStanze.visualizzaSale',
+                              NULL);
+
     END;
 
     PROCEDURE modificaSala (
@@ -449,6 +460,12 @@ CREATE OR REPLACE PACKAGE BODY PackageStanze as
                               'Torna a visualizzare le sale',
                               'PackageStanze.visualizzaSale',
                               NULL);
+        EXCEPTION WHEN OTHERS THEN
+        MODGUI1.REDIRECTESITO('ERRORE: Modifica non riuscita',
+                              'La modifica non è andata a buon fine',
+                              'Torna a visualizzare le sale',
+                              'PackageStanze.visualizzaSale',
+                              NULL);
     END;
 
     PROCEDURE rimuoviSala (
@@ -466,6 +483,12 @@ CREATE OR REPLACE PACKAGE BODY PackageStanze as
                               'Torna a visualizzare le sale',
                               'PackageStanze.visualizzaSale',
                               NULL);
+        EXCEPTION WHEN OTHERS THEN
+        MODGUI1.REDIRECTESITO('ERRORE: Eliminazione non riuscita',
+                              'L'' eliminazione non è andata a buon fine',
+                              'Torna a visualizzare le sale',
+                              'PackageStanze.visualizzaSale',
+                              NULL);
     END;
 
     PROCEDURE ripristinaSala (
@@ -480,6 +503,12 @@ CREATE OR REPLACE PACKAGE BODY PackageStanze as
 
         MODGUI1.REDIRECTESITO('Ripristino effettuato',
                               'Il ripristino è stato effettuato correttamente',
+                              'Torna a visualizzare le sale',
+                              'PackageStanze.visualizzaSale',
+                              NULL);
+        EXCEPTION WHEN OTHERS THEN
+        MODGUI1.REDIRECTESITO('ERRORE: Ripristino non riuscito',
+                              'Il ripristino non è andato a buon fine',
                               'Torna a visualizzare le sale',
                               'PackageStanze.visualizzaSale',
                               NULL);
@@ -573,12 +602,12 @@ CREATE OR REPLACE PACKAGE BODY PackageStanze as
             )LOOP
                 modGUI1.ApriDiv('class="w3-col l4 w3-padding-large w3-center"');
                     modGUI1.ApriDiv('class="w3-card-4"');
-                    htp.prn('<img src="https://cdn.pixabay.com/photo/2016/10/22/15/32/water-1761027__480.jpg" alt="Alps" style="width:100%">');
+                    htp.prn('<img src="https://www.scattidigusto.it/wp-content/uploads/2014/05/Da-Giacomo_Arengario-960x639.jpg" alt="Alps" style="width:100%">');
                             modGUI1.ApriDiv('class="w3-container w3-center"');
                             --INIZIO DESCRIZIONI
                                 SELECT idmuseo,nome INTO idmuseosel,museosel FROM MUSEI WHERE (musei.idmuseo=AmbS.museo);
                                 htp.prn('<p><b>Museo: </b>');
-                                modGUI1.Collegamento(museosel,'operazioniGruppo4.visualizzaMusei?idMuseo='||idmuseosel);--LINK ESTERNO
+                                modGUI1.Collegamento(museosel,'operazioniGruppo4.visualizzaMusei?museoId='||idmuseosel);--LINK ESTERNO
                                 htp.prn('</p>');
                                 htp.prn('<h2><b>'|| AmbS.nome||'</b></h2>');
                                 htp.prn('<h4>'|| AmbS.tipoambiente||'</h4>');
@@ -715,6 +744,12 @@ CREATE OR REPLACE PACKAGE BODY PackageStanze as
                               'Torna a visualizzare gli ambienti di servizio',
                               'PackageStanze.visualizzaAmbientiServizio',
                               NULL);
+        EXCEPTION WHEN OTHERS THEN
+        MODGUI1.REDIRECTESITO('ERRORE: Inserimento non riuscito',
+                              'L'' inserimento non è andato a buon fine',
+                              'Torna a visualizzare gli ambienti di servizio',
+                              'PackageStanze.visualizzaAmbientiServizio',
+                              NULL);
     END;
 
     PROCEDURE modificaAmbienteServizio (
@@ -743,6 +778,12 @@ CREATE OR REPLACE PACKAGE BODY PackageStanze as
                               'Torna a visualizzare gli ambienti di servizio',
                               'PackageStanze.visualizzaAmbientiServizio',
                               NULL);
+        EXCEPTION WHEN OTHERS THEN
+        MODGUI1.REDIRECTESITO('ERRORE: Modifica non riuscita',
+                              'La modifica non è andata a buon fine',
+                              'Torna a visualizzare gli ambienti di servizio',
+                              'PackageStanze.visualizzaAmbientiServizio',
+                              NULL);
     END;
 
     PROCEDURE rimuoviAmbienteServizio (
@@ -760,6 +801,12 @@ CREATE OR REPLACE PACKAGE BODY PackageStanze as
                               'Torna a visualizzare gli ambienti di servizio',
                               'PackageStanze.visualizzaAmbientiServizio',
                               NULL);
+        EXCEPTION WHEN OTHERS THEN
+        MODGUI1.REDIRECTESITO('ERRORE: Eliminazione non riuscita',
+                              'L'' eliminazione non è andata a buon fine',
+                              'Torna a visualizzare gli ambienti di servizio',
+                              'PackageStanze.visualizzaAmbientiServizio',
+                              NULL);
     END;
 
     PROCEDURE ripristinaAmbienteServizio (
@@ -774,6 +821,12 @@ CREATE OR REPLACE PACKAGE BODY PackageStanze as
 
         MODGUI1.REDIRECTESITO('Ripristino effettuato',
                               'Il ripristino è stato effettuato correttamente',
+                              'Torna a visualizzare gli ambienti di servizio',
+                              'PackageStanze.visualizzaAmbientiServizio',
+                              NULL);
+        EXCEPTION WHEN OTHERS THEN
+        MODGUI1.REDIRECTESITO('ERRORE: Ripristino non riuscito',
+                              'Il ripristino non è andato a buon fine',
                               'Torna a visualizzare gli ambienti di servizio',
                               'PackageStanze.visualizzaAmbientiServizio',
                               NULL);

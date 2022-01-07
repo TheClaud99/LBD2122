@@ -1,16 +1,14 @@
+create or replace package body PagamentiCampiEstiviPkg as
+
 procedure InserisciPagamentoCampiEstivi(
     dataPagamento in varchar2 default NULL,
     tariffa in PAGAMENTICAMPIESTIVI.Tariffa%type default 0, 
-    acquirente in PAGAMENTICAMPIESTIVI.Aquirente%type default 0 
+    acquirente in PAGAMENTICAMPIESTIVI.Acquirente%type default 0 
 ) is
 idSessione number(5) := modgui1.get_id_sessione();
 begin
     MODGUI1.ApriPagina('Inserimento pagamento campo estivo', 0);
-    if idSessione is null then
-        modgui1.header;
-    else
-        modgui1.header(idSessione);
-    end if;
+    modgui1.header;
     htp.br;htp.br;htp.br;htp.br;htp.br;htp.br;
 
     htp.prn('<h1 align="center">Inserimento Pagamento Campo Estivo</h1>');
@@ -48,7 +46,7 @@ end InserisciPagamentoCampiEstivi;
 procedure ConfermaPagamentoCampiEstivi(
     dataPagamento in varchar2 default NULL,
     tariffa in PAGAMENTICAMPIESTIVI.Tariffa%type default 0, 
-    acquirente in PAGAMENTICAMPIESTIVI.Aquirente%type default 0
+    acquirente in PAGAMENTICAMPIESTIVI.Acquirente%type default 0
 ) is 
     idSessione number(5) := modgui1.get_id_sessione();
     dataPagamento_date Date := TO_DATE(dataPagamento default NULL on conversion error, 'YYYY-MM-DD');
@@ -67,11 +65,7 @@ begin
         htp.htmlclose;
     else
         modgui1.apripagina('Conferma', idSessione);
-        if idSessione is null then
-            modgui1.header;
-        else
-            modgui1.header(idSessione);
-        end if;
+        modgui1.header;
         htp.br;htp.br;htp.br;htp.br;htp.br;htp.br;
         htp.prn('<h1 align="center">CONFERMA DATI</h1>');--DA MODIFICARE
         modgui1.apridiv('class="w3-modal-content w3-card-4 w3-animate-zoom" style="max-width:600px" ');
@@ -88,7 +82,7 @@ begin
                 htp.br;
             modgui1.chiudidiv;
 
-            mogui1.apriform(operazioniGruppo4.gr4||'ControllaPagamentoCampiEstivi');
+            modgui1.apriform(operazioniGruppo4.gr4||'ControllaPagamentoCampiEstivi');
             htp.formhidden('dataPagamento', dataPagamento);
             htp.formhidden('tariffa', tariffa);
             htp.formhidden('acquirente', acquirente);
@@ -138,19 +132,14 @@ procedure VisualizzaPagamentoCampiEstivi(
     found NUMBER(10) := 0;
 begin
     htp.prn('<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css"> ');
-    if idSessione is null then
-        modgui1.header;
-    else
-        modgui1.header(idSessione);
-    end if;    
+    modgui1.header;
     htp.br;htp.br;htp.br;htp.br;htp.br;htp.br;
     modgui1.apridiv('class="w3-center"');
 
     select count(*) 
     into found
     from PAGAMENTICAMPIESTIVI
-    where PAGAMENTICAMPIESTIVI.IdPagamento = idPagamento 
-        and PAGAMENTICAMPIESTIVI.eliminato = 0;
+    where PAGAMENTICAMPIESTIVI.IdPagamento = idPagamento;
 
     htp.br;htp.br;htp.br;htp.br;htp.br;htp.br;
     if found > 0 then
@@ -164,7 +153,7 @@ begin
             for pagamento in (
                 select DataPagamento, Tariffa, Acquirente 
                 from PAGAMENTICAMPIESTIVI
-                where PAGAMENTICAMPIESTIVI.IdPagamento = idPagamento and e;
+                where PAGAMENTICAMPIESTIVI.IdPagamento = idPagamento
             )
             loop
             htp.tablerowopen;
@@ -172,7 +161,7 @@ begin
             htp.tabledata(pagamento.Tariffa, 'center');
             htp.tabledata(pagamento.Acquirente, 'center');
             htp.tablerowclose;
-            end loop
+            end loop;
             htp.tableclose;
         modgui1.chiudidiv;
     else
@@ -210,7 +199,7 @@ begin
     for pagamento in (
         select IdPagamento, DataPagamento, Tariffa, Acquirente 
         from PAGAMENTICAMPIESTIVI
-        where PAGAMENTICAMPIESTIVI.DataPagamento <= dataFine and PAGAMENTICAMPIESTIVI.DataPagamento >= dataInizio;
+        where PAGAMENTICAMPIESTIVI.DataPagamento <= dataFine and PAGAMENTICAMPIESTIVI.DataPagamento >= dataInizio
     )
     loop
         htp.tablerowopen;
@@ -251,3 +240,5 @@ begin
     htp.htmlclose;
   
 end;
+
+END PagamentiCampiEstiviPkg;

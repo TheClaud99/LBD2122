@@ -1222,7 +1222,7 @@ CREATE OR REPLACE PACKAGE BODY packagevisite AS
         modgui1.apripagina('Inserisci nuova visita');
         modgui1.header;
         modgui1.apridiv('style="margin-top: 110px"');
-        htp.prn('<h1>Inserimento visita</h1>');
+        htp.prn('<h1 align="center">Inserimento visita</h1>');
         IF convalida IS NULL THEN
             formvisita(
                       datavisitachar,

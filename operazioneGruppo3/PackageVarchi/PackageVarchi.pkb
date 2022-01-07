@@ -137,8 +137,8 @@ begin
 
     IF (operazione = 0) THEN /* numero visite passate dal varco in una certa data */
     select count(*) into quanti
-		from Visite, VisiteVarchi, Varchi
-        where visitevarchi.idVisita = visite.idVisita AND varchi.idVarchi = visitevarchi.idVarco 
+		from Visite, Attraversamento, Varchi
+        where attraversamento.idVisita = visite.idVisita AND varchi.idVarchi = attraversamento.idVarco 
               AND DataVisita >= v_dataInizio
               and DataVisita <= v_dataFine;
     modGUI1.ApriDiv('class="w3-center"');
@@ -162,7 +162,7 @@ begin
     into quanti
     from (
         select COUNT(*) as tot
-        from VisiteVarchi vv JOIN Visite v ON (v.idVisita=vv.idVisita)
+        from Attraversamento vv JOIN Visite v ON (v.idVisita=vv.idVisita)
         where vv.idVarco = idVarco
             AND TO_CHAR(vv.attraversamentovarco, 'HH24MISS') > v_oraInizio
             AND TO_CHAR(vv.attraversamentovarco, 'HH24MISS') < v_oraFine

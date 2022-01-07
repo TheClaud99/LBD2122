@@ -2,7 +2,7 @@ CREATE OR REPLACE PACKAGE gruppo2 AS
 
 gr2 CONSTANT VARCHAR2(25) := 'gruppo2.';
 gr4 CONSTANT VARCHAR2(25) := 'operazionigruppo4.';
-gr3 CONSTANT VARCHAR2(25) := 'operazionigruppo3.';
+gr3 CONSTANT VARCHAR2(25) := 'packagestanze.';
 
 -- Index by table con campi (IdOpera, titolo, IdAutore, Nome Autore, Cognome Autore)
 -- indicizzata da IdAutore dell'autore che ha collaborato all'opera
@@ -58,7 +58,14 @@ PROCEDURE menuOpere (
     AnnoFilterInizio int default 0,
     AnnoFilterFine int default 3000
 );
-procedure menuOpereEliminate ;
+procedure menuOpereEliminate(
+    orderBy varchar2 default 'Titolo',
+    nameFilter varchar2 default '',
+    MuseoFilter int default 0,
+    AutoriFilter int default 0,
+    AnnoFilterInizio int default 0,
+    AnnoFilterFine int default 3000
+) ;
 PROCEDURE selezioneMuseo;
 PROCEDURE StatisticheOpere(
 
@@ -74,7 +81,9 @@ PROCEDURE AggiungiAutore(
 
     operaID NUMBER DEFAULT 0,
     lingue VARCHAR2 DEFAULT null,
-    livelli VARCHAR2 DEFAULT NULL
+    livelli VARCHAR2 DEFAULT NULL,
+    caller VARCHAR2 DEFAULT NULL,
+    callerParams VARCHAR2 DEFAULT ''
 );
 PROCEDURE AggiuntaAutore(
 
@@ -89,7 +98,9 @@ PROCEDURE RimuoviAutoreOpera(
 
     operaID NUMBER DEFAULT 0,
     lingue VARCHAR2 DEFAULT null,
-    livelli VARCHAR2 DEFAULT null
+    livelli VARCHAR2 DEFAULT null,
+    caller VARCHAR2 DEFAULT NULL,
+    callerParams VARCHAR2 DEFAULT ''
 );
 -- Rimuove un Autore dall'Opera indicata
 PROCEDURE RimozioneAutoreOpera(
@@ -162,7 +173,9 @@ PROCEDURE linguaELivello(
     operaID NUMBER default 0
 );
 
-PROCEDURE filtraOpere;
+PROCEDURE filtraOpere(
+    TipoMenu NUMBER default 0
+);
 
 /* OPERAZIONI SUGLI AUTORI */
 PROCEDURE menuAutori(

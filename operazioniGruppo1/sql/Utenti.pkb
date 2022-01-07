@@ -43,7 +43,7 @@ BEGIN
 	HTP.header(1,'Inserisci un nuovo utente', 'center');
 	modgui1.apridiv('class="w3-modal-content w3-card-4 w3-animate-zoom w3-padding-large" style="max-width:600px; margin-top:110px"');
 	HTP.header(2, 'Inserisci utente');
-	MODGUI1.ApriForm('ConfermaDatiUtente');
+	MODGUI1.ApriForm('packageUtenti.ConfermaDatiUtente');
 	MODGUI1.Label('Nome*');
 	MODGUI1.InputText('nome', 'Nome utente', 1, nome);
 	HTP.BR;
@@ -113,7 +113,7 @@ BEGIN
 
 	MODGUI1.InputSubmit('Inserisci');
 	MODGUI1.ChiudiForm;
-	MODGUI1.collegamento('Annulla','ListaUtenti','w3-button w3-block w3-black w3-section w3-padding');
+	MODGUI1.collegamento('Annulla','packageUtenti.ListaUtenti','w3-button w3-block w3-black w3-section w3-padding');
 	MODGUI1.ChiudiDiv;
 
 	htp.print('<script type="text/javascript">
@@ -182,17 +182,14 @@ BEGIN
 	THEN
 		-- uno dei parametri con vincoli ha valori non validi
 		modGUI1.RedirectEsito('Errore', 
-            'Uno dei parametri inseriti non è valido', 
-            'Inserisci un nuovo utente', 'InserisciUtente', null,
-            'Torna al menu utenti', 'ListaUtenti', null);
+            'Uno dei parametri inseriti non è valido',
+            'Inserisci un nuovo utente', 'packageUtenti.InserisciUtente', null,
+            'Torna al menu utenti', 'packageUtenti.ListaUtenti', null);
 	ELSE
 		MODGUI1.APRIPAGINA('Conferma dati utenti', idSessione);
 		HTP.BodyOpen;
-		if idSessione IS NULL then
-            modGUI1.Header();
-		else
-				modGUI1.Header();
-		end if;
+		
+    	modGUI1.Header();
 		modgui1.apridiv('class="w3-modal-content w3-card-4 w3-animate-zoom w3-padding-large" style="max-width:600px; margin-top:110px"');
 		HTP.header(2, 'Conferma dati utente');
 
@@ -257,7 +254,7 @@ BEGIN
 		end if;
 		HTP.TableClose;
 
-		MODGUI1.ApriForm('InserisciDatiUtente');
+		MODGUI1.ApriForm('packageUtenti.InserisciDatiUtente');
 		HTP.FORMHIDDEN('nome', nome);
 		HTP.FORMHIDDEN('cognome', cognome);
 		HTP.FORMHIDDEN('dataNascita', dataNascita);
@@ -283,7 +280,7 @@ BEGIN
 		MODGUI1.ChiudiForm;
 		MODGUI1.Collegamento(
             'Annulla',
-			'InserisciUtente?nome='||nome||'&cognome='||cognome||'&dataNascita='||dataNascita||'&indirizzo='||indirizzo||'&email='||email||'&telefono='||telefono||'&utenteMuseo='||utenteMuseo||'&utenteDonatore='||utenteDonatore||'&utenteCampiEstivi='||utenteCampiEstivi||'&utenteAssistenza='||utenteAssistenza||'&utenteTutore='||utenteTutore,
+			'packageUtenti.InserisciUtente?nome='||nome||'&cognome='||cognome||'&dataNascita='||dataNascita||'&indirizzo='||indirizzo||'&email='||email||'&telefono='||telefono||'&utenteMuseo='||utenteMuseo||'&utenteDonatore='||utenteDonatore||'&utenteCampiEstivi='||utenteCampiEstivi||'&utenteAssistenza='||utenteAssistenza||'&utenteTutore='||utenteTutore,
 			'w3-button w3-block w3-black w3-section w3-padding'
         );
 		MODGUI1.ChiudiDiv;
@@ -291,7 +288,10 @@ BEGIN
 		HTP.HtmlClose;
 	END IF;
 	EXCEPTION WHEN OTHERS THEN
-		dbms_output.put_line('Error: '||sqlerrm);
+		modGUI1.RedirectEsito('Errore', 
+            'Uno dei parametri inseriti non è valido', 
+            'Inserisci un nuovo utente', 'packageUtenti.InserisciUtente', null,
+            'Torna al menu utenti', 'packageUtenti.ListaUtenti', null);
 END;
 
 --inserimento utente nel db
@@ -367,14 +367,14 @@ BEGIN
 		commit;
 		modGUI1.RedirectEsito('Successo', 
             'L''utente '||nome||' '||cognome||' è stato inserito correttamente', 
-            'Inserisci un nuovo utente', 'InserisciUtente', null,
-            'Torna al menu utenti', 'ListaUtenti', null);
+            'Inserisci un nuovo utente', 'packageUtenti.InserisciUtente', null,
+            'Torna al menu utenti', 'packageUtenti.ListaUtenti', null);
 
 	ELSE
 		modGUI1.RedirectEsito('Errore', 
             'L''utente '||nome||' '||cognome||' non è stato inserito', 
-            'Riprova', 'InserisciUtente', null,
-            'Torna al menu utenti', 'ListaUtenti', null);
+            'Riprova', 'packageUtenti.InserisciUtente', null,
+            'Torna al menu utenti', 'packageUtenti.ListaUtenti', null);
 
 	END IF;
 
@@ -382,13 +382,13 @@ BEGIN
       when EmailPresente then
        modGUI1.RedirectEsito('Errore', 
             'Email non valida', 
-            'Riprova', 'InserisciUtente', null,
-            'Torna al menu utenti', 'ListaUtenti', null);
+            'Riprova', 'packageUtenti.InserisciUtente', null,
+            'Torna al menu utenti', 'packageUtenti.ListaUtenti', null);
       when TelefonoPresente then
       	modGUI1.RedirectEsito('Errore', 
             'Recapito telefonico non valido', 
-            'Riprova', 'InserisciUtente', null,
-            'Torna al menu utenti', 'ListaUtenti', null);
+            'Riprova', 'packageUtenti.InserisciUtente', null,
+            'Torna al menu utenti', 'packageUtenti.ListaUtenti', null);
 END;
 
 PROCEDURE VisualizzaUtente (
@@ -510,22 +510,22 @@ BEGIN
 		end if;
 		HTP.tableClose;
 		if hasRole(idSessione, 'DBA') or hasRole(idSessione, 'SU') then
-		MODGUI1.Collegamento('Modifica', 'ModificaUtente?utenteID='||utenteID, 'w3-button w3-blue w3-margin');
+		MODGUI1.Collegamento('Modifica', 'packageUtenti.ModificaUtente?utenteID='||utenteID, 'w3-button w3-blue w3-margin');
 			MODGUI1.Collegamento('Elimina',
-				'EliminaUtente?utenteID='||utenteID,
+				'packageUtenti.EliminaUtente?utenteID='||utenteID,
 				'w3-button w3-red w3-margin',
 				'return confirm(''Sei sicuro di voler eliminare il profilo di '||NomeUtente||' '||CognomeUtente||'?'')'
 			);
 		end if;
-		MODGUI1.collegamento('Torna al menu','ListaUtenti','w3-button w3-block w3-black w3-section w3-padding');
+		MODGUI1.collegamento('Torna al menu','packageUtenti.ListaUtenti','w3-button w3-block w3-black w3-section w3-padding');
 		MODGUI1.ChiudiDiv;
 		HTP.BodyClose;
 		HTP.HtmlClose;
 	ELSE
 		modGUI1.RedirectEsito('Errore', 
             'Impossibile visualizzare l''utente selezionato', 
-            'Riprova', 'VisualizzaUtente?utenteID='||utenteID, null,
-            'Torna al menu utenti', 'ListaUtenti', null);
+            'Riprova', 'packageUtenti.VisualizzaUtente?utenteID='||utenteID, null,
+            'Torna al menu utenti', 'packageUtenti.ListaUtenti', null);
 	END IF;
 END;
 
@@ -591,7 +591,7 @@ BEGIN
 		modGUI1.Header();
 		modgui1.apridiv('class="w3-modal-content w3-card-4 w3-animate-zoom w3-padding-large" style="max-width:600px; margin-top:110px"');
 		HTP.header(2, 'Modifica utente');
-		MODGUI1.ApriForm('ModificaDatiUtente');
+		MODGUI1.ApriForm('packageUtenti.ModificaDatiUtente');
 		HTP.FORMHIDDEN('utenteID',utenteID);
 		MODGUI1.Label('Nome*');
 		MODGUI1.InputText('nomeNew', 'Nome utente', 1, NomeUtente);
@@ -664,7 +664,7 @@ BEGIN
 		MODGUI1.ChiudiForm;
 		MODGUI1.Collegamento(
             'Annulla',
-			'VisualizzaUtente?utenteID='||utenteID,
+			'packageUtenti.VisualizzaUtente?utenteID='||utenteID,
 			'w3-button w3-block w3-black w3-section w3-padding'
         );
 		MODGUI1.ChiudiDiv;
@@ -705,8 +705,8 @@ BEGIN
 	ELSE
 		modGUI1.RedirectEsito('Errore', 
             'Impossibile visualizzare l''utente selezionato', 
-            'Riprova', 'ModificaUtente?utenteID='||utenteID, null,
-            'Torna al menu utenti', 'ListaUtenti', null);
+            'Riprova', 'packageUtenti.ModificaUtente?utenteID='||utenteID, null,
+            'Torna al menu utenti', 'packageUtenti.ListaUtenti', null);
 	END IF;
 END;
 
@@ -853,31 +853,31 @@ BEGIN
 		commit;
 		modGUI1.RedirectEsito('Successo', 
             'L''utente '||nomeNew||' '||cognomeNew||' è stato modificato correttamente', 
-            'Visualizza utente', 'VisualizzaUtente?utenteID='||utenteID, null,
-            'Torna al menu utenti', 'ListaUtenti', null);
+            'Visualizza utente', 'packageUtenti.VisualizzaUtente?utenteID='||utenteID, null,
+            'Torna al menu utenti', 'packageUtenti.ListaUtenti', null);
 	ELSE
 		modGUI1.RedirectEsito('Errore', 
             'L''utente non è stato modificato', 
-            'Riprova', 'ModificaUtente?utenteID='||utenteID, null,
-            'Torna al menu utenti', 'ListaUtenti', null);
+            'Riprova', 'packageUtenti.ModificaUtente?utenteID='||utenteID, null,
+            'Torna al menu utenti', 'packageUtenti.ListaUtenti', null);
 	END IF;
 
 	EXCEPTION
       when EmailPresente then
        modGUI1.RedirectEsito('Errore', 
             'Email non valida', 
-            'Riprova', 'InserisciUtente', null,
-            'Torna al menu utenti', 'ListaUtenti', null);
+            'Riprova', 'packageUtenti.InserisciUtente', null,
+            'Torna al menu utenti', 'packageUtenti.ListaUtenti', null);
       when TelefonoPresente then
       	modGUI1.RedirectEsito('Errore', 
             'Recapito telefonico non valido', 
-            'Riprova', 'InserisciUtente', null,
-            'Torna al menu utenti', 'ListaUtenti', null);
+            'Riprova', 'packageUtenti.InserisciUtente', null,
+            'Torna al menu utenti', 'packageUtenti.ListaUtenti', null);
 	   when ErroreGenerico then
 	   	modGUI1.RedirectEsito('Errore', 
             'Uno dei parametri inseriti non è valido', 
-            'Riprova', 'ModificaUtente?utenteID='||utenteID, null,
-            'Torna al menu utenti', 'ListaUtenti', null);
+            'Riprova', 'packageUtenti.ModificaUtente?utenteID='||utenteID, null,
+            'Torna al menu utenti', 'packageUtenti.ListaUtenti', null);
 
 
 END;
@@ -900,12 +900,12 @@ BEGIN
 		modGUI1.RedirectEsito('Successo', 
             'L''utente è stato eliminato correttamente', 
             null, null, null,
-            'Torna al menu utenti', 'ListaUtenti', null);
+            'Torna al menu utenti', 'packageUtenti.ListaUtenti', null);
 	ELSE
 		modGUI1.RedirectEsito('Errore', 
-            'L''utente non è stato eliminato', 
-            'Riprova', 'VisualizzaUtente?utenteID='||utenteID, null,
-            'Torna al menu utenti', 'ListaUtenti', null);
+            'L''utente non è stato eliminato',
+            'Riprova', 'packageUtenti.VisualizzaUtente?utenteID='||utenteID, null,
+            'Torna al menu utenti', 'packageUtenti.ListaUtenti', null);
 	END IF;
 
 END;
@@ -922,12 +922,12 @@ begin
         htp.prn('<h1>Lista utenti</h1>');
 		if hasRole(idSessione, 'DBA') or hasRole(idSessione, 'SU')
         then
-            modGUI1.Collegamento('Inserisci','InserisciUtente','w3-btn w3-round-xxlarge w3-black');
+            modGUI1.Collegamento('Inserisci','packageUtenti.InserisciUtente','w3-btn w3-round-xxlarge w3-black');
             htp.print('&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;');
         end if;
-            modGUI1.Collegamento('Statistiche','StatisticheUtenti','w3-btn w3-round-xxlarge w3-black');
+            modGUI1.Collegamento('Statistiche','packageUtenti.StatisticheUtenti','w3-btn w3-round-xxlarge w3-black');
 			modgui1.APRIDIV('style="width: 150px; margin: auto"');
-			MODGUI1.ApriForm('ListaUtenti');
+			MODGUI1.ApriForm('packageUtenti.ListaUtenti');
 			MODGUI1.InputText('pcognome', 'Filtra per cognome', 1);
 			MODGUI1.InputSubmit('Filtra');
 			MODGUI1.ChiudiForm;
@@ -943,14 +943,14 @@ begin
 							htp.br;
 						modGUI1.ChiudiDiv;
 						modGUI1.Collegamento('Visualizza',
-                            'VisualizzaUtente?utenteID='||utente.Idutente,
+                            'packageUtenti.VisualizzaUtente?utenteID='||utente.Idutente,
                             'w3-margin w3-green w3-button');
                         if hasRole(idSessione, 'DBA') or hasRole(idSessione, 'SU') then
 						modGUI1.Collegamento('Modifica',
-                            'ModificaUtente?utenteID='||utente.Idutente,
+                            'packageUtenti.ModificaUtente?utenteID='||utente.Idutente,
                             'w3-margin w3-blue w3-button');
                         modGUI1.Collegamento('Elimina',
-                            'EliminaUtente?utenteID='||utente.Idutente,
+                            'packageUtenti.EliminaUtente?utenteID='||utente.Idutente,
                             'w3-red w3-margin w3-button',
 							'return confirm(''Sei sicuro di voler eliminare il profilo di '||utente.nome||' '||utente.cognome||'?'')'
 							);
@@ -977,7 +977,7 @@ is
                 modGUI1.ApriDiv('class="w3-center"');
                 htp.print('<h1>Operazione eseguita correttamente </h1>');
 				htp.print('<h3>Il risultato è '||res||'</h3>');
-                MODGUI1.collegamento('Torna alle statistiche','StatisticheUtenti','w3-button w3-block w3-black w3-section w3-padding');
+                MODGUI1.collegamento('Torna alle statistiche','packageUtenti.StatisticheUtenti','w3-button w3-block w3-black w3-section w3-padding');
                 modGUI1.ChiudiDiv;
             modGUI1.ChiudiDiv;
 			HTP.BodyClose;
@@ -1088,7 +1088,7 @@ is
 				else
 					htp.print('<h3>Il risultato è 0</h3>');
 				end if;
-                MODGUI1.collegamento('Torna alle statistiche','StatisticheUtenti','w3-button w3-block w3-black w3-section w3-padding');
+                MODGUI1.collegamento('Torna alle statistiche','packageUtenti.StatisticheUtenti','w3-button w3-block w3-black w3-section w3-padding');
                 modGUI1.ChiudiDiv;
             modGUI1.ChiudiDiv;
 			HTP.BodyClose;
@@ -1204,7 +1204,7 @@ is
 				else
 					htp.print('<h3>Il risultato è 0</h3>');
 				end if;
-                MODGUI1.collegamento('Torna alle statistiche','StatisticheUtenti','w3-button w3-block w3-black w3-section w3-padding');
+                MODGUI1.collegamento('Torna alle statistiche','packageUtenti.StatisticheUtenti','w3-button w3-block w3-black w3-section w3-padding');
                 modGUI1.ChiudiDiv;
             modGUI1.ChiudiDiv;
 			HTP.BodyClose;
@@ -1318,7 +1318,7 @@ is
 				else
 					htp.print('<h3>Il risultato è 0</h3>');
 				end if;
-                MODGUI1.collegamento('Torna alle statistiche','StatisticheUtenti','w3-button w3-block w3-black w3-section w3-padding');
+                MODGUI1.collegamento('Torna alle statistiche','packageUtenti.StatisticheUtenti','w3-button w3-block w3-black w3-section w3-padding');
                 modGUI1.ChiudiDiv;
             modGUI1.ChiudiDiv;
 			HTP.BodyClose;
@@ -1399,7 +1399,7 @@ is
 				else
 					htp.print('<h3>Il risultato è 0</h3>');
 				end if;
-                MODGUI1.collegamento('Torna alle statistiche','StatisticheUtenti','w3-button w3-block w3-black w3-section w3-padding');
+                MODGUI1.collegamento('Torna alle statistiche','packageUtenti.StatisticheUtenti','w3-button w3-block w3-black w3-section w3-padding');
                 modGUI1.ChiudiDiv;
             modGUI1.ChiudiDiv;
 			HTP.BodyClose;
@@ -1430,7 +1430,7 @@ begin
 				modgui1.chiudiRigaTabella;
 
 				modgui1.apriRigaTabella;
-					MODGUI1.ApriForm('etaMediaUtenti');
+					MODGUI1.ApriForm('packageUtenti.etaMediaUtenti');
 					modgui1.apriElementoTabella;
 						modgui1.apridiv('class="w3-padding-24"');
 						modgui1.elementoTabella('Tutti gli utenti');
@@ -1448,7 +1448,7 @@ begin
 				modgui1.chiudiRigaTabella;
 
 				modgui1.apriRigaTabella;
-					MODGUI1.ApriForm('sommaTitoli');
+					MODGUI1.ApriForm('packageUtenti.sommaTitoli');
 					modgui1.apriElementoTabella;
 						modgui1.label('Utente');
 							modgui1.selectopen('utenteID', 'idutenteSommaTitoli');
@@ -1494,7 +1494,7 @@ begin
 				modgui1.chiudiRigaTabella;
 
 				modgui1.apriRigaTabella;
-					MODGUI1.ApriForm('mediaCostoTitoli');
+					MODGUI1.ApriForm('packageUtenti.mediaCostoTitoli');
 					modgui1.apriElementoTabella;
 						modgui1.label('Utente');
 							modgui1.selectopen('utenteID', 'idutenteSommaTitoli');
@@ -1540,7 +1540,7 @@ begin
 				modgui1.chiudiRigaTabella;
 
 				modgui1.apriRigaTabella;
-					MODGUI1.ApriForm('NumeroVisiteMusei');
+					MODGUI1.ApriForm('packageUtenti.NumeroVisiteMusei');
 					modgui1.apriElementoTabella;
 						modgui1.label('Utente');
 							modgui1.selectopen('utenteID', 'idutenteSommaTitoli');
@@ -1586,7 +1586,7 @@ begin
 				modgui1.chiudiRigaTabella;
 
 				modgui1.apriRigaTabella;
-					MODGUI1.ApriForm('NumeroMedioTitoli');
+					MODGUI1.ApriForm('packageUtenti.NumeroMedioTitoli');
 					modgui1.apriElementoTabella;
 						modgui1.apridiv('class="w3-padding-24"');
 						modgui1.elementoTabella('Tutti gli utenti');
@@ -1626,7 +1626,7 @@ begin
 
 			modgui1.chiudiTabella;
 
-			MODGUI1.collegamento('Torna al menu','ListaUtenti?','w3-button w3-block w3-black w3-section w3-padding');
+			MODGUI1.collegamento('Torna al menu','packageUtenti.ListaUtenti','w3-button w3-block w3-black w3-section w3-padding');
 		HTP.BodyClose;
 		HTP.HtmlClose;
 end;

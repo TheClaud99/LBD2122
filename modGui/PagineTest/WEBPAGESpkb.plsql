@@ -14,10 +14,10 @@ procedure Home  is
         modGUI1.ApriDiv('style:"height:90%;"');
             modGUI1.ApriDiv;
                 htp.prn('
-                    <a href="'||Costanti.server || Costanti.radice||'webpages.MuseiHome">
+                    <a href="'||Costanti.server || Costanti.radice||'operazioniGruppo4.menumusei">
                     <img src="https://www.artribune.com/wp-content/uploads/2020/06/Museo-del-Prado-sala-24.jpg" style="width:50%; height:100%;" class="w3-opacity w3-hover-opacity-off w3-left">
                     </a>
-                    <a href="'||Costanti.server || Costanti.radice||'webpages.CampiestiviHome">
+                    <a href="'||Costanti.server || Costanti.radice||'operazioniGruppo4.menucampiestivi">
                     <img src="https://www.baritoday.it/~media/horizontal-hi/70029796349612/sc18nature-walk-2.jpg" style="width:50%; height:100%;" class="w3-opacity w3-hover-opacity-off w3-right">
                     </a>
                 ');

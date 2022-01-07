@@ -32,6 +32,8 @@ CREATE OR REPLACE PACKAGE BODY modGUI1 as
                     modGUI1.ApriDiv('id="DemoAcc1" class="w3-hide w3-white w3-card-4"');
                         modGUI1.Collegamento('Titoli d''ingresso','packageacquistatitoli.titolihome','w3-bar-item w3-button');
                         modGUI1.Collegamento('Newsletter','newsletters.visualizzaNewsletters','w3-bar-item w3-button');
+                        modGUI1.Collegamento('Utenti','packageUtenti.ListaUtenti','w3-bar-item w3-button');
+                        modGUI1.Collegamento('Tipologie','gruppo1.ListaTipologieIng','w3-bar-item w3-button');
                     modGUI1.ChiudiDiv;
 
                     --GRUPPO 2--
@@ -51,6 +53,7 @@ CREATE OR REPLACE PACKAGE BODY modGUI1 as
                         modGUI1.Collegamento('Ambienti di servizio','PackageStanze.visualizzaAmbientiServizio','w3-bar-item w3-button');
                         modGUI1.Collegamento('Sale','PackageStanze.visualizzaSale','w3-bar-item w3-button');
                         modGUI1.Collegamento('Visite','packagevisite.visualizza_visite','w3-bar-item w3-button');
+                        modGUI1.Collegamento('Varchi','packageVarchi.menuVarchi','w3-bar-item w3-button');
                     modGUI1.ChiudiDiv;
 
                     --GRUPPO 4--
@@ -239,15 +242,6 @@ CREATE OR REPLACE PACKAGE BODY modGUI1 as
             END;
             set_cookie(vLogin, url);
         END IF;
-        EXCEPTION WHEN OTHERS THEN
-            modGUI1.esitooperazione(pagetitle  => 'Errore procedura',
-                                    msg  => '<p>'||DBMS_UTILITY.FORMAT_ERROR_BACKTRACE || ' - '||sqlerrm||'</p>',
-                                    nuovaop  => null,
-                                    nuovaopurl  => null,
-                                    parametrinuovaop  => null,
-                                    backtomenu  => 'Ritorna alla home',
-                                    backtomenuurl  => 'webpages.home',
-                                    parametribacktomenu  => null);
         EXCEPTION WHEN OTHERS THEN
             htp.prn('<script> window.location.href = "'||costanti.radice2||'erroreLogin"</script>');
     end;

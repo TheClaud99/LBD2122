@@ -1,5 +1,5 @@
 /*ELIMINAZIONE TABELLE*/
-DROP TABLE VISITEVARCHI;
+DROP TABLE ATTRAVERSAMENTO;
 DROP TABLE VISITE;
 DROP TABLE VARCHI;
 DROP TABLE ABBONAMENTI;
@@ -211,7 +211,7 @@ Create Table UTENTILOGIN
 (
    IdUtenteLogin number(5) primary key,
    IdCliente NUMBER(5) DEFAULT NULL REFERENCES Utenti(IdUtente),
-   Username VARCHAR2(50) not null,
+   Username VARCHAR2(50) unique not null,
    Password VARCHAR2(50) not null,
    Ruolo VARCHAR2(10) DEFAULT 'U' not null,
    CHECK(Ruolo IN ('DBA', 'SU', 'AB', 'GM', 'GCE', 'GO', 'U'))
@@ -356,15 +356,15 @@ Create Table VISITE
 
    /*TODO
    • DataVisita < SYSTIMESTAMP - DurataVisita 
-   • DataVisita < (SELECT MIN(AttraversamentoVarco) FROM VISITEVARCHI WHERE IdVisita == IdVisita)
-   • DataVisita + DurataVisita < (SELECT MAX(AttraversamentoVarco) FROM VISITEVARCHI WHERE IdVisita == IdVisita)
-   • DurataVisita == (SELECT MAX(AttraversamentoVarco) FROM VISITEVARCHI WHERE IdVisita == IdVisita) - (SELECT MIN(AttraversamentoVarco) FROM VISITEVARCHI WHERE IdVisita == IdVisita)
+   • DataVisita < (SELECT MIN(AttraversamentoVarco) FROM ATTRAVERSAMENTO WHERE IdVisita == IdVisita)
+   • DataVisita + DurataVisita < (SELECT MAX(AttraversamentoVarco) FROM ATTRAVERSAMENTO WHERE IdVisita == IdVisita)
+   • DurataVisita == (SELECT MAX(AttraversamentoVarco) FROM ATTRAVERSAMENTO WHERE IdVisita == IdVisita) - (SELECT MIN(AttraversamentoVarco) FROM ATTRAVERSAMENTO WHERE IdVisita == IdVisita)
    • TitoloIngresso.Scadenza > SYSTIMESTAMP 
    • IF(DataVisita1 < DataVisita2) => Visitatore1 != Visitatore2 OR (DataVisita1 + DurataVisita1 < DataVisita2)
    */
 );
 
-Create Table VISITEVARCHI
+Create Table ATTRAVERSAMENTO
 (
    IdVisita number(5) not null REFERENCES VISITE(IdVisita) ON DELETE CASCADE,
    IdVarco number(5) not null REFERENCES VARCHI(IdVarchi),

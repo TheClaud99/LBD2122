@@ -58,6 +58,8 @@
 		\item $\exists! opera \in Opere : opera = (IdOpera.nextval, titolo, anno, fineperiodo, museo, 1, 0)$
 	\end{itemize}
 \end{itemize}
+\clearpage
+\includegraphics[width=\textwidth]{img/InserimentoOpere.jpg}\\[1cm]
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%
 %     Modifica Opera      %
@@ -105,6 +107,8 @@
 	o \hyperref[RimozioneAutoreOpera]{\textbf{Rimozione autore}} e poi si è rediretti al
 	menu delle opere al termine dell'operazione
 \end{itemize}
+\includegraphics[width=\textwidth]{img/UpdateOpera.jpg}\\[1cm]
+
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%
 %     Elimina Opera       %
@@ -205,6 +209,7 @@
 		\item $|AutoriOpere| = n + 1$
 	\end{itemize}
 \end{itemize}
+\includegraphics[width=\textwidth]{img/AggiungiAutore.png}
 
 \label{RimozioneAutoreOpera}
 \subsection{Rimozione Autore Opera}
@@ -237,6 +242,7 @@
 		\item $\nexists z \in AutoriOpere : z.IdAutore = AuthorID \land z.IdOpera = OperaID$
 		\item $|AutoriOpere| = n - 1$\\
 	\end{itemize}
+	\item \textbf{Note}: il diagramma di flusso è analogo a quello della rimozione, per cui abbiamo ritenuto superfluo inserirlo anche per questa operazione
 \end{itemize}
 
 \label{Filtraggio delle opere}
@@ -259,6 +265,8 @@
 \end{itemize}
 
 \subsection{Statistiche e monitoraggio}
+Il diagramma riportato di seguito è valido per tutte le statistiche relative alle opere, dato che rappresenta il flusso di informazioni per ciascuna delle scelte dal popup di selezione.\\[1cm]
+\includegraphics[width=\textwidth]{img/VisualizzazioneStatistiche.jpg}\\[1cm]
 
 \subsubsection{Storico prestiti dell’Opera}
 \begin{itemize}

@@ -1,5 +1,7 @@
 CREATE OR REPLACE PACKAGE gruppo1 AS
 
+gr1 CONSTANT VARCHAR2(25) := 'gruppo1.';
+
 PROCEDURE ListaTipologieIng;
 
 PROCEDURE InserisciTipologiaIng;

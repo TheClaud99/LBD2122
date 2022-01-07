@@ -7,6 +7,14 @@
 -- INSERIMENTO DATI
 @gestioneDB/populate_table.plsql
 
+-- TRIGGERS
+@triggers/triggercreatesaleopere.plsql;
+@triggers/triggerdeleteopera.plsql;
+@triggers/triggerDeleteSalaAfter.plsql;
+@triggers/triggerdeletesalabefore.plsql;
+@triggers/triggerdeletestanza.plsql;
+@triggers/triggerupdatevisita.plsql;
+
 ----------------
 -- OPERAZIONI --
 ----------------

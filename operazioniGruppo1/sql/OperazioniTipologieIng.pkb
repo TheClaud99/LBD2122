@@ -303,7 +303,7 @@ IS
 	PrezzoTotaleTipologia TIPOLOGIEINGRESSO.costoTotale%TYPE;
 	LimiteSaleTipologia TIPOLOGIEINGRESSO.limiteSala%TYPE;
 	LimiteTempoTipologia TIPOLOGIEINGRESSO.limiteTempo%TYPE;
-	DurataValiditàTipologia TIPOLOGIEINGRESSO.durata%TYPE;
+	DurataValiditaTipologia TIPOLOGIEINGRESSO.durata%TYPE;
 	Eliminato TIPOLOGIEINGRESSO.eliminato%TYPE;
 	temp NUMBER(5) := 0;
 	NumPersone ABBONAMENTI.numPersone%TYPE; 
@@ -312,7 +312,7 @@ IS
 BEGIN
 
 	select NOME, COSTOTOTALE, LIMITESALA, LIMITETEMPO, DURATA, ELIMINATO
-	into NomeTipologia, PrezzoTotaleTipologia, LimiteSaleTipologia, LimiteTempoTipologia, DurataValiditàTipologia, Eliminato
+	into NomeTipologia, PrezzoTotaleTipologia, LimiteSaleTipologia, LimiteTempoTipologia, DurataValiditaTipologia, Eliminato
 	from TIPOLOGIEINGRESSO
 	where IDTIPOLOGIAING = tipologiaIngID;
 
@@ -351,7 +351,7 @@ BEGIN
 		HTP.tabledata('Limite Tempo: '||LimiteTempoTipologia);
 		HTP.tablerowclose;
 		HTP.tablerowopen;
-		HTP.tabledata('Durata Validità: '||DurataValiditàTipologia);
+		HTP.tabledata('Durata Validità: '||DurataValiditaTipologia);
 		HTP.tablerowclose;
 
 		if temp > 0 then
@@ -400,7 +400,7 @@ IS
 	PrezzoTotaleTipologia TIPOLOGIEINGRESSO.costoTotale%TYPE;
 	LimiteSaleTipologia TIPOLOGIEINGRESSO.limiteSala%TYPE;
 	LimiteTempoTipologia TIPOLOGIEINGRESSO.limiteTempo%TYPE;
-	DurataValiditàTipologia TIPOLOGIEINGRESSO.durata%TYPE;
+	DurataValiditaTipologia TIPOLOGIEINGRESSO.durata%TYPE;
 	temp NUMBER(5) := 0;
 	RipristinaEliminato NUMBER(5) := 0;
 	NumPersone ABBONAMENTI.numPersone%TYPE; 
@@ -410,7 +410,7 @@ IS
 BEGIN
 
 	select NOME, COSTOTOTALE, LIMITESALA, LIMITETEMPO, DURATA, ELIMINATO
-	into NomeTipologia, PrezzoTotaleTipologia, LimiteSaleTipologia, LimiteTempoTipologia, DurataValiditàTipologia, RipristinaEliminato
+	into NomeTipologia, PrezzoTotaleTipologia, LimiteSaleTipologia, LimiteTempoTipologia, DurataValiditaTipologia, RipristinaEliminato
 	from TIPOLOGIEINGRESSO
 	where IDTIPOLOGIAING = tipologiaIngID;
 
@@ -471,7 +471,7 @@ BEGIN
 			HTP.BR;
 		end if;	
 		MODGUI1.Label('Durata Validità*');
-		MODGUI1.InputText('durataNew', 'Durata', 1, DurataValiditàTipologia);
+		MODGUI1.InputText('durataNew', 'Durata', 1, DurataValiditaTipologia);
 		HTP.BR;
 
 		if temp > 0 then

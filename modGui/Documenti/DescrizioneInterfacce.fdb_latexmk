@@ -1,5 +1,5 @@
 # Fdb version 3
-["pdflatex"] 1641557106 "c:/Users/Stefano/Desktop/UNIVERSITÁ/Laboratorio Base Di Dati/LBD2122/modGui/Documenti/DescrizioneInterfacce.tex" "DescrizioneInterfacce.pdf" "DescrizioneInterfacce" 1641557108
+["pdflatex"] 1641560018 "c:/Users/Stefano/Desktop/UNIVERSITÁ/Laboratorio Base Di Dati/LBD2122/modGui/Documenti/DescrizioneInterfacce.tex" "DescrizioneInterfacce.pdf" "DescrizioneInterfacce" 1641560019
   "C:/Program Files/MiKTeX 2.9/fonts/enc/dvips/cm-super/cm-super-ts1.enc" 1001771820 2900 1537cc8184ad1792082cd229ecc269f4 ""
   "C:/Program Files/MiKTeX 2.9/fonts/tfm/jknappen/ec/tcrm1200.tfm" 993058908 1444 95ffe0f19b974d50849790c8225c7ef7 ""
   "C:/Program Files/MiKTeX 2.9/fonts/tfm/public/cm/cmbx12.tfm" 1136765053 1324 c910af8c371558dc20f2d7822f66fe64 ""
@@ -17,7 +17,6 @@
   "C:/Program Files/MiKTeX 2.9/fonts/tfm/public/cm/cmtt12.tfm" 1136765053 772 9a936b7f5e2ff0557fce0f62822f0bbf ""
   "C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmbx12.pfb" 1247593066 32080 340ef9bf63678554ee606688e7b5339d ""
   "C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr12.pfb" 1247593067 32722 d7379af29a190c3f453aba36302ff5a9 ""
-  "C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr17.pfb" 1247593066 32362 bc3f3eec7ab7d65fe700963d4017d32c ""
   "C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmti12.pfb" 1247593067 36118 fad905eba93cff5bce1e185fe980a177 ""
   "C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmtt12.pfb" 1247593066 24252 1e4e051947e12dfb50fee0b7f4e26e3a ""
   "C:/Program Files/MiKTeX 2.9/fonts/type1/public/cm-super/sfrm1200.pfb" 1215614700 136101 b18d10b3436f8cb0cd04046deb340fe7 ""
@@ -40,9 +39,9 @@
   "C:/Program Files/MiKTeX 2.9/tex/latex/l3backend/l3backend-pdftex.def" 1634573416 29971 6c47712bf4bc87d15b2ca318615f75a3 ""
   "C:/Users/Stefano/AppData/Local/MiKTeX/2.9/fonts/map/pdftex/pdftex.map" 1638977420 330337 f752d5b5e6776e1c6d2af00aa9101197 ""
   "C:/Users/Stefano/AppData/Local/MiKTeX/2.9/miktex/data/le/pdftex/pdflatex.fmt" 1638977808 10436033 0330707afcf1f7a30301f6a72adad0ac ""
-  "DescrizioneInterfacce.aux" 1641557108 5411 9e5fc379314fa56dba363e2423fead65 "pdflatex"
-  "DescrizioneInterfacce.tex" 1641557104 12075 4543da675fd8f09a584e9bd4e4905eef ""
-  "DescrizioneInterfacce.toc" 1641557108 2318 1ed85756f25fed63c8acbbbff2f302f2 "pdflatex"
+  "DescrizioneInterfacce.aux" 1641560019 5411 9e5fc379314fa56dba363e2423fead65 "pdflatex"
+  "DescrizioneInterfacce.tex" 1641560017 12302 7fa6c037215e850cacdb8dea14dd03b2 ""
+  "DescrizioneInterfacce.toc" 1641560019 2318 1ed85756f25fed63c8acbbbff2f302f2 "pdflatex"
   "Immagini/Conferma.png" 1641554058 9941 fb82a187a21a7039601a64e27b36256e ""
   "Immagini/FiltraggioDiagramma.png" 1641556587 12727 729c517eff348fd804b383cee6c50698 ""
   "Immagini/Form.png" 1641497157 23838 a81ca70d35dd029e4612a5bee4126ca9 ""
@@ -52,7 +51,8 @@
   "Immagini/elementiDiagrammi.png" 1641493759 3917 348a6e7264bcc0fd27e07d47bf7221de ""
   "Immagini/eliminazioneDiagramma.jpg" 1641496312 32595 5eb3765d22f6c092697a23d83367e315 ""
   "Immagini/esitiOperazione.png" 1641497886 33270 270c78ecd696291d5b24e589682c0627 ""
-  "c:/Users/Stefano/Desktop/UNIVERSITÁ/Laboratorio Base Di Dati/LBD2122/modGui/Documenti/DescrizioneInterfacce.tex" 1641557104 12075 4543da675fd8f09a584e9bd4e4905eef ""
+  "Immagini/logounipi.png" 1641559113 31473 f381af056fcf76a9796d9d94a33e5fcd ""
+  "c:/Users/Stefano/Desktop/UNIVERSITÁ/Laboratorio Base Di Dati/LBD2122/modGui/Documenti/DescrizioneInterfacce.tex" 1641560017 12302 7fa6c037215e850cacdb8dea14dd03b2 ""
   (generated)
   "DescrizioneInterfacce.aux"
   "DescrizioneInterfacce.log"

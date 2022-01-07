@@ -13,7 +13,7 @@
 		\item \textbf{lingue}: in VARCHAR2, la lingua delle decrizioni da visualizzare
 		\item \textbf{livelli}: in VARCHAR2, il livello delle descrizioni da visualizzare
 	\end{enumerate}
-	\item \textbf{Risultato}: Visualizza l'Opera richiesta e le descrizioni presenti
+	\item \textbf{Risultato}: Visualizza l'Opera richiesta, le descrizioni presenti, gli autori, il museo e la sala in cui si trova
 	\item \textbf{Usa}: Opere, AutoriOpere, Descrizioni, SaleOpere, Stanze, Sale, Musei, Autori
 	\item \textbf{Modifica}: nessuna
 	\item \textbf{Precondizioni}:
@@ -21,6 +21,8 @@
 		\item $\exists! opera \in Opere : opera.IdOpera = operaID$
 	\end{itemize}
 	\item \textbf{Postcondizioni}: nessuna
+	\item \textbf{Note}:
+	Il museo di apparteneza non viene mostrato, se differisce dal museo di esposizione è ricavabile dallo \hyperref[Storico prestiti dell'Opera]{\textbf{Storico prestiti dell'Opera}}.
 \end{itemize}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%

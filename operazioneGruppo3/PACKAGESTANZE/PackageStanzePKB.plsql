@@ -267,8 +267,8 @@ CREATE OR REPLACE PACKAGE BODY PackageStanze as
                 htp.prn('<h3>Statistiche</h3>');
                 --VISITE IN SALA
                 SELECT COUNT(*) INTO varNumVisite 
-                    FROM VISITE INNER JOIN VISITEVARCHI USING (idvisita) 
-                    INNER JOIN VARCHI ON (VISITEVARCHI.idvarco=VARCHI.idvarchi)
+                    FROM VISITE INNER JOIN ATTRAVERSAMENTO USING (idvisita) 
+                    INNER JOIN VARCHI ON (ATTRAVERSAMENTO.idvarco=VARCHI.idvarchi)
                 WHERE 
                     (stanza1=varIdSala AND direzioneinversa=1) OR (stanza2=varIdSala AND direzioneinversa=0);
 
@@ -276,8 +276,8 @@ CREATE OR REPLACE PACKAGE BODY PackageStanze as
                 
                 --VISITATORI UNICI IN SALA IN PERIODO DI TEMPO SPECIFICATO
                 SELECT COUNT (DISTINCT visitatore) into varVisitatoriUnici 
-                    FROM VISITE INNER JOIN VISITEVARCHI USING (idvisita)
-                    INNER JOIN VARCHI ON (VISITEVARCHI.idvarco=VARCHI.idvarchi)
+                    FROM VISITE INNER JOIN ATTRAVERSAMENTO USING (idvisita)
+                    INNER JOIN VARCHI ON (ATTRAVERSAMENTO.idvarco=VARCHI.idvarchi)
                 WHERE 
                     (stanza1=varIdSala AND direzioneinversa=1) OR (stanza2=varIdSala AND direzioneinversa=0)
                 AND 
@@ -296,8 +296,8 @@ CREATE OR REPLACE PACKAGE BODY PackageStanze as
                         FOR visunici IN (
                             SELECT DISTINCT idvisita,visitatore,utenti.nome,cognome,datavisita 
                                 FROM UTENTI INNER JOIN VISITE ON (idutente=visitatore) 
-                                INNER JOIN VISITEVARCHI USING (idvisita) 
-                                INNER JOIN VARCHI ON (VISITEVARCHI.idvarco=VARCHI.idvarchi)
+                                INNER JOIN ATTRAVERSAMENTO USING (idvisita) 
+                                INNER JOIN VARCHI ON (ATTRAVERSAMENTO.idvarco=VARCHI.idvarchi)
                             WHERE 
                                 (stanza1=varIdSala AND direzioneinversa=1) OR (stanza2=varIdSala AND direzioneinversa=0)
                             AND 
@@ -328,7 +328,7 @@ CREATE OR REPLACE PACKAGE BODY PackageStanze as
                     FOR varUtente IN ( 
                         SELECT DISTINCT idutente, utenti.nome, utenti.cognome, COUNT(idvisita) as numvisite 
                             FROM UTENTI INNER JOIN VISITE ON (idutente=visitatore)
-                            INNER JOIN VISITEVARCHI USING (idvisita)
+                            INNER JOIN ATTRAVERSAMENTO USING (idvisita)
                             INNER JOIN VARCHI ON (idvarchi=idvarco)
                         WHERE (stanza1=varIdSala AND direzioneinversa=1) OR (stanza2=varIdSala AND direzioneinversa=0)
                         GROUP BY idutente, utenti.nome, utenti.cognome

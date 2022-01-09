@@ -7,7 +7,6 @@ procedure tabellaDatiVarco (
     idStanza2Selezionata in STANZE.IdStanza%TYPE)
 is
     v_Museo MUSEI%ROWTYPE;
-    idMuseoSelezionato MUSEI.IdMuseo%TYPE;
     b_Stanza1 NUMBER;
     v_Stanza1 STANZE.Nome%TYPE;
     b_Stanza2 NUMBER;
@@ -381,6 +380,7 @@ begin
 			  where upper(VARCHI.nome) like '%' || upper(Search) ||'%'
 			 )
 	    loop
+		if (varco.eliminato=0) then
 		modgui1.apridiv('class="w3-col l4 w3-padding-large w3-center"');
 			modgui1.apridiv('class="w3-card-4"');
 			    htp.prn('<img src="https://cdn.pixabay.com/photo/2016/10/22/15/32/water-1761027__480.jpg" alt="Alps" style="width:100%">');
@@ -394,6 +394,7 @@ begin
 			    modgui1.Collegamento('Modifica',
 						 'packagevarchi.formVarco?modifica=1&Nome=' || varco.nome || '&Sensore=' || varco.sensore || '&idStanza1=' || varco.stanza1 || '&idStanza2=' || varco.Stanza2 || '&idVarcoSelezionato=' || varco.idVarchi,
 						 'w3-button w3-green');
+		end if;
 			modgui1.chiudidiv;
 		modgui1.chiudidiv;
 	end loop;
@@ -432,6 +433,7 @@ begin
 			  where upper(VARCHI.nome) like '%' || upper(Search) ||'%'
 			 )
 	    loop
+	    	if (varco.eliminato=0) then
 		modgui1.apridiv('class="w3-col l4 w3-padding-large w3-center"');
 			modgui1.apridiv('class="w3-card-4"');
 			    htp.prn('<img src="https://cdn.pixabay.com/photo/2016/10/22/15/32/water-1761027__480.jpg" alt="Alps" style="width:100%">');
@@ -447,12 +449,13 @@ begin
 			    modgui1.collegamento('Rimuovi',
 						 'packagevarchi.confermaCancellazione?idVarcoSelezionato=' || varco.idvarchi,
 						 'w3-button w3-red');
+		end if;
 			modgui1.chiudidiv;
 		    modgui1.chiudidiv;
 	    end loop;
 	modGUI1.chiudiDiv;
 
-    elsif(hasRole(idsessione, 'U') or hasRole(idsessione, 'AB') or hasRole(idsessione, 'GO') or hasRole(idsessione, 'GO') or hasRole(idsessione, 'GCE')) then
+    elsif(hasRole(idsessione, 'U') or hasRole(idsessione, 'AB') or hasRole(idsessione, 'GO') or hasRole(idsessione, 'GCE')) then
 	modgui1.apripagina('Varchi');
 	modgui1.header();
 	modgui1.apridiv('style="margin-top: 95px"');

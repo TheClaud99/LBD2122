@@ -394,9 +394,9 @@ begin
 			    modgui1.Collegamento('Modifica',
 						 'packagevarchi.formVarco?modifica=1&Nome=' || varco.nome || '&Sensore=' || varco.sensore || '&idStanza1=' || varco.stanza1 || '&idStanza2=' || varco.Stanza2 || '&idVarcoSelezionato=' || varco.idVarchi,
 						 'w3-button w3-green');
-		end if;
-			modgui1.chiudidiv;
 		modgui1.chiudidiv;
+		modgui1.chiudidiv;
+		end if;
 	end loop;
 	modGUI1.chiudiDiv;
 
@@ -449,9 +449,9 @@ begin
 			    modgui1.collegamento('Rimuovi',
 						 'packagevarchi.confermaCancellazione?idVarcoSelezionato=' || varco.idvarchi,
 						 'w3-button w3-red');
+		modgui1.chiudidiv;
+		modgui1.chiudidiv;
 		end if;
-			modgui1.chiudidiv;
-		    modgui1.chiudidiv;
 	    end loop;
 	modGUI1.chiudiDiv;
 

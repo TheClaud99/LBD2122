@@ -158,8 +158,8 @@ BEGIN
 		-- uno dei parametri con vincoli ha valori non validi
 		MODGUI1.EsitoOperazione('Errore', 
             'Uno dei parametri non è stato inserito correttamente', 
-            'Riprova', 'InserisciTipologiaIng', null,
-            'Torna al menu delle tipologie', 'ListaTipologieIng', null);
+            'Riprova', 'gruppo1.InserisciTipologiaIng', null,
+            'Torna al menu delle tipologie', 'gruppo1.ListaTipologieIng', null);
 	ELSE
 		MODGUI1.APRIPAGINA('Pagina OK', 0);
 		HTP.BodyOpen;
@@ -279,14 +279,14 @@ BEGIN
 		MODGUI1.EsitoOperazione('Successo', 
             'Tipologia di ingresso inserita correttamente', 
             null, '', null,
-            'Torna al menu delle tipologie', 'ListaTipologieIng', null);
+            'Torna al menu delle tipologie', 'gruppo1.ListaTipologieIng', null);
 
 	ELSE
 
 		MODGUI1.EsitoOperazione('Errore', 
             'Tipologia ingresso non inserita', 
-            'Riprova', 'InserisciTipologiaIng', null,
-            'Torna al menu delle tipologie', 'ListaTipologieIng', null);
+            'Riprova', 'gruppo1.InserisciTipologiaIng', null,
+            'Torna al menu delle tipologie', 'gruppo1.ListaTipologieIng', null);
 
 	END IF;
 
@@ -383,7 +383,7 @@ BEGIN
 		MODGUI1.EsitoOperazione('Errore', 
             'Tipologia di ingresso non trovata', 
             null, '', null,
-            'Torna al menu delle tipologie', 'ListaTipologieIng', null);
+            'Torna al menu delle tipologie', 'gruppo1.ListaTipologieIng', null);
 
 	END IF;
 END;
@@ -504,7 +504,7 @@ BEGIN
 		MODGUI1.EsitoOperazione('Errore', 
             'Tipologia di ingresso non trovata', 
             null, '', null,
-            'Torna al menu delle tipologie', 'ListaTipologieIng', null);
+            'Torna al menu delle tipologie', 'gruppo1.ListaTipologieIng', null);
 
 	END IF;
 END;
@@ -538,7 +538,7 @@ BEGIN
 		MODGUI1.EsitoOperazione('Errore', 
             'Uno dei parametri non è stato inserito correttamente', 
             null, null, null,
-            'Torna al menu delle tipologie', 'ListaTipologieIng', null);
+            'Torna al menu delle tipologie', 'gruppo1.ListaTipologieIng', null);
 
 	ELSE
 
@@ -697,14 +697,14 @@ BEGIN
 		MODGUI1.EsitoOperazione('Successo', 
             'Tipologia di ingresso modificata correttamente', 
             null, null, null,
-            'Torna al menu delle tipologie', 'ListaTipologieIng', null);
+            'Torna al menu delle tipologie', 'gruppo1.ListaTipologieIng', null);
 
 	ELSE
 
 		MODGUI1.EsitoOperazione('Errore', 
             'Tipologia di ingresso non modificata correttamente', 
-            'Riprova', 'ModificaDatiTitoloIng', null,
-            'Torna al menu delle tipologie', 'ListaTipologieIng', null);
+            'Riprova', 'gruppo1.ModificaDatiTitoloIng', null,
+            'Torna al menu delle tipologie', 'gruppo1.ListaTipologieIng', null);
 
 	END IF;
 
@@ -752,14 +752,14 @@ BEGIN
 			MODGUI1.EsitoOperazione('Successo', 
             'Tipologia di ingresso eliminata correttamente', 
             null, '', null,
-            'Torna al menu delle tipologie', 'ListaTipologieIng', null);
+            'Torna al menu delle tipologie', 'gruppo1.ListaTipologieIng', null);
 
 		else
 
 			MODGUI1.EsitoOperazione('Errore', 
             'Tipologia di ingresso non eliminata correttamente', 
             null, '', null,
-            'Torna al menu delle tipologie', 'ListaTipologieIng', null);
+            'Torna al menu delle tipologie', 'gruppo1.ListaTipologieIng', null);
 
 		end if;
 
@@ -768,7 +768,7 @@ BEGIN
 		MODGUI1.EsitoOperazione('Errore', 
             'Tipologia di ingresso non trovata', 
             null, '', null,
-            'Torna al menu delle tipologie', 'ListaTipologieIng', null);
+            'Torna al menu delle tipologie', 'gruppo1.ListaTipologieIng', null);
 
 	end if;
 		

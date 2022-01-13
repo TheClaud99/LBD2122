@@ -11,6 +11,6 @@ BEGIN
 	  AND so.Opera = :new.Opera;
 
     IF (v_quanti > 0) THEN
-       raise_application_error(4040, 'L''opera è già esposta');
+       raise_application_error(-20000, 'L''opera è già esposta');
     END IF;
 END triggerCreateSaleOpere;

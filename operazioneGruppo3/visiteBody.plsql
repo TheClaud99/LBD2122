@@ -112,7 +112,7 @@ CREATE OR REPLACE PACKAGE BODY packagevisite AS
             htp.prn('<div class="w3-col s9 w3-center"><p>');
             modgui1.collegamento(
                                 nome_museo,
-                                'operazioniGruppo4.visualizzaMusei?idMuseo=' || id_museo
+                                'operazioniGruppo4.visualizzaMusei?museoId=' || id_museo
             );
             htp.prn('</p></div>');
             htp.prn('</div>');
@@ -1223,7 +1223,13 @@ CREATE OR REPLACE PACKAGE BODY packagevisite AS
         modgui1.header;
         modgui1.apridiv('style="margin-top: 110px"');
         htp.prn('<h1 align="center">Inserimento visita</h1>');
-        IF convalida IS NULL THEN
+        IF convalida IS NULL OR idutenteselezionato IS NULL OR idtitoloselezionato IS NULL THEN
+            IF idutenteselezionato IS NULL AND convalida is not null THEN
+                htp.prn('<h3 style="color:red;" align="center">Seleziona un utente</h3>');
+            END IF;
+            IF idtitoloselezionato IS NULL AND convalida is not null THEN
+                htp.prn('<h3 style="color:red;" align="center">Seleziona un titolo di ingresso per l''utente</h3>');
+            END IF;
             formvisita(
                       datavisitachar,
                       oravisita,
@@ -1233,7 +1239,7 @@ CREATE OR REPLACE PACKAGE BODY packagevisite AS
                       'PackageVisite.pagina_inserisci_visita'
             );
         ELSE
-            htp.prn('<h1>Conferma dati visita</h1>');
+            htp.prn('<h1 align="center">Conferma dati visita</h1>');
             conferma_dati_visita(
                                 datavisitachar,
                                 oravisita,
